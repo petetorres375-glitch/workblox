@@ -1,7 +1,7 @@
 export default function Button({ children, onClick, disabled, variant = "primary", type = "button" }) {
   const styles = {
     primary: {
-      background: disabled ? "#3a3d54" : "var(--color-accent)",
+      background: disabled ? "#e8e4de" : "var(--color-accent)",
       color: disabled ? "var(--color-text-muted)" : "#fff",
       border: "none",
       cursor: disabled ? "not-allowed" : "pointer",

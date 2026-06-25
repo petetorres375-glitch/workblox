@@ -29,8 +29,8 @@ export default function Sidebar({ active, onSelect }) {
             key={tool.id}
             onClick={() => onSelect(tool.id)}
             style={{
-              background: active === tool.id ? "rgba(99,102,241,0.15)" : "transparent",
-              border: active === tool.id ? "1px solid rgba(99,102,241,0.35)" : "1px solid transparent",
+              background: active === tool.id ? "#fef3ee" : "transparent",
+              border: active === tool.id ? "1px solid #f5c4ad" : "1px solid transparent",
               borderRadius: "var(--radius)",
               color: active === tool.id ? "var(--color-text)" : "var(--color-text-muted)",
               cursor: "pointer",
