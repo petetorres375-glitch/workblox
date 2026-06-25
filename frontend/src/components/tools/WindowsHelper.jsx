@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { post } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
-import Button from "../ui/Button";
-import ErrorBanner from "../ui/ErrorBanner";
-import Spinner from "../ui/Spinner";
 
 export default function WindowsHelper() {
   const [problem, setProblem] = useState("");
@@ -24,51 +21,51 @@ export default function WindowsHelper() {
   }
 
   return (
-    <div className="tool-area">
-      <h2>Windows Helper</h2>
-      <p className="subtitle">Describe a Windows problem in plain English — get the PowerShell command back.</p>
+    <>
+      <h1 className="page-title">Windows <span>Helper</span></h1>
+      <p className="page-subtitle">Describe a Windows problem in plain English — get the PowerShell command back.</p>
 
       <form onSubmit={handleSubmit}>
-        <div className="field">
-          <label htmlFor="windows-problem">Problem</label>
-          <textarea
-            id="windows-problem"
-            className="input"
-            rows={3}
+        <div className="search-box">
+          <input
+            type="text"
             placeholder="e.g. list all running processes sorted by CPU usage"
             value={problem}
             onChange={(e) => setProblem(e.target.value)}
           />
+          <button type="submit" disabled={loading || !problem.trim()}>
+            {loading ? "Thinking..." : "Ask"}
+          </button>
         </div>
-        <Button type="submit" disabled={loading || !problem.trim()}>
-          {loading ? "Thinking..." : "Get Command"}
-        </Button>
       </form>
 
-      {loading && <Spinner />}
-      <ErrorBanner message={error} />
+      {error && <div className="error-banner">{error}</div>}
 
       {result && !loading && (
-        <div className="result-block">
-          <div className="result-header">
-            <h3>Command</h3>
-            <button className="copy-btn" onClick={copy}>{copied ? "Copied!" : "Copy"}</button>
+        <>
+          <div className="result-card">
+            <div className="result-header">
+              <div className="result-label">Command</div>
+              <button className="copy-btn" onClick={copy}>{copied ? "Copied!" : "Copy"}</button>
+            </div>
+            <div className="command-box">{result.command}</div>
           </div>
-          <div className="command-box">{result.command}</div>
 
-          <h3 style={{ marginTop: 16 }}>Explanation</h3>
-          <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{result.explanation}</p>
+          <div className="result-card">
+            <div className="result-label">Explanation</div>
+            <p className="explanation-text">{result.explanation}</p>
+          </div>
 
-          {result.warnings && result.warnings[0] !== "None." && (
-            <>
-              <h3 style={{ marginTop: 16 }}>Warnings</h3>
+          {result.warnings?.length > 0 && result.warnings[0] !== "None." && (
+            <div className="result-card">
+              <div className="result-label">Warnings</div>
               <ul className="warning-list">
                 {result.warnings.map((w, i) => <li key={i}>{w}</li>)}
               </ul>
-            </>
+            </div>
           )}
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 }

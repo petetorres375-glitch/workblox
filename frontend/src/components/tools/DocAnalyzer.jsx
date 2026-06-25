@@ -1,9 +1,6 @@
 import { useRef, useState } from "react";
 import { postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
-import Button from "../ui/Button";
-import ErrorBanner from "../ui/ErrorBanner";
-import Spinner from "../ui/Spinner";
 
 export default function DocAnalyzer() {
   const [file, setFile] = useState(null);
@@ -32,9 +29,9 @@ export default function DocAnalyzer() {
   }
 
   return (
-    <div className="tool-area">
-      <h2>Doc Analyzer</h2>
-      <p className="subtitle">Upload a PDF, TXT, or MD file — get a structured AI summary.</p>
+    <>
+      <h1 className="page-title">Doc <span>Analyzer</span></h1>
+      <p className="page-subtitle">Upload a PDF, TXT, or MD file — get a structured AI summary.</p>
 
       <form onSubmit={handleSubmit}>
         <div
@@ -51,7 +48,7 @@ export default function DocAnalyzer() {
             onChange={(e) => handleFile(e.target.files[0])}
           />
           {file ? (
-            <p className="drop-label" style={{ color: "var(--color-text)" }}>{file.name}</p>
+            <p className="drop-label" style={{ color: "#111" }}>{file.name}</p>
           ) : (
             <>
               <p className="drop-label">Drop a file here or click to browse</p>
@@ -60,38 +57,35 @@ export default function DocAnalyzer() {
           )}
         </div>
 
-        <div style={{ marginTop: 16 }}>
-          <Button type="submit" disabled={loading || !file}>
-            {loading ? "Analyzing..." : "Analyze"}
-          </Button>
-        </div>
+        <button type="submit" className="submit-btn" disabled={loading || !file}>
+          {loading ? "Analyzing..." : "Analyze"}
+        </button>
       </form>
 
-      {loading && <Spinner />}
-      <ErrorBanner message={error} />
+      {error && <div className="error-banner" style={{ marginTop: 16 }}>{error}</div>}
 
       {result && !loading && (
-        <div className="result-block">
-          <Section title="Summary" content={result.summary} />
-          <Section title="Key Data Points" content={result.key_data_points} />
-          <Section title="Action Items" content={result.action_items} />
-          <Section title="Red Flags" content={result.red_flags} />
+        <div style={{ marginTop: 24 }}>
+          <DocSection title="Summary" content={result.summary} />
+          <DocSection title="Key Data Points" content={result.key_data_points} />
+          <DocSection title="Action Items" content={result.action_items} />
+          <DocSection title="Red Flags" content={result.red_flags} />
         </div>
       )}
-    </div>
+    </>
   );
 }
 
-function Section({ title, content }) {
+function DocSection({ title, content }) {
   return (
-    <div style={{ marginBottom: 20 }}>
-      <h3>{title}</h3>
+    <div className="result-card">
+      <div className="result-label">{title}</div>
       {Array.isArray(content) ? (
-        <ul className="section-list" style={{ marginTop: 8 }}>
+        <ul className="section-list">
           {content.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
       ) : (
-        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, marginTop: 8 }}>{content}</p>
+        <p className="explanation-text">{content}</p>
       )}
     </div>
   );

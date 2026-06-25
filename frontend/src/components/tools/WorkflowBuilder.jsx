@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { post } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
-import Button from "../ui/Button";
-import ErrorBanner from "../ui/ErrorBanner";
-import Spinner from "../ui/Spinner";
 
 export default function WorkflowBuilder() {
   const [task, setTask] = useState("");
@@ -34,35 +31,31 @@ export default function WorkflowBuilder() {
   }
 
   return (
-    <div className="tool-area">
-      <h2>Workflow Builder</h2>
-      <p className="subtitle">Describe a repetitive task — get a ready-to-run Python script.</p>
+    <>
+      <h1 className="page-title">Workflow <span>Builder</span></h1>
+      <p className="page-subtitle">Describe a repetitive task — get a ready-to-run Python script.</p>
 
       <form onSubmit={handleSubmit}>
-        <div className="field">
-          <label htmlFor="workflow-task">Task</label>
-          <textarea
-            id="workflow-task"
-            className="input"
-            rows={3}
+        <div className="search-box">
+          <input
+            type="text"
             placeholder="e.g. rename all photos in a folder by their date taken"
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
+          <button type="submit" disabled={loading || !task.trim()}>
+            {loading ? "Building..." : "Build"}
+          </button>
         </div>
-        <Button type="submit" disabled={loading || !task.trim()}>
-          {loading ? "Generating..." : "Build Script"}
-        </Button>
       </form>
 
-      {loading && <Spinner />}
-      <ErrorBanner message={error} />
+      {error && <div className="error-banner">{error}</div>}
 
       {result && !loading && (
-        <div className="result-block">
+        <div className="result-card">
           <div className="result-header">
-            <h3>{result.filename}</h3>
-            <div style={{ display: "flex", gap: 8 }}>
+            <div className="result-label">{result.filename}</div>
+            <div style={{ display: "flex", gap: 6 }}>
               <button className="copy-btn" onClick={copy}>{copied ? "Copied!" : "Copy"}</button>
               <button className="copy-btn" onClick={download}>Download</button>
             </div>
@@ -70,6 +63,6 @@ export default function WorkflowBuilder() {
           <pre className="script-box">{result.script}</pre>
         </div>
       )}
-    </div>
+    </>
   );
 }
