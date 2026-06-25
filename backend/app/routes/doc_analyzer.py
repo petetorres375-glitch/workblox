@@ -1,11 +1,26 @@
 import os
 import re
 import smtplib
+import socket
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
+
+
+class _SMTP4(smtplib.SMTP):
+    """SMTP subclass that forces an IPv4 connection."""
+    def _get_socket(self, host, port, timeout):
+        addrs = socket.getaddrinfo(host, port, socket.AF_INET, socket.SOCK_STREAM)
+        if not addrs:
+            raise OSError(f"No IPv4 address found for {host}")
+        af, socktype, proto, _, sa = addrs[0]
+        sock = socket.socket(af, socktype, proto)
+        if timeout is not socket._GLOBAL_DEFAULT_TIMEOUT:
+            sock.settimeout(timeout)
+        sock.connect(sa)
+        return sock
 
 from flask import Blueprint, jsonify, request
 
@@ -123,7 +138,7 @@ def doc_email():
     try:
         smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", "587"))
-        with smtplib.SMTP(smtp_host, smtp_port, timeout=15) as server:
+        with _SMTP4(smtp_host, smtp_port, timeout=15) as server:
             server.ehlo()
             server.starttls()
             server.login(smtp_user, smtp_pass)

@@ -70,7 +70,7 @@ def test_doc_email_sends(client):
     from unittest.mock import MagicMock, patch
     payload = {"email": "pete@example.com", "filename": "report.txt", "result": MOCK_RESPONSE}
     env = {"SMTP_USER": "sender@gmail.com", "SMTP_PASS": "secret"}
-    with patch.dict(os.environ, env), patch("smtplib.SMTP") as mock_smtp:
+    with patch.dict(os.environ, env), patch("app.routes.doc_analyzer._SMTP4") as mock_smtp:
         mock_server = MagicMock()
         mock_smtp.return_value.__enter__.return_value = mock_server
         rv = client.post("/api/doc/email", json=payload)
