@@ -122,10 +122,7 @@ def doc_email():
 
     try:
         smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
-        smtp_port = int(os.getenv("SMTP_PORT", "587"))
-        with smtplib.SMTP(smtp_host, smtp_port) as server:
-            server.ehlo()
-            server.starttls()
+        with smtplib.SMTP_SSL(smtp_host, 465, timeout=15) as server:
             server.login(smtp_user, smtp_pass)
             server.sendmail(smtp_user, email_addr, msg.as_string())
     except Exception as e:
