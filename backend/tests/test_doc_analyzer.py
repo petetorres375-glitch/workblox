@@ -46,7 +46,7 @@ def test_doc_analyzer_empty_file(client):
     assert rv.status_code == 422
 
 
-def test_doc_email_no_api_key(client):
+def test_doc_email_no_smtp(client):
     payload = {"email": "test@example.com", "filename": "doc.txt", "result": MOCK_RESPONSE}
     rv = client.post("/api/doc/email", json=payload)
     assert rv.status_code == 503
@@ -69,12 +69,11 @@ def test_doc_email_sends(client):
     import os
     from unittest.mock import MagicMock, patch
     payload = {"email": "pete@example.com", "filename": "report.txt", "result": MOCK_RESPONSE}
-    mock_resp = MagicMock()
-    mock_resp.__enter__ = lambda s: s
-    mock_resp.__exit__ = MagicMock(return_value=False)
-    mock_resp.read.return_value = b'{"id":"abc"}'
-    with patch.dict(os.environ, {"RESEND_API_KEY": "re_test"}), \
-         patch("urllib.request.urlopen", return_value=mock_resp):
+    env = {"SMTP_USER": "sender@gmail.com", "SMTP_PASS": "secret"}
+    with patch.dict(os.environ, env), patch("smtplib.SMTP") as mock_smtp:
+        mock_server = MagicMock()
+        mock_smtp.return_value.__enter__.return_value = mock_server
         rv = client.post("/api/doc/email", json=payload)
     assert rv.status_code == 200
     assert rv.get_json()["success"] is True
+    mock_server.sendmail.assert_called_once()

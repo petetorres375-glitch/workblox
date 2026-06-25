@@ -124,7 +124,7 @@ export default function DocAnalyzer() {
             <DocSection title="Red Flags" content={result.red_flags} />
           </div>
 
-          <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+          <div style={{ marginTop: 8 }}>
             <button className="copy-btn" style={{ padding: "8px 18px", fontSize: "0.88rem" }} onClick={downloadTxt}>
               Download TXT
             </button>
@@ -134,7 +134,6 @@ export default function DocAnalyzer() {
             <form onSubmit={sendEmail} style={{ display: "flex", gap: "0.6rem" }}>
               <input
                 type="email"
-                className="search-box"
                 style={{
                   flex: 1, padding: "0.7rem 1rem", background: "#fff",
                   border: "1.5px solid #ddd", borderRadius: 8,
