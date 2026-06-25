@@ -123,7 +123,7 @@ def doc_email():
     try:
         smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", "587"))
-        with smtplib.SMTP(smtp_host, smtp_port) as server:
+        with smtplib.SMTP(smtp_host, smtp_port, timeout=15) as server:
             server.ehlo()
             server.starttls()
             server.login(smtp_user, smtp_pass)
