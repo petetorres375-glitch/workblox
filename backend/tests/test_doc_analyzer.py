@@ -44,3 +44,36 @@ def test_doc_analyzer_empty_file(client):
     data = {"file": (io.BytesIO(b"   "), "blank.txt")}
     rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
     assert rv.status_code == 422
+
+
+def test_doc_email_missing_smtp(client):
+    payload = {"email": "test@example.com", "filename": "doc.txt", "result": MOCK_RESPONSE}
+    rv = client.post("/api/doc/email", json=payload)
+    assert rv.status_code == 503
+    assert "not configured" in rv.get_json()["error"]
+
+
+def test_doc_email_invalid_email(client):
+    payload = {"email": "notanemail", "filename": "doc.txt", "result": MOCK_RESPONSE}
+    rv = client.post("/api/doc/email", json=payload)
+    assert rv.status_code == 400
+
+
+def test_doc_email_missing_result(client):
+    payload = {"email": "test@example.com", "filename": "doc.txt"}
+    rv = client.post("/api/doc/email", json=payload)
+    assert rv.status_code == 400
+
+
+def test_doc_email_sends(client):
+    import os
+    from unittest.mock import MagicMock, patch
+    payload = {"email": "pete@example.com", "filename": "report.txt", "result": MOCK_RESPONSE}
+    env = {"SMTP_USER": "sender@gmail.com", "SMTP_PASS": "secret"}
+    with patch.dict(os.environ, env), patch("smtplib.SMTP") as mock_smtp:
+        mock_server = MagicMock()
+        mock_smtp.return_value.__enter__.return_value = mock_server
+        rv = client.post("/api/doc/email", json=payload)
+    assert rv.status_code == 200
+    assert rv.get_json()["success"] is True
+    mock_server.sendmail.assert_called_once()
