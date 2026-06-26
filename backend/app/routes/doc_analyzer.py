@@ -8,6 +8,7 @@ from pathlib import Path
 
 from flask import Blueprint, jsonify, request
 
+from app import limiter
 from app.services import claude_client
 from app.services.file_handler import extract_text
 
@@ -53,6 +54,7 @@ def _build_txt_report(filename: str, result: dict) -> str:
 
 
 @bp.post("/api/doc")
+@limiter.limit("10 per hour")
 def doc_analyzer():
     if "file" not in request.files:
         return jsonify({"error": "file is required"}), 400
@@ -84,6 +86,7 @@ def doc_analyzer():
 
 
 @bp.post("/api/doc/email")
+@limiter.limit("10 per hour")
 def doc_email():
     body = request.get_json(silent=True) or {}
     email_addr = (body.get("email") or "").strip()

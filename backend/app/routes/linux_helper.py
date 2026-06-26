@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 
+from app import limiter
 from app.services import claude_client
 
 bp = Blueprint("linux_helper", __name__)
@@ -16,6 +17,7 @@ Return only valid JSON. No markdown fences, no extra text.
 
 
 @bp.post("/api/linux")
+@limiter.limit("20 per hour")
 def linux_helper():
     body = request.get_json(silent=True) or {}
     problem = (body.get("problem") or "").strip()
