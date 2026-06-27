@@ -1,11 +1,11 @@
 const NAV_ITEMS = [
-  { id: "resume", label: "Resume Builder" },
   { id: "ats", label: "ATS Analyzer" },
   { id: "doc", label: "Doc Analyzer" },
-  { id: "workflow", label: "Workflow" },
   { id: "linux", label: "Linux" },
-  { id: "windows", label: "Windows" },
   { id: "mac", label: "Mac" },
+  { id: "resume", label: "Resume Builder" },
+  { id: "windows", label: "Windows" },
+  { id: "workflow", label: "Workflow" },
 ];
 
 export default function Header({ active, onSelect }) {

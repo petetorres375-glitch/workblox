@@ -20,7 +20,7 @@ const TOOLS = {
 };
 
 export default function App() {
-  const [active, setActive] = useState("doc");
+  const [active, setActive] = useState("ats");
   const Tool = TOOLS[active];
 
   return (
