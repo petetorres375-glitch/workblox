@@ -28,23 +28,67 @@ KEYWORDS = {
 }
 
 JOB_KEYWORDS = {
+    # --- Office & Admin ---
+    "administrative assistant": [
+        "administrative", "scheduling", "calendar management", "correspondence",
+        "filing", "microsoft office", "excel", "word", "outlook", "data entry",
+        "organized", "multitasking", "communication", "attention to detail",
+        "office management", "travel arrangements", "expense reports", "confidential",
+    ],
+    "executive assistant": [
+        "executive support", "calendar management", "scheduling", "travel arrangements",
+        "correspondence", "confidential", "microsoft office", "board meetings",
+        "expense reports", "project coordination", "stakeholder", "discretion",
+        "communication", "organized", "prioritization",
+    ],
+    "receptionist": [
+        "front desk", "reception", "phone handling", "customer service", "scheduling",
+        "calendar management", "microsoft office", "organized", "communication",
+        "multitasking", "professional", "greeting", "email management", "data entry",
+    ],
+    "office manager": [
+        "office management", "administrative", "scheduling", "vendor management",
+        "budgeting", "microsoft office", "organized", "leadership", "communication",
+        "facilities", "supply ordering", "onboarding", "policies", "procedures",
+    ],
     "data entry": [
         "data entry", "accuracy", "spreadsheet", "excel", "google sheets",
         "typing", "attention to detail", "organized", "quickbooks", "10-key",
-    ],
-    "customer service": [
-        "customer service", "communication", "problem solving", "crm",
-        "salesforce", "phone support", "email support", "conflict resolution",
-        "empathy", "patience",
-    ],
-    "web developer": [
-        "html", "css", "javascript", "responsive", "mobile-friendly",
-        "wordpress", "git", "debugging", "python", "sql",
+        "database", "records management", "data integrity", "microsoft office",
     ],
     "virtual assistant": [
         "scheduling", "calendar management", "email management", "data entry",
         "communication", "organized", "microsoft office", "zoom", "trello", "asana",
+        "remote", "research", "social media", "customer support", "invoicing",
     ],
+    # --- Customer Facing ---
+    "customer service": [
+        "customer service", "communication", "problem solving", "crm",
+        "salesforce", "phone support", "email support", "conflict resolution",
+        "empathy", "patience", "customer satisfaction", "retention", "ticketing",
+        "zendesk", "help desk", "follow-up",
+    ],
+    "call center": [
+        "inbound", "outbound", "call center", "phone support", "crm", "salesforce",
+        "customer service", "communication", "de-escalation", "conflict resolution",
+        "high-volume", "multitasking", "empathy", "scripts", "metrics", "kpi",
+    ],
+    "sales associate": [
+        "sales", "customer service", "product knowledge", "upselling", "cross-selling",
+        "pos", "point of sale", "cash handling", "inventory", "communication",
+        "goal-oriented", "quota", "teamwork", "retail", "merchandising",
+    ],
+    "retail associate": [
+        "retail", "customer service", "cash handling", "pos", "point of sale",
+        "inventory", "stocking", "merchandising", "product knowledge", "upselling",
+        "teamwork", "communication", "organized", "loss prevention",
+    ],
+    "cashier": [
+        "cash handling", "pos", "point of sale", "customer service", "accuracy",
+        "transactions", "counting", "retail", "communication", "teamwork",
+        "fast-paced", "reliable", "punctual",
+    ],
+    # --- Food & Hospitality ---
     "event server": [
         "fine dining", "banquet", "catering", "hospitality", "customer service",
         "food running", "food handler", "alcohol", "beverage service", "hors d'oeuvres",
@@ -59,6 +103,165 @@ JOB_KEYWORDS = {
         "high-volume", "plating", "presentation", "wine", "punctuality", "reliability",
         "bilingual", "communication", "teamwork", "attention to detail",
     ],
+    "server": [
+        "food service", "customer service", "menu knowledge", "upselling",
+        "pos", "cash handling", "teamwork", "communication", "multitasking",
+        "food handler", "alcohol", "fast-paced", "guest satisfaction", "sidework",
+    ],
+    "barista": [
+        "espresso", "coffee", "latte art", "pos", "cash handling", "customer service",
+        "food handler", "fast-paced", "teamwork", "communication", "cleanliness",
+        "drink preparation", "inventory", "opening", "closing",
+    ],
+    "cook": [
+        "food preparation", "knife skills", "food safety", "servsafe", "food handler",
+        "line cook", "prep cook", "recipe", "portion control", "sanitation",
+        "fast-paced", "teamwork", "inventory", "cleanliness", "mise en place",
+    ],
+    "restaurant manager": [
+        "restaurant management", "food service", "scheduling", "inventory",
+        "food safety", "servsafe", "customer service", "leadership", "training",
+        "budgeting", "cost control", "pos", "staff management", "communication",
+    ],
+    # --- Warehouse & Logistics ---
+    "warehouse associate": [
+        "warehouse", "forklift", "pallet jack", "inventory", "shipping", "receiving",
+        "pick and pack", "order fulfillment", "rf scanner", "safety", "lifting",
+        "organized", "teamwork", "fast-paced", "accuracy",
+    ],
+    "forklift operator": [
+        "forklift", "forklift certified", "pallet jack", "warehouse", "inventory",
+        "shipping", "receiving", "safety", "rf scanner", "order fulfillment",
+        "lifting", "organized", "accuracy", "reach truck",
+    ],
+    "delivery driver": [
+        "driving", "route optimization", "delivery", "customer service", "navigation",
+        "gps", "dot", "clean driving record", "vehicle inspection", "time management",
+        "communication", "punctual", "reliable", "lifting", "organized",
+    ],
+    "inventory specialist": [
+        "inventory management", "cycle counts", "stock", "shipping", "receiving",
+        "rf scanner", "accuracy", "organized", "data entry", "excel",
+        "warehouse management system", "wms", "shrinkage", "reconciliation",
+    ],
+    # --- Healthcare & Caregiving ---
+    "caregiver": [
+        "caregiving", "personal care", "activities of daily living", "adl",
+        "companionship", "medication reminders", "patient care", "empathy",
+        "communication", "reliable", "cpr", "first aid", "compassionate",
+        "homecare", "elderly care", "documentation",
+    ],
+    "home health aide": [
+        "home health", "patient care", "activities of daily living", "adl",
+        "vital signs", "medication", "documentation", "empathy", "cpr",
+        "first aid", "reliable", "compassionate", "hha certified", "homecare",
+    ],
+    "medical assistant": [
+        "medical assistant", "clinical", "administrative", "ehr", "epic",
+        "vital signs", "phlebotomy", "injections", "patient care", "hipaa",
+        "scheduling", "insurance", "medical terminology", "cpr", "certified",
+    ],
+    "certified nursing assistant": [
+        "cna", "certified nursing assistant", "patient care", "vital signs",
+        "adl", "activities of daily living", "documentation", "empathy",
+        "teamwork", "long-term care", "hipaa", "cpr", "reliable", "compassionate",
+    ],
+    "pharmacy technician": [
+        "pharmacy", "medication dispensing", "prescription", "accuracy",
+        "insurance billing", "customer service", "data entry", "hipaa",
+        "retail pharmacy", "inventory", "ptcb", "certified", "communication",
+    ],
+    # --- Cleaning & Maintenance ---
+    "housekeeper": [
+        "housekeeping", "cleaning", "sanitizing", "laundry", "attention to detail",
+        "organized", "reliable", "punctual", "teamwork", "time management",
+        "chemical safety", "room turnover", "linen", "hospitality",
+    ],
+    "janitor": [
+        "janitorial", "cleaning", "sanitizing", "floor care", "buffing",
+        "chemical safety", "organized", "reliable", "time management",
+        "maintenance", "trash removal", "attention to detail", "teamwork",
+    ],
+    "maintenance technician": [
+        "maintenance", "repair", "troubleshooting", "electrical", "plumbing",
+        "hvac", "preventive maintenance", "work orders", "tools", "safety",
+        "organized", "reliable", "communication", "facilities",
+    ],
+    # --- Education & Childcare ---
+    "teacher assistant": [
+        "classroom support", "lesson plans", "student engagement", "communication",
+        "organized", "patience", "teamwork", "curriculum", "special needs",
+        "documentation", "behavior management", "bilingual", "technology",
+    ],
+    "childcare worker": [
+        "childcare", "child development", "cpr", "first aid", "patience",
+        "communication", "organized", "creative", "teamwork", "lesson planning",
+        "safety", "nurturing", "reliable", "documentation",
+    ],
+    "tutor": [
+        "tutoring", "lesson planning", "communication", "patience", "organized",
+        "curriculum", "student progress", "subject matter", "assessment",
+        "adaptable", "technology", "math", "reading", "writing",
+    ],
+    # --- Security ---
+    "security guard": [
+        "security", "patrol", "surveillance", "access control", "incident report",
+        "communication", "cpr", "first aid", "licensed", "reliable", "punctual",
+        "conflict resolution", "de-escalation", "customer service", "observant",
+    ],
+    # --- Tech ---
+    "web developer": [
+        "html", "css", "javascript", "responsive", "mobile-friendly",
+        "wordpress", "git", "debugging", "python", "sql", "react", "api",
+        "version control", "deployment", "testing",
+    ],
+    "it support": [
+        "troubleshooting", "help desk", "technical support", "windows", "active directory",
+        "networking", "hardware", "software", "ticketing", "communication",
+        "customer service", "comptia", "remote support", "documentation", "vpn",
+    ],
+    "social media manager": [
+        "social media", "content creation", "instagram", "facebook", "tiktok",
+        "scheduling", "analytics", "engagement", "canva", "copywriting",
+        "brand voice", "strategy", "community management", "paid ads", "seo",
+    ],
+    # --- Finance & Bookkeeping ---
+    "bookkeeper": [
+        "bookkeeping", "quickbooks", "accounts payable", "accounts receivable",
+        "bank reconciliation", "payroll", "invoicing", "excel", "accuracy",
+        "organized", "financial reporting", "gaap", "attention to detail",
+    ],
+    "accounting clerk": [
+        "accounting", "accounts payable", "accounts receivable", "data entry",
+        "excel", "quickbooks", "invoicing", "reconciliation", "organized",
+        "accuracy", "communication", "financial records", "attention to detail",
+    ],
+    # --- Construction & Labor ---
+    "general laborer": [
+        "labor", "lifting", "physical stamina", "safety", "osha", "teamwork",
+        "reliable", "punctual", "tools", "construction", "outdoor", "fast-paced",
+        "organized", "following instructions",
+    ],
+    "landscaper": [
+        "landscaping", "lawn care", "mowing", "trimming", "planting", "irrigation",
+        "outdoor", "physical stamina", "safety", "reliable", "tools",
+        "customer service", "teamwork", "organized",
+    ],
+    "catering": [
+        "catering", "banquet", "event setup", "breakdown", "food service",
+        "food handler", "beverage service", "buffet", "plating", "presentation",
+        "high-volume", "customer service", "teamwork", "communication",
+        "alcohol", "servsafe", "punctuality", "reliability", "hospitality",
+        "tableside service", "guest engagement", "event coordination",
+    ],
+    "freelance caterer": [
+        "catering", "freelance", "event planning", "food preparation", "food handler",
+        "servsafe", "banquet", "buffet", "beverage service", "plating", "presentation",
+        "event setup", "breakdown", "client relations", "self-motivated", "reliable",
+        "scheduling", "invoicing", "menu planning", "food safety", "hospitality",
+        "alcohol", "high-volume", "communication", "attention to detail",
+    ],
+
 }
 
 SECTION_PATTERNS = {
