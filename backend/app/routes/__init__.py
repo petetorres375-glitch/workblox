@@ -1,3 +1,4 @@
+from .ats_analyzer import bp as ats_analyzer_bp
 from .doc_analyzer import bp as doc_analyzer_bp
 from .health import bp as health_bp
 from .linux_helper import bp as linux_helper_bp
@@ -13,3 +14,4 @@ def register_blueprints(app):
     app.register_blueprint(mac_helper_bp)
     app.register_blueprint(workflow_builder_bp)
     app.register_blueprint(doc_analyzer_bp)
+    app.register_blueprint(ats_analyzer_bp)
