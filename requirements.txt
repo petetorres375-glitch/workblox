@@ -5,3 +5,6 @@ anthropic
 python-dotenv
 pymupdf
 gunicorn
+pdfplumber
+fpdf2
+python-docx
