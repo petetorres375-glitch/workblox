@@ -8,3 +8,4 @@ gunicorn
 pdfplumber
 fpdf2
 python-docx
+openai

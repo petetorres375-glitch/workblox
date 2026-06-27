@@ -9,3 +9,4 @@ pytest
 pdfplumber
 fpdf2
 python-docx
+openai
