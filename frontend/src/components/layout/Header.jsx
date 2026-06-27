@@ -1,4 +1,5 @@
 const NAV_ITEMS = [
+  { id: "resume", label: "Resume Builder" },
   { id: "ats", label: "ATS Analyzer" },
   { id: "doc", label: "Doc Analyzer" },
   { id: "workflow", label: "Workflow" },

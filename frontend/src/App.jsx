@@ -5,10 +5,12 @@ import ATSAnalyzer from "./components/tools/ATSAnalyzer";
 import DocAnalyzer from "./components/tools/DocAnalyzer";
 import LinuxHelper from "./components/tools/LinuxHelper";
 import MacHelper from "./components/tools/MacHelper";
+import ResumeBuilder from "./components/tools/ResumeBuilder";
 import WindowsHelper from "./components/tools/WindowsHelper";
 import WorkflowBuilder from "./components/tools/WorkflowBuilder";
 
 const TOOLS = {
+  resume: ResumeBuilder,
   ats: ATSAnalyzer,
   doc: DocAnalyzer,
   workflow: WorkflowBuilder,
