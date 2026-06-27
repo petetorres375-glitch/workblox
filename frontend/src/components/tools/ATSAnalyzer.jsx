@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { post, postForm } from "../../api/client";
+import { BASE_URL, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
 const PRIORITY_COLORS = { high: "#dc2626", medium: "#d97706", low: "#2563eb" };
@@ -16,7 +16,7 @@ export default function ATSAnalyzer() {
   const { loading, error, call }  = useApi();
 
   useEffect(() => {
-    fetch("/api/ats/roles")
+    fetch(`${BASE_URL}/api/ats/roles`)
       .then((r) => r.json())
       .then(setRoles)
       .catch(() => {});
@@ -47,7 +47,7 @@ export default function ATSAnalyzer() {
     if (!data) return;
     setDownloading(fmt);
     try {
-      const res = await fetch(`/api/ats/download/${fmt}`, {
+      const res = await fetch(`${BASE_URL}/api/ats/download/${fmt}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
