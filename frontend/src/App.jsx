@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useAuth } from "./contexts/AuthContext";
+import Login from "./components/auth/Login";
+import SignUp from "./components/auth/SignUp";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import ATSAnalyzer from "./components/tools/ATSAnalyzer";
@@ -20,8 +23,16 @@ const TOOLS = {
 };
 
 export default function App() {
+  const { user } = useAuth();
   const [active, setActive] = useState("ats");
+  const [authView, setAuthView] = useState("login");
   const Tool = TOOLS[active];
+
+  if (!user) {
+    return authView === "signup"
+      ? <SignUp onSwitchToLogin={() => setAuthView("login")} />
+      : <Login onSwitchToSignUp={() => setAuthView("signup")} />;
+  }
 
   return (
     <>

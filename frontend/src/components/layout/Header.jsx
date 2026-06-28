@@ -1,3 +1,5 @@
+import { useAuth } from "../../contexts/AuthContext";
+
 const NAV_ITEMS = [
   { id: "ats", label: "ATS Analyzer" },
   { id: "doc", label: "Doc Analyzer" },
@@ -9,6 +11,8 @@ const NAV_ITEMS = [
 ];
 
 export default function Header({ active, onSelect }) {
+  const { user, logout } = useAuth();
+
   return (
     <header className="site-header">
       <div className="brand">
@@ -29,6 +33,10 @@ export default function Header({ active, onSelect }) {
           </button>
         ))}
       </nav>
+      <div className="header-user">
+        <span className="header-user-name">{user?.name}</span>
+        <button className="header-signout" onClick={logout}>Sign out</button>
+      </div>
     </header>
   );
 }

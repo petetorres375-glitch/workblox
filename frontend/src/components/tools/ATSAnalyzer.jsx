@@ -16,9 +16,12 @@ export default function ATSAnalyzer() {
   const { loading, error, call }  = useApi();
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/ats/roles`)
+    const token = localStorage.getItem("wb_token");
+    fetch(`${BASE_URL}/api/ats/roles`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
       .then((r) => r.json())
-      .then(setRoles)
+      .then((data) => { if (Array.isArray(data)) setRoles(data); })
       .catch(() => {});
   }, []);
 
