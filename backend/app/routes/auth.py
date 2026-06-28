@@ -96,10 +96,11 @@ def google_login():
     email = info["email"].lower()
     name = info.get("name", email)
 
+    _OWNER = "pete.torres.375@gmail.com"
+
     user = User.query.filter_by(email=email).first()
     if not user:
-        # Google has already verified the email
-        user = User(email=email, name=name, email_verified=True)
+        user = User(email=email, name=name, email_verified=True, is_active=(email == _OWNER))
         db.session.add(user)
         db.session.commit()
 
