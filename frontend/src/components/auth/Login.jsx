@@ -14,6 +14,7 @@ export default function Login({ onSwitchToSignUp }) {
 
   const keySequence = useRef("");
   const keyTimer = useRef(null);
+  const demoInputRef = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
@@ -26,8 +27,10 @@ export default function Login({ onSwitchToSignUp }) {
       keyTimer.current = setTimeout(() => { keySequence.current = ""; }, 1000);
       if (keySequence.current === "ttr") {
         keySequence.current = "";
+        setDemoPassword("");
         setDemoVisible((v) => !v);
         setError("");
+        setTimeout(() => demoInputRef.current?.focus(), 50);
       }
     };
     window.addEventListener("keydown", handler);
@@ -134,11 +137,11 @@ export default function Login({ onSwitchToSignUp }) {
         {demoVisible && (
           <form className="demo-form" onSubmit={handleDemo}>
             <input
+              ref={demoInputRef}
               type="password"
               placeholder="Demo password"
               value={demoPassword}
               onChange={(e) => setDemoPassword(e.target.value)}
-              autoFocus
               disabled={loading}
             />
             <button type="submit" disabled={loading}>Enter</button>
