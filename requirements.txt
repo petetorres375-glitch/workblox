@@ -9,3 +9,7 @@ pdfplumber
 fpdf2
 python-docx
 openai
+google-auth
+PyJWT
+flask-sqlalchemy
+requests
