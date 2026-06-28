@@ -96,11 +96,11 @@ def google_login():
     email = info["email"].lower()
     name = info.get("name", email)
 
-    _OWNER = "pete.torres.375@gmail.com"
+    _OWNER = {"pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        user = User(email=email, name=name, email_verified=True, is_active=(email == _OWNER))
+        user = User(email=email, name=name, email_verified=True, is_active=(email in _OWNER))
         db.session.add(user)
         db.session.commit()
 

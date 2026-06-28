@@ -5,7 +5,7 @@ from ..models import User
 
 bp = Blueprint("admin", __name__, url_prefix="/api/admin")
 
-ADMIN_SUBS = {"demo", "pete.torres.375@gmail.com"}
+ADMIN_SUBS = {"demo", "pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
 
 
 def _is_admin():
