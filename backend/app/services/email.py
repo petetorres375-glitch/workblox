@@ -67,3 +67,51 @@ def send_verification_email(email, name):
             return res.status == 202
     except Exception:
         return False
+
+
+def send_admin_notification(new_user_email, new_user_name):
+    api_key = current_app.config.get("SENDGRID_API_KEY", "")
+    mail_from = current_app.config.get("MAIL_FROM", "")
+    if not api_key or not mail_from:
+        return False
+
+    admin_email = "pedro_torres@torrestechremote.com"
+    payload = json.dumps({
+        "personalizations": [{"to": [{"email": admin_email}]}],
+        "from": {"email": mail_from, "name": "Workblox"},
+        "subject": f"New signup: {new_user_name}",
+        "content": [
+            {
+                "type": "text/html",
+                "value": f"""<!DOCTYPE html>
+<html>
+<body style="font-family:Inter,system-ui,sans-serif;max-width:480px;margin:40px auto;padding:0 24px;color:#111">
+  <p style="font-size:1rem;font-weight:800">Torres<span style="color:#FF6B00">Tech</span> Remote &mdash; Workblox</p>
+  <h2 style="margin-top:0">New client signup</h2>
+  <p><strong>{new_user_name}</strong> just signed up and is pending activation.</p>
+  <table style="margin:16px 0;border-collapse:collapse">
+    <tr><td style="color:#666;padding-right:16px">Name</td><td><strong>{new_user_name}</strong></td></tr>
+    <tr><td style="color:#666;padding-right:16px">Email</td><td><strong>{new_user_email}</strong></td></tr>
+  </table>
+  <p>Log in to the admin panel to activate their account.</p>
+</body>
+</html>""",
+            }
+        ],
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://api.sendgrid.com/v3/mail/send",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req) as res:
+            return res.status == 202
+    except Exception:
+        return False

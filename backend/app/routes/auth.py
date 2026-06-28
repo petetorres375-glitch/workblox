@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from .. import db
 from ..models import User
 from ..services.auth import create_token, decode_verification_token
-from ..services.email import send_verification_email
+from ..services.email import send_verification_email, send_admin_notification
 
 bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
@@ -33,6 +33,7 @@ def register():
     db.session.commit()
 
     email_sent = send_verification_email(email, name)
+    send_admin_notification(email, name)
     if email_sent:
         msg = "Account created. Please check your email to verify your address."
     else:
@@ -100,9 +101,12 @@ def google_login():
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        user = User(email=email, name=name, email_verified=True, is_active=(email in _OWNER))
+        is_owner = email in _OWNER
+        user = User(email=email, name=name, email_verified=True, is_active=is_owner)
         db.session.add(user)
         db.session.commit()
+        if not is_owner:
+            send_admin_notification(email, name)
 
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
