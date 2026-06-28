@@ -408,6 +408,10 @@ footer a {
   margin-bottom: 0.5rem;
 }
 
+.login-brand .brand-name {
+  color: var(--text);
+}
+
 .login-product {
   font-size: 1.6rem;
   font-weight: 800;
