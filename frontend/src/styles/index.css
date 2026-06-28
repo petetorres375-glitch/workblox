@@ -433,6 +433,40 @@ footer a {
   margin-top: 0.75rem;
 }
 
+.login-info {
+  color: #16a34a;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* ── Password input with eyeball ── */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 2.75rem;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-hint);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.eye-btn:hover {
+  color: var(--text-muted);
+}
+
 .demo-form {
   display: flex;
   gap: 0.5rem;

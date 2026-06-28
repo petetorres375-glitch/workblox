@@ -12,6 +12,10 @@ class Config:
     GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
     JWT_SECRET = os.environ.get("JWT_SECRET", "change-me-in-production")
     DEMO_PASSWORD = os.environ.get("DEMO_PASSWORD", "")
+    SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "")
+    MAIL_FROM = os.environ.get("MAIL_FROM", "")
+    APP_URL = os.environ.get("APP_URL", "http://localhost:5000")
+    FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:5173")
     _db_url = os.environ.get("DATABASE_URL", "sqlite:///workblox.db")
     # Railway exposes postgres:// but SQLAlchemy requires postgresql://
     SQLALCHEMY_DATABASE_URI = _db_url.replace("postgres://", "postgresql://", 1) if _db_url.startswith("postgres://") else _db_url

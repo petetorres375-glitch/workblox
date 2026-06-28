@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
 import { post } from "../../api/client";
+import PasswordInput from "../ui/PasswordInput";
 
 export default function Login({ onSwitchToSignUp }) {
   const { login } = useAuth();
@@ -10,11 +11,23 @@ export default function Login({ onSwitchToSignUp }) {
   const [demoVisible, setDemoVisible] = useState(false);
   const [demoPassword, setDemoPassword] = useState("");
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
 
   const keySequence = useRef("");
   const keyTimer = useRef(null);
   const demoInputRef = useRef(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("verified") === "true") {
+      setInfo("Email verified! Your account is pending activation.");
+      window.history.replaceState({}, "", window.location.pathname);
+    } else if (params.get("verified") === "false") {
+      setError("Verification link is invalid or expired.");
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     const handler = (e) => {
@@ -41,6 +54,7 @@ export default function Login({ onSwitchToSignUp }) {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setInfo("");
     try {
       const data = await post("/api/auth/login", { email, password });
       login(data.token, data.name);
@@ -54,6 +68,7 @@ export default function Login({ onSwitchToSignUp }) {
   async function handleGoogle(credential) {
     setLoading(true);
     setError("");
+    setInfo("");
     try {
       const data = await post("/api/auth/google", { credential });
       login(data.token, data.name);
@@ -112,8 +127,7 @@ export default function Login({ onSwitchToSignUp }) {
             required
             disabled={loading}
           />
-          <input
-            type="password"
+          <PasswordInput
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -125,6 +139,7 @@ export default function Login({ onSwitchToSignUp }) {
           </button>
         </form>
 
+        {info && <p className="login-info">{info}</p>}
         {error && <p className="login-error">{error}</p>}
 
         <p className="auth-switch">

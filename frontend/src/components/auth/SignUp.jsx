@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
 import { post } from "../../api/client";
+import PasswordInput from "../ui/PasswordInput";
 
 export default function SignUp({ onSwitchToLogin }) {
   const { login } = useAuth();
@@ -10,15 +11,15 @@ export default function SignUp({ onSwitchToLogin }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [pending, setPending] = useState(false);
+  const [successMsg, setSuccessMsg] = useState("");
 
   async function handleSignUp(e) {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
-      await post("/api/auth/register", { name, email, password });
-      setPending(true);
+      const data = await post("/api/auth/register", { name, email, password });
+      setSuccessMsg(data.message);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -39,7 +40,7 @@ export default function SignUp({ onSwitchToLogin }) {
     }
   }
 
-  if (pending) {
+  if (successMsg) {
     return (
       <div className="login-page">
         <div className="login-card">
@@ -52,10 +53,7 @@ export default function SignUp({ onSwitchToLogin }) {
           <div className="pending-state">
             <div className="pending-icon">✓</div>
             <h2 className="pending-title">Account created</h2>
-            <p className="pending-msg">
-              Your account is pending activation. You'll get access as soon as
-              your subscription is confirmed.
-            </p>
+            <p className="pending-msg">{successMsg}</p>
             <button className="auth-link" onClick={onSwitchToLogin}>
               Back to sign in
             </button>
@@ -106,8 +104,7 @@ export default function SignUp({ onSwitchToLogin }) {
             required
             disabled={loading}
           />
-          <input
-            type="password"
+          <PasswordInput
             placeholder="Password (min 8 characters)"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

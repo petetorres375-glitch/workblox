@@ -1,11 +1,12 @@
-from flask import Blueprint, request, jsonify, current_app
+from flask import Blueprint, request, jsonify, current_app, redirect
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from .. import db
 from ..models import User
-from ..services.auth import create_token
+from ..services.auth import create_token, decode_verification_token
+from ..services.email import send_verification_email
 
 bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
@@ -30,7 +31,14 @@ def register():
     user = User(email=email, name=name, password_hash=generate_password_hash(password))
     db.session.add(user)
     db.session.commit()
-    return jsonify({"message": "Account created. You'll receive access once your subscription is confirmed."}), 201
+
+    email_sent = send_verification_email(email, name)
+    if email_sent:
+        msg = "Account created. Please check your email to verify your address."
+    else:
+        msg = "Account created. You'll receive access once your subscription is confirmed."
+
+    return jsonify({"message": msg, "email_sent": email_sent}), 201
 
 
 @bp.post("/login")
@@ -45,11 +53,29 @@ def login():
     user = User.query.filter_by(email=email).first()
     if not user or not user.password_hash or not check_password_hash(user.password_hash, password):
         return jsonify({"error": "Incorrect email or password"}), 401
+    if not user.email_verified:
+        return jsonify({"error": "Please verify your email before signing in. Check your inbox."}), 403
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
 
     token = create_token(sub=user.email, name=user.name)
     return jsonify({"token": token, "name": user.name})
+
+
+@bp.get("/verify/<token>")
+def verify_email(token):
+    frontend_url = current_app.config.get("FRONTEND_URL", "http://localhost:5173")
+    try:
+        email = decode_verification_token(token)
+    except Exception:
+        return redirect(f"{frontend_url}?verified=false")
+
+    user = User.query.filter_by(email=email).first()
+    if user:
+        user.email_verified = True
+        db.session.commit()
+
+    return redirect(f"{frontend_url}?verified=true")
 
 
 @bp.post("/google")
@@ -72,7 +98,8 @@ def google_login():
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        user = User(email=email, name=name)
+        # Google has already verified the email
+        user = User(email=email, name=name, email_verified=True)
         db.session.add(user)
         db.session.commit()
 
