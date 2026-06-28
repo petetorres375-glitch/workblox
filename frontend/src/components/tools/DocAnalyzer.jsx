@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { post, postForm } from "../../api/client";
+import { BASE_URL, post, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
 function buildTxtReport(filename, result) {
@@ -32,6 +32,7 @@ export default function DocAnalyzer() {
   const [emailSent, setEmailSent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [emailSending, setEmailSending] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const fileRef = useRef();
   const { loading, error, call } = useApi();
 
@@ -63,6 +64,29 @@ export default function DocAnalyzer() {
     a.download = filename.replace(/\.[^.]+$/, "") + "_report.txt";
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  async function downloadPdf() {
+    setPdfLoading(true);
+    try {
+      const res = await fetch(`${BASE_URL}/api/doc/download/pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename, result }),
+      });
+      if (!res.ok) throw new Error("PDF generation failed");
+      const blob = await res.blob();
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement("a");
+      a.href     = url;
+      a.download = filename.replace(/\.[^.]+$/, "") + "_report.pdf";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setPdfLoading(false);
+    }
   }
 
   async function sendEmail(e) {
@@ -124,9 +148,13 @@ export default function DocAnalyzer() {
             <DocSection title="Red Flags" content={result.red_flags} />
           </div>
 
-          <div style={{ marginTop: 8 }}>
+          <div style={{ marginTop: 8, display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <button className="copy-btn" style={{ padding: "8px 18px", fontSize: "0.88rem" }} onClick={downloadTxt}>
-              Download TXT
+              ↓ TXT
+            </button>
+            <button className="copy-btn" style={{ padding: "8px 18px", fontSize: "0.88rem" }}
+              onClick={downloadPdf} disabled={pdfLoading}>
+              {pdfLoading ? "Generating..." : "↓ PDF"}
             </button>
           </div>
 
