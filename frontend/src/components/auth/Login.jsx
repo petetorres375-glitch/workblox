@@ -57,7 +57,7 @@ export default function Login({ onSwitchToSignUp }) {
     setInfo("");
     try {
       const data = await post("/api/auth/login", { email, password });
-      login(data.token, data.name);
+      login(data.token, data.name, data.email);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -71,7 +71,7 @@ export default function Login({ onSwitchToSignUp }) {
     setInfo("");
     try {
       const data = await post("/api/auth/google", { credential });
-      login(data.token, data.name);
+      login(data.token, data.name, data.email);
     } catch (err) {
       setError(err.message);
     } finally {

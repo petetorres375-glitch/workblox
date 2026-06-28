@@ -4,6 +4,7 @@ import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import Admin from "./components/tools/Admin";
 import ATSAnalyzer from "./components/tools/ATSAnalyzer";
 import DocAnalyzer from "./components/tools/DocAnalyzer";
 import LinuxHelper from "./components/tools/LinuxHelper";
@@ -13,6 +14,7 @@ import WindowsHelper from "./components/tools/WindowsHelper";
 import WorkflowBuilder from "./components/tools/WorkflowBuilder";
 
 const TOOLS = {
+  admin: Admin,
   resume: ResumeBuilder,
   ats: ATSAnalyzer,
   doc: DocAnalyzer,
@@ -26,7 +28,7 @@ export default function App() {
   const { user } = useAuth();
   const [active, setActive] = useState("ats");
   const [authView, setAuthView] = useState("login");
-  const Tool = TOOLS[active];
+  const Tool = TOOLS[active] || ATSAnalyzer;
 
   if (!user) {
     return authView === "signup"

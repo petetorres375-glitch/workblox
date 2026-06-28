@@ -32,6 +32,14 @@ export default function Header({ active, onSelect }) {
             {item.label}
           </button>
         ))}
+        {user?.isAdmin && (
+          <button
+            className={active === "admin" ? "active" : ""}
+            onClick={() => onSelect("admin")}
+          >
+            Admin
+          </button>
+        )}
       </nav>
       <div className="header-user">
         <span className="header-user-name">{user?.name}</span>

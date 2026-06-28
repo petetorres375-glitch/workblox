@@ -613,3 +613,110 @@ footer a {
   line-height: 1.6;
   text-align: center;
 }
+
+/* ── Admin panel ── */
+.admin-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-filter-btn {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.admin-filter-btn.active,
+.admin-filter-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.admin-user-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.admin-user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.admin-user-email {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.admin-user-date {
+  font-size: 0.78rem;
+  color: var(--text-hint);
+}
+
+.admin-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.admin-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.badge-active {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.admin-action-btn {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+}
+
+.admin-action-btn:hover { opacity: 0.85; }
+
+.btn-activate {
+  background: var(--orange);
+  color: #fff;
+}
+
+.btn-deactivate {
+  background: var(--border);
+  color: var(--text-muted);
+}

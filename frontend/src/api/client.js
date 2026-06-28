@@ -1,5 +1,12 @@
 export const BASE_URL = import.meta.env.VITE_API_URL || "";
 
+export function get(path) {
+  const token = localStorage.getItem("wb_token");
+  return fetch(`${BASE_URL}${path}`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+  }).then((res) => handleResponse(res, path));
+}
+
 function authHeaders() {
   const token = localStorage.getItem("wb_token");
   return token ? { Authorization: `Bearer ${token}` } : {};

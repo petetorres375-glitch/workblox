@@ -59,7 +59,7 @@ def login():
         return jsonify({"error": _PENDING_MSG}), 403
 
     token = create_token(sub=user.email, name=user.name)
-    return jsonify({"token": token, "name": user.name})
+    return jsonify({"token": token, "name": user.name, "email": user.email})
 
 
 @bp.get("/verify/<token>")
@@ -108,7 +108,7 @@ def google_login():
         return jsonify({"error": _PENDING_MSG}), 403
 
     token = create_token(sub=user.email, name=user.name)
-    return jsonify({"token": token, "name": user.name})
+    return jsonify({"token": token, "name": user.name, "email": user.email})
 
 
 @bp.post("/demo")
