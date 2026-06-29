@@ -107,6 +107,9 @@ def google_login():
         db.session.commit()
         if not is_owner:
             send_admin_notification(email, name)
+    elif email in _OWNER and not user.is_active:
+        user.is_active = True
+        db.session.commit()
 
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
