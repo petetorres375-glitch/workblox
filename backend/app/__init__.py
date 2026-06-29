@@ -21,8 +21,11 @@ def create_app(testing=False):
 
     allowed_origins = [
         "https://petetorres375-glitch.github.io",
+        "https://business.torrestechremote.com",
         "http://localhost:5173",
+        "http://localhost:5174",
         "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
     ]
     CORS(app, origins=allowed_origins)
     limiter.init_app(app)
@@ -31,6 +34,14 @@ def create_app(testing=False):
     with app.app_context():
         from . import models  # noqa: F401 — ensure models are registered
         db.create_all()
+        from sqlalchemy import text
+        try:
+            db.session.execute(text(
+                "ALTER TABLE users ADD COLUMN plan VARCHAR(50) NOT NULL DEFAULT 'free'"
+            ))
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
 
     @app.errorhandler(429)
     def rate_limit_exceeded(e):

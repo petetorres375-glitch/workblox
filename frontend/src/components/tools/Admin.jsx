@@ -32,6 +32,17 @@ export default function Admin() {
     }
   }
 
+  async function togglePlan(id, newPlan) {
+    try {
+      await post(`/api/admin/users/${id}/plan`, { plan: newPlan });
+      setUsers((prev) =>
+        prev.map((u) => u.id === id ? { ...u, plan: newPlan } : u)
+      );
+    } catch (err) {
+      alert(err.message);
+    }
+  }
+
   const filtered = users.filter((u) => {
     if (filter === "pending") return !u.is_active;
     if (filter === "active") return u.is_active;
@@ -80,6 +91,15 @@ export default function Admin() {
               onClick={() => toggleActive(u.email, !u.is_active)}
             >
               {u.is_active ? "Deactivate" : "Activate"}
+            </button>
+            <span className={`admin-badge ${u.plan === "business" ? "badge-active" : "badge-pending"}`}>
+              {u.plan === "business" ? "Business" : "Free"}
+            </span>
+            <button
+              className={`admin-action-btn ${u.plan === "business" ? "btn-deactivate" : "btn-activate"}`}
+              onClick={() => togglePlan(u.id, u.plan === "business" ? "free" : "business")}
+            >
+              {u.plan === "business" ? "Set Free" : "Set Business"}
             </button>
           </div>
         </div>

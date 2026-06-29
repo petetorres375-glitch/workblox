@@ -1,8 +1,11 @@
-name: Deploy Frontend to GitHub Pages
+name: Deploy Business Frontend to GitHub Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'business/**'
+      - '.github/workflows/deploy-business.yml'
   workflow_dispatch:
 
 permissions:
@@ -19,19 +22,20 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: frontend
+        working-directory: business
         run: npm ci
 
       - name: Build
-        working-directory: frontend
+        working-directory: business
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
-          VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-        run: node_modules/.bin/vite build --base=/workblox/
+          VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_BIZ_GOOGLE_CLIENT_ID }}
+        run: node_modules/.bin/vite build --base=/workblox-business/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: frontend/dist
+          publish_dir: business/dist
+          destination_dir: workblox-business
           keep_files: true

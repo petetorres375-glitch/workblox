@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, g
+from flask import Blueprint, jsonify, request, g
 
 from .. import db
 from ..models import User
@@ -19,9 +19,11 @@ def list_users():
     users = User.query.order_by(User.created_at.desc()).all()
     return jsonify([
         {
+            "id": u.id,
             "email": u.email,
             "name": u.name,
             "is_active": u.is_active,
+            "plan": u.plan,
             "created_at": u.created_at.isoformat(),
         }
         for u in users
@@ -50,3 +52,18 @@ def deactivate_user(email):
     user.is_active = False
     db.session.commit()
     return jsonify({"message": f"{user.email} deactivated"})
+
+
+@bp.put("/users/<int:user_id>/plan")
+def set_user_plan(user_id):
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    new_plan = (request.get_json(silent=True) or {}).get("plan", "free")
+    if new_plan not in ("free", "business"):
+        return jsonify({"error": "plan must be 'free' or 'business'"}), 400
+    user = db.session.get(User, user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    user.plan = new_plan
+    db.session.commit()
+    return jsonify({"plan": new_plan})
