@@ -89,15 +89,16 @@ function txtToHtml(txt, subject) {
 
 export default function ReportToolbar({ filename, subject, txtContent, mdContent, htmlContent }) {
   const [emailTo, setEmailTo] = useState(localStorage.getItem("wbb_email") || "");
-  const [emailSent, setEmailSent] = useState(false);
+  const [emailSent, setEmailSent] = useState(null); // "html" | "pdf" | null
   const [emailLoading, setEmailLoading] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const [emailError, setEmailError] = useState(null);
 
   async function handleEmail(e) {
     e.preventDefault();
     setEmailLoading(true);
     setEmailError(null);
-    setEmailSent(false);
+    setEmailSent(null);
     try {
       await post("/api/biz/send-report", {
         email: emailTo,
@@ -105,13 +106,36 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
         content_txt: txtContent,
         content_html: htmlContent || txtToHtml(txtContent, subject),
       });
-      setEmailSent(true);
+      setEmailSent("html");
     } catch (err) {
       setEmailError(err.message);
     } finally {
       setEmailLoading(false);
     }
   }
+
+  async function handleEmailPdf(e) {
+    e.preventDefault();
+    if (!emailTo) return;
+    setPdfLoading(true);
+    setEmailError(null);
+    setEmailSent(null);
+    try {
+      await post("/api/biz/email-pdf", {
+        email: emailTo,
+        subject,
+        content_txt: txtContent,
+        filename,
+      });
+      setEmailSent("pdf");
+    } catch (err) {
+      setEmailError(err.message);
+    } finally {
+      setPdfLoading(false);
+    }
+  }
+
+  const busy = emailLoading || pdfLoading;
 
   return (
     <>
@@ -129,17 +153,21 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
             type="email"
             className="toolbar-email-input"
             value={emailTo}
-            onChange={(e) => { setEmailTo(e.target.value); setEmailSent(false); }}
+            onChange={(e) => { setEmailTo(e.target.value); setEmailSent(null); }}
             placeholder="recipient@email.com"
             required
-            disabled={emailLoading}
+            disabled={busy}
           />
-          <button type="submit" className="toolbar-btn toolbar-btn-primary" disabled={emailLoading}>
+          <button type="submit" className="toolbar-btn toolbar-btn-primary" disabled={busy}>
             {emailLoading ? "Sending…" : "Send"}
+          </button>
+          <button type="button" className="toolbar-btn" onClick={handleEmailPdf} disabled={busy || !emailTo}>
+            {pdfLoading ? "Sending…" : "Send PDF"}
           </button>
         </form>
       </div>
-      {emailSent && <p className="report-toolbar-success no-print">Report sent to {emailTo}</p>}
+      {emailSent === "html" && <p className="report-toolbar-success no-print">Report sent to {emailTo}</p>}
+      {emailSent === "pdf" && <p className="report-toolbar-success no-print">PDF sent to {emailTo}</p>}
       {emailError && <div className="error-banner no-print" style={{ marginTop: "0.5rem" }}>{emailError}</div>}
     </>
   );
