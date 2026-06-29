@@ -40,6 +40,8 @@ def create_app(testing=False):
     def require_auth():
         if app.config.get("TESTING"):
             return
+        if request.method == "OPTIONS":
+            return
         if any(request.path.startswith(p) for p in _PUBLIC_PREFIXES):
             return
         auth_header = request.headers.get("Authorization", "")
