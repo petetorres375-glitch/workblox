@@ -6,6 +6,37 @@ from flask import current_app
 from .auth import create_verification_token
 
 
+def _sendgrid_post(payload_dict, api_key):
+    payload = json.dumps(payload_dict).encode()
+    req = urllib.request.Request(
+        "https://api.sendgrid.com/v3/mail/send",
+        data=payload,
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req) as res:
+            return res.status == 202
+    except Exception:
+        return False
+
+
+def send_report_email(to_email, subject, txt_body, html_body):
+    api_key = current_app.config.get("SENDGRID_API_KEY", "")
+    mail_from = current_app.config.get("MAIL_FROM", "")
+    if not api_key or not mail_from:
+        return False
+    return _sendgrid_post({
+        "personalizations": [{"to": [{"email": to_email}]}],
+        "from": {"email": mail_from, "name": "Workblox Business"},
+        "subject": subject,
+        "content": [
+            {"type": "text/plain", "value": txt_body},
+            {"type": "text/html", "value": html_body},
+        ],
+    }, api_key)
+
+
 def send_verification_email(email, name):
     api_key = current_app.config.get("SENDGRID_API_KEY", "")
     mail_from = current_app.config.get("MAIL_FROM", "")

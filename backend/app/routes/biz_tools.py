@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request, g
 
 from .. import limiter
 from ..services import claude_client
+from ..services.email import send_report_email
 from ..services.file_handler import extract_text
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
@@ -522,3 +523,22 @@ def batch_ats():
         except Exception as e:
             results.append({"filename": file.filename, "error": str(e)})
     return jsonify({"results": results, "total": len(results)})
+
+
+@bp.post("/send-report")
+@limiter.limit("10 per hour")
+def send_report():
+    guard = _require_business()
+    if guard:
+        return guard
+    body = request.get_json(silent=True) or {}
+    email_to = (body.get("email") or "").strip()
+    subject = (body.get("subject") or "Workblox Report").strip()
+    content_txt = (body.get("content_txt") or "").strip()
+    content_html = (body.get("content_html") or "").strip()
+    if not email_to or not content_txt:
+        return jsonify({"error": "email and content are required"}), 400
+    success = send_report_email(email_to, subject, content_txt, content_html or content_txt)
+    if not success:
+        return jsonify({"error": "Failed to send email — check SendGrid configuration."}), 500
+    return jsonify({"sent": True})

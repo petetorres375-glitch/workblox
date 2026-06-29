@@ -626,6 +626,135 @@ footer a {
   text-align: center;
 }
 
+/* ── Report toolbar (download + email) ── */
+.report-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.report-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.report-toolbar-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-hint);
+  margin-right: 2px;
+}
+
+.report-toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.toolbar-btn {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  color: var(--text);
+  border-color: #aaa;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-btn-primary {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.toolbar-btn-primary:hover:not(:disabled) {
+  background: var(--orange-hover);
+  border-color: var(--orange-hover);
+  color: #fff;
+}
+
+.toolbar-email-input {
+  padding: 4px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  min-width: 200px;
+  transition: border-color 0.2s;
+}
+
+.toolbar-email-input:focus {
+  border-color: var(--orange);
+}
+
+.report-toolbar-success {
+  color: #16a34a;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Print styles (PDF via browser print) ── */
+@media print {
+  .no-print,
+  .site-header,
+  footer,
+  .report-toolbar {
+    display: none !important;
+  }
+
+  .print-header {
+    display: block !important;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #2563eb;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  main {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .result-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+
+  .section-list li { color: #111; }
+  .warning-list li { color: #b45309; }
+}
+
 /* ── Admin panel ── */
 .admin-filters {
   display: flex;

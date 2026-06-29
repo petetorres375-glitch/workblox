@@ -27,12 +27,19 @@ async function handleResponse(res, path) {
   return res.json();
 }
 
+function networkGuard(err) {
+  if (err instanceof TypeError && err.message === "Failed to fetch") {
+    throw new Error("Unable to reach the server. Check your connection and try again.");
+  }
+  throw err;
+}
+
 export function post(path, body) {
   return fetch(`${BASE_URL}${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", ...authHeaders() },
     body: JSON.stringify(body),
-  }).then((res) => handleResponse(res, path));
+  }).then((res) => handleResponse(res, path)).catch(networkGuard);
 }
 
 export function postForm(path, formData) {
@@ -40,5 +47,5 @@ export function postForm(path, formData) {
     method: "POST",
     headers: authHeaders(),
     body: formData,
-  }).then((res) => handleResponse(res, path));
+  }).then((res) => handleResponse(res, path)).catch(networkGuard);
 }
