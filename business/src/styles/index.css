@@ -60,7 +60,7 @@ body {
 .brand-product {
   font-size: 0.88rem;
   font-weight: 500;
-  color: #888;
+  color: #aaa;
 }
 
 .tool-nav {
@@ -75,7 +75,7 @@ body {
 .tool-nav button {
   background: transparent;
   border: none;
-  color: #888;
+  color: #bbb;
   font-family: inherit;
   font-size: 0.82rem;
   font-weight: 500;
