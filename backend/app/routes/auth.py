@@ -59,6 +59,11 @@ def login():
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
 
+    _OWNER = {"pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
+    if email in _OWNER and user.plan != "business":
+        user.plan = "business"
+        db.session.commit()
+
     token = create_token(sub=user.email, name=user.name, plan=user.plan)
     return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan})
 
@@ -102,14 +107,22 @@ def google_login():
     user = User.query.filter_by(email=email).first()
     if not user:
         is_owner = email in _OWNER
-        user = User(email=email, name=name, email_verified=True, is_active=is_owner)
+        user = User(email=email, name=name, email_verified=True, is_active=is_owner,
+                    plan="business" if is_owner else "free")
         db.session.add(user)
         db.session.commit()
         if not is_owner:
             send_admin_notification(email, name)
-    elif email in _OWNER and not user.is_active:
-        user.is_active = True
-        db.session.commit()
+    elif email in _OWNER:
+        changed = False
+        if not user.is_active:
+            user.is_active = True
+            changed = True
+        if user.plan != "business":
+            user.plan = "business"
+            changed = True
+        if changed:
+            db.session.commit()
 
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
