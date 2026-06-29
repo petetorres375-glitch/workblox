@@ -16,13 +16,14 @@ def _require_business():
 
 # ── System prompts ─────────────────────────────────────────────────────────────
 
-_HIRING_MANAGER_PROMPT = """You are an expert hiring manager and HR professional. Given a job title, department, and requirements, generate a comprehensive hiring package.
+_HIRING_MANAGER_PROMPT = """You are an expert hiring manager and HR professional. Given a description of a position, generate a comprehensive hiring package.
 
 Return ONLY valid JSON with this structure:
 {
+  "job_title": "string",
+  "position_summary": "string",
   "interview_questions": ["string", ...],
   "evaluation_criteria": ["string", ...],
-  "position_summary": "string",
   "red_flags": ["string", ...],
   "onboarding_tips": ["string", ...]
 }"""
@@ -193,15 +194,13 @@ def hiring_manager():
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
-    job_title = (body.get("job_title") or "").strip()
-    department = (body.get("department") or "").strip()
-    requirements = (body.get("requirements") or "").strip()
-    if not job_title:
-        return jsonify({"error": "job_title is required"}), 400
+    description = (body.get("description") or "").strip()
+    if not description:
+        return jsonify({"error": "description is required"}), 400
     try:
         result = claude_client.call(
             system_prompt=_HIRING_MANAGER_PROMPT,
-            user_message=f"Job Title: {job_title}\nDepartment: {department}\nRequirements: {requirements}",
+            user_message=description,
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )

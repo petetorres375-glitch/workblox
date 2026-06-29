@@ -3,8 +3,8 @@ import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
 
-function buildTxt(data, jobTitle, department) {
-  const title = department ? `${jobTitle} — ${department}` : jobTitle;
+function buildTxt(data) {
+  const title = data.job_title || "Position";
   const lines = [`HIRING PACKAGE — ${title.toUpperCase()}`, "=".repeat(60), ""];
   lines.push("POSITION SUMMARY", "-".repeat(40), data.position_summary || "", "");
   lines.push("INTERVIEW QUESTIONS", "-".repeat(40));
@@ -22,8 +22,8 @@ function buildTxt(data, jobTitle, department) {
   return lines.join("\n");
 }
 
-function buildMd(data, jobTitle, department) {
-  const title = department ? `${jobTitle} — ${department}` : jobTitle;
+function buildMd(data) {
+  const title = data.job_title || "Position";
   const lines = [`# Hiring Package — ${title}`, "", "## Position Summary", data.position_summary || "", ""];
   lines.push("## Interview Questions");
   (data.interview_questions || []).forEach((q) => lines.push(`- ${q}`));
@@ -42,31 +42,34 @@ function buildMd(data, jobTitle, department) {
 
 export default function HiringManager() {
   const { loading, error, call } = useApi();
-  const [jobTitle, setJobTitle] = useState("");
-  const [department, setDepartment] = useState("");
-  const [requirements, setRequirements] = useState("");
+  const [description, setDescription] = useState("");
   const [data, setData] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault();
     setData(null);
-    const result = await call(() => post("/api/biz/hiring-manager", { job_title: jobTitle, department, requirements }));
+    const result = await call(() => post("/api/biz/hiring-manager", { description }));
     if (result) setData(result);
   }
 
   return (
     <div>
       <h1 className="page-title">Hiring <span>Manager</span></h1>
-      <p className="page-subtitle">Generate interview questions, evaluation criteria, and a hiring package for any role.</p>
+      <p className="page-subtitle">Describe the position you're hiring for and get a complete hiring package.</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <input type="text" placeholder="Job title (e.g. Senior Software Engineer)" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required disabled={loading}
-          style={{ padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none" }} />
-        <input type="text" placeholder="Department (e.g. Engineering)" value={department} onChange={(e) => setDepartment(e.target.value)} disabled={loading}
-          style={{ padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none" }} />
-        <textarea placeholder="Key requirements and responsibilities..." value={requirements} onChange={(e) => setRequirements(e.target.value)} rows={4} disabled={loading}
-          style={{ padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none", resize: "vertical" }} />
-        <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Generating…" : "Generate Hiring Package"}</button>
+        <textarea
+          placeholder="Describe the position (e.g. Level 1 Tech Support specialist for our IT help desk — handles password resets, basic troubleshooting, and ticket triage for a 200-person company)"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          rows={5}
+          disabled={loading}
+          style={{ padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none", resize: "vertical" }}
+        />
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? "Generating…" : "Generate Hiring Package"}
+        </button>
       </form>
 
       {error && <div className="error-banner no-print">{error}</div>}
@@ -74,7 +77,7 @@ export default function HiringManager() {
       {data && (
         <>
           <div className="print-header" style={{ display: "none" }}>
-            <strong>Hiring Package — {jobTitle}{department ? ` (${department})` : ""}</strong>
+            <strong>Hiring Package — {data.job_title}</strong>
           </div>
           <div className="result-card">
             <p className="result-label">Position Summary</p>
@@ -107,10 +110,10 @@ export default function HiringManager() {
             </div>
           )}
           <ReportToolbar
-            filename={slug(jobTitle) || "hiring_package"}
-            subject={`Hiring Package — ${jobTitle}${department ? ` (${department})` : ""}`}
-            txtContent={buildTxt(data, jobTitle, department)}
-            mdContent={buildMd(data, jobTitle, department)}
+            filename={slug(data.job_title) || "hiring_package"}
+            subject={`Hiring Package — ${data.job_title}`}
+            txtContent={buildTxt(data)}
+            mdContent={buildMd(data)}
           />
         </>
       )}
