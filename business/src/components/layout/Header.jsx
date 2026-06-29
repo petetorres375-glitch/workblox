@@ -21,12 +21,18 @@ export default function Header({ active, onSelect }) {
 
   return (
     <header className="site-header">
-      <div className="brand">
-        <span className="brand-name">
-          Torres<span className="brand-accent">Tech</span> Remote
-        </span>
-        <div className="brand-divider" />
-        <span className="brand-product">Workblox Business</span>
+      <div className="header-top">
+        <div className="brand">
+          <span className="brand-name">
+            Torres<span className="brand-accent">Tech</span> Remote
+          </span>
+          <div className="brand-divider" />
+          <span className="brand-product">Workblox Business</span>
+        </div>
+        <div className="header-user">
+          <span className="header-user-name">{user?.name}</span>
+          <button className="header-signout" onClick={logout}>Sign out</button>
+        </div>
       </div>
       <nav className="tool-nav">
         {NAV_ITEMS.map((item) => (
@@ -39,10 +45,6 @@ export default function Header({ active, onSelect }) {
           </button>
         ))}
       </nav>
-      <div className="header-user">
-        <span className="header-user-name">{user?.name}</span>
-        <button className="header-signout" onClick={logout}>Sign out</button>
-      </div>
     </header>
   );
 }
