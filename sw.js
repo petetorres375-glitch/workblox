@@ -1,4 +1,4 @@
-const CACHE = 'workblox-v1';
+const CACHE = 'workblox-v2';
 const BASE = '/workblox';
 
 self.addEventListener('install', e => {
@@ -18,12 +18,16 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  // Never intercept cross-origin requests (Railway API calls)
+  if (!e.request.url.startsWith(self.location.origin)) return;
+
   if (e.request.mode === 'navigate') {
     e.respondWith(
       fetch(e.request).catch(() => caches.match(`${BASE}/index.html`))
     );
     return;
   }
+
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request).then(resp => {
       if (resp && resp.status === 200 && resp.type === 'basic') {
