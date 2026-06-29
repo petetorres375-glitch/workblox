@@ -1,6 +1,43 @@
 import { useState } from "react";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
+import ReportToolbar, { slug } from "../ui/ReportToolbar";
+
+function buildTxt(data, clientName) {
+  const header = clientName ? `PROPOSAL — ${clientName.toUpperCase()}` : "PROPOSAL";
+  const lines = [header, "=".repeat(60), "", "EXECUTIVE SUMMARY", "-".repeat(40), data.executive_summary || ""];
+  if (data.scope_of_work?.length) {
+    lines.push("", "SCOPE OF WORK", "-".repeat(40));
+    data.scope_of_work.forEach((s, i) => lines.push(`${i + 1}. ${s}`));
+  }
+  if (data.deliverables?.length) {
+    lines.push("", "DELIVERABLES", "-".repeat(40));
+    data.deliverables.forEach((d, i) => lines.push(`${i + 1}. ${d}`));
+  }
+  if (data.line_items?.length) {
+    lines.push("", "LINE ITEMS", "-".repeat(40));
+    lines.push("Description                          Qty    Unit Price    Total");
+    data.line_items.forEach((item) => {
+      lines.push(`${item.description.padEnd(36)} ${String(item.quantity).padEnd(6)} $${String(Number(item.unit_price).toLocaleString()).padEnd(13)} $${Number(item.total).toLocaleString()}`);
+    });
+    if (data.subtotal != null) lines.push("", `TOTAL: $${Number(data.subtotal).toLocaleString()}`);
+  }
+  if (data.terms) lines.push("", "TERMS", "-".repeat(40), data.terms);
+  return lines.join("\n");
+}
+
+function buildMd(data, clientName) {
+  const lines = [`# ${clientName ? `Proposal — ${clientName}` : "Proposal"}`, "", "## Executive Summary", data.executive_summary || ""];
+  if (data.scope_of_work?.length) { lines.push("", "## Scope of Work"); data.scope_of_work.forEach((s) => lines.push(`- ${s}`)); }
+  if (data.deliverables?.length) { lines.push("", "## Deliverables"); data.deliverables.forEach((d) => lines.push(`- ${d}`)); }
+  if (data.line_items?.length) {
+    lines.push("", "## Line Items", "", "| Description | Qty | Unit Price | Total |", "|---|---|---|---|");
+    data.line_items.forEach((item) => lines.push(`| ${item.description} | ${item.quantity} | $${Number(item.unit_price).toLocaleString()} | $${Number(item.total).toLocaleString()} |`));
+    if (data.subtotal != null) lines.push("", `**Total: $${Number(data.subtotal).toLocaleString()}**`);
+  }
+  if (data.terms) lines.push("", "## Terms", data.terms);
+  return lines.join("\n");
+}
 
 export default function ProposalGenerator() {
   const { loading, error, call } = useApi();
@@ -13,13 +50,7 @@ export default function ProposalGenerator() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/proposal", {
-      client_name: clientName,
-      project_description: projectDescription,
-      services,
-      budget_range: budgetRange,
-      timeline,
-    }));
+    const result = await call(() => post("/api/biz/proposal", { client_name: clientName, project_description: projectDescription, services, budget_range: budgetRange, timeline }));
     if (result) setData(result);
   }
 
@@ -30,21 +61,20 @@ export default function ProposalGenerator() {
       <h1 className="page-title">Proposal <span>Generator</span></h1>
       <p className="page-subtitle">Create professional proposals and quotes for clients.</p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+      <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
         <input type="text" placeholder="Client name" value={clientName} onChange={(e) => setClientName(e.target.value)} disabled={loading} style={inputStyle} />
-        <textarea placeholder="Project description *" value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} required rows={3} disabled={loading}
-          style={{ ...inputStyle, resize: "vertical" }} />
-        <textarea placeholder="Services to include" value={services} onChange={(e) => setServices(e.target.value)} rows={2} disabled={loading}
-          style={{ ...inputStyle, resize: "vertical" }} />
+        <textarea placeholder="Project description *" value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} required rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <textarea placeholder="Services to include" value={services} onChange={(e) => setServices(e.target.value)} rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
         <input type="text" placeholder="Budget range (e.g. $5,000–$10,000)" value={budgetRange} onChange={(e) => setBudgetRange(e.target.value)} disabled={loading} style={inputStyle} />
         <input type="text" placeholder="Timeline (e.g. 4–6 weeks)" value={timeline} onChange={(e) => setTimeline(e.target.value)} disabled={loading} style={inputStyle} />
         <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Generating…" : "Generate Proposal"}</button>
       </form>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && <div className="error-banner no-print">{error}</div>}
 
       {data && (
         <>
+          <div className="print-header" style={{ display: "none" }}><strong>{clientName ? `Proposal — ${clientName}` : "Proposal"}</strong></div>
           <div className="result-card">
             <p className="result-label">Executive Summary</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.executive_summary}</p>
@@ -99,6 +129,12 @@ export default function ProposalGenerator() {
               <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{data.terms}</p>
             </div>
           )}
+          <ReportToolbar
+            filename={slug(clientName) || "proposal"}
+            subject={`Proposal${clientName ? ` — ${clientName}` : ""}`}
+            txtContent={buildTxt(data, clientName)}
+            mdContent={buildMd(data, clientName)}
+          />
         </>
       )}
     </div>

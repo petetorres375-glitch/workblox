@@ -1,6 +1,28 @@
 import { useState } from "react";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
+import ReportToolbar from "../ui/ReportToolbar";
+
+function buildTxt(data) {
+  const lines = ["CUSTOMER RESPONSE DRAFT", "=".repeat(60)];
+  if (data.subject) lines.push(`Subject: ${data.subject}`);
+  lines.push("", data.response_draft || "");
+  if (data.key_points_addressed?.length) {
+    lines.push("", "POINTS ADDRESSED", "-".repeat(40));
+    data.key_points_addressed.forEach((p, i) => lines.push(`${i + 1}. ${p}`));
+  }
+  if (data.follow_up_suggested) lines.push("", "SUGGESTED FOLLOW-UP", "-".repeat(40), data.follow_up_suggested);
+  return lines.join("\n");
+}
+
+function buildMd(data) {
+  const lines = ["# Customer Response Draft"];
+  if (data.subject) lines.push("", `**Subject:** ${data.subject}`);
+  lines.push("", "## Response", data.response_draft || "");
+  if (data.key_points_addressed?.length) { lines.push("", "## Points Addressed"); data.key_points_addressed.forEach((p) => lines.push(`- ${p}`)); }
+  if (data.follow_up_suggested) lines.push("", "## Suggested Follow-Up", data.follow_up_suggested);
+  return lines.join("\n");
+}
 
 export default function CustomerResponseDrafter() {
   const { loading, error, call } = useApi();
@@ -22,13 +44,10 @@ export default function CustomerResponseDrafter() {
       <h1 className="page-title">Customer <span>Response</span></h1>
       <p className="page-subtitle">Draft professional, empathetic responses to customer messages and complaints.</p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <textarea placeholder="Paste the customer's message *" value={customerMessage} onChange={(e) => setCustomerMessage(e.target.value)} required rows={4} disabled={loading}
-          style={{ ...inputStyle, resize: "vertical" }} />
-        <textarea placeholder="Context (e.g. what happened, order details, etc.)" value={context} onChange={(e) => setContext(e.target.value)} rows={2} disabled={loading}
-          style={{ ...inputStyle, resize: "vertical" }} />
-        <select value={tone} onChange={(e) => setTone(e.target.value)} disabled={loading}
-          style={{ ...inputStyle, background: "var(--surface)", cursor: "pointer" }}>
+      <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+        <textarea placeholder="Paste the customer's message *" value={customerMessage} onChange={(e) => setCustomerMessage(e.target.value)} required rows={4} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <textarea placeholder="Context (e.g. what happened, order details, etc.)" value={context} onChange={(e) => setContext(e.target.value)} rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <select value={tone} onChange={(e) => setTone(e.target.value)} disabled={loading} style={{ ...inputStyle, background: "var(--surface)", cursor: "pointer" }}>
           {["professional", "empathetic", "apologetic", "firm", "friendly"].map(t => (
             <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
           ))}
@@ -36,10 +55,11 @@ export default function CustomerResponseDrafter() {
         <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Drafting…" : "Draft Response"}</button>
       </form>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && <div className="error-banner no-print">{error}</div>}
 
       {data && (
         <>
+          <div className="print-header" style={{ display: "none" }}><strong>Customer Response Draft</strong></div>
           {data.subject && (
             <div className="result-card">
               <p className="result-label">Subject Line</p>
@@ -49,7 +69,7 @@ export default function CustomerResponseDrafter() {
           <div className="result-card">
             <div className="result-header">
               <p className="result-label">Response Draft</p>
-              <button className="copy-btn" onClick={() => navigator.clipboard.writeText(data.response_draft)}>Copy</button>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(data.response_draft)}>Copy</button>
             </div>
             <p style={{ fontSize: "0.92rem", lineHeight: 1.7, whiteSpace: "pre-wrap" }}>{data.response_draft}</p>
           </div>
@@ -65,6 +85,12 @@ export default function CustomerResponseDrafter() {
               <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{data.follow_up_suggested}</p>
             </div>
           )}
+          <ReportToolbar
+            filename="customer_response"
+            subject="Customer Response Draft"
+            txtContent={buildTxt(data)}
+            mdContent={buildMd(data)}
+          />
         </>
       )}
     </div>

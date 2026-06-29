@@ -1,6 +1,23 @@
 import { useState } from "react";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
+import ReportToolbar, { slug } from "../ui/ReportToolbar";
+
+function buildTxt(data) {
+  const lines = ["REVIEW REQUEST EMAIL", "=".repeat(60)];
+  if (data.subject) lines.push(`Subject: ${data.subject}`);
+  lines.push("", data.body || "");
+  if (data.timing_advice) lines.push("", "TIMING ADVICE", "-".repeat(40), data.timing_advice);
+  return lines.join("\n");
+}
+
+function buildMd(data) {
+  const lines = ["# Review Request Email"];
+  if (data.subject) lines.push("", `**Subject:** ${data.subject}`);
+  lines.push("", "## Email Body", data.body || "");
+  if (data.timing_advice) lines.push("", "## Timing Advice", data.timing_advice);
+  return lines.join("\n");
+}
 
 export default function ReviewRequestEmail() {
   const { loading, error, call } = useApi();
@@ -12,12 +29,7 @@ export default function ReviewRequestEmail() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/review-request", {
-      business_name: businessName,
-      customer_name: customerName,
-      service_provided: serviceProvided,
-      platforms,
-    }));
+    const result = await call(() => post("/api/biz/review-request", { business_name: businessName, customer_name: customerName, service_provided: serviceProvided, platforms }));
     if (result) setData(result);
   }
 
@@ -28,7 +40,7 @@ export default function ReviewRequestEmail() {
       <h1 className="page-title">Review Request <span>Email</span></h1>
       <p className="page-subtitle">Write a friendly, natural email asking customers to leave a review.</p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
+      <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
         <input type="text" placeholder="Your business name *" value={businessName} onChange={(e) => setBusinessName(e.target.value)} required disabled={loading} style={inputStyle} />
         <input type="text" placeholder="Customer's name (optional)" value={customerName} onChange={(e) => setCustomerName(e.target.value)} disabled={loading} style={inputStyle} />
         <input type="text" placeholder="Service or product provided" value={serviceProvided} onChange={(e) => setServiceProvided(e.target.value)} disabled={loading} style={inputStyle} />
@@ -36,10 +48,11 @@ export default function ReviewRequestEmail() {
         <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Writing…" : "Write Review Request"}</button>
       </form>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && <div className="error-banner no-print">{error}</div>}
 
       {data && (
         <>
+          <div className="print-header" style={{ display: "none" }}><strong>Review Request Email{businessName ? ` — ${businessName}` : ""}</strong></div>
           {data.subject && (
             <div className="result-card">
               <p className="result-label">Subject Line</p>
@@ -49,7 +62,7 @@ export default function ReviewRequestEmail() {
           <div className="result-card">
             <div className="result-header">
               <p className="result-label">Email Body</p>
-              <button className="copy-btn" onClick={() => navigator.clipboard.writeText(`Subject: ${data.subject}\n\n${data.body}`)}>Copy</button>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(`Subject: ${data.subject}\n\n${data.body}`)}>Copy</button>
             </div>
             <p style={{ fontSize: "0.92rem", lineHeight: 1.7, whiteSpace: "pre-wrap" }}>{data.body}</p>
           </div>
@@ -59,6 +72,12 @@ export default function ReviewRequestEmail() {
               <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{data.timing_advice}</p>
             </div>
           )}
+          <ReportToolbar
+            filename={slug(businessName) || "review_request"}
+            subject={`Review Request Email${businessName ? ` — ${businessName}` : ""}`}
+            txtContent={buildTxt(data)}
+            mdContent={buildMd(data)}
+          />
         </>
       )}
     </div>
