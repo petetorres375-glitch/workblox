@@ -1,4 +1,4 @@
-const CACHE = 'workblox-business-v3';
+const CACHE = 'workblox-business-v4';
 const BASE = '/workblox/workblox-business';
 
 self.addEventListener('install', e => {
@@ -31,7 +31,8 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request).then(resp => {
       if (resp && resp.status === 200 && resp.type === 'basic') {
-        caches.open(CACHE).then(c => c.put(e.request, resp.clone()));
+        const copy = resp.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy));
       }
       return resp;
     }))
