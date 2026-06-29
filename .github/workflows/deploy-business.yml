@@ -8,6 +8,10 @@ on:
       - '.github/workflows/deploy-business.yml'
   workflow_dispatch:
 
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
