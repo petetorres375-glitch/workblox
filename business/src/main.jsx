@@ -7,7 +7,7 @@ import "./styles/index.css";
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/workblox-business/sw.js');
+    navigator.serviceWorker.register('/workblox/workblox-business/sw.js');
   });
 }
 
