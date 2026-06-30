@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, g
 
 from .. import db
-from ..models import User
+from ..models import User, AppConfig
 
 bp = Blueprint("admin", __name__, url_prefix="/api/admin")
 
@@ -67,3 +67,33 @@ def set_user_plan(user_id):
     user.plan = new_plan
     db.session.commit()
     return jsonify({"plan": new_plan})
+
+
+@bp.get("/kill-switch")
+def get_kill_switch():
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    personal = db.session.get(AppConfig, "personal_enabled")
+    business = db.session.get(AppConfig, "business_enabled")
+    return jsonify({
+        "personal_enabled": personal.value == "true" if personal else True,
+        "business_enabled": business.value == "true" if business else True,
+    })
+
+
+@bp.post("/kill-switch")
+def set_kill_switch():
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    body = request.get_json(silent=True) or {}
+    results = {}
+    for key in ("personal_enabled", "business_enabled"):
+        if key in body:
+            row = db.session.get(AppConfig, key)
+            if not row:
+                row = AppConfig(key=key, value="true")
+                db.session.add(row)
+            row.value = "true" if body[key] else "false"
+            results[key] = body[key]
+    db.session.commit()
+    return jsonify(results)

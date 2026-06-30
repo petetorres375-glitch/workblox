@@ -2,6 +2,23 @@ from datetime import datetime, timezone
 from . import db
 
 
+class AppConfig(db.Model):
+    __tablename__ = "app_config"
+
+    key   = db.Column(db.String(50),  primary_key=True)
+    value = db.Column(db.String(255), nullable=False)
+
+
+class ModerationLog(db.Model):
+    __tablename__ = "moderation_logs"
+
+    id         = db.Column(db.Integer, primary_key=True)
+    category   = db.Column(db.String(50),  nullable=False)
+    user_sub   = db.Column(db.String(255), nullable=True)   # email, never the blocked text
+    app        = db.Column(db.String(20),  nullable=True)   # "personal" | "business"
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+
 class Contact(db.Model):
     __tablename__ = "contacts"
 

@@ -57,6 +57,15 @@ def create_app(testing=False):
             db.session.commit()
         except Exception:
             db.session.rollback()
+        # seed kill-switch rows if missing
+        from .models import AppConfig
+        for key, val in [("personal_enabled", "true"), ("business_enabled", "true")]:
+            if not db.session.get(AppConfig, key):
+                db.session.add(AppConfig(key=key, value=val))
+        try:
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
 
     @app.errorhandler(429)
     def rate_limit_exceeded(e):
@@ -70,6 +79,19 @@ def create_app(testing=False):
             return
         if any(request.path.startswith(p) for p in _PUBLIC_PREFIXES):
             return
+
+        # Kill switch — admin routes are exempt so Pedro can re-enable
+        if not request.path.startswith("/api/admin"):
+            from .models import AppConfig
+            if request.path.startswith("/api/biz"):
+                cfg = db.session.get(AppConfig, "business_enabled")
+                if cfg and cfg.value != "true":
+                    return jsonify({"error": "Workblox Business is temporarily unavailable."}), 503
+            else:
+                cfg = db.session.get(AppConfig, "personal_enabled")
+                if cfg and cfg.value != "true":
+                    return jsonify({"error": "Workblox is temporarily unavailable."}), 503
+
         auth_header = request.headers.get("Authorization", "")
         if not auth_header.startswith("Bearer "):
             return jsonify({"error": "Authentication required"}), 401
@@ -79,6 +101,14 @@ def create_app(testing=False):
             g.user = decode_token(token)
         except Exception:
             return jsonify({"error": "Invalid or expired session"}), 401
+
+        # is_active check — skip for demo (no DB row) and admin routes
+        sub = g.user.get("sub", "")
+        if sub and sub != "demo" and not request.path.startswith("/api/admin"):
+            from .models import User
+            user_row = User.query.filter_by(email=sub).first()
+            if user_row and not user_row.is_active:
+                return jsonify({"error": "Account is not active. Contact pedro_torres@torrestechremote.com."}), 401
 
     from .routes import register_blueprints
     register_blueprints(app)

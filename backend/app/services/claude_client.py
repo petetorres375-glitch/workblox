@@ -54,6 +54,15 @@ def _call_openai(system_prompt, user_message, max_tokens):
 
 
 def call(system_prompt: str, user_message: str, model: str, max_tokens: int) -> dict:
+    from .moderation import check as mod_check, ModerationError
+    try:
+        mod_check(user_message)
+    except ModerationError:
+        raise RuntimeError(
+            "Your request could not be processed. If you believe this is a mistake, "
+            "contact pedro_torres@torrestechremote.com."
+        ) from None
+
     try:
         return _call_claude(system_prompt, user_message, model, max_tokens)
     except anthropic.AuthenticationError:

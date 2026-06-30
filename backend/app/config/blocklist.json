@@ -1,0 +1,34 @@
+{
+  "csam": [
+    "(?i)\\b(child|minor|underage|kid|teen|youth|juvenile)\\b.{0,60}\\b(sex|nude|naked|explicit|porn|erotic|lust|lewd)\\b",
+    "(?i)\\b(sexual|erotic|pornograph).{0,40}\\b(child|minor|underage|kid|teen|juvenile)\\b",
+    "(?i)\\b(cp|c\\.p\\.)\\b.{0,20}\\b(image|photo|video|content|material)\\b"
+  ],
+  "fraud": [
+    "(?i)\\b(create|make|generate|write|forge|fabricate|fake|produce).{0,40}\\b(fake|false|fraudulent|forged|counterfeit).{0,30}\\b(invoice|check|cheque|document|id|passport|license|receipt|contract|deed|certificate)\\b",
+    "(?i)\\b(launder|laundering|wash).{0,30}\\b(money|cash|funds|proceeds|crypto)\\b",
+    "(?i)\\b(advance.{0,5}fee|419 fraud|nigerian prince|overpayment scam)\\b",
+    "(?i)\\b(pump.{0,5}and.{0,5}dump|ponzi scheme|pyramid scheme|multi.{0,5}level.{0,10}fraud)\\b",
+    "(?i)\\b(carding|card dump|fullz|cvv dump|stolen credit card)\\b"
+  ],
+  "phishing": [
+    "(?i)\\b(create|make|build|write|design|code).{0,40}\\b(phishing|credential.{0,10}harvest|spoof|fake|clone).{0,30}\\b(email|page|site|website|login|form|portal)\\b",
+    "(?i)\\b(impersonat|pretend.{0,15}to.{0,15}be|pose.{0,15}as|masquerade).{0,40}\\b(bank|paypal|amazon|microsoft|apple|google|irs|ssa|medicare|government|official|support)\\b",
+    "(?i)\\b(harvest|steal|capture|collect|scrape).{0,30}\\b(password|credential|login|username|account|ssn|social security)\\b.{0,50}\\b(email|form|page|website|link)\\b"
+  ],
+  "identity_theft": [
+    "(?i)\\b(steal|forge|create|fabricate|make).{0,30}\\b(identity|ssn|social.{0,5}security|passport|birth.{0,5}certificate|driver.{0,5}license|state id)\\b",
+    "(?i)\\bhow.{0,15}(to|do|can|do i).{0,25}\\b(steal|take|get|obtain|assume).{0,25}\\b(someone.{0,10}(else.{0,10})?(identity|ssn|social.{0,5}security|personal.{0,10}info))\\b",
+    "(?i)\\b(dox|doxx|doxing|doxxing).{0,40}\\b(someone|person|individual|target|victim)\\b"
+  ],
+  "credential_harvesting": [
+    "(?i)\\b(keylogger|keystroke.{0,10}log|password.{0,5}stealer|credential.{0,5}(dump|harvest|grab)|mimikatz|lsass dump)\\b",
+    "(?i)\\b(write|create|build|make|code|develop).{0,40}\\b(keylogger|password.{0,5}(stealer|harvester|grabber|sniffer)|credential.{0,5}(steal|harvest))\\b",
+    "(?i)\\b(brute.{0,5}force|credential.{0,5}stuff|pass.{0,5}the.{0,5}hash|rainbow.{0,5}table).{0,30}\\b(script|tool|code|program|automat)\\b"
+  ],
+  "malware": [
+    "(?i)\\b(write|create|build|code|make|develop|program).{0,40}\\b(virus|malware|ransomware|trojan|spyware|rootkit|worm|botnet|rat\\b|backdoor|dropper|payload|exploit)\\b",
+    "(?i)\\b(ransomware|encrypt.{0,20}files.{0,20}demand.{0,20}(ransom|payment|bitcoin|crypto))\\b",
+    "(?i)\\b(c2 server|command.{0,5}and.{0,5}control|reverse shell|bind shell).{0,30}\\b(write|create|build|code|make|set up|establish)\\b"
+  ]
+}

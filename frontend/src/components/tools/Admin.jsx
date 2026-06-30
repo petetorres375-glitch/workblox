@@ -6,6 +6,8 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState("all");
+  const [killSwitch, setKillSwitch] = useState({ personal_enabled: true, business_enabled: true });
+  const [ksLoading, setKsLoading] = useState(false);
 
   async function fetchUsers() {
     try {
@@ -18,7 +20,27 @@ export default function Admin() {
     }
   }
 
-  useEffect(() => { fetchUsers(); }, []);
+  async function fetchKillSwitch() {
+    try {
+      const data = await get("/api/admin/kill-switch");
+      setKillSwitch(data);
+    } catch (_) {}
+  }
+
+  async function toggleKillSwitch(key) {
+    setKsLoading(true);
+    try {
+      const updated = { [key]: !killSwitch[key] };
+      await post("/api/admin/kill-switch", updated);
+      setKillSwitch((prev) => ({ ...prev, ...updated }));
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setKsLoading(false);
+    }
+  }
+
+  useEffect(() => { fetchUsers(); fetchKillSwitch(); }, []);
 
   async function toggleActive(email, activate) {
     const action = activate ? "activate" : "deactivate";
@@ -53,6 +75,35 @@ export default function Admin() {
     <div>
       <h1 className="page-title">Admin <span>Panel</span></h1>
       <p className="page-subtitle">Manage client accounts and activations.</p>
+
+      <div className="admin-user-card" style={{ marginBottom: "24px" }}>
+        <div className="admin-user-info">
+          <span className="admin-user-name">App Kill Switch</span>
+          <span className="admin-user-email">Disable an app for all users instantly</span>
+        </div>
+        <div className="admin-user-actions">
+          <span className={`admin-badge ${killSwitch.personal_enabled ? "badge-active" : "badge-pending"}`}>
+            Personal: {killSwitch.personal_enabled ? "ON" : "OFF"}
+          </span>
+          <button
+            className={`admin-action-btn ${killSwitch.personal_enabled ? "btn-deactivate" : "btn-activate"}`}
+            onClick={() => toggleKillSwitch("personal_enabled")}
+            disabled={ksLoading}
+          >
+            {killSwitch.personal_enabled ? "Disable Personal" : "Enable Personal"}
+          </button>
+          <span className={`admin-badge ${killSwitch.business_enabled ? "badge-active" : "badge-pending"}`}>
+            Business: {killSwitch.business_enabled ? "ON" : "OFF"}
+          </span>
+          <button
+            className={`admin-action-btn ${killSwitch.business_enabled ? "btn-deactivate" : "btn-activate"}`}
+            onClick={() => toggleKillSwitch("business_enabled")}
+            disabled={ksLoading}
+          >
+            {killSwitch.business_enabled ? "Disable Business" : "Enable Business"}
+          </button>
+        </div>
+      </div>
 
       <div className="admin-filters">
         {["all", "pending", "active"].map((f) => (
