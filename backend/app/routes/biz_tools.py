@@ -201,7 +201,7 @@ def hiring_manager():
         result = claude_client.call(
             system_prompt=_HIRING_MANAGER_PROMPT,
             user_message=description,
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -227,7 +227,7 @@ def job_desc_writer():
         result = claude_client.call(
             system_prompt=_JOB_DESC_PROMPT,
             user_message=f"Job Title: {job_title}\nDepartment: {department}\nRequirements: {requirements}\nSalary Range: {salary_range}\nCompany Info: {company_info}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -253,7 +253,7 @@ def proposal_generator():
         result = claude_client.call(
             system_prompt=_PROPOSAL_PROMPT,
             user_message=f"Client: {client_name}\nProject: {project_description}\nServices: {services}\nBudget: {budget_range}\nTimeline: {timeline}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -277,7 +277,7 @@ def customer_response_drafter():
         result = claude_client.call(
             system_prompt=_CUSTOMER_RESPONSE_PROMPT,
             user_message=f"Customer Message: {customer_message}\nContext: {context}\nDesired Tone: {tone}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=1024,
         )
         return jsonify(result)
@@ -302,7 +302,7 @@ def review_request_email():
         result = claude_client.call(
             system_prompt=_REVIEW_REQUEST_PROMPT,
             user_message=f"Business: {business_name}\nCustomer Name: {customer_name}\nService: {service_provided}\nReview Platforms: {platforms}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=1024,
         )
         return jsonify(result)
@@ -328,7 +328,7 @@ def social_media_generator():
         result = claude_client.call(
             system_prompt=_SOCIAL_MEDIA_PROMPT,
             user_message=f"Topic: {topic}\nBusiness: {business_name}\nPlatforms: {platforms}\nTone: {tone}\nGoal: {goal}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -354,7 +354,7 @@ def ad_copy_writer():
         result = claude_client.call(
             system_prompt=_AD_COPY_PROMPT,
             user_message=f"Product/Service: {product_service}\nTarget Audience: {target_audience}\nPlatform: {platform}\nUnique Value Proposition: {unique_value}\nGoal: {goal}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=1536,
         )
         return jsonify(result)
@@ -379,7 +379,7 @@ def policy_generator():
         result = claude_client.call(
             system_prompt=_POLICY_PROMPT,
             user_message=f"Policy Type: {policy_type}\nCompany: {company_name}\nIndustry: {industry}\nSpecific Requirements: {specifics}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -404,7 +404,7 @@ def sop_generator():
         result = claude_client.call(
             system_prompt=_SOP_PROMPT,
             user_message=f"Process: {process_name}\nDepartment: {department}\nDescription: {description}\nFrequency: {frequency}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -427,7 +427,7 @@ def meeting_notes_cleaner():
         result = claude_client.call(
             system_prompt=_MEETING_NOTES_PROMPT,
             user_message=f"Meeting Context: {context}\n\nRaw Notes:\n{raw_notes}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=2048,
         )
         return jsonify(result)
@@ -452,7 +452,7 @@ def business_email_drafter():
         result = claude_client.call(
             system_prompt=_BUSINESS_EMAIL_PROMPT,
             user_message=f"Purpose: {purpose}\nRecipient/Role: {recipient}\nKey Points: {key_points}\nTone: {tone}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=1024,
         )
         return jsonify(result)
@@ -485,7 +485,7 @@ def contract_analyzer():
         result = claude_client.call(
             system_prompt=_CONTRACT_PROMPT,
             user_message=f"Contract filename: {file.filename}\n\nContent:\n{text[:12000]}",
-            model="claude-sonnet-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=3000,
         )
         return jsonify(result)
