@@ -392,6 +392,23 @@ footer a {
   border-color: #666;
 }
 
+.header-install {
+  background: transparent;
+  border: 1px solid #2563eb;
+  color: #60a5fa;
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.header-install:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
 /* ── Login page ── */
 .login-page {
   min-height: 100vh;
