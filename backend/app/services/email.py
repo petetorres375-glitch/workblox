@@ -20,7 +20,7 @@ def _generate_pdf(subject, txt_content):
 
     def safe(text):
         text = (text
-            .replace("—", "--").replace("–", "-")
+            .replace("—", " - ").replace("–", " - ")
             .replace("‘", "'").replace("’", "'")
             .replace("“", '"').replace("”", '"')
             .replace("•", "-").replace(" ", " "))
@@ -93,8 +93,9 @@ def _generate_pdf(subject, txt_content):
         cell_ln(6, line.strip(), font_size=10)
         i += 1
 
-    # Footer
-    pdf.set_y(-18)
+    # Footer — disable auto page break so set_y near bottom doesn't trigger new page
+    pdf.set_auto_page_break(False)
+    pdf.set_y(pdf.h - 15)
     pdf.set_x(pdf.l_margin)
     pdf.set_font("Helvetica", "I", 7)
     pdf.set_text_color(148, 163, 184)
