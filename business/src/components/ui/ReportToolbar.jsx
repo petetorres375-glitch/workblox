@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { post } from "../../api/client";
+import { post, postBlob } from "../../api/client";
 
 function triggerDownload(content, filename, mime) {
   const blob = new Blob([content], { type: mime });
@@ -135,7 +135,26 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
     }
   }
 
-  const busy = emailLoading || pdfLoading;
+  const [dlPdfLoading, setDlPdfLoading] = useState(false);
+
+  async function handleDownloadPdf() {
+    setDlPdfLoading(true);
+    try {
+      const blob = await postBlob("/api/biz/download-pdf", { subject, content_txt: txtContent, filename });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${filename}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setEmailError(err.message);
+    } finally {
+      setDlPdfLoading(false);
+    }
+  }
+
+  const busy = emailLoading || pdfLoading || dlPdfLoading;
 
   return (
     <>
@@ -144,7 +163,7 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
           <span className="report-toolbar-label">Download</span>
           <button className="toolbar-btn" onClick={() => triggerDownload(txtContent, `${filename}.txt`, "text/plain")}>TXT</button>
           <button className="toolbar-btn" onClick={() => triggerDownload(mdContent || txtContent, `${filename}.md`, "text/markdown")}>MD</button>
-          <button className="toolbar-btn" onClick={() => window.print()}>Print / PDF</button>
+          <button className="toolbar-btn" onClick={handleDownloadPdf} disabled={busy}>{dlPdfLoading ? "Generating…" : "PDF"}</button>
         </div>
         <div className="report-toolbar-divider" />
         <form className="report-toolbar-group" onSubmit={handleEmail}>

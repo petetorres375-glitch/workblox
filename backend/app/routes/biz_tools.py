@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify, request, g
+from flask import Blueprint, jsonify, request, g, Response
 
 from .. import limiter
 from ..services import claude_client
-from ..services.email import send_pdf_email, send_report_email
+from ..services.email import send_pdf_email, send_report_email, _generate_pdf
 from ..services.file_handler import extract_text
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
@@ -563,3 +563,26 @@ def email_pdf():
     if not success:
         return jsonify({"error": "Failed to send PDF email — check SendGrid configuration."}), 500
     return jsonify({"sent": True})
+
+
+@bp.post("/download-pdf")
+@limiter.limit("10 per hour")
+def download_pdf():
+    guard = _require_business()
+    if guard:
+        return guard
+    body = request.get_json(silent=True) or {}
+    subject = (body.get("subject") or "Workblox Report").strip()
+    content_txt = (body.get("content_txt") or "").strip()
+    filename = (body.get("filename") or "report").strip()
+    if not content_txt:
+        return jsonify({"error": "content_txt is required"}), 400
+    try:
+        pdf_bytes = _generate_pdf(subject, content_txt)
+        return Response(
+            pdf_bytes,
+            mimetype="application/pdf",
+            headers={"Content-Disposition": f'attachment; filename="{filename}.pdf"'},
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

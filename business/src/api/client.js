@@ -42,6 +42,19 @@ export function post(path, body) {
   }).then((res) => handleResponse(res, path)).catch(networkGuard);
 }
 
+export async function postBlob(path, body) {
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error(data.error || `Request failed (${res.status})`);
+  }
+  return res.blob();
+}
+
 export function postForm(path, formData) {
   return fetch(`${BASE_URL}${path}`, {
     method: "POST",
