@@ -204,9 +204,9 @@ def hiring_manager():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/job-desc")
@@ -230,9 +230,9 @@ def job_desc_writer():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/proposal")
@@ -256,9 +256,9 @@ def proposal_generator():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/customer-response")
@@ -280,9 +280,9 @@ def customer_response_drafter():
             model="claude-sonnet-4-6",
             max_tokens=1024,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/review-request")
@@ -305,9 +305,9 @@ def review_request_email():
             model="claude-sonnet-4-6",
             max_tokens=1024,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/social-media")
@@ -331,9 +331,9 @@ def social_media_generator():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/ad-copy")
@@ -357,9 +357,9 @@ def ad_copy_writer():
             model="claude-sonnet-4-6",
             max_tokens=1536,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/policy")
@@ -382,9 +382,9 @@ def policy_generator():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/sop")
@@ -407,9 +407,9 @@ def sop_generator():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/meeting-notes")
@@ -430,9 +430,9 @@ def meeting_notes_cleaner():
             model="claude-sonnet-4-6",
             max_tokens=2048,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/business-email")
@@ -455,9 +455,9 @@ def business_email_drafter():
             model="claude-sonnet-4-6",
             max_tokens=1024,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 # ── Pattern B routes (file upload) ────────────────────────────────────────────
@@ -488,9 +488,9 @@ def contract_analyzer():
             model="claude-sonnet-4-6",
             max_tokens=3000,
         )
+        return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    return jsonify(result)
 
 
 @bp.post("/batch-ats")

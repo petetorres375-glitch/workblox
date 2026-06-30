@@ -28,6 +28,21 @@ def create_app(testing=False):
         "http://127.0.0.1:5174",
     ]
     CORS(app, origins=allowed_origins)
+
+    @app.after_request
+    def _force_cors(response):
+        origin = request.headers.get("Origin", "")
+        if origin in allowed_origins:
+            response.headers["Access-Control-Allow-Origin"] = origin
+            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+            response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE, PATCH"
+            response.headers["Vary"] = "Origin"
+        return response
+
+    @app.errorhandler(500)
+    def _server_error(e):
+        return jsonify({"error": "Internal server error — check logs"}), 500
+
     limiter.init_app(app)
     db.init_app(app)
 
