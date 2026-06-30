@@ -107,7 +107,7 @@ def google_login():
     user = User.query.filter_by(email=email).first()
     if not user:
         is_owner = email in _OWNER
-        user = User(email=email, name=name, email_verified=True, is_active=is_owner,
+        user = User(email=email, name=name, email_verified=True, is_active=True,
                     plan="business" if is_owner else "free")
         db.session.add(user)
         db.session.commit()
