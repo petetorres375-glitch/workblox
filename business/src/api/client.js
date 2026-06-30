@@ -55,6 +55,21 @@ export async function postBlob(path, body) {
   return res.blob();
 }
 
+export function put(path, body) {
+  return fetch(`${BASE_URL}${path}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(body),
+  }).then((res) => handleResponse(res, path)).catch(networkGuard);
+}
+
+export function del(path) {
+  return fetch(`${BASE_URL}${path}`, {
+    method: "DELETE",
+    headers: authHeaders(),
+  }).then((res) => handleResponse(res, path)).catch(networkGuard);
+}
+
 export function postForm(path, formData) {
   return fetch(`${BASE_URL}${path}`, {
     method: "POST",

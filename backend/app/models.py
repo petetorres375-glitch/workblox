@@ -2,6 +2,27 @@ from datetime import datetime, timezone
 from . import db
 
 
+class Contact(db.Model):
+    __tablename__ = "contacts"
+
+    id           = db.Column(db.Integer, primary_key=True)
+    user_id      = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    first_name   = db.Column(db.String(100), nullable=False, default="")
+    last_name    = db.Column(db.String(100), nullable=False, default="")
+    middle_init  = db.Column(db.String(10),  nullable=True)
+    company      = db.Column(db.String(200), nullable=True)
+    contact_type = db.Column(db.String(50),  nullable=False, default="Client")
+    phones       = db.Column(db.Text, nullable=True)   # JSON array
+    emails       = db.Column(db.Text, nullable=True)   # JSON array
+    street       = db.Column(db.String(200), nullable=True)
+    apt          = db.Column(db.String(50),  nullable=True)
+    city         = db.Column(db.String(100), nullable=True)
+    state        = db.Column(db.String(50),  nullable=True)
+    zip          = db.Column(db.String(20),  nullable=True)
+    notes        = db.Column(db.Text, nullable=True)
+    created_at   = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+
 class User(db.Model):
     __tablename__ = "users"
 

@@ -4,6 +4,7 @@ import Login from "./components/auth/Login";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import AdCopyWriter from "./components/tools/AdCopyWriter";
+import Contacts from "./components/tools/Contacts";
 import BatchATSAnalyzer from "./components/tools/BatchATSAnalyzer";
 import BusinessEmailDrafter from "./components/tools/BusinessEmailDrafter";
 import ContractAnalyzer from "./components/tools/ContractAnalyzer";
@@ -31,6 +32,7 @@ const TOOLS = {
   sop: SOPGenerator,
   meeting: MeetingNotesCleaner,
   email: BusinessEmailDrafter,
+  contacts: Contacts,
 };
 
 export default function App() {

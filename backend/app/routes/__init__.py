@@ -1,5 +1,6 @@
 from .admin import bp as admin_bp
 from .biz_tools import bp as biz_bp
+from .contacts import bp as contacts_bp
 from .auth import bp as auth_bp
 from .ats_analyzer import bp as ats_analyzer_bp
 from .doc_analyzer import bp as doc_analyzer_bp
@@ -14,6 +15,7 @@ from .workflow_builder import bp as workflow_builder_bp
 def register_blueprints(app):
     app.register_blueprint(admin_bp)
     app.register_blueprint(biz_bp)
+    app.register_blueprint(contacts_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(health_bp)
     app.register_blueprint(linux_helper_bp)

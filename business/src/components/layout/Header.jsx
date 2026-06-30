@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { id: "sop", label: "SOP" },
   { id: "meeting", label: "Meeting Notes" },
   { id: "email", label: "Business Email" },
+  { id: "contacts", label: "Contacts" },
 ];
 
 export default function Header({ active, onSelect }) {
