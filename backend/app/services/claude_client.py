@@ -10,7 +10,7 @@ _openai  = None
 def _get_claude():
     global _claude
     if _claude is None:
-        _claude = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        _claude = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"], timeout=25.0)
     return _claude
 
 
