@@ -138,5 +138,6 @@ def demo_login():
     demo_pw = current_app.config.get("DEMO_PASSWORD", "")
     if not demo_pw or password != demo_pw:
         return jsonify({"error": "Invalid"}), 401
-    token = create_token(sub="demo", name="Pedro", hours=8)
-    return jsonify({"token": token, "name": "Pedro"})
+    plan = data.get("plan", "free")
+    token = create_token(sub="demo", name="Demo User", hours=8, plan=plan)
+    return jsonify({"token": token, "name": "Demo User", "plan": plan})
