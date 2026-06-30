@@ -71,12 +71,12 @@ def _generate_pdf(subject, txt_content):
 
         if re.match(r"^\d+\.\s", line):
             pdf.set_font("Helvetica", "", 9)
-            pdf.multi_cell(0, 5.5, safe(line))
+            pdf.multi_cell(pdf.epw, 5.5, safe(line))
             i += 1
             continue
 
         pdf.set_font("Helvetica", "", 10)
-        pdf.multi_cell(0, 6, safe(line.strip()))
+        pdf.multi_cell(pdf.epw, 6, safe(line.strip()))
         i += 1
 
     # Footer
