@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
+import { usePWA } from "../../hooks/usePWA";
 import { post } from "../../api/client";
 import PasswordInput from "../ui/PasswordInput";
 
 export default function Login() {
   const { login } = useAuth();
+  const { canInstall, install } = usePWA();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -135,6 +137,17 @@ export default function Login() {
 
         {error && <p className="login-error">{error}</p>}
       </div>
+
+      {canInstall && (
+        <button onClick={install} style={{
+          marginTop: "1.25rem", background: "transparent",
+          border: "1.5px solid rgba(255,255,255,0.25)", borderRadius: "8px",
+          color: "rgba(255,255,255,0.75)", padding: "0.6rem 1.4rem",
+          fontFamily: "inherit", fontSize: "0.88rem", cursor: "pointer",
+        }}>
+          ⊕ Install App
+        </button>
+      )}
     </div>
   );
 }

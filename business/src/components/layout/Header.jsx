@@ -1,5 +1,4 @@
 import { useAuth } from "../../contexts/AuthContext";
-import { usePWA } from "../../hooks/usePWA";
 
 const NAV_ITEMS = [
   { id: "hiring", label: "Hiring Manager" },
@@ -20,7 +19,6 @@ const NAV_ITEMS = [
 
 export default function Header({ active, onSelect }) {
   const { user, logout } = useAuth();
-  const { canInstall, install } = usePWA();
 
   return (
     <header className="site-header">
@@ -34,9 +32,6 @@ export default function Header({ active, onSelect }) {
         </div>
         <div className="header-user">
           <span className="header-user-name">{user?.name}</span>
-          {canInstall && (
-            <button className="header-signout" onClick={install} style={{ marginRight: "0.5rem" }}>Install App</button>
-          )}
           <button className="header-signout" onClick={logout}>Sign out</button>
         </div>
       </div>
