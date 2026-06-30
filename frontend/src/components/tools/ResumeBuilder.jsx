@@ -44,7 +44,7 @@ export default function ResumeBuilder() {
     const res = await call(() =>
       fetch(`${BASE_URL}/api/resume/create`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${localStorage.getItem("wb_token")}` },
         body: JSON.stringify(payload),
       }).then((r) => r.ok ? r.json() : r.json().then((d) => Promise.reject(new Error(d.error || "Failed"))))
     );
@@ -57,7 +57,7 @@ export default function ResumeBuilder() {
     try {
       const res = await fetch(`${BASE_URL}/api/resume/download/${fmt}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${localStorage.getItem("wb_token")}` },
         body: JSON.stringify(result),
       });
       if (!res.ok) throw new Error("Download failed");

@@ -54,7 +54,7 @@ def deactivate_user(email):
     return jsonify({"message": f"{user.email} deactivated"})
 
 
-@bp.put("/users/<int:user_id>/plan")
+@bp.post("/users/<int:user_id>/plan")
 def set_user_plan(user_id):
     if not _is_admin():
         return jsonify({"error": "Forbidden"}), 403
