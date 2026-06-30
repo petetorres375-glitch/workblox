@@ -43,6 +43,15 @@ export default function WindowsHelper() {
 
       {result && !loading && (
         <>
+          {result.gui_steps?.length > 0 && result.gui_steps[0] !== "No GUI method available for this task." && (
+            <div className="result-card">
+              <div className="result-label">GUI Steps</div>
+              <ol className="warning-list" style={{ paddingLeft: "1.2rem" }}>
+                {result.gui_steps.map((s, i) => <li key={i} style={{ marginBottom: "0.4rem" }}>{s}</li>)}
+              </ol>
+            </div>
+          )}
+
           <div className="result-card">
             <div className="result-header">
               <div className="result-label">Command</div>
