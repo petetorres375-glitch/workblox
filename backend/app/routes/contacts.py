@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 from flask import Blueprint, jsonify, request, g, send_file
+from sqlalchemy import case, func
 
 from .. import db, limiter
 from ..models import Contact, User
@@ -128,7 +129,11 @@ def list_contacts():
     query = Contact.query.filter_by(user_id=user_id)
     if contact_type and contact_type != "All":
         query = query.filter_by(contact_type=contact_type)
-    contacts = query.order_by(Contact.last_name, Contact.first_name).all()
+    sort_key = func.lower(case(
+        (Contact.last_name != "", Contact.last_name),
+        else_=Contact.first_name
+    ))
+    contacts = query.order_by(sort_key, func.lower(Contact.first_name)).all()
 
     if q:
         contacts = [c for c in contacts if (
@@ -207,14 +212,18 @@ def export_pdf():
     ids     = body.get("ids")  # list of IDs; None = export all
     user_id = _user_id()
 
+    _sort = func.lower(case(
+        (Contact.last_name != "", Contact.last_name),
+        else_=Contact.first_name
+    ))
     if ids:
         contacts = (Contact.query
             .filter(Contact.user_id == user_id, Contact.id.in_(ids))
-            .order_by(Contact.last_name, Contact.first_name).all())
+            .order_by(_sort, func.lower(Contact.first_name)).all())
     else:
         contacts = (Contact.query
             .filter_by(user_id=user_id)
-            .order_by(Contact.last_name, Contact.first_name).all())
+            .order_by(_sort, func.lower(Contact.first_name)).all())
 
     if not contacts:
         return jsonify({"error": "No contacts to export"}), 400
