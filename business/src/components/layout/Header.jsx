@@ -35,25 +35,25 @@ function InstallModal({ onClose }) {
 }
 
 const NAV_ITEMS = [
-  { id: "hiring", label: "Hiring Manager" },
+  { id: "ad-copy",   label: "Ad Copy" },
   { id: "batch-ats", label: "Batch ATS" },
-  { id: "job-desc", label: "Job Description" },
-  { id: "proposal", label: "Proposal" },
-  { id: "contract", label: "Contract" },
-  { id: "customer", label: "Customer Response" },
-  { id: "review", label: "Review Request" },
-  { id: "social", label: "Social Media" },
-  { id: "ad-copy", label: "Ad Copy" },
-  { id: "policy", label: "Policy" },
-  { id: "sop", label: "SOP" },
-  { id: "meeting", label: "Meeting Notes" },
-  { id: "email", label: "Business Email" },
-  { id: "contacts", label: "Contacts" },
+  { id: "email",     label: "Business Email" },
+  { id: "contacts",  label: "Contacts" },
+  { id: "contract",  label: "Contract" },
+  { id: "customer",  label: "Customer Response" },
+  { id: "hiring",    label: "Hiring Manager" },
+  { id: "job-desc",  label: "Job Description" },
+  { id: "meeting",   label: "Meeting Notes" },
+  { id: "policy",    label: "Policy" },
+  { id: "proposal",  label: "Proposal" },
+  { id: "review",    label: "Review Request" },
+  { id: "social",    label: "Social Media" },
+  { id: "sop",       label: "SOP" },
 ];
 
 export default function Header({ active, onSelect }) {
   const { user, logout } = useAuth();
-  const { canInstall, install } = usePWA();
+  const { canInstall, install, isInstalled } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
 
   function handleInstall() {
@@ -73,7 +73,7 @@ export default function Header({ active, onSelect }) {
         </div>
         <div className="header-user">
           <span className="header-user-name">{user?.name}</span>
-          <button className="header-install" onClick={handleInstall}>⊕ Install</button>
+          {!isInstalled && <button className="header-install" onClick={handleInstall}>⊕ Install</button>}
           <button className="header-signout" onClick={logout}>Sign out</button>
         </div>
       </div>

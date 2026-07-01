@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export function usePWA() {
   const [installPrompt, setInstallPrompt] = useState(() => window.__pwaPrompt || null);
+  const isInstalled = window.matchMedia("(display-mode: standalone)").matches;
 
   useEffect(() => {
     // Pick up any prompt that fired before React mounted
@@ -22,5 +23,5 @@ export function usePWA() {
     installPrompt.userChoice.then(() => setInstallPrompt(null));
   }
 
-  return { canInstall: !!installPrompt, install };
+  return { canInstall: !!installPrompt, install, isInstalled };
 }
