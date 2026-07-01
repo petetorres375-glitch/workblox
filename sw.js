@@ -1,5 +1,5 @@
-const CACHE = 'workblox-v3';
-const BASE = '/workblox';
+const CACHE = 'workblox-v4';
+const BASE = '';
 
 self.addEventListener('install', e => {
   e.waitUntil(
