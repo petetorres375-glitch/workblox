@@ -7,7 +7,7 @@ from pathlib import Path
 from flask import Blueprint, jsonify, request, g, send_file
 
 from .. import db, limiter
-from ..models import Contact
+from ..models import Contact, User
 from ..services.contact_parser import parse_vcf, parse_csv
 
 bp = Blueprint("contacts", __name__, url_prefix="/api/biz/contacts")
@@ -19,6 +19,14 @@ def _require_business():
     if g.user.get("plan") != "business":
         return jsonify({"error": "Business subscription required"}), 403
     return None
+
+
+def _user_id():
+    sub = g.user.get("sub")
+    if not sub:
+        return None
+    user = User.query.filter_by(email=sub).first()
+    return user.id if user else None
 
 
 def _to_dict(c: Contact) -> dict:
@@ -96,7 +104,7 @@ def import_contacts():
     items = body.get("contacts", [])
     if not items:
         return jsonify({"error": "No contacts to import"}), 400
-    user_id = g.user["id"]
+    user_id = _user_id()
     for item in items:
         contact = _contact_from_body(item)
         contact.user_id = user_id
@@ -113,7 +121,7 @@ def list_contacts():
     err = _require_business()
     if err:
         return err
-    user_id      = g.user["id"]
+    user_id      = _user_id()
     q            = (request.args.get("q") or "").strip().lower()
     contact_type = (request.args.get("type") or "").strip()
 
@@ -145,7 +153,7 @@ def add_contact():
     if not (body.get("first_name") or body.get("last_name")):
         return jsonify({"error": "first_name or last_name is required"}), 400
     contact = _contact_from_body(body)
-    contact.user_id = g.user["id"]
+    contact.user_id = _user_id()
     db.session.add(contact)
     db.session.commit()
     return jsonify(_to_dict(contact)), 201
@@ -159,7 +167,7 @@ def edit_contact(cid):
     err = _require_business()
     if err:
         return err
-    contact = Contact.query.filter_by(id=cid, user_id=g.user["id"]).first()
+    contact = Contact.query.filter_by(id=cid, user_id=_user_id()).first()
     if not contact:
         return jsonify({"error": "Contact not found"}), 404
     body = request.get_json(silent=True) or {}
@@ -176,7 +184,7 @@ def delete_contact(cid):
     err = _require_business()
     if err:
         return err
-    contact = Contact.query.filter_by(id=cid, user_id=g.user["id"]).first()
+    contact = Contact.query.filter_by(id=cid, user_id=_user_id()).first()
     if not contact:
         return jsonify({"error": "Contact not found"}), 404
     db.session.delete(contact)
@@ -197,7 +205,7 @@ def export_pdf():
 
     body    = request.get_json(silent=True) or {}
     ids     = body.get("ids")  # list of IDs; None = export all
-    user_id = g.user["id"]
+    user_id = _user_id()
 
     if ids:
         contacts = (Contact.query
