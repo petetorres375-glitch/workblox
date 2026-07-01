@@ -373,6 +373,8 @@ export default function Contacts() {
   const [exportLoading, setExportLoading] = useState(false);
   const [exportError, setExportError] = useState(null);
   const [successMsg, setSuccessMsg]   = useState(null);
+  const [sortCol, setSortCol]         = useState("name");
+  const [sortDir, setSortDir]         = useState("asc");
 
   const fetchContacts = useCallback(async () => {
     setLoading(true);
@@ -389,19 +391,49 @@ export default function Contacts() {
 
   useEffect(() => { fetchContacts(); }, [fetchContacts]);
 
-  // Client-side filter
-  const filtered = contacts.filter((c) => {
-    if (typeFilter !== "All" && c.contact_type !== typeFilter) return false;
-    if (!search) return true;
-    const q = search.toLowerCase();
-    return (
-      c.first_name.toLowerCase().includes(q) ||
-      c.last_name.toLowerCase().includes(q) ||
-      c.company.toLowerCase().includes(q) ||
-      c.phones.some((p) => p.includes(q)) ||
-      c.emails.some((e) => e.includes(q))
-    );
-  });
+  // Client-side filter + sort
+  const filtered = contacts
+    .filter((c) => {
+      if (typeFilter !== "All" && c.contact_type !== typeFilter) return false;
+      if (!search) return true;
+      const q = search.toLowerCase();
+      return (
+        c.first_name.toLowerCase().includes(q) ||
+        c.last_name.toLowerCase().includes(q) ||
+        c.company.toLowerCase().includes(q) ||
+        c.phones.some((p) => p.includes(q)) ||
+        c.emails.some((e) => e.includes(q))
+      );
+    })
+    .sort((a, b) => {
+      let av, bv;
+      if (sortCol === "name") {
+        const nameA = (a.last_name || a.first_name).toLowerCase();
+        const nameB = (b.last_name || b.first_name).toLowerCase();
+        av = nameA; bv = nameB;
+      } else if (sortCol === "company") {
+        av = (a.company || "").toLowerCase(); bv = (b.company || "").toLowerCase();
+      } else if (sortCol === "type") {
+        av = a.contact_type.toLowerCase(); bv = b.contact_type.toLowerCase();
+      } else if (sortCol === "phone") {
+        av = (a.phones[0] || "").toLowerCase(); bv = (b.phones[0] || "").toLowerCase();
+      } else if (sortCol === "email") {
+        av = (a.emails[0] || "").toLowerCase(); bv = (b.emails[0] || "").toLowerCase();
+      }
+      if (av < bv) return sortDir === "asc" ? -1 : 1;
+      if (av > bv) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+
+  function toggleSort(col) {
+    if (sortCol === col) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    else { setSortCol(col); setSortDir("asc"); }
+  }
+
+  function SortIcon({ col }) {
+    if (sortCol !== col) return <span style={{ opacity: 0.3, marginLeft: 4 }}>↕</span>;
+    return <span style={{ marginLeft: 4, color: "var(--orange)" }}>{sortDir === "asc" ? "↑" : "↓"}</span>;
+  }
 
   function flash(msg) {
     setSuccessMsg(msg);
@@ -568,13 +600,21 @@ export default function Contacts() {
                 borderBottom: "2px solid var(--border)", background: "#fafafa" }}>
                 <input type="checkbox" checked={allChecked} ref={(el) => { if (el) el.indeterminate = someChecked; }}
                   onChange={toggleAll} style={{ marginRight: "0.75rem", cursor: "pointer" }} />
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 600, flex: 1 }}>
-                  NAME
-                </span>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 600, width: 160 }}>COMPANY</span>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 600, width: 90 }}>TYPE</span>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 600, width: 140 }}>PHONE</span>
-                <span style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 600, flex: 1 }}>EMAIL</span>
+                {[
+                  { col: "name",    label: "NAME",    style: { flex: 1 } },
+                  { col: "company", label: "COMPANY", style: { width: 160 } },
+                  { col: "type",    label: "TYPE",    style: { width: 90 } },
+                  { col: "phone",   label: "PHONE",   style: { width: 140 } },
+                  { col: "email",   label: "EMAIL",   style: { flex: 1 } },
+                ].map(({ col, label, style }) => (
+                  <button key={col} onClick={() => toggleSort(col)}
+                    style={{ ...style, background: "none", border: "none", cursor: "pointer",
+                      fontFamily: "inherit", fontSize: "0.78rem", fontWeight: 600,
+                      color: sortCol === col ? "var(--orange)" : "var(--text-muted)",
+                      padding: 0, textAlign: "left", display: "flex", alignItems: "center" }}>
+                    {label}<SortIcon col={col} />
+                  </button>
+                ))}
                 <span style={{ width: 80 }} />
               </div>
 
