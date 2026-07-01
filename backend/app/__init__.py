@@ -21,6 +21,7 @@ def create_app(testing=False):
 
     allowed_origins = [
         "https://petetorres375-glitch.github.io",
+        "https://workblox.torrestechremote.com",
         "https://business.torrestechremote.com",
         "http://localhost:5173",
         "http://localhost:5174",

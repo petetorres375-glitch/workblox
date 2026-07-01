@@ -31,11 +31,11 @@ jobs:
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
           VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
-        run: node_modules/.bin/vite build --base=/workblox/
+        run: node_modules/.bin/vite build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: frontend/dist
-          keep_files: true
+          cname: workblox.torrestechremote.com
