@@ -9,7 +9,7 @@ from .config import Config
 limiter = Limiter(key_func=get_remote_address, default_limits=["60 per hour"])
 db = SQLAlchemy()
 
-_PUBLIC_PREFIXES = ("/api/auth/", "/health")
+_PUBLIC_PREFIXES = ("/api/auth/", "/api/health")
 
 
 def create_app(testing=False):
