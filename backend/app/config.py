@@ -16,6 +16,15 @@ class Config:
     MAIL_FROM = os.environ.get("MAIL_FROM", "")
     APP_URL = os.environ.get("APP_URL", "http://localhost:5000")
     FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:5173")
+    ALLOWED_ORIGINS = [
+        "https://petetorres375-glitch.github.io",
+        "https://workblox.torrestechremote.com",
+        "https://business.torrestechremote.com",
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+    ]
     _db_url = os.environ.get("DATABASE_URL", "sqlite:///workblox.db")
     # Railway exposes postgres:// but SQLAlchemy requires postgresql://
     SQLALCHEMY_DATABASE_URI = _db_url.replace("postgres://", "postgresql://", 1) if _db_url.startswith("postgres://") else _db_url

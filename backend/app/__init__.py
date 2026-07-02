@@ -19,15 +19,7 @@ def create_app(testing=False):
         app.config["TESTING"] = True
         limiter.enabled = False
 
-    allowed_origins = [
-        "https://petetorres375-glitch.github.io",
-        "https://workblox.torrestechremote.com",
-        "https://business.torrestechremote.com",
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-    ]
+    allowed_origins = Config.ALLOWED_ORIGINS
     CORS(app, origins=allowed_origins)
 
     @app.after_request

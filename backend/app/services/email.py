@@ -156,13 +156,13 @@ def send_report_email(to_email, subject, txt_body, html_body):
     }, api_key)
 
 
-def send_verification_email(email, name):
+def send_verification_email(email, name, origin=None):
     api_key = current_app.config.get("SENDGRID_API_KEY", "")
     mail_from = current_app.config.get("MAIL_FROM", "")
     if not api_key or not mail_from:
         return False
 
-    token = create_verification_token(email)
+    token = create_verification_token(email, origin)
     app_url = current_app.config.get("APP_URL", "http://localhost:5000")
     verify_url = f"{app_url}/api/auth/verify/{token}"
 

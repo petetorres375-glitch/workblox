@@ -4,6 +4,7 @@ from google.auth.transport import requests as google_requests
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from .. import db
+from ..config import Config
 from ..models import User
 from ..services.auth import create_token, decode_verification_token
 from ..services.email import send_verification_email, send_admin_notification
@@ -32,7 +33,11 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    email_sent = send_verification_email(email, name)
+    origin = request.headers.get("Origin", "")
+    if origin not in Config.ALLOWED_ORIGINS:
+        origin = None
+
+    email_sent = send_verification_email(email, name, origin)
     send_admin_notification(email, name)
     if email_sent:
         msg = "Account created. Please check your email to verify your address."
@@ -70,11 +75,13 @@ def login():
 
 @bp.get("/verify/<token>")
 def verify_email(token):
-    frontend_url = current_app.config.get("FRONTEND_URL", "http://localhost:5173")
+    default_frontend = current_app.config.get("FRONTEND_URL", "http://localhost:5173")
     try:
-        email = decode_verification_token(token)
+        email, origin = decode_verification_token(token)
     except Exception:
-        return redirect(f"{frontend_url}?verified=false")
+        return redirect(f"{default_frontend}?verified=false")
+
+    frontend_url = origin if origin in Config.ALLOWED_ORIGINS else default_frontend
 
     user = User.query.filter_by(email=email).first()
     if user:

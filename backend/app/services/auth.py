@@ -21,10 +21,11 @@ def decode_token(token):
     )
 
 
-def create_verification_token(email):
+def create_verification_token(email, origin=None):
     payload = {
         "sub": email,
         "kind": "verify",
+        "origin": origin,
         "exp": datetime.now(timezone.utc) + timedelta(hours=24),
     }
     return jwt.encode(payload, current_app.config["JWT_SECRET"], algorithm="HS256")
@@ -38,4 +39,4 @@ def decode_verification_token(token):
     )
     if payload.get("kind") != "verify":
         raise ValueError("Invalid token type")
-    return payload["sub"]
+    return payload["sub"], payload.get("origin")
