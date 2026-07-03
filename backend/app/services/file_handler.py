@@ -17,10 +17,29 @@ def extract_text(file_storage) -> str:
     return raw.decode("utf-8", errors="replace")
 
 
+OCR_DPI = 300
+
+
 def _read_pdf_bytes(data: bytes) -> str:
     import fitz
     doc = fitz.open(stream=data, filetype="pdf")
-    return "\n".join(page.get_text() for page in doc)
+    pages = []
+    for page in doc:
+        text = page.get_text()
+        if not text.strip():
+            text = _ocr_page(page)
+        pages.append(text)
+    return "\n".join(pages)
+
+
+def _ocr_page(page) -> str:
+    import io
+    import pytesseract
+    from PIL import Image
+
+    pix = page.get_pixmap(dpi=OCR_DPI)
+    img = Image.open(io.BytesIO(pix.tobytes("png")))
+    return pytesseract.image_to_string(img)
 
 
 def _read_docx_bytes(data: bytes) -> str:
