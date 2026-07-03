@@ -22,9 +22,9 @@ def _extract_text(file):
         return raw.decode("utf-8", errors="replace")
 
     if ext == "pdf":
+        text = ""
         try:
             import pdfplumber, re as _re
-            text = ""
             with pdfplumber.open(io.BytesIO(raw)) as pdf:
                 for page in pdf.pages:
                     page_text = page.extract_text(layout=True) or ""
@@ -39,11 +39,13 @@ def _extract_text(file):
                         if s:
                             lines.append(_re.sub(r' {3,}', '\n', s))
                     text += '\n'.join(lines) + '\n'
-            return text
         except Exception:
-            import fitz
-            doc = fitz.open(stream=raw, filetype="pdf")
-            return "\n".join(page.get_text() for page in doc)
+            text = ""
+
+        if not text.strip():
+            from app.services.file_handler import _read_pdf_bytes
+            text = _read_pdf_bytes(raw)
+        return text
 
     if ext == "docx":
         import docx as python_docx
