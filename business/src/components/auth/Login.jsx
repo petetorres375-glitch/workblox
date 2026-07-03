@@ -42,7 +42,7 @@ function InstallModal({ onClose }) {
 export default function Login({ onSwitchToSignUp }) {
   const { t } = useTranslation("auth");
   const { login } = useAuth();
-  const { canInstall, install } = usePWA();
+  const { canInstall, install, isInstalled } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -181,17 +181,19 @@ export default function Login({ onSwitchToSignUp }) {
         {error && <p className="login-error">{error}</p>}
       </div>
 
-      <button
-        onClick={canInstall ? install : () => setShowInstallModal(true)}
-        style={{
-          marginTop: "1.25rem", background: "transparent",
-          border: "1.5px solid rgba(0,0,0,0.2)", borderRadius: "8px",
-          color: "rgba(0,0,0,0.6)", padding: "0.6rem 1.4rem",
-          fontFamily: "inherit", fontSize: "0.88rem", cursor: "pointer",
-        }}
-      >
-        ⊕ {t("common:installApp")}
-      </button>
+      {!isInstalled && (
+        <button
+          onClick={canInstall ? install : () => setShowInstallModal(true)}
+          style={{
+            marginTop: "1.25rem", background: "transparent",
+            border: "1.5px solid rgba(0,0,0,0.2)", borderRadius: "8px",
+            color: "rgba(0,0,0,0.6)", padding: "0.6rem 1.4rem",
+            fontFamily: "inherit", fontSize: "0.88rem", cursor: "pointer",
+          }}
+        >
+          ⊕ {t("common:installApp")}
+        </button>
+      )}
 
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
     </div>
