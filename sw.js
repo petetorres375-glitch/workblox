@@ -1,4 +1,4 @@
-const CACHE = 'workblox-v4';
+const CACHE = 'workblox-v5';
 const BASE = '';
 
 self.addEventListener('install', e => {
