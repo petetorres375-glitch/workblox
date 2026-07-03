@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
 export function usePWA() {
-  const [installPrompt, setInstallPrompt] = useState(null);
+  const [installPrompt, setInstallPrompt] = useState(() => window.__pwaPrompt || null);
+  const isInstalled = window.matchMedia("(display-mode: standalone)").matches;
 
   useEffect(() => {
+    // Pick up any prompt that fired before React mounted
+    if (window.__pwaPrompt) setInstallPrompt(window.__pwaPrompt);
+
     const handler = (e) => {
       e.preventDefault();
+      window.__pwaPrompt = e;
       setInstallPrompt(e);
     };
     window.addEventListener("beforeinstallprompt", handler);
@@ -18,5 +23,5 @@ export function usePWA() {
     installPrompt.userChoice.then(() => setInstallPrompt(null));
   }
 
-  return { canInstall: !!installPrompt, install };
+  return { canInstall: !!installPrompt, install, isInstalled };
 }
