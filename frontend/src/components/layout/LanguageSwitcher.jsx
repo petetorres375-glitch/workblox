@@ -30,6 +30,40 @@ const LANGUAGE_LABELS = {
   ro: "Română",
 };
 
+// English names alongside the autonym, for people who don't recognize the
+// native spelling — e.g. "Русский (Russian)".
+const ENGLISH_NAMES = {
+  es: "Spanish",
+  fr: "French",
+  de: "German",
+  pt: "Portuguese",
+  zh: "Chinese",
+  ja: "Japanese",
+  ko: "Korean",
+  ar: "Arabic",
+  hi: "Hindi",
+  ru: "Russian",
+  it: "Italian",
+  nl: "Dutch",
+  pl: "Polish",
+  tr: "Turkish",
+  vi: "Vietnamese",
+  th: "Thai",
+  id: "Indonesian",
+  sv: "Swedish",
+  uk: "Ukrainian",
+  el: "Greek",
+  he: "Hebrew",
+  cs: "Czech",
+  ro: "Romanian",
+};
+
+function languageLabel(lng) {
+  const native = LANGUAGE_LABELS[lng] || lng.toUpperCase();
+  const english = ENGLISH_NAMES[lng];
+  return english ? `${native} (${english})` : native;
+}
+
 export default function LanguageSwitcher() {
   const { i18n, t } = useTranslation("common");
   const { setLanguage } = useAuth();
@@ -42,7 +76,7 @@ export default function LanguageSwitcher() {
       onChange={(e) => setLanguage(e.target.value)}
     >
       {SUPPORTED_LANGUAGES.map((lng) => (
-        <option key={lng} value={lng}>{LANGUAGE_LABELS[lng] || lng.toUpperCase()}</option>
+        <option key={lng} value={lng}>{languageLabel(lng)}</option>
       ))}
     </select>
   );
