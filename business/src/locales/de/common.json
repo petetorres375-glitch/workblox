@@ -1,0 +1,14 @@
+{
+  "signOut": "Abmelden",
+  "install": "Installieren",
+  "installApp": "App installieren",
+  "language": "Sprache",
+  "installModal": {
+    "title": "Workblox Business installieren",
+    "intro": "So installieren Sie auf Android:",
+    "step1": "Tippen Sie in Chrome auf das <0>⋮ Drei-Punkte-Menü</0>",
+    "step2": "Tippen Sie auf <0>„Zum Startbildschirm hinzufügen“</0>",
+    "step3": "Tippen Sie auf <0>„Hinzufügen“</0>",
+    "gotIt": "Verstanden"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "signOut": "Odhlásit se",
+  "install": "Instalovat",
+  "language": "Jazyk",
+  "installModal": {
+    "title": "Instalace Workblox",
+    "intro": "Instalace v systému Android:",
+    "step1": "Klepněte na <0>nabídku ⋮ (tři tečky)</0> v Chromu",
+    "step2": "Klepněte na <0>„Přidat na plochu“</0>",
+    "step3": "Klepněte na <0>„Přidat“</0>",
+    "gotIt": "Rozumím"
+  }
+}

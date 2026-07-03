@@ -72,13 +72,14 @@ def build_user_message(data):
     return "\n".join(lines)
 
 
-def generate_resume(data):
+def generate_resume(data, language="en"):
     user_message = build_user_message(data)
     raw = claude_call(
         system_prompt=SYSTEM_PROMPT,
         user_message=user_message,
         model="claude-haiku-4-5-20251001",
         max_tokens=2000,
+        language=language,
     )
 
     if isinstance(raw, dict) and "summary" in raw:

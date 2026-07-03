@@ -1,0 +1,71 @@
+{
+  "title": "Lebenslauf-<0>Ersteller</0>",
+  "subtitle": "Geben Sie Ihre Daten ein — Claude verfasst einen polierten, ATS-optimierten Lebenslauf.",
+  "steps": {
+    "contact": "Kontakt",
+    "experience": "Erfahrung",
+    "education": "Ausbildung",
+    "skills": "Fähigkeiten",
+    "review": "Überprüfung"
+  },
+  "contact": {
+    "sectionTitle": "Kontaktinformationen",
+    "name": "Vollständiger Name *",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "location": "Stadt, Bundesland",
+    "linkedin": "LinkedIn-URL",
+    "jobRole": "Angestrebte Position",
+    "jobRolePlaceholder": "z. B. Kundenservice, Eventpersonal, Buchhaltung"
+  },
+  "experience": {
+    "sectionTitle": "Berufserfahrung",
+    "job": "Job {{n}}",
+    "remove": "Entfernen",
+    "title": "Berufsbezeichnung",
+    "company": "Firmenname",
+    "dates": "Zeitraum (z. B. 2020 – 2023)",
+    "duties": "Aufgaben & Erfolge — beschreiben Sie, was Sie getan haben, Claude formuliert es aus",
+    "dutiesPlaceholder": "z. B. Kundenanrufe bearbeitet, Terminplanung übernommen, neue Mitarbeiter eingearbeitet, Beschwerden gelöst...",
+    "addAnother": "+ Weiteren Job hinzufügen"
+  },
+  "education": {
+    "sectionTitle": "Ausbildung",
+    "entry": "Eintrag {{n}}",
+    "degree": "Abschluss / Diplom / Zertifikat",
+    "school": "Schule / Einrichtung",
+    "year": "Abschlussjahr",
+    "addAnother": "+ Weiteren hinzufügen"
+  },
+  "skillsStep": {
+    "sectionTitle": "Fähigkeiten & Mehr",
+    "skills": "Fähigkeiten — listen Sie alles auf, was Sie können",
+    "skillsPlaceholder": "z. B. Microsoft Office, Excel, Kundenservice, zweisprachig, Gabelstapler, QuickBooks...",
+    "certifications": "Zertifizierungen (optional)",
+    "certificationsPlaceholder": "z. B. ServSafe, CompTIA A+, CPR-zertifiziert",
+    "extra": "Noch etwas hinzuzufügen? (optional)",
+    "extraPlaceholder": "Gesprochene Sprachen, ehrenamtliche Arbeit, Auszeichnungen, besondere Hinweise..."
+  },
+  "nav": {
+    "back": "← Zurück",
+    "next": "Weiter →",
+    "generate": "Lebenslauf erstellen",
+    "generating": "Claude schreibt Ihren Lebenslauf..."
+  },
+  "result": {
+    "ready": "Lebenslauf fertig",
+    "startOver": "Neu beginnen",
+    "summary": "Berufliches Profil",
+    "workExperience": "Berufserfahrung",
+    "education": "Ausbildung",
+    "skills": "Fähigkeiten",
+    "certifications": "Zertifizierungen"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Wird gespeichert...",
+    "generating": "Wird erstellt..."
+  }
+}

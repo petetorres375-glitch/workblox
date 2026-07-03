@@ -1,0 +1,14 @@
+{
+  "signOut": "Cerrar sesión",
+  "install": "Instalar",
+  "installApp": "Instalar App",
+  "language": "Idioma",
+  "installModal": {
+    "title": "Instalar Workblox Business",
+    "intro": "Para instalar en Android:",
+    "step1": "Toca el <0>menú de tres puntos ⋮</0> en Chrome",
+    "step2": "Toca <0>\"Añadir a la pantalla de inicio\"</0>",
+    "step3": "Toca <0>\"Añadir\"</0>",
+    "gotIt": "Entendido"
+  }
+}

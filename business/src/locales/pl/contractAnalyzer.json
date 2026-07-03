@@ -1,0 +1,19 @@
+{
+  "title": "Analiza <0>Umów</0>",
+  "subtitle": "Prześlij umowę i otrzymaj podsumowanie prostym językiem, ocenę ryzyka i kluczowe klauzule.",
+  "dropLabel": "Przeciągnij tu umowę lub kliknij, aby wybrać plik",
+  "dropHint": "PDF, DOCX lub TXT",
+  "analyze": "Analizuj umowę",
+  "analyzing": "Analizowanie…",
+  "documentOverview": "Przegląd dokumentu",
+  "risk": {
+    "low": "Niskie ryzyko",
+    "medium": "Średnie ryzyko",
+    "high": "Wysokie ryzyko"
+  },
+  "keyObligations": "Kluczowe zobowiązania",
+  "paymentTerms": "Warunki płatności",
+  "redFlags": "Sygnały ostrzegawcze",
+  "missingClauses": "Brakujące klauzule standardowe",
+  "recommendation": "Rekomendacja"
+}

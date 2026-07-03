@@ -1,0 +1,19 @@
+{
+  "title": "Analýza <0>smlouvy</0>",
+  "subtitle": "Nahrajte smlouvu a získejte shrnutí v jednoduchém jazyce, posouzení rizik a klíčové doložky.",
+  "dropLabel": "Přetáhněte sem smlouvu nebo klikněte pro výběr souboru",
+  "dropHint": "PDF, DOCX nebo TXT",
+  "analyze": "Analyzovat smlouvu",
+  "analyzing": "Analyzuji…",
+  "documentOverview": "Přehled dokumentu",
+  "risk": {
+    "low": "Nízké riziko",
+    "medium": "Střední riziko",
+    "high": "Vysoké riziko"
+  },
+  "keyObligations": "Klíčové povinnosti",
+  "paymentTerms": "Platební podmínky",
+  "redFlags": "Varovné signály",
+  "missingClauses": "Chybějící standardní doložky",
+  "recommendation": "Doporučení"
+}

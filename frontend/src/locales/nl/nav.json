@@ -1,0 +1,10 @@
+{
+  "ats": "ATS-analyse",
+  "doc": "Documentanalyse",
+  "linux": "Linux",
+  "mac": "Mac",
+  "resume": "Cv-builder",
+  "windows": "Windows",
+  "workflow": "Workflow",
+  "admin": "Beheer"
+}

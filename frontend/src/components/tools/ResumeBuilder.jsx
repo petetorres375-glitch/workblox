@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { BASE_URL, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
-const STEPS = ["Contact", "Experience", "Education", "Skills", "Review"];
+const STEP_IDS = ["contact", "experience", "education", "skills", "review"];
 
 const emptyJob = () => ({ title: "", company: "", dates: "", duties: "" });
 const emptyEdu = () => ({ degree: "", school: "", year: "" });
 
 export default function ResumeBuilder() {
+  const { t, i18n } = useTranslation("resumeBuilder");
   const [step, setStep]           = useState(0);
   const [contact, setContact]     = useState({ name: "", email: "", phone: "", location: "", linkedin: "" });
   const [jobRole, setJobRole]     = useState("");
@@ -40,6 +42,7 @@ export default function ResumeBuilder() {
       location: contact.location, linkedin: contact.linkedin,
       job_role: jobRole, experience, education,
       skills, certifications, extra,
+      language: i18n.language,
     };
     const res = await call(() =>
       fetch(`${BASE_URL}/api/resume/create`, {
@@ -83,14 +86,14 @@ export default function ResumeBuilder() {
 
   return (
     <>
-      <h1 className="page-title">Resume <span>Builder</span></h1>
-      <p className="page-subtitle">Fill in your info — Claude writes a polished, ATS-optimized resume.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       {/* Stepper */}
       {!result && (
         <div style={{ display: "flex", gap: 0, marginBottom: 24 }}>
-          {STEPS.map((label, i) => (
-            <div key={i} style={{ flex: 1, textAlign: "center" }}>
+          {STEP_IDS.map((id, i) => (
+            <div key={id} style={{ flex: 1, textAlign: "center" }}>
               <div style={{
                 width: 28, height: 28, borderRadius: "50%", margin: "0 auto 4px",
                 display: "flex", alignItems: "center", justifyContent: "center",
@@ -98,7 +101,7 @@ export default function ResumeBuilder() {
                 background: i === step ? "#2563eb" : i < step ? "#16a34a" : "#e5e7eb",
                 color: i <= step ? "#fff" : "#6b7280",
               }}>{i < step ? "✓" : i + 1}</div>
-              <div style={{ fontSize: "0.7rem", color: i === step ? "#2563eb" : "#9ca3af" }}>{label}</div>
+              <div style={{ fontSize: "0.7rem", color: i === step ? "#2563eb" : "#9ca3af" }}>{t(`steps.${id}`)}</div>
             </div>
           ))}
         </div>
@@ -109,31 +112,31 @@ export default function ResumeBuilder() {
           {/* Step 0 — Contact */}
           {step === 0 && (
             <div className="result-card">
-              <div className="result-label">Contact Information</div>
+              <div className="result-label">{t("contact.sectionTitle")}</div>
               {[
-                ["name", "Full Name *"],
-                ["email", "Email"],
-                ["phone", "Phone"],
-                ["location", "City, State"],
-                ["linkedin", "LinkedIn URL"],
-              ].map(([field, label]) => (
+                ["name", "name"],
+                ["email", "email"],
+                ["phone", "phone"],
+                ["location", "location"],
+                ["linkedin", "linkedin"],
+              ].map(([field, key]) => (
                 <div key={field} style={{ marginBottom: 10 }}>
-                  <label style={labelStyle}>{label}</label>
+                  <label style={labelStyle}>{t(`contact.${key}`)}</label>
                   <input
                     style={inputStyle}
                     value={contact[field]}
                     onChange={(e) => setContact((p) => ({ ...p, [field]: e.target.value }))}
-                    placeholder={label}
+                    placeholder={t(`contact.${key}`)}
                   />
                 </div>
               ))}
               <div style={{ marginBottom: 10 }}>
-                <label style={labelStyle}>Target Job Role</label>
+                <label style={labelStyle}>{t("contact.jobRole")}</label>
                 <input
                   style={inputStyle}
                   value={jobRole}
                   onChange={(e) => setJobRole(e.target.value)}
-                  placeholder="e.g. Customer Service, Event Server, Bookkeeper"
+                  placeholder={t("contact.jobRolePlaceholder")}
                 />
               </div>
             </div>
@@ -142,93 +145,93 @@ export default function ResumeBuilder() {
           {/* Step 1 — Experience */}
           {step === 1 && (
             <div className="result-card">
-              <div className="result-label">Work Experience</div>
+              <div className="result-label">{t("experience.sectionTitle")}</div>
               {experience.map((job, i) => (
                 <div key={i} style={{ marginBottom: 20, paddingBottom: 16, borderBottom: i < experience.length - 1 ? "1px solid #e5e7eb" : "none" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                    <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>Job {i + 1}</span>
+                    <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{t("experience.job", { n: i + 1 })}</span>
                     {experience.length > 1 && (
-                      <button onClick={() => removeJob(i)} style={removeBtnStyle}>Remove</button>
+                      <button onClick={() => removeJob(i)} style={removeBtnStyle}>{t("experience.remove")}</button>
                     )}
                   </div>
                   {[
-                    ["title",   "Job Title"],
-                    ["company", "Company Name"],
-                    ["dates",   "Dates (e.g. 2020 – 2023)"],
-                  ].map(([field, label]) => (
+                    ["title",   "title"],
+                    ["company", "company"],
+                    ["dates",   "dates"],
+                  ].map(([field, key]) => (
                     <div key={field} style={{ marginBottom: 8 }}>
-                      <label style={labelStyle}>{label}</label>
+                      <label style={labelStyle}>{t(`experience.${key}`)}</label>
                       <input style={inputStyle} value={job[field]}
                         onChange={(e) => updateJob(i, field, e.target.value)}
-                        placeholder={label} />
+                        placeholder={t(`experience.${key}`)} />
                     </div>
                   ))}
                   <div style={{ marginBottom: 8 }}>
-                    <label style={labelStyle}>Duties & Achievements — describe what you did, Claude will polish it</label>
+                    <label style={labelStyle}>{t("experience.duties")}</label>
                     <textarea
                       style={{ ...inputStyle, height: 90, resize: "vertical" }}
                       value={job.duties}
                       onChange={(e) => updateJob(i, "duties", e.target.value)}
-                      placeholder="e.g. Handled customer calls, managed scheduling, trained new staff, resolved complaints..."
+                      placeholder={t("experience.dutiesPlaceholder")}
                     />
                   </div>
                 </div>
               ))}
-              <button onClick={addJob} style={addBtnStyle}>+ Add Another Job</button>
+              <button onClick={addJob} style={addBtnStyle}>{t("experience.addAnother")}</button>
             </div>
           )}
 
           {/* Step 2 — Education */}
           {step === 2 && (
             <div className="result-card">
-              <div className="result-label">Education</div>
+              <div className="result-label">{t("education.sectionTitle")}</div>
               {education.map((e, i) => (
                 <div key={i} style={{ marginBottom: 16, paddingBottom: 12, borderBottom: i < education.length - 1 ? "1px solid #e5e7eb" : "none" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                    <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>Entry {i + 1}</span>
+                    <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{t("education.entry", { n: i + 1 })}</span>
                     {education.length > 1 && (
-                      <button onClick={() => removeEdu(i)} style={removeBtnStyle}>Remove</button>
+                      <button onClick={() => removeEdu(i)} style={removeBtnStyle}>{t("experience.remove")}</button>
                     )}
                   </div>
                   {[
-                    ["degree", "Degree / Diploma / Certificate"],
-                    ["school", "School / Institution"],
-                    ["year",   "Year Completed"],
-                  ].map(([field, label]) => (
+                    ["degree", "degree"],
+                    ["school", "school"],
+                    ["year",   "year"],
+                  ].map(([field, key]) => (
                     <div key={field} style={{ marginBottom: 8 }}>
-                      <label style={labelStyle}>{label}</label>
+                      <label style={labelStyle}>{t(`education.${key}`)}</label>
                       <input style={inputStyle} value={e[field]}
                         onChange={(ev) => updateEdu(i, field, ev.target.value)}
-                        placeholder={label} />
+                        placeholder={t(`education.${key}`)} />
                     </div>
                   ))}
                 </div>
               ))}
-              <button onClick={addEdu} style={addBtnStyle}>+ Add Another</button>
+              <button onClick={addEdu} style={addBtnStyle}>{t("education.addAnother")}</button>
             </div>
           )}
 
           {/* Step 3 — Skills */}
           {step === 3 && (
             <div className="result-card">
-              <div className="result-label">Skills & More</div>
+              <div className="result-label">{t("skillsStep.sectionTitle")}</div>
               <div style={{ marginBottom: 12 }}>
-                <label style={labelStyle}>Skills — list anything you know</label>
+                <label style={labelStyle}>{t("skillsStep.skills")}</label>
                 <textarea style={{ ...inputStyle, height: 80, resize: "vertical" }}
                   value={skills} onChange={(e) => setSkills(e.target.value)}
-                  placeholder="e.g. Microsoft Office, Excel, customer service, bilingual, forklift, QuickBooks..." />
+                  placeholder={t("skillsStep.skillsPlaceholder")} />
               </div>
               <div style={{ marginBottom: 12 }}>
-                <label style={labelStyle}>Certifications (optional)</label>
+                <label style={labelStyle}>{t("skillsStep.certifications")}</label>
                 <input style={inputStyle} value={certifications}
                   onChange={(e) => setCerts(e.target.value)}
-                  placeholder="e.g. ServSafe, CompTIA A+, CPR Certified" />
+                  placeholder={t("skillsStep.certificationsPlaceholder")} />
               </div>
               <div style={{ marginBottom: 4 }}>
-                <label style={labelStyle}>Anything else to include? (optional)</label>
+                <label style={labelStyle}>{t("skillsStep.extra")}</label>
                 <textarea style={{ ...inputStyle, height: 60, resize: "vertical" }}
                   value={extra} onChange={(e) => setExtra(e.target.value)}
-                  placeholder="Languages spoken, volunteer work, awards, special notes..." />
+                  placeholder={t("skillsStep.extraPlaceholder")} />
               </div>
             </div>
           )}
@@ -240,18 +243,18 @@ export default function ResumeBuilder() {
             {step > 0 && (
               <button className="copy-btn" onClick={() => setStep((s) => s - 1)}
                 style={{ padding: "10px 22px" }}>
-                ← Back
+                {t("nav.back")}
               </button>
             )}
-            {step < STEPS.length - 1 ? (
+            {step < STEP_IDS.length - 1 ? (
               <button className="submit-btn" onClick={() => setStep((s) => s + 1)}
                 disabled={!canNext()} style={{ flex: 1 }}>
-                Next →
+                {t("nav.next")}
               </button>
             ) : (
               <button className="submit-btn" onClick={handleGenerate}
                 disabled={loading} style={{ flex: 1 }}>
-                {loading ? "Claude is writing your resume..." : "Generate Resume"}
+                {loading ? t("nav.generating") : t("nav.generate")}
               </button>
             )}
           </div>
@@ -261,10 +264,10 @@ export default function ResumeBuilder() {
         <>
           <div className="result-card" style={{ marginTop: 8 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-              <div className="result-label" style={{ marginBottom: 0 }}>Resume Ready</div>
+              <div className="result-label" style={{ marginBottom: 0 }}>{t("result.ready")}</div>
               <button className="copy-btn" onClick={() => { setResult(null); setStep(0); }}
                 style={{ fontSize: "0.8rem", padding: "4px 12px" }}>
-                Start Over
+                {t("result.startOver")}
               </button>
             </div>
 
@@ -274,13 +277,13 @@ export default function ResumeBuilder() {
             </div>
 
             {result.resume?.summary && (
-              <Section title="Professional Summary">
+              <Section title={t("result.summary")}>
                 <p style={{ color: "#374151", fontSize: "0.9rem", lineHeight: 1.6 }}>{result.resume.summary}</p>
               </Section>
             )}
 
             {result.resume?.experience?.map((job, i) => (
-              <Section key={i} title={i === 0 ? "Work Experience" : null}>
+              <Section key={i} title={i === 0 ? t("result.workExperience") : null}>
                 <div style={{ fontWeight: 600, color: "#0f172a" }}>{job.title} — <span style={{ fontWeight: 400, color: "#6b7280" }}>{job.company} | {job.dates}</span></div>
                 <ul style={{ margin: "6px 0 0 18px", padding: 0 }}>
                   {job.bullets?.map((b, j) => (
@@ -291,7 +294,7 @@ export default function ResumeBuilder() {
             ))}
 
             {result.resume?.education?.length > 0 && (
-              <Section title="Education">
+              <Section title={t("result.education")}>
                 {result.resume.education.map((e, i) => (
                   <div key={i} style={{ marginBottom: 4 }}>
                     <span style={{ fontWeight: 600, color: "#0f172a" }}>{e.degree}</span>
@@ -302,7 +305,7 @@ export default function ResumeBuilder() {
             )}
 
             {result.resume?.skills?.length > 0 && (
-              <Section title="Skills">
+              <Section title={t("result.skills")}>
                 <div style={{ color: "#374151", fontSize: "0.9rem" }}>
                   {result.resume.skills.join(" • ")}
                 </div>
@@ -310,7 +313,7 @@ export default function ResumeBuilder() {
             )}
 
             {result.resume?.certifications?.filter(Boolean).length > 0 && (
-              <Section title="Certifications">
+              <Section title={t("result.certifications")}>
                 {result.resume.certifications.filter(Boolean).map((c, i) => (
                   <div key={i} style={{ color: "#374151", fontSize: "0.9rem" }}>• {c}</div>
                 ))}
@@ -322,17 +325,17 @@ export default function ResumeBuilder() {
             <button className="copy-btn" onClick={() => download("txt")}
               disabled={downloading === "txt"}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              {downloading === "txt" ? "Saving..." : "↓ TXT"}
+              {downloading === "txt" ? t("download.saving") : t("download.txt")}
             </button>
             <button className="copy-btn" onClick={() => download("pdf")}
               disabled={downloading === "pdf"}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              {downloading === "pdf" ? "Generating..." : "↓ PDF"}
+              {downloading === "pdf" ? t("download.generating") : t("download.pdf")}
             </button>
             <button className="copy-btn" onClick={() => download("docx")}
               disabled={downloading === "docx"}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              {downloading === "docx" ? "Generating..." : "↓ Word"}
+              {downloading === "docx" ? t("download.generating") : t("download.word")}
             </button>
           </div>
         </>

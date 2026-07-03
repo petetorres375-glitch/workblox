@@ -1,0 +1,13 @@
+{
+  "signOut": "Çıkış yap",
+  "install": "Yükle",
+  "language": "Dil",
+  "installModal": {
+    "title": "Workblox'u Yükle",
+    "intro": "Android'e yüklemek için:",
+    "step1": "Chrome'da <0>⋮ üç nokta menüsüne</0> dokunun",
+    "step2": "<0>\"Ana ekrana ekle\"</0> seçeneğine dokunun",
+    "step3": "<0>\"Ekle\"</0> seçeneğine dokunun",
+    "gotIt": "Anladım"
+  }
+}

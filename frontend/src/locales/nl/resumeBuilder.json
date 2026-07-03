@@ -1,0 +1,71 @@
+{
+  "title": "Cv-<0>builder</0>",
+  "subtitle": "Vul je gegevens in — Claude schrijft een gepolijst, ATS-geoptimaliseerd cv.",
+  "steps": {
+    "contact": "Contact",
+    "experience": "Ervaring",
+    "education": "Opleiding",
+    "skills": "Vaardigheden",
+    "review": "Overzicht"
+  },
+  "contact": {
+    "sectionTitle": "Contactgegevens",
+    "name": "Volledige naam *",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "location": "Plaats, provincie",
+    "linkedin": "LinkedIn-URL",
+    "jobRole": "Gewenste functie",
+    "jobRolePlaceholder": "bijv. Klantenservice, Eventmedewerker, Boekhouder"
+  },
+  "experience": {
+    "sectionTitle": "Werkervaring",
+    "job": "Baan {{n}}",
+    "remove": "Verwijderen",
+    "title": "Functietitel",
+    "company": "Bedrijfsnaam",
+    "dates": "Periode (bijv. 2020 – 2023)",
+    "duties": "Taken en resultaten — beschrijf wat je deed, Claude verfijnt het",
+    "dutiesPlaceholder": "bijv. Klantgesprekken afgehandeld, planning beheerd, nieuwe medewerkers opgeleid, klachten opgelost...",
+    "addAnother": "+ Nog een baan toevoegen"
+  },
+  "education": {
+    "sectionTitle": "Opleiding",
+    "entry": "Item {{n}}",
+    "degree": "Diploma / Getuigschrift / Certificaat",
+    "school": "School / Instelling",
+    "year": "Jaar van afronding",
+    "addAnother": "+ Nog een toevoegen"
+  },
+  "skillsStep": {
+    "sectionTitle": "Vaardigheden en meer",
+    "skills": "Vaardigheden — noem alles wat je kunt",
+    "skillsPlaceholder": "bijv. Microsoft Office, Excel, klantenservice, tweetalig, heftruck, QuickBooks...",
+    "certifications": "Certificaten (optioneel)",
+    "certificationsPlaceholder": "bijv. ServSafe, CompTIA A+, EHBO-gecertificeerd",
+    "extra": "Nog iets toevoegen? (optioneel)",
+    "extraPlaceholder": "Gesproken talen, vrijwilligerswerk, prijzen, bijzonderheden..."
+  },
+  "nav": {
+    "back": "← Terug",
+    "next": "Volgende →",
+    "generate": "Cv genereren",
+    "generating": "Claude schrijft je cv..."
+  },
+  "result": {
+    "ready": "Cv gereed",
+    "startOver": "Opnieuw beginnen",
+    "summary": "Professioneel profiel",
+    "workExperience": "Werkervaring",
+    "education": "Opleiding",
+    "skills": "Vaardigheden",
+    "certifications": "Certificaten"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Bezig met opslaan...",
+    "generating": "Bezig met genereren..."
+  }
+}

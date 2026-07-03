@@ -33,6 +33,14 @@ export function post(path, body) {
   }).then((res) => handleResponse(res, path));
 }
 
+export function patch(path, body) {
+  return fetch(`${BASE_URL}${path}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(body),
+  }).then((res) => handleResponse(res, path));
+}
+
 export function postForm(path, formData) {
   return fetch(`${BASE_URL}${path}`, {
     method: "POST",

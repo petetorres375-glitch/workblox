@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { postForm } from "../../api/client";
 import ReportToolbar from "../ui/ReportToolbar";
@@ -40,6 +41,7 @@ function buildMd(data, fileName) {
 }
 
 export default function ContractAnalyzer() {
+  const { t, i18n } = useTranslation("contractAnalyzer");
   const { loading, error, call } = useApi();
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
@@ -54,6 +56,7 @@ export default function ContractAnalyzer() {
     if (!file) return;
     const fd = new FormData();
     fd.append("file", file);
+    fd.append("language", i18n.language);
     const result = await call(() => postForm("/api/biz/contract", fd));
     if (result) setData(result);
   }
@@ -62,8 +65,8 @@ export default function ContractAnalyzer() {
 
   return (
     <div>
-      <h1 className="page-title">Contract <span>Analyzer</span></h1>
-      <p className="page-subtitle">Upload a contract and get a plain-language summary, risk assessment, and key clauses.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print">
         <div
@@ -74,10 +77,10 @@ export default function ContractAnalyzer() {
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files[0]); }}
         >
           <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc" onChange={(e) => handleFile(e.target.files[0])} />
-          <p className="drop-label">{file ? file.name : "Drop contract here or click to browse"}</p>
-          <p className="drop-hint">PDF, DOCX, or TXT</p>
+          <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
+          <p className="drop-hint">{t("dropHint")}</p>
         </div>
-        <button type="submit" className="submit-btn" disabled={loading || !file}>{loading ? "Analyzing…" : "Analyze Contract"}</button>
+        <button type="submit" className="submit-btn" disabled={loading || !file}>{loading ? t("analyzing") : t("analyze")}</button>
       </form>
 
       {error && <div className="error-banner no-print" style={{ marginTop: "1rem" }}>{error}</div>}
@@ -87,10 +90,10 @@ export default function ContractAnalyzer() {
           <div className="print-header" style={{ display: "none" }}><strong>Contract Analysis — {data.document_type || baseName}</strong></div>
           <div className="result-card" style={{ marginTop: "1.5rem" }}>
             <div className="result-header">
-              <p className="result-label">Document Overview</p>
+              <p className="result-label">{t("documentOverview")}</p>
               {data.overall_risk && (
                 <span style={{ fontSize: "0.82rem", fontWeight: 700, color: RISK_COLOR[data.overall_risk] || "#666", textTransform: "uppercase" }}>
-                  {data.overall_risk} risk
+                  {t(`risk.${data.overall_risk}`)}
                 </span>
               )}
             </div>
@@ -99,31 +102,31 @@ export default function ContractAnalyzer() {
           </div>
           {data.key_obligations?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Key Obligations</p>
+              <p className="result-label">{t("keyObligations")}</p>
               <ul className="section-list">{data.key_obligations.map((o, i) => <li key={i}>{o}</li>)}</ul>
             </div>
           )}
           {data.payment_terms && (
             <div className="result-card">
-              <p className="result-label">Payment Terms</p>
+              <p className="result-label">{t("paymentTerms")}</p>
               <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.payment_terms}</p>
             </div>
           )}
           {data.red_flags?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Red Flags</p>
+              <p className="result-label">{t("redFlags")}</p>
               <ul className="warning-list">{data.red_flags.map((f, i) => <li key={i}>{f}</li>)}</ul>
             </div>
           )}
           {data.missing_standard_clauses?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Missing Standard Clauses</p>
+              <p className="result-label">{t("missingClauses")}</p>
               <ul className="warning-list">{data.missing_standard_clauses.map((c, i) => <li key={i}>{c}</li>)}</ul>
             </div>
           )}
           {data.recommendation && (
             <div className="result-card">
-              <p className="result-label">Recommendation</p>
+              <p className="result-label">{t("recommendation")}</p>
               <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.recommendation}</p>
             </div>
           )}

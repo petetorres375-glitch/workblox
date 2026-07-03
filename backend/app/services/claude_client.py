@@ -6,6 +6,49 @@ import anthropic
 _claude  = None
 _openai  = None
 
+# Human-readable names for the instruction we inject into the system prompt.
+# Keep in sync with the frontend's supportedLngs and app/routes/profile.py.
+LANGUAGE_NAMES = {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "pt": "Portuguese",
+    "zh": "Simplified Chinese",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "ar": "Arabic",
+    "hi": "Hindi",
+    "ru": "Russian",
+    "it": "Italian",
+    "nl": "Dutch",
+    "pl": "Polish",
+    "tr": "Turkish",
+    "vi": "Vietnamese",
+    "th": "Thai",
+    "id": "Indonesian",
+    "sv": "Swedish",
+    "uk": "Ukrainian",
+    "el": "Greek",
+    "he": "Hebrew",
+    "cs": "Czech",
+    "ro": "Romanian",
+}
+
+
+def _with_language_instruction(system_prompt: str, language: str) -> str:
+    # English is the model's default — nothing to add. Anything else gets an
+    # explicit instruction appended so the tool output itself (not just the
+    # UI chrome) comes back in the user's chosen language.
+    if not language or language == "en":
+        return system_prompt
+    lang_name = LANGUAGE_NAMES.get(language, language)
+    return (
+        f"{system_prompt}\n\n"
+        f"IMPORTANT: Write all natural-language content in your response in {lang_name}. "
+        f"Keep JSON keys exactly as specified in English — only the string values should be in {lang_name}."
+    )
+
 
 def _get_claude():
     global _claude
@@ -53,7 +96,7 @@ def _call_openai(system_prompt, user_message, max_tokens):
     return _parse(response.choices[0].message.content)
 
 
-def call(system_prompt: str, user_message: str, model: str, max_tokens: int) -> dict:
+def call(system_prompt: str, user_message: str, model: str, max_tokens: int, language: str = "en") -> dict:
     from .moderation import check as mod_check, ModerationError
     try:
         mod_check(user_message)
@@ -62,6 +105,8 @@ def call(system_prompt: str, user_message: str, model: str, max_tokens: int) -> 
             "Your request could not be processed. If you believe this is a mistake, "
             "contact pedro_torres@torrestechremote.com."
         ) from None
+
+    system_prompt = _with_language_instruction(system_prompt, language)
 
     try:
         return _call_claude(system_prompt, user_message, model, max_tokens)

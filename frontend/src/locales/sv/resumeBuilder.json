@@ -1,0 +1,71 @@
+{
+  "title": "CV-<0>byggare</0>",
+  "subtitle": "Fyll i din information — Claude skriver ett polerat, ATS-optimerat CV.",
+  "steps": {
+    "contact": "Kontakt",
+    "experience": "Erfarenhet",
+    "education": "Utbildning",
+    "skills": "Kompetens",
+    "review": "Granska"
+  },
+  "contact": {
+    "sectionTitle": "Kontaktuppgifter",
+    "name": "Fullständigt namn *",
+    "email": "E-post",
+    "phone": "Telefon",
+    "location": "Stad, region",
+    "linkedin": "LinkedIn-URL",
+    "jobRole": "Önskad tjänst",
+    "jobRolePlaceholder": "t.ex. kundservice, eventpersonal, bokföring"
+  },
+  "experience": {
+    "sectionTitle": "Arbetslivserfarenhet",
+    "job": "Anställning {{n}}",
+    "remove": "Ta bort",
+    "title": "Befattning",
+    "company": "Företagsnamn",
+    "dates": "Period (t.ex. 2020–2023)",
+    "duties": "Arbetsuppgifter och prestationer — beskriv vad du gjorde, Claude finslipar texten",
+    "dutiesPlaceholder": "t.ex. hanterade kundsamtal, ansvarade för schemaläggning, utbildade ny personal, löste klagomål...",
+    "addAnother": "+ Lägg till en anställning"
+  },
+  "education": {
+    "sectionTitle": "Utbildning",
+    "entry": "Post {{n}}",
+    "degree": "Examen / diplom / certifikat",
+    "school": "Skola / lärosäte",
+    "year": "Examensår",
+    "addAnother": "+ Lägg till en post"
+  },
+  "skillsStep": {
+    "sectionTitle": "Kompetens och övrigt",
+    "skills": "Kompetens — lista det du kan",
+    "skillsPlaceholder": "t.ex. Microsoft Office, Excel, kundservice, tvåspråkig, truckkort, QuickBooks...",
+    "certifications": "Certifieringar (valfritt)",
+    "certificationsPlaceholder": "t.ex. ServSafe, CompTIA A+, HLR-certifierad",
+    "extra": "Något mer att lägga till? (valfritt)",
+    "extraPlaceholder": "Språkkunskaper, volontärarbete, utmärkelser, särskilda noteringar..."
+  },
+  "nav": {
+    "back": "← Tillbaka",
+    "next": "Nästa →",
+    "generate": "Skapa CV",
+    "generating": "Claude skriver ditt CV..."
+  },
+  "result": {
+    "ready": "CV klart",
+    "startOver": "Börja om",
+    "summary": "Professionellt sammandrag",
+    "workExperience": "Arbetslivserfarenhet",
+    "education": "Utbildning",
+    "skills": "Kompetens",
+    "certifications": "Certifieringar"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Sparar...",
+    "generating": "Skapar..."
+  }
+}

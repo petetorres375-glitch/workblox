@@ -1,0 +1,14 @@
+{
+  "signOut": "サインアウト",
+  "install": "インストール",
+  "installApp": "アプリをインストール",
+  "language": "言語",
+  "installModal": {
+    "title": "Workblox Business をインストール",
+    "intro": "Android にインストールする方法:",
+    "step1": "Chrome の<0>⋮ 3点メニュー</0>をタップ",
+    "step2": "<0>「ホーム画面に追加」</0>をタップ",
+    "step3": "<0>「追加」</0>をタップ",
+    "gotIt": "了解しました"
+  }
+}

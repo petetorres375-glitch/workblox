@@ -1,0 +1,19 @@
+{
+  "title": "계약서 <0>분석기</0>",
+  "subtitle": "계약서를 업로드하면 쉬운 설명, 위험도 평가, 주요 조항을 확인할 수 있습니다.",
+  "dropLabel": "계약서를 여기에 드래그하거나 클릭하여 찾아보기",
+  "dropHint": "PDF, DOCX 또는 TXT",
+  "analyze": "계약서 분석",
+  "analyzing": "분석 중…",
+  "documentOverview": "문서 개요",
+  "risk": {
+    "low": "낮은 위험",
+    "medium": "중간 위험",
+    "high": "높은 위험"
+  },
+  "keyObligations": "주요 의무 사항",
+  "paymentTerms": "지급 조건",
+  "redFlags": "주의 사항",
+  "missingClauses": "누락된 표준 조항",
+  "recommendation": "권장 사항"
+}

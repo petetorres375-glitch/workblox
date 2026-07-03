@@ -1,0 +1,19 @@
+{
+  "title": "Analizzatore <0>Contratti</0>",
+  "subtitle": "Carica un contratto e ottieni un riepilogo in linguaggio semplice, una valutazione dei rischi e le clausole principali.",
+  "dropLabel": "Trascina qui il contratto o clicca per sfogliare",
+  "dropHint": "PDF, DOCX o TXT",
+  "analyze": "Analizza contratto",
+  "analyzing": "Analisi in corso…",
+  "documentOverview": "Panoramica del documento",
+  "risk": {
+    "low": "Rischio basso",
+    "medium": "Rischio medio",
+    "high": "Rischio alto"
+  },
+  "keyObligations": "Obblighi principali",
+  "paymentTerms": "Termini di pagamento",
+  "redFlags": "Segnali d'allarme",
+  "missingClauses": "Clausole standard mancanti",
+  "recommendation": "Raccomandazione"
+}

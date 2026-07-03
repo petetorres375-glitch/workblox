@@ -1,0 +1,19 @@
+{
+  "title": "Avtals<0>analys</0>",
+  "subtitle": "Ladda upp ett avtal och få en lättförståelig sammanfattning, riskbedömning och viktiga villkor.",
+  "dropLabel": "Släpp avtalet här eller klicka för att bläddra",
+  "dropHint": "PDF, DOCX eller TXT",
+  "analyze": "Analysera avtal",
+  "analyzing": "Analyserar…",
+  "documentOverview": "Dokumentöversikt",
+  "risk": {
+    "low": "Låg risk",
+    "medium": "Medelhög risk",
+    "high": "Hög risk"
+  },
+  "keyObligations": "Viktiga skyldigheter",
+  "paymentTerms": "Betalningsvillkor",
+  "redFlags": "Varningssignaler",
+  "missingClauses": "Saknade standardvillkor",
+  "recommendation": "Rekommendation"
+}

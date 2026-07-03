@@ -1,0 +1,19 @@
+{
+  "title": "Analizador de <0>Contratos</0>",
+  "subtitle": "Sube un contrato y obtén un resumen en lenguaje sencillo, una evaluación de riesgos y las cláusulas clave.",
+  "dropLabel": "Suelta el contrato aquí o haz clic para buscarlo",
+  "dropHint": "PDF, DOCX o TXT",
+  "analyze": "Analizar Contrato",
+  "analyzing": "Analizando…",
+  "documentOverview": "Resumen del Documento",
+  "risk": {
+    "low": "Riesgo bajo",
+    "medium": "Riesgo medio",
+    "high": "Riesgo alto"
+  },
+  "keyObligations": "Obligaciones Clave",
+  "paymentTerms": "Condiciones de Pago",
+  "redFlags": "Señales de Alerta",
+  "missingClauses": "Cláusulas Estándar Faltantes",
+  "recommendation": "Recomendación"
+}

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
 import { post } from "../../api/client";
 import PasswordInput from "../ui/PasswordInput";
 
 export default function Login({ onSwitchToSignUp }) {
+  const { t } = useTranslation("auth");
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,13 +23,13 @@ export default function Login({ onSwitchToSignUp }) {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("verified") === "true") {
-      setInfo("Email verified! Your account is pending activation.");
+      setInfo(t("emailVerifiedInfo"));
       window.history.replaceState({}, "", window.location.pathname);
     } else if (params.get("verified") === "false") {
-      setError("Verification link is invalid or expired.");
+      setError(t("verificationInvalid"));
       window.history.replaceState({}, "", window.location.pathname);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     const handler = (e) => {
@@ -57,7 +59,7 @@ export default function Login({ onSwitchToSignUp }) {
     setInfo("");
     try {
       const data = await post("/api/auth/login", { email, password });
-      login(data.token, data.name, data.email);
+      login(data.token, data.name, data.email, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -71,7 +73,7 @@ export default function Login({ onSwitchToSignUp }) {
     setInfo("");
     try {
       const data = await post("/api/auth/google", { credential });
-      login(data.token, data.name, data.email);
+      login(data.token, data.name, data.email, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -87,7 +89,7 @@ export default function Login({ onSwitchToSignUp }) {
       const data = await post("/api/auth/demo", { password: demoPassword });
       login(data.token, data.name);
     } catch {
-      setError("Incorrect password");
+      setError(t("incorrectPassword"));
     } finally {
       setLoading(false);
       setDemoPassword("");
@@ -103,12 +105,12 @@ export default function Login({ onSwitchToSignUp }) {
           </span>
           <span className="login-product">Workblox</span>
         </div>
-        <p className="login-tagline">Sign in to your account</p>
+        <p className="login-tagline">{t("signInTagline")}</p>
 
         <div className="login-google">
           <GoogleLogin
             onSuccess={(res) => handleGoogle(res.credential)}
-            onError={() => setError("Google sign-in failed")}
+            onError={() => setError(t("googleError"))}
             text="signin_with"
             shape="rectangular"
             size="large"
@@ -116,26 +118,26 @@ export default function Login({ onSwitchToSignUp }) {
           />
         </div>
 
-        <div className="auth-divider"><span>or</span></div>
+        <div className="auth-divider"><span>{t("or")}</span></div>
 
         <form className="auth-form" onSubmit={handleEmailLogin}>
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             disabled={loading}
           />
           <PasswordInput
-            placeholder="Password"
+            placeholder={t("passwordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             disabled={loading}
           />
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? "Signing in…" : "Sign in"}
+            {loading ? t("signingIn") : t("signIn")}
           </button>
         </form>
 
@@ -143,9 +145,9 @@ export default function Login({ onSwitchToSignUp }) {
         {error && <p className="login-error">{error}</p>}
 
         <p className="auth-switch">
-          Don't have an account?{" "}
+          {t("noAccount")}{" "}
           <button className="auth-link" onClick={onSwitchToSignUp}>
-            Sign up
+            {t("signUp")}
           </button>
         </p>
 
@@ -154,12 +156,12 @@ export default function Login({ onSwitchToSignUp }) {
             <input
               ref={demoInputRef}
               type="password"
-              placeholder="Demo password"
+              placeholder={t("demoPasswordPlaceholder")}
               value={demoPassword}
               onChange={(e) => setDemoPassword(e.target.value)}
               disabled={loading}
             />
-            <button type="submit" disabled={loading}>Enter</button>
+            <button type="submit" disabled={loading}>{t("enter")}</button>
           </form>
         )}
       </div>

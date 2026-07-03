@@ -1,0 +1,71 @@
+{
+  "title": "简历<0>生成器</0>",
+  "subtitle": "填写您的信息 — Claude 将为您撰写一份专业、符合 ATS 标准的简历。",
+  "steps": {
+    "contact": "联系方式",
+    "experience": "工作经历",
+    "education": "教育背景",
+    "skills": "技能",
+    "review": "预览"
+  },
+  "contact": {
+    "sectionTitle": "联系信息",
+    "name": "姓名 *",
+    "email": "电子邮箱",
+    "phone": "电话",
+    "location": "城市、州",
+    "linkedin": "领英 (LinkedIn) 链接",
+    "jobRole": "目标职位",
+    "jobRolePlaceholder": "例如:客户服务、活动服务员、簿记员"
+  },
+  "experience": {
+    "sectionTitle": "工作经历",
+    "job": "工作 {{n}}",
+    "remove": "删除",
+    "title": "职位名称",
+    "company": "公司名称",
+    "dates": "起止时间 (例如 2020 – 2023)",
+    "duties": "职责与成就 — 描述您的工作内容,Claude 会帮您润色",
+    "dutiesPlaceholder": "例如:处理客户来电、安排排班、培训新员工、处理投诉...",
+    "addAnother": "+ 添加另一份工作"
+  },
+  "education": {
+    "sectionTitle": "教育背景",
+    "entry": "记录 {{n}}",
+    "degree": "学位 / 文凭 / 证书",
+    "school": "学校 / 机构",
+    "year": "完成年份",
+    "addAnother": "+ 添加另一条"
+  },
+  "skillsStep": {
+    "sectionTitle": "技能及更多",
+    "skills": "技能 — 列出您掌握的任何技能",
+    "skillsPlaceholder": "例如:Microsoft Office、Excel、客户服务、双语能力、叉车、QuickBooks...",
+    "certifications": "证书 (可选)",
+    "certificationsPlaceholder": "例如:ServSafe、CompTIA A+、CPR 认证",
+    "extra": "还有其他要补充的吗?(可选)",
+    "extraPlaceholder": "掌握的语言、志愿工作、获奖情况、特别说明..."
+  },
+  "nav": {
+    "back": "← 上一步",
+    "next": "下一步 →",
+    "generate": "生成简历",
+    "generating": "Claude 正在撰写您的简历..."
+  },
+  "result": {
+    "ready": "简历已生成",
+    "startOver": "重新开始",
+    "summary": "职业概述",
+    "workExperience": "工作经历",
+    "education": "教育背景",
+    "skills": "技能",
+    "certifications": "证书"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "保存中...",
+    "generating": "生成中..."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "title": "Creador de <0>CV</0>",
+  "subtitle": "Completa tu información — Claude redacta un currículum pulido y optimizado para ATS.",
+  "steps": {
+    "contact": "Contacto",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "review": "Revisión"
+  },
+  "contact": {
+    "sectionTitle": "Información de Contacto",
+    "name": "Nombre Completo *",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "location": "Ciudad, Estado",
+    "linkedin": "URL de LinkedIn",
+    "jobRole": "Puesto Objetivo",
+    "jobRolePlaceholder": "p. ej. Atención al Cliente, Mesero de Eventos, Contable"
+  },
+  "experience": {
+    "sectionTitle": "Experiencia Laboral",
+    "job": "Trabajo {{n}}",
+    "remove": "Eliminar",
+    "title": "Puesto",
+    "company": "Nombre de la Empresa",
+    "dates": "Fechas (p. ej. 2020 – 2023)",
+    "duties": "Funciones y Logros — describe lo que hiciste, Claude lo pulirá",
+    "dutiesPlaceholder": "p. ej. Atendí llamadas de clientes, gestioné horarios, capacité personal nuevo, resolví quejas...",
+    "addAnother": "+ Añadir Otro Trabajo"
+  },
+  "education": {
+    "sectionTitle": "Educación",
+    "entry": "Registro {{n}}",
+    "degree": "Título / Diploma / Certificado",
+    "school": "Escuela / Institución",
+    "year": "Año de Finalización",
+    "addAnother": "+ Añadir Otro"
+  },
+  "skillsStep": {
+    "sectionTitle": "Habilidades y Más",
+    "skills": "Habilidades — enumera todo lo que sepas",
+    "skillsPlaceholder": "p. ej. Microsoft Office, Excel, atención al cliente, bilingüe, montacargas, QuickBooks...",
+    "certifications": "Certificaciones (opcional)",
+    "certificationsPlaceholder": "p. ej. ServSafe, CompTIA A+, Certificado en RCP",
+    "extra": "¿Algo más que incluir? (opcional)",
+    "extraPlaceholder": "Idiomas que hablas, trabajo voluntario, premios, notas especiales..."
+  },
+  "nav": {
+    "back": "← Atrás",
+    "next": "Siguiente →",
+    "generate": "Generar Currículum",
+    "generating": "Claude está redactando tu currículum..."
+  },
+  "result": {
+    "ready": "Currículum Listo",
+    "startOver": "Empezar de Nuevo",
+    "summary": "Resumen Profesional",
+    "workExperience": "Experiencia Laboral",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "certifications": "Certificaciones"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Guardando...",
+    "generating": "Generando..."
+  }
+}

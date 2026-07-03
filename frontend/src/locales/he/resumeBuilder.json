@@ -1,0 +1,71 @@
+{
+  "title": "בניית <0>קורות חיים</0>",
+  "subtitle": "מלאו את הפרטים שלכם — Claude יכתוב קורות חיים מקצועיים ומותאמים למערכות ATS.",
+  "steps": {
+    "contact": "פרטי קשר",
+    "experience": "ניסיון",
+    "education": "השכלה",
+    "skills": "כישורים",
+    "review": "סיכום"
+  },
+  "contact": {
+    "sectionTitle": "פרטי קשר",
+    "name": "שם מלא *",
+    "email": "אימייל",
+    "phone": "טלפון",
+    "location": "עיר, מדינה",
+    "linkedin": "קישור ל-LinkedIn",
+    "jobRole": "תפקיד מבוקש",
+    "jobRolePlaceholder": "לדוגמה: שירות לקוחות, מלצר באירועים, הנהלת חשבונות"
+  },
+  "experience": {
+    "sectionTitle": "ניסיון תעסוקתי",
+    "job": "משרה {{n}}",
+    "remove": "הסרה",
+    "title": "תפקיד",
+    "company": "שם החברה",
+    "dates": "תאריכים (לדוגמה: 2020 – 2023)",
+    "duties": "תפקידים והישגים — תארו במילים שלכם, Claude ישכלל את הניסוח",
+    "dutiesPlaceholder": "לדוגמה: טיפול בשיחות לקוחות, ניהול לוחות זמנים, הדרכת עובדים חדשים, פתרון תלונות...",
+    "addAnother": "+ הוספת משרה נוספת"
+  },
+  "education": {
+    "sectionTitle": "השכלה",
+    "entry": "רשומה {{n}}",
+    "degree": "תואר / דיפלומה / תעודה",
+    "school": "בית ספר / מוסד לימודי",
+    "year": "שנת סיום",
+    "addAnother": "+ הוספת רשומה נוספת"
+  },
+  "skillsStep": {
+    "sectionTitle": "כישורים ועוד",
+    "skills": "כישורים — פרטו כל מה שאתם יודעים",
+    "skillsPlaceholder": "לדוגמה: Microsoft Office, Excel, שירות לקוחות, דוברי שתי שפות, מלגזה, QuickBooks...",
+    "certifications": "הסמכות (אופציונלי)",
+    "certificationsPlaceholder": "לדוגמה: ServSafe, CompTIA A+, הסמכת החייאה (CPR)",
+    "extra": "משהו נוסף שכדאי לכלול? (אופציונלי)",
+    "extraPlaceholder": "שפות דוברות, התנדבות, פרסים, הערות מיוחדות..."
+  },
+  "nav": {
+    "back": "← חזרה",
+    "next": "הבא →",
+    "generate": "יצירת קורות חיים",
+    "generating": "Claude כותב את קורות החיים שלך..."
+  },
+  "result": {
+    "ready": "קורות החיים מוכנים",
+    "startOver": "התחלה מחדש",
+    "summary": "תקציר מקצועי",
+    "workExperience": "ניסיון תעסוקתי",
+    "education": "השכלה",
+    "skills": "כישורים",
+    "certifications": "הסמכות"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "שומר...",
+    "generating": "יוצר..."
+  }
+}

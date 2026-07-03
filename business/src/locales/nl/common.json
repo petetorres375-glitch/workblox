@@ -1,0 +1,14 @@
+{
+  "signOut": "Afmelden",
+  "install": "Installeren",
+  "installApp": "App installeren",
+  "language": "Taal",
+  "installModal": {
+    "title": "Workblox Business installeren",
+    "intro": "Installeren op Android:",
+    "step1": "Tik op het <0>⋮ menu met drie puntjes</0> in Chrome",
+    "step2": "Tik op <0>\"Toevoegen aan startscherm\"</0>",
+    "step3": "Tik op <0>\"Toevoegen\"</0>",
+    "gotIt": "Begrepen"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "ats": "ATS-Analyse",
+  "doc": "Dokumentenanalyse",
+  "linux": "Linux",
+  "mac": "Mac",
+  "resume": "Lebenslauf-Ersteller",
+  "windows": "Windows",
+  "workflow": "Workflow",
+  "admin": "Verwaltung"
+}

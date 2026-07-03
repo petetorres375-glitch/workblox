@@ -50,4 +50,5 @@ class User(db.Model):
     is_active = db.Column(db.Boolean, default=False, nullable=False, server_default='0')
     email_verified = db.Column(db.Boolean, default=False, nullable=False, server_default='0')
     plan = db.Column(db.String(50), nullable=False, default="free", server_default="free")
+    language = db.Column(db.String(10), nullable=True)  # NULL = never synced a language preference yet
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))

@@ -1,0 +1,71 @@
+{
+  "title": "Tvorba <0>životopisu</0>",
+  "subtitle": "Vyplňte své údaje — Claude napíše kvalitní životopis optimalizovaný pro ATS.",
+  "steps": {
+    "contact": "Kontakt",
+    "experience": "Praxe",
+    "education": "Vzdělání",
+    "skills": "Dovednosti",
+    "review": "Kontrola"
+  },
+  "contact": {
+    "sectionTitle": "Kontaktní údaje",
+    "name": "Celé jméno *",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "location": "Město, kraj",
+    "linkedin": "URL profilu LinkedIn",
+    "jobRole": "Požadovaná pracovní pozice",
+    "jobRolePlaceholder": "např. zákaznický servis, obsluha na akcích, účetní"
+  },
+  "experience": {
+    "sectionTitle": "Pracovní zkušenosti",
+    "job": "Zaměstnání {{n}}",
+    "remove": "Odebrat",
+    "title": "Pracovní pozice",
+    "company": "Název společnosti",
+    "dates": "Období (např. 2020–2023)",
+    "duties": "Náplň práce a úspěchy — popište, co jste dělali, Claude text vybrousí",
+    "dutiesPlaceholder": "např. vyřizování telefonátů se zákazníky, tvorba rozvrhů, zaškolování nových zaměstnanců, řešení stížností...",
+    "addAnother": "+ Přidat další zaměstnání"
+  },
+  "education": {
+    "sectionTitle": "Vzdělání",
+    "entry": "Záznam {{n}}",
+    "degree": "Titul / diplom / certifikát",
+    "school": "Škola / instituce",
+    "year": "Rok ukončení",
+    "addAnother": "+ Přidat další záznam"
+  },
+  "skillsStep": {
+    "sectionTitle": "Dovednosti a další informace",
+    "skills": "Dovednosti — uveďte vše, co ovládáte",
+    "skillsPlaceholder": "např. Microsoft Office, Excel, zákaznický servis, dvojjazyčnost, vysokozdvižný vozík, QuickBooks...",
+    "certifications": "Certifikace (nepovinné)",
+    "certificationsPlaceholder": "např. ServSafe, CompTIA A+, certifikát první pomoci",
+    "extra": "Chcete uvést ještě něco? (nepovinné)",
+    "extraPlaceholder": "Jazykové znalosti, dobrovolnická činnost, ocenění, poznámky..."
+  },
+  "nav": {
+    "back": "← Zpět",
+    "next": "Další →",
+    "generate": "Vygenerovat životopis",
+    "generating": "Claude píše váš životopis..."
+  },
+  "result": {
+    "ready": "Životopis je hotový",
+    "startOver": "Začít znovu",
+    "summary": "Profesní shrnutí",
+    "workExperience": "Pracovní zkušenosti",
+    "education": "Vzdělání",
+    "skills": "Dovednosti",
+    "certifications": "Certifikace"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Ukládání...",
+    "generating": "Generování..."
+  }
+}

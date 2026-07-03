@@ -1,0 +1,71 @@
+{
+  "title": "Resume <0>Builder</0>",
+  "subtitle": "Fill in your info — Claude writes a polished, ATS-optimized resume.",
+  "steps": {
+    "contact": "Contact",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "review": "Review"
+  },
+  "contact": {
+    "sectionTitle": "Contact Information",
+    "name": "Full Name *",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "City, State",
+    "linkedin": "LinkedIn URL",
+    "jobRole": "Target Job Role",
+    "jobRolePlaceholder": "e.g. Customer Service, Event Server, Bookkeeper"
+  },
+  "experience": {
+    "sectionTitle": "Work Experience",
+    "job": "Job {{n}}",
+    "remove": "Remove",
+    "title": "Job Title",
+    "company": "Company Name",
+    "dates": "Dates (e.g. 2020 – 2023)",
+    "duties": "Duties & Achievements — describe what you did, Claude will polish it",
+    "dutiesPlaceholder": "e.g. Handled customer calls, managed scheduling, trained new staff, resolved complaints...",
+    "addAnother": "+ Add Another Job"
+  },
+  "education": {
+    "sectionTitle": "Education",
+    "entry": "Entry {{n}}",
+    "degree": "Degree / Diploma / Certificate",
+    "school": "School / Institution",
+    "year": "Year Completed",
+    "addAnother": "+ Add Another"
+  },
+  "skillsStep": {
+    "sectionTitle": "Skills & More",
+    "skills": "Skills — list anything you know",
+    "skillsPlaceholder": "e.g. Microsoft Office, Excel, customer service, bilingual, forklift, QuickBooks...",
+    "certifications": "Certifications (optional)",
+    "certificationsPlaceholder": "e.g. ServSafe, CompTIA A+, CPR Certified",
+    "extra": "Anything else to include? (optional)",
+    "extraPlaceholder": "Languages spoken, volunteer work, awards, special notes..."
+  },
+  "nav": {
+    "back": "← Back",
+    "next": "Next →",
+    "generate": "Generate Resume",
+    "generating": "Claude is writing your resume..."
+  },
+  "result": {
+    "ready": "Resume Ready",
+    "startOver": "Start Over",
+    "summary": "Professional Summary",
+    "workExperience": "Work Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "certifications": "Certifications"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Saving...",
+    "generating": "Generating..."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "契約書<0>アナライザー</0>",
+  "subtitle": "契約書をアップロードすると、平易な要約、リスク評価、主要条項を確認できます。",
+  "dropLabel": "契約書をここにドロップ、またはクリックして選択",
+  "dropHint": "PDF、DOCX、または TXT",
+  "analyze": "契約書を分析",
+  "analyzing": "分析中…",
+  "documentOverview": "文書概要",
+  "risk": {
+    "low": "低リスク",
+    "medium": "中リスク",
+    "high": "高リスク"
+  },
+  "keyObligations": "主な義務",
+  "paymentTerms": "支払条件",
+  "redFlags": "注意すべき点",
+  "missingClauses": "不足している標準条項",
+  "recommendation": "推奨事項"
+}

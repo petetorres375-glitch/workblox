@@ -50,6 +50,13 @@ def create_app(testing=False):
             db.session.commit()
         except Exception:
             db.session.rollback()
+        try:
+            db.session.execute(text(
+                "ALTER TABLE users ADD COLUMN language VARCHAR(10)"
+            ))
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
         # seed kill-switch rows if missing
         from .models import AppConfig
         for key, val in [("personal_enabled", "true"), ("business_enabled", "true")]:
@@ -73,8 +80,9 @@ def create_app(testing=False):
         if any(request.path.startswith(p) for p in _PUBLIC_PREFIXES):
             return
 
-        # Kill switch — admin routes are exempt so Pedro can re-enable
-        if not request.path.startswith("/api/admin"):
+        # Kill switch — admin routes are exempt so Pedro can re-enable; profile routes
+        # are exempt because they're shared account settings, not an app-specific AI feature
+        if not request.path.startswith("/api/admin") and not request.path.startswith("/api/profile"):
             from .models import AppConfig
             if request.path.startswith("/api/biz"):
                 cfg = db.session.get(AppConfig, "business_enabled")

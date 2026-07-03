@@ -70,7 +70,8 @@ def login():
         db.session.commit()
 
     token = create_token(sub=user.email, name=user.name, plan=user.plan)
-    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan})
+    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan,
+                     "language": user.language})
 
 
 @bp.get("/verify/<token>")
@@ -135,7 +136,8 @@ def google_login():
         return jsonify({"error": _PENDING_MSG}), 403
 
     token = create_token(sub=user.email, name=user.name, plan=user.plan)
-    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan})
+    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan,
+                     "language": user.language})
 
 
 @bp.post("/demo")
@@ -147,4 +149,4 @@ def demo_login():
         return jsonify({"error": "Invalid"}), 401
     plan = data.get("plan", "free")
     token = create_token(sub="demo", name="Demo User", hours=8, plan=plan)
-    return jsonify({"token": token, "name": "Demo User", "plan": plan})
+    return jsonify({"token": token, "name": "Demo User", "plan": plan, "language": None})

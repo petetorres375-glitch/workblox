@@ -1,0 +1,19 @@
+{
+  "title": "Analisador de <0>Contratos</0>",
+  "subtitle": "Envie um contrato e obtenha um resumo em linguagem simples, avaliação de risco e as cláusulas principais.",
+  "dropLabel": "Solte o contrato aqui ou clique para procurar",
+  "dropHint": "PDF, DOCX ou TXT",
+  "analyze": "Analisar Contrato",
+  "analyzing": "Analisando…",
+  "documentOverview": "Visão Geral do Documento",
+  "risk": {
+    "low": "Risco baixo",
+    "medium": "Risco médio",
+    "high": "Risco alto"
+  },
+  "keyObligations": "Obrigações Principais",
+  "paymentTerms": "Condições de Pagamento",
+  "redFlags": "Sinais de Alerta",
+  "missingClauses": "Cláusulas Padrão Ausentes",
+  "recommendation": "Recomendação"
+}

@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./contexts/AuthContext";
 import App from "./App";
+import "./i18n";
 import "./styles/index.css";
 
 if ('serviceWorker' in navigator) {

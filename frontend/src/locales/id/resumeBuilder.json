@@ -1,0 +1,71 @@
+{
+  "title": "<0>Pembuat</0> Resume",
+  "subtitle": "Isi informasi Anda — Claude akan menulis resume yang rapi dan dioptimalkan untuk ATS.",
+  "steps": {
+    "contact": "Kontak",
+    "experience": "Pengalaman",
+    "education": "Pendidikan",
+    "skills": "Keahlian",
+    "review": "Tinjau"
+  },
+  "contact": {
+    "sectionTitle": "Informasi Kontak",
+    "name": "Nama Lengkap *",
+    "email": "Email",
+    "phone": "Telepon",
+    "location": "Kota, Provinsi",
+    "linkedin": "URL LinkedIn",
+    "jobRole": "Posisi Pekerjaan yang Dituju",
+    "jobRolePlaceholder": "mis. Layanan Pelanggan, Pramusaji Acara, Pembukuan"
+  },
+  "experience": {
+    "sectionTitle": "Pengalaman Kerja",
+    "job": "Pekerjaan {{n}}",
+    "remove": "Hapus",
+    "title": "Jabatan",
+    "company": "Nama Perusahaan",
+    "dates": "Periode (mis. 2020 – 2023)",
+    "duties": "Tugas & Pencapaian — jelaskan apa yang Anda kerjakan, Claude akan menyempurnakannya",
+    "dutiesPlaceholder": "mis. Menangani panggilan pelanggan, mengatur jadwal, melatih staf baru, menyelesaikan keluhan...",
+    "addAnother": "+ Tambah Pekerjaan Lain"
+  },
+  "education": {
+    "sectionTitle": "Pendidikan",
+    "entry": "Entri {{n}}",
+    "degree": "Gelar / Diploma / Sertifikat",
+    "school": "Sekolah / Institusi",
+    "year": "Tahun Lulus",
+    "addAnother": "+ Tambah Entri Lain"
+  },
+  "skillsStep": {
+    "sectionTitle": "Keahlian & Lainnya",
+    "skills": "Keahlian — sebutkan apa saja yang Anda kuasai",
+    "skillsPlaceholder": "mis. Microsoft Office, Excel, layanan pelanggan, dwibahasa, forklift, QuickBooks...",
+    "certifications": "Sertifikasi (opsional)",
+    "certificationsPlaceholder": "mis. ServSafe, CompTIA A+, Bersertifikat CPR",
+    "extra": "Ada hal lain yang ingin ditambahkan? (opsional)",
+    "extraPlaceholder": "Bahasa yang dikuasai, kegiatan sukarela, penghargaan, catatan khusus..."
+  },
+  "nav": {
+    "back": "← Kembali",
+    "next": "Lanjut →",
+    "generate": "Buat Resume",
+    "generating": "Claude sedang menulis resume Anda..."
+  },
+  "result": {
+    "ready": "Resume Siap",
+    "startOver": "Mulai Lagi",
+    "summary": "Ringkasan Profesional",
+    "workExperience": "Pengalaman Kerja",
+    "education": "Pendidikan",
+    "skills": "Keahlian",
+    "certifications": "Sertifikasi"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Menyimpan...",
+    "generating": "Membuat..."
+  }
+}

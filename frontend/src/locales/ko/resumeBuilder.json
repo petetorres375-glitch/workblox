@@ -1,0 +1,71 @@
+{
+  "title": "이력서 <0>작성기</0>",
+  "subtitle": "정보를 입력하면 Claude가 ATS에 최적화된 전문적인 이력서를 작성해 드립니다.",
+  "steps": {
+    "contact": "연락처",
+    "experience": "경력",
+    "education": "학력",
+    "skills": "역량",
+    "review": "검토"
+  },
+  "contact": {
+    "sectionTitle": "연락처 정보",
+    "name": "이름 *",
+    "email": "이메일",
+    "phone": "전화번호",
+    "location": "시/도",
+    "linkedin": "LinkedIn URL",
+    "jobRole": "희망 직무",
+    "jobRolePlaceholder": "예: 고객 서비스, 이벤트 서버, 경리"
+  },
+  "experience": {
+    "sectionTitle": "경력 사항",
+    "job": "경력 {{n}}",
+    "remove": "삭제",
+    "title": "직함",
+    "company": "회사명",
+    "dates": "재직 기간 (예: 2020 – 2023)",
+    "duties": "담당 업무 및 성과 — 하신 업무를 적어주시면 Claude가 다듬어 드립니다",
+    "dutiesPlaceholder": "예: 고객 응대, 스케줄 관리, 신입 직원 교육, 불만 처리...",
+    "addAnother": "+ 경력 추가"
+  },
+  "education": {
+    "sectionTitle": "학력",
+    "entry": "학력 {{n}}",
+    "degree": "학위 / 졸업장 / 수료증",
+    "school": "학교 / 기관",
+    "year": "졸업(수료) 연도",
+    "addAnother": "+ 추가"
+  },
+  "skillsStep": {
+    "sectionTitle": "역량 및 기타",
+    "skills": "역량 — 보유하신 모든 역량을 나열해 주세요",
+    "skillsPlaceholder": "예: Microsoft Office, Excel, 고객 서비스, 이중언어, 지게차 운전, QuickBooks...",
+    "certifications": "자격증 (선택 사항)",
+    "certificationsPlaceholder": "예: ServSafe, CompTIA A+, CPR 자격증",
+    "extra": "추가하고 싶은 내용이 있나요? (선택 사항)",
+    "extraPlaceholder": "구사 가능 언어, 봉사 활동, 수상 경력, 특이 사항..."
+  },
+  "nav": {
+    "back": "← 이전",
+    "next": "다음 →",
+    "generate": "이력서 생성",
+    "generating": "Claude가 이력서를 작성하고 있습니다..."
+  },
+  "result": {
+    "ready": "이력서 완성",
+    "startOver": "처음부터 다시 시작",
+    "summary": "직무 요약",
+    "workExperience": "경력 사항",
+    "education": "학력",
+    "skills": "역량",
+    "certifications": "자격증"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "저장 중...",
+    "generating": "생성 중..."
+  }
+}

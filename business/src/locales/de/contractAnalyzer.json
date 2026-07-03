@@ -1,0 +1,19 @@
+{
+  "title": "Vertrags<0>analyse</0>",
+  "subtitle": "Laden Sie einen Vertrag hoch und erhalten Sie eine verständliche Zusammenfassung, Risikobewertung und die wichtigsten Klauseln.",
+  "dropLabel": "Vertrag hier ablegen oder klicken, um eine Datei auszuwählen",
+  "dropHint": "PDF, DOCX oder TXT",
+  "analyze": "Vertrag analysieren",
+  "analyzing": "Analyse läuft…",
+  "documentOverview": "Dokumentübersicht",
+  "risk": {
+    "low": "Geringes Risiko",
+    "medium": "Mittleres Risiko",
+    "high": "Hohes Risiko"
+  },
+  "keyObligations": "Wesentliche Pflichten",
+  "paymentTerms": "Zahlungsbedingungen",
+  "redFlags": "Warnsignale",
+  "missingClauses": "Fehlende Standardklauseln",
+  "recommendation": "Empfehlung"
+}

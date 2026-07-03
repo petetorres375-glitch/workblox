@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePWA } from "../../hooks/usePWA";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 function InstallModal({ onClose }) {
+  const { t } = useTranslation("common");
   return (
     <div style={{
       position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)",
@@ -14,37 +17,30 @@ function InstallModal({ onClose }) {
         maxWidth: "320px", width: "100%", color: "#fff",
       }} onClick={(e) => e.stopPropagation()}>
         <h3 style={{ margin: "0 0 0.75rem", fontSize: "1rem", color: "#fbbf9a" }}>
-          Install Workblox
+          {t("installModal.title")}
         </h3>
         <p style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "1rem", lineHeight: 1.6 }}>
-          To install on Android:
+          {t("installModal.intro")}
         </p>
         <ol style={{ fontSize: "0.85rem", color: "#cbd5e1", lineHeight: 2, paddingLeft: "1.2rem", margin: "0 0 1.25rem" }}>
-          <li>Tap the <strong style={{ color: "#fff" }}>⋮ three-dot menu</strong> in Chrome</li>
-          <li>Tap <strong style={{ color: "#fff" }}>"Add to Home screen"</strong></li>
-          <li>Tap <strong style={{ color: "#fff" }}>"Add"</strong></li>
+          <li><Trans t={t} i18nKey="installModal.step1"><strong style={{ color: "#fff" }}>⋮ three-dot menu</strong></Trans></li>
+          <li><Trans t={t} i18nKey="installModal.step2"><strong style={{ color: "#fff" }}>"Add to Home screen"</strong></Trans></li>
+          <li><Trans t={t} i18nKey="installModal.step3"><strong style={{ color: "#fff" }}>"Add"</strong></Trans></li>
         </ol>
         <button onClick={onClose} style={{
           width: "100%", background: "#e05c2e", color: "#fff", border: "none",
           borderRadius: "8px", padding: "0.65rem", fontSize: "0.9rem",
           fontFamily: "inherit", cursor: "pointer", fontWeight: 600,
-        }}>Got it</button>
+        }}>{t("installModal.gotIt")}</button>
       </div>
     </div>
   );
 }
 
-const NAV_ITEMS = [
-  { id: "ats", label: "ATS Analyzer" },
-  { id: "doc", label: "Doc Analyzer" },
-  { id: "linux", label: "Linux" },
-  { id: "mac", label: "Mac" },
-  { id: "resume", label: "Resume Builder" },
-  { id: "windows", label: "Windows" },
-  { id: "workflow", label: "Workflow" },
-];
+const NAV_IDS = ["ats", "doc", "linux", "mac", "resume", "windows", "workflow"];
 
 export default function Header({ active, onSelect }) {
+  const { t } = useTranslation(["nav", "common"]);
   const { user, logout } = useAuth();
   const { canInstall, install, isInstalled } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
@@ -64,13 +60,13 @@ export default function Header({ active, onSelect }) {
         <span className="brand-product">Workblox</span>
       </div>
       <nav className="tool-nav">
-        {NAV_ITEMS.map((item) => (
+        {NAV_IDS.map((id) => (
           <button
-            key={item.id}
-            className={active === item.id ? "active" : ""}
-            onClick={() => onSelect(item.id)}
+            key={id}
+            className={active === id ? "active" : ""}
+            onClick={() => onSelect(id)}
           >
-            {item.label}
+            {t(`nav:${id}`)}
           </button>
         ))}
         {user?.isAdmin && (
@@ -78,14 +74,15 @@ export default function Header({ active, onSelect }) {
             className={active === "admin" ? "active" : ""}
             onClick={() => onSelect("admin")}
           >
-            Admin
+            {t("nav:admin")}
           </button>
         )}
       </nav>
       <div className="header-user">
         <span className="header-user-name">{user?.name}</span>
-        {!isInstalled && <button className="header-install" onClick={handleInstall}>⊕ Install</button>}
-        <button className="header-signout" onClick={logout}>Sign out</button>
+        <LanguageSwitcher />
+        {!isInstalled && <button className="header-install" onClick={handleInstall}>⊕ {t("common:install")}</button>}
+        <button className="header-signout" onClick={logout}>{t("common:signOut")}</button>
       </div>
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
     </header>

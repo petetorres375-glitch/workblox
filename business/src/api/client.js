@@ -55,6 +55,14 @@ export async function postBlob(path, body) {
   return res.blob();
 }
 
+export function patch(path, body) {
+  return fetch(`${BASE_URL}${path}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(body),
+  }).then((res) => handleResponse(res, path)).catch(networkGuard);
+}
+
 export function put(path, body) {
   return fetch(`${BASE_URL}${path}`, {
     method: "PUT",

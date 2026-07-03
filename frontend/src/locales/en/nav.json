@@ -1,0 +1,10 @@
+{
+  "ats": "ATS Analyzer",
+  "doc": "Doc Analyzer",
+  "linux": "Linux",
+  "mac": "Mac",
+  "resume": "Resume Builder",
+  "windows": "Windows",
+  "workflow": "Workflow",
+  "admin": "Admin"
+}

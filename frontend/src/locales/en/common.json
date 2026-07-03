@@ -1,0 +1,13 @@
+{
+  "signOut": "Sign out",
+  "install": "Install",
+  "language": "Language",
+  "installModal": {
+    "title": "Install Workblox",
+    "intro": "To install on Android:",
+    "step1": "Tap the <0>⋮ three-dot menu</0> in Chrome",
+    "step2": "Tap <0>\"Add to Home screen\"</0>",
+    "step3": "Tap <0>\"Add\"</0>",
+    "gotIt": "Got it"
+  }
+}

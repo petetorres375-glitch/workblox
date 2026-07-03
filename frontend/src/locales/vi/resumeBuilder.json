@@ -1,0 +1,71 @@
+{
+  "title": "Trình tạo <0>Sơ yếu lý lịch</0>",
+  "subtitle": "Điền thông tin của bạn — Claude sẽ viết một bản sơ yếu lý lịch chuyên nghiệp, tối ưu cho ATS.",
+  "steps": {
+    "contact": "Liên hệ",
+    "experience": "Kinh nghiệm",
+    "education": "Học vấn",
+    "skills": "Kỹ năng",
+    "review": "Xem lại"
+  },
+  "contact": {
+    "sectionTitle": "Thông tin Liên hệ",
+    "name": "Họ và Tên *",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "location": "Thành phố, Tỉnh/Bang",
+    "linkedin": "URL LinkedIn",
+    "jobRole": "Vị trí Công việc Mong muốn",
+    "jobRolePlaceholder": "ví dụ: Chăm sóc khách hàng, Phục vụ sự kiện, Kế toán"
+  },
+  "experience": {
+    "sectionTitle": "Kinh nghiệm Làm việc",
+    "job": "Công việc {{n}}",
+    "remove": "Xóa",
+    "title": "Chức danh",
+    "company": "Tên Công ty",
+    "dates": "Thời gian (ví dụ: 2020 – 2023)",
+    "duties": "Nhiệm vụ & Thành tích — mô tả những gì bạn đã làm, Claude sẽ hoàn thiện lại",
+    "dutiesPlaceholder": "ví dụ: Tiếp nhận cuộc gọi khách hàng, quản lý lịch trình, đào tạo nhân viên mới, giải quyết khiếu nại...",
+    "addAnother": "+ Thêm Công việc Khác"
+  },
+  "education": {
+    "sectionTitle": "Học vấn",
+    "entry": "Mục {{n}}",
+    "degree": "Bằng cấp / Chứng chỉ",
+    "school": "Trường / Cơ sở đào tạo",
+    "year": "Năm Hoàn thành",
+    "addAnother": "+ Thêm Mục Khác"
+  },
+  "skillsStep": {
+    "sectionTitle": "Kỹ năng & Thông tin khác",
+    "skills": "Kỹ năng — liệt kê những gì bạn biết",
+    "skillsPlaceholder": "ví dụ: Microsoft Office, Excel, chăm sóc khách hàng, song ngữ, xe nâng, QuickBooks...",
+    "certifications": "Chứng chỉ (không bắt buộc)",
+    "certificationsPlaceholder": "ví dụ: ServSafe, CompTIA A+, Chứng chỉ CPR",
+    "extra": "Có điều gì khác muốn thêm không? (không bắt buộc)",
+    "extraPlaceholder": "Ngôn ngữ biết nói, hoạt động tình nguyện, giải thưởng, ghi chú đặc biệt..."
+  },
+  "nav": {
+    "back": "← Quay lại",
+    "next": "Tiếp theo →",
+    "generate": "Tạo Sơ yếu lý lịch",
+    "generating": "Claude đang viết sơ yếu lý lịch của bạn..."
+  },
+  "result": {
+    "ready": "Sơ yếu lý lịch Đã sẵn sàng",
+    "startOver": "Làm lại từ đầu",
+    "summary": "Tóm tắt Chuyên môn",
+    "workExperience": "Kinh nghiệm Làm việc",
+    "education": "Học vấn",
+    "skills": "Kỹ năng",
+    "certifications": "Chứng chỉ"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Đang lưu...",
+    "generating": "Đang tạo..."
+  }
+}

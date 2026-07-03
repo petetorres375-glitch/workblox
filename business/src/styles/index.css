@@ -409,6 +409,22 @@ footer a {
   color: #fff;
 }
 
+.language-switcher {
+  background: transparent;
+  border: 1px solid #333;
+  color: #888;
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 4px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.language-switcher:hover {
+  color: #fff;
+  border-color: #666;
+}
+
 /* ── Login page ── */
 .login-page {
   min-height: 100vh;

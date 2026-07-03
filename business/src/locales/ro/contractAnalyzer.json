@@ -1,0 +1,19 @@
+{
+  "title": "Analizor de <0>Contracte</0>",
+  "subtitle": "Încarcă un contract și primești un rezumat pe înțelesul tuturor, o evaluare a riscurilor și clauzele esențiale.",
+  "dropLabel": "Trage contractul aici sau dă clic pentru a răsfoi",
+  "dropHint": "PDF, DOCX sau TXT",
+  "analyze": "Analizează Contractul",
+  "analyzing": "Se analizează…",
+  "documentOverview": "Prezentare Generală a Documentului",
+  "risk": {
+    "low": "Risc scăzut",
+    "medium": "Risc mediu",
+    "high": "Risc ridicat"
+  },
+  "keyObligations": "Obligații Cheie",
+  "paymentTerms": "Termeni de Plată",
+  "redFlags": "Semnale de Alarmă",
+  "missingClauses": "Clauze Standard Lipsă",
+  "recommendation": "Recomandare"
+}

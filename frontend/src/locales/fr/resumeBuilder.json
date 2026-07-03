@@ -1,0 +1,71 @@
+{
+  "title": "Créateur de <0>CV</0>",
+  "subtitle": "Renseignez vos informations — Claude rédige un CV soigné et optimisé pour les ATS.",
+  "steps": {
+    "contact": "Contact",
+    "experience": "Expérience",
+    "education": "Formation",
+    "skills": "Compétences",
+    "review": "Vérification"
+  },
+  "contact": {
+    "sectionTitle": "Coordonnées",
+    "name": "Nom Complet *",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "location": "Ville, Région",
+    "linkedin": "URL LinkedIn",
+    "jobRole": "Poste Visé",
+    "jobRolePlaceholder": "ex. Service Client, Serveur Événementiel, Comptable"
+  },
+  "experience": {
+    "sectionTitle": "Expérience Professionnelle",
+    "job": "Emploi {{n}}",
+    "remove": "Supprimer",
+    "title": "Intitulé du Poste",
+    "company": "Nom de l'Entreprise",
+    "dates": "Dates (ex. 2020 – 2023)",
+    "duties": "Missions et Réalisations — décrivez ce que vous avez fait, Claude le peaufinera",
+    "dutiesPlaceholder": "ex. Gestion des appels clients, planification, formation du nouveau personnel, résolution des réclamations...",
+    "addAnother": "+ Ajouter un Autre Emploi"
+  },
+  "education": {
+    "sectionTitle": "Formation",
+    "entry": "Entrée {{n}}",
+    "degree": "Diplôme / Certificat",
+    "school": "École / Établissement",
+    "year": "Année d'Obtention",
+    "addAnother": "+ Ajouter une Autre"
+  },
+  "skillsStep": {
+    "sectionTitle": "Compétences et Plus",
+    "skills": "Compétences — listez tout ce que vous savez faire",
+    "skillsPlaceholder": "ex. Microsoft Office, Excel, service client, bilingue, chariot élévateur, QuickBooks...",
+    "certifications": "Certifications (facultatif)",
+    "certificationsPlaceholder": "ex. ServSafe, CompTIA A+, Certifié RCP",
+    "extra": "Autre chose à ajouter ? (facultatif)",
+    "extraPlaceholder": "Langues parlées, bénévolat, distinctions, remarques particulières..."
+  },
+  "nav": {
+    "back": "← Retour",
+    "next": "Suivant →",
+    "generate": "Générer le CV",
+    "generating": "Claude rédige votre CV..."
+  },
+  "result": {
+    "ready": "CV Prêt",
+    "startOver": "Recommencer",
+    "summary": "Résumé Professionnel",
+    "workExperience": "Expérience Professionnelle",
+    "education": "Formation",
+    "skills": "Compétences",
+    "certifications": "Certifications"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Enregistrement...",
+    "generating": "Génération..."
+  }
+}

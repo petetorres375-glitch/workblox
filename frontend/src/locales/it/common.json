@@ -1,0 +1,13 @@
+{
+  "signOut": "Esci",
+  "install": "Installa",
+  "language": "Lingua",
+  "installModal": {
+    "title": "Installa Workblox",
+    "intro": "Per installare su Android:",
+    "step1": "Tocca il <0>menu a tre puntini ⋮</0> in Chrome",
+    "step2": "Tocca <0>\"Aggiungi a schermata Home\"</0>",
+    "step3": "Tocca <0>\"Aggiungi\"</0>",
+    "gotIt": "Capito"
+  }
+}

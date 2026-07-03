@@ -1,0 +1,71 @@
+{
+  "title": "Kreator <0>CV</0>",
+  "subtitle": "Wypełnij swoje dane — Claude napisze dopracowane CV zoptymalizowane pod ATS.",
+  "steps": {
+    "contact": "Kontakt",
+    "experience": "Doświadczenie",
+    "education": "Wykształcenie",
+    "skills": "Umiejętności",
+    "review": "Podsumowanie"
+  },
+  "contact": {
+    "sectionTitle": "Dane kontaktowe",
+    "name": "Imię i nazwisko *",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "location": "Miasto, województwo",
+    "linkedin": "Adres URL LinkedIn",
+    "jobRole": "Docelowe stanowisko",
+    "jobRolePlaceholder": "np. Obsługa klienta, Obsługa eventów, Księgowość"
+  },
+  "experience": {
+    "sectionTitle": "Doświadczenie zawodowe",
+    "job": "Praca {{n}}",
+    "remove": "Usuń",
+    "title": "Stanowisko",
+    "company": "Nazwa firmy",
+    "dates": "Daty (np. 2020 – 2023)",
+    "duties": "Obowiązki i osiągnięcia — opisz, co robiłeś/aś, Claude to dopracuje",
+    "dutiesPlaceholder": "np. Obsługa połączeń z klientami, zarządzanie grafikiem, szkolenie nowych pracowników, rozwiązywanie reklamacji...",
+    "addAnother": "+ Dodaj kolejną pracę"
+  },
+  "education": {
+    "sectionTitle": "Wykształcenie",
+    "entry": "Wpis {{n}}",
+    "degree": "Stopień / Dyplom / Certyfikat",
+    "school": "Szkoła / Instytucja",
+    "year": "Rok ukończenia",
+    "addAnother": "+ Dodaj kolejny"
+  },
+  "skillsStep": {
+    "sectionTitle": "Umiejętności i więcej",
+    "skills": "Umiejętności — wymień wszystko, co potrafisz",
+    "skillsPlaceholder": "np. Microsoft Office, Excel, obsługa klienta, dwujęzyczność, wózek widłowy, QuickBooks...",
+    "certifications": "Certyfikaty (opcjonalnie)",
+    "certificationsPlaceholder": "np. ServSafe, CompTIA A+, certyfikat pierwszej pomocy",
+    "extra": "Coś jeszcze do dodania? (opcjonalnie)",
+    "extraPlaceholder": "Znane języki, wolontariat, nagrody, uwagi szczególne..."
+  },
+  "nav": {
+    "back": "← Wstecz",
+    "next": "Dalej →",
+    "generate": "Wygeneruj CV",
+    "generating": "Claude pisze Twoje CV..."
+  },
+  "result": {
+    "ready": "CV gotowe",
+    "startOver": "Zacznij od nowa",
+    "summary": "Podsumowanie zawodowe",
+    "workExperience": "Doświadczenie zawodowe",
+    "education": "Wykształcenie",
+    "skills": "Umiejętności",
+    "certifications": "Certyfikaty"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Zapisywanie...",
+    "generating": "Generowanie..."
+  }
+}

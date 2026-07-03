@@ -1,0 +1,19 @@
+{
+  "title": "Analyseur de <0>Contrats</0>",
+  "subtitle": "Téléchargez un contrat pour obtenir un résumé en langage clair, une évaluation des risques et les clauses clés.",
+  "dropLabel": "Déposez le contrat ici ou cliquez pour parcourir",
+  "dropHint": "PDF, DOCX ou TXT",
+  "analyze": "Analyser le Contrat",
+  "analyzing": "Analyse en cours…",
+  "documentOverview": "Aperçu du Document",
+  "risk": {
+    "low": "Risque faible",
+    "medium": "Risque moyen",
+    "high": "Risque élevé"
+  },
+  "keyObligations": "Obligations Clés",
+  "paymentTerms": "Conditions de Paiement",
+  "redFlags": "Signaux d'Alerte",
+  "missingClauses": "Clauses Standards Manquantes",
+  "recommendation": "Recommandation"
+}

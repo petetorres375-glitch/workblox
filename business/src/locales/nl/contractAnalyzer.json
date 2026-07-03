@@ -1,0 +1,19 @@
+{
+  "title": "Contract<0>analyse</0>",
+  "subtitle": "Upload een contract en ontvang een samenvatting in gewone taal, een risicobeoordeling en de belangrijkste clausules.",
+  "dropLabel": "Sleep het contract hierheen of klik om te bladeren",
+  "dropHint": "PDF, DOCX of TXT",
+  "analyze": "Contract analyseren",
+  "analyzing": "Bezig met analyseren…",
+  "documentOverview": "Documentoverzicht",
+  "risk": {
+    "low": "Laag risico",
+    "medium": "Gemiddeld risico",
+    "high": "Hoog risico"
+  },
+  "keyObligations": "Belangrijkste verplichtingen",
+  "paymentTerms": "Betalingsvoorwaarden",
+  "redFlags": "Waarschuwingssignalen",
+  "missingClauses": "Ontbrekende standaardclausules",
+  "recommendation": "Aanbeveling"
+}

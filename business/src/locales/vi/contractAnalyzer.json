@@ -1,0 +1,19 @@
+{
+  "title": "Trình phân tích <0>Hợp đồng</0>",
+  "subtitle": "Tải lên một hợp đồng để nhận bản tóm tắt dễ hiểu, đánh giá rủi ro và các điều khoản chính.",
+  "dropLabel": "Kéo thả hợp đồng vào đây hoặc nhấn để chọn",
+  "dropHint": "PDF, DOCX, hoặc TXT",
+  "analyze": "Phân tích Hợp đồng",
+  "analyzing": "Đang phân tích…",
+  "documentOverview": "Tổng quan Tài liệu",
+  "risk": {
+    "low": "Rủi ro thấp",
+    "medium": "Rủi ro trung bình",
+    "high": "Rủi ro cao"
+  },
+  "keyObligations": "Nghĩa vụ Chính",
+  "paymentTerms": "Điều khoản Thanh toán",
+  "redFlags": "Dấu hiệu Cảnh báo",
+  "missingClauses": "Điều khoản Tiêu chuẩn Còn thiếu",
+  "recommendation": "Khuyến nghị"
+}

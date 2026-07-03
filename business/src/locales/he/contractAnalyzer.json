@@ -1,0 +1,19 @@
+{
+  "title": "ניתוח <0>חוזה</0>",
+  "subtitle": "העלו חוזה וקבלו תקציר בשפה פשוטה, הערכת סיכונים וסעיפים מרכזיים.",
+  "dropLabel": "גררו את החוזה לכאן או לחצו לבחירת קובץ",
+  "dropHint": "PDF, DOCX או TXT",
+  "analyze": "ניתוח חוזה",
+  "analyzing": "מנתח…",
+  "documentOverview": "סקירת המסמך",
+  "risk": {
+    "low": "סיכון נמוך",
+    "medium": "סיכון בינוני",
+    "high": "סיכון גבוה"
+  },
+  "keyObligations": "התחייבויות מרכזיות",
+  "paymentTerms": "תנאי תשלום",
+  "redFlags": "דגלים אדומים",
+  "missingClauses": "סעיפים סטנדרטיים חסרים",
+  "recommendation": "המלצה"
+}

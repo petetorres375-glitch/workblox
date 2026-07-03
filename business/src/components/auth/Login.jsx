@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePWA } from "../../hooks/usePWA";
@@ -6,6 +7,7 @@ import { post } from "../../api/client";
 import PasswordInput from "../ui/PasswordInput";
 
 function InstallModal({ onClose }) {
+  const { t } = useTranslation("common");
   return (
     <div style={{
       position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)",
@@ -17,27 +19,28 @@ function InstallModal({ onClose }) {
         maxWidth: "320px", width: "100%", color: "#fff",
       }} onClick={(e) => e.stopPropagation()}>
         <h3 style={{ margin: "0 0 0.75rem", fontSize: "1rem", color: "#93c5fd" }}>
-          Install Workblox Business
+          {t("installModal.title")}
         </h3>
         <p style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "1rem", lineHeight: 1.6 }}>
-          To install on Android:
+          {t("installModal.intro")}
         </p>
         <ol style={{ fontSize: "0.85rem", color: "#cbd5e1", lineHeight: 2, paddingLeft: "1.2rem", margin: "0 0 1.25rem" }}>
-          <li>Tap the <strong style={{ color: "#fff" }}>⋮ three-dot menu</strong> in Chrome</li>
-          <li>Tap <strong style={{ color: "#fff" }}>"Add to Home screen"</strong></li>
-          <li>Tap <strong style={{ color: "#fff" }}>"Add"</strong></li>
+          <li><Trans t={t} i18nKey="installModal.step1"><strong style={{ color: "#fff" }}>⋮ three-dot menu</strong></Trans></li>
+          <li><Trans t={t} i18nKey="installModal.step2"><strong style={{ color: "#fff" }}>"Add to Home screen"</strong></Trans></li>
+          <li><Trans t={t} i18nKey="installModal.step3"><strong style={{ color: "#fff" }}>"Add"</strong></Trans></li>
         </ol>
         <button onClick={onClose} style={{
           width: "100%", background: "#2563eb", color: "#fff", border: "none",
           borderRadius: "8px", padding: "0.65rem", fontSize: "0.9rem",
           fontFamily: "inherit", cursor: "pointer", fontWeight: 600,
-        }}>Got it</button>
+        }}>{t("installModal.gotIt")}</button>
       </div>
     </div>
   );
 }
 
 export default function Login({ onSwitchToSignUp }) {
+  const { t } = useTranslation("auth");
   const { login } = useAuth();
   const { canInstall, install } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
@@ -69,7 +72,7 @@ export default function Login({ onSwitchToSignUp }) {
     setError("");
     try {
       const data = await post("/api/auth/login", { email, password });
-      login(data.token, data.name, data.email, data.plan);
+      login(data.token, data.name, data.email, data.plan, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -82,7 +85,7 @@ export default function Login({ onSwitchToSignUp }) {
     setError("");
     try {
       const data = await post("/api/auth/google", { credential });
-      login(data.token, data.name, data.email, data.plan);
+      login(data.token, data.name, data.email, data.plan, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -98,7 +101,7 @@ export default function Login({ onSwitchToSignUp }) {
       const data = await post("/api/auth/demo", { password: demoPassword, plan: "business" });
       login(data.token, data.name, null, data.plan);
     } catch (err) {
-      setError("Invalid demo password");
+      setError(t("invalidDemoPassword"));
     } finally {
       setLoading(false);
     }
@@ -113,12 +116,12 @@ export default function Login({ onSwitchToSignUp }) {
           </span>
           <span className="login-product">Workblox Business</span>
         </div>
-        <p className="login-tagline">Sign in to your account</p>
+        <p className="login-tagline">{t("signInTagline")}</p>
 
         <div className="login-google">
           <GoogleLogin
             onSuccess={(res) => handleGoogle(res.credential)}
-            onError={() => setError("Google sign-in failed")}
+            onError={() => setError(t("googleError"))}
             text="signin_with"
             shape="rectangular"
             size="large"
@@ -126,33 +129,33 @@ export default function Login({ onSwitchToSignUp }) {
           />
         </div>
 
-        <div className="auth-divider"><span>or</span></div>
+        <div className="auth-divider"><span>{t("or")}</span></div>
 
         <form className="auth-form" onSubmit={handleEmailLogin}>
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             disabled={loading}
           />
           <PasswordInput
-            placeholder="Password"
+            placeholder={t("passwordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             disabled={loading}
           />
           <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? "Signing in…" : "Sign in"}
+            {loading ? t("signingIn") : t("signIn")}
           </button>
         </form>
 
         <p className="auth-switch">
-          Don't have an account?{" "}
+          {t("noAccount")}{" "}
           <button className="auth-link" onClick={onSwitchToSignUp}>
-            Sign up
+            {t("signUp")}
           </button>
         </p>
 
@@ -161,7 +164,7 @@ export default function Login({ onSwitchToSignUp }) {
             <input
               ref={demoInputRef}
               type="password"
-              placeholder="Demo password"
+              placeholder={t("demoPasswordPlaceholder")}
               value={demoPassword}
               onChange={(e) => setDemoPassword(e.target.value)}
               maxLength={4}
@@ -170,7 +173,7 @@ export default function Login({ onSwitchToSignUp }) {
               style={{ padding: "0.6rem 0.8rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", width: "100%", outline: "none" }}
             />
             <button type="submit" className="submit-btn" disabled={loading} style={{ marginTop: "0.5rem" }}>
-              {loading ? "…" : "Enter Demo"}
+              {loading ? "…" : t("enterDemo")}
             </button>
           </form>
         )}
@@ -187,7 +190,7 @@ export default function Login({ onSwitchToSignUp }) {
           fontFamily: "inherit", fontSize: "0.88rem", cursor: "pointer",
         }}
       >
-        ⊕ Install App
+        ⊕ {t("common:installApp")}
       </button>
 
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}

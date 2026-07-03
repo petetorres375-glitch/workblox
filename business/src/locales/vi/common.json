@@ -1,0 +1,14 @@
+{
+  "signOut": "Đăng xuất",
+  "install": "Cài đặt",
+  "installApp": "Cài đặt Ứng dụng",
+  "language": "Ngôn ngữ",
+  "installModal": {
+    "title": "Cài đặt Workblox Business",
+    "intro": "Để cài đặt trên Android:",
+    "step1": "Nhấn vào <0>menu ba chấm ⋮</0> trong Chrome",
+    "step2": "Nhấn <0>\"Thêm vào Màn hình chính\"</0>",
+    "step3": "Nhấn <0>\"Thêm\"</0>",
+    "gotIt": "Đã hiểu"
+  }
+}

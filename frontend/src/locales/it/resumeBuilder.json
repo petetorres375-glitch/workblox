@@ -1,0 +1,71 @@
+{
+  "title": "Crea <0>CV</0>",
+  "subtitle": "Inserisci i tuoi dati — Claude scriverà un CV curato e ottimizzato per gli ATS.",
+  "steps": {
+    "contact": "Contatti",
+    "experience": "Esperienza",
+    "education": "Istruzione",
+    "skills": "Competenze",
+    "review": "Riepilogo"
+  },
+  "contact": {
+    "sectionTitle": "Informazioni di contatto",
+    "name": "Nome completo *",
+    "email": "Email",
+    "phone": "Telefono",
+    "location": "Città, Regione",
+    "linkedin": "URL LinkedIn",
+    "jobRole": "Ruolo lavorativo desiderato",
+    "jobRolePlaceholder": "es. Servizio clienti, Cameriere per eventi, Contabile"
+  },
+  "experience": {
+    "sectionTitle": "Esperienza lavorativa",
+    "job": "Lavoro {{n}}",
+    "remove": "Rimuovi",
+    "title": "Qualifica",
+    "company": "Nome dell'azienda",
+    "dates": "Periodo (es. 2020 – 2023)",
+    "duties": "Mansioni e risultati — descrivi cosa hai fatto, Claude lo perfezionerà",
+    "dutiesPlaceholder": "es. Gestione chiamate clienti, pianificazione turni, formazione nuovo personale, gestione reclami...",
+    "addAnother": "+ Aggiungi un altro lavoro"
+  },
+  "education": {
+    "sectionTitle": "Istruzione",
+    "entry": "Voce {{n}}",
+    "degree": "Laurea / Diploma / Certificato",
+    "school": "Scuola / Istituto",
+    "year": "Anno di conseguimento",
+    "addAnother": "+ Aggiungi un'altra"
+  },
+  "skillsStep": {
+    "sectionTitle": "Competenze e altro",
+    "skills": "Competenze — elenca tutto ciò che sai fare",
+    "skillsPlaceholder": "es. Microsoft Office, Excel, servizio clienti, bilingue, carrello elevatore, QuickBooks...",
+    "certifications": "Certificazioni (facoltativo)",
+    "certificationsPlaceholder": "es. ServSafe, CompTIA A+, Certificazione RCP",
+    "extra": "Altro da includere? (facoltativo)",
+    "extraPlaceholder": "Lingue parlate, attività di volontariato, riconoscimenti, note particolari..."
+  },
+  "nav": {
+    "back": "← Indietro",
+    "next": "Avanti →",
+    "generate": "Genera CV",
+    "generating": "Claude sta scrivendo il tuo CV..."
+  },
+  "result": {
+    "ready": "CV pronto",
+    "startOver": "Ricomincia",
+    "summary": "Profilo professionale",
+    "workExperience": "Esperienza lavorativa",
+    "education": "Istruzione",
+    "skills": "Competenze",
+    "certifications": "Certificazioni"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "saving": "Salvataggio...",
+    "generating": "Generazione..."
+  }
+}

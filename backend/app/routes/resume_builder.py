@@ -22,6 +22,7 @@ def create_resume():
     job_role   = (body.get("job_role") or "").strip() or None
     experience = body.get("experience") or []
     education  = body.get("education") or []
+    language   = (body.get("language") or "en").strip()
 
     data = {
         "job_role":       job_role,
@@ -38,7 +39,7 @@ def create_resume():
         return jsonify({"error": "Please add at least one job or some skills"}), 400
 
     try:
-        resume = generate_resume(data)
+        resume = generate_resume(data, language=language)
     except Exception as e:
         return jsonify({"error": f"Resume generation failed: {e}"}), 500
 

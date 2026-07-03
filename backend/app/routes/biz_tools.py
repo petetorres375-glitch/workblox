@@ -481,12 +481,14 @@ def contract_analyzer():
         return jsonify({"error": f"Could not read file: {e}"}), 422
     if not text.strip():
         return jsonify({"error": "Could not extract any text from the file"}), 422
+    language = (request.form.get("language") or "en").strip()
     try:
         result = claude_client.call(
             system_prompt=_CONTRACT_PROMPT,
             user_message=f"Contract filename: {file.filename}\n\nContent:\n{text[:12000]}",
             model="claude-haiku-4-5-20251001",
             max_tokens=3000,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:

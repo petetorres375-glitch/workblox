@@ -1,0 +1,19 @@
+{
+  "title": "Penganalisis <0>Kontrak</0>",
+  "subtitle": "Unggah kontrak untuk mendapatkan ringkasan berbahasa sederhana, penilaian risiko, dan klausul utama.",
+  "dropLabel": "Letakkan kontrak di sini atau klik untuk memilih file",
+  "dropHint": "PDF, DOCX, atau TXT",
+  "analyze": "Analisis Kontrak",
+  "analyzing": "Menganalisis…",
+  "documentOverview": "Ringkasan Dokumen",
+  "risk": {
+    "low": "Risiko rendah",
+    "medium": "Risiko sedang",
+    "high": "Risiko tinggi"
+  },
+  "keyObligations": "Kewajiban Utama",
+  "paymentTerms": "Ketentuan Pembayaran",
+  "redFlags": "Tanda Peringatan",
+  "missingClauses": "Klausul Standar yang Hilang",
+  "recommendation": "Rekomendasi"
+}
