@@ -1,0 +1,22 @@
+{
+  "title": "広告コピー<0>ライター</0>",
+  "subtitle": "複数の見出しと説明文のバリエーションで、コンバージョン率の高い広告コピーを生成します。",
+  "productServicePlaceholder": "製品またはサービス *",
+  "targetAudiencePlaceholder": "ターゲット層(例:中小企業の経営者、25〜45歳)",
+  "uniqueValuePlaceholder": "独自の価値提案",
+  "goalOptions": {
+    "conversions": "コンバージョン",
+    "awareness": "認知度",
+    "leads": "見込み客",
+    "traffic": "トラフィック",
+    "app installs": "アプリインストール"
+  },
+  "write": "広告コピーを作成",
+  "writing": "作成中…",
+  "docTitle": "広告コピー",
+  "copy": "コピー",
+  "headlines": "見出し",
+  "descriptions": "説明文",
+  "ctaOptions": "行動喚起(CTA)オプション",
+  "valuePropositions": "価値提案"
+}

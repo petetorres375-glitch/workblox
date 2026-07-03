@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { BASE_URL, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
 const PRIORITY_COLORS = { high: "#dc2626", medium: "#d97706", low: "#2563eb" };
 
 export default function ATSAnalyzer() {
+  const { t } = useTranslation("atsAnalyzer");
   const [file, setFile]           = useState(null);
   const [dragOver, setDragOver]   = useState(false);
   const [clientName, setClientName] = useState("");
@@ -109,8 +111,8 @@ export default function ATSAnalyzer() {
 
   return (
     <>
-      <h1 className="page-title">ATS <span>Analyzer</span></h1>
-      <p className="page-subtitle">Upload a resume — get an instant ATS score, keyword gaps, and recommendations.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit}>
         <div
@@ -130,8 +132,8 @@ export default function ATSAnalyzer() {
             <p className="drop-label" style={{ color: "#111" }}>{file.name}</p>
           ) : (
             <>
-              <p className="drop-label">Drop a resume here or click to browse</p>
-              <p className="drop-hint">TXT, PDF, or DOCX — max 5 MB</p>
+              <p className="drop-label">{t("dropZone.label")}</p>
+              <p className="drop-hint">{t("dropZone.hint")}</p>
             </>
           )}
         </div>
@@ -139,7 +141,7 @@ export default function ATSAnalyzer() {
         <div style={{ display: "flex", gap: "0.75rem", marginTop: "0.75rem", flexWrap: "wrap" }}>
           <input
             type="text"
-            placeholder="Client name (optional)"
+            placeholder={t("clientNamePlaceholder")}
             value={clientName}
             onChange={(e) => setClientName(e.target.value)}
             style={{
@@ -157,7 +159,7 @@ export default function ATSAnalyzer() {
               borderRadius: 8, fontFamily: "inherit", fontSize: "0.95rem",
             }}
           >
-            <option value="">Job role (optional)</option>
+            <option value="">{t("jobRolePlaceholder")}</option>
             {roles.map((r) => (
               <option key={r} value={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</option>
             ))}
@@ -165,7 +167,7 @@ export default function ATSAnalyzer() {
         </div>
 
         <button type="submit" className="submit-btn" disabled={loading || !file}>
-          {loading ? "Analyzing..." : "Analyze Resume"}
+          {loading ? t("analyzing") : t("submit")}
         </button>
       </form>
 
@@ -178,10 +180,10 @@ export default function ATSAnalyzer() {
             <div style={{ fontSize: "4rem", fontWeight: 700, color: scoreColor, lineHeight: 1 }}>
               {score}
             </div>
-            <div style={{ color: "#6b7280", fontSize: "0.9rem" }}>out of 100</div>
+            <div style={{ color: "#6b7280", fontSize: "0.9rem" }}>{t("score.outOf100")}</div>
             <div style={{ fontWeight: 600, fontSize: "1.1rem", marginTop: 4 }}>{data.grade}</div>
             <div style={{ color: "#6b7280", fontSize: "0.85rem", marginTop: 4 }}>
-              {data.results.total_found} / {data.results.total_possible} keywords found
+              {t("score.keywordsFound", { found: data.results.total_found, total: data.results.total_possible })}
             </div>
             <ScoreBar score={score} color={scoreColor} />
           </div>
@@ -192,7 +194,7 @@ export default function ATSAnalyzer() {
           {/* Recommendations */}
           {data.results.recommendations?.length > 0 && (
             <div className="result-card" style={{ marginTop: 16 }}>
-              <div className="result-label">Recommendations</div>
+              <div className="result-label">{t("recommendations")}</div>
               {data.results.recommendations.map((rec, i) => (
                 <div key={i} style={{ marginBottom: 12 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -216,7 +218,7 @@ export default function ATSAnalyzer() {
 
           {/* Keyword breakdown */}
           <div className="result-card" style={{ marginTop: 16 }}>
-            <div className="result-label">Keyword Breakdown</div>
+            <div className="result-label">{t("keywordBreakdown")}</div>
             {Object.entries(data.results.categories).map(([cat, d]) => {
               const pct = d.total ? Math.round((d.score / d.total) * 100) : 0;
               return (
@@ -235,7 +237,7 @@ export default function ATSAnalyzer() {
                     <div style={{ marginTop: 4 }}>
                       {d.missing.slice(0, 8).map((kw) => <Chip key={kw} label={kw} found={false} />)}
                       {d.missing.length > 8 && (
-                        <span style={{ fontSize: "0.78rem", color: "#9ca3af" }}>+{d.missing.length - 8} more</span>
+                        <span style={{ fontSize: "0.78rem", color: "#9ca3af" }}>{t("moreKeywords", { count: d.missing.length - 8 })}</span>
                       )}
                     </div>
                   )}
@@ -247,9 +249,9 @@ export default function ATSAnalyzer() {
           {/* Job match */}
           {data.results.job_match && (
             <div className="result-card" style={{ marginTop: 16 }}>
-              <div className="result-label">Job Match: {data.results.job_match.role}</div>
+              <div className="result-label">{t("jobMatch.title", { role: data.results.job_match.role })}</div>
               <div style={{ fontWeight: 600, color: "#2563eb", marginBottom: 8 }}>
-                {data.results.job_match.score} / {data.results.job_match.total} keywords matched
+                {t("jobMatch.matched", { score: data.results.job_match.score, total: data.results.job_match.total })}
               </div>
               {data.results.job_match.found.length > 0 && (
                 <div style={{ marginBottom: 6 }}>
@@ -268,17 +270,17 @@ export default function ATSAnalyzer() {
           <div style={{ marginTop: 16, display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <button className="copy-btn" onClick={downloadTxt}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              ↓ TXT
+              {t("download.txt")}
             </button>
             <button className="copy-btn" onClick={() => download("pdf")}
               disabled={downloading === "pdf"}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              {downloading === "pdf" ? "Generating..." : "↓ PDF"}
+              {downloading === "pdf" ? t("download.generating") : t("download.pdf")}
             </button>
             <button className="copy-btn" onClick={() => download("docx")}
               disabled={downloading === "docx"}
               style={{ padding: "8px 18px", fontSize: "0.88rem" }}>
-              {downloading === "docx" ? "Generating..." : "↓ Word"}
+              {downloading === "docx" ? t("download.generating") : t("download.word")}
             </button>
           </div>
         </>
@@ -309,11 +311,12 @@ function Chip({ label, found }) {
 }
 
 function ContactCheck({ contact }) {
+  const { t } = useTranslation("atsAnalyzer");
   const fields = [
-    { key: "email", label: "Email" },
-    { key: "phone", label: "Phone" },
-    { key: "linkedin", label: "LinkedIn" },
-    { key: "location", label: "Location" },
+    { key: "email", label: t("contactCheck.email") },
+    { key: "phone", label: t("contactCheck.phone") },
+    { key: "linkedin", label: t("contactCheck.linkedin") },
+    { key: "location", label: t("contactCheck.location") },
   ];
   return (
     <div className="result-card" style={{ marginTop: 16, display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>

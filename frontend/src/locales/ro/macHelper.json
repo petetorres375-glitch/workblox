@@ -1,0 +1,15 @@
+{
+  "title": "Asistent <0>Mac</0>",
+  "subtitle": "Descrie o problemă macOS în cuvinte simple — primești imediat comanda de Terminal potrivită.",
+  "placeholder": "ex. afișarea spațiului de disc folosit de fiecare folder din directorul principal",
+  "ask": "Întreabă",
+  "thinking": "Se gândește...",
+  "result": {
+    "guiSteps": "Pași prin interfața grafică",
+    "command": "Comandă",
+    "copy": "Copiază",
+    "copied": "Copiat!",
+    "explanation": "Explicație",
+    "warnings": "Avertismente"
+  }
+}

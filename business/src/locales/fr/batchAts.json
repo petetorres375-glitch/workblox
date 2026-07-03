@@ -1,0 +1,17 @@
+{
+  "title": "Analyseur ATS <0>par Lot</0>",
+  "subtitle": "Téléchargez jusqu'à 10 CV et évaluez-les tous par rapport à une offre d'emploi en une seule fois.",
+  "dropLabel": "Déposez les CV ici ou cliquez pour parcourir",
+  "resumesSelected_one": "{{count}} CV sélectionné",
+  "resumesSelected_other": "{{count}} CV sélectionnés",
+  "dropHint": "PDF, DOCX ou TXT · jusqu'à 10 fichiers",
+  "jobDescriptionPlaceholder": "Description du poste (collez-la ici pour une meilleure correspondance)",
+  "analyzeAll": "Analyser Tous les CV",
+  "analyzingCount_one": "Analyse de {{count}} CV…",
+  "analyzingCount_other": "Analyse de {{count}} CV…",
+  "resumesAnalyzed_one": "{{count}} CV analysé",
+  "resumesAnalyzed_other": "{{count}} CV analysés",
+  "errorLabel": "Erreur : {{error}}",
+  "strengths": "Points Forts",
+  "concerns": "Points de Vigilance"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Генератор <0>Пропозицій</0>",
+  "subtitle": "Створюйте професійні комерційні пропозиції та кошториси для клієнтів.",
+  "clientNamePlaceholder": "Ім'я клієнта",
+  "projectDescriptionPlaceholder": "Опис проєкту *",
+  "servicesPlaceholder": "Послуги, які слід включити",
+  "budgetRangePlaceholder": "Діапазон бюджету (напр., $5,000–$10,000)",
+  "timelinePlaceholder": "Терміни (напр., 4–6 тижнів)",
+  "generate": "Створити Пропозицію",
+  "generating": "Створення…",
+  "executiveSummary": "Стислий Огляд",
+  "scopeOfWork": "Обсяг Робіт",
+  "deliverables": "Результати Роботи",
+  "lineItems": "Позиції Кошторису",
+  "table": {
+    "description": "Опис",
+    "qty": "К-сть",
+    "unitPrice": "Ціна за Одиницю",
+    "total": "Разом"
+  },
+  "terms": "Умови"
+}

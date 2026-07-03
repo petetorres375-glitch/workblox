@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> Kebijakan",
+  "subtitle": "Buat kebijakan perusahaan yang profesional — SDM, IT, kerja jarak jauh, cuti, dan lainnya.",
+  "policyTypePlaceholder": "Jenis kebijakan (mis. Kebijakan Kerja Jarak Jauh, Kebijakan Cuti) *",
+  "companyNamePlaceholder": "Nama perusahaan",
+  "industryPlaceholder": "Industri (mis. Teknologi, Kesehatan)",
+  "specificsPlaceholder": "Persyaratan atau catatan khusus (opsional)",
+  "generate": "Buat Kebijakan",
+  "generating": "Membuat…",
+  "policyDocument": "Dokumen Kebijakan",
+  "copyAll": "Salin Semua",
+  "effective": "Berlaku mulai: {{date}}",
+  "purpose": "Tujuan",
+  "scope": "Ruang Lingkup",
+  "acknowledgment": "Pernyataan Persetujuan",
+  "policyPrefix": "Kebijakan"
+}

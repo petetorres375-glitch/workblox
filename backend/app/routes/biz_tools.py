@@ -195,6 +195,7 @@ def hiring_manager():
         return guard
     body = request.get_json(silent=True) or {}
     description = (body.get("description") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not description:
         return jsonify({"error": "description is required"}), 400
     try:
@@ -203,6 +204,7 @@ def hiring_manager():
             user_message=description,
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -221,6 +223,7 @@ def job_desc_writer():
     requirements = (body.get("requirements") or "").strip()
     salary_range = (body.get("salary_range") or "").strip()
     company_info = (body.get("company_info") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not job_title:
         return jsonify({"error": "job_title is required"}), 400
     try:
@@ -229,6 +232,7 @@ def job_desc_writer():
             user_message=f"Job Title: {job_title}\nDepartment: {department}\nRequirements: {requirements}\nSalary Range: {salary_range}\nCompany Info: {company_info}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -247,6 +251,7 @@ def proposal_generator():
     services = (body.get("services") or "").strip()
     budget_range = (body.get("budget_range") or "").strip()
     timeline = (body.get("timeline") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not project_description:
         return jsonify({"error": "project_description is required"}), 400
     try:
@@ -255,6 +260,7 @@ def proposal_generator():
             user_message=f"Client: {client_name}\nProject: {project_description}\nServices: {services}\nBudget: {budget_range}\nTimeline: {timeline}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -271,6 +277,7 @@ def customer_response_drafter():
     customer_message = (body.get("customer_message") or "").strip()
     context = (body.get("context") or "").strip()
     tone = (body.get("tone") or "professional").strip()
+    language = (body.get("language") or "en").strip()
     if not customer_message:
         return jsonify({"error": "customer_message is required"}), 400
     try:
@@ -279,6 +286,7 @@ def customer_response_drafter():
             user_message=f"Customer Message: {customer_message}\nContext: {context}\nDesired Tone: {tone}",
             model="claude-haiku-4-5-20251001",
             max_tokens=1024,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -296,6 +304,7 @@ def review_request_email():
     customer_name = (body.get("customer_name") or "").strip()
     service_provided = (body.get("service_provided") or "").strip()
     platforms = (body.get("platforms") or "Google, Yelp").strip()
+    language = (body.get("language") or "en").strip()
     if not business_name:
         return jsonify({"error": "business_name is required"}), 400
     try:
@@ -304,6 +313,7 @@ def review_request_email():
             user_message=f"Business: {business_name}\nCustomer Name: {customer_name}\nService: {service_provided}\nReview Platforms: {platforms}",
             model="claude-haiku-4-5-20251001",
             max_tokens=1024,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -322,6 +332,7 @@ def social_media_generator():
     platforms = (body.get("platforms") or "LinkedIn, Instagram, Facebook").strip()
     tone = (body.get("tone") or "professional").strip()
     goal = (body.get("goal") or "engagement").strip()
+    language = (body.get("language") or "en").strip()
     if not topic:
         return jsonify({"error": "topic is required"}), 400
     try:
@@ -330,6 +341,7 @@ def social_media_generator():
             user_message=f"Topic: {topic}\nBusiness: {business_name}\nPlatforms: {platforms}\nTone: {tone}\nGoal: {goal}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -348,6 +360,7 @@ def ad_copy_writer():
     platform = (body.get("platform") or "Google Ads").strip()
     unique_value = (body.get("unique_value") or "").strip()
     goal = (body.get("goal") or "conversions").strip()
+    language = (body.get("language") or "en").strip()
     if not product_service:
         return jsonify({"error": "product_service is required"}), 400
     try:
@@ -356,6 +369,7 @@ def ad_copy_writer():
             user_message=f"Product/Service: {product_service}\nTarget Audience: {target_audience}\nPlatform: {platform}\nUnique Value Proposition: {unique_value}\nGoal: {goal}",
             model="claude-haiku-4-5-20251001",
             max_tokens=1536,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -373,6 +387,7 @@ def policy_generator():
     company_name = (body.get("company_name") or "").strip()
     industry = (body.get("industry") or "").strip()
     specifics = (body.get("specifics") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not policy_type:
         return jsonify({"error": "policy_type is required"}), 400
     try:
@@ -381,6 +396,7 @@ def policy_generator():
             user_message=f"Policy Type: {policy_type}\nCompany: {company_name}\nIndustry: {industry}\nSpecific Requirements: {specifics}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -398,6 +414,7 @@ def sop_generator():
     department = (body.get("department") or "").strip()
     description = (body.get("description") or "").strip()
     frequency = (body.get("frequency") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not process_name:
         return jsonify({"error": "process_name is required"}), 400
     try:
@@ -406,6 +423,7 @@ def sop_generator():
             user_message=f"Process: {process_name}\nDepartment: {department}\nDescription: {description}\nFrequency: {frequency}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -421,6 +439,7 @@ def meeting_notes_cleaner():
     body = request.get_json(silent=True) or {}
     raw_notes = (body.get("raw_notes") or "").strip()
     context = (body.get("context") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not raw_notes:
         return jsonify({"error": "raw_notes is required"}), 400
     try:
@@ -429,6 +448,7 @@ def meeting_notes_cleaner():
             user_message=f"Meeting Context: {context}\n\nRaw Notes:\n{raw_notes}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -446,6 +466,7 @@ def business_email_drafter():
     recipient = (body.get("recipient") or "").strip()
     key_points = (body.get("key_points") or "").strip()
     tone = (body.get("tone") or "professional").strip()
+    language = (body.get("language") or "en").strip()
     if not purpose:
         return jsonify({"error": "purpose is required"}), 400
     try:
@@ -454,6 +475,7 @@ def business_email_drafter():
             user_message=f"Purpose: {purpose}\nRecipient/Role: {recipient}\nKey Points: {key_points}\nTone: {tone}",
             model="claude-haiku-4-5-20251001",
             max_tokens=1024,
+            language=language,
         )
         return jsonify(result)
     except Exception as e:
@@ -503,6 +525,7 @@ def batch_ats():
         return guard
     files = request.files.getlist("resumes")
     job_description = (request.form.get("job_description") or "").strip()
+    language = (request.form.get("language") or "en").strip()
     if not files or not files[0].filename:
         return jsonify({"error": "at least one resume file is required"}), 400
     results = []
@@ -518,6 +541,7 @@ def batch_ats():
                 user_message=f"Job Description: {job_description}\n\nResume ({file.filename}):\n{text[:6000]}",
                 model="claude-haiku-4-5-20251001",
                 max_tokens=1024,
+                language=language,
             )
             analysis["filename"] = file.filename
             results.append(analysis)

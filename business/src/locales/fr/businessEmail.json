@@ -1,0 +1,20 @@
+{
+  "title": "E-mail <0>Professionnel</0>",
+  "subtitle": "Rédigez des e-mails professionnels clairs pour toute situation.",
+  "purposePlaceholder": "Objet de l'e-mail (ex. Relancer une proposition, Reprogrammer une réunion) *",
+  "recipientPlaceholder": "Destinataire / son rôle (ex. Jean — Responsable du recrutement)",
+  "keyPointsPlaceholder": "Points clés à inclure",
+  "tone": {
+    "professional": "Professionnel",
+    "friendly": "Amical",
+    "formal": "Formel",
+    "assertive": "Assertif",
+    "apologetic": "Conciliant"
+  },
+  "draft": "Rédiger l'E-mail",
+  "drafting": "Rédaction en cours…",
+  "subjectLine": "Objet",
+  "emailBody": "Corps de l'E-mail",
+  "copy": "Copier",
+  "callToAction": "Appel à l'Action"
+}

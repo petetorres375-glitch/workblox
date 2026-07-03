@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generator</0> för Sociala Medier",
+  "subtitle": "Generera plattformsanpassat innehåll för sociala medier till ditt företag.",
+  "topicPlaceholder": "Ämne eller innehållsidé *",
+  "businessNamePlaceholder": "Företagsnamn",
+  "platformsPlaceholder": "Plattformar (t.ex. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professionell",
+    "casual": "Avslappnad",
+    "humorous": "Humoristisk",
+    "inspiring": "Inspirerande",
+    "educational": "Utbildande"
+  },
+  "goalOptions": {
+    "engagement": "Engagemang",
+    "awareness": "Kännedom",
+    "leads": "Leads",
+    "sales": "Försäljning",
+    "education": "Utbildning"
+  },
+  "generate": "Generera Inlägg",
+  "generating": "Genererar…",
+  "docTitle": "Inlägg för Sociala Medier",
+  "copy": "Kopiera",
+  "bestTime": "Bästa tidpunkt: {{time}}",
+  "contentTips": "Innehållstips"
+}

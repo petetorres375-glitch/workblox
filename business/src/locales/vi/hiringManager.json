@@ -1,0 +1,13 @@
+{
+  "title": "<0>Quản lý</0> Tuyển dụng",
+  "subtitle": "Mô tả vị trí bạn đang tuyển dụng và nhận trọn bộ tài liệu tuyển dụng hoàn chỉnh.",
+  "descriptionPlaceholder": "Mô tả vị trí (ví dụ: Chuyên viên Hỗ trợ Kỹ thuật Cấp 1 cho bộ phận hỗ trợ IT của chúng tôi — xử lý đặt lại mật khẩu, khắc phục sự cố cơ bản và phân loại yêu cầu hỗ trợ cho công ty 200 nhân viên)",
+  "generate": "Tạo Bộ Tài liệu Tuyển dụng",
+  "generating": "Đang tạo…",
+  "positionSummary": "Tóm tắt Vị trí",
+  "interviewQuestions": "Câu hỏi Phỏng vấn",
+  "copy": "Sao chép",
+  "evaluationCriteria": "Tiêu chí Đánh giá",
+  "redFlags": "Dấu hiệu Cảnh báo Cần Lưu ý",
+  "onboardingTips": "Mẹo Hội nhập Nhân viên Mới"
+}

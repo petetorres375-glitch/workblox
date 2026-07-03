@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { BASE_URL, post, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
@@ -24,6 +25,7 @@ function buildTxtReport(filename, result) {
 }
 
 export default function DocAnalyzer() {
+  const { t, i18n } = useTranslation("docAnalyzer");
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
   const [result, setResult] = useState(null);
@@ -51,6 +53,7 @@ export default function DocAnalyzer() {
     if (!file) return;
     const fd = new FormData();
     fd.append("file", file);
+    fd.append("language", i18n.language);
     const data = await call(() => postForm("/api/doc", fd));
     if (data) { setResult(data); setFilename(file.name); }
   }
@@ -105,8 +108,8 @@ export default function DocAnalyzer() {
 
   return (
     <>
-      <h1 className="page-title">Doc <span>Analyzer</span></h1>
-      <p className="page-subtitle">Upload a PDF, TXT, or MD file — get a structured AI summary.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit}>
         <div
@@ -126,14 +129,14 @@ export default function DocAnalyzer() {
             <p className="drop-label" style={{ color: "#111" }}>{file.name}</p>
           ) : (
             <>
-              <p className="drop-label">Drop a file here or click to browse</p>
-              <p className="drop-hint">PDF, TXT, or MD — max 10 MB</p>
+              <p className="drop-label">{t("dropLabel")}</p>
+              <p className="drop-hint">{t("dropHint")}</p>
             </>
           )}
         </div>
 
         <button type="submit" className="submit-btn" disabled={loading || !file}>
-          {loading ? "Analyzing..." : "Analyze"}
+          {loading ? t("analyzing") : t("analyze")}
         </button>
       </form>
 
@@ -142,19 +145,19 @@ export default function DocAnalyzer() {
       {result && !loading && (
         <>
           <div style={{ marginTop: 24 }}>
-            <DocSection title="Summary" content={result.summary} />
-            <DocSection title="Key Data Points" content={result.key_data_points} />
-            <DocSection title="Action Items" content={result.action_items} />
-            <DocSection title="Red Flags" content={result.red_flags} />
+            <DocSection title={t("sections.summary")} content={result.summary} />
+            <DocSection title={t("sections.keyDataPoints")} content={result.key_data_points} />
+            <DocSection title={t("sections.actionItems")} content={result.action_items} />
+            <DocSection title={t("sections.redFlags")} content={result.red_flags} />
           </div>
 
           <div style={{ marginTop: 8, display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <button className="copy-btn" style={{ padding: "8px 18px", fontSize: "0.88rem" }} onClick={downloadTxt}>
-              ↓ TXT
+              {t("download.txt")}
             </button>
             <button className="copy-btn" style={{ padding: "8px 18px", fontSize: "0.88rem" }}
               onClick={downloadPdf} disabled={pdfLoading}>
-              {pdfLoading ? "Generating..." : "↓ PDF"}
+              {pdfLoading ? t("download.generating") : t("download.pdf")}
             </button>
           </div>
 
@@ -167,7 +170,7 @@ export default function DocAnalyzer() {
                   border: "1.5px solid #ddd", borderRadius: 8,
                   fontFamily: "inherit", fontSize: "0.95rem", outline: "none",
                 }}
-                placeholder="Email the report to..."
+                placeholder={t("email.placeholder")}
                 value={emailAddr}
                 onChange={(e) => setEmailAddr(e.target.value)}
               />
@@ -177,10 +180,10 @@ export default function DocAnalyzer() {
                 style={{ padding: "0.7rem 1.4rem", fontSize: "0.95rem" }}
                 disabled={emailSending || !emailAddr.trim()}
               >
-                {emailSending ? "Sending..." : "Send"}
+                {emailSending ? t("email.sending") : t("email.send")}
               </button>
             </form>
-            {emailSent && <p style={{ color: "#16a34a", fontSize: "0.88rem", marginTop: 8 }}>Report sent to {emailAddr}</p>}
+            {emailSent && <p style={{ color: "#16a34a", fontSize: "0.88rem", marginTop: 8 }}>{t("email.sent", { email: emailAddr })}</p>}
             {emailError && <div className="error-banner" style={{ marginTop: 8 }}>{emailError}</div>}
           </div>
         </>

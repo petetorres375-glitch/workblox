@@ -1,0 +1,17 @@
+{
+  "title": "<0>מחולל</0> נהלי עבודה סטנדרטיים",
+  "subtitle": "צרו נהלי עבודה סטנדרטיים (SOP) ברורים וניתנים ליישום עבור כל תהליך עסקי.",
+  "processNamePlaceholder": "שם התהליך (למשל קליטת לקוחות) *",
+  "departmentPlaceholder": "מחלקה",
+  "frequencyPlaceholder": "תדירות (למשל יומי, שבועי, לכל לקוח חדש)",
+  "descriptionPlaceholder": "תיאור התהליך *",
+  "generate": "צור SOP",
+  "generating": "יוצר…",
+  "overview": "סקירה כללית",
+  "frequencyLabel": "תדירות: {{frequency}}",
+  "requiredTools": "כלים / משאבים נדרשים",
+  "steps": "שלבים",
+  "stepLabel": "שלב {{number}}: {{action}}",
+  "qualityChecks": "בדיקות איכות",
+  "notes": "הערות"
+}

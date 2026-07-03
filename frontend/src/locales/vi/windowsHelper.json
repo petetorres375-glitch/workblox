@@ -1,0 +1,15 @@
+{
+  "title": "Trợ lý <0>Windows</0>",
+  "subtitle": "Mô tả sự cố Windows bằng ngôn ngữ thường ngày — nhận ngay câu lệnh PowerShell phù hợp.",
+  "placeholder": "vd: liệt kê tất cả tiến trình đang chạy theo mức sử dụng CPU",
+  "ask": "Hỏi",
+  "thinking": "Đang suy nghĩ...",
+  "result": {
+    "guiSteps": "Các bước trên giao diện đồ họa",
+    "command": "Câu lệnh",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "explanation": "Giải thích",
+    "warnings": "Cảnh báo"
+  }
+}

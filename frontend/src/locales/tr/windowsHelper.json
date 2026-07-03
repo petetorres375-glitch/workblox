@@ -1,0 +1,15 @@
+{
+  "title": "Windows <0>Yardımcısı</0>",
+  "subtitle": "Windows sorununu sade bir dille anlatın — ihtiyacınız olan PowerShell komutunu hemen alın.",
+  "placeholder": "örn. çalışan tüm işlemleri CPU kullanımına göre sıralı listeleme",
+  "ask": "Sor",
+  "thinking": "Düşünülüyor...",
+  "result": {
+    "guiSteps": "Arayüz Üzerinden Adımlar",
+    "command": "Komut",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "explanation": "Açıklama",
+    "warnings": "Uyarılar"
+  }
+}

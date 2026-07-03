@@ -1,0 +1,15 @@
+{
+  "title": "Assistant <0>Linux</0>",
+  "subtitle": "Décrivez un problème Linux en langage courant — obtenez la commande en retour.",
+  "placeholder": "ex. trouver tous les fichiers .log modifiés au cours des 7 derniers jours",
+  "ask": "Demander",
+  "thinking": "Réflexion en cours...",
+  "result": {
+    "guiSteps": "Étapes graphiques",
+    "command": "Commande",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "explanation": "Explication",
+    "warnings": "Avertissements"
+  }
+}

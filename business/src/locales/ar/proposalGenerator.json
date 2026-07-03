@@ -1,0 +1,22 @@
+{
+  "title": "مولّد <0>العروض</0>",
+  "subtitle": "أنشئ عروضًا وعروض أسعار احترافية للعملاء.",
+  "clientNamePlaceholder": "اسم العميل",
+  "projectDescriptionPlaceholder": "وصف المشروع *",
+  "servicesPlaceholder": "الخدمات المطلوب تضمينها",
+  "budgetRangePlaceholder": "نطاق الميزانية (مثال: $5,000–$10,000)",
+  "timelinePlaceholder": "الجدول الزمني (مثال: 4–6 أسابيع)",
+  "generate": "إنشاء العرض",
+  "generating": "جارٍ الإنشاء…",
+  "executiveSummary": "الملخص التنفيذي",
+  "scopeOfWork": "نطاق العمل",
+  "deliverables": "المخرجات",
+  "lineItems": "بنود التكلفة",
+  "table": {
+    "description": "الوصف",
+    "qty": "الكمية",
+    "unitPrice": "سعر الوحدة",
+    "total": "الإجمالي"
+  },
+  "terms": "الشروط"
+}

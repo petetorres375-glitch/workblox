@@ -1,0 +1,15 @@
+{
+  "title": "Mac-<0>helper</0>",
+  "subtitle": "Beschrijf een macOS-probleem in gewone taal — krijg meteen het juiste Terminal-commando.",
+  "placeholder": "bijv. schijfgebruik per map in mijn thuismap tonen",
+  "ask": "Vragen",
+  "thinking": "Bezig met nadenken...",
+  "result": {
+    "guiSteps": "Stappen via de grafische interface",
+    "command": "Commando",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd!",
+    "explanation": "Toelichting",
+    "warnings": "Waarschuwingen"
+  }
+}

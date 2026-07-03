@@ -1,0 +1,25 @@
+{
+  "title": "ドキュメント<0>アナライザー</0>",
+  "subtitle": "PDF、TXT、またはMDファイルをアップロードして、構造化されたAI要約を取得しましょう。",
+  "dropLabel": "ここにファイルをドロップするか、クリックして参照",
+  "dropHint": "PDF、TXT、MD — 最大10MB",
+  "analyze": "分析する",
+  "analyzing": "分析中...",
+  "sections": {
+    "summary": "要約",
+    "keyDataPoints": "重要データポイント",
+    "actionItems": "アクション項目",
+    "redFlags": "注意すべき点"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "生成中..."
+  },
+  "email": {
+    "placeholder": "レポートの送付先メールアドレス...",
+    "send": "送信",
+    "sending": "送信中...",
+    "sent": "レポートを {{email}} に送信しました"
+  }
+}

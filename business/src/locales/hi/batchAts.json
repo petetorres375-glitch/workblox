@@ -1,0 +1,17 @@
+{
+  "title": "बैच ATS <0>विश्लेषक</0>",
+  "subtitle": "10 रिज्यूमे तक अपलोड करें और उन सभी की एक साथ नौकरी विवरण के आधार पर जांच करें।",
+  "dropLabel": "रिज्यूमे यहां छोड़ें या ब्राउज़ करने के लिए क्लिक करें",
+  "resumesSelected_one": "{{count}} रिज्यूमे चयनित",
+  "resumesSelected_other": "{{count}} रिज्यूमे चयनित",
+  "dropHint": "PDF, DOCX, या TXT · अधिकतम 10 फ़ाइलें",
+  "jobDescriptionPlaceholder": "नौकरी का विवरण (बेहतर मिलान के लिए यहां पेस्ट करें)",
+  "analyzeAll": "सभी रिज्यूमे का विश्लेषण करें",
+  "analyzingCount_one": "{{count}} रिज्यूमे का विश्लेषण हो रहा है…",
+  "analyzingCount_other": "{{count}} रिज्यूमे का विश्लेषण हो रहा है…",
+  "resumesAnalyzed_one": "{{count}} रिज्यूमे का विश्लेषण हुआ",
+  "resumesAnalyzed_other": "{{count}} रिज्यूमे का विश्लेषण हुआ",
+  "errorLabel": "त्रुटि: {{error}}",
+  "strengths": "मजबूत पहलू",
+  "concerns": "चिंताएं"
+}

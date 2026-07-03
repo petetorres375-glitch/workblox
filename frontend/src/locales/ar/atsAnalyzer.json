@@ -1,0 +1,35 @@
+{
+  "title": "محلّل <0>ATS</0>",
+  "subtitle": "ارفع سيرتك الذاتية — واحصل فورًا على نتيجة ATS وفجوات الكلمات المفتاحية والتوصيات.",
+  "dropZone": {
+    "label": "أفلت السيرة الذاتية هنا أو انقر للتصفح",
+    "hint": "TXT أو PDF أو DOCX — بحد أقصى 5 ميغابايت"
+  },
+  "clientNamePlaceholder": "اسم العميل (اختياري)",
+  "jobRolePlaceholder": "المسمى الوظيفي (اختياري)",
+  "submit": "تحليل السيرة الذاتية",
+  "analyzing": "جارٍ التحليل...",
+  "score": {
+    "outOf100": "من 100",
+    "keywordsFound": "تم العثور على {{found}} / {{total}} كلمة مفتاحية"
+  },
+  "contactCheck": {
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "linkedin": "لينكدإن",
+    "location": "الموقع"
+  },
+  "recommendations": "التوصيات",
+  "keywordBreakdown": "تفصيل الكلمات المفتاحية",
+  "moreKeywords": "+{{count}} أخرى",
+  "jobMatch": {
+    "title": "توافق الوظيفة: {{role}}",
+    "matched": "{{score}} / {{total}} كلمة مفتاحية متطابقة"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "جارٍ الإنشاء..."
+  }
+}

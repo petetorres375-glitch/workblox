@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { post } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 
 export default function WorkflowBuilder() {
+  const { t, i18n } = useTranslation("workflowBuilder");
   const [task, setTask] = useState("");
   const [result, setResult] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -10,7 +12,7 @@ export default function WorkflowBuilder() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const data = await call(() => post("/api/workflow", { task }));
+    const data = await call(() => post("/api/workflow", { task, language: i18n.language }));
     if (data) setResult(data);
   }
 
@@ -32,19 +34,19 @@ export default function WorkflowBuilder() {
 
   return (
     <>
-      <h1 className="page-title">Workflow <span>Builder</span></h1>
-      <p className="page-subtitle">Describe a repetitive task — get a ready-to-run Python script.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit}>
         <div className="search-box">
           <input
             type="text"
-            placeholder="e.g. rename all photos in a folder by their date taken"
+            placeholder={t("placeholder")}
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
           <button type="submit" disabled={loading || !task.trim()}>
-            {loading ? "Building..." : "Build"}
+            {loading ? t("building") : t("build")}
           </button>
         </div>
       </form>
@@ -56,8 +58,8 @@ export default function WorkflowBuilder() {
           <div className="result-header">
             <div className="result-label">{result.filename}</div>
             <div style={{ display: "flex", gap: 6 }}>
-              <button className="copy-btn" onClick={copy}>{copied ? "Copied!" : "Copy"}</button>
-              <button className="copy-btn" onClick={download}>Download</button>
+              <button className="copy-btn" onClick={copy}>{copied ? t("copied") : t("copy")}</button>
+              <button className="copy-btn" onClick={download}>{t("download")}</button>
             </div>
           </div>
           <pre className="script-box">{result.script}</pre>

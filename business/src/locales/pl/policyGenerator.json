@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> Polityk",
+  "subtitle": "Twórz profesjonalne polityki firmowe — HR, IT, praca zdalna, urlopy i wiele więcej.",
+  "policyTypePlaceholder": "Rodzaj polityki (np. Polityka Pracy Zdalnej, Polityka Urlopowa) *",
+  "companyNamePlaceholder": "Nazwa firmy",
+  "industryPlaceholder": "Branża (np. Technologia, Ochrona Zdrowia)",
+  "specificsPlaceholder": "Konkretne wymagania lub uwagi (opcjonalnie)",
+  "generate": "Generuj Politykę",
+  "generating": "Generowanie…",
+  "policyDocument": "Dokument Polityki",
+  "copyAll": "Kopiuj Wszystko",
+  "effective": "Obowiązuje od: {{date}}",
+  "purpose": "Cel",
+  "scope": "Zakres",
+  "acknowledgment": "Potwierdzenie",
+  "policyPrefix": "Polityka"
+}

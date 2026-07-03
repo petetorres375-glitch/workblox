@@ -1,0 +1,20 @@
+{
+  "title": "Zakelijke <0>E-mail</0>",
+  "subtitle": "Stel duidelijke, professionele zakelijke e-mails op voor elke situatie.",
+  "purposePlaceholder": "Doel van de e-mail (bijv. Opvolging van voorstel, Vergadering verzetten) *",
+  "recipientPlaceholder": "Ontvanger / diens functie (bijv. John — Recruitmentmanager)",
+  "keyPointsPlaceholder": "Belangrijkste punten om op te nemen",
+  "tone": {
+    "professional": "Professioneel",
+    "friendly": "Vriendelijk",
+    "formal": "Formeel",
+    "assertive": "Assertief",
+    "apologetic": "Verontschuldigend"
+  },
+  "draft": "E-mail Opstellen",
+  "drafting": "Bezig met opstellen…",
+  "subjectLine": "Onderwerpregel",
+  "emailBody": "E-mailtekst",
+  "copy": "Kopiëren",
+  "callToAction": "Call-to-Action"
+}

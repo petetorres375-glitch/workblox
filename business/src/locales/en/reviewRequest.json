@@ -1,0 +1,15 @@
+{
+  "title": "Review Request <0>Email</0>",
+  "subtitle": "Write a friendly, natural email asking customers to leave a review.",
+  "businessNamePlaceholder": "Your business name *",
+  "customerNamePlaceholder": "Customer's name (optional)",
+  "serviceProvidedPlaceholder": "Service or product provided",
+  "platformsPlaceholder": "Review platforms (e.g. Google, Yelp)",
+  "write": "Write Review Request",
+  "writing": "Writing…",
+  "docTitle": "Review Request Email",
+  "subjectLine": "Subject Line",
+  "emailBody": "Email Body",
+  "copy": "Copy",
+  "timingAdvice": "Timing Advice"
+}

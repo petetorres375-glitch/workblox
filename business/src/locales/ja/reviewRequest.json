@@ -1,0 +1,15 @@
+{
+  "title": "レビュー依頼<0>メール</0>",
+  "subtitle": "お客様にレビューを依頼する、親しみやすく自然なメールを作成します。",
+  "businessNamePlaceholder": "貴社名 *",
+  "customerNamePlaceholder": "顧客名(任意)",
+  "serviceProvidedPlaceholder": "提供したサービスまたは製品",
+  "platformsPlaceholder": "レビュープラットフォーム(例:Google、Yelp)",
+  "write": "レビュー依頼を作成",
+  "writing": "作成中…",
+  "docTitle": "レビュー依頼メール",
+  "subjectLine": "件名",
+  "emailBody": "本文",
+  "copy": "コピー",
+  "timingAdvice": "送信タイミングのアドバイス"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Δημιουργός <0>Πρότασης</0>",
+  "subtitle": "Δημιουργήστε επαγγελματικές προτάσεις και προσφορές για πελάτες.",
+  "clientNamePlaceholder": "Όνομα πελάτη",
+  "projectDescriptionPlaceholder": "Περιγραφή έργου *",
+  "servicesPlaceholder": "Υπηρεσίες προς συμπερίληψη",
+  "budgetRangePlaceholder": "Εύρος προϋπολογισμού (π.χ. $5,000–$10,000)",
+  "timelinePlaceholder": "Χρονοδιάγραμμα (π.χ. 4–6 εβδομάδες)",
+  "generate": "Δημιουργία Πρότασης",
+  "generating": "Δημιουργία…",
+  "executiveSummary": "Περίληψη",
+  "scopeOfWork": "Αντικείμενο Εργασίας",
+  "deliverables": "Παραδοτέα",
+  "lineItems": "Αναλυτικά Στοιχεία",
+  "table": {
+    "description": "Περιγραφή",
+    "qty": "Ποσ.",
+    "unitPrice": "Τιμή Μονάδας",
+    "total": "Σύνολο"
+  },
+  "terms": "Όροι"
+}

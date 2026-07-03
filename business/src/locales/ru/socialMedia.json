@@ -1,0 +1,27 @@
+{
+  "title": "<0>Генератор</0> контента для соцсетей",
+  "subtitle": "Создавайте готовый к публикации контент для социальных сетей вашей компании.",
+  "topicPlaceholder": "Тема или идея контента *",
+  "businessNamePlaceholder": "Название компании",
+  "platformsPlaceholder": "Платформы (например, LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Профессиональный",
+    "casual": "Непринуждённый",
+    "humorous": "Юмористический",
+    "inspiring": "Вдохновляющий",
+    "educational": "Обучающий"
+  },
+  "goalOptions": {
+    "engagement": "Вовлечённость",
+    "awareness": "Узнаваемость",
+    "leads": "Лиды",
+    "sales": "Продажи",
+    "education": "Образование"
+  },
+  "generate": "Создать публикации",
+  "generating": "Создание…",
+  "docTitle": "Публикации для соцсетей",
+  "copy": "Копировать",
+  "bestTime": "Лучшее время: {{time}}",
+  "contentTips": "Советы по контенту"
+}

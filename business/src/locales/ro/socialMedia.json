@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generator</0> de Social Media",
+  "subtitle": "Generează conținut gata de publicat pe rețelele sociale pentru afacerea ta.",
+  "topicPlaceholder": "Subiect sau idee de conținut *",
+  "businessNamePlaceholder": "Numele afacerii",
+  "platformsPlaceholder": "Platforme (ex. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Profesionist",
+    "casual": "Casual",
+    "humorous": "Umoristic",
+    "inspiring": "Inspirațional",
+    "educational": "Educativ"
+  },
+  "goalOptions": {
+    "engagement": "Interacțiune",
+    "awareness": "Notorietate",
+    "leads": "Clienți potențiali",
+    "sales": "Vânzări",
+    "education": "Educație"
+  },
+  "generate": "Generează Postări",
+  "generating": "Se generează…",
+  "docTitle": "Postări pe Social Media",
+  "copy": "Copiază",
+  "bestTime": "Cel mai bun moment: {{time}}",
+  "contentTips": "Sfaturi pentru Conținut"
+}

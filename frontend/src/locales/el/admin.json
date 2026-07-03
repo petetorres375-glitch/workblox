@@ -1,0 +1,40 @@
+{
+  "title": "Πίνακας <0>Διαχείρισης</0>",
+  "subtitle": "Διαχειριστείτε λογαριασμούς πελατών και ενεργοποιήσεις.",
+  "killSwitch": {
+    "heading": "Διακόπτης Έκτακτης Απενεργοποίησης",
+    "description": "Απενεργοποιήστε μια εφαρμογή για όλους τους χρήστες άμεσα",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ΕΝΕΡΓΟ",
+    "off": "ΑΝΕΝΕΡΓΟ",
+    "disablePersonal": "Απενεργοποίηση Personal",
+    "enablePersonal": "Ενεργοποίηση Personal",
+    "disableBusiness": "Απενεργοποίηση Business",
+    "enableBusiness": "Ενεργοποίηση Business"
+  },
+  "filters": {
+    "all": "Όλοι",
+    "pending": "Σε Αναμονή",
+    "active": "Ενεργοί"
+  },
+  "loading": "Φόρτωση χρηστών…",
+  "noUsers": "Δεν βρέθηκαν χρήστες.",
+  "joined": "Εγγράφηκε στις {{date}}",
+  "status": {
+    "active": "Ενεργός",
+    "pending": "Σε Αναμονή"
+  },
+  "actions": {
+    "deactivate": "Απενεργοποίηση",
+    "activate": "Ενεργοποίηση"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Δωρεάν"
+  },
+  "planActions": {
+    "setFree": "Ορισμός ως Δωρεάν",
+    "setBusiness": "Ορισμός ως Business"
+  }
+}

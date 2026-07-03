@@ -1,0 +1,15 @@
+{
+  "title": "Asystent <0>Linuksa</0>",
+  "subtitle": "Opisz problem z Linuksem zwykłym językiem — otrzymasz gotowe polecenie.",
+  "placeholder": "np. znajdź wszystkie pliki .log zmodyfikowane w ciągu ostatnich 7 dni",
+  "ask": "Zapytaj",
+  "thinking": "Myślę...",
+  "result": {
+    "guiSteps": "Kroki w interfejsie graficznym",
+    "command": "Polecenie",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!",
+    "explanation": "Wyjaśnienie",
+    "warnings": "Ostrzeżenia"
+  }
+}

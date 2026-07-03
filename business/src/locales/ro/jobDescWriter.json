@@ -1,0 +1,17 @@
+{
+  "title": "Redactor de <0>Fișe de Post</0>",
+  "subtitle": "Creează o fișă de post convingătoare și completă care atrage cele mai bune talente.",
+  "jobTitlePlaceholder": "Titlul postului *",
+  "departmentPlaceholder": "Departament",
+  "salaryRangePlaceholder": "Interval salarial (de ex. $60k–$80k)",
+  "requirementsPlaceholder": "Cerințe și responsabilități esențiale *",
+  "companyInfoPlaceholder": "Scurtă descriere a companiei (opțional)",
+  "write": "Redactează Fișa de Post",
+  "writing": "Se redactează…",
+  "overview": "Prezentare Generală",
+  "copyAll": "Copiază Tot",
+  "responsibilities": "Responsabilități",
+  "requirements": "Cerințe",
+  "niceToHave": "Constituie un Avantaj",
+  "benefits": "Beneficii"
+}

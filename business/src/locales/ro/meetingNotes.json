@@ -1,0 +1,14 @@
+{
+  "title": "<0>Curățător</0> de Notițe de Ședință",
+  "subtitle": "Inserați notițe dezordonate de ședință și obțineți un rezumat clar și structurat cu elemente de acțiune.",
+  "contextPlaceholder": "Context al ședinței (ex. planificare T3, demarare colaborare client)",
+  "rawNotesPlaceholder": "Inserați aici notițele brute ale ședinței *",
+  "clean": "Curăță Notițele de Ședință",
+  "cleaning": "Se curăță…",
+  "summary": "Rezumat",
+  "copyAll": "Copiază Tot",
+  "decisionsMade": "Decizii Luate",
+  "actionItems": "Elemente de Acțiune",
+  "nextSteps": "Pași Următori",
+  "followUpMeeting": "Ședință de Urmărire"
+}

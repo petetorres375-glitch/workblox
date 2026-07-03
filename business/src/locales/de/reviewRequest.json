@@ -1,0 +1,15 @@
+{
+  "title": "Bewertungsanfrage per <0>E-Mail</0>",
+  "subtitle": "Verfasse eine freundliche, natürliche E-Mail, um Kunden um eine Bewertung zu bitten.",
+  "businessNamePlaceholder": "Name deines Unternehmens *",
+  "customerNamePlaceholder": "Name des Kunden (optional)",
+  "serviceProvidedPlaceholder": "Erbrachte Dienstleistung oder Produkt",
+  "platformsPlaceholder": "Bewertungsplattformen (z. B. Google, Yelp)",
+  "write": "Bewertungsanfrage Verfassen",
+  "writing": "Wird verfasst…",
+  "docTitle": "Bewertungsanfrage per E-Mail",
+  "subjectLine": "Betreff",
+  "emailBody": "E-Mail-Text",
+  "copy": "Kopieren",
+  "timingAdvice": "Tipp zum Zeitpunkt"
+}

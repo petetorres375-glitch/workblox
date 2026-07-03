@@ -1,0 +1,17 @@
+{
+  "title": "Analizator ATS <0>Wsadowy</0>",
+  "subtitle": "Prześlij do 10 CV i sprawdź je wszystkie jednocześnie pod kątem opisu stanowiska.",
+  "dropLabel": "Upuść CV tutaj lub kliknij, aby przeglądać",
+  "resumesSelected_one": "Wybrano {{count}} CV",
+  "resumesSelected_other": "Wybrano {{count}} CV",
+  "dropHint": "PDF, DOCX lub TXT · do 10 plików",
+  "jobDescriptionPlaceholder": "Opis stanowiska (wklej tutaj dla lepszego dopasowania)",
+  "analyzeAll": "Analizuj Wszystkie CV",
+  "analyzingCount_one": "Analizowanie {{count}} CV…",
+  "analyzingCount_other": "Analizowanie {{count}} CV…",
+  "resumesAnalyzed_one": "Przeanalizowano {{count}} CV",
+  "resumesAnalyzed_other": "Przeanalizowano {{count}} CV",
+  "errorLabel": "Błąd: {{error}}",
+  "strengths": "Mocne Strony",
+  "concerns": "Obawy"
+}

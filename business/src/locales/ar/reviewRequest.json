@@ -1,0 +1,15 @@
+{
+  "title": "<0>بريد</0> طلب التقييم",
+  "subtitle": "اكتب رسالة بريد إلكتروني ودية وطبيعية تطلب من العملاء ترك تقييم.",
+  "businessNamePlaceholder": "اسم نشاطك التجاري *",
+  "customerNamePlaceholder": "اسم العميل (اختياري)",
+  "serviceProvidedPlaceholder": "الخدمة أو المنتج المقدم",
+  "platformsPlaceholder": "منصات التقييم (مثال: جوجل، Yelp)",
+  "write": "كتابة طلب التقييم",
+  "writing": "جارٍ الكتابة…",
+  "docTitle": "بريد طلب التقييم",
+  "subjectLine": "سطر الموضوع",
+  "emailBody": "نص الرسالة",
+  "copy": "نسخ",
+  "timingAdvice": "نصيحة حول التوقيت"
+}

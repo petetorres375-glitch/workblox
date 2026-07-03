@@ -1,0 +1,27 @@
+{
+  "title": "<0>مولّد</0> وسائل التواصل الاجتماعي",
+  "subtitle": "أنشئ محتوى جاهزًا للنشر على منصات التواصل الاجتماعي لنشاطك التجاري.",
+  "topicPlaceholder": "الموضوع أو فكرة المحتوى *",
+  "businessNamePlaceholder": "اسم النشاط التجاري",
+  "platformsPlaceholder": "المنصات (مثال: LinkedIn، Instagram، Facebook)",
+  "toneOptions": {
+    "professional": "احترافي",
+    "casual": "غير رسمي",
+    "humorous": "فكاهي",
+    "inspiring": "ملهم",
+    "educational": "تعليمي"
+  },
+  "goalOptions": {
+    "engagement": "التفاعل",
+    "awareness": "الوعي بالعلامة",
+    "leads": "العملاء المحتملون",
+    "sales": "المبيعات",
+    "education": "التعليم"
+  },
+  "generate": "إنشاء المنشورات",
+  "generating": "جارٍ الإنشاء…",
+  "docTitle": "منشورات التواصل الاجتماعي",
+  "copy": "نسخ",
+  "bestTime": "أفضل وقت: {{time}}",
+  "contentTips": "نصائح للمحتوى"
+}

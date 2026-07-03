@@ -1,0 +1,15 @@
+{
+  "title": "<0>Email</0> Αιτήματος Αξιολόγησης",
+  "subtitle": "Γράψτε ένα φιλικό, φυσικό email ζητώντας από τους πελάτες να αφήσουν μια αξιολόγηση.",
+  "businessNamePlaceholder": "Το όνομα της επιχείρησής σας *",
+  "customerNamePlaceholder": "Όνομα πελάτη (προαιρετικό)",
+  "serviceProvidedPlaceholder": "Υπηρεσία ή προϊόν που παρασχέθηκε",
+  "platformsPlaceholder": "Πλατφόρμες αξιολόγησης (π.χ. Google, Yelp)",
+  "write": "Δημιουργία Αιτήματος Αξιολόγησης",
+  "writing": "Δημιουργία…",
+  "docTitle": "Email Αιτήματος Αξιολόγησης",
+  "subjectLine": "Θέμα Email",
+  "emailBody": "Κείμενο Email",
+  "copy": "Αντιγραφή",
+  "timingAdvice": "Συμβουλή Χρονισμού"
+}

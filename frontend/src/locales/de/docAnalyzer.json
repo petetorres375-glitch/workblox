@@ -1,0 +1,25 @@
+{
+  "title": "Dokument-<0>Analyzer</0>",
+  "subtitle": "Laden Sie eine PDF-, TXT- oder MD-Datei hoch — erhalten Sie eine strukturierte KI-Zusammenfassung.",
+  "dropLabel": "Datei hier ablegen oder klicken zum Durchsuchen",
+  "dropHint": "PDF, TXT oder MD — max. 10 MB",
+  "analyze": "Analysieren",
+  "analyzing": "Analysiere...",
+  "sections": {
+    "summary": "Zusammenfassung",
+    "keyDataPoints": "Wichtige Datenpunkte",
+    "actionItems": "Maßnahmen",
+    "redFlags": "Warnsignale"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Wird erstellt..."
+  },
+  "email": {
+    "placeholder": "Bericht per E-Mail senden an...",
+    "send": "Senden",
+    "sending": "Wird gesendet...",
+    "sent": "Bericht gesendet an {{email}}"
+  }
+}

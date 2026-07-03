@@ -1,0 +1,22 @@
+{
+  "title": "Générateur de <0>Propositions</0>",
+  "subtitle": "Créez des propositions et devis professionnels pour vos clients.",
+  "clientNamePlaceholder": "Nom du client",
+  "projectDescriptionPlaceholder": "Description du projet *",
+  "servicesPlaceholder": "Services à inclure",
+  "budgetRangePlaceholder": "Fourchette budgétaire (p. ex. 5 000–10 000 €)",
+  "timelinePlaceholder": "Délai (p. ex. 4–6 semaines)",
+  "generate": "Générer la Proposition",
+  "generating": "Génération…",
+  "executiveSummary": "Résumé Exécutif",
+  "scopeOfWork": "Étendue des Travaux",
+  "deliverables": "Livrables",
+  "lineItems": "Détail des Postes",
+  "table": {
+    "description": "Description",
+    "qty": "Qté",
+    "unitPrice": "Prix Unitaire",
+    "total": "Total"
+  },
+  "terms": "Conditions"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Redactor de <0>Descripciones</0> de Puesto",
+  "subtitle": "Crea una descripción de puesto completa y atractiva que atraiga al mejor talento.",
+  "jobTitlePlaceholder": "Título del puesto *",
+  "departmentPlaceholder": "Departamento",
+  "salaryRangePlaceholder": "Rango salarial (p. ej. $60,000–$80,000)",
+  "requirementsPlaceholder": "Requisitos y responsabilidades clave *",
+  "companyInfoPlaceholder": "Breve descripción de la empresa (opcional)",
+  "write": "Redactar Descripción del Puesto",
+  "writing": "Redactando…",
+  "overview": "Descripción General",
+  "copyAll": "Copiar Todo",
+  "responsibilities": "Responsabilidades",
+  "requirements": "Requisitos",
+  "niceToHave": "Deseable",
+  "benefits": "Beneficios"
+}

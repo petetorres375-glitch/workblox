@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>分析器</0>",
+  "subtitle": "上传简历——立即获取 ATS 评分、关键词缺口和改进建议。",
+  "dropZone": {
+    "label": "将简历拖到此处，或点击浏览",
+    "hint": "支持 TXT、PDF 或 DOCX — 最大 5 MB"
+  },
+  "clientNamePlaceholder": "客户姓名（可选）",
+  "jobRolePlaceholder": "目标职位（可选）",
+  "submit": "分析简历",
+  "analyzing": "分析中...",
+  "score": {
+    "outOf100": "满分 100",
+    "keywordsFound": "找到 {{found}} / {{total}} 个关键词"
+  },
+  "contactCheck": {
+    "email": "电子邮箱",
+    "phone": "电话",
+    "linkedin": "领英（LinkedIn）",
+    "location": "所在地"
+  },
+  "recommendations": "改进建议",
+  "keywordBreakdown": "关键词细分",
+  "moreKeywords": "还有 {{count}} 个",
+  "jobMatch": {
+    "title": "职位匹配：{{role}}",
+    "matched": "匹配 {{score}} / {{total}} 个关键词"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "生成中..."
+  }
+}

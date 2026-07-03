@@ -1,0 +1,20 @@
+{
+  "title": "Firemní <0>E-mail</0>",
+  "subtitle": "Vytvářejte jasné a profesionální obchodní e-maily pro jakoukoli situaci.",
+  "purposePlaceholder": "Účel e-mailu (např. Navázání na nabídku, Přesunutí schůzky) *",
+  "recipientPlaceholder": "Příjemce / jeho role (např. Jan — vedoucí náboru)",
+  "keyPointsPlaceholder": "Klíčové body k zahrnutí",
+  "tone": {
+    "professional": "Profesionální",
+    "friendly": "Přátelský",
+    "formal": "Formální",
+    "assertive": "Asertivní",
+    "apologetic": "Omluvný"
+  },
+  "draft": "Vytvořit Návrh E-mailu",
+  "drafting": "Vytváření návrhu…",
+  "subjectLine": "Předmět",
+  "emailBody": "Text E-mailu",
+  "copy": "Kopírovat",
+  "callToAction": "Výzva k Akci"
+}

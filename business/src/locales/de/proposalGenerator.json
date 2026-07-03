@@ -1,0 +1,22 @@
+{
+  "title": "Angebots<0>generator</0>",
+  "subtitle": "Erstellen Sie professionelle Angebote und Kostenvoranschläge für Kunden.",
+  "clientNamePlaceholder": "Kundenname",
+  "projectDescriptionPlaceholder": "Projektbeschreibung *",
+  "servicesPlaceholder": "Einzubeziehende Leistungen",
+  "budgetRangePlaceholder": "Budgetrahmen (z. B. 5.000–10.000 $)",
+  "timelinePlaceholder": "Zeitrahmen (z. B. 4–6 Wochen)",
+  "generate": "Angebot erstellen",
+  "generating": "Wird erstellt…",
+  "executiveSummary": "Zusammenfassung",
+  "scopeOfWork": "Leistungsumfang",
+  "deliverables": "Liefergegenstände",
+  "lineItems": "Positionen",
+  "table": {
+    "description": "Beschreibung",
+    "qty": "Menge",
+    "unitPrice": "Einzelpreis",
+    "total": "Gesamt"
+  },
+  "terms": "Bedingungen"
+}

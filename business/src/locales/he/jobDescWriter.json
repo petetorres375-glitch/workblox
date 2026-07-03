@@ -1,0 +1,17 @@
+{
+  "title": "כתיבת <0>תיאור משרה</0>",
+  "subtitle": "צרו תיאור משרה מושך ומלא שמושך את הכישרונות הטובים ביותר.",
+  "jobTitlePlaceholder": "תפקיד *",
+  "departmentPlaceholder": "מחלקה",
+  "salaryRangePlaceholder": "טווח שכר (למשל $60k–$80k)",
+  "requirementsPlaceholder": "דרישות ותחומי אחריות מרכזיים *",
+  "companyInfoPlaceholder": "תיאור קצר של החברה (אופציונלי)",
+  "write": "כתוב תיאור משרה",
+  "writing": "כותב…",
+  "overview": "סקירה כללית",
+  "copyAll": "העתק הכל",
+  "responsibilities": "תחומי אחריות",
+  "requirements": "דרישות",
+  "niceToHave": "יתרון נוסף",
+  "benefits": "הטבות"
+}

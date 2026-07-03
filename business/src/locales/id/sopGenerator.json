@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> SOP",
+  "subtitle": "Buat Prosedur Operasi Standar (SOP) yang jelas dan dapat ditindaklanjuti untuk proses bisnis apa pun.",
+  "processNamePlaceholder": "Nama proses (mis. Onboarding Pelanggan) *",
+  "departmentPlaceholder": "Departemen",
+  "frequencyPlaceholder": "Frekuensi (mis. Harian, Mingguan, Per klien baru)",
+  "descriptionPlaceholder": "Deskripsi proses *",
+  "generate": "Buat SOP",
+  "generating": "Membuat…",
+  "overview": "Ikhtisar",
+  "frequencyLabel": "Frekuensi: {{frequency}}",
+  "requiredTools": "Alat / Sumber Daya yang Diperlukan",
+  "steps": "Langkah-langkah",
+  "stepLabel": "Langkah {{number}}: {{action}}",
+  "qualityChecks": "Pemeriksaan Kualitas",
+  "notes": "Catatan"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Workflow-<0>Bouwer</0>",
+  "subtitle": "Beschrijf een repetitieve taak — ontvang een direct uitvoerbaar Python-script.",
+  "placeholder": "bijv. alle foto's in een map hernoemen op basis van de opnamedatum",
+  "build": "Bouwen",
+  "building": "Bezig met bouwen...",
+  "copy": "Kopiëren",
+  "copied": "Gekopieerd!",
+  "download": "Downloaden"
+}

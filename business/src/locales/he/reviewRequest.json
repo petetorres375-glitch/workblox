@@ -1,0 +1,15 @@
+{
+  "title": "<0>אימייל</0> בקשת חוות דעת",
+  "subtitle": "כתבו אימייל ידידותי וטבעי המבקש מלקוחות להשאיר חוות דעת.",
+  "businessNamePlaceholder": "שם העסק שלך *",
+  "customerNamePlaceholder": "שם הלקוח (אופציונלי)",
+  "serviceProvidedPlaceholder": "השירות או המוצר שסופק",
+  "platformsPlaceholder": "פלטפורמות לחוות דעת (לדוגמה: Google, Yelp)",
+  "write": "כתוב בקשת חוות דעת",
+  "writing": "כותב…",
+  "docTitle": "אימייל בקשת חוות דעת",
+  "subjectLine": "שורת נושא",
+  "emailBody": "גוף האימייל",
+  "copy": "העתק",
+  "timingAdvice": "עצה לתזמון"
+}

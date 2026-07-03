@@ -1,0 +1,27 @@
+{
+  "title": "<0>Générateur</0> de Réseaux Sociaux",
+  "subtitle": "Générez du contenu prêt à publier sur les réseaux sociaux pour votre entreprise.",
+  "topicPlaceholder": "Sujet ou idée de contenu *",
+  "businessNamePlaceholder": "Nom de l'entreprise",
+  "platformsPlaceholder": "Plateformes (ex. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professionnel",
+    "casual": "Décontracté",
+    "humorous": "Humoristique",
+    "inspiring": "Inspirant",
+    "educational": "Éducatif"
+  },
+  "goalOptions": {
+    "engagement": "Engagement",
+    "awareness": "Notoriété",
+    "leads": "Prospects",
+    "sales": "Ventes",
+    "education": "Éducation"
+  },
+  "generate": "Générer les Publications",
+  "generating": "Génération…",
+  "docTitle": "Publications sur les Réseaux Sociaux",
+  "copy": "Copier",
+  "bestTime": "Meilleur moment : {{time}}",
+  "contentTips": "Conseils de Contenu"
+}

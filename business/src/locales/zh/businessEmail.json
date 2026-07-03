@@ -1,0 +1,20 @@
+{
+  "title": "商务<0>邮件</0>",
+  "subtitle": "为任何场合起草清晰、专业的商务邮件。",
+  "purposePlaceholder": "邮件目的（例如：跟进提案、重新安排会议）*",
+  "recipientPlaceholder": "收件人 / 其职位（例如：John — 招聘经理）",
+  "keyPointsPlaceholder": "需要包含的要点",
+  "tone": {
+    "professional": "专业",
+    "friendly": "友好",
+    "formal": "正式",
+    "assertive": "坚定",
+    "apologetic": "致歉"
+  },
+  "draft": "起草邮件",
+  "drafting": "正在起草…",
+  "subjectLine": "邮件主题",
+  "emailBody": "邮件正文",
+  "copy": "复制",
+  "callToAction": "行动号召"
+}

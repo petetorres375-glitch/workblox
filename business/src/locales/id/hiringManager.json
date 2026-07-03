@@ -1,0 +1,13 @@
+{
+  "title": "<0>Manajer</0> Perekrutan",
+  "subtitle": "Jelaskan posisi yang Anda cari dan dapatkan paket perekrutan yang lengkap.",
+  "descriptionPlaceholder": "Jelaskan posisi tersebut (mis. Spesialis Dukungan Teknis Level 1 untuk help desk IT kami — menangani reset kata sandi, pemecahan masalah dasar, dan triase tiket untuk perusahaan dengan 200 karyawan)",
+  "generate": "Buat Paket Perekrutan",
+  "generating": "Membuat…",
+  "positionSummary": "Ringkasan Posisi",
+  "interviewQuestions": "Pertanyaan Wawancara",
+  "copy": "Salin",
+  "evaluationCriteria": "Kriteria Evaluasi",
+  "redFlags": "Tanda Bahaya yang Perlu Diwaspadai",
+  "onboardingTips": "Tips Onboarding"
+}

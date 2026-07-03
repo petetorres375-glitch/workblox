@@ -1,0 +1,20 @@
+{
+  "title": "Email <0>Business</0>",
+  "subtitle": "Redactează emailuri de business clare și profesionale pentru orice situație.",
+  "purposePlaceholder": "Scopul emailului (ex. Urmărire propunere, Reprogramare întâlnire) *",
+  "recipientPlaceholder": "Destinatar / rolul acestuia (ex. John — Manager de Recrutare)",
+  "keyPointsPlaceholder": "Puncte cheie de inclus",
+  "tone": {
+    "professional": "Profesional",
+    "friendly": "Prietenos",
+    "formal": "Formal",
+    "assertive": "Asertiv",
+    "apologetic": "De Scuze"
+  },
+  "draft": "Redactează Emailul",
+  "drafting": "Se redactează…",
+  "subjectLine": "Subiect",
+  "emailBody": "Conținutul Emailului",
+  "copy": "Copiază",
+  "callToAction": "Îndemn la Acțiune"
+}

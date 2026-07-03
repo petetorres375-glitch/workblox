@@ -1,0 +1,40 @@
+{
+  "title": "Panneau <0>d'Administration</0>",
+  "subtitle": "Gérez les comptes clients et leurs activations.",
+  "killSwitch": {
+    "heading": "Interrupteur Général des Applications",
+    "description": "Désactivez une application pour tous les utilisateurs instantanément",
+    "personal": "Personal :",
+    "business": "Business :",
+    "on": "ACTIVÉ",
+    "off": "DÉSACTIVÉ",
+    "disablePersonal": "Désactiver Personal",
+    "enablePersonal": "Activer Personal",
+    "disableBusiness": "Désactiver Business",
+    "enableBusiness": "Activer Business"
+  },
+  "filters": {
+    "all": "Tous",
+    "pending": "En Attente",
+    "active": "Actifs"
+  },
+  "loading": "Chargement des utilisateurs…",
+  "noUsers": "Aucun utilisateur trouvé.",
+  "joined": "Inscrit le {{date}}",
+  "status": {
+    "active": "Actif",
+    "pending": "En Attente"
+  },
+  "actions": {
+    "deactivate": "Désactiver",
+    "activate": "Activer"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratuit"
+  },
+  "planActions": {
+    "setFree": "Passer en Gratuit",
+    "setBusiness": "Passer en Business"
+  }
+}

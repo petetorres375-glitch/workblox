@@ -1,0 +1,10 @@
+{
+  "title": "Trình Tạo <0>Quy Trình</0>",
+  "subtitle": "Mô tả một tác vụ lặp lại — nhận ngay script Python sẵn sàng chạy.",
+  "placeholder": "vd. đổi tên tất cả ảnh trong một thư mục theo ngày chụp",
+  "build": "Tạo",
+  "building": "Đang tạo...",
+  "copy": "Sao chép",
+  "copied": "Đã sao chép!",
+  "download": "Tải xuống"
+}

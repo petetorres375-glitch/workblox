@@ -1,0 +1,20 @@
+{
+  "title": "E-mail <0>Empresarial</0>",
+  "subtitle": "Redija e-mails empresariais claros e profissionais para qualquer situação.",
+  "purposePlaceholder": "Propósito do e-mail (ex. Dar seguimento a uma proposta, Reagendar reunião) *",
+  "recipientPlaceholder": "Destinatário / seu cargo (ex. João — Gerente de Contratação)",
+  "keyPointsPlaceholder": "Pontos-chave a incluir",
+  "tone": {
+    "professional": "Profissional",
+    "friendly": "Amigável",
+    "formal": "Formal",
+    "assertive": "Assertivo",
+    "apologetic": "Conciliador"
+  },
+  "draft": "Redigir E-mail",
+  "drafting": "Redigindo…",
+  "subjectLine": "Linha de Assunto",
+  "emailBody": "Corpo do E-mail",
+  "copy": "Copiar",
+  "callToAction": "Chamada para Ação"
+}

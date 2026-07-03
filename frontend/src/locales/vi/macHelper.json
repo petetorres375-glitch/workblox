@@ -1,0 +1,15 @@
+{
+  "title": "Trợ lý <0>Mac</0>",
+  "subtitle": "Mô tả sự cố macOS bằng ngôn ngữ thường ngày — nhận ngay câu lệnh Terminal phù hợp.",
+  "placeholder": "vd: hiển thị dung lượng ổ đĩa của từng thư mục trong thư mục cá nhân",
+  "ask": "Hỏi",
+  "thinking": "Đang suy nghĩ...",
+  "result": {
+    "guiSteps": "Các bước trên giao diện đồ họa",
+    "command": "Câu lệnh",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "explanation": "Giải thích",
+    "warnings": "Cảnh báo"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Admin-<0>Bereich</0>",
+  "subtitle": "Verwalten Sie Kundenkonten und Aktivierungen.",
+  "killSwitch": {
+    "heading": "App-Notschalter",
+    "description": "Eine App für alle Nutzer sofort deaktivieren",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AN",
+    "off": "AUS",
+    "disablePersonal": "Personal deaktivieren",
+    "enablePersonal": "Personal aktivieren",
+    "disableBusiness": "Business deaktivieren",
+    "enableBusiness": "Business aktivieren"
+  },
+  "filters": {
+    "all": "Alle",
+    "pending": "Ausstehend",
+    "active": "Aktiv"
+  },
+  "loading": "Benutzer werden geladen…",
+  "noUsers": "Keine Benutzer gefunden.",
+  "joined": "Beigetreten am {{date}}",
+  "status": {
+    "active": "Aktiv",
+    "pending": "Ausstehend"
+  },
+  "actions": {
+    "deactivate": "Deaktivieren",
+    "activate": "Aktivieren"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Kostenlos"
+  },
+  "planActions": {
+    "setFree": "Auf Kostenlos setzen",
+    "setBusiness": "Auf Business setzen"
+  }
+}

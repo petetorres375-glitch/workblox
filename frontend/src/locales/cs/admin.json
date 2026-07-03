@@ -1,0 +1,40 @@
+{
+  "title": "Panel <0>Administrátora</0>",
+  "subtitle": "Spravujte účty klientů a aktivace.",
+  "killSwitch": {
+    "heading": "Nouzový Vypínač Aplikací",
+    "description": "Okamžitě deaktivujte aplikaci pro všechny uživatele",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ZAPNUTO",
+    "off": "VYPNUTO",
+    "disablePersonal": "Deaktivovat Personal",
+    "enablePersonal": "Aktivovat Personal",
+    "disableBusiness": "Deaktivovat Business",
+    "enableBusiness": "Aktivovat Business"
+  },
+  "filters": {
+    "all": "Vše",
+    "pending": "Čekající",
+    "active": "Aktivní"
+  },
+  "loading": "Načítání uživatelů…",
+  "noUsers": "Nebyli nalezeni žádní uživatelé.",
+  "joined": "Připojil se {{date}}",
+  "status": {
+    "active": "Aktivní",
+    "pending": "Čekající"
+  },
+  "actions": {
+    "deactivate": "Deaktivovat",
+    "activate": "Aktivovat"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Zdarma"
+  },
+  "planActions": {
+    "setFree": "Nastavit Zdarma",
+    "setBusiness": "Nastavit Business"
+  }
+}

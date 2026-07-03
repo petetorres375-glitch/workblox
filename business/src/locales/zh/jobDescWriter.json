@@ -1,0 +1,17 @@
+{
+  "title": "职位描述<0>撰写器</0>",
+  "subtitle": "创建一份引人入胜、内容完整的职位描述,吸引顶尖人才。",
+  "jobTitlePlaceholder": "职位名称 *",
+  "departmentPlaceholder": "部门",
+  "salaryRangePlaceholder": "薪资范围(例如:¥15万–¥20万)",
+  "requirementsPlaceholder": "主要要求和职责 *",
+  "companyInfoPlaceholder": "公司简介(可选)",
+  "write": "撰写职位描述",
+  "writing": "撰写中…",
+  "overview": "概述",
+  "copyAll": "全部复制",
+  "responsibilities": "工作职责",
+  "requirements": "任职要求",
+  "niceToHave": "加分项",
+  "benefits": "福利待遇"
+}

@@ -1,0 +1,27 @@
+{
+  "title": "社交媒体<0>生成器</0>",
+  "subtitle": "为您的企业生成适合各平台发布的社交媒体内容。",
+  "topicPlaceholder": "主题或内容创意 *",
+  "businessNamePlaceholder": "企业名称",
+  "platformsPlaceholder": "平台(例如:LinkedIn、Instagram、Facebook)",
+  "toneOptions": {
+    "professional": "专业",
+    "casual": "随意",
+    "humorous": "幽默",
+    "inspiring": "激励",
+    "educational": "教育"
+  },
+  "goalOptions": {
+    "engagement": "互动",
+    "awareness": "认知度",
+    "leads": "潜在客户",
+    "sales": "销售",
+    "education": "教育"
+  },
+  "generate": "生成帖子",
+  "generating": "正在生成…",
+  "docTitle": "社交媒体帖子",
+  "copy": "复制",
+  "bestTime": "最佳时间:{{time}}",
+  "contentTips": "内容技巧"
+}

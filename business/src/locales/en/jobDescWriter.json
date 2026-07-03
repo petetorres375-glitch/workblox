@@ -1,0 +1,17 @@
+{
+  "title": "Job Description <0>Writer</0>",
+  "subtitle": "Create a compelling, complete job description that attracts top talent.",
+  "jobTitlePlaceholder": "Job title *",
+  "departmentPlaceholder": "Department",
+  "salaryRangePlaceholder": "Salary range (e.g. $60k–$80k)",
+  "requirementsPlaceholder": "Key requirements and responsibilities *",
+  "companyInfoPlaceholder": "Brief company description (optional)",
+  "write": "Write Job Description",
+  "writing": "Writing…",
+  "overview": "Overview",
+  "copyAll": "Copy All",
+  "responsibilities": "Responsibilities",
+  "requirements": "Requirements",
+  "niceToHave": "Nice to Have",
+  "benefits": "Benefits"
+}

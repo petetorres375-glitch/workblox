@@ -1,0 +1,22 @@
+{
+  "title": "Proposal <0>Generator</0>",
+  "subtitle": "Create professional proposals and quotes for clients.",
+  "clientNamePlaceholder": "Client name",
+  "projectDescriptionPlaceholder": "Project description *",
+  "servicesPlaceholder": "Services to include",
+  "budgetRangePlaceholder": "Budget range (e.g. $5,000–$10,000)",
+  "timelinePlaceholder": "Timeline (e.g. 4–6 weeks)",
+  "generate": "Generate Proposal",
+  "generating": "Generating…",
+  "executiveSummary": "Executive Summary",
+  "scopeOfWork": "Scope of Work",
+  "deliverables": "Deliverables",
+  "lineItems": "Line Items",
+  "table": {
+    "description": "Description",
+    "qty": "Qty",
+    "unitPrice": "Unit Price",
+    "total": "Total"
+  },
+  "terms": "Terms"
+}

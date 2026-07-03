@@ -1,0 +1,22 @@
+{
+  "title": "Trình Tạo <0>Đề Xuất</0>",
+  "subtitle": "Tạo đề xuất và báo giá chuyên nghiệp cho khách hàng.",
+  "clientNamePlaceholder": "Tên khách hàng",
+  "projectDescriptionPlaceholder": "Mô tả dự án *",
+  "servicesPlaceholder": "Dịch vụ cần đưa vào",
+  "budgetRangePlaceholder": "Khoảng ngân sách (vd. $5,000–$10,000)",
+  "timelinePlaceholder": "Thời gian thực hiện (vd. 4–6 tuần)",
+  "generate": "Tạo Đề Xuất",
+  "generating": "Đang tạo…",
+  "executiveSummary": "Tóm Tắt Điều Hành",
+  "scopeOfWork": "Phạm Vi Công Việc",
+  "deliverables": "Sản Phẩm Bàn Giao",
+  "lineItems": "Danh Mục Chi Tiết",
+  "table": {
+    "description": "Mô Tả",
+    "qty": "SL",
+    "unitPrice": "Đơn Giá",
+    "total": "Tổng Cộng"
+  },
+  "terms": "Điều Khoản"
+}

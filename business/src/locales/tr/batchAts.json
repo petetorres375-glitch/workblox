@@ -1,0 +1,17 @@
+{
+  "title": "Toplu ATS <0>Analiz Aracı</0>",
+  "subtitle": "10 adede kadar özgeçmiş yükleyin ve hepsini bir iş ilanına göre tek seferde tarayın.",
+  "dropLabel": "Özgeçmişleri buraya sürükleyin veya göz atmak için tıklayın",
+  "resumesSelected_one": "{{count}} özgeçmiş seçildi",
+  "resumesSelected_other": "{{count}} özgeçmiş seçildi",
+  "dropHint": "PDF, DOCX veya TXT · en fazla 10 dosya",
+  "jobDescriptionPlaceholder": "İş tanımı (daha iyi eşleşme için buraya yapıştırın)",
+  "analyzeAll": "Tüm Özgeçmişleri Analiz Et",
+  "analyzingCount_one": "{{count}} özgeçmiş analiz ediliyor…",
+  "analyzingCount_other": "{{count}} özgeçmiş analiz ediliyor…",
+  "resumesAnalyzed_one": "{{count}} özgeçmiş analiz edildi",
+  "resumesAnalyzed_other": "{{count}} özgeçmiş analiz edildi",
+  "errorLabel": "Hata: {{error}}",
+  "strengths": "Güçlü Yönler",
+  "concerns": "Endişeler"
+}

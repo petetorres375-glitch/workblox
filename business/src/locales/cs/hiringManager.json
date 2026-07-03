@@ -1,0 +1,13 @@
+{
+  "title": "Manažer <0>náboru</0>",
+  "subtitle": "Popište pozici, na kterou najímáte, a získejte kompletní balíček pro nábor.",
+  "descriptionPlaceholder": "Popište pozici (např. technik podpory úrovně 1 pro naši IT helpdesk — řeší resetování hesel, základní řešení problémů a třídění tiketů pro firmu s 200 zaměstnanci)",
+  "generate": "Vytvořit náborový balíček",
+  "generating": "Vytvářím…",
+  "positionSummary": "Shrnutí pozice",
+  "interviewQuestions": "Otázky na pohovor",
+  "copy": "Kopírovat",
+  "evaluationCriteria": "Kritéria hodnocení",
+  "redFlags": "Varovné signály",
+  "onboardingTips": "Tipy pro zapracování"
+}

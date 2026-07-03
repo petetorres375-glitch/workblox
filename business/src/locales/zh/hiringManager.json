@@ -1,0 +1,13 @@
+{
+  "title": "招聘<0>经理</0>",
+  "subtitle": "描述您要招聘的职位,即可获得完整的招聘方案。",
+  "descriptionPlaceholder": "描述该职位(例如:IT服务台的一级技术支持专员——负责为一家200人规模的公司处理密码重置、基本故障排除和工单分类)",
+  "generate": "生成招聘方案",
+  "generating": "生成中…",
+  "positionSummary": "职位摘要",
+  "interviewQuestions": "面试问题",
+  "copy": "复制",
+  "evaluationCriteria": "评估标准",
+  "redFlags": "需要注意的危险信号",
+  "onboardingTips": "入职引导建议"
+}

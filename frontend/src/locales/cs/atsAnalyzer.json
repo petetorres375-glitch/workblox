@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>Analyzátor</0>",
+  "subtitle": "Nahrajte životopis — okamžitě získejte ATS skóre, chybějící klíčová slova a doporučení.",
+  "dropZone": {
+    "label": "Přetáhněte sem životopis nebo klikněte pro procházení",
+    "hint": "TXT, PDF nebo DOCX — max. 5 MB"
+  },
+  "clientNamePlaceholder": "Jméno klienta (volitelné)",
+  "jobRolePlaceholder": "Pracovní pozice (volitelné)",
+  "submit": "Analyzovat životopis",
+  "analyzing": "Analyzuji...",
+  "score": {
+    "outOf100": "ze 100",
+    "keywordsFound": "Nalezeno {{found}} / {{total}} klíčových slov"
+  },
+  "contactCheck": {
+    "email": "E-mail",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Lokalita"
+  },
+  "recommendations": "Doporučení",
+  "keywordBreakdown": "Přehled klíčových slov",
+  "moreKeywords": "+{{count}} dalších",
+  "jobMatch": {
+    "title": "Shoda s pozicí: {{role}}",
+    "matched": "Shoduje se {{score}} / {{total}} klíčových slov"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Generuji..."
+  }
+}

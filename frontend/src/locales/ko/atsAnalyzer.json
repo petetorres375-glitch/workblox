@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>분석기</0>",
+  "subtitle": "이력서를 업로드하면 ATS 점수, 부족한 키워드, 개선 제안을 즉시 확인할 수 있습니다.",
+  "dropZone": {
+    "label": "이력서를 여기로 드래그하거나 클릭하여 선택하세요",
+    "hint": "TXT, PDF 또는 DOCX — 최대 5 MB"
+  },
+  "clientNamePlaceholder": "고객 이름 (선택 사항)",
+  "jobRolePlaceholder": "희망 직무 (선택 사항)",
+  "submit": "이력서 분석",
+  "analyzing": "분석 중...",
+  "score": {
+    "outOf100": "/ 100점",
+    "keywordsFound": "키워드 {{found}} / {{total}}개 발견"
+  },
+  "contactCheck": {
+    "email": "이메일",
+    "phone": "전화번호",
+    "linkedin": "LinkedIn",
+    "location": "지역"
+  },
+  "recommendations": "개선 제안",
+  "keywordBreakdown": "키워드 세부 분석",
+  "moreKeywords": "+{{count}}개 더보기",
+  "jobMatch": {
+    "title": "직무 일치도: {{role}}",
+    "matched": "키워드 {{score}} / {{total}}개 일치"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "생성 중..."
+  }
+}

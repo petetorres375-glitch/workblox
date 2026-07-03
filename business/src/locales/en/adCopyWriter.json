@@ -1,0 +1,22 @@
+{
+  "title": "Ad Copy <0>Writer</0>",
+  "subtitle": "Generate high-converting ad copy with multiple headline and description variations.",
+  "productServicePlaceholder": "Product or service *",
+  "targetAudiencePlaceholder": "Target audience (e.g. small business owners, age 25–45)",
+  "uniqueValuePlaceholder": "Unique value proposition",
+  "goalOptions": {
+    "conversions": "Conversions",
+    "awareness": "Awareness",
+    "leads": "Leads",
+    "traffic": "Traffic",
+    "app installs": "App installs"
+  },
+  "write": "Write Ad Copy",
+  "writing": "Writing…",
+  "docTitle": "Ad Copy",
+  "copy": "Copy",
+  "headlines": "Headlines",
+  "descriptions": "Descriptions",
+  "ctaOptions": "Call-to-Action Options",
+  "valuePropositions": "Value Propositions"
+}

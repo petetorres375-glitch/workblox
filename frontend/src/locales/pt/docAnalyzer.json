@@ -1,0 +1,25 @@
+{
+  "title": "Analisador de <0>Documentos</0>",
+  "subtitle": "Envie um arquivo PDF, TXT ou MD — obtenha um resumo estruturado por IA.",
+  "dropLabel": "Arraste um arquivo aqui ou clique para procurar",
+  "dropHint": "PDF, TXT ou MD — máx. 10 MB",
+  "analyze": "Analisar",
+  "analyzing": "Analisando...",
+  "sections": {
+    "summary": "Resumo",
+    "keyDataPoints": "Pontos-Chave",
+    "actionItems": "Itens de Ação",
+    "redFlags": "Sinais de Alerta"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Gerando..."
+  },
+  "email": {
+    "placeholder": "Enviar o relatório por e-mail para...",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "sent": "Relatório enviado para {{email}}"
+  }
+}

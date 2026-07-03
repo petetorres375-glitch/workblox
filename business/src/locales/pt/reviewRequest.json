@@ -1,0 +1,15 @@
+{
+  "title": "Solicitação de Avaliação por <0>E-mail</0>",
+  "subtitle": "Escreva um e-mail simpático e natural pedindo para os clientes deixarem uma avaliação.",
+  "businessNamePlaceholder": "Nome do seu negócio *",
+  "customerNamePlaceholder": "Nome do cliente (opcional)",
+  "serviceProvidedPlaceholder": "Serviço ou produto fornecido",
+  "platformsPlaceholder": "Plataformas de avaliação (ex.: Google, Yelp)",
+  "write": "Escrever Solicitação de Avaliação",
+  "writing": "Escrevendo…",
+  "docTitle": "Solicitação de Avaliação por E-mail",
+  "subjectLine": "Assunto",
+  "emailBody": "Corpo do E-mail",
+  "copy": "Copiar",
+  "timingAdvice": "Dica de Momento Ideal"
+}

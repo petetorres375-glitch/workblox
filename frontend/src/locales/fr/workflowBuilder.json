@@ -1,0 +1,10 @@
+{
+  "title": "Créateur de <0>Flux</0>",
+  "subtitle": "Décrivez une tâche répétitive — obtenez un script Python prêt à l'emploi.",
+  "placeholder": "ex. renommer toutes les photos d'un dossier selon leur date de prise de vue",
+  "build": "Créer",
+  "building": "Création en cours...",
+  "copy": "Copier",
+  "copied": "Copié !",
+  "download": "Télécharger"
+}

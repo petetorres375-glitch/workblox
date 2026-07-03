@@ -1,0 +1,17 @@
+{
+  "title": "一括ATS<0>アナライザー</0>",
+  "subtitle": "履歴書を最大10件アップロードし、求人内容と一括で照合します。",
+  "dropLabel": "履歴書をここにドロップ、またはクリックして選択",
+  "resumesSelected_one": "{{count}}件の履歴書を選択",
+  "resumesSelected_other": "{{count}}件の履歴書を選択",
+  "dropHint": "PDF、DOCX、TXT · 最大10ファイル",
+  "jobDescriptionPlaceholder": "求人内容（より高精度なマッチングのためにここに貼り付けてください）",
+  "analyzeAll": "すべての履歴書を分析",
+  "analyzingCount_one": "{{count}}件の履歴書を分析中…",
+  "analyzingCount_other": "{{count}}件の履歴書を分析中…",
+  "resumesAnalyzed_one": "{{count}}件の履歴書を分析しました",
+  "resumesAnalyzed_other": "{{count}}件の履歴書を分析しました",
+  "errorLabel": "エラー: {{error}}",
+  "strengths": "強み",
+  "concerns": "懸念点"
+}

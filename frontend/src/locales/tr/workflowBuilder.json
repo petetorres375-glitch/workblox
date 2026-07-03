@@ -1,0 +1,10 @@
+{
+  "title": "İş Akışı <0>Oluşturucu</0>",
+  "subtitle": "Tekrarlayan bir görevi tanımlayın — hemen çalıştırılabilir bir Python betiği alın.",
+  "placeholder": "örn. bir klasördeki tüm fotoğrafları çekim tarihine göre yeniden adlandır",
+  "build": "Oluştur",
+  "building": "Oluşturuluyor...",
+  "copy": "Kopyala",
+  "copied": "Kopyalandı!",
+  "download": "İndir"
+}

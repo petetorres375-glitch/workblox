@@ -1,0 +1,15 @@
+{
+  "title": "Trợ lý <0>Linux</0>",
+  "subtitle": "Mô tả sự cố Linux bằng ngôn ngữ thường ngày — nhận ngay câu lệnh phù hợp.",
+  "placeholder": "vd: tìm tất cả tệp .log đã sửa đổi trong 7 ngày qua",
+  "ask": "Hỏi",
+  "thinking": "Đang suy nghĩ...",
+  "result": {
+    "guiSteps": "Các bước trên giao diện đồ họa",
+    "command": "Câu lệnh",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "explanation": "Giải thích",
+    "warnings": "Cảnh báo"
+  }
+}

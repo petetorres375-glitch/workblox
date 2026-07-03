@@ -1,0 +1,15 @@
+{
+  "title": "Solicitare de Recenzie prin <0>E-mail</0>",
+  "subtitle": "Scrie un e-mail prietenos și natural prin care le ceri clienților să lase o recenzie.",
+  "businessNamePlaceholder": "Numele afacerii tale *",
+  "customerNamePlaceholder": "Numele clientului (opțional)",
+  "serviceProvidedPlaceholder": "Serviciul sau produsul oferit",
+  "platformsPlaceholder": "Platforme de recenzii (ex. Google, Yelp)",
+  "write": "Scrie Solicitarea de Recenzie",
+  "writing": "Se scrie…",
+  "docTitle": "Solicitare de Recenzie prin E-mail",
+  "subjectLine": "Subiect",
+  "emailBody": "Conținutul E-mailului",
+  "copy": "Copiază",
+  "timingAdvice": "Sfat privind Momentul Potrivit"
+}

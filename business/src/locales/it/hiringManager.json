@@ -1,0 +1,13 @@
+{
+  "title": "<0>Responsabile</0> delle Assunzioni",
+  "subtitle": "Descrivi la posizione per cui stai assumendo e ottieni un pacchetto di assunzione completo.",
+  "descriptionPlaceholder": "Descrivi la posizione (es. Specialista di Supporto Tecnico di Livello 1 per il nostro help desk IT — gestisce il reset delle password, la risoluzione di problemi di base e lo smistamento dei ticket per un'azienda di 200 persone)",
+  "generate": "Genera Pacchetto di Assunzione",
+  "generating": "Generazione in corso…",
+  "positionSummary": "Sintesi della Posizione",
+  "interviewQuestions": "Domande per il Colloquio",
+  "copy": "Copia",
+  "evaluationCriteria": "Criteri di Valutazione",
+  "redFlags": "Segnali d'Allarme da Monitorare",
+  "onboardingTips": "Consigli per l'Inserimento"
+}

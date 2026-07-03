@@ -1,0 +1,27 @@
+{
+  "title": "सोशल मीडिया <0>जनरेटर</0>",
+  "subtitle": "अपने व्यवसाय के लिए प्लेटफ़ॉर्म-रेडी सोशल मीडिया सामग्री बनाएं।",
+  "topicPlaceholder": "विषय या सामग्री का विचार *",
+  "businessNamePlaceholder": "व्यवसाय का नाम",
+  "platformsPlaceholder": "प्लेटफ़ॉर्म (जैसे LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "पेशेवर",
+    "casual": "अनौपचारिक",
+    "humorous": "हास्यप्रद",
+    "inspiring": "प्रेरणादायक",
+    "educational": "शैक्षिक"
+  },
+  "goalOptions": {
+    "engagement": "जुड़ाव",
+    "awareness": "जागरूकता",
+    "leads": "लीड्स",
+    "sales": "बिक्री",
+    "education": "शिक्षा"
+  },
+  "generate": "पोस्ट जनरेट करें",
+  "generating": "जनरेट किया जा रहा है…",
+  "docTitle": "सोशल मीडिया पोस्ट",
+  "copy": "कॉपी करें",
+  "bestTime": "सर्वश्रेष्ठ समय: {{time}}",
+  "contentTips": "सामग्री सुझाव"
+}

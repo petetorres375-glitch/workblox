@@ -1,0 +1,15 @@
+{
+  "title": "Windows <0>Helper</0>",
+  "subtitle": "Describe a Windows problem in plain English — get the PowerShell command back.",
+  "placeholder": "e.g. list all running processes sorted by CPU usage",
+  "ask": "Ask",
+  "thinking": "Thinking...",
+  "result": {
+    "guiSteps": "GUI Steps",
+    "command": "Command",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "explanation": "Explanation",
+    "warnings": "Warnings"
+  }
+}

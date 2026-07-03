@@ -1,0 +1,17 @@
+{
+  "title": "求人票<0>ライター</0>",
+  "subtitle": "優秀な人材を惹きつける、説得力のある完全な求人票を作成します。",
+  "jobTitlePlaceholder": "職種名 *",
+  "departmentPlaceholder": "部署",
+  "salaryRangePlaceholder": "給与範囲(例:年収500万円〜700万円)",
+  "requirementsPlaceholder": "主な要件と職務内容 *",
+  "companyInfoPlaceholder": "会社の簡単な説明(任意)",
+  "write": "求人票を作成",
+  "writing": "作成中…",
+  "overview": "概要",
+  "copyAll": "すべてコピー",
+  "responsibilities": "職務内容",
+  "requirements": "応募要件",
+  "niceToHave": "歓迎条件",
+  "benefits": "福利厚生"
+}

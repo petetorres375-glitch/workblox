@@ -1,0 +1,13 @@
+{
+  "title": "<0>Kierownik</0> ds. Rekrutacji",
+  "subtitle": "Opisz stanowisko, na które rekrutujesz, i otrzymaj kompletny pakiet rekrutacyjny.",
+  "descriptionPlaceholder": "Opisz stanowisko (np. Specjalista Wsparcia Technicznego Poziomu 1 dla naszego helpdesku IT — resetowanie haseł, podstawowe rozwiązywanie problemów i segregacja zgłoszeń w firmie zatrudniającej 200 osób)",
+  "generate": "Wygeneruj Pakiet Rekrutacyjny",
+  "generating": "Generowanie…",
+  "positionSummary": "Podsumowanie Stanowiska",
+  "interviewQuestions": "Pytania Rekrutacyjne",
+  "copy": "Kopiuj",
+  "evaluationCriteria": "Kryteria Oceny",
+  "redFlags": "Sygnały Ostrzegawcze",
+  "onboardingTips": "Wskazówki dot. Wdrożenia"
+}

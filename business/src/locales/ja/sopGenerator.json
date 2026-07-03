@@ -1,0 +1,17 @@
+{
+  "title": "SOP<0>ジェネレーター</0>",
+  "subtitle": "あらゆる業務プロセスに対応した、明確で実行可能な標準作業手順書（SOP）を作成します。",
+  "processNamePlaceholder": "プロセス名（例：顧客オンボーディング）*",
+  "departmentPlaceholder": "部門",
+  "frequencyPlaceholder": "頻度（例：毎日、毎週、新規クライアントごと）",
+  "descriptionPlaceholder": "プロセスの説明 *",
+  "generate": "SOPを生成",
+  "generating": "生成中…",
+  "overview": "概要",
+  "frequencyLabel": "頻度：{{frequency}}",
+  "requiredTools": "必要なツール／リソース",
+  "steps": "手順",
+  "stepLabel": "手順 {{number}}：{{action}}",
+  "qualityChecks": "品質チェック",
+  "notes": "備考"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Nettoyeur de <0>Notes de Réunion</0>",
+  "subtitle": "Collez des notes de réunion brouillonnes et obtenez un résumé clair et structuré avec les actions à mener.",
+  "contextPlaceholder": "Contexte de la réunion (ex. Planification T3, lancement client)",
+  "rawNotesPlaceholder": "Collez ici vos notes de réunion brutes *",
+  "clean": "Nettoyer les Notes de Réunion",
+  "cleaning": "Nettoyage en cours…",
+  "summary": "Résumé",
+  "copyAll": "Tout Copier",
+  "decisionsMade": "Décisions Prises",
+  "actionItems": "Actions à Mener",
+  "nextSteps": "Prochaines Étapes",
+  "followUpMeeting": "Réunion de Suivi"
+}

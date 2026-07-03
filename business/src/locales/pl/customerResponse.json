@@ -1,0 +1,20 @@
+{
+  "title": "<0>Odpowiedź</0> dla Klienta",
+  "subtitle": "Twórz profesjonalne i pełne empatii odpowiedzi na wiadomości i skargi klientów.",
+  "customerMessagePlaceholder": "Wklej wiadomość od klienta *",
+  "contextPlaceholder": "Kontekst (np. co się wydarzyło, szczegóły zamówienia itp.)",
+  "tone": {
+    "professional": "Profesjonalny",
+    "empathetic": "Empatyczny",
+    "apologetic": "Przepraszający",
+    "firm": "Stanowczy",
+    "friendly": "Przyjazny"
+  },
+  "draft": "Utwórz Odpowiedź",
+  "drafting": "Tworzenie…",
+  "subjectLine": "Temat Wiadomości",
+  "responseDraft": "Szkic Odpowiedzi",
+  "copy": "Kopiuj",
+  "pointsAddressed": "Poruszone Kwestie",
+  "followUpSuggested": "Sugerowane Działania Następcze"
+}

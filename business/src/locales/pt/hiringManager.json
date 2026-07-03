@@ -1,0 +1,13 @@
+{
+  "title": "Gerenciador de <0>Contratações</0>",
+  "subtitle": "Descreva a vaga para a qual você está contratando e obtenha um pacote de contratação completo.",
+  "descriptionPlaceholder": "Descreva a vaga (ex.: especialista de Suporte Técnico Nível 1 para nossa central de ajuda de TI — atende redefinições de senha, solução de problemas básicos e triagem de chamados em uma empresa de 200 pessoas)",
+  "generate": "Gerar Pacote de Contratação",
+  "generating": "Gerando…",
+  "positionSummary": "Resumo da Vaga",
+  "interviewQuestions": "Perguntas da Entrevista",
+  "copy": "Copiar",
+  "evaluationCriteria": "Critérios de Avaliação",
+  "redFlags": "Sinais de Alerta",
+  "onboardingTips": "Dicas de Integração"
+}

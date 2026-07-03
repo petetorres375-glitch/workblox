@@ -1,0 +1,20 @@
+{
+  "title": "Customer <0>Response</0>",
+  "subtitle": "Draft professional, empathetic responses to customer messages and complaints.",
+  "customerMessagePlaceholder": "Paste the customer's message *",
+  "contextPlaceholder": "Context (e.g. what happened, order details, etc.)",
+  "tone": {
+    "professional": "Professional",
+    "empathetic": "Empathetic",
+    "apologetic": "Apologetic",
+    "firm": "Firm",
+    "friendly": "Friendly"
+  },
+  "draft": "Draft Response",
+  "drafting": "Drafting…",
+  "subjectLine": "Subject Line",
+  "responseDraft": "Response Draft",
+  "copy": "Copy",
+  "pointsAddressed": "Points Addressed",
+  "followUpSuggested": "Suggested Follow-Up"
+}

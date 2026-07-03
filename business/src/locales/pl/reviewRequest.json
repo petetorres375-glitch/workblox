@@ -1,0 +1,15 @@
+{
+  "title": "Prośba o Opinię przez <0>E-mail</0>",
+  "subtitle": "Napisz przyjazny, naturalny e-mail z prośbą do klientów o zostawienie opinii.",
+  "businessNamePlaceholder": "Nazwa Twojej firmy *",
+  "customerNamePlaceholder": "Imię klienta (opcjonalnie)",
+  "serviceProvidedPlaceholder": "Świadczona usługa lub produkt",
+  "platformsPlaceholder": "Platformy z opiniami (np. Google, Yelp)",
+  "write": "Napisz Prośbę o Opinię",
+  "writing": "Piszę…",
+  "docTitle": "Prośba o Opinię przez E-mail",
+  "subjectLine": "Temat",
+  "emailBody": "Treść E-maila",
+  "copy": "Kopiuj",
+  "timingAdvice": "Wskazówka dotycząca Momentu"
+}

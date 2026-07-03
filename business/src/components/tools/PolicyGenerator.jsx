@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
@@ -22,6 +23,7 @@ function buildMd(data) {
 }
 
 export default function PolicyGenerator() {
+  const { t, i18n } = useTranslation("policyGenerator");
   const { loading, error, call } = useApi();
   const [policyType, setPolicyType] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -31,7 +33,7 @@ export default function PolicyGenerator() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/policy", { policy_type: policyType, company_name: companyName, industry, specifics }));
+    const result = await call(() => post("/api/biz/policy", { policy_type: policyType, company_name: companyName, industry, specifics, language: i18n.language }));
     if (result) setData(result);
   }
 
@@ -39,15 +41,15 @@ export default function PolicyGenerator() {
 
   return (
     <div>
-      <h1 className="page-title">Policy <span>Generator</span></h1>
-      <p className="page-subtitle">Create professional company policies — HR, IT, remote work, PTO, and more.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <input type="text" placeholder="Policy type (e.g. Remote Work Policy, PTO Policy) *" value={policyType} onChange={(e) => setPolicyType(e.target.value)} required disabled={loading} style={inputStyle} />
-        <input type="text" placeholder="Company name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} disabled={loading} style={inputStyle} />
-        <input type="text" placeholder="Industry (e.g. Technology, Healthcare)" value={industry} onChange={(e) => setIndustry(e.target.value)} disabled={loading} style={inputStyle} />
-        <textarea placeholder="Specific requirements or notes (optional)" value={specifics} onChange={(e) => setSpecifics(e.target.value)} rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
-        <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Generating…" : "Generate Policy"}</button>
+        <input type="text" placeholder={t("policyTypePlaceholder")} value={policyType} onChange={(e) => setPolicyType(e.target.value)} required disabled={loading} style={inputStyle} />
+        <input type="text" placeholder={t("companyNamePlaceholder")} value={companyName} onChange={(e) => setCompanyName(e.target.value)} disabled={loading} style={inputStyle} />
+        <input type="text" placeholder={t("industryPlaceholder")} value={industry} onChange={(e) => setIndustry(e.target.value)} disabled={loading} style={inputStyle} />
+        <textarea placeholder={t("specificsPlaceholder")} value={specifics} onChange={(e) => setSpecifics(e.target.value)} rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <button type="submit" className="submit-btn" disabled={loading}>{loading ? t("generating") : t("generate")}</button>
       </form>
 
       {error && <div className="error-banner no-print">{error}</div>}
@@ -57,21 +59,21 @@ export default function PolicyGenerator() {
           <div className="print-header" style={{ display: "none" }}><strong>{data.title}</strong></div>
           <div className="result-card">
             <div className="result-header">
-              <p className="result-label">Policy Document</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data))}>Copy All</button>
+              <p className="result-label">{t("policyDocument")}</p>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data))}>{t("copyAll")}</button>
             </div>
             <p style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.25rem" }}>{data.title}</p>
-            <p style={{ fontSize: "0.82rem", color: "var(--text-hint)" }}>Effective: {data.effective_date_placeholder}</p>
+            <p style={{ fontSize: "0.82rem", color: "var(--text-hint)" }}>{t("effective", { date: data.effective_date_placeholder })}</p>
           </div>
           {data.purpose && (
             <div className="result-card">
-              <p className="result-label">Purpose</p>
+              <p className="result-label">{t("purpose")}</p>
               <p style={{ fontSize: "0.92rem", lineHeight: 1.65 }}>{data.purpose}</p>
             </div>
           )}
           {data.scope && (
             <div className="result-card">
-              <p className="result-label">Scope</p>
+              <p className="result-label">{t("scope")}</p>
               <p style={{ fontSize: "0.92rem", lineHeight: 1.65 }}>{data.scope}</p>
             </div>
           )}
@@ -83,13 +85,13 @@ export default function PolicyGenerator() {
           ))}
           {data.acknowledgment_statement && (
             <div className="result-card">
-              <p className="result-label">Acknowledgment</p>
+              <p className="result-label">{t("acknowledgment")}</p>
               <p style={{ fontSize: "0.88rem", lineHeight: 1.6, fontStyle: "italic" }}>{data.acknowledgment_statement}</p>
             </div>
           )}
           <ReportToolbar
             filename={slug(policyType) || "policy"}
-            subject={`Policy — ${data.title || policyType}`}
+            subject={`${t("policyPrefix")} — ${data.title || policyType}`}
             txtContent={buildTxt(data)}
             mdContent={buildMd(data)}
           />

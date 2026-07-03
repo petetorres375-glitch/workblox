@@ -1,0 +1,35 @@
+{
+  "title": "ATS-<0>analysator</0>",
+  "subtitle": "Ladda upp ett CV — få direkt ett ATS-betyg, saknade nyckelord och rekommendationer.",
+  "dropZone": {
+    "label": "Släpp ett CV här eller klicka för att bläddra",
+    "hint": "TXT, PDF eller DOCX — max 5 MB"
+  },
+  "clientNamePlaceholder": "Klientens namn (valfritt)",
+  "jobRolePlaceholder": "Yrkesroll (valfritt)",
+  "submit": "Analysera CV",
+  "analyzing": "Analyserar...",
+  "score": {
+    "outOf100": "av 100",
+    "keywordsFound": "{{found}} / {{total}} nyckelord hittades"
+  },
+  "contactCheck": {
+    "email": "E-post",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Plats"
+  },
+  "recommendations": "Rekommendationer",
+  "keywordBreakdown": "Nyckelordsöversikt",
+  "moreKeywords": "+{{count}} till",
+  "jobMatch": {
+    "title": "Jobbmatchning: {{role}}",
+    "matched": "{{score}} / {{total}} nyckelord matchade"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Genererar..."
+  }
+}

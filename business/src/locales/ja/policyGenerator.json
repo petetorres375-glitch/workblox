@@ -1,0 +1,17 @@
+{
+  "title": "ポリシー<0>ジェネレーター</0>",
+  "subtitle": "人事、IT、リモートワーク、有給休暇など、専門的な会社ポリシーを作成します。",
+  "policyTypePlaceholder": "ポリシーの種類(例:リモートワークポリシー、有給休暇ポリシー)*",
+  "companyNamePlaceholder": "会社名",
+  "industryPlaceholder": "業界(例:テクノロジー、ヘルスケア)",
+  "specificsPlaceholder": "具体的な要件や注記(任意)",
+  "generate": "ポリシーを生成",
+  "generating": "生成中…",
+  "policyDocument": "ポリシー文書",
+  "copyAll": "すべてコピー",
+  "effective": "発効日:{{date}}",
+  "purpose": "目的",
+  "scope": "適用範囲",
+  "acknowledgment": "承認",
+  "policyPrefix": "ポリシー"
+}

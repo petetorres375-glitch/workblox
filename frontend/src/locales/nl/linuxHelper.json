@@ -1,0 +1,15 @@
+{
+  "title": "Linux-<0>helper</0>",
+  "subtitle": "Beschrijf een Linux-probleem in gewone taal — krijg meteen het juiste commando.",
+  "placeholder": "bijv. alle .log-bestanden vinden die de afgelopen 7 dagen zijn gewijzigd",
+  "ask": "Vragen",
+  "thinking": "Bezig met nadenken...",
+  "result": {
+    "guiSteps": "Stappen via de grafische interface",
+    "command": "Commando",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd!",
+    "explanation": "Toelichting",
+    "warnings": "Waarschuwingen"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Tvorba <0>nabídek</0>",
+  "subtitle": "Vytvářejte profesionální nabídky a cenové kalkulace pro klienty.",
+  "clientNamePlaceholder": "Jméno klienta",
+  "projectDescriptionPlaceholder": "Popis projektu *",
+  "servicesPlaceholder": "Služby k zahrnutí",
+  "budgetRangePlaceholder": "Rozpočtové rozpětí (např. $5,000–$10,000)",
+  "timelinePlaceholder": "Časový harmonogram (např. 4–6 týdnů)",
+  "generate": "Vytvořit nabídku",
+  "generating": "Vytvářím…",
+  "executiveSummary": "Shrnutí pro vedení",
+  "scopeOfWork": "Rozsah prací",
+  "deliverables": "Výstupy",
+  "lineItems": "Položky",
+  "table": {
+    "description": "Popis",
+    "qty": "Množství",
+    "unitPrice": "Jednotková cena",
+    "total": "Celkem"
+  },
+  "terms": "Podmínky"
+}

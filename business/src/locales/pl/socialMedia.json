@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generator</0> Mediów Społecznościowych",
+  "subtitle": "Generuj gotowe do publikacji treści w mediach społecznościowych dla swojej firmy.",
+  "topicPlaceholder": "Temat lub pomysł na treść *",
+  "businessNamePlaceholder": "Nazwa firmy",
+  "platformsPlaceholder": "Platformy (np. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Profesjonalny",
+    "casual": "Swobodny",
+    "humorous": "Humorystyczny",
+    "inspiring": "Inspirujący",
+    "educational": "Edukacyjny"
+  },
+  "goalOptions": {
+    "engagement": "Zaangażowanie",
+    "awareness": "Rozpoznawalność",
+    "leads": "Leady",
+    "sales": "Sprzedaż",
+    "education": "Edukacja"
+  },
+  "generate": "Generuj Posty",
+  "generating": "Generowanie…",
+  "docTitle": "Posty w Mediach Społecznościowych",
+  "copy": "Kopiuj",
+  "bestTime": "Najlepsza pora: {{time}}",
+  "contentTips": "Wskazówki dotyczące Treści"
+}

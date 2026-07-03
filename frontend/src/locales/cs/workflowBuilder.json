@@ -1,0 +1,10 @@
+{
+  "title": "Tvůrce <0>Automatizací</0>",
+  "subtitle": "Popište opakující se úkol — získejte připravený Python skript.",
+  "placeholder": "např. přejmenovat všechny fotky ve složce podle data pořízení",
+  "build": "Vytvořit",
+  "building": "Vytváření...",
+  "copy": "Kopírovat",
+  "copied": "Zkopírováno!",
+  "download": "Stáhnout"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "<0>Pembersih</0> Catatan Rapat",
+  "subtitle": "Tempelkan catatan rapat yang berantakan dan dapatkan ringkasan yang rapi dan terstruktur beserta item tindakan.",
+  "contextPlaceholder": "Konteks rapat (mis. perencanaan Q3, kick-off klien)",
+  "rawNotesPlaceholder": "Tempelkan catatan rapat mentah Anda di sini *",
+  "clean": "Bersihkan Catatan Rapat",
+  "cleaning": "Membersihkan…",
+  "summary": "Ringkasan",
+  "copyAll": "Salin Semua",
+  "decisionsMade": "Keputusan yang Diambil",
+  "actionItems": "Item Tindakan",
+  "nextSteps": "Langkah Selanjutnya",
+  "followUpMeeting": "Rapat Lanjutan"
+}

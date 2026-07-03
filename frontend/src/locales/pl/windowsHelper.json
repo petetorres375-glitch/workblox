@@ -1,0 +1,15 @@
+{
+  "title": "Asystent <0>Windows</0>",
+  "subtitle": "Opisz problem z Windows zwykłym językiem — otrzymasz gotowe polecenie PowerShell.",
+  "placeholder": "np. wylistuj wszystkie działające procesy posortowane według zużycia CPU",
+  "ask": "Zapytaj",
+  "thinking": "Myślę...",
+  "result": {
+    "guiSteps": "Kroki w interfejsie graficznym",
+    "command": "Polecenie",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!",
+    "explanation": "Wyjaśnienie",
+    "warnings": "Ostrzeżenia"
+  }
+}

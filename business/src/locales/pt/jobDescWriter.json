@@ -1,0 +1,17 @@
+{
+  "title": "Redator de <0>Descrições de Vaga</0>",
+  "subtitle": "Crie uma descrição de vaga completa e atraente para conquistar os melhores talentos.",
+  "jobTitlePlaceholder": "Cargo *",
+  "departmentPlaceholder": "Departamento",
+  "salaryRangePlaceholder": "Faixa salarial (ex.: $60 mil–$80 mil)",
+  "requirementsPlaceholder": "Principais requisitos e responsabilidades *",
+  "companyInfoPlaceholder": "Breve descrição da empresa (opcional)",
+  "write": "Escrever Descrição da Vaga",
+  "writing": "Escrevendo…",
+  "overview": "Visão Geral",
+  "copyAll": "Copiar Tudo",
+  "responsibilities": "Responsabilidades",
+  "requirements": "Requisitos",
+  "niceToHave": "Desejável",
+  "benefits": "Benefícios"
+}

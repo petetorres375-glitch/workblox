@@ -1,0 +1,14 @@
+{
+  "title": "Besprechungsnotizen-<0>Bereinigung</0>",
+  "subtitle": "Fügen Sie unstrukturierte Besprechungsnotizen ein und erhalten Sie eine klare, strukturierte Zusammenfassung mit Aufgaben.",
+  "contextPlaceholder": "Besprechungskontext (z. B. Q3-Planung, Kunden-Kickoff)",
+  "rawNotesPlaceholder": "Fügen Sie hier Ihre unbearbeiteten Besprechungsnotizen ein *",
+  "clean": "Besprechungsnotizen Bereinigen",
+  "cleaning": "Bereinigung läuft…",
+  "summary": "Zusammenfassung",
+  "copyAll": "Alles Kopieren",
+  "decisionsMade": "Getroffene Entscheidungen",
+  "actionItems": "Aufgaben",
+  "nextSteps": "Nächste Schritte",
+  "followUpMeeting": "Folgetermin"
+}

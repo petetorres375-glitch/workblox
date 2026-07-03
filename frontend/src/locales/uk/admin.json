@@ -1,0 +1,40 @@
+{
+  "title": "Панель <0>Адміністратора</0>",
+  "subtitle": "Керуйте обліковими записами клієнтів та активаціями.",
+  "killSwitch": {
+    "heading": "Аварійний Вимикач Додатків",
+    "description": "Миттєво вимкнути додаток для всіх користувачів",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "УВІМК",
+    "off": "ВИМК",
+    "disablePersonal": "Вимкнути Personal",
+    "enablePersonal": "Увімкнути Personal",
+    "disableBusiness": "Вимкнути Business",
+    "enableBusiness": "Увімкнути Business"
+  },
+  "filters": {
+    "all": "Усі",
+    "pending": "Очікують",
+    "active": "Активні"
+  },
+  "loading": "Завантаження користувачів…",
+  "noUsers": "Користувачів не знайдено.",
+  "joined": "Приєднався {{date}}",
+  "status": {
+    "active": "Активний",
+    "pending": "Очікує"
+  },
+  "actions": {
+    "deactivate": "Деактивувати",
+    "activate": "Активувати"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Безкоштовно"
+  },
+  "planActions": {
+    "setFree": "Встановити Безкоштовно",
+    "setBusiness": "Встановити Business"
+  }
+}

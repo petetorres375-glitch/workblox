@@ -74,12 +74,14 @@ def doc_analyzer():
     if not text.strip():
         return jsonify({"error": "Could not extract any text from the file"}), 422
 
+    language = (request.form.get("language") or "en").strip()
     try:
         result = claude_client.call(
             system_prompt=SYSTEM_PROMPT,
             user_message=f"Document: {file.filename}\n\nContent:\n{text}",
             model="claude-sonnet-4-6",
             max_tokens=2048,
+            language=language,
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500

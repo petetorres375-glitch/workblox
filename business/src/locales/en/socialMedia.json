@@ -1,0 +1,27 @@
+{
+  "title": "Social Media <0>Generator</0>",
+  "subtitle": "Generate platform-ready social media content for your business.",
+  "topicPlaceholder": "Topic or content idea *",
+  "businessNamePlaceholder": "Business name",
+  "platformsPlaceholder": "Platforms (e.g. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professional",
+    "casual": "Casual",
+    "humorous": "Humorous",
+    "inspiring": "Inspiring",
+    "educational": "Educational"
+  },
+  "goalOptions": {
+    "engagement": "Engagement",
+    "awareness": "Awareness",
+    "leads": "Leads",
+    "sales": "Sales",
+    "education": "Education"
+  },
+  "generate": "Generate Posts",
+  "generating": "Generating…",
+  "docTitle": "Social Media Posts",
+  "copy": "Copy",
+  "bestTime": "Best time: {{time}}",
+  "contentTips": "Content Tips"
+}

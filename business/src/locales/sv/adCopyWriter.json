@@ -1,0 +1,22 @@
+{
+  "title": "<0>Skribent</0> för Annonstexter",
+  "subtitle": "Generera säljande annonstexter med flera varianter av rubriker och beskrivningar.",
+  "productServicePlaceholder": "Produkt eller tjänst *",
+  "targetAudiencePlaceholder": "Målgrupp (t.ex. småföretagare, 25–45 år)",
+  "uniqueValuePlaceholder": "Unikt värdeerbjudande",
+  "goalOptions": {
+    "conversions": "Konverteringar",
+    "awareness": "Kännedom",
+    "leads": "Leads",
+    "traffic": "Trafik",
+    "app installs": "Appinstallationer"
+  },
+  "write": "Skriv Annonstext",
+  "writing": "Skriver…",
+  "docTitle": "Annonstext",
+  "copy": "Kopiera",
+  "headlines": "Rubriker",
+  "descriptions": "Beskrivningar",
+  "ctaOptions": "Call-to-Action-alternativ",
+  "valuePropositions": "Värdeerbjudanden"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Workflow <0>Builder</0>",
+  "subtitle": "Describe a repetitive task — get a ready-to-run Python script.",
+  "placeholder": "e.g. rename all photos in a folder by their date taken",
+  "build": "Build",
+  "building": "Building...",
+  "copy": "Copy",
+  "copied": "Copied!",
+  "download": "Download"
+}

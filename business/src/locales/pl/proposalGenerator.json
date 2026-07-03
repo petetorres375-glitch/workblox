@@ -1,0 +1,22 @@
+{
+  "title": "Generator <0>Ofert</0>",
+  "subtitle": "Twórz profesjonalne oferty i wyceny dla klientów.",
+  "clientNamePlaceholder": "Nazwa klienta",
+  "projectDescriptionPlaceholder": "Opis projektu *",
+  "servicesPlaceholder": "Usługi do uwzględnienia",
+  "budgetRangePlaceholder": "Zakres budżetu (np. $5,000–$10,000)",
+  "timelinePlaceholder": "Harmonogram (np. 4–6 tygodni)",
+  "generate": "Wygeneruj Ofertę",
+  "generating": "Generowanie…",
+  "executiveSummary": "Podsumowanie Wykonawcze",
+  "scopeOfWork": "Zakres Prac",
+  "deliverables": "Produkty Końcowe",
+  "lineItems": "Pozycje Kosztorysu",
+  "table": {
+    "description": "Opis",
+    "qty": "Ilość",
+    "unitPrice": "Cena Jednostkowa",
+    "total": "Razem"
+  },
+  "terms": "Warunki"
+}

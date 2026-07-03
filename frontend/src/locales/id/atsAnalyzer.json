@@ -1,0 +1,35 @@
+{
+  "title": "<0>Penganalisis</0> ATS",
+  "subtitle": "Unggah resume — dapatkan skor ATS, kesenjangan kata kunci, dan rekomendasi secara instan.",
+  "dropZone": {
+    "label": "Seret resume ke sini atau klik untuk memilih file",
+    "hint": "TXT, PDF, atau DOCX — maks. 5 MB"
+  },
+  "clientNamePlaceholder": "Nama klien (opsional)",
+  "jobRolePlaceholder": "Posisi pekerjaan (opsional)",
+  "submit": "Analisis Resume",
+  "analyzing": "Menganalisis...",
+  "score": {
+    "outOf100": "dari 100",
+    "keywordsFound": "{{found}} / {{total}} kata kunci ditemukan"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Telepon",
+    "linkedin": "LinkedIn",
+    "location": "Lokasi"
+  },
+  "recommendations": "Rekomendasi",
+  "keywordBreakdown": "Rincian Kata Kunci",
+  "moreKeywords": "+{{count}} lagi",
+  "jobMatch": {
+    "title": "Kecocokan Pekerjaan: {{role}}",
+    "matched": "{{score}} / {{total}} kata kunci cocok"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Membuat..."
+  }
+}

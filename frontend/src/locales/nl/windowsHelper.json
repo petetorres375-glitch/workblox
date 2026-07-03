@@ -1,0 +1,15 @@
+{
+  "title": "Windows-<0>helper</0>",
+  "subtitle": "Beschrijf een Windows-probleem in gewone taal — krijg meteen het juiste PowerShell-commando.",
+  "placeholder": "bijv. alle actieve processen weergeven, gesorteerd op CPU-gebruik",
+  "ask": "Vragen",
+  "thinking": "Bezig met nadenken...",
+  "result": {
+    "guiSteps": "Stappen via de grafische interface",
+    "command": "Commando",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd!",
+    "explanation": "Toelichting",
+    "warnings": "Waarschuwingen"
+  }
+}

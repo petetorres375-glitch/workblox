@@ -1,0 +1,35 @@
+{
+  "title": "ATS-<0>Анализатор</0>",
+  "subtitle": "Загрузите резюме — мгновенно получите оценку ATS, пробелы в ключевых словах и рекомендации.",
+  "dropZone": {
+    "label": "Перетащите резюме сюда или нажмите для выбора файла",
+    "hint": "TXT, PDF или DOCX — макс. 5 МБ"
+  },
+  "clientNamePlaceholder": "Имя клиента (необязательно)",
+  "jobRolePlaceholder": "Должность (необязательно)",
+  "submit": "Анализировать резюме",
+  "analyzing": "Анализ...",
+  "score": {
+    "outOf100": "из 100",
+    "keywordsFound": "Найдено ключевых слов: {{found}} / {{total}}"
+  },
+  "contactCheck": {
+    "email": "Электронная почта",
+    "phone": "Телефон",
+    "linkedin": "LinkedIn",
+    "location": "Местоположение"
+  },
+  "recommendations": "Рекомендации",
+  "keywordBreakdown": "Разбор ключевых слов",
+  "moreKeywords": "ещё +{{count}}",
+  "jobMatch": {
+    "title": "Соответствие должности: {{role}}",
+    "matched": "Совпало ключевых слов: {{score}} / {{total}}"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Формирование..."
+  }
+}

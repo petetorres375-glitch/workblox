@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>विश्लेषक</0>",
+  "subtitle": "रिज़्यूमे अपलोड करें — तुरंत ATS स्कोर, कीवर्ड की कमी और सुझाव पाएं।",
+  "dropZone": {
+    "label": "यहाँ रिज़्यूमे ड्रॉप करें या ब्राउज़ करने के लिए क्लिक करें",
+    "hint": "TXT, PDF या DOCX — अधिकतम 5 MB"
+  },
+  "clientNamePlaceholder": "क्लाइंट का नाम (वैकल्पिक)",
+  "jobRolePlaceholder": "नौकरी की भूमिका (वैकल्पिक)",
+  "submit": "रिज़्यूमे का विश्लेषण करें",
+  "analyzing": "विश्लेषण हो रहा है...",
+  "score": {
+    "outOf100": "100 में से",
+    "keywordsFound": "{{found}} / {{total}} कीवर्ड मिले"
+  },
+  "contactCheck": {
+    "email": "ईमेल",
+    "phone": "फ़ोन",
+    "linkedin": "LinkedIn",
+    "location": "स्थान"
+  },
+  "recommendations": "सुझाव",
+  "keywordBreakdown": "कीवर्ड विवरण",
+  "moreKeywords": "+{{count}} और",
+  "jobMatch": {
+    "title": "नौकरी मिलान: {{role}}",
+    "matched": "{{score}} / {{total}} कीवर्ड मेल खाए"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "बन रहा है..."
+  }
+}

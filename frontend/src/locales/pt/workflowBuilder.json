@@ -1,0 +1,10 @@
+{
+  "title": "Criador de <0>Fluxos</0>",
+  "subtitle": "Descreva uma tarefa repetitiva — obtenha um script Python pronto para executar.",
+  "placeholder": "ex.: renomear todas as fotos de uma pasta pela data em que foram tiradas",
+  "build": "Criar",
+  "building": "Criando...",
+  "copy": "Copiar",
+  "copied": "Copiado!",
+  "download": "Baixar"
+}

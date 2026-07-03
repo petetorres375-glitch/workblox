@@ -1,0 +1,17 @@
+{
+  "title": "일괄 ATS <0>분석기</0>",
+  "subtitle": "이력서를 최대 10개까지 업로드하여 직무 설명과 한 번에 대조하여 선별하세요.",
+  "dropLabel": "이력서를 여기에 드롭하거나 클릭하여 찾아보기",
+  "resumesSelected_one": "이력서 {{count}}개 선택됨",
+  "resumesSelected_other": "이력서 {{count}}개 선택됨",
+  "dropHint": "PDF, DOCX 또는 TXT · 최대 10개 파일",
+  "jobDescriptionPlaceholder": "직무 설명 (더 정확한 매칭을 위해 여기에 붙여넣으세요)",
+  "analyzeAll": "모든 이력서 분석",
+  "analyzingCount_one": "이력서 {{count}}개 분석 중…",
+  "analyzingCount_other": "이력서 {{count}}개 분석 중…",
+  "resumesAnalyzed_one": "이력서 {{count}}개 분석 완료",
+  "resumesAnalyzed_other": "이력서 {{count}}개 분석 완료",
+  "errorLabel": "오류: {{error}}",
+  "strengths": "강점",
+  "concerns": "우려 사항"
+}

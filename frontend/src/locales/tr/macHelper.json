@@ -1,0 +1,15 @@
+{
+  "title": "Mac <0>Yardımcısı</0>",
+  "subtitle": "macOS sorununu sade bir dille anlatın — ihtiyacınız olan Terminal komutunu hemen alın.",
+  "placeholder": "örn. ana dizindeki her klasörün disk kullanımını gösterme",
+  "ask": "Sor",
+  "thinking": "Düşünülüyor...",
+  "result": {
+    "guiSteps": "Arayüz Üzerinden Adımlar",
+    "command": "Komut",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "explanation": "Açıklama",
+    "warnings": "Uyarılar"
+  }
+}

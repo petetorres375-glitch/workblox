@@ -1,0 +1,20 @@
+{
+  "title": "E-mail <0>Biznesowy</0>",
+  "subtitle": "Twórz jasne, profesjonalne e-maile biznesowe do każdej sytuacji.",
+  "purposePlaceholder": "Cel e-maila (np. nawiązanie do oferty, zmiana terminu spotkania) *",
+  "recipientPlaceholder": "Odbiorca / jego rola (np. Jan — Kierownik ds. Rekrutacji)",
+  "keyPointsPlaceholder": "Kluczowe punkty do uwzględnienia",
+  "tone": {
+    "professional": "Profesjonalny",
+    "friendly": "Przyjazny",
+    "formal": "Formalny",
+    "assertive": "Asertywny",
+    "apologetic": "Przepraszający"
+  },
+  "draft": "Utwórz Wersję Roboczą E-maila",
+  "drafting": "Tworzenie wersji roboczej…",
+  "subjectLine": "Temat",
+  "emailBody": "Treść E-maila",
+  "copy": "Kopiuj",
+  "callToAction": "Wezwanie do Działania"
+}

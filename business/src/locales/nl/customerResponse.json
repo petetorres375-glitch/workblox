@@ -1,0 +1,20 @@
+{
+  "title": "Klant<0>reactie</0>",
+  "subtitle": "Stel professionele, empathische reacties op voor berichten en klachten van klanten.",
+  "customerMessagePlaceholder": "Plak het bericht van de klant *",
+  "contextPlaceholder": "Context (bijv. wat er is gebeurd, bestelgegevens, enz.)",
+  "tone": {
+    "professional": "Professioneel",
+    "empathetic": "Empathisch",
+    "apologetic": "Verontschuldigend",
+    "firm": "Vastberaden",
+    "friendly": "Vriendelijk"
+  },
+  "draft": "Reactie Opstellen",
+  "drafting": "Bezig met opstellen…",
+  "subjectLine": "Onderwerpregel",
+  "responseDraft": "Concept Reactie",
+  "copy": "Kopiëren",
+  "pointsAddressed": "Behandelde Punten",
+  "followUpSuggested": "Voorgestelde Follow-Up"
+}

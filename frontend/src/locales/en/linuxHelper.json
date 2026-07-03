@@ -1,0 +1,15 @@
+{
+  "title": "Linux <0>Helper</0>",
+  "subtitle": "Describe a Linux problem in plain English — get the command back.",
+  "placeholder": "e.g. find all .log files modified in the last 7 days",
+  "ask": "Ask",
+  "thinking": "Thinking...",
+  "result": {
+    "guiSteps": "GUI Steps",
+    "command": "Command",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "explanation": "Explanation",
+    "warnings": "Warnings"
+  }
+}

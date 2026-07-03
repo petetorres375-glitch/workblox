@@ -1,0 +1,20 @@
+{
+  "title": "Respuesta al <0>Cliente</0>",
+  "subtitle": "Redacta respuestas profesionales y empáticas para mensajes y quejas de clientes.",
+  "customerMessagePlaceholder": "Pega el mensaje del cliente *",
+  "contextPlaceholder": "Contexto (p. ej. qué sucedió, detalles del pedido, etc.)",
+  "tone": {
+    "professional": "Profesional",
+    "empathetic": "Empático",
+    "apologetic": "Conciliador",
+    "firm": "Firme",
+    "friendly": "Amigable"
+  },
+  "draft": "Redactar Respuesta",
+  "drafting": "Redactando…",
+  "subjectLine": "Línea de Asunto",
+  "responseDraft": "Borrador de Respuesta",
+  "copy": "Copiar",
+  "pointsAddressed": "Puntos Atendidos",
+  "followUpSuggested": "Seguimiento Sugerido"
+}

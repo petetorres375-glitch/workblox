@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generador</0> de Políticas",
+  "subtitle": "Crea políticas profesionales para tu empresa — RR. HH., TI, trabajo remoto, vacaciones y más.",
+  "policyTypePlaceholder": "Tipo de política (p. ej. Política de Trabajo Remoto, Política de Vacaciones) *",
+  "companyNamePlaceholder": "Nombre de la empresa",
+  "industryPlaceholder": "Sector (p. ej. Tecnología, Salud)",
+  "specificsPlaceholder": "Requisitos o notas específicas (opcional)",
+  "generate": "Generar Política",
+  "generating": "Generando…",
+  "policyDocument": "Documento de Política",
+  "copyAll": "Copiar Todo",
+  "effective": "Vigente desde: {{date}}",
+  "purpose": "Propósito",
+  "scope": "Alcance",
+  "acknowledgment": "Acuse de Recibo",
+  "policyPrefix": "Política"
+}

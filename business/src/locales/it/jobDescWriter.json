@@ -1,0 +1,17 @@
+{
+  "title": "<0>Redattore</0> di Descrizioni di Lavoro",
+  "subtitle": "Crea una descrizione del lavoro completa e coinvolgente per attrarre i migliori talenti.",
+  "jobTitlePlaceholder": "Titolo della posizione *",
+  "departmentPlaceholder": "Reparto",
+  "salaryRangePlaceholder": "Fascia salariale (es. 40.000€–60.000€)",
+  "requirementsPlaceholder": "Requisiti e responsabilità principali *",
+  "companyInfoPlaceholder": "Breve descrizione dell'azienda (opzionale)",
+  "write": "Scrivi Descrizione del Lavoro",
+  "writing": "Scrittura in corso…",
+  "overview": "Panoramica",
+  "copyAll": "Copia Tutto",
+  "responsibilities": "Responsabilità",
+  "requirements": "Requisiti",
+  "niceToHave": "Requisiti Preferenziali",
+  "benefits": "Benefit"
+}

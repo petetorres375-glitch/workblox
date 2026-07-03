@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generátor</0> Zásad",
+  "subtitle": "Vytvářejte profesionální firemní zásady — HR, IT, práce na dálku, dovolená a další.",
+  "policyTypePlaceholder": "Typ zásad (např. Zásady Práce na Dálku, Zásady Dovolené) *",
+  "companyNamePlaceholder": "Název společnosti",
+  "industryPlaceholder": "Odvětví (např. Technologie, Zdravotnictví)",
+  "specificsPlaceholder": "Konkrétní požadavky nebo poznámky (volitelné)",
+  "generate": "Generovat Zásady",
+  "generating": "Generuje se…",
+  "policyDocument": "Dokument se Zásadami",
+  "copyAll": "Kopírovat Vše",
+  "effective": "Platnost od: {{date}}",
+  "purpose": "Účel",
+  "scope": "Rozsah",
+  "acknowledgment": "Potvrzení",
+  "policyPrefix": "Zásady"
+}

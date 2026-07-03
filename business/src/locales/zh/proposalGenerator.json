@@ -1,0 +1,22 @@
+{
+  "title": "提案<0>生成器</0>",
+  "subtitle": "为客户创建专业的提案和报价。",
+  "clientNamePlaceholder": "客户名称",
+  "projectDescriptionPlaceholder": "项目描述 *",
+  "servicesPlaceholder": "要包含的服务",
+  "budgetRangePlaceholder": "预算范围(例如 $5,000–$10,000)",
+  "timelinePlaceholder": "时间安排(例如 4–6 周)",
+  "generate": "生成提案",
+  "generating": "生成中…",
+  "executiveSummary": "执行摘要",
+  "scopeOfWork": "工作范围",
+  "deliverables": "交付成果",
+  "lineItems": "明细项目",
+  "table": {
+    "description": "描述",
+    "qty": "数量",
+    "unitPrice": "单价",
+    "total": "总计"
+  },
+  "terms": "条款"
+}

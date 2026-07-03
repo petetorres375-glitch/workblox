@@ -1,0 +1,10 @@
+{
+  "title": "Kreator <0>Automatyzacji</0>",
+  "subtitle": "Opisz powtarzalne zadanie — otrzymaj gotowy do uruchomienia skrypt w Pythonie.",
+  "placeholder": "np. zmień nazwy wszystkich zdjęć w folderze według daty wykonania",
+  "build": "Utwórz",
+  "building": "Tworzenie...",
+  "copy": "Kopiuj",
+  "copied": "Skopiowano!",
+  "download": "Pobierz"
+}

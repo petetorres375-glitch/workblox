@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generator</0> Media Sosial",
+  "subtitle": "Buat konten media sosial siap posting untuk bisnis Anda.",
+  "topicPlaceholder": "Topik atau ide konten *",
+  "businessNamePlaceholder": "Nama bisnis",
+  "platformsPlaceholder": "Platform (mis. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Profesional",
+    "casual": "Santai",
+    "humorous": "Humoris",
+    "inspiring": "Menginspirasi",
+    "educational": "Edukatif"
+  },
+  "goalOptions": {
+    "engagement": "Interaksi",
+    "awareness": "Kesadaran Merek",
+    "leads": "Prospek",
+    "sales": "Penjualan",
+    "education": "Edukasi"
+  },
+  "generate": "Buat Postingan",
+  "generating": "Membuat…",
+  "docTitle": "Postingan Media Sosial",
+  "copy": "Salin",
+  "bestTime": "Waktu terbaik: {{time}}",
+  "contentTips": "Tips Konten"
+}

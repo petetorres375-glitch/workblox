@@ -1,0 +1,20 @@
+{
+  "title": "客户<0>回复</0>",
+  "subtitle": "为客户的消息和投诉起草专业、有同理心的回复。",
+  "customerMessagePlaceholder": "粘贴客户的消息 *",
+  "contextPlaceholder": "背景信息(例如发生了什么、订单详情等)",
+  "tone": {
+    "professional": "专业",
+    "empathetic": "有同理心",
+    "apologetic": "致歉",
+    "firm": "坚定",
+    "friendly": "友好"
+  },
+  "draft": "起草回复",
+  "drafting": "起草中…",
+  "subjectLine": "邮件主题",
+  "responseDraft": "回复草稿",
+  "copy": "复制",
+  "pointsAddressed": "已处理要点",
+  "followUpSuggested": "建议的后续跟进"
+}

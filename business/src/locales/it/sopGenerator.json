@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generatore</0> di SOP",
+  "subtitle": "Crea procedure operative standard (SOP) chiare e applicabili per qualsiasi processo aziendale.",
+  "processNamePlaceholder": "Nome del processo (es. Onboarding Clienti) *",
+  "departmentPlaceholder": "Reparto",
+  "frequencyPlaceholder": "Frequenza (es. Giornaliera, Settimanale, Per ogni nuovo cliente)",
+  "descriptionPlaceholder": "Descrizione del processo *",
+  "generate": "Genera SOP",
+  "generating": "Generazione in corso…",
+  "overview": "Panoramica",
+  "frequencyLabel": "Frequenza: {{frequency}}",
+  "requiredTools": "Strumenti / Risorse Necessarie",
+  "steps": "Passaggi",
+  "stepLabel": "Passaggio {{number}}: {{action}}",
+  "qualityChecks": "Controlli di Qualità",
+  "notes": "Note"
+}

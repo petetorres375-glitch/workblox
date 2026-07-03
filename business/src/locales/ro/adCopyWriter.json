@@ -1,0 +1,22 @@
+{
+  "title": "<0>Redactor</0> de Reclame",
+  "subtitle": "Generează reclame convingătoare cu mai multe variante de titluri și descrieri.",
+  "productServicePlaceholder": "Produs sau serviciu *",
+  "targetAudiencePlaceholder": "Public țintă (ex. proprietari de afaceri mici, 25–45 de ani)",
+  "uniqueValuePlaceholder": "Propunere unică de valoare",
+  "goalOptions": {
+    "conversions": "Conversii",
+    "awareness": "Notorietate",
+    "leads": "Clienți potențiali",
+    "traffic": "Trafic",
+    "app installs": "Instalări ale aplicației"
+  },
+  "write": "Scrie Reclama",
+  "writing": "Se scrie…",
+  "docTitle": "Reclamă",
+  "copy": "Copiază",
+  "headlines": "Titluri",
+  "descriptions": "Descrieri",
+  "ctaOptions": "Opțiuni de Îndemn la Acțiune",
+  "valuePropositions": "Propuneri de Valoare"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "เครื่องมือสร้าง <0>SOP</0>",
+  "subtitle": "สร้างคู่มือขั้นตอนการปฏิบัติงานมาตรฐาน (SOP) ที่ชัดเจนและนำไปปฏิบัติได้จริงสำหรับกระบวนการทางธุรกิจใดๆ",
+  "processNamePlaceholder": "ชื่อกระบวนการ (เช่น การเริ่มต้นใช้งานสำหรับลูกค้าใหม่) *",
+  "departmentPlaceholder": "แผนก",
+  "frequencyPlaceholder": "ความถี่ (เช่น รายวัน รายสัปดาห์ ต่อลูกค้าใหม่แต่ละราย)",
+  "descriptionPlaceholder": "คำอธิบายกระบวนการ *",
+  "generate": "สร้าง SOP",
+  "generating": "กำลังสร้าง…",
+  "overview": "ภาพรวม",
+  "frequencyLabel": "ความถี่: {{frequency}}",
+  "requiredTools": "เครื่องมือ / ทรัพยากรที่จำเป็น",
+  "steps": "ขั้นตอน",
+  "stepLabel": "ขั้นตอนที่ {{number}}: {{action}}",
+  "qualityChecks": "การตรวจสอบคุณภาพ",
+  "notes": "หมายเหตุ"
+}

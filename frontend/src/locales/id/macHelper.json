@@ -1,0 +1,15 @@
+{
+  "title": "Asisten <0>Mac</0>",
+  "subtitle": "Jelaskan masalah macOS Anda dengan bahasa sehari-hari — dapatkan perintah Terminal yang tepat.",
+  "placeholder": "mis. menampilkan penggunaan disk tiap folder di direktori utama saya",
+  "ask": "Tanya",
+  "thinking": "Sedang berpikir...",
+  "result": {
+    "guiSteps": "Langkah-langkah GUI",
+    "command": "Perintah",
+    "copy": "Salin",
+    "copied": "Tersalin!",
+    "explanation": "Penjelasan",
+    "warnings": "Peringatan"
+  }
+}

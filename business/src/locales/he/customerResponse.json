@@ -1,0 +1,20 @@
+{
+  "title": "מענה <0>ללקוחות</0>",
+  "subtitle": "נסחו תגובות מקצועיות ואמפתיות להודעות ותלונות של לקוחות.",
+  "customerMessagePlaceholder": "הדביקו את הודעת הלקוח *",
+  "contextPlaceholder": "הקשר (למשל מה קרה, פרטי ההזמנה וכו')",
+  "tone": {
+    "professional": "מקצועי",
+    "empathetic": "אמפתי",
+    "apologetic": "מתנצל",
+    "firm": "תקיף",
+    "friendly": "ידידותי"
+  },
+  "draft": "נסח תגובה",
+  "drafting": "מנסח…",
+  "subjectLine": "שורת נושא",
+  "responseDraft": "טיוטת תגובה",
+  "copy": "העתק",
+  "pointsAddressed": "נקודות שטופלו",
+  "followUpSuggested": "המשך מומלץ"
+}

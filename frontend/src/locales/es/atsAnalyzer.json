@@ -1,0 +1,35 @@
+{
+  "title": "Analizador <0>ATS</0>",
+  "subtitle": "Sube un currículum y obtén al instante una puntuación ATS, brechas de palabras clave y recomendaciones.",
+  "dropZone": {
+    "label": "Arrastra un currículum aquí o haz clic para seleccionarlo",
+    "hint": "TXT, PDF o DOCX — máx. 5 MB"
+  },
+  "clientNamePlaceholder": "Nombre del cliente (opcional)",
+  "jobRolePlaceholder": "Puesto de trabajo (opcional)",
+  "submit": "Analizar currículum",
+  "analyzing": "Analizando...",
+  "score": {
+    "outOf100": "de 100",
+    "keywordsFound": "{{found}} / {{total}} palabras clave encontradas"
+  },
+  "contactCheck": {
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "linkedin": "LinkedIn",
+    "location": "Ubicación"
+  },
+  "recommendations": "Recomendaciones",
+  "keywordBreakdown": "Desglose de palabras clave",
+  "moreKeywords": "+{{count}} más",
+  "jobMatch": {
+    "title": "Coincidencia de puesto: {{role}}",
+    "matched": "{{score}} / {{total}} palabras clave coincidentes"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Generando..."
+  }
+}

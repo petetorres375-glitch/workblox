@@ -1,0 +1,27 @@
+{
+  "title": "<0>Trình Tạo</0> Nội Dung Mạng Xã Hội",
+  "subtitle": "Tạo nội dung mạng xã hội sẵn sàng đăng cho doanh nghiệp của bạn.",
+  "topicPlaceholder": "Chủ đề hoặc ý tưởng nội dung *",
+  "businessNamePlaceholder": "Tên doanh nghiệp",
+  "platformsPlaceholder": "Nền tảng (vd. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Chuyên nghiệp",
+    "casual": "Thân mật",
+    "humorous": "Hài hước",
+    "inspiring": "Truyền cảm hứng",
+    "educational": "Mang tính giáo dục"
+  },
+  "goalOptions": {
+    "engagement": "Tương tác",
+    "awareness": "Nhận diện thương hiệu",
+    "leads": "Khách hàng tiềm năng",
+    "sales": "Doanh số",
+    "education": "Giáo dục"
+  },
+  "generate": "Tạo Bài Đăng",
+  "generating": "Đang tạo…",
+  "docTitle": "Bài Đăng Mạng Xã Hội",
+  "copy": "Sao Chép",
+  "bestTime": "Thời điểm tốt nhất: {{time}}",
+  "contentTips": "Mẹo về Nội Dung"
+}

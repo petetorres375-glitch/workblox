@@ -1,0 +1,40 @@
+{
+  "title": "Panou de <0>Administrare</0>",
+  "subtitle": "Gestionează conturile clienților și activările.",
+  "killSwitch": {
+    "heading": "Întrerupător de Urgență pentru Aplicații",
+    "description": "Dezactivează o aplicație pentru toți utilizatorii instantaneu",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ACTIVAT",
+    "off": "DEZACTIVAT",
+    "disablePersonal": "Dezactivează Personal",
+    "enablePersonal": "Activează Personal",
+    "disableBusiness": "Dezactivează Business",
+    "enableBusiness": "Activează Business"
+  },
+  "filters": {
+    "all": "Toți",
+    "pending": "În Așteptare",
+    "active": "Activi"
+  },
+  "loading": "Se încarcă utilizatorii…",
+  "noUsers": "Nu au fost găsiți utilizatori.",
+  "joined": "S-a alăturat la {{date}}",
+  "status": {
+    "active": "Activ",
+    "pending": "În Așteptare"
+  },
+  "actions": {
+    "deactivate": "Dezactivează",
+    "activate": "Activează"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratuit"
+  },
+  "planActions": {
+    "setFree": "Setează Gratuit",
+    "setBusiness": "Setează Business"
+  }
+}

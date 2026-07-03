@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generatore</0> di Social Media",
+  "subtitle": "Genera contenuti pronti per la pubblicazione sui social media per la tua attività.",
+  "topicPlaceholder": "Argomento o idea di contenuto *",
+  "businessNamePlaceholder": "Nome dell'attività",
+  "platformsPlaceholder": "Piattaforme (es. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professionale",
+    "casual": "Informale",
+    "humorous": "Umoristico",
+    "inspiring": "Ispirante",
+    "educational": "Educativo"
+  },
+  "goalOptions": {
+    "engagement": "Coinvolgimento",
+    "awareness": "Notorietà",
+    "leads": "Contatti",
+    "sales": "Vendite",
+    "education": "Formazione"
+  },
+  "generate": "Genera Post",
+  "generating": "Generazione in corso…",
+  "docTitle": "Post sui Social Media",
+  "copy": "Copia",
+  "bestTime": "Momento migliore: {{time}}",
+  "contentTips": "Consigli sui Contenuti"
+}

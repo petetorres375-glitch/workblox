@@ -1,0 +1,15 @@
+{
+  "title": "Mac<0>ヘルパー</0>",
+  "subtitle": "困っている内容を普段の言葉で入力するだけで、macOS のターミナルコマンドが返ってきます。",
+  "placeholder": "例：ホームディレクトリ内の各フォルダのディスク使用量を表示する",
+  "ask": "質問する",
+  "thinking": "考え中...",
+  "result": {
+    "guiSteps": "GUI での手順",
+    "command": "コマンド",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "explanation": "説明",
+    "warnings": "注意事項"
+  }
+}

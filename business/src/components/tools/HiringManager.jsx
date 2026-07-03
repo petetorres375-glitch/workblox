@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
@@ -41,6 +42,7 @@ function buildMd(data) {
 }
 
 export default function HiringManager() {
+  const { t, i18n } = useTranslation("hiringManager");
   const { loading, error, call } = useApi();
   const [description, setDescription] = useState("");
   const [data, setData] = useState(null);
@@ -48,18 +50,18 @@ export default function HiringManager() {
   async function handleSubmit(e) {
     e.preventDefault();
     setData(null);
-    const result = await call(() => post("/api/biz/hiring-manager", { description }));
+    const result = await call(() => post("/api/biz/hiring-manager", { description, language: i18n.language }));
     if (result) setData(result);
   }
 
   return (
     <div>
-      <h1 className="page-title">Hiring <span>Manager</span></h1>
-      <p className="page-subtitle">Describe the position you're hiring for and get a complete hiring package.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
         <textarea
-          placeholder="Describe the position (e.g. Level 1 Tech Support specialist for our IT help desk — handles password resets, basic troubleshooting, and ticket triage for a 200-person company)"
+          placeholder={t("descriptionPlaceholder")}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
@@ -68,7 +70,7 @@ export default function HiringManager() {
           style={{ padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none", resize: "vertical" }}
         />
         <button type="submit" className="submit-btn" disabled={loading}>
-          {loading ? "Generating…" : "Generate Hiring Package"}
+          {loading ? t("generating") : t("generate")}
         </button>
       </form>
 
@@ -80,32 +82,32 @@ export default function HiringManager() {
             <strong>Hiring Package — {data.job_title}</strong>
           </div>
           <div className="result-card">
-            <p className="result-label">Position Summary</p>
+            <p className="result-label">{t("positionSummary")}</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.position_summary}</p>
           </div>
           <div className="result-card">
             <div className="result-header">
-              <p className="result-label">Interview Questions</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText((data.interview_questions || []).join("\n"))}>Copy</button>
+              <p className="result-label">{t("interviewQuestions")}</p>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText((data.interview_questions || []).join("\n"))}>{t("copy")}</button>
             </div>
             <ul className="section-list">{(data.interview_questions || []).map((q, i) => <li key={i}>{q}</li>)}</ul>
           </div>
           <div className="result-card">
             <div className="result-header">
-              <p className="result-label">Evaluation Criteria</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText((data.evaluation_criteria || []).join("\n"))}>Copy</button>
+              <p className="result-label">{t("evaluationCriteria")}</p>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText((data.evaluation_criteria || []).join("\n"))}>{t("copy")}</button>
             </div>
             <ul className="section-list">{(data.evaluation_criteria || []).map((c, i) => <li key={i}>{c}</li>)}</ul>
           </div>
           {data.red_flags?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Red Flags to Watch</p>
+              <p className="result-label">{t("redFlags")}</p>
               <ul className="warning-list">{data.red_flags.map((f, i) => <li key={i}>{f}</li>)}</ul>
             </div>
           )}
           {data.onboarding_tips?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Onboarding Tips</p>
+              <p className="result-label">{t("onboardingTips")}</p>
               <ul className="section-list">{data.onboarding_tips.map((t, i) => <li key={i}>{t}</li>)}</ul>
             </div>
           )}

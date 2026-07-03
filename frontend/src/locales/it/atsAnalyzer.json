@@ -1,0 +1,35 @@
+{
+  "title": "Analizzatore <0>ATS</0>",
+  "subtitle": "Carica un curriculum — ottieni all'istante un punteggio ATS, le parole chiave mancanti e i consigli.",
+  "dropZone": {
+    "label": "Trascina qui un curriculum o clicca per selezionarlo",
+    "hint": "TXT, PDF o DOCX — max 5 MB"
+  },
+  "clientNamePlaceholder": "Nome del cliente (facoltativo)",
+  "jobRolePlaceholder": "Ruolo lavorativo (facoltativo)",
+  "submit": "Analizza curriculum",
+  "analyzing": "Analisi in corso...",
+  "score": {
+    "outOf100": "su 100",
+    "keywordsFound": "{{found}} / {{total}} parole chiave trovate"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Telefono",
+    "linkedin": "LinkedIn",
+    "location": "Posizione"
+  },
+  "recommendations": "Consigli",
+  "keywordBreakdown": "Riepilogo parole chiave",
+  "moreKeywords": "+{{count}} altre",
+  "jobMatch": {
+    "title": "Corrispondenza al ruolo: {{role}}",
+    "matched": "{{score}} / {{total}} parole chiave corrispondenti"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Generazione..."
+  }
+}

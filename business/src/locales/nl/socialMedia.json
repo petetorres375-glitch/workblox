@@ -1,0 +1,27 @@
+{
+  "title": "Social Media-<0>Generator</0>",
+  "subtitle": "Genereer kant-en-klare social media-content voor je bedrijf.",
+  "topicPlaceholder": "Onderwerp of content-idee *",
+  "businessNamePlaceholder": "Bedrijfsnaam",
+  "platformsPlaceholder": "Platforms (bijv. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professioneel",
+    "casual": "Casual",
+    "humorous": "Humoristisch",
+    "inspiring": "Inspirerend",
+    "educational": "Educatief"
+  },
+  "goalOptions": {
+    "engagement": "Betrokkenheid",
+    "awareness": "Naamsbekendheid",
+    "leads": "Leads",
+    "sales": "Verkoop",
+    "education": "Educatie"
+  },
+  "generate": "Berichten Genereren",
+  "generating": "Bezig met genereren…",
+  "docTitle": "Social Media-berichten",
+  "copy": "Kopiëren",
+  "bestTime": "Beste tijd: {{time}}",
+  "contentTips": "Content-tips"
+}

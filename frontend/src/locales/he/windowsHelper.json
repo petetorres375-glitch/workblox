@@ -1,0 +1,15 @@
+{
+  "title": "עוזר <0>Windows</0>",
+  "subtitle": "תארו בעיית Windows בשפה פשוטה — קבלו מיד את פקודת ה-PowerShell המתאימה.",
+  "placeholder": "לדוגמה: הצגת כל התהליכים הפעילים ממוינים לפי שימוש במעבד",
+  "ask": "שאל",
+  "thinking": "חושב...",
+  "result": {
+    "guiSteps": "שלבים בממשק הגרפי",
+    "command": "פקודה",
+    "copy": "העתק",
+    "copied": "הועתק!",
+    "explanation": "הסבר",
+    "warnings": "אזהרות"
+  }
+}

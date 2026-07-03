@@ -1,0 +1,25 @@
+{
+  "title": "Analizator de <0>Documente</0>",
+  "subtitle": "Încarcă un fișier PDF, TXT sau MD — obține un rezumat structurat generat de AI.",
+  "dropLabel": "Trage un fișier aici sau apasă pentru a răsfoi",
+  "dropHint": "PDF, TXT sau MD — max. 10 MB",
+  "analyze": "Analizează",
+  "analyzing": "Se analizează...",
+  "sections": {
+    "summary": "Rezumat",
+    "keyDataPoints": "Date Cheie",
+    "actionItems": "Acțiuni de Întreprins",
+    "redFlags": "Semnale de Alarmă"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Se generează..."
+  },
+  "email": {
+    "placeholder": "Trimite raportul pe email la...",
+    "send": "Trimite",
+    "sending": "Se trimite...",
+    "sent": "Raport trimis la {{email}}"
+  }
+}

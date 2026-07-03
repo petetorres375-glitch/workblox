@@ -1,0 +1,25 @@
+{
+  "title": "Analisis <0>Dokumen</0>",
+  "subtitle": "Unggah file PDF, TXT, atau MD — dapatkan ringkasan AI yang terstruktur.",
+  "dropLabel": "Jatuhkan file di sini atau klik untuk menelusuri",
+  "dropHint": "PDF, TXT, atau MD — maks. 10 MB",
+  "analyze": "Analisis",
+  "analyzing": "Menganalisis...",
+  "sections": {
+    "summary": "Ringkasan",
+    "keyDataPoints": "Poin Data Utama",
+    "actionItems": "Tindakan yang Diperlukan",
+    "redFlags": "Tanda Peringatan"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Membuat..."
+  },
+  "email": {
+    "placeholder": "Kirim laporan ke email...",
+    "send": "Kirim",
+    "sending": "Mengirim...",
+    "sent": "Laporan terkirim ke {{email}}"
+  }
+}

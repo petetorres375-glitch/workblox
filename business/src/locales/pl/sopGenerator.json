@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> Procedur SOP",
+  "subtitle": "Twórz przejrzyste, praktyczne standardowe procedury operacyjne (SOP) dla dowolnego procesu biznesowego.",
+  "processNamePlaceholder": "Nazwa procesu (np. Wdrażanie klienta) *",
+  "departmentPlaceholder": "Dział",
+  "frequencyPlaceholder": "Częstotliwość (np. codziennie, co tydzień, dla każdego nowego klienta)",
+  "descriptionPlaceholder": "Opis procesu *",
+  "generate": "Generuj SOP",
+  "generating": "Generowanie…",
+  "overview": "Przegląd",
+  "frequencyLabel": "Częstotliwość: {{frequency}}",
+  "requiredTools": "Wymagane Narzędzia / Zasoby",
+  "steps": "Kroki",
+  "stepLabel": "Krok {{number}}: {{action}}",
+  "qualityChecks": "Kontrole Jakości",
+  "notes": "Uwagi"
+}

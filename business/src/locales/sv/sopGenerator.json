@@ -1,0 +1,17 @@
+{
+  "title": "SOP-<0>Generator</0>",
+  "subtitle": "Skapa tydliga, handlingsbara standardrutiner (SOP) för alla affärsprocesser.",
+  "processNamePlaceholder": "Processnamn (t.ex. Kundintroduktion) *",
+  "departmentPlaceholder": "Avdelning",
+  "frequencyPlaceholder": "Frekvens (t.ex. Dagligen, Veckovis, Per ny kund)",
+  "descriptionPlaceholder": "Beskrivning av processen *",
+  "generate": "Generera SOP",
+  "generating": "Genererar…",
+  "overview": "Översikt",
+  "frequencyLabel": "Frekvens: {{frequency}}",
+  "requiredTools": "Nödvändiga Verktyg / Resurser",
+  "steps": "Steg",
+  "stepLabel": "Steg {{number}}: {{action}}",
+  "qualityChecks": "Kvalitetskontroller",
+  "notes": "Anteckningar"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "SOP <0>생성기</0>",
+  "subtitle": "모든 비즈니스 프로세스에 대해 명확하고 실행 가능한 표준 운영 절차(SOP)를 작성하세요.",
+  "processNamePlaceholder": "프로세스 이름 (예: 고객 온보딩) *",
+  "departmentPlaceholder": "부서",
+  "frequencyPlaceholder": "주기 (예: 매일, 매주, 신규 고객마다)",
+  "descriptionPlaceholder": "프로세스 설명 *",
+  "generate": "SOP 생성",
+  "generating": "생성 중…",
+  "overview": "개요",
+  "frequencyLabel": "주기: {{frequency}}",
+  "requiredTools": "필요한 도구 / 자원",
+  "steps": "단계",
+  "stepLabel": "단계 {{number}}: {{action}}",
+  "qualityChecks": "품질 점검",
+  "notes": "비고"
+}

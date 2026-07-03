@@ -1,0 +1,14 @@
+{
+  "title": "<0>Pulizia</0> Note della Riunione",
+  "subtitle": "Incolla note di riunione disordinate e ottieni un riepilogo chiaro e strutturato con gli elementi d'azione.",
+  "contextPlaceholder": "Contesto della riunione (es. pianificazione Q3, avvio con nuovo cliente)",
+  "rawNotesPlaceholder": "Incolla qui le tue note grezze della riunione *",
+  "clean": "Pulisci Note della Riunione",
+  "cleaning": "Pulizia in corso…",
+  "summary": "Riepilogo",
+  "copyAll": "Copia Tutto",
+  "decisionsMade": "Decisioni Prese",
+  "actionItems": "Elementi d'Azione",
+  "nextSteps": "Prossimi Passi",
+  "followUpMeeting": "Riunione di Follow-Up"
+}

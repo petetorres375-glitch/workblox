@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generátor</0> standardních postupů",
+  "subtitle": "Vytvářejte jasné a použitelné standardní pracovní postupy (SOP) pro jakýkoli firemní proces.",
+  "processNamePlaceholder": "Název procesu (např. Onboarding zákazníků) *",
+  "departmentPlaceholder": "Oddělení",
+  "frequencyPlaceholder": "Frekvence (např. denně, týdně, u každého nového klienta)",
+  "descriptionPlaceholder": "Popis procesu *",
+  "generate": "Vygenerovat SOP",
+  "generating": "Generování…",
+  "overview": "Přehled",
+  "frequencyLabel": "Frekvence: {{frequency}}",
+  "requiredTools": "Potřebné nástroje / zdroje",
+  "steps": "Kroky",
+  "stepLabel": "Krok {{number}}: {{action}}",
+  "qualityChecks": "Kontroly kvality",
+  "notes": "Poznámky"
+}

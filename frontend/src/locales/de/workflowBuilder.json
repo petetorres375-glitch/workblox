@@ -1,0 +1,10 @@
+{
+  "title": "Workflow-<0>Ersteller</0>",
+  "subtitle": "Beschreiben Sie eine wiederkehrende Aufgabe — erhalten Sie ein einsatzbereites Python-Skript.",
+  "placeholder": "z. B. alle Fotos in einem Ordner nach Aufnahmedatum umbenennen",
+  "build": "Erstellen",
+  "building": "Wird erstellt...",
+  "copy": "Kopieren",
+  "copied": "Kopiert!",
+  "download": "Herunterladen"
+}

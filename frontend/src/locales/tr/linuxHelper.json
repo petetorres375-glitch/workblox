@@ -1,0 +1,15 @@
+{
+  "title": "Linux <0>Yardımcısı</0>",
+  "subtitle": "Linux sorununu sade bir dille anlatın — ihtiyacınız olan komutu hemen alın.",
+  "placeholder": "örn. son 7 günde değiştirilmiş tüm .log dosyalarını bulmak",
+  "ask": "Sor",
+  "thinking": "Düşünülüyor...",
+  "result": {
+    "guiSteps": "Arayüz Üzerinden Adımlar",
+    "command": "Komut",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "explanation": "Açıklama",
+    "warnings": "Uyarılar"
+  }
+}

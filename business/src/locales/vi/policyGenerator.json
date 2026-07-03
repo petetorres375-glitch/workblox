@@ -1,0 +1,17 @@
+{
+  "title": "<0>Trình Tạo</0> Chính Sách",
+  "subtitle": "Tạo các chính sách chuyên nghiệp cho công ty — nhân sự, CNTT, làm việc từ xa, nghỉ phép và nhiều hơn nữa.",
+  "policyTypePlaceholder": "Loại chính sách (vd. Chính Sách Làm Việc Từ Xa, Chính Sách Nghỉ Phép) *",
+  "companyNamePlaceholder": "Tên công ty",
+  "industryPlaceholder": "Ngành (vd. Công nghệ, Y tế)",
+  "specificsPlaceholder": "Yêu cầu hoặc ghi chú cụ thể (không bắt buộc)",
+  "generate": "Tạo Chính Sách",
+  "generating": "Đang tạo…",
+  "policyDocument": "Tài Liệu Chính Sách",
+  "copyAll": "Sao Chép Tất Cả",
+  "effective": "Có hiệu lực từ: {{date}}",
+  "purpose": "Mục Đích",
+  "scope": "Phạm Vi",
+  "acknowledgment": "Xác Nhận",
+  "policyPrefix": "Chính Sách"
+}

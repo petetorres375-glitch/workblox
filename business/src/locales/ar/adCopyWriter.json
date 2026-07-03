@@ -1,0 +1,22 @@
+{
+  "title": "<0>كاتب</0> نصوص الإعلانات",
+  "subtitle": "أنشئ نصوصًا إعلانية عالية التحويل مع نسخ متعددة للعناوين والأوصاف.",
+  "productServicePlaceholder": "المنتج أو الخدمة *",
+  "targetAudiencePlaceholder": "الجمهور المستهدف (مثال: أصحاب الأعمال الصغيرة، الفئة العمرية 25–45)",
+  "uniqueValuePlaceholder": "عرض القيمة الفريد",
+  "goalOptions": {
+    "conversions": "التحويلات",
+    "awareness": "الوعي بالعلامة",
+    "leads": "العملاء المحتملون",
+    "traffic": "الزيارات",
+    "app installs": "تثبيت التطبيق"
+  },
+  "write": "كتابة النص الإعلاني",
+  "writing": "جارٍ الكتابة…",
+  "docTitle": "النص الإعلاني",
+  "copy": "نسخ",
+  "headlines": "العناوين",
+  "descriptions": "الأوصاف",
+  "ctaOptions": "خيارات الدعوة لاتخاذ إجراء",
+  "valuePropositions": "عروض القيمة"
+}

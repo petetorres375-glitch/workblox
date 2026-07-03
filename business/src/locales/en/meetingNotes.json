@@ -1,0 +1,14 @@
+{
+  "title": "Meeting Notes <0>Cleaner</0>",
+  "subtitle": "Paste messy meeting notes and get a clean, structured summary with action items.",
+  "contextPlaceholder": "Meeting context (e.g. Q3 planning, client kickoff)",
+  "rawNotesPlaceholder": "Paste your raw meeting notes here *",
+  "clean": "Clean Meeting Notes",
+  "cleaning": "Cleaning…",
+  "summary": "Summary",
+  "copyAll": "Copy All",
+  "decisionsMade": "Decisions Made",
+  "actionItems": "Action Items",
+  "nextSteps": "Next Steps",
+  "followUpMeeting": "Follow-Up Meeting"
+}

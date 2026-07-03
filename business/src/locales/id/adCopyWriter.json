@@ -1,0 +1,22 @@
+{
+  "title": "<0>Penulis</0> Iklan",
+  "subtitle": "Buat teks iklan dengan konversi tinggi dan beberapa variasi judul serta deskripsi.",
+  "productServicePlaceholder": "Produk atau layanan *",
+  "targetAudiencePlaceholder": "Audiens target (mis. pemilik usaha kecil, usia 25–45)",
+  "uniqueValuePlaceholder": "Proposisi nilai unik",
+  "goalOptions": {
+    "conversions": "Konversi",
+    "awareness": "Kesadaran Merek",
+    "leads": "Prospek",
+    "traffic": "Lalu Lintas",
+    "app installs": "Instalasi Aplikasi"
+  },
+  "write": "Tulis Teks Iklan",
+  "writing": "Menulis…",
+  "docTitle": "Teks Iklan",
+  "copy": "Salin",
+  "headlines": "Judul",
+  "descriptions": "Deskripsi",
+  "ctaOptions": "Opsi Ajakan Bertindak",
+  "valuePropositions": "Proposisi Nilai"
+}

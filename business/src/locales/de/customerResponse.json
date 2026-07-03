@@ -1,0 +1,20 @@
+{
+  "title": "Kunden<0>antwort</0>",
+  "subtitle": "Verfassen Sie professionelle, einfühlsame Antworten auf Kundennachrichten und Beschwerden.",
+  "customerMessagePlaceholder": "Nachricht des Kunden einfügen *",
+  "contextPlaceholder": "Kontext (z. B. was passiert ist, Bestelldetails usw.)",
+  "tone": {
+    "professional": "Professionell",
+    "empathetic": "Einfühlsam",
+    "apologetic": "Entschuldigend",
+    "firm": "Bestimmt",
+    "friendly": "Freundlich"
+  },
+  "draft": "Antwort entwerfen",
+  "drafting": "Wird entworfen…",
+  "subjectLine": "Betreffzeile",
+  "responseDraft": "Antwortentwurf",
+  "copy": "Kopieren",
+  "pointsAddressed": "Behandelte Punkte",
+  "followUpSuggested": "Empfohlene Nachverfolgung"
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Email <0>Bisnis</0>",
+  "subtitle": "Buat draf email bisnis yang jelas dan profesional untuk situasi apa pun.",
+  "purposePlaceholder": "Tujuan email (mis. Menindaklanjuti proposal, Menjadwalkan ulang rapat) *",
+  "recipientPlaceholder": "Penerima / perannya (mis. John — Manajer Perekrutan)",
+  "keyPointsPlaceholder": "Poin-poin penting yang perlu disertakan",
+  "tone": {
+    "professional": "Profesional",
+    "friendly": "Ramah",
+    "formal": "Formal",
+    "assertive": "Tegas",
+    "apologetic": "Permintaan Maaf"
+  },
+  "draft": "Buat Draf Email",
+  "drafting": "Membuat draf…",
+  "subjectLine": "Baris Subjek",
+  "emailBody": "Isi Email",
+  "copy": "Salin",
+  "callToAction": "Ajakan Bertindak"
+}

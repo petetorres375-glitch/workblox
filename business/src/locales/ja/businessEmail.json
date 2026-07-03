@@ -1,0 +1,20 @@
+{
+  "title": "ビジネス<0>メール</0>",
+  "subtitle": "あらゆる状況に対応した、明確でプロフェッショナルなビジネスメールを作成します。",
+  "purposePlaceholder": "メールの目的（例：提案のフォローアップ、会議の日程変更）*",
+  "recipientPlaceholder": "宛先 / 役職（例：John — 採用担当マネージャー）",
+  "keyPointsPlaceholder": "含めるべき要点",
+  "tone": {
+    "professional": "プロフェッショナル",
+    "friendly": "フレンドリー",
+    "formal": "フォーマル",
+    "assertive": "積極的",
+    "apologetic": "謝罪"
+  },
+  "draft": "メールを作成",
+  "drafting": "作成中…",
+  "subjectLine": "件名",
+  "emailBody": "本文",
+  "copy": "コピー",
+  "callToAction": "行動喚起"
+}

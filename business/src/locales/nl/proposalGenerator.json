@@ -1,0 +1,22 @@
+{
+  "title": "Voorstel<0>generator</0>",
+  "subtitle": "Maak professionele voorstellen en offertes voor klanten.",
+  "clientNamePlaceholder": "Naam klant",
+  "projectDescriptionPlaceholder": "Projectomschrijving *",
+  "servicesPlaceholder": "Op te nemen diensten",
+  "budgetRangePlaceholder": "Budgetbereik (bijv. $5,000–$10,000)",
+  "timelinePlaceholder": "Tijdlijn (bijv. 4–6 weken)",
+  "generate": "Voorstel Genereren",
+  "generating": "Bezig met genereren…",
+  "executiveSummary": "Managementsamenvatting",
+  "scopeOfWork": "Werkomvang",
+  "deliverables": "Opleverproducten",
+  "lineItems": "Regelposten",
+  "table": {
+    "description": "Omschrijving",
+    "qty": "Aantal",
+    "unitPrice": "Prijs per Stuk",
+    "total": "Totaal"
+  },
+  "terms": "Voorwaarden"
+}

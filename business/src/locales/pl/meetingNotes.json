@@ -1,0 +1,14 @@
+{
+  "title": "<0>Porządkowanie</0> Notatek ze Spotkania",
+  "subtitle": "Wklej chaotyczne notatki ze spotkania i otrzymaj przejrzyste, uporządkowane podsumowanie wraz z listą działań.",
+  "contextPlaceholder": "Kontekst spotkania (np. planowanie na III kwartał, rozpoczęcie współpracy z klientem)",
+  "rawNotesPlaceholder": "Wklej tutaj swoje surowe notatki ze spotkania *",
+  "clean": "Uporządkuj Notatki ze Spotkania",
+  "cleaning": "Porządkowanie…",
+  "summary": "Podsumowanie",
+  "copyAll": "Kopiuj Wszystko",
+  "decisionsMade": "Podjęte Decyzje",
+  "actionItems": "Zadania do Wykonania",
+  "nextSteps": "Kolejne Kroki",
+  "followUpMeeting": "Spotkanie Kontrolne"
+}

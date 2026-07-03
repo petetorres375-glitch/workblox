@@ -1,0 +1,25 @@
+{
+  "title": "Dokument<0>analysator</0>",
+  "subtitle": "Ladda upp en PDF-, TXT- eller MD-fil — få en strukturerad AI-sammanfattning.",
+  "dropLabel": "Släpp en fil här eller klicka för att bläddra",
+  "dropHint": "PDF, TXT eller MD — max 10 MB",
+  "analyze": "Analysera",
+  "analyzing": "Analyserar...",
+  "sections": {
+    "summary": "Sammanfattning",
+    "keyDataPoints": "Viktiga Datapunkter",
+    "actionItems": "Åtgärdspunkter",
+    "redFlags": "Varningssignaler"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Genererar..."
+  },
+  "email": {
+    "placeholder": "Skicka rapporten via e-post till...",
+    "send": "Skicka",
+    "sending": "Skickar...",
+    "sent": "Rapport skickad till {{email}}"
+  }
+}

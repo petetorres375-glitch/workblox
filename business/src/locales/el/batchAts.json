@@ -1,0 +1,17 @@
+{
+  "title": "Μαζικός <0>Αναλυτής</0> ATS",
+  "subtitle": "Ανεβάστε έως 10 βιογραφικά και αξιολογήστε τα όλα ταυτόχρονα σε σχέση με μια περιγραφή θέσης εργασίας.",
+  "dropLabel": "Σύρετε τα βιογραφικά εδώ ή κάντε κλικ για περιήγηση",
+  "resumesSelected_one": "{{count}} βιογραφικό επιλέχθηκε",
+  "resumesSelected_other": "{{count}} βιογραφικά επιλέχθηκαν",
+  "dropHint": "PDF, DOCX ή TXT · έως 10 αρχεία",
+  "jobDescriptionPlaceholder": "Περιγραφή θέσης εργασίας (επικολλήστε εδώ για καλύτερη αντιστοίχιση)",
+  "analyzeAll": "Ανάλυση Όλων των Βιογραφικών",
+  "analyzingCount_one": "Ανάλυση {{count}} βιογραφικού…",
+  "analyzingCount_other": "Ανάλυση {{count}} βιογραφικών…",
+  "resumesAnalyzed_one": "{{count}} βιογραφικό αναλύθηκε",
+  "resumesAnalyzed_other": "{{count}} βιογραφικά αναλύθηκαν",
+  "errorLabel": "Σφάλμα: {{error}}",
+  "strengths": "Δυνατά Σημεία",
+  "concerns": "Ανησυχίες"
+}

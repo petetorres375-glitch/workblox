@@ -1,0 +1,17 @@
+{
+  "title": "SOP-<0>Generator</0>",
+  "subtitle": "Erstellen Sie klare, umsetzbare Standardarbeitsanweisungen für jeden Geschäftsprozess.",
+  "processNamePlaceholder": "Prozessname (z. B. Kunden-Onboarding) *",
+  "departmentPlaceholder": "Abteilung",
+  "frequencyPlaceholder": "Häufigkeit (z. B. Täglich, Wöchentlich, Pro Neukunde)",
+  "descriptionPlaceholder": "Beschreibung des Prozesses *",
+  "generate": "SOP erstellen",
+  "generating": "Wird erstellt…",
+  "overview": "Übersicht",
+  "frequencyLabel": "Häufigkeit: {{frequency}}",
+  "requiredTools": "Benötigte Werkzeuge / Ressourcen",
+  "steps": "Schritte",
+  "stepLabel": "Schritt {{number}}: {{action}}",
+  "qualityChecks": "Qualitätskontrollen",
+  "notes": "Notizen"
+}

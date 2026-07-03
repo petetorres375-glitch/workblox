@@ -1,0 +1,22 @@
+{
+  "title": "Teklif <0>Oluşturucu</0>",
+  "subtitle": "Müşterileriniz için profesyonel teklifler ve fiyat teklifleri oluşturun.",
+  "clientNamePlaceholder": "Müşteri adı",
+  "projectDescriptionPlaceholder": "Proje açıklaması *",
+  "servicesPlaceholder": "Dahil edilecek hizmetler",
+  "budgetRangePlaceholder": "Bütçe aralığı (ör. $5,000–$10,000)",
+  "timelinePlaceholder": "Zaman çizelgesi (ör. 4–6 hafta)",
+  "generate": "Teklif Oluştur",
+  "generating": "Oluşturuluyor…",
+  "executiveSummary": "Yönetici Özeti",
+  "scopeOfWork": "İş Kapsamı",
+  "deliverables": "Teslimatlar",
+  "lineItems": "Kalem Listesi",
+  "table": {
+    "description": "Açıklama",
+    "qty": "Adet",
+    "unitPrice": "Birim Fiyat",
+    "total": "Toplam"
+  },
+  "terms": "Koşullar"
+}

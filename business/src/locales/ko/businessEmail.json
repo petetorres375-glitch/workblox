@@ -1,0 +1,20 @@
+{
+  "title": "비즈니스 <0>이메일</0>",
+  "subtitle": "어떤 상황에서도 명확하고 전문적인 비즈니스 이메일을 작성하세요.",
+  "purposePlaceholder": "이메일 목적 (예: 제안서 후속 조치, 회의 일정 변경) *",
+  "recipientPlaceholder": "수신자 / 직책 (예: John — 채용 담당자)",
+  "keyPointsPlaceholder": "포함할 주요 사항",
+  "tone": {
+    "professional": "전문적",
+    "friendly": "친근함",
+    "formal": "격식체",
+    "assertive": "단호함",
+    "apologetic": "사과조"
+  },
+  "draft": "이메일 초안 작성",
+  "drafting": "초안 작성 중…",
+  "subjectLine": "제목",
+  "emailBody": "이메일 본문",
+  "copy": "복사",
+  "callToAction": "행동 유도 문구"
+}

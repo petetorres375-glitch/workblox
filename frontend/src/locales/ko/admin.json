@@ -1,0 +1,40 @@
+{
+  "title": "관리자 <0>패널</0>",
+  "subtitle": "고객 계정과 활성화 상태를 관리합니다.",
+  "killSwitch": {
+    "heading": "앱 긴급 차단 스위치",
+    "description": "모든 사용자에 대해 즉시 앱을 비활성화합니다",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "켜짐",
+    "off": "꺼짐",
+    "disablePersonal": "Personal 비활성화",
+    "enablePersonal": "Personal 활성화",
+    "disableBusiness": "Business 비활성화",
+    "enableBusiness": "Business 활성화"
+  },
+  "filters": {
+    "all": "전체",
+    "pending": "대기 중",
+    "active": "활성"
+  },
+  "loading": "사용자를 불러오는 중…",
+  "noUsers": "사용자를 찾을 수 없습니다.",
+  "joined": "가입일 {{date}}",
+  "status": {
+    "active": "활성",
+    "pending": "대기 중"
+  },
+  "actions": {
+    "deactivate": "비활성화",
+    "activate": "활성화"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "무료"
+  },
+  "planActions": {
+    "setFree": "무료로 설정",
+    "setBusiness": "Business로 설정"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Creador de <0>Flujos</0>",
+  "subtitle": "Describe una tarea repetitiva — obtén un script de Python listo para ejecutar.",
+  "placeholder": "p. ej. renombrar todas las fotos de una carpeta según su fecha de captura",
+  "build": "Crear",
+  "building": "Creando...",
+  "copy": "Copiar",
+  "copied": "¡Copiado!",
+  "download": "Descargar"
+}

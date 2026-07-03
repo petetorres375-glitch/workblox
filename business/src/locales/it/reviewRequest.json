@@ -1,0 +1,15 @@
+{
+  "title": "Richiesta di Recensione via <0>E-mail</0>",
+  "subtitle": "Scrivi un'e-mail cordiale e naturale per chiedere ai clienti di lasciare una recensione.",
+  "businessNamePlaceholder": "Nome della tua attività *",
+  "customerNamePlaceholder": "Nome del cliente (facoltativo)",
+  "serviceProvidedPlaceholder": "Servizio o prodotto fornito",
+  "platformsPlaceholder": "Piattaforme di recensione (es. Google, Yelp)",
+  "write": "Scrivi Richiesta di Recensione",
+  "writing": "Scrittura in corso…",
+  "docTitle": "Richiesta di Recensione via E-mail",
+  "subjectLine": "Oggetto",
+  "emailBody": "Corpo dell'E-mail",
+  "copy": "Copia",
+  "timingAdvice": "Consiglio sul Momento Giusto"
+}

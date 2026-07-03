@@ -1,0 +1,15 @@
+{
+  "title": "Verzoek om Beoordeling per <0>E-mail</0>",
+  "subtitle": "Schrijf een vriendelijke, natuurlijke e-mail om klanten te vragen een beoordeling achter te laten.",
+  "businessNamePlaceholder": "Naam van je bedrijf *",
+  "customerNamePlaceholder": "Naam van de klant (optioneel)",
+  "serviceProvidedPlaceholder": "Geleverde dienst of product",
+  "platformsPlaceholder": "Beoordelingsplatforms (bijv. Google, Yelp)",
+  "write": "Verzoek om Beoordeling Schrijven",
+  "writing": "Bezig met schrijven…",
+  "docTitle": "Verzoek om Beoordeling per E-mail",
+  "subjectLine": "Onderwerp",
+  "emailBody": "E-mailtekst",
+  "copy": "Kopiëren",
+  "timingAdvice": "Advies over Timing"
+}

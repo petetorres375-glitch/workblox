@@ -1,0 +1,25 @@
+{
+  "title": "Document<0>analyzer</0>",
+  "subtitle": "Upload een PDF-, TXT- of MD-bestand — krijg een gestructureerde AI-samenvatting.",
+  "dropLabel": "Sleep hier een bestand of klik om te bladeren",
+  "dropHint": "PDF, TXT of MD — max. 10 MB",
+  "analyze": "Analyseren",
+  "analyzing": "Analyseren...",
+  "sections": {
+    "summary": "Samenvatting",
+    "keyDataPoints": "Belangrijke Gegevenspunten",
+    "actionItems": "Actiepunten",
+    "redFlags": "Waarschuwingssignalen"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Genereren..."
+  },
+  "email": {
+    "placeholder": "Rapport e-mailen naar...",
+    "send": "Versturen",
+    "sending": "Versturen...",
+    "sent": "Rapport verzonden naar {{email}}"
+  }
+}

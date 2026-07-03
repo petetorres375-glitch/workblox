@@ -1,0 +1,40 @@
+{
+  "title": "פאנל <0>ניהול</0>",
+  "subtitle": "נהל חשבונות לקוחות והפעלות.",
+  "killSwitch": {
+    "heading": "מתג כיבוי חירום לאפליקציה",
+    "description": "השבת אפליקציה עבור כל המשתמשים באופן מיידי",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "פעיל",
+    "off": "כבוי",
+    "disablePersonal": "השבת Personal",
+    "enablePersonal": "הפעל Personal",
+    "disableBusiness": "השבת Business",
+    "enableBusiness": "הפעל Business"
+  },
+  "filters": {
+    "all": "הכול",
+    "pending": "ממתינים",
+    "active": "פעילים"
+  },
+  "loading": "טוען משתמשים…",
+  "noUsers": "לא נמצאו משתמשים.",
+  "joined": "הצטרף ב-{{date}}",
+  "status": {
+    "active": "פעיל",
+    "pending": "ממתין"
+  },
+  "actions": {
+    "deactivate": "השבת",
+    "activate": "הפעל"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "חינם"
+  },
+  "planActions": {
+    "setFree": "הגדר כחינם",
+    "setBusiness": "הגדר כ-Business"
+  }
+}

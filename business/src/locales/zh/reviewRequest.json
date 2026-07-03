@@ -1,0 +1,15 @@
+{
+  "title": "评价请求<0>邮件</0>",
+  "subtitle": "撰写一封友好、自然的邮件,邀请客户留下评价。",
+  "businessNamePlaceholder": "您的企业名称 *",
+  "customerNamePlaceholder": "客户姓名(可选)",
+  "serviceProvidedPlaceholder": "提供的服务或产品",
+  "platformsPlaceholder": "评价平台(例如:Google、Yelp)",
+  "write": "撰写评价请求",
+  "writing": "正在撰写…",
+  "docTitle": "评价请求邮件",
+  "subjectLine": "邮件主题",
+  "emailBody": "邮件正文",
+  "copy": "复制",
+  "timingAdvice": "发送时机建议"
+}

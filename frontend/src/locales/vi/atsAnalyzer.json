@@ -1,0 +1,35 @@
+{
+  "title": "Công cụ <0>Phân tích ATS</0>",
+  "subtitle": "Tải sơ yếu lý lịch lên — nhận ngay điểm ATS, các từ khóa còn thiếu và đề xuất cải thiện.",
+  "dropZone": {
+    "label": "Kéo thả sơ yếu lý lịch vào đây hoặc nhấp để chọn",
+    "hint": "TXT, PDF hoặc DOCX — tối đa 5 MB"
+  },
+  "clientNamePlaceholder": "Tên khách hàng (không bắt buộc)",
+  "jobRolePlaceholder": "Vị trí công việc (không bắt buộc)",
+  "submit": "Phân tích sơ yếu lý lịch",
+  "analyzing": "Đang phân tích...",
+  "score": {
+    "outOf100": "trên 100",
+    "keywordsFound": "Tìm thấy {{found}} / {{total}} từ khóa"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Điện thoại",
+    "linkedin": "LinkedIn",
+    "location": "Vị trí"
+  },
+  "recommendations": "Đề xuất cải thiện",
+  "keywordBreakdown": "Chi tiết từ khóa",
+  "moreKeywords": "+{{count}} từ khóa khác",
+  "jobMatch": {
+    "title": "Mức độ phù hợp công việc: {{role}}",
+    "matched": "Khớp {{score}} / {{total}} từ khóa"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Đang tạo..."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "एडमिन <0>पैनल</0>",
+  "subtitle": "क्लाइंट खातों और सक्रियण को प्रबंधित करें।",
+  "killSwitch": {
+    "heading": "ऐप किल स्विच",
+    "description": "सभी उपयोगकर्ताओं के लिए किसी ऐप को तुरंत निष्क्रिय करें",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "चालू",
+    "off": "बंद",
+    "disablePersonal": "Personal निष्क्रिय करें",
+    "enablePersonal": "Personal सक्रिय करें",
+    "disableBusiness": "Business निष्क्रिय करें",
+    "enableBusiness": "Business सक्रिय करें"
+  },
+  "filters": {
+    "all": "सभी",
+    "pending": "लंबित",
+    "active": "सक्रिय"
+  },
+  "loading": "उपयोगकर्ता लोड हो रहे हैं…",
+  "noUsers": "कोई उपयोगकर्ता नहीं मिला।",
+  "joined": "{{date}} को शामिल हुए",
+  "status": {
+    "active": "सक्रिय",
+    "pending": "लंबित"
+  },
+  "actions": {
+    "deactivate": "निष्क्रिय करें",
+    "activate": "सक्रिय करें"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "फ्री"
+  },
+  "planActions": {
+    "setFree": "फ्री सेट करें",
+    "setBusiness": "Business सेट करें"
+  }
+}

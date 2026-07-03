@@ -1,0 +1,25 @@
+{
+  "title": "Analizator <0>Dokumentów</0>",
+  "subtitle": "Prześlij plik PDF, TXT lub MD — otrzymaj ustrukturyzowane podsumowanie AI.",
+  "dropLabel": "Upuść plik tutaj lub kliknij, aby przeglądać",
+  "dropHint": "PDF, TXT lub MD — maks. 10 MB",
+  "analyze": "Analizuj",
+  "analyzing": "Analizowanie...",
+  "sections": {
+    "summary": "Podsumowanie",
+    "keyDataPoints": "Kluczowe Dane",
+    "actionItems": "Zadania do Wykonania",
+    "redFlags": "Sygnały Ostrzegawcze"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Generowanie..."
+  },
+  "email": {
+    "placeholder": "Wyślij raport na e-mail...",
+    "send": "Wyślij",
+    "sending": "Wysyłanie...",
+    "sent": "Raport wysłany na {{email}}"
+  }
+}

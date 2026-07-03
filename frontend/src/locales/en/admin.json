@@ -1,0 +1,40 @@
+{
+  "title": "Admin <0>Panel</0>",
+  "subtitle": "Manage client accounts and activations.",
+  "killSwitch": {
+    "heading": "App Kill Switch",
+    "description": "Disable an app for all users instantly",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ON",
+    "off": "OFF",
+    "disablePersonal": "Disable Personal",
+    "enablePersonal": "Enable Personal",
+    "disableBusiness": "Disable Business",
+    "enableBusiness": "Enable Business"
+  },
+  "filters": {
+    "all": "All",
+    "pending": "Pending",
+    "active": "Active"
+  },
+  "loading": "Loading users…",
+  "noUsers": "No users found.",
+  "joined": "Joined {{date}}",
+  "status": {
+    "active": "Active",
+    "pending": "Pending"
+  },
+  "actions": {
+    "deactivate": "Deactivate",
+    "activate": "Activate"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Free"
+  },
+  "planActions": {
+    "setFree": "Set Free",
+    "setBusiness": "Set Business"
+  }
+}

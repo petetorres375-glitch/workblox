@@ -1,0 +1,20 @@
+{
+  "title": "<0>Respons</0> Pelanggan",
+  "subtitle": "Susun tanggapan profesional dan penuh empati untuk pesan dan keluhan pelanggan.",
+  "customerMessagePlaceholder": "Tempel pesan pelanggan *",
+  "contextPlaceholder": "Konteks (mis. apa yang terjadi, detail pesanan, dll.)",
+  "tone": {
+    "professional": "Profesional",
+    "empathetic": "Empatik",
+    "apologetic": "Meminta Maaf",
+    "firm": "Tegas",
+    "friendly": "Ramah"
+  },
+  "draft": "Susun Tanggapan",
+  "drafting": "Menyusun…",
+  "subjectLine": "Baris Subjek",
+  "responseDraft": "Draf Tanggapan",
+  "copy": "Salin",
+  "pointsAddressed": "Poin yang Dibahas",
+  "followUpSuggested": "Tindak Lanjut yang Disarankan"
+}

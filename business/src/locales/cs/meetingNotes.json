@@ -1,0 +1,14 @@
+{
+  "title": "<0>Čistič</0> poznámek z porad",
+  "subtitle": "Vložte nepřehledné poznámky z porady a získejte přehledné, strukturované shrnutí s úkoly.",
+  "contextPlaceholder": "Kontext porady (např. plánování 3. čtvrtletí, zahájení spolupráce s klientem)",
+  "rawNotesPlaceholder": "Vložte sem své surové poznámky z porady *",
+  "clean": "Vyčistit poznámky z porady",
+  "cleaning": "Čištění…",
+  "summary": "Shrnutí",
+  "copyAll": "Kopírovat vše",
+  "decisionsMade": "Přijatá rozhodnutí",
+  "actionItems": "Úkoly",
+  "nextSteps": "Další kroky",
+  "followUpMeeting": "Následná porada"
+}

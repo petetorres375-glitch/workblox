@@ -1,0 +1,20 @@
+{
+  "title": "Email <0>Doanh nghiệp</0>",
+  "subtitle": "Soạn email doanh nghiệp rõ ràng, chuyên nghiệp cho mọi tình huống.",
+  "purposePlaceholder": "Mục đích của email (vd: Theo dõi đề xuất, Dời lịch họp) *",
+  "recipientPlaceholder": "Người nhận / vai trò của họ (vd: John — Trưởng phòng Tuyển dụng)",
+  "keyPointsPlaceholder": "Các điểm chính cần đưa vào",
+  "tone": {
+    "professional": "Chuyên nghiệp",
+    "friendly": "Thân thiện",
+    "formal": "Trang trọng",
+    "assertive": "Quyết đoán",
+    "apologetic": "Xin lỗi"
+  },
+  "draft": "Soạn Email",
+  "drafting": "Đang soạn…",
+  "subjectLine": "Tiêu Đề Email",
+  "emailBody": "Nội Dung Email",
+  "copy": "Sao chép",
+  "callToAction": "Lời Kêu Gọi Hành Động"
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Επαγγελματικό <0>Email</0>",
+  "subtitle": "Συντάξτε σαφή, επαγγελματικά emails για κάθε περίσταση.",
+  "purposePlaceholder": "Σκοπός του email (π.χ. Παρακολούθηση πρότασης, Αλλαγή ραντεβού συνάντησης) *",
+  "recipientPlaceholder": "Παραλήπτης / ο ρόλος του (π.χ. Γιάννης — Υπεύθυνος Προσλήψεων)",
+  "keyPointsPlaceholder": "Βασικά σημεία προς συμπερίληψη",
+  "tone": {
+    "professional": "Επαγγελματικός",
+    "friendly": "Φιλικός",
+    "formal": "Επίσημος",
+    "assertive": "Αποφασιστικός",
+    "apologetic": "Απολογητικός"
+  },
+  "draft": "Σύνταξη Email",
+  "drafting": "Σύνταξη…",
+  "subjectLine": "Θέμα",
+  "emailBody": "Κείμενο Email",
+  "copy": "Αντιγραφή",
+  "callToAction": "Πρόσκληση για Δράση"
+}

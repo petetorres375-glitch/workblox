@@ -1,0 +1,40 @@
+{
+  "title": "管理<0>面板</0>",
+  "subtitle": "管理客户账户和激活状态。",
+  "killSwitch": {
+    "heading": "应用总开关",
+    "description": "立即为所有用户禁用某个应用",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "开启",
+    "off": "关闭",
+    "disablePersonal": "禁用 Personal",
+    "enablePersonal": "启用 Personal",
+    "disableBusiness": "禁用 Business",
+    "enableBusiness": "启用 Business"
+  },
+  "filters": {
+    "all": "全部",
+    "pending": "待激活",
+    "active": "已激活"
+  },
+  "loading": "正在加载用户…",
+  "noUsers": "未找到用户。",
+  "joined": "加入于 {{date}}",
+  "status": {
+    "active": "已激活",
+    "pending": "待激活"
+  },
+  "actions": {
+    "deactivate": "停用",
+    "activate": "激活"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "免费版"
+  },
+  "planActions": {
+    "setFree": "设为免费版",
+    "setBusiness": "设为 Business"
+  }
+}

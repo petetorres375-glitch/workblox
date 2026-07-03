@@ -1,0 +1,17 @@
+{
+  "title": "Policy <0>Generator</0>",
+  "subtitle": "Create professional company policies — HR, IT, remote work, PTO, and more.",
+  "policyTypePlaceholder": "Policy type (e.g. Remote Work Policy, PTO Policy) *",
+  "companyNamePlaceholder": "Company name",
+  "industryPlaceholder": "Industry (e.g. Technology, Healthcare)",
+  "specificsPlaceholder": "Specific requirements or notes (optional)",
+  "generate": "Generate Policy",
+  "generating": "Generating…",
+  "policyDocument": "Policy Document",
+  "copyAll": "Copy All",
+  "effective": "Effective: {{date}}",
+  "purpose": "Purpose",
+  "scope": "Scope",
+  "acknowledgment": "Acknowledgment",
+  "policyPrefix": "Policy"
+}

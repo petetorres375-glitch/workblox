@@ -1,0 +1,20 @@
+{
+  "title": "İş <0>E-postası</0>",
+  "subtitle": "Her durum için net, profesyonel iş e-postaları hazırlayın.",
+  "purposePlaceholder": "E-postanın amacı (örn. Teklifi takip etme, Toplantıyı erteleme) *",
+  "recipientPlaceholder": "Alıcı / unvanı (örn. John — İşe Alım Müdürü)",
+  "keyPointsPlaceholder": "Eklenecek önemli noktalar",
+  "tone": {
+    "professional": "Profesyonel",
+    "friendly": "Samimi",
+    "formal": "Resmi",
+    "assertive": "Kararlı",
+    "apologetic": "Özür Dileyici"
+  },
+  "draft": "E-posta Taslağı Oluştur",
+  "drafting": "Taslak oluşturuluyor…",
+  "subjectLine": "Konu Satırı",
+  "emailBody": "E-posta İçeriği",
+  "copy": "Kopyala",
+  "callToAction": "Harekete Geçirici Mesaj"
+}

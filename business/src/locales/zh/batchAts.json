@@ -1,0 +1,17 @@
+{
+  "title": "批量 ATS <0>分析器</0>",
+  "subtitle": "最多上传10份简历，一次性根据职位描述进行筛选。",
+  "dropLabel": "将简历拖放到此处或点击浏览",
+  "resumesSelected_one": "已选择 {{count}} 份简历",
+  "resumesSelected_other": "已选择 {{count}} 份简历",
+  "dropHint": "PDF、DOCX 或 TXT · 最多10个文件",
+  "jobDescriptionPlaceholder": "职位描述（粘贴至此以获得更精准的匹配）",
+  "analyzeAll": "分析所有简历",
+  "analyzingCount_one": "正在分析 {{count}} 份简历…",
+  "analyzingCount_other": "正在分析 {{count}} 份简历…",
+  "resumesAnalyzed_one": "已分析 {{count}} 份简历",
+  "resumesAnalyzed_other": "已分析 {{count}} 份简历",
+  "errorLabel": "错误：{{error}}",
+  "strengths": "优势",
+  "concerns": "顾虑"
+}

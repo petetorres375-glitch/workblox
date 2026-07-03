@@ -1,0 +1,15 @@
+{
+  "title": "Mac-<0>assistent</0>",
+  "subtitle": "Beskriv ett macOS-problem i vanligt språk — få rätt Terminal-kommando direkt.",
+  "placeholder": "t.ex. visa diskanvändning för varje mapp i min hemkatalog",
+  "ask": "Fråga",
+  "thinking": "Tänker...",
+  "result": {
+    "guiSteps": "Steg i det grafiska gränssnittet",
+    "command": "Kommando",
+    "copy": "Kopiera",
+    "copied": "Kopierat!",
+    "explanation": "Förklaring",
+    "warnings": "Varningar"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Politika <0>Oluşturucu</0>",
+  "subtitle": "İK, BT, uzaktan çalışma, izin ve daha fazlası için profesyonel şirket politikaları oluşturun.",
+  "policyTypePlaceholder": "Politika türü (ör. Uzaktan Çalışma Politikası, İzin Politikası) *",
+  "companyNamePlaceholder": "Şirket adı",
+  "industryPlaceholder": "Sektör (ör. Teknoloji, Sağlık)",
+  "specificsPlaceholder": "Özel gereksinimler veya notlar (isteğe bağlı)",
+  "generate": "Politika Oluştur",
+  "generating": "Oluşturuluyor…",
+  "policyDocument": "Politika Belgesi",
+  "copyAll": "Tümünü Kopyala",
+  "effective": "Yürürlük tarihi: {{date}}",
+  "purpose": "Amaç",
+  "scope": "Kapsam",
+  "acknowledgment": "Onay Beyanı",
+  "policyPrefix": "Politika"
+}

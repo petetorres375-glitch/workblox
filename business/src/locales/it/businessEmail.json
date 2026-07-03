@@ -1,0 +1,20 @@
+{
+  "title": "Business <0>Email</0>",
+  "subtitle": "Scrivi email professionali e chiare per qualsiasi situazione.",
+  "purposePlaceholder": "Scopo dell'email (es. Follow-up su una proposta, Riprogrammare una riunione) *",
+  "recipientPlaceholder": "Destinatario / il suo ruolo (es. John — Responsabile delle Assunzioni)",
+  "keyPointsPlaceholder": "Punti chiave da includere",
+  "tone": {
+    "professional": "Professionale",
+    "friendly": "Amichevole",
+    "formal": "Formale",
+    "assertive": "Assertivo",
+    "apologetic": "Conciliante"
+  },
+  "draft": "Crea Bozza Email",
+  "drafting": "Creazione bozza…",
+  "subjectLine": "Oggetto",
+  "emailBody": "Corpo dell'Email",
+  "copy": "Copia",
+  "callToAction": "Invito all'Azione"
+}

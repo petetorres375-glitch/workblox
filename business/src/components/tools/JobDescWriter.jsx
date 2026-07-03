@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
@@ -36,6 +37,7 @@ function buildMd(data) {
 }
 
 export default function JobDescWriter() {
+  const { t, i18n } = useTranslation("jobDescWriter");
   const { loading, error, call } = useApi();
   const [jobTitle, setJobTitle] = useState("");
   const [department, setDepartment] = useState("");
@@ -46,7 +48,7 @@ export default function JobDescWriter() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/job-desc", { job_title: jobTitle, department, requirements, salary_range: salaryRange, company_info: companyInfo }));
+    const result = await call(() => post("/api/biz/job-desc", { job_title: jobTitle, department, requirements, salary_range: salaryRange, company_info: companyInfo, language: i18n.language }));
     if (result) setData(result);
   }
 
@@ -54,18 +56,18 @@ export default function JobDescWriter() {
 
   return (
     <div>
-      <h1 className="page-title">Job Description <span>Writer</span></h1>
-      <p className="page-subtitle">Create a compelling, complete job description that attracts top talent.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <input type="text" placeholder="Job title *" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required disabled={loading} style={inputStyle} />
-        <input type="text" placeholder="Department" value={department} onChange={(e) => setDepartment(e.target.value)} disabled={loading} style={inputStyle} />
-        <input type="text" placeholder="Salary range (e.g. $60k–$80k)" value={salaryRange} onChange={(e) => setSalaryRange(e.target.value)} disabled={loading} style={inputStyle} />
-        <textarea placeholder="Key requirements and responsibilities *" value={requirements} onChange={(e) => setRequirements(e.target.value)} rows={3} disabled={loading}
+        <input type="text" placeholder={t("jobTitlePlaceholder")} value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} required disabled={loading} style={inputStyle} />
+        <input type="text" placeholder={t("departmentPlaceholder")} value={department} onChange={(e) => setDepartment(e.target.value)} disabled={loading} style={inputStyle} />
+        <input type="text" placeholder={t("salaryRangePlaceholder")} value={salaryRange} onChange={(e) => setSalaryRange(e.target.value)} disabled={loading} style={inputStyle} />
+        <textarea placeholder={t("requirementsPlaceholder")} value={requirements} onChange={(e) => setRequirements(e.target.value)} rows={3} disabled={loading}
           style={{ ...inputStyle, resize: "vertical" }} />
-        <textarea placeholder="Brief company description (optional)" value={companyInfo} onChange={(e) => setCompanyInfo(e.target.value)} rows={2} disabled={loading}
+        <textarea placeholder={t("companyInfoPlaceholder")} value={companyInfo} onChange={(e) => setCompanyInfo(e.target.value)} rows={2} disabled={loading}
           style={{ ...inputStyle, resize: "vertical" }} />
-        <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Writing…" : "Write Job Description"}</button>
+        <button type="submit" className="submit-btn" disabled={loading}>{loading ? t("writing") : t("write")}</button>
       </form>
 
       {error && <div className="error-banner no-print">{error}</div>}
@@ -75,13 +77,13 @@ export default function JobDescWriter() {
           <div className="print-header" style={{ display: "none" }}><strong>{data.job_title}</strong></div>
           <div className="result-card">
             <div className="result-header">
-              <p className="result-label">Overview</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildMd(data))}>Copy All</button>
+              <p className="result-label">{t("overview")}</p>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildMd(data))}>{t("copyAll")}</button>
             </div>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65, fontWeight: 700, marginBottom: "0.5rem" }}>{data.job_title}</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.overview}</p>
           </div>
-          {[["Responsibilities", data.responsibilities], ["Requirements", data.requirements], ["Nice to Have", data.nice_to_have], ["Benefits", data.benefits]].map(([label, items]) =>
+          {[[t("responsibilities"), data.responsibilities], [t("requirements"), data.requirements], [t("niceToHave"), data.nice_to_have], [t("benefits"), data.benefits]].map(([label, items]) =>
             items?.length > 0 && (
               <div className="result-card" key={label}>
                 <p className="result-label">{label}</p>

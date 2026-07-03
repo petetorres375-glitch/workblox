@@ -1,0 +1,35 @@
+{
+  "title": "Αναλυτής <0>ATS</0>",
+  "subtitle": "Ανεβάστε ένα βιογραφικό — λάβετε άμεσα βαθμολογία ATS, κενά λέξεων-κλειδιών και προτάσεις.",
+  "dropZone": {
+    "label": "Σύρετε ένα βιογραφικό εδώ ή κάντε κλικ για περιήγηση",
+    "hint": "TXT, PDF ή DOCX — έως 5 MB"
+  },
+  "clientNamePlaceholder": "Όνομα πελάτη (προαιρετικό)",
+  "jobRolePlaceholder": "Θέση εργασίας (προαιρετικό)",
+  "submit": "Ανάλυση βιογραφικού",
+  "analyzing": "Ανάλυση σε εξέλιξη...",
+  "score": {
+    "outOf100": "στα 100",
+    "keywordsFound": "Βρέθηκαν {{found}} / {{total}} λέξεις-κλειδιά"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Τηλέφωνο",
+    "linkedin": "LinkedIn",
+    "location": "Τοποθεσία"
+  },
+  "recommendations": "Προτάσεις",
+  "keywordBreakdown": "Ανάλυση λέξεων-κλειδιών",
+  "moreKeywords": "+{{count}} ακόμη",
+  "jobMatch": {
+    "title": "Αντιστοίχιση θέσης: {{role}}",
+    "matched": "{{score}} / {{total}} λέξεις-κλειδιά ταιριάζουν"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Δημιουργία..."
+  }
+}

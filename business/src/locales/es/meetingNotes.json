@@ -1,0 +1,14 @@
+{
+  "title": "Depurador de <0>Notas de Reunión</0>",
+  "subtitle": "Pega notas de reunión desordenadas y obtén un resumen claro y estructurado con las tareas pendientes.",
+  "contextPlaceholder": "Contexto de la reunión (ej. Planificación Q3, Inicio con cliente)",
+  "rawNotesPlaceholder": "Pega aquí tus notas de reunión sin editar *",
+  "clean": "Depurar Notas de Reunión",
+  "cleaning": "Depurando…",
+  "summary": "Resumen",
+  "copyAll": "Copiar Todo",
+  "decisionsMade": "Decisiones Tomadas",
+  "actionItems": "Tareas Pendientes",
+  "nextSteps": "Próximos Pasos",
+  "followUpMeeting": "Reunión de Seguimiento"
+}

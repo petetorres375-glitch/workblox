@@ -1,0 +1,35 @@
+{
+  "title": "ATS-<0>Analyzer</0>",
+  "subtitle": "Upload een cv — krijg direct een ATS-score, ontbrekende trefwoorden en aanbevelingen.",
+  "dropZone": {
+    "label": "Sleep hier een cv naartoe of klik om te bladeren",
+    "hint": "TXT, PDF of DOCX — max. 5 MB"
+  },
+  "clientNamePlaceholder": "Naam klant (optioneel)",
+  "jobRolePlaceholder": "Functie (optioneel)",
+  "submit": "Cv analyseren",
+  "analyzing": "Analyseren...",
+  "score": {
+    "outOf100": "van de 100",
+    "keywordsFound": "{{found}} / {{total}} trefwoorden gevonden"
+  },
+  "contactCheck": {
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "linkedin": "LinkedIn",
+    "location": "Locatie"
+  },
+  "recommendations": "Aanbevelingen",
+  "keywordBreakdown": "Overzicht trefwoorden",
+  "moreKeywords": "+{{count}} meer",
+  "jobMatch": {
+    "title": "Functiematch: {{role}}",
+    "matched": "{{score}} / {{total}} trefwoorden komen overeen"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Bezig met genereren..."
+  }
+}

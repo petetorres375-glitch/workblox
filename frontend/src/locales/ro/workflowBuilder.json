@@ -1,0 +1,10 @@
+{
+  "title": "Generator de <0>Fluxuri</0>",
+  "subtitle": "Descrie o sarcină repetitivă — primești un script Python gata de rulat.",
+  "placeholder": "ex. redenumește toate fotografiile dintr-un folder după data la care au fost făcute",
+  "build": "Generează",
+  "building": "Se generează...",
+  "copy": "Copiază",
+  "copied": "Copiat!",
+  "download": "Descarcă"
+}

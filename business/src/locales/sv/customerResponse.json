@@ -1,0 +1,20 @@
+{
+  "title": "Kund<0>svar</0>",
+  "subtitle": "Utforma professionella och empatiska svar på kundmeddelanden och klagomål.",
+  "customerMessagePlaceholder": "Klistra in kundens meddelande *",
+  "contextPlaceholder": "Sammanhang (t.ex. vad som hände, orderdetaljer osv.)",
+  "tone": {
+    "professional": "Professionell",
+    "empathetic": "Empatisk",
+    "apologetic": "Ursäktande",
+    "firm": "Bestämd",
+    "friendly": "Vänlig"
+  },
+  "draft": "Utforma Svar",
+  "drafting": "Utformar…",
+  "subjectLine": "Ämnesrad",
+  "responseDraft": "Svarsutkast",
+  "copy": "Kopiera",
+  "pointsAddressed": "Behandlade Punkter",
+  "followUpSuggested": "Föreslagen Uppföljning"
+}

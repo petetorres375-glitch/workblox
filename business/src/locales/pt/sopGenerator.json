@@ -1,0 +1,17 @@
+{
+  "title": "Gerador de <0>SOP</0>",
+  "subtitle": "Crie Procedimentos Operacionais Padrão claros e práticos para qualquer processo de negócio.",
+  "processNamePlaceholder": "Nome do processo (ex. Integração de Clientes) *",
+  "departmentPlaceholder": "Departamento",
+  "frequencyPlaceholder": "Frequência (ex. Diária, Semanal, Por novo cliente)",
+  "descriptionPlaceholder": "Descrição do processo *",
+  "generate": "Gerar SOP",
+  "generating": "Gerando…",
+  "overview": "Visão Geral",
+  "frequencyLabel": "Frequência: {{frequency}}",
+  "requiredTools": "Ferramentas / Recursos Necessários",
+  "steps": "Etapas",
+  "stepLabel": "Etapa {{number}}: {{action}}",
+  "qualityChecks": "Verificações de Qualidade",
+  "notes": "Notas"
+}

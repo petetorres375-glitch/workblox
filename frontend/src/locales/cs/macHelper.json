@@ -1,0 +1,15 @@
+{
+  "title": "Asistent pro <0>Mac</0>",
+  "subtitle": "Popište problém s macOS běžnými slovy — okamžitě dostanete potřebný příkaz Terminálu.",
+  "placeholder": "např. zobrazit využití disku pro každou složku v domovském adresáři",
+  "ask": "Zeptat se",
+  "thinking": "Přemýšlím...",
+  "result": {
+    "guiSteps": "Postup přes grafické rozhraní",
+    "command": "Příkaz",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno!",
+    "explanation": "Vysvětlení",
+    "warnings": "Upozornění"
+  }
+}

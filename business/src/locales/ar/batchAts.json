@@ -1,0 +1,17 @@
+{
+  "title": "محلل <0>ATS</0> الدفعي",
+  "subtitle": "قم بتحميل ما يصل إلى 10 سير ذاتية وفحصها جميعًا مقابل وصف وظيفي دفعة واحدة.",
+  "dropLabel": "أفلت السير الذاتية هنا أو انقر للتصفح",
+  "resumesSelected_one": "تم تحديد {{count}} سيرة ذاتية",
+  "resumesSelected_other": "تم تحديد {{count}} سيرة ذاتية",
+  "dropHint": "PDF أو DOCX أو TXT · حتى 10 ملفات",
+  "jobDescriptionPlaceholder": "وصف الوظيفة (الصقه هنا لمطابقة أفضل)",
+  "analyzeAll": "تحليل جميع السير الذاتية",
+  "analyzingCount_one": "جارٍ تحليل {{count}} سيرة ذاتية…",
+  "analyzingCount_other": "جارٍ تحليل {{count}} سيرة ذاتية…",
+  "resumesAnalyzed_one": "تم تحليل {{count}} سيرة ذاتية",
+  "resumesAnalyzed_other": "تم تحليل {{count}} سيرة ذاتية",
+  "errorLabel": "خطأ: {{error}}",
+  "strengths": "نقاط القوة",
+  "concerns": "المخاوف"
+}

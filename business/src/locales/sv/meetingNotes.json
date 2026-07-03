@@ -1,0 +1,14 @@
+{
+  "title": "<0>Rensare</0> för Mötesanteckningar",
+  "subtitle": "Klistra in röriga mötesanteckningar och få en tydlig, strukturerad sammanfattning med åtgärdspunkter.",
+  "contextPlaceholder": "Möteskontext (t.ex. Q3-planering, kundstart)",
+  "rawNotesPlaceholder": "Klistra in dina råa mötesanteckningar här *",
+  "clean": "Rensa Mötesanteckningar",
+  "cleaning": "Rensar…",
+  "summary": "Sammanfattning",
+  "copyAll": "Kopiera Allt",
+  "decisionsMade": "Fattade Beslut",
+  "actionItems": "Åtgärdspunkter",
+  "nextSteps": "Nästa Steg",
+  "followUpMeeting": "Uppföljningsmöte"
+}

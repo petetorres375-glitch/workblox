@@ -1,0 +1,27 @@
+{
+  "title": "Social-Media-<0>Generator</0>",
+  "subtitle": "Erstelle plattformgerechte Social-Media-Inhalte für dein Unternehmen.",
+  "topicPlaceholder": "Thema oder Content-Idee *",
+  "businessNamePlaceholder": "Unternehmensname",
+  "platformsPlaceholder": "Plattformen (z. B. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Professionell",
+    "casual": "Locker",
+    "humorous": "Humorvoll",
+    "inspiring": "Inspirierend",
+    "educational": "Lehrreich"
+  },
+  "goalOptions": {
+    "engagement": "Interaktion",
+    "awareness": "Bekanntheit",
+    "leads": "Leads",
+    "sales": "Verkäufe",
+    "education": "Bildung"
+  },
+  "generate": "Beiträge Generieren",
+  "generating": "Wird generiert…",
+  "docTitle": "Social-Media-Beiträge",
+  "copy": "Kopieren",
+  "bestTime": "Beste Zeit: {{time}}",
+  "contentTips": "Content-Tipps"
+}

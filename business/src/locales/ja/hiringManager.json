@@ -1,0 +1,13 @@
+{
+  "title": "採用<0>マネージャー</0>",
+  "subtitle": "募集しているポジションを説明すると、採用に必要な資料一式が生成されます。",
+  "descriptionPlaceholder": "ポジションを説明してください(例:ITヘルプデスクのレベル1テクニカルサポート担当 — パスワードのリセット、基本的なトラブルシューティング、従業員200名規模の会社のチケット対応を担当)",
+  "generate": "採用パッケージを生成",
+  "generating": "生成中…",
+  "positionSummary": "ポジション概要",
+  "interviewQuestions": "面接の質問",
+  "copy": "コピー",
+  "evaluationCriteria": "評価基準",
+  "redFlags": "注意すべき危険信号",
+  "onboardingTips": "オンボーディングのヒント"
+}

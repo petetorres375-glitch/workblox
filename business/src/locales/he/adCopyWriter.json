@@ -1,0 +1,22 @@
+{
+  "title": "<0>כתיבת</0> טקסטים למודעות",
+  "subtitle": "צרו טקסטים למודעות בעלי שיעורי המרה גבוהים עם מגוון גרסאות לכותרות ותיאורים.",
+  "productServicePlaceholder": "מוצר או שירות *",
+  "targetAudiencePlaceholder": "קהל יעד (לדוגמה: בעלי עסקים קטנים, גילאי 25–45)",
+  "uniqueValuePlaceholder": "הצעת ערך ייחודית",
+  "goalOptions": {
+    "conversions": "המרות",
+    "awareness": "מודעות למותג",
+    "leads": "לידים",
+    "traffic": "תנועה",
+    "app installs": "התקנות אפליקציה"
+  },
+  "write": "כתיבת טקסט למודעה",
+  "writing": "כותב…",
+  "docTitle": "טקסט למודעה",
+  "copy": "העתק",
+  "headlines": "כותרות",
+  "descriptions": "תיאורים",
+  "ctaOptions": "אפשרויות קריאה לפעולה",
+  "valuePropositions": "הצעות ערך"
+}

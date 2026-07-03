@@ -1,0 +1,22 @@
+{
+  "title": "<0>Twórca</0> Tekstów Reklamowych",
+  "subtitle": "Generuj skuteczne teksty reklamowe z wieloma wariantami nagłówków i opisów.",
+  "productServicePlaceholder": "Produkt lub usługa *",
+  "targetAudiencePlaceholder": "Grupa docelowa (np. właściciele małych firm, 25–45 lat)",
+  "uniqueValuePlaceholder": "Unikalna propozycja wartości",
+  "goalOptions": {
+    "conversions": "Konwersje",
+    "awareness": "Rozpoznawalność",
+    "leads": "Leady",
+    "traffic": "Ruch",
+    "app installs": "Instalacje aplikacji"
+  },
+  "write": "Napisz Reklamę",
+  "writing": "Piszę…",
+  "docTitle": "Reklama",
+  "copy": "Kopiuj",
+  "headlines": "Nagłówki",
+  "descriptions": "Opisy",
+  "ctaOptions": "Opcje Wezwania do Działania",
+  "valuePropositions": "Propozycje Wartości"
+}

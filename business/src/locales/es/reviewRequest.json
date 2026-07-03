@@ -1,0 +1,15 @@
+{
+  "title": "Solicitud de Reseña por <0>Correo</0>",
+  "subtitle": "Redacta un correo cercano y natural para pedirles a tus clientes que dejen una reseña.",
+  "businessNamePlaceholder": "Nombre de tu negocio *",
+  "customerNamePlaceholder": "Nombre del cliente (opcional)",
+  "serviceProvidedPlaceholder": "Servicio o producto ofrecido",
+  "platformsPlaceholder": "Plataformas de reseñas (p. ej. Google, Yelp)",
+  "write": "Redactar Solicitud de Reseña",
+  "writing": "Redactando…",
+  "docTitle": "Solicitud de Reseña por Correo",
+  "subjectLine": "Asunto",
+  "emailBody": "Cuerpo del Correo",
+  "copy": "Copiar",
+  "timingAdvice": "Consejo de Momento Oportuno"
+}

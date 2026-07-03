@@ -1,0 +1,15 @@
+{
+  "title": "Linux-<0>Assistent</0>",
+  "subtitle": "Beschreiben Sie ein Linux-Problem in einfachen Worten — Sie erhalten den passenden Befehl.",
+  "placeholder": "z. B. alle .log-Dateien finden, die in den letzten 7 Tagen geändert wurden",
+  "ask": "Fragen",
+  "thinking": "Wird überlegt...",
+  "result": {
+    "guiSteps": "Schritte in der Oberfläche",
+    "command": "Befehl",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "explanation": "Erklärung",
+    "warnings": "Warnhinweise"
+  }
+}

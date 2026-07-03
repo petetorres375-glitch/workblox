@@ -1,0 +1,22 @@
+{
+  "title": "提案書<0>ジェネレーター</0>",
+  "subtitle": "クライアント向けのプロフェッショナルな提案書や見積書を作成します。",
+  "clientNamePlaceholder": "クライアント名",
+  "projectDescriptionPlaceholder": "プロジェクトの説明 *",
+  "servicesPlaceholder": "含めるサービス",
+  "budgetRangePlaceholder": "予算範囲(例:$5,000〜$10,000)",
+  "timelinePlaceholder": "スケジュール(例:4〜6週間)",
+  "generate": "提案書を作成",
+  "generating": "作成中…",
+  "executiveSummary": "エグゼクティブサマリー",
+  "scopeOfWork": "作業範囲",
+  "deliverables": "成果物",
+  "lineItems": "明細項目",
+  "table": {
+    "description": "内容",
+    "qty": "数量",
+    "unitPrice": "単価",
+    "total": "合計"
+  },
+  "terms": "契約条件"
+}

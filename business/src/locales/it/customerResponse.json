@@ -1,0 +1,20 @@
+{
+  "title": "<0>Risposta</0> al Cliente",
+  "subtitle": "Crea risposte professionali ed empatiche a messaggi e reclami dei clienti.",
+  "customerMessagePlaceholder": "Incolla il messaggio del cliente *",
+  "contextPlaceholder": "Contesto (es. cosa è successo, dettagli dell'ordine, ecc.)",
+  "tone": {
+    "professional": "Professionale",
+    "empathetic": "Empatico",
+    "apologetic": "Di scuse",
+    "firm": "Fermo",
+    "friendly": "Amichevole"
+  },
+  "draft": "Genera Risposta",
+  "drafting": "Generazione…",
+  "subjectLine": "Oggetto",
+  "responseDraft": "Bozza di Risposta",
+  "copy": "Copia",
+  "pointsAddressed": "Punti Trattati",
+  "followUpSuggested": "Follow-Up Suggerito"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Batch-ATS<0>analysator</0>",
+  "subtitle": "Ladda upp upp till 10 CV:n och granska dem alla mot en jobbeskrivning på en gång.",
+  "dropLabel": "Släpp CV:n här eller klicka för att bläddra",
+  "resumesSelected_one": "{{count}} CV valt",
+  "resumesSelected_other": "{{count}} CV:n valda",
+  "dropHint": "PDF, DOCX eller TXT · upp till 10 filer",
+  "jobDescriptionPlaceholder": "Jobbeskrivning (klistra in här för bättre matchning)",
+  "analyzeAll": "Analysera Alla CV:n",
+  "analyzingCount_one": "Analyserar {{count}} CV…",
+  "analyzingCount_other": "Analyserar {{count}} CV:n…",
+  "resumesAnalyzed_one": "{{count}} CV analyserat",
+  "resumesAnalyzed_other": "{{count}} CV:n analyserade",
+  "errorLabel": "Fel: {{error}}",
+  "strengths": "Styrkor",
+  "concerns": "Farhågor"
+}

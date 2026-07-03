@@ -1,0 +1,15 @@
+{
+  "title": "Asystent <0>Maca</0>",
+  "subtitle": "Opisz problem z macOS zwykłym językiem — otrzymasz gotowe polecenie terminala.",
+  "placeholder": "np. pokaż zajętość dysku dla każdego folderu w katalogu domowym",
+  "ask": "Zapytaj",
+  "thinking": "Myślę...",
+  "result": {
+    "guiSteps": "Kroki w interfejsie graficznym",
+    "command": "Polecenie",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!",
+    "explanation": "Wyjaśnienie",
+    "warnings": "Ostrzeżenia"
+  }
+}

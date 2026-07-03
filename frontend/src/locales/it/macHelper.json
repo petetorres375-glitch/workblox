@@ -1,0 +1,15 @@
+{
+  "title": "Assistente <0>Mac</0>",
+  "subtitle": "Descrivi un problema macOS in linguaggio semplice — ricevi subito il comando da Terminale.",
+  "placeholder": "es. mostrare lo spazio disco usato da ogni cartella nella home",
+  "ask": "Chiedi",
+  "thinking": "Sto pensando...",
+  "result": {
+    "guiSteps": "Passaggi da interfaccia grafica",
+    "command": "Comando",
+    "copy": "Copia",
+    "copied": "Copiato!",
+    "explanation": "Spiegazione",
+    "warnings": "Avvertenze"
+  }
+}

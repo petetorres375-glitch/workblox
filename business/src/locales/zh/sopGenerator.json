@@ -1,0 +1,17 @@
+{
+  "title": "SOP<0>生成器</0>",
+  "subtitle": "为任何业务流程创建清晰、可执行的标准操作程序（SOP）。",
+  "processNamePlaceholder": "流程名称（例如：客户入职）*",
+  "departmentPlaceholder": "部门",
+  "frequencyPlaceholder": "频率（例如：每日、每周、每位新客户）",
+  "descriptionPlaceholder": "流程说明 *",
+  "generate": "生成 SOP",
+  "generating": "正在生成…",
+  "overview": "概述",
+  "frequencyLabel": "频率：{{frequency}}",
+  "requiredTools": "所需工具／资源",
+  "steps": "步骤",
+  "stepLabel": "第 {{number}} 步：{{action}}",
+  "qualityChecks": "质量检查",
+  "notes": "备注"
+}

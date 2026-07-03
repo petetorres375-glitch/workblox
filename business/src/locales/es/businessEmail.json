@@ -1,0 +1,20 @@
+{
+  "title": "Correo <0>Empresarial</0>",
+  "subtitle": "Redacta correos electrónicos empresariales claros y profesionales para cualquier situación.",
+  "purposePlaceholder": "Propósito del correo (ej. Dar seguimiento a una propuesta, Reprogramar una reunión) *",
+  "recipientPlaceholder": "Destinatario / su rol (ej. Juan — Gerente de Contratación)",
+  "keyPointsPlaceholder": "Puntos clave a incluir",
+  "tone": {
+    "professional": "Profesional",
+    "friendly": "Amigable",
+    "formal": "Formal",
+    "assertive": "Asertivo",
+    "apologetic": "De disculpa"
+  },
+  "draft": "Redactar Correo",
+  "drafting": "Redactando…",
+  "subjectLine": "Asunto",
+  "emailBody": "Cuerpo del Correo",
+  "copy": "Copiar",
+  "callToAction": "Llamado a la Acción"
+}

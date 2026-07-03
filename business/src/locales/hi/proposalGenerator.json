@@ -1,0 +1,22 @@
+{
+  "title": "प्रस्ताव <0>जनरेटर</0>",
+  "subtitle": "ग्राहकों के लिए पेशेवर प्रस्ताव और कोटेशन तैयार करें।",
+  "clientNamePlaceholder": "ग्राहक का नाम",
+  "projectDescriptionPlaceholder": "परियोजना विवरण *",
+  "servicesPlaceholder": "शामिल की जाने वाली सेवाएं",
+  "budgetRangePlaceholder": "बजट सीमा (उदाहरण: $5,000–$10,000)",
+  "timelinePlaceholder": "समयसीमा (उदाहरण: 4–6 सप्ताह)",
+  "generate": "प्रस्ताव तैयार करें",
+  "generating": "तैयार किया जा रहा है…",
+  "executiveSummary": "कार्यकारी सारांश",
+  "scopeOfWork": "कार्य का दायरा",
+  "deliverables": "डिलिवरेबल्स",
+  "lineItems": "लाइन आइटम",
+  "table": {
+    "description": "विवरण",
+    "qty": "मात्रा",
+    "unitPrice": "इकाई मूल्य",
+    "total": "कुल"
+  },
+  "terms": "शर्तें"
+}

@@ -1,0 +1,20 @@
+{
+  "title": "カスタマー<0>対応</0>",
+  "subtitle": "顧客からのメッセージやクレームに対して、プロフェッショナルで思いやりのある返信を作成します。",
+  "customerMessagePlaceholder": "顧客からのメッセージを貼り付けてください *",
+  "contextPlaceholder": "背景情報(例:経緯、注文の詳細など)",
+  "tone": {
+    "professional": "プロフェッショナル",
+    "empathetic": "共感的",
+    "apologetic": "謝罪的",
+    "firm": "毅然とした",
+    "friendly": "フレンドリー"
+  },
+  "draft": "返信を作成",
+  "drafting": "作成中…",
+  "subjectLine": "件名",
+  "responseDraft": "返信の下書き",
+  "copy": "コピー",
+  "pointsAddressed": "対応済みのポイント",
+  "followUpSuggested": "推奨されるフォローアップ"
+}

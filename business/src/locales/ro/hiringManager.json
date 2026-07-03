@@ -1,0 +1,13 @@
+{
+  "title": "Manager de <0>Recrutare</0>",
+  "subtitle": "Descrie postul pentru care recrutezi și primești un pachet complet de angajare.",
+  "descriptionPlaceholder": "Descrie postul (de ex. specialist suport tehnic nivel 1 pentru help desk-ul IT — se ocupă de resetări de parole, depanare de bază și triaj de tichete pentru o companie cu 200 de angajați)",
+  "generate": "Generează Pachetul de Angajare",
+  "generating": "Se generează…",
+  "positionSummary": "Rezumatul Postului",
+  "interviewQuestions": "Întrebări de Interviu",
+  "copy": "Copiază",
+  "evaluationCriteria": "Criterii de Evaluare",
+  "redFlags": "Semnale de Alarmă de Urmărit",
+  "onboardingTips": "Sfaturi pentru Integrare"
+}

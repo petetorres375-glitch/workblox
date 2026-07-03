@@ -1,0 +1,20 @@
+{
+  "title": "Réponse <0>Client</0>",
+  "subtitle": "Rédigez des réponses professionnelles et empathiques aux messages et réclamations des clients.",
+  "customerMessagePlaceholder": "Collez le message du client *",
+  "contextPlaceholder": "Contexte (p. ex. ce qui s'est passé, détails de la commande, etc.)",
+  "tone": {
+    "professional": "Professionnel",
+    "empathetic": "Empathique",
+    "apologetic": "Conciliant",
+    "firm": "Ferme",
+    "friendly": "Amical"
+  },
+  "draft": "Rédiger la Réponse",
+  "drafting": "Rédaction…",
+  "subjectLine": "Objet",
+  "responseDraft": "Brouillon de Réponse",
+  "copy": "Copier",
+  "pointsAddressed": "Points Traités",
+  "followUpSuggested": "Suivi Suggéré"
+}

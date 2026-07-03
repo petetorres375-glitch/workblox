@@ -1,0 +1,17 @@
+{
+  "title": "<0>Người viết</0> Mô tả Công việc",
+  "subtitle": "Tạo một bản mô tả công việc hấp dẫn và đầy đủ để thu hút nhân tài hàng đầu.",
+  "jobTitlePlaceholder": "Chức danh công việc *",
+  "departmentPlaceholder": "Phòng ban",
+  "salaryRangePlaceholder": "Khoảng lương (ví dụ: 15–20 triệu VNĐ)",
+  "requirementsPlaceholder": "Yêu cầu và trách nhiệm chính *",
+  "companyInfoPlaceholder": "Mô tả ngắn gọn về công ty (tùy chọn)",
+  "write": "Viết Mô tả Công việc",
+  "writing": "Đang viết…",
+  "overview": "Tổng quan",
+  "copyAll": "Sao chép Tất cả",
+  "responsibilities": "Trách nhiệm",
+  "requirements": "Yêu cầu",
+  "niceToHave": "Ưu tiên (Không bắt buộc)",
+  "benefits": "Phúc lợi"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> de Politici",
+  "subtitle": "Creează politici profesionale pentru companie — HR, IT, muncă la distanță, concediu și multe altele.",
+  "policyTypePlaceholder": "Tipul politicii (ex. Politica de Muncă la Distanță, Politica de Concediu) *",
+  "companyNamePlaceholder": "Numele companiei",
+  "industryPlaceholder": "Industrie (ex. Tehnologie, Sănătate)",
+  "specificsPlaceholder": "Cerințe sau observații specifice (opțional)",
+  "generate": "Generează Politica",
+  "generating": "Se generează…",
+  "policyDocument": "Document de Politică",
+  "copyAll": "Copiază Tot",
+  "effective": "În vigoare de la: {{date}}",
+  "purpose": "Scop",
+  "scope": "Domeniu de Aplicare",
+  "acknowledgment": "Confirmare de Luare la Cunoștință",
+  "policyPrefix": "Politica"
+}

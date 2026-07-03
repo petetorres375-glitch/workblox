@@ -1,0 +1,40 @@
+{
+  "title": "Admin<0>panel</0>",
+  "subtitle": "Hantera kundkonton och aktiveringar.",
+  "killSwitch": {
+    "heading": "Nödstopp för Appar",
+    "description": "Inaktivera en app för alla användare direkt",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "PÅ",
+    "off": "AV",
+    "disablePersonal": "Inaktivera Personal",
+    "enablePersonal": "Aktivera Personal",
+    "disableBusiness": "Inaktivera Business",
+    "enableBusiness": "Aktivera Business"
+  },
+  "filters": {
+    "all": "Alla",
+    "pending": "Väntande",
+    "active": "Aktiva"
+  },
+  "loading": "Laddar användare…",
+  "noUsers": "Inga användare hittades.",
+  "joined": "Gick med {{date}}",
+  "status": {
+    "active": "Aktiv",
+    "pending": "Väntande"
+  },
+  "actions": {
+    "deactivate": "Inaktivera",
+    "activate": "Aktivera"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratis"
+  },
+  "planActions": {
+    "setFree": "Sätt till Gratis",
+    "setBusiness": "Sätt till Business"
+  }
+}

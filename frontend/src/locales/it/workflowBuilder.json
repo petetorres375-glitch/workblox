@@ -1,0 +1,10 @@
+{
+  "title": "Generatore di <0>Workflow</0>",
+  "subtitle": "Descrivi un'attività ripetitiva — ottieni uno script Python pronto all'uso.",
+  "placeholder": "ad es. rinomina tutte le foto in una cartella in base alla data dello scatto",
+  "build": "Genera",
+  "building": "Generazione in corso...",
+  "copy": "Copia",
+  "copied": "Copiato!",
+  "download": "Scarica"
+}

@@ -1,0 +1,25 @@
+{
+  "title": "문서 <0>분석기</0>",
+  "subtitle": "PDF, TXT, MD 파일을 업로드하면 구조화된 AI 요약을 받을 수 있습니다.",
+  "dropLabel": "파일을 여기에 놓거나 클릭하여 찾아보기",
+  "dropHint": "PDF, TXT, MD — 최대 10MB",
+  "analyze": "분석하기",
+  "analyzing": "분석 중...",
+  "sections": {
+    "summary": "요약",
+    "keyDataPoints": "주요 데이터 포인트",
+    "actionItems": "실행 항목",
+    "redFlags": "위험 신호"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "생성 중..."
+  },
+  "email": {
+    "placeholder": "보고서를 보낼 이메일 주소...",
+    "send": "보내기",
+    "sending": "전송 중...",
+    "sent": "{{email}}(으)로 보고서를 전송했습니다"
+  }
+}

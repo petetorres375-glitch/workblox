@@ -1,0 +1,15 @@
+{
+  "title": "<0>อีเมล</0>ขอรีวิว",
+  "subtitle": "เขียนอีเมลที่เป็นมิตรและเป็นธรรมชาติเพื่อขอให้ลูกค้าเขียนรีวิว",
+  "businessNamePlaceholder": "ชื่อธุรกิจของคุณ *",
+  "customerNamePlaceholder": "ชื่อลูกค้า (ไม่บังคับ)",
+  "serviceProvidedPlaceholder": "บริการหรือสินค้าที่ให้",
+  "platformsPlaceholder": "แพลตฟอร์มรีวิว (เช่น Google, Yelp)",
+  "write": "เขียนคำขอรีวิว",
+  "writing": "กำลังเขียน…",
+  "docTitle": "อีเมลขอรีวิว",
+  "subjectLine": "หัวข้ออีเมล",
+  "emailBody": "เนื้อหาอีเมล",
+  "copy": "คัดลอก",
+  "timingAdvice": "คำแนะนำเรื่องจังหวะเวลา"
+}

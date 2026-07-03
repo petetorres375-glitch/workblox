@@ -1,0 +1,25 @@
+{
+  "title": "Trình Phân Tích <0>Tài Liệu</0>",
+  "subtitle": "Tải lên tệp PDF, TXT hoặc MD — nhận bản tóm tắt AI có cấu trúc.",
+  "dropLabel": "Kéo thả tệp vào đây hoặc nhấp để duyệt",
+  "dropHint": "PDF, TXT hoặc MD — tối đa 10 MB",
+  "analyze": "Phân Tích",
+  "analyzing": "Đang phân tích...",
+  "sections": {
+    "summary": "Tóm Tắt",
+    "keyDataPoints": "Dữ Liệu Chính",
+    "actionItems": "Việc Cần Làm",
+    "redFlags": "Dấu Hiệu Cảnh Báo"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Đang tạo..."
+  },
+  "email": {
+    "placeholder": "Gửi báo cáo qua email đến...",
+    "send": "Gửi",
+    "sending": "Đang gửi...",
+    "sent": "Đã gửi báo cáo đến {{email}}"
+  }
+}

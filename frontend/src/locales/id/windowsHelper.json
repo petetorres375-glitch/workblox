@@ -1,0 +1,15 @@
+{
+  "title": "Asisten <0>Windows</0>",
+  "subtitle": "Jelaskan masalah Windows Anda dengan bahasa sehari-hari — dapatkan perintah PowerShell yang tepat.",
+  "placeholder": "mis. menampilkan semua proses yang berjalan diurutkan berdasarkan penggunaan CPU",
+  "ask": "Tanya",
+  "thinking": "Sedang berpikir...",
+  "result": {
+    "guiSteps": "Langkah-langkah GUI",
+    "command": "Perintah",
+    "copy": "Salin",
+    "copied": "Tersalin!",
+    "explanation": "Penjelasan",
+    "warnings": "Peringatan"
+  }
+}

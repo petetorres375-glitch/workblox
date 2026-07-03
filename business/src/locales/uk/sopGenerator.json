@@ -1,0 +1,17 @@
+{
+  "title": "<0>Генератор</0> СОП",
+  "subtitle": "Створюйте чіткі, практичні стандартні операційні процедури (СОП) для будь-якого бізнес-процесу.",
+  "processNamePlaceholder": "Назва процесу (напр. Адаптація клієнтів) *",
+  "departmentPlaceholder": "Відділ",
+  "frequencyPlaceholder": "Періодичність (напр. Щодня, Щотижня, На кожного нового клієнта)",
+  "descriptionPlaceholder": "Опис процесу *",
+  "generate": "Створити СОП",
+  "generating": "Створення…",
+  "overview": "Огляд",
+  "frequencyLabel": "Періодичність: {{frequency}}",
+  "requiredTools": "Необхідні Інструменти / Ресурси",
+  "steps": "Кроки",
+  "stepLabel": "Крок {{number}}: {{action}}",
+  "qualityChecks": "Перевірки Якості",
+  "notes": "Примітки"
+}

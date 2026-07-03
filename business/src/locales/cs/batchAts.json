@@ -1,0 +1,17 @@
+{
+  "title": "Hromadný ATS <0>Analyzátor</0>",
+  "subtitle": "Nahrajte až 10 životopisů a najednou je porovnejte s popisem pracovní pozice.",
+  "dropLabel": "Přetáhněte sem životopisy nebo klikněte pro procházení",
+  "resumesSelected_one": "Vybrán {{count}} životopis",
+  "resumesSelected_other": "Vybráno {{count}} životopisů",
+  "dropHint": "PDF, DOCX nebo TXT · až 10 souborů",
+  "jobDescriptionPlaceholder": "Popis pracovní pozice (vložte sem pro lepší shodu)",
+  "analyzeAll": "Analyzovat Všechny Životopisy",
+  "analyzingCount_one": "Analyzuje se {{count}} životopis…",
+  "analyzingCount_other": "Analyzuje se {{count}} životopisů…",
+  "resumesAnalyzed_one": "Analyzován {{count}} životopis",
+  "resumesAnalyzed_other": "Analyzováno {{count}} životopisů",
+  "errorLabel": "Chyba: {{error}}",
+  "strengths": "Silné Stránky",
+  "concerns": "Slabá Místa"
+}

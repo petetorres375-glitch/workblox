@@ -1,0 +1,35 @@
+{
+  "title": "ATS<0>アナライザー</0>",
+  "subtitle": "履歴書をアップロードすると、ATSスコア、不足キーワード、改善提案がすぐに表示されます。",
+  "dropZone": {
+    "label": "ここに履歴書をドロップ、またはクリックして選択",
+    "hint": "TXT、PDF、またはDOCX — 最大5MB"
+  },
+  "clientNamePlaceholder": "クライアント名（任意）",
+  "jobRolePlaceholder": "希望職種（任意）",
+  "submit": "履歴書を分析",
+  "analyzing": "分析中...",
+  "score": {
+    "outOf100": "/ 100点",
+    "keywordsFound": "{{found}} / {{total}} 個のキーワードが見つかりました"
+  },
+  "contactCheck": {
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "linkedin": "LinkedIn",
+    "location": "所在地"
+  },
+  "recommendations": "改善提案",
+  "keywordBreakdown": "キーワード内訳",
+  "moreKeywords": "他 {{count}} 件",
+  "jobMatch": {
+    "title": "職種マッチ度：{{role}}",
+    "matched": "{{score}} / {{total}} 個のキーワードが一致"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "生成中..."
+  }
+}

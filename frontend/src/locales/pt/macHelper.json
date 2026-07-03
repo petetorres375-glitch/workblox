@@ -1,0 +1,15 @@
+{
+  "title": "Assistente de <0>Mac</0>",
+  "subtitle": "Descreva um problema do macOS em linguagem simples — receba o comando do Terminal de volta.",
+  "placeholder": "ex.: mostrar o uso de disco de cada pasta no meu diretório pessoal",
+  "ask": "Perguntar",
+  "thinking": "Pensando...",
+  "result": {
+    "guiSteps": "Passos na interface gráfica",
+    "command": "Comando",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "explanation": "Explicação",
+    "warnings": "Avisos"
+  }
+}

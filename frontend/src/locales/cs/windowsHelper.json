@@ -1,0 +1,15 @@
+{
+  "title": "Asistent pro <0>Windows</0>",
+  "subtitle": "Popište problém s Windows běžnými slovy — okamžitě dostanete potřebný příkaz PowerShellu.",
+  "placeholder": "např. vypsat všechny běžící procesy seřazené podle vytížení procesoru",
+  "ask": "Zeptat se",
+  "thinking": "Přemýšlím...",
+  "result": {
+    "guiSteps": "Postup přes grafické rozhraní",
+    "command": "Příkaz",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno!",
+    "explanation": "Vysvětlení",
+    "warnings": "Upozornění"
+  }
+}

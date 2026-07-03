@@ -1,0 +1,17 @@
+{
+  "title": "Rédacteur de <0>Fiches</0> de Poste",
+  "subtitle": "Créez une fiche de poste complète et convaincante pour attirer les meilleurs talents.",
+  "jobTitlePlaceholder": "Intitulé du poste *",
+  "departmentPlaceholder": "Service",
+  "salaryRangePlaceholder": "Fourchette salariale (p. ex. 60k–80k €)",
+  "requirementsPlaceholder": "Principales exigences et responsabilités *",
+  "companyInfoPlaceholder": "Brève description de l'entreprise (facultatif)",
+  "write": "Rédiger la Fiche de Poste",
+  "writing": "Rédaction…",
+  "overview": "Aperçu",
+  "copyAll": "Tout Copier",
+  "responsibilities": "Responsabilités",
+  "requirements": "Exigences",
+  "niceToHave": "Atouts Appréciés",
+  "benefits": "Avantages"
+}

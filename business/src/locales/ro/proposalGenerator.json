@@ -1,0 +1,22 @@
+{
+  "title": "Generator de <0>Oferte</0>",
+  "subtitle": "Creează oferte și cotații profesionale pentru clienți.",
+  "clientNamePlaceholder": "Numele clientului",
+  "projectDescriptionPlaceholder": "Descrierea proiectului *",
+  "servicesPlaceholder": "Servicii de inclus",
+  "budgetRangePlaceholder": "Interval de buget (de ex. $5,000–$10,000)",
+  "timelinePlaceholder": "Termen de execuție (de ex. 4–6 săptămâni)",
+  "generate": "Generează Oferta",
+  "generating": "Se generează…",
+  "executiveSummary": "Rezumat Executiv",
+  "scopeOfWork": "Domeniul Lucrărilor",
+  "deliverables": "Livrabile",
+  "lineItems": "Poziții din Ofertă",
+  "table": {
+    "description": "Descriere",
+    "qty": "Cant.",
+    "unitPrice": "Preț Unitar",
+    "total": "Total"
+  },
+  "terms": "Termeni"
+}

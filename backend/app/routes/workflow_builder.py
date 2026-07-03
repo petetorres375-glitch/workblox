@@ -32,6 +32,7 @@ Return only valid JSON. No markdown fences, no extra text.
 def workflow_builder():
     body = request.get_json(silent=True) or {}
     task = (body.get("task") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not task:
         return jsonify({"error": "task is required"}), 400
     try:
@@ -40,6 +41,7 @@ def workflow_builder():
             user_message=f"Task: {task}",
             model="claude-haiku-4-5-20251001",
             max_tokens=2048,
+            language=language,
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500

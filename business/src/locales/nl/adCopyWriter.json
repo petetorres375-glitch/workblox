@@ -1,0 +1,22 @@
+{
+  "title": "Advertentietekst-<0>Schrijver</0>",
+  "subtitle": "Genereer converterende advertentieteksten met meerdere variaties van koppen en beschrijvingen.",
+  "productServicePlaceholder": "Product of dienst *",
+  "targetAudiencePlaceholder": "Doelgroep (bijv. kleine ondernemers, 25–45 jaar)",
+  "uniqueValuePlaceholder": "Unieke waardepropositie",
+  "goalOptions": {
+    "conversions": "Conversies",
+    "awareness": "Naamsbekendheid",
+    "leads": "Leads",
+    "traffic": "Verkeer",
+    "app installs": "App-installaties"
+  },
+  "write": "Advertentietekst Schrijven",
+  "writing": "Bezig met schrijven…",
+  "docTitle": "Advertentietekst",
+  "copy": "Kopiëren",
+  "headlines": "Koppen",
+  "descriptions": "Beschrijvingen",
+  "ctaOptions": "Call-to-Action-opties",
+  "valuePropositions": "Waardeproposities"
+}

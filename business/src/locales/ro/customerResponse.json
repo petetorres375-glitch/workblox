@@ -1,0 +1,20 @@
+{
+  "title": "Răspuns către <0>Clienți</0>",
+  "subtitle": "Redactează răspunsuri profesionale și empatice la mesajele și reclamațiile clienților.",
+  "customerMessagePlaceholder": "Inserează mesajul clientului *",
+  "contextPlaceholder": "Context (de ex. ce s-a întâmplat, detalii despre comandă etc.)",
+  "tone": {
+    "professional": "Profesional",
+    "empathetic": "Empatic",
+    "apologetic": "De scuze",
+    "firm": "Ferm",
+    "friendly": "Prietenos"
+  },
+  "draft": "Redactează Răspunsul",
+  "drafting": "Se redactează…",
+  "subjectLine": "Subiect",
+  "responseDraft": "Ciornă de Răspuns",
+  "copy": "Copiază",
+  "pointsAddressed": "Puncte Abordate",
+  "followUpSuggested": "Recomandare de Urmărire"
+}

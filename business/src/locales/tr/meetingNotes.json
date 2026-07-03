@@ -1,0 +1,14 @@
+{
+  "title": "Toplantı Notu <0>Düzenleyici</0>",
+  "subtitle": "Dağınık toplantı notlarınızı yapıştırın, eylem maddeleriyle birlikte düzenli ve yapılandırılmış bir özet alın.",
+  "contextPlaceholder": "Toplantı bağlamı (örn. Ç3 planlaması, müşteri başlangıç toplantısı)",
+  "rawNotesPlaceholder": "Ham toplantı notlarınızı buraya yapıştırın *",
+  "clean": "Toplantı Notlarını Düzenle",
+  "cleaning": "Düzenleniyor…",
+  "summary": "Özet",
+  "copyAll": "Tümünü Kopyala",
+  "decisionsMade": "Alınan Kararlar",
+  "actionItems": "Eylem Maddeleri",
+  "nextSteps": "Sonraki Adımlar",
+  "followUpMeeting": "Takip Toplantısı"
+}

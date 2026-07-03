@@ -1,0 +1,17 @@
+{
+  "title": "Analizor ATS <0>în Lot</0>",
+  "subtitle": "Încarcă până la 10 CV-uri și evaluează-le pe toate față de o descriere a postului deodată.",
+  "dropLabel": "Trage CV-urile aici sau apasă pentru a răsfoi",
+  "resumesSelected_one": "{{count}} CV selectat",
+  "resumesSelected_other": "{{count}} CV-uri selectate",
+  "dropHint": "PDF, DOCX sau TXT · până la 10 fișiere",
+  "jobDescriptionPlaceholder": "Descrierea postului (lipește aici pentru o potrivire mai bună)",
+  "analyzeAll": "Analizează Toate CV-urile",
+  "analyzingCount_one": "Se analizează {{count}} CV…",
+  "analyzingCount_other": "Se analizează {{count}} CV-uri…",
+  "resumesAnalyzed_one": "{{count}} CV analizat",
+  "resumesAnalyzed_other": "{{count}} CV-uri analizate",
+  "errorLabel": "Eroare: {{error}}",
+  "strengths": "Puncte Forte",
+  "concerns": "Aspecte de Îngrijorare"
+}

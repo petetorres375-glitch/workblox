@@ -1,0 +1,22 @@
+{
+  "title": "Offert<0>generator</0>",
+  "subtitle": "Skapa professionella offerter och prisförslag för kunder.",
+  "clientNamePlaceholder": "Kundens namn",
+  "projectDescriptionPlaceholder": "Projektbeskrivning *",
+  "servicesPlaceholder": "Tjänster att inkludera",
+  "budgetRangePlaceholder": "Budgetintervall (t.ex. $5,000–$10,000)",
+  "timelinePlaceholder": "Tidslinje (t.ex. 4–6 veckor)",
+  "generate": "Generera Offert",
+  "generating": "Genererar…",
+  "executiveSummary": "Sammanfattning",
+  "scopeOfWork": "Arbetsomfattning",
+  "deliverables": "Leveranser",
+  "lineItems": "Radposter",
+  "table": {
+    "description": "Beskrivning",
+    "qty": "Antal",
+    "unitPrice": "Á-pris",
+    "total": "Totalt"
+  },
+  "terms": "Villkor"
+}

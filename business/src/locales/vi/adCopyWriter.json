@@ -1,0 +1,22 @@
+{
+  "title": "<0>Trình Soạn</0> Nội Dung Quảng Cáo",
+  "subtitle": "Tạo nội dung quảng cáo chuyển đổi cao với nhiều biến thể tiêu đề và mô tả.",
+  "productServicePlaceholder": "Sản phẩm hoặc dịch vụ *",
+  "targetAudiencePlaceholder": "Đối tượng mục tiêu (vd. chủ doanh nghiệp nhỏ, 25–45 tuổi)",
+  "uniqueValuePlaceholder": "Đề xuất giá trị độc đáo",
+  "goalOptions": {
+    "conversions": "Chuyển đổi",
+    "awareness": "Nhận diện thương hiệu",
+    "leads": "Khách hàng tiềm năng",
+    "traffic": "Lưu lượng truy cập",
+    "app installs": "Lượt cài đặt ứng dụng"
+  },
+  "write": "Soạn Nội Dung Quảng Cáo",
+  "writing": "Đang soạn…",
+  "docTitle": "Nội Dung Quảng Cáo",
+  "copy": "Sao Chép",
+  "headlines": "Tiêu Đề",
+  "descriptions": "Mô Tả",
+  "ctaOptions": "Tùy Chọn Kêu Gọi Hành Động",
+  "valuePropositions": "Đề Xuất Giá Trị"
+}

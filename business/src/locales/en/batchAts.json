@@ -1,0 +1,17 @@
+{
+  "title": "Batch ATS <0>Analyzer</0>",
+  "subtitle": "Upload up to 10 resumes and screen them all against a job description at once.",
+  "dropLabel": "Drop resumes here or click to browse",
+  "resumesSelected_one": "{{count}} resume selected",
+  "resumesSelected_other": "{{count}} resumes selected",
+  "dropHint": "PDF, DOCX, or TXT · up to 10 files",
+  "jobDescriptionPlaceholder": "Job description (paste here for better matching)",
+  "analyzeAll": "Analyze All Resumes",
+  "analyzingCount_one": "Analyzing {{count}} resume…",
+  "analyzingCount_other": "Analyzing {{count}} resumes…",
+  "resumesAnalyzed_one": "{{count}} resume analyzed",
+  "resumesAnalyzed_other": "{{count}} resumes analyzed",
+  "errorLabel": "Error: {{error}}",
+  "strengths": "Strengths",
+  "concerns": "Concerns"
+}

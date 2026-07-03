@@ -1,0 +1,17 @@
+{
+  "title": "Analizador ATS <0>por Lotes</0>",
+  "subtitle": "Sube hasta 10 currículums y analízalos todos frente a una descripción de puesto a la vez.",
+  "dropLabel": "Suelta los currículums aquí o haz clic para buscarlos",
+  "resumesSelected_one": "{{count}} currículum seleccionado",
+  "resumesSelected_other": "{{count}} currículums seleccionados",
+  "dropHint": "PDF, DOCX o TXT · hasta 10 archivos",
+  "jobDescriptionPlaceholder": "Descripción del puesto (pégala aquí para una mejor coincidencia)",
+  "analyzeAll": "Analizar Todos los Currículums",
+  "analyzingCount_one": "Analizando {{count}} currículum…",
+  "analyzingCount_other": "Analizando {{count}} currículums…",
+  "resumesAnalyzed_one": "{{count}} currículum analizado",
+  "resumesAnalyzed_other": "{{count}} currículums analizados",
+  "errorLabel": "Error: {{error}}",
+  "strengths": "Fortalezas",
+  "concerns": "Preocupaciones"
+}

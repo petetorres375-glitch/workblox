@@ -1,0 +1,25 @@
+{
+  "title": "Doc <0>Analyzer</0>",
+  "subtitle": "Upload a PDF, TXT, or MD file — get a structured AI summary.",
+  "dropLabel": "Drop a file here or click to browse",
+  "dropHint": "PDF, TXT, or MD — max 10 MB",
+  "analyze": "Analyze",
+  "analyzing": "Analyzing...",
+  "sections": {
+    "summary": "Summary",
+    "keyDataPoints": "Key Data Points",
+    "actionItems": "Action Items",
+    "redFlags": "Red Flags"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Generating..."
+  },
+  "email": {
+    "placeholder": "Email the report to...",
+    "send": "Send",
+    "sending": "Sending...",
+    "sent": "Report sent to {{email}}"
+  }
+}

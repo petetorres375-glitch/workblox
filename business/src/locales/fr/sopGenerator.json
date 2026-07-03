@@ -1,0 +1,17 @@
+{
+  "title": "Générateur de <0>SOP</0>",
+  "subtitle": "Créez des procédures opérationnelles normalisées claires et exploitables pour tout processus métier.",
+  "processNamePlaceholder": "Nom du processus (ex. Intégration des clients) *",
+  "departmentPlaceholder": "Service",
+  "frequencyPlaceholder": "Fréquence (ex. Quotidienne, Hebdomadaire, Par nouveau client)",
+  "descriptionPlaceholder": "Description du processus *",
+  "generate": "Générer le SOP",
+  "generating": "Génération en cours…",
+  "overview": "Aperçu",
+  "frequencyLabel": "Fréquence : {{frequency}}",
+  "requiredTools": "Outils / Ressources Nécessaires",
+  "steps": "Étapes",
+  "stepLabel": "Étape {{number}} : {{action}}",
+  "qualityChecks": "Contrôles Qualité",
+  "notes": "Notes"
+}

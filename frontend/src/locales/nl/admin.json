@@ -1,0 +1,40 @@
+{
+  "title": "Beheer<0>paneel</0>",
+  "subtitle": "Beheer klantaccounts en activeringen.",
+  "killSwitch": {
+    "heading": "App-noodschakelaar",
+    "description": "Schakel direct een app uit voor alle gebruikers",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AAN",
+    "off": "UIT",
+    "disablePersonal": "Personal uitschakelen",
+    "enablePersonal": "Personal inschakelen",
+    "disableBusiness": "Business uitschakelen",
+    "enableBusiness": "Business inschakelen"
+  },
+  "filters": {
+    "all": "Alle",
+    "pending": "In Behandeling",
+    "active": "Actief"
+  },
+  "loading": "Gebruikers laden…",
+  "noUsers": "Geen gebruikers gevonden.",
+  "joined": "Lid geworden op {{date}}",
+  "status": {
+    "active": "Actief",
+    "pending": "In Behandeling"
+  },
+  "actions": {
+    "deactivate": "Deactiveren",
+    "activate": "Activeren"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratis"
+  },
+  "planActions": {
+    "setFree": "Instellen op Gratis",
+    "setBusiness": "Instellen op Business"
+  }
+}

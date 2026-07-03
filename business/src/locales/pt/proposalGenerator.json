@@ -1,0 +1,22 @@
+{
+  "title": "Gerador de <0>Propostas</0>",
+  "subtitle": "Crie propostas e orçamentos profissionais para clientes.",
+  "clientNamePlaceholder": "Nome do cliente",
+  "projectDescriptionPlaceholder": "Descrição do projeto *",
+  "servicesPlaceholder": "Serviços a incluir",
+  "budgetRangePlaceholder": "Faixa de orçamento (ex.: $5,000–$10,000)",
+  "timelinePlaceholder": "Prazo (ex.: 4–6 semanas)",
+  "generate": "Gerar Proposta",
+  "generating": "Gerando…",
+  "executiveSummary": "Resumo Executivo",
+  "scopeOfWork": "Escopo do Trabalho",
+  "deliverables": "Entregáveis",
+  "lineItems": "Itens de Linha",
+  "table": {
+    "description": "Descrição",
+    "qty": "Qtd.",
+    "unitPrice": "Preço Unitário",
+    "total": "Total"
+  },
+  "terms": "Termos"
+}

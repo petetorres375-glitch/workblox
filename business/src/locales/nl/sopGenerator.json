@@ -1,0 +1,17 @@
+{
+  "title": "SOP-<0>Generator</0>",
+  "subtitle": "Creëer duidelijke, uitvoerbare standaardwerkprocedures (SOP's) voor elk bedrijfsproces.",
+  "processNamePlaceholder": "Procesnaam (bijv. Klantonboarding) *",
+  "departmentPlaceholder": "Afdeling",
+  "frequencyPlaceholder": "Frequentie (bijv. Dagelijks, Wekelijks, Per nieuwe klant)",
+  "descriptionPlaceholder": "Beschrijving van het proces *",
+  "generate": "SOP Genereren",
+  "generating": "Bezig met genereren…",
+  "overview": "Overzicht",
+  "frequencyLabel": "Frequentie: {{frequency}}",
+  "requiredTools": "Benodigde Tools / Middelen",
+  "steps": "Stappen",
+  "stepLabel": "Stap {{number}}: {{action}}",
+  "qualityChecks": "Kwaliteitscontroles",
+  "notes": "Notities"
+}

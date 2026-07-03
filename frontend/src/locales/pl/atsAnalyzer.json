@@ -1,0 +1,35 @@
+{
+  "title": "Analizator <0>ATS</0>",
+  "subtitle": "Prześlij CV — uzyskaj natychmiastowy wynik ATS, brakujące słowa kluczowe i rekomendacje.",
+  "dropZone": {
+    "label": "Upuść CV tutaj lub kliknij, aby wybrać plik",
+    "hint": "TXT, PDF lub DOCX — maks. 5 MB"
+  },
+  "clientNamePlaceholder": "Imię i nazwisko klienta (opcjonalnie)",
+  "jobRolePlaceholder": "Stanowisko (opcjonalnie)",
+  "submit": "Analizuj CV",
+  "analyzing": "Analizowanie...",
+  "score": {
+    "outOf100": "na 100",
+    "keywordsFound": "Znaleziono {{found}} / {{total}} słów kluczowych"
+  },
+  "contactCheck": {
+    "email": "E-mail",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Lokalizacja"
+  },
+  "recommendations": "Rekomendacje",
+  "keywordBreakdown": "Podział słów kluczowych",
+  "moreKeywords": "+{{count}} więcej",
+  "jobMatch": {
+    "title": "Dopasowanie do stanowiska: {{role}}",
+    "matched": "Dopasowano {{score}} / {{total}} słów kluczowych"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Generowanie..."
+  }
+}

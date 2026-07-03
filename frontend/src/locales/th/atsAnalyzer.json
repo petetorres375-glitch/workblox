@@ -1,0 +1,35 @@
+{
+  "title": "เครื่องมือ<0>วิเคราะห์ ATS</0>",
+  "subtitle": "อัปโหลดเรซูเม่ — รับคะแนน ATS คำสำคัญที่ขาดหาย และคำแนะนำได้ทันที",
+  "dropZone": {
+    "label": "ลากเรซูเม่มาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์",
+    "hint": "TXT, PDF หรือ DOCX — สูงสุด 5 MB"
+  },
+  "clientNamePlaceholder": "ชื่อลูกค้า (ไม่บังคับ)",
+  "jobRolePlaceholder": "ตำแหน่งงาน (ไม่บังคับ)",
+  "submit": "วิเคราะห์เรซูเม่",
+  "analyzing": "กำลังวิเคราะห์...",
+  "score": {
+    "outOf100": "จาก 100 คะแนน",
+    "keywordsFound": "พบคำสำคัญ {{found}} / {{total}} คำ"
+  },
+  "contactCheck": {
+    "email": "อีเมล",
+    "phone": "โทรศัพท์",
+    "linkedin": "LinkedIn",
+    "location": "ที่อยู่"
+  },
+  "recommendations": "คำแนะนำ",
+  "keywordBreakdown": "รายละเอียดคำสำคัญ",
+  "moreKeywords": "+อีก {{count}} คำ",
+  "jobMatch": {
+    "title": "ความเหมาะสมกับตำแหน่ง: {{role}}",
+    "matched": "ตรงกัน {{score}} / {{total}} คำสำคัญ"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "กำลังสร้าง..."
+  }
+}

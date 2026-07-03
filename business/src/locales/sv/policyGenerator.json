@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> för Policyer",
+  "subtitle": "Skapa professionella företagspolicyer — HR, IT, distansarbete, semester och mer.",
+  "policyTypePlaceholder": "Typ av policy (t.ex. Policy för Distansarbete, Semesterpolicy) *",
+  "companyNamePlaceholder": "Företagsnamn",
+  "industryPlaceholder": "Bransch (t.ex. Teknik, Sjukvård)",
+  "specificsPlaceholder": "Specifika krav eller anteckningar (valfritt)",
+  "generate": "Generera Policy",
+  "generating": "Genererar…",
+  "policyDocument": "Policydokument",
+  "copyAll": "Kopiera Allt",
+  "effective": "Gäller från: {{date}}",
+  "purpose": "Syfte",
+  "scope": "Omfattning",
+  "acknowledgment": "Bekräftelse",
+  "policyPrefix": "Policy"
+}

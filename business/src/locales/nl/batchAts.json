@@ -1,0 +1,17 @@
+{
+  "title": "Batch ATS <0>Analyzer</0>",
+  "subtitle": "Upload tot 10 cv's en screen ze allemaal in één keer tegen een functieomschrijving.",
+  "dropLabel": "Sleep cv's hierheen of klik om te bladeren",
+  "resumesSelected_one": "{{count}} cv geselecteerd",
+  "resumesSelected_other": "{{count}} cv's geselecteerd",
+  "dropHint": "PDF, DOCX of TXT · tot 10 bestanden",
+  "jobDescriptionPlaceholder": "Functieomschrijving (plak hier voor een betere match)",
+  "analyzeAll": "Alle Cv's Analyseren",
+  "analyzingCount_one": "{{count}} cv wordt geanalyseerd…",
+  "analyzingCount_other": "{{count}} cv's worden geanalyseerd…",
+  "resumesAnalyzed_one": "{{count}} cv geanalyseerd",
+  "resumesAnalyzed_other": "{{count}} cv's geanalyseerd",
+  "errorLabel": "Fout: {{error}}",
+  "strengths": "Sterke Punten",
+  "concerns": "Aandachtspunten"
+}

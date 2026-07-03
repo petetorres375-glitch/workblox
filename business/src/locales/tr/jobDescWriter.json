@@ -1,0 +1,17 @@
+{
+  "title": "İş Tanımı <0>Yazarı</0>",
+  "subtitle": "En iyi yetenekleri çekecek etkileyici ve eksiksiz bir iş tanımı oluşturun.",
+  "jobTitlePlaceholder": "İş unvanı *",
+  "departmentPlaceholder": "Departman",
+  "salaryRangePlaceholder": "Maaş aralığı (örn. 30.000–45.000 TL)",
+  "requirementsPlaceholder": "Temel gereksinimler ve sorumluluklar *",
+  "companyInfoPlaceholder": "Kısa şirket açıklaması (isteğe bağlı)",
+  "write": "İş Tanımı Yaz",
+  "writing": "Yazılıyor…",
+  "overview": "Genel Bakış",
+  "copyAll": "Tümünü Kopyala",
+  "responsibilities": "Sorumluluklar",
+  "requirements": "Gereksinimler",
+  "niceToHave": "Artı Değer Sağlayacak Özellikler",
+  "benefits": "Yan Haklar"
+}

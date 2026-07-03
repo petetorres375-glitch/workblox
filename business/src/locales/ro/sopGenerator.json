@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generator</0> de PSO",
+  "subtitle": "Creați proceduri standard de operare (PSO) clare și aplicabile pentru orice proces de afaceri.",
+  "processNamePlaceholder": "Numele procesului (ex. Integrare clienți noi) *",
+  "departmentPlaceholder": "Departament",
+  "frequencyPlaceholder": "Frecvență (ex. Zilnic, Săptămânal, Per client nou)",
+  "descriptionPlaceholder": "Descrierea procesului *",
+  "generate": "Generează PSO",
+  "generating": "Se generează…",
+  "overview": "Prezentare Generală",
+  "frequencyLabel": "Frecvență: {{frequency}}",
+  "requiredTools": "Instrumente / Resurse Necesare",
+  "steps": "Pași",
+  "stepLabel": "Pasul {{number}}: {{action}}",
+  "qualityChecks": "Verificări de Calitate",
+  "notes": "Note"
+}

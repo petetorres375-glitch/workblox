@@ -1,0 +1,17 @@
+{
+  "title": "<0>Generatore</0> di Policy",
+  "subtitle": "Crea policy aziendali professionali — HR, IT, lavoro da remoto, ferie e altro ancora.",
+  "policyTypePlaceholder": "Tipo di policy (es. Policy sul Lavoro da Remoto, Policy sulle Ferie) *",
+  "companyNamePlaceholder": "Nome dell'azienda",
+  "industryPlaceholder": "Settore (es. Tecnologia, Sanità)",
+  "specificsPlaceholder": "Requisiti o note specifiche (facoltativo)",
+  "generate": "Genera Policy",
+  "generating": "Generazione in corso…",
+  "policyDocument": "Documento della Policy",
+  "copyAll": "Copia Tutto",
+  "effective": "In vigore dal: {{date}}",
+  "purpose": "Finalità",
+  "scope": "Ambito di Applicazione",
+  "acknowledgment": "Presa d'Atto",
+  "policyPrefix": "Policy"
+}

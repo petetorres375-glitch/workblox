@@ -1,0 +1,17 @@
+{
+  "title": "政策<0>生成器</0>",
+  "subtitle": "创建专业的公司政策——人力资源、IT、远程办公、带薪休假等。",
+  "policyTypePlaceholder": "政策类型(例如:远程办公政策、带薪休假政策)*",
+  "companyNamePlaceholder": "公司名称",
+  "industryPlaceholder": "行业(例如:科技、医疗保健)",
+  "specificsPlaceholder": "具体要求或备注(可选)",
+  "generate": "生成政策",
+  "generating": "正在生成…",
+  "policyDocument": "政策文件",
+  "copyAll": "全部复制",
+  "effective": "生效日期:{{date}}",
+  "purpose": "目的",
+  "scope": "适用范围",
+  "acknowledgment": "确认",
+  "policyPrefix": "政策"
+}

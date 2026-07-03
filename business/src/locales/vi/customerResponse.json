@@ -1,0 +1,20 @@
+{
+  "title": "<0>Phản hồi</0> Khách hàng",
+  "subtitle": "Soạn thảo các phản hồi chuyên nghiệp, thấu cảm cho tin nhắn và khiếu nại của khách hàng.",
+  "customerMessagePlaceholder": "Dán tin nhắn của khách hàng *",
+  "contextPlaceholder": "Bối cảnh (vd. chuyện gì đã xảy ra, chi tiết đơn hàng, v.v.)",
+  "tone": {
+    "professional": "Chuyên nghiệp",
+    "empathetic": "Thấu cảm",
+    "apologetic": "Xin lỗi",
+    "firm": "Cứng rắn",
+    "friendly": "Thân thiện"
+  },
+  "draft": "Soạn Phản Hồi",
+  "drafting": "Đang soạn…",
+  "subjectLine": "Tiêu Đề Email",
+  "responseDraft": "Bản Nháp Phản Hồi",
+  "copy": "Sao Chép",
+  "pointsAddressed": "Các Điểm Đã Giải Quyết",
+  "followUpSuggested": "Theo Dõi Được Đề Xuất"
+}

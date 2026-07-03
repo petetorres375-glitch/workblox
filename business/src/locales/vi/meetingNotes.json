@@ -1,0 +1,14 @@
+{
+  "title": "<0>Công cụ Dọn dẹp</0> Ghi chú Cuộc họp",
+  "subtitle": "Dán ghi chú cuộc họp lộn xộn và nhận bản tóm tắt rõ ràng, có cấu trúc cùng các mục hành động.",
+  "contextPlaceholder": "Bối cảnh cuộc họp (vd: lập kế hoạch Quý 3, khởi động dự án với khách hàng)",
+  "rawNotesPlaceholder": "Dán ghi chú cuộc họp thô của bạn vào đây *",
+  "clean": "Dọn dẹp Ghi chú Cuộc họp",
+  "cleaning": "Đang dọn dẹp…",
+  "summary": "Tóm tắt",
+  "copyAll": "Sao chép Tất cả",
+  "decisionsMade": "Quyết định Đã đưa ra",
+  "actionItems": "Mục Hành động",
+  "nextSteps": "Các Bước Tiếp theo",
+  "followUpMeeting": "Cuộc họp Theo dõi"
+}

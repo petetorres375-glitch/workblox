@@ -1,0 +1,17 @@
+{
+  "title": "كاتب <0>الوصف الوظيفي</0>",
+  "subtitle": "أنشئ وصفًا وظيفيًا كاملاً وجذابًا يستقطب أفضل الكفاءات.",
+  "jobTitlePlaceholder": "المسمى الوظيفي *",
+  "departmentPlaceholder": "القسم",
+  "salaryRangePlaceholder": "نطاق الراتب (مثال: $60k–$80k)",
+  "requirementsPlaceholder": "المتطلبات والمسؤوليات الرئيسية *",
+  "companyInfoPlaceholder": "وصف موجز عن الشركة (اختياري)",
+  "write": "كتابة الوصف الوظيفي",
+  "writing": "جارٍ الكتابة…",
+  "overview": "نظرة عامة",
+  "copyAll": "نسخ الكل",
+  "responsibilities": "المسؤوليات",
+  "requirements": "المتطلبات",
+  "niceToHave": "مهارات إضافية مفضلة",
+  "benefits": "المزايا"
+}

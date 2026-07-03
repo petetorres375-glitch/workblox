@@ -1,0 +1,15 @@
+{
+  "title": "Asistent pro <0>Linux</0>",
+  "subtitle": "Popište problém s Linuxem běžnými slovy — okamžitě dostanete potřebný příkaz.",
+  "placeholder": "např. najít všechny soubory .log změněné za posledních 7 dní",
+  "ask": "Zeptat se",
+  "thinking": "Přemýšlím...",
+  "result": {
+    "guiSteps": "Postup přes grafické rozhraní",
+    "command": "Příkaz",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno!",
+    "explanation": "Vysvětlení",
+    "warnings": "Upozornění"
+  }
+}

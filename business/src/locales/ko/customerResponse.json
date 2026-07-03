@@ -1,0 +1,20 @@
+{
+  "title": "고객 <0>응대</0>",
+  "subtitle": "고객의 메시지와 불만 사항에 전문적이고 공감 어린 답변을 작성하세요.",
+  "customerMessagePlaceholder": "고객의 메시지를 붙여넣으세요 *",
+  "contextPlaceholder": "상황 설명 (예: 발생한 일, 주문 정보 등)",
+  "tone": {
+    "professional": "전문적",
+    "empathetic": "공감적",
+    "apologetic": "사과하는",
+    "firm": "단호한",
+    "friendly": "친근한"
+  },
+  "draft": "답변 작성",
+  "drafting": "작성 중…",
+  "subjectLine": "제목",
+  "responseDraft": "답변 초안",
+  "copy": "복사",
+  "pointsAddressed": "다룬 사항",
+  "followUpSuggested": "제안된 후속 조치"
+}

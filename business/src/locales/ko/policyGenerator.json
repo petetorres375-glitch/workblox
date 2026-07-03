@@ -1,0 +1,17 @@
+{
+  "title": "정책 <0>생성기</0>",
+  "subtitle": "인사, IT, 재택근무, 유급휴가 등 전문적인 회사 정책을 작성하세요.",
+  "policyTypePlaceholder": "정책 유형 (예: 재택근무 정책, 유급휴가 정책) *",
+  "companyNamePlaceholder": "회사명",
+  "industryPlaceholder": "업종 (예: 기술, 의료)",
+  "specificsPlaceholder": "구체적인 요구사항 또는 참고사항 (선택 사항)",
+  "generate": "정책 생성",
+  "generating": "생성 중…",
+  "policyDocument": "정책 문서",
+  "copyAll": "전체 복사",
+  "effective": "시행일: {{date}}",
+  "purpose": "목적",
+  "scope": "적용 범위",
+  "acknowledgment": "확인 및 동의",
+  "policyPrefix": "정책"
+}

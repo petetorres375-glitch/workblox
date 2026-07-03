@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { postForm } from "../../api/client";
 import ReportToolbar from "../ui/ReportToolbar";
@@ -33,6 +34,7 @@ function buildMd(data) {
 }
 
 export default function BatchATSAnalyzer() {
+  const { t, i18n } = useTranslation("batchAts");
   const { loading, error, call } = useApi();
   const [files, setFiles] = useState([]);
   const [jobDescription, setJobDescription] = useState("");
@@ -50,14 +52,15 @@ export default function BatchATSAnalyzer() {
     const fd = new FormData();
     files.forEach(f => fd.append("resumes", f));
     fd.append("job_description", jobDescription);
+    fd.append("language", i18n.language);
     const result = await call(() => postForm("/api/biz/batch-ats", fd));
     if (result) setData(result);
   }
 
   return (
     <div>
-      <h1 className="page-title">Batch ATS <span>Analyzer</span></h1>
-      <p className="page-subtitle">Upload up to 10 resumes and screen them all against a job description at once.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print">
         <div
@@ -68,18 +71,18 @@ export default function BatchATSAnalyzer() {
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files); }}
         >
           <input id="batch-resumes" type="file" accept=".pdf,.txt,.docx,.doc" multiple onChange={(e) => handleFiles(e.target.files)} />
-          <p className="drop-label">{files.length ? `${files.length} resume${files.length > 1 ? "s" : ""} selected` : "Drop resumes here or click to browse"}</p>
-          <p className="drop-hint">PDF, DOCX, or TXT · up to 10 files</p>
+          <p className="drop-label">{files.length ? t("resumesSelected", { count: files.length }) : t("dropLabel")}</p>
+          <p className="drop-hint">{t("dropHint")}</p>
         </div>
         {files.length > 0 && (
           <div style={{ marginBottom: "1rem" }}>
             {files.map((f, i) => <p key={i} style={{ fontSize: "0.82rem", color: "var(--text-muted)" }}>📄 {f.name}</p>)}
           </div>
         )}
-        <textarea placeholder="Job description (paste here for better matching)" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} rows={4} disabled={loading}
+        <textarea placeholder={t("jobDescriptionPlaceholder")} value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} rows={4} disabled={loading}
           style={{ width: "100%", padding: "0.75rem 0.9rem", border: "1.5px solid var(--border)", borderRadius: "var(--radius)", fontFamily: "inherit", fontSize: "0.92rem", outline: "none", resize: "vertical", marginBottom: "1rem" }} />
         <button type="submit" className="submit-btn" disabled={loading || !files.length}>
-          {loading ? `Analyzing ${files.length} resume${files.length > 1 ? "s" : ""}…` : "Analyze All Resumes"}
+          {loading ? t("analyzingCount", { count: files.length }) : t("analyzeAll")}
         </button>
       </form>
 
@@ -89,7 +92,7 @@ export default function BatchATSAnalyzer() {
         <>
           <div className="print-header" style={{ display: "none" }}><strong>Batch ATS Results — {data.total} Resumes</strong></div>
           <div style={{ marginTop: "1.5rem" }}>
-            <p className="page-subtitle no-print">{data.total} resume{data.total !== 1 ? "s" : ""} analyzed</p>
+            <p className="page-subtitle no-print">{t("resumesAnalyzed", { count: data.total })}</p>
             {(data.results || [])
               .sort((a, b) => (b.match_score || 0) - (a.match_score || 0))
               .map((result, i) => (
@@ -97,7 +100,7 @@ export default function BatchATSAnalyzer() {
                   {result.error ? (
                     <>
                       <p style={{ fontWeight: 700 }}>{result.filename}</p>
-                      <p style={{ fontSize: "0.85rem", color: "#dc2626" }}>Error: {result.error}</p>
+                      <p style={{ fontSize: "0.85rem", color: "#dc2626" }}>{t("errorLabel", { error: result.error })}</p>
                     </>
                   ) : (
                     <>
@@ -113,7 +116,7 @@ export default function BatchATSAnalyzer() {
                       </div>
                       {result.top_strengths?.length > 0 && (
                         <div style={{ marginTop: "0.6rem" }}>
-                          <p style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-hint)", marginBottom: "0.3rem" }}>Strengths</p>
+                          <p style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-hint)", marginBottom: "0.3rem" }}>{t("strengths")}</p>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                             {result.top_strengths.map((s, j) => <span key={j} style={{ background: "#dcfce7", color: "#16a34a", padding: "2px 8px", borderRadius: "12px", fontSize: "0.78rem" }}>{s}</span>)}
                           </div>
@@ -121,7 +124,7 @@ export default function BatchATSAnalyzer() {
                       )}
                       {result.concerns?.length > 0 && (
                         <div style={{ marginTop: "0.5rem" }}>
-                          <p style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-hint)", marginBottom: "0.3rem" }}>Concerns</p>
+                          <p style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-hint)", marginBottom: "0.3rem" }}>{t("concerns")}</p>
                           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                             {result.concerns.map((c, j) => <span key={j} style={{ background: "#fef2f2", color: "#dc2626", padding: "2px 8px", borderRadius: "12px", fontSize: "0.78rem" }}>{c}</span>)}
                           </div>

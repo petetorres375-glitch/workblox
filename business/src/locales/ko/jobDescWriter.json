@@ -1,0 +1,17 @@
+{
+  "title": "직무 기술서 <0>작성기</0>",
+  "subtitle": "우수한 인재를 유치할 수 있는 매력적이고 완전한 직무 기술서를 작성하세요.",
+  "jobTitlePlaceholder": "직무명 *",
+  "departmentPlaceholder": "부서",
+  "salaryRangePlaceholder": "급여 범위 (예: 4,000만원–6,000만원)",
+  "requirementsPlaceholder": "주요 자격 요건 및 담당 업무 *",
+  "companyInfoPlaceholder": "간단한 회사 소개 (선택 사항)",
+  "write": "직무 기술서 작성",
+  "writing": "작성 중…",
+  "overview": "개요",
+  "copyAll": "전체 복사",
+  "responsibilities": "담당 업무",
+  "requirements": "자격 요건",
+  "niceToHave": "우대 사항",
+  "benefits": "복리후생"
+}

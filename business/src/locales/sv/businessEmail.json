@@ -1,0 +1,20 @@
+{
+  "title": "Affärs<0>e-post</0>",
+  "subtitle": "Skriv tydliga, professionella affärsmejl för alla situationer.",
+  "purposePlaceholder": "Syftet med e-postmeddelandet (t.ex. Uppföljning av förslag, Boka om möte) *",
+  "recipientPlaceholder": "Mottagare / dennes roll (t.ex. John — Rekryteringschef)",
+  "keyPointsPlaceholder": "Viktiga punkter att inkludera",
+  "tone": {
+    "professional": "Professionell",
+    "friendly": "Vänlig",
+    "formal": "Formell",
+    "assertive": "Bestämd",
+    "apologetic": "Ursäktande"
+  },
+  "draft": "Skapa Utkast",
+  "drafting": "Skapar utkast…",
+  "subjectLine": "Ämnesrad",
+  "emailBody": "E-postens Innehåll",
+  "copy": "Kopiera",
+  "callToAction": "Uppmaning till Handling"
+}

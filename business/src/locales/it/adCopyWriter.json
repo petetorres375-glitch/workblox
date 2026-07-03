@@ -1,0 +1,22 @@
+{
+  "title": "<0>Redattore</0> di Annunci",
+  "subtitle": "Genera testi pubblicitari efficaci con più varianti di titoli e descrizioni.",
+  "productServicePlaceholder": "Prodotto o servizio *",
+  "targetAudiencePlaceholder": "Pubblico di riferimento (es. piccoli imprenditori, 25–45 anni)",
+  "uniqueValuePlaceholder": "Proposta di valore unica",
+  "goalOptions": {
+    "conversions": "Conversioni",
+    "awareness": "Notorietà",
+    "leads": "Contatti",
+    "traffic": "Traffico",
+    "app installs": "Installazioni app"
+  },
+  "write": "Scrivi Annuncio",
+  "writing": "Scrittura in corso…",
+  "docTitle": "Annuncio",
+  "copy": "Copia",
+  "headlines": "Titoli",
+  "descriptions": "Descrizioni",
+  "ctaOptions": "Opzioni di Invito all'Azione",
+  "valuePropositions": "Proposte di Valore"
+}

@@ -1,0 +1,27 @@
+{
+  "title": "<0>Δημιουργός</0> Κοινωνικών Μέσων",
+  "subtitle": "Δημιουργήστε περιεχόμενο έτοιμο για δημοσίευση στα κοινωνικά μέσα για την επιχείρησή σας.",
+  "topicPlaceholder": "Θέμα ή ιδέα περιεχομένου *",
+  "businessNamePlaceholder": "Όνομα επιχείρησης",
+  "platformsPlaceholder": "Πλατφόρμες (π.χ. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Επαγγελματικό",
+    "casual": "Ανεπίσημο",
+    "humorous": "Χιουμοριστικό",
+    "inspiring": "Εμπνευστικό",
+    "educational": "Εκπαιδευτικό"
+  },
+  "goalOptions": {
+    "engagement": "Αλληλεπίδραση",
+    "awareness": "Αναγνωρισιμότητα",
+    "leads": "Δυνητικοί πελάτες",
+    "sales": "Πωλήσεις",
+    "education": "Εκπαίδευση"
+  },
+  "generate": "Δημιουργία Αναρτήσεων",
+  "generating": "Δημιουργία…",
+  "docTitle": "Αναρτήσεις Κοινωνικών Μέσων",
+  "copy": "Αντιγραφή",
+  "bestTime": "Καλύτερη ώρα: {{time}}",
+  "contentTips": "Συμβουλές Περιεχομένου"
+}

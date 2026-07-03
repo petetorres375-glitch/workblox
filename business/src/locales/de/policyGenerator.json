@@ -1,0 +1,17 @@
+{
+  "title": "Richtlinien-<0>Generator</0>",
+  "subtitle": "Erstelle professionelle Unternehmensrichtlinien — HR, IT, Remote-Arbeit, Urlaub und mehr.",
+  "policyTypePlaceholder": "Richtlinientyp (z. B. Remote-Arbeit-Richtlinie, Urlaubsrichtlinie) *",
+  "companyNamePlaceholder": "Firmenname",
+  "industryPlaceholder": "Branche (z. B. Technologie, Gesundheitswesen)",
+  "specificsPlaceholder": "Spezifische Anforderungen oder Anmerkungen (optional)",
+  "generate": "Richtlinie Generieren",
+  "generating": "Wird generiert…",
+  "policyDocument": "Richtliniendokument",
+  "copyAll": "Alles Kopieren",
+  "effective": "Gültig ab: {{date}}",
+  "purpose": "Zweck",
+  "scope": "Geltungsbereich",
+  "acknowledgment": "Bestätigung",
+  "policyPrefix": "Richtlinie"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "SOP <0>Generator</0>",
+  "subtitle": "Create clear, actionable Standard Operating Procedures for any business process.",
+  "processNamePlaceholder": "Process name (e.g. Customer Onboarding) *",
+  "departmentPlaceholder": "Department",
+  "frequencyPlaceholder": "Frequency (e.g. Daily, Weekly, Per new client)",
+  "descriptionPlaceholder": "Description of the process *",
+  "generate": "Generate SOP",
+  "generating": "Generating…",
+  "overview": "Overview",
+  "frequencyLabel": "Frequency: {{frequency}}",
+  "requiredTools": "Required Tools / Resources",
+  "steps": "Steps",
+  "stepLabel": "Step {{number}}: {{action}}",
+  "qualityChecks": "Quality Checks",
+  "notes": "Notes"
+}

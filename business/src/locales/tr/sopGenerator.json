@@ -1,0 +1,17 @@
+{
+  "title": "SOP <0>Oluşturucu</0>",
+  "subtitle": "Herhangi bir iş süreci için açık ve uygulanabilir Standart Çalışma Prosedürleri (SOP) oluşturun.",
+  "processNamePlaceholder": "Süreç adı (örn. Müşteri Katılım Süreci) *",
+  "departmentPlaceholder": "Departman",
+  "frequencyPlaceholder": "Sıklık (örn. Günlük, Haftalık, Her yeni müşteride)",
+  "descriptionPlaceholder": "Sürecin açıklaması *",
+  "generate": "SOP Oluştur",
+  "generating": "Oluşturuluyor…",
+  "overview": "Genel Bakış",
+  "frequencyLabel": "Sıklık: {{frequency}}",
+  "requiredTools": "Gerekli Araçlar / Kaynaklar",
+  "steps": "Adımlar",
+  "stepLabel": "Adım {{number}}: {{action}}",
+  "qualityChecks": "Kalite Kontrolleri",
+  "notes": "Notlar"
+}

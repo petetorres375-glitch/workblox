@@ -1,0 +1,25 @@
+{
+  "title": "Analizzatore di <0>Documenti</0>",
+  "subtitle": "Carica un file PDF, TXT o MD — ottieni un riepilogo strutturato con l'IA.",
+  "dropLabel": "Trascina un file qui o clicca per sfogliare",
+  "dropHint": "PDF, TXT o MD — max 10 MB",
+  "analyze": "Analizza",
+  "analyzing": "Analisi in corso...",
+  "sections": {
+    "summary": "Riepilogo",
+    "keyDataPoints": "Dati Chiave",
+    "actionItems": "Azioni da Intraprendere",
+    "redFlags": "Segnali di Allarme"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Generazione in corso..."
+  },
+  "email": {
+    "placeholder": "Invia il report via email a...",
+    "send": "Invia",
+    "sending": "Invio in corso...",
+    "sent": "Report inviato a {{email}}"
+  }
+}

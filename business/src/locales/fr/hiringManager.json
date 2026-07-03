@@ -1,0 +1,13 @@
+{
+  "title": "Responsable du <0>Recrutement</0>",
+  "subtitle": "Décrivez le poste à pourvoir et obtenez un dossier de recrutement complet.",
+  "descriptionPlaceholder": "Décrivez le poste (p. ex. spécialiste support technique niveau 1 pour notre service d'assistance informatique — gère les réinitialisations de mot de passe, le dépannage de base et le tri des tickets pour une entreprise de 200 personnes)",
+  "generate": "Générer le Dossier de Recrutement",
+  "generating": "Génération…",
+  "positionSummary": "Résumé du Poste",
+  "interviewQuestions": "Questions d'Entretien",
+  "copy": "Copier",
+  "evaluationCriteria": "Critères d'Évaluation",
+  "redFlags": "Signaux d'Alerte",
+  "onboardingTips": "Conseils d'Intégration"
+}

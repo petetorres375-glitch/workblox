@@ -1,0 +1,22 @@
+{
+  "title": "广告文案<0>撰写工具</0>",
+  "subtitle": "生成多个标题和描述变体的高转化率广告文案。",
+  "productServicePlaceholder": "产品或服务 *",
+  "targetAudiencePlaceholder": "目标受众(例如:小企业主,25-45岁)",
+  "uniqueValuePlaceholder": "独特价值主张",
+  "goalOptions": {
+    "conversions": "转化",
+    "awareness": "认知度",
+    "leads": "潜在客户",
+    "traffic": "流量",
+    "app installs": "应用安装"
+  },
+  "write": "撰写广告文案",
+  "writing": "正在撰写…",
+  "docTitle": "广告文案",
+  "copy": "复制",
+  "headlines": "标题",
+  "descriptions": "描述",
+  "ctaOptions": "行动号召选项",
+  "valuePropositions": "价值主张"
+}

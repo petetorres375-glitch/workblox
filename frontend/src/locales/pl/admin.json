@@ -1,0 +1,40 @@
+{
+  "title": "Panel <0>Administratora</0>",
+  "subtitle": "Zarządzaj kontami klientów i aktywacjami.",
+  "killSwitch": {
+    "heading": "Wyłącznik Awaryjny Aplikacji",
+    "description": "Natychmiast wyłącz aplikację dla wszystkich użytkowników",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "WŁ",
+    "off": "WYŁ",
+    "disablePersonal": "Wyłącz Personal",
+    "enablePersonal": "Włącz Personal",
+    "disableBusiness": "Wyłącz Business",
+    "enableBusiness": "Włącz Business"
+  },
+  "filters": {
+    "all": "Wszyscy",
+    "pending": "Oczekujący",
+    "active": "Aktywni"
+  },
+  "loading": "Ładowanie użytkowników…",
+  "noUsers": "Nie znaleziono użytkowników.",
+  "joined": "Dołączył {{date}}",
+  "status": {
+    "active": "Aktywny",
+    "pending": "Oczekujący"
+  },
+  "actions": {
+    "deactivate": "Dezaktywuj",
+    "activate": "Aktywuj"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Darmowy"
+  },
+  "planActions": {
+    "setFree": "Ustaw Darmowy",
+    "setBusiness": "Ustaw Business"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Панель <0>Администратора</0>",
+  "subtitle": "Управляйте учётными записями клиентов и активацией.",
+  "killSwitch": {
+    "heading": "Аварийный Выключатель Приложений",
+    "description": "Мгновенно отключить приложение для всех пользователей",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ВКЛ",
+    "off": "ВЫКЛ",
+    "disablePersonal": "Отключить Personal",
+    "enablePersonal": "Включить Personal",
+    "disableBusiness": "Отключить Business",
+    "enableBusiness": "Включить Business"
+  },
+  "filters": {
+    "all": "Все",
+    "pending": "Ожидают",
+    "active": "Активные"
+  },
+  "loading": "Загрузка пользователей…",
+  "noUsers": "Пользователи не найдены.",
+  "joined": "Присоединился {{date}}",
+  "status": {
+    "active": "Активен",
+    "pending": "Ожидает"
+  },
+  "actions": {
+    "deactivate": "Деактивировать",
+    "activate": "Активировать"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Бесплатно"
+  },
+  "planActions": {
+    "setFree": "Установить Бесплатно",
+    "setBusiness": "Установить Business"
+  }
+}

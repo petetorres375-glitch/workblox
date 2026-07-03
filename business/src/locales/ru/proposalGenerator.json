@@ -1,0 +1,22 @@
+{
+  "title": "Генератор <0>Предложений</0>",
+  "subtitle": "Создавайте профессиональные коммерческие предложения и сметы для клиентов.",
+  "clientNamePlaceholder": "Имя клиента",
+  "projectDescriptionPlaceholder": "Описание проекта *",
+  "servicesPlaceholder": "Услуги для включения",
+  "budgetRangePlaceholder": "Диапазон бюджета (например, $5,000–$10,000)",
+  "timelinePlaceholder": "Сроки (например, 4–6 недель)",
+  "generate": "Создать Предложение",
+  "generating": "Создание…",
+  "executiveSummary": "Краткое Резюме",
+  "scopeOfWork": "Объём Работ",
+  "deliverables": "Результаты",
+  "lineItems": "Позиции Сметы",
+  "table": {
+    "description": "Описание",
+    "qty": "Кол-во",
+    "unitPrice": "Цена за Единицу",
+    "total": "Итого"
+  },
+  "terms": "Условия"
+}

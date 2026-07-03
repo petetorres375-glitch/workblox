@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
@@ -40,6 +41,7 @@ function buildMd(data, clientName) {
 }
 
 export default function ProposalGenerator() {
+  const { t, i18n } = useTranslation("proposalGenerator");
   const { loading, error, call } = useApi();
   const [clientName, setClientName] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
@@ -50,7 +52,7 @@ export default function ProposalGenerator() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/proposal", { client_name: clientName, project_description: projectDescription, services, budget_range: budgetRange, timeline }));
+    const result = await call(() => post("/api/biz/proposal", { client_name: clientName, project_description: projectDescription, services, budget_range: budgetRange, timeline, language: i18n.language }));
     if (result) setData(result);
   }
 
@@ -58,16 +60,16 @@ export default function ProposalGenerator() {
 
   return (
     <div>
-      <h1 className="page-title">Proposal <span>Generator</span></h1>
-      <p className="page-subtitle">Create professional proposals and quotes for clients.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <input type="text" placeholder="Client name" value={clientName} onChange={(e) => setClientName(e.target.value)} disabled={loading} style={inputStyle} />
-        <textarea placeholder="Project description *" value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} required rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
-        <textarea placeholder="Services to include" value={services} onChange={(e) => setServices(e.target.value)} rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
-        <input type="text" placeholder="Budget range (e.g. $5,000–$10,000)" value={budgetRange} onChange={(e) => setBudgetRange(e.target.value)} disabled={loading} style={inputStyle} />
-        <input type="text" placeholder="Timeline (e.g. 4–6 weeks)" value={timeline} onChange={(e) => setTimeline(e.target.value)} disabled={loading} style={inputStyle} />
-        <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Generating…" : "Generate Proposal"}</button>
+        <input type="text" placeholder={t("clientNamePlaceholder")} value={clientName} onChange={(e) => setClientName(e.target.value)} disabled={loading} style={inputStyle} />
+        <textarea placeholder={t("projectDescriptionPlaceholder")} value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} required rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <textarea placeholder={t("servicesPlaceholder")} value={services} onChange={(e) => setServices(e.target.value)} rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <input type="text" placeholder={t("budgetRangePlaceholder")} value={budgetRange} onChange={(e) => setBudgetRange(e.target.value)} disabled={loading} style={inputStyle} />
+        <input type="text" placeholder={t("timelinePlaceholder")} value={timeline} onChange={(e) => setTimeline(e.target.value)} disabled={loading} style={inputStyle} />
+        <button type="submit" className="submit-btn" disabled={loading}>{loading ? t("generating") : t("generate")}</button>
       </form>
 
       {error && <div className="error-banner no-print">{error}</div>}
@@ -76,28 +78,28 @@ export default function ProposalGenerator() {
         <>
           <div className="print-header" style={{ display: "none" }}><strong>{clientName ? `Proposal — ${clientName}` : "Proposal"}</strong></div>
           <div className="result-card">
-            <p className="result-label">Executive Summary</p>
+            <p className="result-label">{t("executiveSummary")}</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.executive_summary}</p>
           </div>
           {data.scope_of_work?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Scope of Work</p>
+              <p className="result-label">{t("scopeOfWork")}</p>
               <ul className="section-list">{data.scope_of_work.map((s, i) => <li key={i}>{s}</li>)}</ul>
             </div>
           )}
           {data.deliverables?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Deliverables</p>
+              <p className="result-label">{t("deliverables")}</p>
               <ul className="section-list">{data.deliverables.map((d, i) => <li key={i}>{d}</li>)}</ul>
             </div>
           )}
           {data.line_items?.length > 0 && (
             <div className="result-card">
-              <p className="result-label">Line Items</p>
+              <p className="result-label">{t("lineItems")}</p>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.88rem" }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                    {["Description", "Qty", "Unit Price", "Total"].map(h => (
+                    {[t("table.description"), t("table.qty"), t("table.unitPrice"), t("table.total")].map(h => (
                       <th key={h} style={{ textAlign: "left", padding: "0.4rem 0.5rem", color: "var(--text-muted)", fontWeight: 600 }}>{h}</th>
                     ))}
                   </tr>
@@ -115,7 +117,7 @@ export default function ProposalGenerator() {
                 {data.subtotal != null && (
                   <tfoot>
                     <tr>
-                      <td colSpan={3} style={{ padding: "0.5rem 0.5rem", textAlign: "right", fontWeight: 700 }}>Total</td>
+                      <td colSpan={3} style={{ padding: "0.5rem 0.5rem", textAlign: "right", fontWeight: 700 }}>{t("table.total")}</td>
                       <td style={{ padding: "0.5rem 0.5rem", fontWeight: 800, color: "var(--orange)" }}>${Number(data.subtotal).toLocaleString()}</td>
                     </tr>
                   </tfoot>
@@ -125,7 +127,7 @@ export default function ProposalGenerator() {
           )}
           {data.terms && (
             <div className="result-card">
-              <p className="result-label">Terms</p>
+              <p className="result-label">{t("terms")}</p>
               <p style={{ fontSize: "0.9rem", lineHeight: 1.6 }}>{data.terms}</p>
             </div>
           )}

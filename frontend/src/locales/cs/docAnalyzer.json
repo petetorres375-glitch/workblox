@@ -1,0 +1,25 @@
+{
+  "title": "Analyzátor <0>Dokumentů</0>",
+  "subtitle": "Nahrajte soubor PDF, TXT nebo MD — získejte strukturované shrnutí od AI.",
+  "dropLabel": "Přetáhněte sem soubor nebo klikněte pro procházení",
+  "dropHint": "PDF, TXT nebo MD — max. 10 MB",
+  "analyze": "Analyzovat",
+  "analyzing": "Analyzuji...",
+  "sections": {
+    "summary": "Shrnutí",
+    "keyDataPoints": "Klíčové Údaje",
+    "actionItems": "Doporučené Kroky",
+    "redFlags": "Varovné Signály"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Generuji..."
+  },
+  "email": {
+    "placeholder": "Odeslat zprávu na e-mail...",
+    "send": "Odeslat",
+    "sending": "Odesílám...",
+    "sent": "Zpráva odeslána na {{email}}"
+  }
+}

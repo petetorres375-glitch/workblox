@@ -1,0 +1,25 @@
+{
+  "title": "מנתח <0>מסמכים</0>",
+  "subtitle": "העלה קובץ PDF, TXT או MD — קבל סיכום מובנה בעזרת AI.",
+  "dropLabel": "גרור קובץ לכאן או לחץ לעיון",
+  "dropHint": "PDF, TXT או MD — עד 10MB",
+  "analyze": "נתח",
+  "analyzing": "מנתח...",
+  "sections": {
+    "summary": "סיכום",
+    "keyDataPoints": "נתונים מרכזיים",
+    "actionItems": "פעולות נדרשות",
+    "redFlags": "דגלים אדומים"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "יוצר..."
+  },
+  "email": {
+    "placeholder": "שלח את הדוח לכתובת אימייל...",
+    "send": "שלח",
+    "sending": "שולח...",
+    "sent": "הדוח נשלח אל {{email}}"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Organizador de <0>Notas de Reunião</0>",
+  "subtitle": "Cole notas de reunião desorganizadas e obtenha um resumo claro e estruturado com itens de ação.",
+  "contextPlaceholder": "Contexto da reunião (ex. Planejamento do T3, kickoff com cliente)",
+  "rawNotesPlaceholder": "Cole aqui suas notas de reunião originais *",
+  "clean": "Organizar Notas de Reunião",
+  "cleaning": "Organizando…",
+  "summary": "Resumo",
+  "copyAll": "Copiar Tudo",
+  "decisionsMade": "Decisões Tomadas",
+  "actionItems": "Itens de Ação",
+  "nextSteps": "Próximos Passos",
+  "followUpMeeting": "Reunião de Acompanhamento"
+}

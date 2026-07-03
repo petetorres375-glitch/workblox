@@ -1,0 +1,35 @@
+{
+  "title": "Analizator <0>ATS</0>",
+  "subtitle": "Încarcă un CV — obții instant un scor ATS, lacune de cuvinte-cheie și recomandări.",
+  "dropZone": {
+    "label": "Trage un CV aici sau apasă pentru a-l selecta",
+    "hint": "TXT, PDF sau DOCX — max. 5 MB"
+  },
+  "clientNamePlaceholder": "Numele clientului (opțional)",
+  "jobRolePlaceholder": "Rol/poziție (opțional)",
+  "submit": "Analizează CV-ul",
+  "analyzing": "Se analizează...",
+  "score": {
+    "outOf100": "din 100",
+    "keywordsFound": "{{found}} / {{total}} cuvinte-cheie găsite"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Locație"
+  },
+  "recommendations": "Recomandări",
+  "keywordBreakdown": "Detaliere cuvinte-cheie",
+  "moreKeywords": "+{{count}} în plus",
+  "jobMatch": {
+    "title": "Potrivire post: {{role}}",
+    "matched": "{{score}} / {{total}} cuvinte-cheie potrivite"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Se generează..."
+  }
+}

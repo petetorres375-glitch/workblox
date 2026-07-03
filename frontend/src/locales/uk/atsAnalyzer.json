@@ -1,0 +1,35 @@
+{
+  "title": "ATS-<0>Аналізатор</0>",
+  "subtitle": "Завантажте резюме — миттєво отримайте оцінку ATS, прогалини в ключових словах і рекомендації.",
+  "dropZone": {
+    "label": "Перетягніть резюме сюди або натисніть, щоб вибрати файл",
+    "hint": "TXT, PDF або DOCX — макс. 5 МБ"
+  },
+  "clientNamePlaceholder": "Ім'я клієнта (необов'язково)",
+  "jobRolePlaceholder": "Посада (необов'язково)",
+  "submit": "Аналізувати резюме",
+  "analyzing": "Аналізуємо...",
+  "score": {
+    "outOf100": "зі 100",
+    "keywordsFound": "Знайдено ключових слів: {{found}} / {{total}}"
+  },
+  "contactCheck": {
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "linkedin": "LinkedIn",
+    "location": "Розташування"
+  },
+  "recommendations": "Рекомендації",
+  "keywordBreakdown": "Розбір ключових слів",
+  "moreKeywords": "ще +{{count}}",
+  "jobMatch": {
+    "title": "Відповідність посаді: {{role}}",
+    "matched": "Збіглося ключових слів: {{score}} / {{total}}"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Створення..."
+  }
+}

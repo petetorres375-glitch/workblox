@@ -1,0 +1,22 @@
+{
+  "title": "<0>Tvůrce</0> Reklamních Textů",
+  "subtitle": "Vytvořte přesvědčivé reklamní texty s několika variantami nadpisů a popisů.",
+  "productServicePlaceholder": "Produkt nebo služba *",
+  "targetAudiencePlaceholder": "Cílová skupina (např. majitelé malých firem, 25–45 let)",
+  "uniqueValuePlaceholder": "Jedinečná hodnotová nabídka",
+  "goalOptions": {
+    "conversions": "Konverze",
+    "awareness": "Povědomí",
+    "leads": "Potenciální zákazníci",
+    "traffic": "Návštěvnost",
+    "app installs": "Instalace aplikace"
+  },
+  "write": "Napsat Reklamu",
+  "writing": "Píše se…",
+  "docTitle": "Reklama",
+  "copy": "Kopírovat",
+  "headlines": "Nadpisy",
+  "descriptions": "Popisy",
+  "ctaOptions": "Možnosti Výzvy k Akci",
+  "valuePropositions": "Hodnotové Nabídky"
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Panel <0>Admin</0>",
+  "subtitle": "Kelola akun klien dan aktivasi.",
+  "killSwitch": {
+    "heading": "Sakelar Darurat Aplikasi",
+    "description": "Nonaktifkan aplikasi untuk semua pengguna secara instan",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AKTIF",
+    "off": "NONAKTIF",
+    "disablePersonal": "Nonaktifkan Personal",
+    "enablePersonal": "Aktifkan Personal",
+    "disableBusiness": "Nonaktifkan Business",
+    "enableBusiness": "Aktifkan Business"
+  },
+  "filters": {
+    "all": "Semua",
+    "pending": "Tertunda",
+    "active": "Aktif"
+  },
+  "loading": "Memuat pengguna…",
+  "noUsers": "Tidak ada pengguna ditemukan.",
+  "joined": "Bergabung {{date}}",
+  "status": {
+    "active": "Aktif",
+    "pending": "Tertunda"
+  },
+  "actions": {
+    "deactivate": "Nonaktifkan",
+    "activate": "Aktifkan"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratis"
+  },
+  "planActions": {
+    "setFree": "Atur ke Gratis",
+    "setBusiness": "Atur ke Business"
+  }
+}

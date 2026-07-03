@@ -1,0 +1,13 @@
+{
+  "title": "채용 <0>매니저</0>",
+  "subtitle": "채용하려는 직무를 설명하면 완전한 채용 패키지를 받을 수 있습니다.",
+  "descriptionPlaceholder": "직무를 설명해 주세요 (예: IT 헬프데스크의 레벨 1 기술 지원 담당자 — 비밀번호 재설정, 기본 문제 해결, 200명 규모 회사의 티켓 분류 업무 담당)",
+  "generate": "채용 패키지 생성",
+  "generating": "생성 중…",
+  "positionSummary": "직무 요약",
+  "interviewQuestions": "면접 질문",
+  "copy": "복사",
+  "evaluationCriteria": "평가 기준",
+  "redFlags": "주의해야 할 위험 신호",
+  "onboardingTips": "온보딩 팁"
+}

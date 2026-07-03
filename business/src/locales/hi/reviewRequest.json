@@ -1,0 +1,15 @@
+{
+  "title": "समीक्षा अनुरोध <0>ईमेल</0>",
+  "subtitle": "ग्राहकों से समीक्षा छोड़ने का अनुरोध करते हुए एक मित्रवत, स्वाभाविक ईमेल लिखें।",
+  "businessNamePlaceholder": "आपके व्यवसाय का नाम *",
+  "customerNamePlaceholder": "ग्राहक का नाम (वैकल्पिक)",
+  "serviceProvidedPlaceholder": "प्रदान की गई सेवा या उत्पाद",
+  "platformsPlaceholder": "समीक्षा प्लेटफ़ॉर्म (जैसे Google, Yelp)",
+  "write": "समीक्षा अनुरोध लिखें",
+  "writing": "लिखा जा रहा है…",
+  "docTitle": "समीक्षा अनुरोध ईमेल",
+  "subjectLine": "विषय पंक्ति",
+  "emailBody": "ईमेल मुख्य भाग",
+  "copy": "कॉपी करें",
+  "timingAdvice": "समय संबंधी सलाह"
+}

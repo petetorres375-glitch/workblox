@@ -1,0 +1,17 @@
+{
+  "title": "<0>เครื่องมือเขียน</0>รายละเอียดงาน",
+  "subtitle": "สร้างรายละเอียดงานที่น่าสนใจและครบถ้วนเพื่อดึงดูดบุคลากรที่มีความสามารถสูงสุด",
+  "jobTitlePlaceholder": "ตำแหน่งงาน *",
+  "departmentPlaceholder": "แผนก",
+  "salaryRangePlaceholder": "ช่วงเงินเดือน (เช่น 30,000–45,000 บาท)",
+  "requirementsPlaceholder": "คุณสมบัติและความรับผิดชอบหลัก *",
+  "companyInfoPlaceholder": "คำอธิบายบริษัทโดยย่อ (ไม่บังคับ)",
+  "write": "เขียนรายละเอียดงาน",
+  "writing": "กำลังเขียน…",
+  "overview": "ภาพรวม",
+  "copyAll": "คัดลอกทั้งหมด",
+  "responsibilities": "ความรับผิดชอบ",
+  "requirements": "คุณสมบัติ",
+  "niceToHave": "คุณสมบัติที่พึงประสงค์",
+  "benefits": "สวัสดิการ"
+}

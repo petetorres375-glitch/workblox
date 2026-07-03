@@ -1,0 +1,35 @@
+{
+  "title": "Analyseur <0>ATS</0>",
+  "subtitle": "Téléchargez un CV — obtenez instantanément un score ATS, les mots-clés manquants et des recommandations.",
+  "dropZone": {
+    "label": "Déposez un CV ici ou cliquez pour parcourir",
+    "hint": "TXT, PDF ou DOCX — 5 Mo max"
+  },
+  "clientNamePlaceholder": "Nom du client (facultatif)",
+  "jobRolePlaceholder": "Poste visé (facultatif)",
+  "submit": "Analyser le CV",
+  "analyzing": "Analyse en cours...",
+  "score": {
+    "outOf100": "sur 100",
+    "keywordsFound": "{{found}} / {{total}} mots-clés trouvés"
+  },
+  "contactCheck": {
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "linkedin": "LinkedIn",
+    "location": "Localisation"
+  },
+  "recommendations": "Recommandations",
+  "keywordBreakdown": "Répartition des mots-clés",
+  "moreKeywords": "+{{count}} de plus",
+  "jobMatch": {
+    "title": "Correspondance au poste : {{role}}",
+    "matched": "{{score}} / {{total}} mots-clés correspondants"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Génération..."
+  }
+}

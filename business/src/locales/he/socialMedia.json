@@ -1,0 +1,27 @@
+{
+  "title": "<0>מחולל</0> רשתות חברתיות",
+  "subtitle": "צרו תוכן מוכן לפרסום ברשתות החברתיות עבור העסק שלכם.",
+  "topicPlaceholder": "נושא או רעיון לתוכן *",
+  "businessNamePlaceholder": "שם העסק",
+  "platformsPlaceholder": "פלטפורמות (לדוגמה: LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "מקצועי",
+    "casual": "קליל",
+    "humorous": "הומוריסטי",
+    "inspiring": "מעורר השראה",
+    "educational": "חינוכי"
+  },
+  "goalOptions": {
+    "engagement": "מעורבות",
+    "awareness": "מודעות למותג",
+    "leads": "לידים",
+    "sales": "מכירות",
+    "education": "חינוך"
+  },
+  "generate": "צור פוסטים",
+  "generating": "יוצר…",
+  "docTitle": "פוסטים לרשתות חברתיות",
+  "copy": "העתק",
+  "bestTime": "הזמן הטוב ביותר: {{time}}",
+  "contentTips": "טיפים לתוכן"
+}

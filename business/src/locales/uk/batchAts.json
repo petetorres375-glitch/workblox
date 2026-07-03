@@ -1,0 +1,17 @@
+{
+  "title": "Пакетний <0>ATS-аналізатор</0>",
+  "subtitle": "Завантажте до 10 резюме та перевірте їх усі за описом вакансії одночасно.",
+  "dropLabel": "Перетягніть резюме сюди або натисніть, щоб вибрати",
+  "resumesSelected_one": "Вибрано {{count}} резюме",
+  "resumesSelected_other": "Вибрано {{count}} резюме",
+  "dropHint": "PDF, DOCX або TXT · до 10 файлів",
+  "jobDescriptionPlaceholder": "Опис вакансії (вставте тут для кращої відповідності)",
+  "analyzeAll": "Аналізувати Всі Резюме",
+  "analyzingCount_one": "Аналіз {{count}} резюме…",
+  "analyzingCount_other": "Аналіз {{count}} резюме…",
+  "resumesAnalyzed_one": "Проаналізовано {{count}} резюме",
+  "resumesAnalyzed_other": "Проаналізовано {{count}} резюме",
+  "errorLabel": "Помилка: {{error}}",
+  "strengths": "Сильні Сторони",
+  "concerns": "Занепокоєння"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "पद विवरण <0>लेखक</0>",
+  "subtitle": "एक आकर्षक और संपूर्ण नौकरी विवरण बनाएं जो शीर्ष प्रतिभाओं को आकर्षित करे।",
+  "jobTitlePlaceholder": "पद का नाम *",
+  "departmentPlaceholder": "विभाग",
+  "salaryRangePlaceholder": "वेतन सीमा (उदाहरण: $60k–$80k)",
+  "requirementsPlaceholder": "प्रमुख आवश्यकताएं और जिम्मेदारियां *",
+  "companyInfoPlaceholder": "कंपनी का संक्षिप्त विवरण (वैकल्पिक)",
+  "write": "नौकरी विवरण लिखें",
+  "writing": "लिखा जा रहा है…",
+  "overview": "अवलोकन",
+  "copyAll": "सभी कॉपी करें",
+  "responsibilities": "जिम्मेदारियां",
+  "requirements": "आवश्यकताएं",
+  "niceToHave": "अतिरिक्त गुण (वांछनीय)",
+  "benefits": "लाभ"
+}

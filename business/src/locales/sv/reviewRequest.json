@@ -1,0 +1,15 @@
+{
+  "title": "Recensionsförfrågan via <0>E-post</0>",
+  "subtitle": "Skriv ett vänligt, naturligt e-postmeddelande där du ber kunder att lämna en recension.",
+  "businessNamePlaceholder": "Ditt företags namn *",
+  "customerNamePlaceholder": "Kundens namn (valfritt)",
+  "serviceProvidedPlaceholder": "Tjänst eller produkt som tillhandahållits",
+  "platformsPlaceholder": "Recensionsplattformar (t.ex. Google, Yelp)",
+  "write": "Skriv Recensionsförfrågan",
+  "writing": "Skriver…",
+  "docTitle": "Recensionsförfrågan via E-post",
+  "subjectLine": "Ämnesrad",
+  "emailBody": "E-postens Innehåll",
+  "copy": "Kopiera",
+  "timingAdvice": "Råd om Tidpunkt"
+}

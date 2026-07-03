@@ -1,0 +1,17 @@
+{
+  "title": "<0>מחולל</0> מדיניות",
+  "subtitle": "צרו מדיניות חברה מקצועית — משאבי אנוש, IT, עבודה מרחוק, חופשות ועוד.",
+  "policyTypePlaceholder": "סוג המדיניות (לדוגמה: מדיניות עבודה מרחוק, מדיניות חופשות) *",
+  "companyNamePlaceholder": "שם החברה",
+  "industryPlaceholder": "תעשייה (לדוגמה: טכנולוגיה, בריאות)",
+  "specificsPlaceholder": "דרישות או הערות ספציפיות (אופציונלי)",
+  "generate": "צור מדיניות",
+  "generating": "יוצר…",
+  "policyDocument": "מסמך מדיניות",
+  "copyAll": "העתק הכל",
+  "effective": "בתוקף מ: {{date}}",
+  "purpose": "מטרה",
+  "scope": "היקף",
+  "acknowledgment": "אישור",
+  "policyPrefix": "מדיניות"
+}

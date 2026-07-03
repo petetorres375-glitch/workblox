@@ -1,0 +1,15 @@
+{
+  "title": "Mac <0>Helper</0>",
+  "subtitle": "Describe a macOS problem in plain English — get the Terminal command back.",
+  "placeholder": "e.g. show disk usage for each folder in my home directory",
+  "ask": "Ask",
+  "thinking": "Thinking...",
+  "result": {
+    "guiSteps": "GUI Steps",
+    "command": "Command",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "explanation": "Explanation",
+    "warnings": "Warnings"
+  }
+}

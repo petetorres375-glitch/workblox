@@ -1,0 +1,14 @@
+{
+  "title": "회의록 <0>정리기</0>",
+  "subtitle": "정리되지 않은 회의록을 붙여넣으면 실행 항목이 포함된 깔끔하고 체계적인 요약을 받아보세요.",
+  "contextPlaceholder": "회의 맥락 (예: 3분기 계획, 신규 고객 킥오프)",
+  "rawNotesPlaceholder": "여기에 원본 회의록을 붙여넣으세요 *",
+  "clean": "회의록 정리하기",
+  "cleaning": "정리 중…",
+  "summary": "요약",
+  "copyAll": "전체 복사",
+  "decisionsMade": "결정 사항",
+  "actionItems": "실행 항목",
+  "nextSteps": "다음 단계",
+  "followUpMeeting": "후속 회의"
+}

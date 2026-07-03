@@ -1,0 +1,20 @@
+{
+  "title": "Business <0>Email</0>",
+  "subtitle": "Draft clear, professional business emails for any situation.",
+  "purposePlaceholder": "Purpose of the email (e.g. Follow up on proposal, Reschedule meeting) *",
+  "recipientPlaceholder": "Recipient / their role (e.g. John — Hiring Manager)",
+  "keyPointsPlaceholder": "Key points to include",
+  "tone": {
+    "professional": "Professional",
+    "friendly": "Friendly",
+    "formal": "Formal",
+    "assertive": "Assertive",
+    "apologetic": "Apologetic"
+  },
+  "draft": "Draft Email",
+  "drafting": "Drafting…",
+  "subjectLine": "Subject Line",
+  "emailBody": "Email Body",
+  "copy": "Copy",
+  "callToAction": "Call to Action"
+}

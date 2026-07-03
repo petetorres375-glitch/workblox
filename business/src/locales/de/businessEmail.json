@@ -1,0 +1,20 @@
+{
+  "title": "Geschäfts<0>E-Mail</0>",
+  "subtitle": "Verfassen Sie klare, professionelle Geschäfts-E-Mails für jede Situation.",
+  "purposePlaceholder": "Zweck der E-Mail (z. B. Angebot nachfassen, Termin verschieben) *",
+  "recipientPlaceholder": "Empfänger / dessen Rolle (z. B. Johannes — Personalleiter)",
+  "keyPointsPlaceholder": "Wichtige Punkte, die enthalten sein sollen",
+  "tone": {
+    "professional": "Professionell",
+    "friendly": "Freundlich",
+    "formal": "Formell",
+    "assertive": "Bestimmt",
+    "apologetic": "Entschuldigend"
+  },
+  "draft": "E-Mail Verfassen",
+  "drafting": "Wird verfasst…",
+  "subjectLine": "Betreffzeile",
+  "emailBody": "E-Mail-Text",
+  "copy": "Kopieren",
+  "callToAction": "Handlungsaufforderung"
+}

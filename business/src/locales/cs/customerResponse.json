@@ -1,0 +1,20 @@
+{
+  "title": "Odpověď <0>zákazníkům</0>",
+  "subtitle": "Vytvářejte profesionální a empatické odpovědi na zprávy a stížnosti zákazníků.",
+  "customerMessagePlaceholder": "Vložte zprávu zákazníka *",
+  "contextPlaceholder": "Kontext (např. co se stalo, detaily objednávky atd.)",
+  "tone": {
+    "professional": "Profesionální",
+    "empathetic": "Empatický",
+    "apologetic": "Omluvný",
+    "firm": "Rázný",
+    "friendly": "Přátelský"
+  },
+  "draft": "Navrhnout odpověď",
+  "drafting": "Navrhuji…",
+  "subjectLine": "Předmět",
+  "responseDraft": "Návrh odpovědi",
+  "copy": "Kopírovat",
+  "pointsAddressed": "Vyřešené body",
+  "followUpSuggested": "Navrhované další kroky"
+}

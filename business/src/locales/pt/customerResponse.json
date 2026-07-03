@@ -1,0 +1,20 @@
+{
+  "title": "<0>Resposta</0> ao Cliente",
+  "subtitle": "Elabore respostas profissionais e empáticas para mensagens e reclamações de clientes.",
+  "customerMessagePlaceholder": "Cole a mensagem do cliente *",
+  "contextPlaceholder": "Contexto (ex.: o que aconteceu, detalhes do pedido, etc.)",
+  "tone": {
+    "professional": "Profissional",
+    "empathetic": "Empático",
+    "apologetic": "Conciliador",
+    "firm": "Firme",
+    "friendly": "Amigável"
+  },
+  "draft": "Elaborar Resposta",
+  "drafting": "Elaborando…",
+  "subjectLine": "Assunto",
+  "responseDraft": "Rascunho da Resposta",
+  "copy": "Copiar",
+  "pointsAddressed": "Pontos Abordados",
+  "followUpSuggested": "Acompanhamento Sugerido"
+}

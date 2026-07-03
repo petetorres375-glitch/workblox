@@ -1,0 +1,25 @@
+{
+  "title": "Analizador de <0>Documentos</0>",
+  "subtitle": "Sube un archivo PDF, TXT o MD — obtén un resumen estructurado con IA.",
+  "dropLabel": "Suelta un archivo aquí o haz clic para explorar",
+  "dropHint": "PDF, TXT o MD — máximo 10 MB",
+  "analyze": "Analizar",
+  "analyzing": "Analizando...",
+  "sections": {
+    "summary": "Resumen",
+    "keyDataPoints": "Datos Clave",
+    "actionItems": "Elementos de Acción",
+    "redFlags": "Señales de Alerta"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Generando..."
+  },
+  "email": {
+    "placeholder": "Enviar el informe por correo a...",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "sent": "Informe enviado a {{email}}"
+  }
+}

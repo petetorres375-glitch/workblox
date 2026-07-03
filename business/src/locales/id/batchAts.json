@@ -1,0 +1,17 @@
+{
+  "title": "Analisis <0>ATS</0> Massal",
+  "subtitle": "Unggah hingga 10 resume dan saring semuanya terhadap deskripsi pekerjaan sekaligus.",
+  "dropLabel": "Letakkan resume di sini atau klik untuk menelusuri",
+  "resumesSelected_one": "{{count}} resume dipilih",
+  "resumesSelected_other": "{{count}} resume dipilih",
+  "dropHint": "PDF, DOCX, atau TXT · hingga 10 file",
+  "jobDescriptionPlaceholder": "Deskripsi pekerjaan (tempel di sini untuk pencocokan yang lebih baik)",
+  "analyzeAll": "Analisis Semua Resume",
+  "analyzingCount_one": "Menganalisis {{count}} resume…",
+  "analyzingCount_other": "Menganalisis {{count}} resume…",
+  "resumesAnalyzed_one": "{{count}} resume dianalisis",
+  "resumesAnalyzed_other": "{{count}} resume dianalisis",
+  "errorLabel": "Kesalahan: {{error}}",
+  "strengths": "Kekuatan",
+  "concerns": "Kekhawatiran"
+}

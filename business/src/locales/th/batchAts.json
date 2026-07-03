@@ -1,0 +1,17 @@
+{
+  "title": "เครื่องมือ<0>วิเคราะห์</0> ATS แบบชุด",
+  "subtitle": "อัปโหลดเรซูเม่ได้สูงสุด 10 ฉบับ และคัดกรองทั้งหมดเทียบกับรายละเอียดงานในครั้งเดียว",
+  "dropLabel": "วางเรซูเม่ที่นี่หรือคลิกเพื่อเลือกไฟล์",
+  "resumesSelected_one": "เลือกเรซูเม่แล้ว {{count}} ฉบับ",
+  "resumesSelected_other": "เลือกเรซูเม่แล้ว {{count}} ฉบับ",
+  "dropHint": "PDF, DOCX หรือ TXT · สูงสุด 10 ไฟล์",
+  "jobDescriptionPlaceholder": "รายละเอียดงาน (วางที่นี่เพื่อการจับคู่ที่แม่นยำยิ่งขึ้น)",
+  "analyzeAll": "วิเคราะห์เรซูเม่ทั้งหมด",
+  "analyzingCount_one": "กำลังวิเคราะห์เรซูเม่ {{count}} ฉบับ…",
+  "analyzingCount_other": "กำลังวิเคราะห์เรซูเม่ {{count}} ฉบับ…",
+  "resumesAnalyzed_one": "วิเคราะห์เรซูเม่แล้ว {{count}} ฉบับ",
+  "resumesAnalyzed_other": "วิเคราะห์เรซูเม่แล้ว {{count}} ฉบับ",
+  "errorLabel": "ข้อผิดพลาด: {{error}}",
+  "strengths": "จุดแข็ง",
+  "concerns": "ข้อกังวล"
+}

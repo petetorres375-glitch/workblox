@@ -1,0 +1,40 @@
+{
+  "title": "لوحة <0>الإدارة</0>",
+  "subtitle": "إدارة حسابات العملاء وعمليات التفعيل.",
+  "killSwitch": {
+    "heading": "مفتاح إيقاف التطبيق الطارئ",
+    "description": "عطّل تطبيقًا لجميع المستخدمين فورًا",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "مفعّل",
+    "off": "معطّل",
+    "disablePersonal": "تعطيل Personal",
+    "enablePersonal": "تفعيل Personal",
+    "disableBusiness": "تعطيل Business",
+    "enableBusiness": "تفعيل Business"
+  },
+  "filters": {
+    "all": "الكل",
+    "pending": "قيد الانتظار",
+    "active": "نشط"
+  },
+  "loading": "جارٍ تحميل المستخدمين…",
+  "noUsers": "لم يتم العثور على مستخدمين.",
+  "joined": "انضم في {{date}}",
+  "status": {
+    "active": "نشط",
+    "pending": "قيد الانتظار"
+  },
+  "actions": {
+    "deactivate": "إلغاء التفعيل",
+    "activate": "تفعيل"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "مجاني"
+  },
+  "planActions": {
+    "setFree": "تعيين كمجاني",
+    "setBusiness": "تعيين إلى Business"
+  }
+}

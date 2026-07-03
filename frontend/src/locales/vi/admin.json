@@ -1,0 +1,40 @@
+{
+  "title": "Bảng <0>Quản Trị</0>",
+  "subtitle": "Quản lý tài khoản khách hàng và kích hoạt.",
+  "killSwitch": {
+    "heading": "Công Tắc Ngắt Khẩn Cấp",
+    "description": "Vô hiệu hóa một ứng dụng cho tất cả người dùng ngay lập tức",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "BẬT",
+    "off": "TẮT",
+    "disablePersonal": "Vô Hiệu Hóa Personal",
+    "enablePersonal": "Kích Hoạt Personal",
+    "disableBusiness": "Vô Hiệu Hóa Business",
+    "enableBusiness": "Kích Hoạt Business"
+  },
+  "filters": {
+    "all": "Tất Cả",
+    "pending": "Đang Chờ",
+    "active": "Hoạt Động"
+  },
+  "loading": "Đang tải người dùng…",
+  "noUsers": "Không tìm thấy người dùng nào.",
+  "joined": "Tham gia {{date}}",
+  "status": {
+    "active": "Hoạt Động",
+    "pending": "Đang Chờ"
+  },
+  "actions": {
+    "deactivate": "Vô Hiệu Hóa",
+    "activate": "Kích Hoạt"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Miễn Phí"
+  },
+  "planActions": {
+    "setFree": "Đặt Miễn Phí",
+    "setBusiness": "Đặt Business"
+  }
+}

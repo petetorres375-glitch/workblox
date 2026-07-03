@@ -1,0 +1,17 @@
+{
+  "title": "<0>Générateur</0> de Politiques",
+  "subtitle": "Créez des politiques professionnelles pour votre entreprise — RH, informatique, télétravail, congés, et plus.",
+  "policyTypePlaceholder": "Type de politique (ex. Politique de Télétravail, Politique de Congés) *",
+  "companyNamePlaceholder": "Nom de l'entreprise",
+  "industryPlaceholder": "Secteur (ex. Technologie, Santé)",
+  "specificsPlaceholder": "Exigences ou remarques spécifiques (facultatif)",
+  "generate": "Générer la Politique",
+  "generating": "Génération…",
+  "policyDocument": "Document de Politique",
+  "copyAll": "Tout Copier",
+  "effective": "En vigueur : {{date}}",
+  "purpose": "Objet",
+  "scope": "Champ d'Application",
+  "acknowledgment": "Accusé de Réception",
+  "policyPrefix": "Politique"
+}

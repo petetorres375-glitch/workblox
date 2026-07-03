@@ -1,0 +1,14 @@
+{
+  "title": "議事録<0>クリーナー</0>",
+  "subtitle": "雑然とした会議メモを貼り付けるだけで、アクションアイテム付きの整理された要約が得られます。",
+  "contextPlaceholder": "会議の背景（例：第3四半期の計画、クライアントのキックオフ）",
+  "rawNotesPlaceholder": "会議の生メモをここに貼り付けてください *",
+  "clean": "議事録を整理",
+  "cleaning": "整理中…",
+  "summary": "要約",
+  "copyAll": "すべてコピー",
+  "decisionsMade": "決定事項",
+  "actionItems": "アクションアイテム",
+  "nextSteps": "次のステップ",
+  "followUpMeeting": "フォローアップ会議"
+}

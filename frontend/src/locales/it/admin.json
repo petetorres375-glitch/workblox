@@ -1,0 +1,40 @@
+{
+  "title": "Pannello di <0>Amministrazione</0>",
+  "subtitle": "Gestisci gli account clienti e le attivazioni.",
+  "killSwitch": {
+    "heading": "Interruttore Generale delle App",
+    "description": "Disattiva un'app per tutti gli utenti all'istante",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ATTIVO",
+    "off": "DISATTIVO",
+    "disablePersonal": "Disattiva Personal",
+    "enablePersonal": "Attiva Personal",
+    "disableBusiness": "Disattiva Business",
+    "enableBusiness": "Attiva Business"
+  },
+  "filters": {
+    "all": "Tutti",
+    "pending": "In Attesa",
+    "active": "Attivi"
+  },
+  "loading": "Caricamento utenti…",
+  "noUsers": "Nessun utente trovato.",
+  "joined": "Iscritto il {{date}}",
+  "status": {
+    "active": "Attivo",
+    "pending": "In Attesa"
+  },
+  "actions": {
+    "deactivate": "Disattiva",
+    "activate": "Attiva"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratuito"
+  },
+  "planActions": {
+    "setFree": "Imposta Gratuito",
+    "setBusiness": "Imposta Business"
+  }
+}

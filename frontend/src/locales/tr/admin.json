@@ -1,0 +1,40 @@
+{
+  "title": "Yönetici <0>Paneli</0>",
+  "subtitle": "Müşteri hesaplarını ve etkinleştirmeleri yönetin.",
+  "killSwitch": {
+    "heading": "Uygulama Acil Durdurma Anahtarı",
+    "description": "Bir uygulamayı tüm kullanıcılar için anında devre dışı bırakın",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AÇIK",
+    "off": "KAPALI",
+    "disablePersonal": "Personal'ı Devre Dışı Bırak",
+    "enablePersonal": "Personal'ı Etkinleştir",
+    "disableBusiness": "Business'ı Devre Dışı Bırak",
+    "enableBusiness": "Business'ı Etkinleştir"
+  },
+  "filters": {
+    "all": "Tümü",
+    "pending": "Bekleyen",
+    "active": "Aktif"
+  },
+  "loading": "Kullanıcılar yükleniyor…",
+  "noUsers": "Kullanıcı bulunamadı.",
+  "joined": "{{date}} tarihinde katıldı",
+  "status": {
+    "active": "Aktif",
+    "pending": "Bekliyor"
+  },
+  "actions": {
+    "deactivate": "Devre Dışı Bırak",
+    "activate": "Etkinleştir"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Ücretsiz"
+  },
+  "planActions": {
+    "setFree": "Ücretsiz Yap",
+    "setBusiness": "Business Yap"
+  }
+}

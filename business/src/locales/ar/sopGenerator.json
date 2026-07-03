@@ -1,0 +1,17 @@
+{
+  "title": "<0>مولّد</0> إجراءات التشغيل الموحدة",
+  "subtitle": "أنشئ إجراءات تشغيل موحدة واضحة وقابلة للتنفيذ لأي عملية عمل.",
+  "processNamePlaceholder": "اسم العملية (مثال: إعداد العملاء الجدد) *",
+  "departmentPlaceholder": "القسم",
+  "frequencyPlaceholder": "التكرار (مثال: يومي، أسبوعي، لكل عميل جديد)",
+  "descriptionPlaceholder": "وصف العملية *",
+  "generate": "إنشاء إجراء التشغيل الموحد",
+  "generating": "جارٍ الإنشاء…",
+  "overview": "نظرة عامة",
+  "frequencyLabel": "التكرار: {{frequency}}",
+  "requiredTools": "الأدوات / الموارد المطلوبة",
+  "steps": "الخطوات",
+  "stepLabel": "الخطوة {{number}}: {{action}}",
+  "qualityChecks": "فحوصات الجودة",
+  "notes": "ملاحظات"
+}

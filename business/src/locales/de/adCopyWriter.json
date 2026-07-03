@@ -1,0 +1,22 @@
+{
+  "title": "Werbetext-<0>Generator</0>",
+  "subtitle": "Erstelle überzeugende Anzeigentexte mit mehreren Varianten für Überschriften und Beschreibungen.",
+  "productServicePlaceholder": "Produkt oder Dienstleistung *",
+  "targetAudiencePlaceholder": "Zielgruppe (z. B. Kleinunternehmer, 25–45 Jahre)",
+  "uniqueValuePlaceholder": "Alleinstellungsmerkmal",
+  "goalOptions": {
+    "conversions": "Conversions",
+    "awareness": "Bekanntheit",
+    "leads": "Leads",
+    "traffic": "Traffic",
+    "app installs": "App-Installationen"
+  },
+  "write": "Anzeigentext Verfassen",
+  "writing": "Wird verfasst…",
+  "docTitle": "Anzeigentext",
+  "copy": "Kopieren",
+  "headlines": "Überschriften",
+  "descriptions": "Beschreibungen",
+  "ctaOptions": "Call-to-Action-Optionen",
+  "valuePropositions": "Wertversprechen"
+}

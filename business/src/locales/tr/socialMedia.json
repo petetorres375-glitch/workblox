@@ -1,0 +1,27 @@
+{
+  "title": "Sosyal Medya <0>Oluşturucu</0>",
+  "subtitle": "İşletmeniz için platforma uygun sosyal medya içeriği oluşturun.",
+  "topicPlaceholder": "Konu veya içerik fikri *",
+  "businessNamePlaceholder": "İşletme adı",
+  "platformsPlaceholder": "Platformlar (ör. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Profesyonel",
+    "casual": "Samimi",
+    "humorous": "Esprili",
+    "inspiring": "İlham Verici",
+    "educational": "Eğitici"
+  },
+  "goalOptions": {
+    "engagement": "Etkileşim",
+    "awareness": "Farkındalık",
+    "leads": "Potansiyel Müşteri",
+    "sales": "Satış",
+    "education": "Eğitim"
+  },
+  "generate": "Gönderi Oluştur",
+  "generating": "Oluşturuluyor…",
+  "docTitle": "Sosyal Medya Gönderileri",
+  "copy": "Kopyala",
+  "bestTime": "En iyi zaman: {{time}}",
+  "contentTips": "İçerik İpuçları"
+}

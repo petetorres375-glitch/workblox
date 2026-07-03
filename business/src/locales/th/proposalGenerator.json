@@ -1,0 +1,22 @@
+{
+  "title": "<0>เครื่องมือสร้าง</0>ข้อเสนอ",
+  "subtitle": "สร้างข้อเสนอและใบเสนอราคามืออาชีพสำหรับลูกค้า",
+  "clientNamePlaceholder": "ชื่อลูกค้า",
+  "projectDescriptionPlaceholder": "คำอธิบายโครงการ *",
+  "servicesPlaceholder": "บริการที่ต้องการรวม",
+  "budgetRangePlaceholder": "ช่วงงบประมาณ (เช่น $5,000–$10,000)",
+  "timelinePlaceholder": "กรอบเวลา (เช่น 4–6 สัปดาห์)",
+  "generate": "สร้างข้อเสนอ",
+  "generating": "กำลังสร้าง…",
+  "executiveSummary": "สรุปสำหรับผู้บริหาร",
+  "scopeOfWork": "ขอบเขตงาน",
+  "deliverables": "สิ่งที่ต้องส่งมอบ",
+  "lineItems": "รายการย่อย",
+  "table": {
+    "description": "รายละเอียด",
+    "qty": "จำนวน",
+    "unitPrice": "ราคาต่อหน่วย",
+    "total": "รวม"
+  },
+  "terms": "เงื่อนไข"
+}

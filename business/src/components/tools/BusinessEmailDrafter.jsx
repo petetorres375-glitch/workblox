@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
@@ -19,7 +20,10 @@ function buildMd(data) {
   return lines.join("\n");
 }
 
+const TONES = ["professional", "friendly", "formal", "assertive", "apologetic"];
+
 export default function BusinessEmailDrafter() {
+  const { t, i18n } = useTranslation("businessEmail");
   const { loading, error, call } = useApi();
   const [purpose, setPurpose] = useState("");
   const [recipient, setRecipient] = useState("");
@@ -29,7 +33,7 @@ export default function BusinessEmailDrafter() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const result = await call(() => post("/api/biz/business-email", { purpose, recipient, key_points: keyPoints, tone }));
+    const result = await call(() => post("/api/biz/business-email", { purpose, recipient, key_points: keyPoints, tone, language: i18n.language }));
     if (result) setData(result);
   }
 
@@ -37,17 +41,17 @@ export default function BusinessEmailDrafter() {
 
   return (
     <div>
-      <h1 className="page-title">Business <span>Email</span></h1>
-      <p className="page-subtitle">Draft clear, professional business emails for any situation.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <form onSubmit={handleSubmit} className="no-print" style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <textarea placeholder="Purpose of the email (e.g. Follow up on proposal, Reschedule meeting) *" value={purpose} onChange={(e) => setPurpose(e.target.value)} required rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
-        <input type="text" placeholder="Recipient / their role (e.g. John — Hiring Manager)" value={recipient} onChange={(e) => setRecipient(e.target.value)} disabled={loading} style={inputStyle} />
-        <textarea placeholder="Key points to include" value={keyPoints} onChange={(e) => setKeyPoints(e.target.value)} rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <textarea placeholder={t("purposePlaceholder")} value={purpose} onChange={(e) => setPurpose(e.target.value)} required rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
+        <input type="text" placeholder={t("recipientPlaceholder")} value={recipient} onChange={(e) => setRecipient(e.target.value)} disabled={loading} style={inputStyle} />
+        <textarea placeholder={t("keyPointsPlaceholder")} value={keyPoints} onChange={(e) => setKeyPoints(e.target.value)} rows={3} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
         <select value={tone} onChange={(e) => setTone(e.target.value)} disabled={loading} style={{ ...inputStyle, background: "var(--surface)", cursor: "pointer" }}>
-          {["professional", "friendly", "formal", "assertive", "apologetic"].map(t => <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>)}
+          {TONES.map(tn => <option key={tn} value={tn}>{t(`tone.${tn}`)}</option>)}
         </select>
-        <button type="submit" className="submit-btn" disabled={loading}>{loading ? "Drafting…" : "Draft Email"}</button>
+        <button type="submit" className="submit-btn" disabled={loading}>{loading ? t("drafting") : t("draft")}</button>
       </form>
 
       {error && <div className="error-banner no-print">{error}</div>}
@@ -57,20 +61,20 @@ export default function BusinessEmailDrafter() {
           <div className="print-header" style={{ display: "none" }}><strong>Business Email Draft</strong></div>
           {data.subject && (
             <div className="result-card">
-              <p className="result-label">Subject Line</p>
+              <p className="result-label">{t("subjectLine")}</p>
               <p style={{ fontWeight: 600, fontSize: "0.95rem" }}>{data.subject}</p>
             </div>
           )}
           <div className="result-card">
             <div className="result-header">
-              <p className="result-label">Email Body</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(`Subject: ${data.subject}\n\n${data.body}`)}>Copy</button>
+              <p className="result-label">{t("emailBody")}</p>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(`Subject: ${data.subject}\n\n${data.body}`)}>{t("copy")}</button>
             </div>
             <p style={{ fontSize: "0.92rem", lineHeight: 1.7, whiteSpace: "pre-wrap" }}>{data.body}</p>
           </div>
           {data.call_to_action && (
             <div className="result-card">
-              <p className="result-label">Call to Action</p>
+              <p className="result-label">{t("callToAction")}</p>
               <p style={{ fontSize: "0.9rem" }}>{data.call_to_action}</p>
             </div>
           )}

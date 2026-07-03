@@ -1,0 +1,25 @@
+{
+  "title": "Belge <0>Analizörü</0>",
+  "subtitle": "Bir PDF, TXT veya MD dosyası yükleyin — yapılandırılmış bir AI özeti alın.",
+  "dropLabel": "Dosyayı buraya bırakın veya göz atmak için tıklayın",
+  "dropHint": "PDF, TXT veya MD — maks. 10 MB",
+  "analyze": "Analiz Et",
+  "analyzing": "Analiz ediliyor...",
+  "sections": {
+    "summary": "Özet",
+    "keyDataPoints": "Önemli Veri Noktaları",
+    "actionItems": "Aksiyon Maddeleri",
+    "redFlags": "Uyarı İşaretleri"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "generating": "Oluşturuluyor..."
+  },
+  "email": {
+    "placeholder": "Raporu şu e-postaya gönder...",
+    "send": "Gönder",
+    "sending": "Gönderiliyor...",
+    "sent": "Rapor {{email}} adresine gönderildi"
+  }
+}

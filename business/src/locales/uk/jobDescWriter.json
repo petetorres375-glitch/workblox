@@ -1,0 +1,17 @@
+{
+  "title": "<0>Автор</0> опису вакансій",
+  "subtitle": "Створіть переконливий і повний опис вакансії, який приверне найкращих фахівців.",
+  "jobTitlePlaceholder": "Назва посади *",
+  "departmentPlaceholder": "Відділ",
+  "salaryRangePlaceholder": "Діапазон зарплати (наприклад, 30 000–45 000 грн)",
+  "requirementsPlaceholder": "Основні вимоги та обов'язки *",
+  "companyInfoPlaceholder": "Короткий опис компанії (необов'язково)",
+  "write": "Створити Опис Вакансії",
+  "writing": "Створення…",
+  "overview": "Огляд",
+  "copyAll": "Копіювати Все",
+  "responsibilities": "Обов'язки",
+  "requirements": "Вимоги",
+  "niceToHave": "Буде Перевагою",
+  "benefits": "Пільги"
+}

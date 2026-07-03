@@ -1,0 +1,22 @@
+{
+  "title": "<0>Rédacteur</0> Publicitaire",
+  "subtitle": "Générez des publicités percutantes avec plusieurs variantes de titres et de descriptions.",
+  "productServicePlaceholder": "Produit ou service *",
+  "targetAudiencePlaceholder": "Public cible (ex. propriétaires de petites entreprises, 25–45 ans)",
+  "uniqueValuePlaceholder": "Proposition de valeur unique",
+  "goalOptions": {
+    "conversions": "Conversions",
+    "awareness": "Notoriété",
+    "leads": "Prospects",
+    "traffic": "Trafic",
+    "app installs": "Installations de l'app"
+  },
+  "write": "Rédiger l'Annonce",
+  "writing": "Rédaction…",
+  "docTitle": "Publicité",
+  "copy": "Copier",
+  "headlines": "Titres",
+  "descriptions": "Descriptions",
+  "ctaOptions": "Options d'Appel à l'Action",
+  "valuePropositions": "Propositions de Valeur"
+}

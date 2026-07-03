@@ -1,0 +1,27 @@
+{
+  "title": "เครื่องมือ<0>สร้าง</0>คอนเทนต์โซเชียล",
+  "subtitle": "สร้างคอนเทนต์โซเชียลมีเดียที่พร้อมเผยแพร่สำหรับธุรกิจของคุณ",
+  "topicPlaceholder": "หัวข้อหรือไอเดียคอนเทนต์ *",
+  "businessNamePlaceholder": "ชื่อธุรกิจ",
+  "platformsPlaceholder": "แพลตฟอร์ม (เช่น LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "มืออาชีพ",
+    "casual": "เป็นกันเอง",
+    "humorous": "ตลกขบขัน",
+    "inspiring": "สร้างแรงบันดาลใจ",
+    "educational": "เชิงให้ความรู้"
+  },
+  "goalOptions": {
+    "engagement": "การมีส่วนร่วม",
+    "awareness": "การรับรู้แบรนด์",
+    "leads": "ลูกค้าเป้าหมาย",
+    "sales": "ยอดขาย",
+    "education": "การให้ความรู้"
+  },
+  "generate": "สร้างโพสต์",
+  "generating": "กำลังสร้าง…",
+  "docTitle": "โพสต์โซเชียลมีเดีย",
+  "copy": "คัดลอก",
+  "bestTime": "เวลาที่ดีที่สุด: {{time}}",
+  "contentTips": "เคล็ดลับคอนเทนต์"
+}

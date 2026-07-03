@@ -1,0 +1,15 @@
+{
+  "title": "<0>E-posta</0> ile Yorum İsteği",
+  "subtitle": "Müşterilerinizden yorum bırakmalarını isteyen samimi ve doğal bir e-posta yazın.",
+  "businessNamePlaceholder": "İşletmenizin adı *",
+  "customerNamePlaceholder": "Müşteri adı (isteğe bağlı)",
+  "serviceProvidedPlaceholder": "Sunulan hizmet veya ürün",
+  "platformsPlaceholder": "Yorum platformları (ör. Google, Yelp)",
+  "write": "Yorum İsteği Yaz",
+  "writing": "Yazılıyor…",
+  "docTitle": "E-posta ile Yorum İsteği",
+  "subjectLine": "Konu",
+  "emailBody": "E-posta İçeriği",
+  "copy": "Kopyala",
+  "timingAdvice": "Zamanlama Tavsiyesi"
+}

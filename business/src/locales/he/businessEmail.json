@@ -1,0 +1,20 @@
+{
+  "title": "<0>אימייל</0> עסקי",
+  "subtitle": "נסח הודעות אימייל עסקיות ברורות ומקצועיות לכל מצב.",
+  "purposePlaceholder": "מטרת האימייל (למשל: מעקב אחר הצעה, שינוי מועד פגישה) *",
+  "recipientPlaceholder": "הנמען / תפקידו (למשל: יוחנן — מנהל גיוס)",
+  "keyPointsPlaceholder": "נקודות מפתח לכלול",
+  "tone": {
+    "professional": "מקצועי",
+    "friendly": "ידידותי",
+    "formal": "רשמי",
+    "assertive": "תקיף",
+    "apologetic": "מתנצל"
+  },
+  "draft": "נסח אימייל",
+  "drafting": "מנסח…",
+  "subjectLine": "שורת הנושא",
+  "emailBody": "גוף האימייל",
+  "copy": "העתק",
+  "callToAction": "קריאה לפעולה"
+}

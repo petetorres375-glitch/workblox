@@ -1,0 +1,17 @@
+{
+  "title": "Beleids<0>generator</0>",
+  "subtitle": "Maak professioneel bedrijfsbeleid — HR, IT, thuiswerken, verlof en meer.",
+  "policyTypePlaceholder": "Soort beleid (bijv. Thuiswerkbeleid, Verlofbeleid) *",
+  "companyNamePlaceholder": "Bedrijfsnaam",
+  "industryPlaceholder": "Branche (bijv. Technologie, Zorg)",
+  "specificsPlaceholder": "Specifieke vereisten of opmerkingen (optioneel)",
+  "generate": "Beleid Genereren",
+  "generating": "Bezig met genereren…",
+  "policyDocument": "Beleidsdocument",
+  "copyAll": "Alles Kopiëren",
+  "effective": "Van kracht vanaf: {{date}}",
+  "purpose": "Doel",
+  "scope": "Toepassingsgebied",
+  "acknowledgment": "Bevestiging",
+  "policyPrefix": "Beleid"
+}

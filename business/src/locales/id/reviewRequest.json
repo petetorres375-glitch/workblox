@@ -1,0 +1,15 @@
+{
+  "title": "Permintaan Ulasan lewat <0>E-mail</0>",
+  "subtitle": "Tulis email yang ramah dan alami untuk meminta pelanggan memberikan ulasan.",
+  "businessNamePlaceholder": "Nama bisnis Anda *",
+  "customerNamePlaceholder": "Nama pelanggan (opsional)",
+  "serviceProvidedPlaceholder": "Layanan atau produk yang diberikan",
+  "platformsPlaceholder": "Platform ulasan (mis. Google, Yelp)",
+  "write": "Tulis Permintaan Ulasan",
+  "writing": "Menulis…",
+  "docTitle": "Permintaan Ulasan lewat E-mail",
+  "subjectLine": "Subjek",
+  "emailBody": "Isi Email",
+  "copy": "Salin",
+  "timingAdvice": "Saran Waktu yang Tepat"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "리뷰 요청 <0>이메일</0>",
+  "subtitle": "고객에게 리뷰를 남겨달라고 요청하는 친근하고 자연스러운 이메일을 작성하세요.",
+  "businessNamePlaceholder": "귀하의 비즈니스 이름 *",
+  "customerNamePlaceholder": "고객 이름 (선택 사항)",
+  "serviceProvidedPlaceholder": "제공한 서비스 또는 제품",
+  "platformsPlaceholder": "리뷰 플랫폼 (예: Google, Yelp)",
+  "write": "리뷰 요청 작성",
+  "writing": "작성 중…",
+  "docTitle": "리뷰 요청 이메일",
+  "subjectLine": "제목",
+  "emailBody": "본문",
+  "copy": "복사",
+  "timingAdvice": "발송 시점 조언"
+}

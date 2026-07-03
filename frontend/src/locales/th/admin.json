@@ -1,0 +1,40 @@
+{
+  "title": "แผงควบคุม<0>ผู้ดูแลระบบ</0>",
+  "subtitle": "จัดการบัญชีลูกค้าและการเปิดใช้งาน",
+  "killSwitch": {
+    "heading": "สวิตช์ปิดแอปฉุกเฉิน",
+    "description": "ปิดใช้งานแอปสำหรับผู้ใช้ทั้งหมดได้ทันที",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "เปิด",
+    "off": "ปิด",
+    "disablePersonal": "ปิดใช้งาน Personal",
+    "enablePersonal": "เปิดใช้งาน Personal",
+    "disableBusiness": "ปิดใช้งาน Business",
+    "enableBusiness": "เปิดใช้งาน Business"
+  },
+  "filters": {
+    "all": "ทั้งหมด",
+    "pending": "รอดำเนินการ",
+    "active": "ใช้งานอยู่"
+  },
+  "loading": "กำลังโหลดผู้ใช้…",
+  "noUsers": "ไม่พบผู้ใช้",
+  "joined": "เข้าร่วมเมื่อ {{date}}",
+  "status": {
+    "active": "ใช้งานอยู่",
+    "pending": "รอดำเนินการ"
+  },
+  "actions": {
+    "deactivate": "ปิดใช้งาน",
+    "activate": "เปิดใช้งาน"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "ฟรี"
+  },
+  "planActions": {
+    "setFree": "ตั้งเป็นฟรี",
+    "setBusiness": "ตั้งเป็น Business"
+  }
+}

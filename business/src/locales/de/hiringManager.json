@@ -1,0 +1,13 @@
+{
+  "title": "Einstellungs<0>manager</0>",
+  "subtitle": "Beschreiben Sie die Position, für die Sie einstellen möchten, und erhalten Sie ein vollständiges Einstellungspaket.",
+  "descriptionPlaceholder": "Beschreiben Sie die Position (z. B. Level-1-Support-Mitarbeiter für unseren IT-Helpdesk — zuständig für Passwort-Rücksetzungen, grundlegende Fehlerbehebung und Ticket-Triage für ein Unternehmen mit 200 Mitarbeitenden)",
+  "generate": "Einstellungspaket erstellen",
+  "generating": "Wird erstellt…",
+  "positionSummary": "Stellenübersicht",
+  "interviewQuestions": "Interviewfragen",
+  "copy": "Kopieren",
+  "evaluationCriteria": "Bewertungskriterien",
+  "redFlags": "Warnsignale",
+  "onboardingTips": "Onboarding-Tipps"
+}

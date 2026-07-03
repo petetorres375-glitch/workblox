@@ -1,0 +1,27 @@
+{
+  "title": "<0>Generátor</0> pro Sociální Sítě",
+  "subtitle": "Vytvořte obsah pro sociální sítě připravený k publikaci pro vaši firmu.",
+  "topicPlaceholder": "Téma nebo nápad na obsah *",
+  "businessNamePlaceholder": "Název firmy",
+  "platformsPlaceholder": "Platformy (např. LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Profesionální",
+    "casual": "Neformální",
+    "humorous": "Vtipný",
+    "inspiring": "Inspirativní",
+    "educational": "Vzdělávací"
+  },
+  "goalOptions": {
+    "engagement": "Zapojení",
+    "awareness": "Povědomí",
+    "leads": "Potenciální zákazníci",
+    "sales": "Prodej",
+    "education": "Vzdělávání"
+  },
+  "generate": "Generovat Příspěvky",
+  "generating": "Generuje se…",
+  "docTitle": "Příspěvky na Sociálních Sítích",
+  "copy": "Kopírovat",
+  "bestTime": "Nejlepší čas: {{time}}",
+  "contentTips": "Tipy pro Obsah"
+}

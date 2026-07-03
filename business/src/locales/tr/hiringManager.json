@@ -1,0 +1,13 @@
+{
+  "title": "İşe Alım <0>Yöneticisi</0>",
+  "subtitle": "İşe aldığınız pozisyonu tanımlayın ve eksiksiz bir işe alım paketi elde edin.",
+  "descriptionPlaceholder": "Pozisyonu tanımlayın (örn. BT yardım masamız için Seviye 1 Teknik Destek uzmanı — şifre sıfırlama, temel sorun giderme ve 200 kişilik bir şirket için bilet önceliklendirme işlerini yürütür)",
+  "generate": "İşe Alım Paketi Oluştur",
+  "generating": "Oluşturuluyor…",
+  "positionSummary": "Pozisyon Özeti",
+  "interviewQuestions": "Mülakat Soruları",
+  "copy": "Kopyala",
+  "evaluationCriteria": "Değerlendirme Kriterleri",
+  "redFlags": "Dikkat Edilmesi Gereken Uyarı İşaretleri",
+  "onboardingTips": "İşe Alıştırma İpuçları"
+}

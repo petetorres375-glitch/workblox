@@ -1,0 +1,27 @@
+{
+  "title": "소셜 미디어 <0>생성기</0>",
+  "subtitle": "귀하의 비즈니스를 위한 플랫폼별 소셜 미디어 콘텐츠를 생성하세요.",
+  "topicPlaceholder": "주제 또는 콘텐츠 아이디어 *",
+  "businessNamePlaceholder": "비즈니스 이름",
+  "platformsPlaceholder": "플랫폼 (예: LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "전문적인",
+    "casual": "캐주얼한",
+    "humorous": "유머러스한",
+    "inspiring": "영감을 주는",
+    "educational": "교육적인"
+  },
+  "goalOptions": {
+    "engagement": "참여",
+    "awareness": "인지도",
+    "leads": "리드",
+    "sales": "매출",
+    "education": "교육"
+  },
+  "generate": "게시물 생성",
+  "generating": "생성 중…",
+  "docTitle": "소셜 미디어 게시물",
+  "copy": "복사",
+  "bestTime": "최적 게시 시간: {{time}}",
+  "contentTips": "콘텐츠 팁"
+}

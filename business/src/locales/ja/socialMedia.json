@@ -1,0 +1,27 @@
+{
+  "title": "ソーシャルメディア<0>ジェネレーター</0>",
+  "subtitle": "貴社のビジネス向けに、プラットフォームに最適化されたソーシャルメディアコンテンツを生成します。",
+  "topicPlaceholder": "トピックまたはコンテンツのアイデア *",
+  "businessNamePlaceholder": "会社名",
+  "platformsPlaceholder": "プラットフォーム(例:LinkedIn、Instagram、Facebook)",
+  "toneOptions": {
+    "professional": "プロフェッショナル",
+    "casual": "カジュアル",
+    "humorous": "ユーモラス",
+    "inspiring": "インスピレーションを与える",
+    "educational": "教育的"
+  },
+  "goalOptions": {
+    "engagement": "エンゲージメント",
+    "awareness": "認知度",
+    "leads": "見込み客",
+    "sales": "売上",
+    "education": "教育"
+  },
+  "generate": "投稿を生成",
+  "generating": "生成中…",
+  "docTitle": "ソーシャルメディア投稿",
+  "copy": "コピー",
+  "bestTime": "最適な投稿時間:{{time}}",
+  "contentTips": "コンテンツのヒント"
+}

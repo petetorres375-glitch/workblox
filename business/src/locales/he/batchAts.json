@@ -1,0 +1,17 @@
+{
+  "title": "מנתח <0>ATS</0> אצווה",
+  "subtitle": "העלה עד 10 קורות חיים וסנן את כולם מול תיאור משרה בבת אחת.",
+  "dropLabel": "גרור קורות חיים לכאן או לחץ לעיון",
+  "resumesSelected_one": "{{count}} קורות חיים נבחרו",
+  "resumesSelected_other": "{{count}} קורות חיים נבחרו",
+  "dropHint": "PDF, DOCX או TXT · עד 10 קבצים",
+  "jobDescriptionPlaceholder": "תיאור המשרה (הדבק כאן להתאמה טובה יותר)",
+  "analyzeAll": "נתח את כל קורות החיים",
+  "analyzingCount_one": "מנתח {{count}} קורות חיים…",
+  "analyzingCount_other": "מנתח {{count}} קורות חיים…",
+  "resumesAnalyzed_one": "{{count}} קורות חיים נותחו",
+  "resumesAnalyzed_other": "{{count}} קורות חיים נותחו",
+  "errorLabel": "שגיאה: {{error}}",
+  "strengths": "נקודות חוזק",
+  "concerns": "חששות"
+}

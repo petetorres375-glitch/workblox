@@ -1,0 +1,15 @@
+{
+  "title": "Assistente de <0>Windows</0>",
+  "subtitle": "Descreva um problema do Windows em linguagem simples — receba o comando do PowerShell de volta.",
+  "placeholder": "ex.: listar todos os processos em execução ordenados pelo uso de CPU",
+  "ask": "Perguntar",
+  "thinking": "Pensando...",
+  "result": {
+    "guiSteps": "Passos na interface gráfica",
+    "command": "Comando",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "explanation": "Explicação",
+    "warnings": "Avisos"
+  }
+}

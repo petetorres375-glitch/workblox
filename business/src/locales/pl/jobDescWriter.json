@@ -1,0 +1,17 @@
+{
+  "title": "<0>Autor</0> Opisu Stanowiska",
+  "subtitle": "Stwórz atrakcyjny, kompletny opis stanowiska, który przyciągnie najlepsze talenty.",
+  "jobTitlePlaceholder": "Nazwa stanowiska *",
+  "departmentPlaceholder": "Dział",
+  "salaryRangePlaceholder": "Widełki płacowe (np. 8000–12000 zł)",
+  "requirementsPlaceholder": "Kluczowe wymagania i obowiązki *",
+  "companyInfoPlaceholder": "Krótki opis firmy (opcjonalnie)",
+  "write": "Napisz Opis Stanowiska",
+  "writing": "Pisanie…",
+  "overview": "Przegląd",
+  "copyAll": "Kopiuj Wszystko",
+  "responsibilities": "Obowiązki",
+  "requirements": "Wymagania",
+  "niceToHave": "Mile Widziane",
+  "benefits": "Benefity"
+}

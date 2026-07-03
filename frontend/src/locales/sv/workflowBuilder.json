@@ -1,0 +1,10 @@
+{
+  "title": "Arbetsflödes<0>byggare</0>",
+  "subtitle": "Beskriv en repetitiv uppgift — få ett körklart Python-skript.",
+  "placeholder": "t.ex. byt namn på alla foton i en mapp efter datumet de togs",
+  "build": "Skapa",
+  "building": "Skapar...",
+  "copy": "Kopiera",
+  "copied": "Kopierat!",
+  "download": "Ladda ner"
+}

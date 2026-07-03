@@ -1,0 +1,17 @@
+{
+  "title": "SOP <0>जनरेटर</0>",
+  "subtitle": "किसी भी व्यावसायिक प्रक्रिया के लिए स्पष्ट, कार्ययोग्य मानक संचालन प्रक्रियाएं (SOP) बनाएं।",
+  "processNamePlaceholder": "प्रक्रिया का नाम (जैसे ग्राहक ऑनबोर्डिंग) *",
+  "departmentPlaceholder": "विभाग",
+  "frequencyPlaceholder": "आवृत्ति (जैसे दैनिक, साप्ताहिक, प्रति नए क्लाइंट)",
+  "descriptionPlaceholder": "प्रक्रिया का विवरण *",
+  "generate": "SOP बनाएं",
+  "generating": "बनाया जा रहा है…",
+  "overview": "अवलोकन",
+  "frequencyLabel": "आवृत्ति: {{frequency}}",
+  "requiredTools": "आवश्यक उपकरण / संसाधन",
+  "steps": "चरण",
+  "stepLabel": "चरण {{number}}: {{action}}",
+  "qualityChecks": "गुणवत्ता जांच",
+  "notes": "टिप्पणियां"
+}

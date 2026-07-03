@@ -1,0 +1,22 @@
+{
+  "title": "제안서 <0>생성기</0>",
+  "subtitle": "고객을 위한 전문적인 제안서와 견적서를 작성하세요.",
+  "clientNamePlaceholder": "고객명",
+  "projectDescriptionPlaceholder": "프로젝트 설명 *",
+  "servicesPlaceholder": "포함할 서비스",
+  "budgetRangePlaceholder": "예산 범위 (예: $5,000–$10,000)",
+  "timelinePlaceholder": "일정 (예: 4–6주)",
+  "generate": "제안서 생성",
+  "generating": "생성 중…",
+  "executiveSummary": "요약",
+  "scopeOfWork": "작업 범위",
+  "deliverables": "결과물",
+  "lineItems": "세부 항목",
+  "table": {
+    "description": "설명",
+    "qty": "수량",
+    "unitPrice": "단가",
+    "total": "합계"
+  },
+  "terms": "약관"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Windows-<0>Assistent</0>",
+  "subtitle": "Beschreiben Sie ein Windows-Problem in einfachen Worten — Sie erhalten den passenden PowerShell-Befehl.",
+  "placeholder": "z. B. alle laufenden Prozesse nach CPU-Auslastung sortiert auflisten",
+  "ask": "Fragen",
+  "thinking": "Wird überlegt...",
+  "result": {
+    "guiSteps": "Schritte in der Oberfläche",
+    "command": "Befehl",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "explanation": "Erklärung",
+    "warnings": "Warnhinweise"
+  }
+}

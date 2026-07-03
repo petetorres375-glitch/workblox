@@ -1,0 +1,17 @@
+{
+  "title": "Analisador ATS <0>em Lote</0>",
+  "subtitle": "Envie até 10 currículos e avalie todos de uma vez em relação a uma descrição de vaga.",
+  "dropLabel": "Solte os currículos aqui ou clique para procurar",
+  "resumesSelected_one": "{{count}} currículo selecionado",
+  "resumesSelected_other": "{{count}} currículos selecionados",
+  "dropHint": "PDF, DOCX ou TXT · até 10 arquivos",
+  "jobDescriptionPlaceholder": "Descrição da vaga (cole aqui para uma melhor correspondência)",
+  "analyzeAll": "Analisar Todos os Currículos",
+  "analyzingCount_one": "Analisando {{count}} currículo…",
+  "analyzingCount_other": "Analisando {{count}} currículos…",
+  "resumesAnalyzed_one": "{{count}} currículo analisado",
+  "resumesAnalyzed_other": "{{count}} currículos analisados",
+  "errorLabel": "Erro: {{error}}",
+  "strengths": "Pontos Fortes",
+  "concerns": "Pontos de Atenção"
+}

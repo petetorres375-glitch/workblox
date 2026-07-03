@@ -1,0 +1,27 @@
+{
+  "title": "<0>Генератор</0> контенту для соцмереж",
+  "subtitle": "Створюйте готовий до публікації контент для соціальних мереж вашого бізнесу.",
+  "topicPlaceholder": "Тема або ідея контенту *",
+  "businessNamePlaceholder": "Назва бізнесу",
+  "platformsPlaceholder": "Платформи (напр., LinkedIn, Instagram, Facebook)",
+  "toneOptions": {
+    "professional": "Професійний",
+    "casual": "Невимушений",
+    "humorous": "Гумористичний",
+    "inspiring": "Надихаючий",
+    "educational": "Освітній"
+  },
+  "goalOptions": {
+    "engagement": "Залученість",
+    "awareness": "Впізнаваність",
+    "leads": "Ліди",
+    "sales": "Продажі",
+    "education": "Освіта"
+  },
+  "generate": "Створити публікації",
+  "generating": "Створення…",
+  "docTitle": "Публікації для соцмереж",
+  "copy": "Копіювати",
+  "bestTime": "Найкращий час: {{time}}",
+  "contentTips": "Поради щодо контенту"
+}

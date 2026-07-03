@@ -1,0 +1,13 @@
+{
+  "title": "Gerente de <0>Contratación</0>",
+  "subtitle": "Describe el puesto que buscas cubrir y obtén un paquete de contratación completo.",
+  "descriptionPlaceholder": "Describe el puesto (p. ej. especialista de soporte técnico Nivel 1 para la mesa de ayuda de TI: restablecimiento de contraseñas, resolución de problemas básicos y priorización de tickets para una empresa de 200 personas)",
+  "generate": "Generar Paquete de Contratación",
+  "generating": "Generando…",
+  "positionSummary": "Resumen del Puesto",
+  "interviewQuestions": "Preguntas de la Entrevista",
+  "copy": "Copiar",
+  "evaluationCriteria": "Criterios de Evaluación",
+  "redFlags": "Señales de Alerta",
+  "onboardingTips": "Consejos de Incorporación"
+}

@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>Analyzer</0>",
+  "subtitle": "Upload a resume — get an instant ATS score, keyword gaps, and recommendations.",
+  "dropZone": {
+    "label": "Drop a resume here or click to browse",
+    "hint": "TXT, PDF, or DOCX — max 5 MB"
+  },
+  "clientNamePlaceholder": "Client name (optional)",
+  "jobRolePlaceholder": "Job role (optional)",
+  "submit": "Analyze Resume",
+  "analyzing": "Analyzing...",
+  "score": {
+    "outOf100": "out of 100",
+    "keywordsFound": "{{found}} / {{total}} keywords found"
+  },
+  "contactCheck": {
+    "email": "Email",
+    "phone": "Phone",
+    "linkedin": "LinkedIn",
+    "location": "Location"
+  },
+  "recommendations": "Recommendations",
+  "keywordBreakdown": "Keyword Breakdown",
+  "moreKeywords": "+{{count}} more",
+  "jobMatch": {
+    "title": "Job Match: {{role}}",
+    "matched": "{{score}} / {{total}} keywords matched"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Generating..."
+  }
+}

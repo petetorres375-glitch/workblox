@@ -1,0 +1,17 @@
+{
+  "title": "पॉलिसी <0>जनरेटर</0>",
+  "subtitle": "पेशेवर कंपनी नीतियां बनाएं — HR, IT, रिमोट वर्क, PTO, और बहुत कुछ।",
+  "policyTypePlaceholder": "नीति प्रकार (जैसे रिमोट वर्क पॉलिसी, PTO पॉलिसी) *",
+  "companyNamePlaceholder": "कंपनी का नाम",
+  "industryPlaceholder": "उद्योग (जैसे टेक्नोलॉजी, हेल्थकेयर)",
+  "specificsPlaceholder": "विशिष्ट आवश्यकताएं या नोट्स (वैकल्पिक)",
+  "generate": "नीति जनरेट करें",
+  "generating": "जनरेट किया जा रहा है…",
+  "policyDocument": "नीति दस्तावेज़",
+  "copyAll": "सभी कॉपी करें",
+  "effective": "प्रभावी: {{date}}",
+  "purpose": "उद्देश्य",
+  "scope": "कार्यक्षेत्र",
+  "acknowledgment": "स्वीकृति",
+  "policyPrefix": "नीति"
+}

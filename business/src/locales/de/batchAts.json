@@ -1,0 +1,17 @@
+{
+  "title": "ATS-Stapel<0>analyse</0>",
+  "subtitle": "Laden Sie bis zu 10 Lebensläufe hoch und prüfen Sie alle gleichzeitig gegen eine Stellenbeschreibung.",
+  "dropLabel": "Lebensläufe hier ablegen oder klicken, um Dateien auszuwählen",
+  "resumesSelected_one": "{{count}} Lebenslauf ausgewählt",
+  "resumesSelected_other": "{{count}} Lebensläufe ausgewählt",
+  "dropHint": "PDF, DOCX oder TXT · bis zu 10 Dateien",
+  "jobDescriptionPlaceholder": "Stellenbeschreibung (hier einfügen für bessere Übereinstimmung)",
+  "analyzeAll": "Alle Lebensläufe Analysieren",
+  "analyzingCount_one": "{{count}} Lebenslauf wird analysiert…",
+  "analyzingCount_other": "{{count}} Lebensläufe werden analysiert…",
+  "resumesAnalyzed_one": "{{count}} Lebenslauf analysiert",
+  "resumesAnalyzed_other": "{{count}} Lebensläufe analysiert",
+  "errorLabel": "Fehler: {{error}}",
+  "strengths": "Stärken",
+  "concerns": "Bedenken"
+}

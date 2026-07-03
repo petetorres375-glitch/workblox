@@ -1,0 +1,20 @@
+{
+  "title": "Müşteri <0>Yanıtı</0>",
+  "subtitle": "Müşteri mesajlarına ve şikayetlerine profesyonel, empatik yanıtlar hazırlayın.",
+  "customerMessagePlaceholder": "Müşterinin mesajını yapıştırın *",
+  "contextPlaceholder": "Bağlam (ör. ne oldu, sipariş detayları vb.)",
+  "tone": {
+    "professional": "Profesyonel",
+    "empathetic": "Empatik",
+    "apologetic": "Özür Dileyici",
+    "firm": "Kararlı",
+    "friendly": "Samimi"
+  },
+  "draft": "Yanıt Taslağı Oluştur",
+  "drafting": "Taslak Oluşturuluyor…",
+  "subjectLine": "Konu Satırı",
+  "responseDraft": "Yanıt Taslağı",
+  "copy": "Kopyala",
+  "pointsAddressed": "Ele Alınan Noktalar",
+  "followUpSuggested": "Önerilen Takip"
+}

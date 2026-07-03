@@ -1,0 +1,35 @@
+{
+  "title": "מנתח <0>ATS</0>",
+  "subtitle": "העלה קורות חיים — קבל מיד ציון ATS, פערי מילות מפתח והמלצות.",
+  "dropZone": {
+    "label": "גרור קורות חיים לכאן או לחץ לבחירת קובץ",
+    "hint": "TXT, PDF או DOCX — עד 5 MB"
+  },
+  "clientNamePlaceholder": "שם הלקוח (אופציונלי)",
+  "jobRolePlaceholder": "תפקיד מבוקש (אופציונלי)",
+  "submit": "נתח קורות חיים",
+  "analyzing": "מנתח...",
+  "score": {
+    "outOf100": "מתוך 100",
+    "keywordsFound": "נמצאו {{found}} / {{total}} מילות מפתח"
+  },
+  "contactCheck": {
+    "email": "אימייל",
+    "phone": "טלפון",
+    "linkedin": "לינקדאין",
+    "location": "מיקום"
+  },
+  "recommendations": "המלצות",
+  "keywordBreakdown": "פירוט מילות מפתח",
+  "moreKeywords": "עוד {{count}}+",
+  "jobMatch": {
+    "title": "התאמת משרה: {{role}}",
+    "matched": "הותאמו {{score}} / {{total}} מילות מפתח"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "יוצר..."
+  }
+}

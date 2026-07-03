@@ -1,0 +1,15 @@
+{
+  "title": "Demande d'Avis par <0>E-mail</0>",
+  "subtitle": "Rédigez un e-mail chaleureux et naturel pour inviter vos clients à laisser un avis.",
+  "businessNamePlaceholder": "Nom de votre entreprise *",
+  "customerNamePlaceholder": "Nom du client (facultatif)",
+  "serviceProvidedPlaceholder": "Service ou produit fourni",
+  "platformsPlaceholder": "Plateformes d'avis (ex. Google, Yelp)",
+  "write": "Rédiger la Demande d'Avis",
+  "writing": "Rédaction…",
+  "docTitle": "Demande d'Avis par E-mail",
+  "subjectLine": "Objet",
+  "emailBody": "Corps du Message",
+  "copy": "Copier",
+  "timingAdvice": "Conseil sur le Bon Moment"
+}

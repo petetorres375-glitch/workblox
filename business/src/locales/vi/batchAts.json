@@ -1,0 +1,17 @@
+{
+  "title": "Công cụ <0>Phân tích</0> ATS Hàng loạt",
+  "subtitle": "Tải lên tối đa 10 sơ yếu lý lịch và sàng lọc tất cả cùng lúc theo mô tả công việc.",
+  "dropLabel": "Thả sơ yếu lý lịch vào đây hoặc nhấp để duyệt",
+  "resumesSelected_one": "Đã chọn {{count}} sơ yếu lý lịch",
+  "resumesSelected_other": "Đã chọn {{count}} sơ yếu lý lịch",
+  "dropHint": "PDF, DOCX hoặc TXT · tối đa 10 tệp",
+  "jobDescriptionPlaceholder": "Mô tả công việc (dán vào đây để khớp chính xác hơn)",
+  "analyzeAll": "Phân Tích Tất Cả Sơ Yếu Lý Lịch",
+  "analyzingCount_one": "Đang phân tích {{count}} sơ yếu lý lịch…",
+  "analyzingCount_other": "Đang phân tích {{count}} sơ yếu lý lịch…",
+  "resumesAnalyzed_one": "Đã phân tích {{count}} sơ yếu lý lịch",
+  "resumesAnalyzed_other": "Đã phân tích {{count}} sơ yếu lý lịch",
+  "errorLabel": "Lỗi: {{error}}",
+  "strengths": "Điểm Mạnh",
+  "concerns": "Điểm Cần Lưu Ý"
+}

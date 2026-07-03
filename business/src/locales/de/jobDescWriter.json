@@ -1,0 +1,17 @@
+{
+  "title": "Stellenbeschreibungs<0>generator</0>",
+  "subtitle": "Erstellen Sie eine überzeugende, vollständige Stellenbeschreibung, die Top-Talente anzieht.",
+  "jobTitlePlaceholder": "Jobtitel *",
+  "departmentPlaceholder": "Abteilung",
+  "salaryRangePlaceholder": "Gehaltsspanne (z. B. 60.000–80.000 $)",
+  "requirementsPlaceholder": "Wichtigste Anforderungen und Aufgaben *",
+  "companyInfoPlaceholder": "Kurze Unternehmensbeschreibung (optional)",
+  "write": "Stellenbeschreibung erstellen",
+  "writing": "Wird erstellt…",
+  "overview": "Übersicht",
+  "copyAll": "Alles kopieren",
+  "responsibilities": "Aufgaben",
+  "requirements": "Anforderungen",
+  "niceToHave": "Wünschenswert",
+  "benefits": "Vorteile"
+}

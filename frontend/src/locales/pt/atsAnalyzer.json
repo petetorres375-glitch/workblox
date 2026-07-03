@@ -1,0 +1,35 @@
+{
+  "title": "Analisador <0>ATS</0>",
+  "subtitle": "Envie um currículo — receba instantaneamente uma pontuação ATS, lacunas de palavras-chave e recomendações.",
+  "dropZone": {
+    "label": "Arraste um currículo aqui ou clique para procurar",
+    "hint": "TXT, PDF ou DOCX — máx. 5 MB"
+  },
+  "clientNamePlaceholder": "Nome do cliente (opcional)",
+  "jobRolePlaceholder": "Cargo desejado (opcional)",
+  "submit": "Analisar currículo",
+  "analyzing": "Analisando...",
+  "score": {
+    "outOf100": "de 100",
+    "keywordsFound": "{{found}} / {{total}} palavras-chave encontradas"
+  },
+  "contactCheck": {
+    "email": "E-mail",
+    "phone": "Telefone",
+    "linkedin": "LinkedIn",
+    "location": "Localização"
+  },
+  "recommendations": "Recomendações",
+  "keywordBreakdown": "Detalhamento de palavras-chave",
+  "moreKeywords": "+{{count}} mais",
+  "jobMatch": {
+    "title": "Compatibilidade com a vaga: {{role}}",
+    "matched": "{{score}} / {{total}} palavras-chave correspondentes"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Gerando..."
+  }
+}

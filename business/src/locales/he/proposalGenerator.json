@@ -1,0 +1,22 @@
+{
+  "title": "יצירת <0>הצעות מחיר</0>",
+  "subtitle": "צרו הצעות מחיר מקצועיות עבור לקוחות.",
+  "clientNamePlaceholder": "שם הלקוח",
+  "projectDescriptionPlaceholder": "תיאור הפרויקט *",
+  "servicesPlaceholder": "שירותים לכלול",
+  "budgetRangePlaceholder": "טווח תקציב (למשל $5,000–$10,000)",
+  "timelinePlaceholder": "לוח זמנים (למשל 4–6 שבועות)",
+  "generate": "צור הצעת מחיר",
+  "generating": "יוצר…",
+  "executiveSummary": "תקציר מנהלים",
+  "scopeOfWork": "היקף העבודה",
+  "deliverables": "תוצרים",
+  "lineItems": "פריטי חשבון",
+  "table": {
+    "description": "תיאור",
+    "qty": "כמות",
+    "unitPrice": "מחיר ליחידה",
+    "total": "סה\"כ"
+  },
+  "terms": "תנאים"
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Painel de <0>Administração</0>",
+  "subtitle": "Gerencie contas de clientes e ativações.",
+  "killSwitch": {
+    "heading": "Interruptor Geral do App",
+    "description": "Desative um app para todos os usuários instantaneamente",
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "LIGADO",
+    "off": "DESLIGADO",
+    "disablePersonal": "Desativar Personal",
+    "enablePersonal": "Ativar Personal",
+    "disableBusiness": "Desativar Business",
+    "enableBusiness": "Ativar Business"
+  },
+  "filters": {
+    "all": "Todos",
+    "pending": "Pendentes",
+    "active": "Ativos"
+  },
+  "loading": "Carregando usuários…",
+  "noUsers": "Nenhum usuário encontrado.",
+  "joined": "Ingressou em {{date}}",
+  "status": {
+    "active": "Ativo",
+    "pending": "Pendente"
+  },
+  "actions": {
+    "deactivate": "Desativar",
+    "activate": "Ativar"
+  },
+  "plan": {
+    "business": "Business",
+    "free": "Gratuito"
+  },
+  "planActions": {
+    "setFree": "Definir como Gratuito",
+    "setBusiness": "Definir como Business"
+  }
+}

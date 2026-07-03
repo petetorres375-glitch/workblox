@@ -1,0 +1,17 @@
+{
+  "title": "Batch ATS <0>Analyzer</0>",
+  "subtitle": "Carica fino a 10 curriculum e valutali tutti rispetto a una descrizione del lavoro in un'unica volta.",
+  "dropLabel": "Trascina qui i curriculum o clicca per selezionarli",
+  "resumesSelected_one": "{{count}} curriculum selezionato",
+  "resumesSelected_other": "{{count}} curriculum selezionati",
+  "dropHint": "PDF, DOCX o TXT · fino a 10 file",
+  "jobDescriptionPlaceholder": "Descrizione del lavoro (incollala qui per un abbinamento migliore)",
+  "analyzeAll": "Analizza Tutti i Curriculum",
+  "analyzingCount_one": "Analisi di {{count}} curriculum…",
+  "analyzingCount_other": "Analisi di {{count}} curriculum…",
+  "resumesAnalyzed_one": "{{count}} curriculum analizzato",
+  "resumesAnalyzed_other": "{{count}} curriculum analizzati",
+  "errorLabel": "Errore: {{error}}",
+  "strengths": "Punti di Forza",
+  "concerns": "Criticità"
+}

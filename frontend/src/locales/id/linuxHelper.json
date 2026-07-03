@@ -1,0 +1,15 @@
+{
+  "title": "Asisten <0>Linux</0>",
+  "subtitle": "Jelaskan masalah Linux Anda dengan bahasa sehari-hari — dapatkan perintah yang tepat.",
+  "placeholder": "mis. mencari semua file .log yang diubah dalam 7 hari terakhir",
+  "ask": "Tanya",
+  "thinking": "Sedang berpikir...",
+  "result": {
+    "guiSteps": "Langkah-langkah GUI",
+    "command": "Perintah",
+    "copy": "Salin",
+    "copied": "Tersalin!",
+    "explanation": "Penjelasan",
+    "warnings": "Peringatan"
+  }
+}

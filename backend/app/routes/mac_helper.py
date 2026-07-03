@@ -22,6 +22,7 @@ Return only valid JSON. No markdown fences, no extra text.
 def mac_helper():
     body = request.get_json(silent=True) or {}
     problem = (body.get("problem") or "").strip()
+    language = (body.get("language") or "en").strip()
     if not problem:
         return jsonify({"error": "problem is required"}), 400
     try:
@@ -30,6 +31,7 @@ def mac_helper():
             user_message=f"Problem: {problem}",
             model="claude-haiku-4-5-20251001",
             max_tokens=1024,
+            language=language,
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500

@@ -1,0 +1,22 @@
+{
+  "title": "<0>Redactor</0> de Anuncios",
+  "subtitle": "Genera anuncios persuasivos con múltiples variaciones de títulos y descripciones.",
+  "productServicePlaceholder": "Producto o servicio *",
+  "targetAudiencePlaceholder": "Público objetivo (p. ej. dueños de pequeños negocios, 25–45 años)",
+  "uniqueValuePlaceholder": "Propuesta de valor única",
+  "goalOptions": {
+    "conversions": "Conversiones",
+    "awareness": "Reconocimiento",
+    "leads": "Clientes potenciales",
+    "traffic": "Tráfico",
+    "app installs": "Instalaciones de la app"
+  },
+  "write": "Redactar Anuncio",
+  "writing": "Redactando…",
+  "docTitle": "Anuncio",
+  "copy": "Copiar",
+  "headlines": "Títulos",
+  "descriptions": "Descripciones",
+  "ctaOptions": "Opciones de Llamada a la Acción",
+  "valuePropositions": "Propuestas de Valor"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Windows <0>助手</0>",
+  "subtitle": "用日常语言描述您的 Windows 问题 — 直接获取对应的 PowerShell 命令。",
+  "placeholder": "例如：列出所有正在运行的进程，按 CPU 使用率排序",
+  "ask": "提问",
+  "thinking": "思考中...",
+  "result": {
+    "guiSteps": "图形界面操作步骤",
+    "command": "命令",
+    "copy": "复制",
+    "copied": "已复制！",
+    "explanation": "说明",
+    "warnings": "注意事项"
+  }
+}

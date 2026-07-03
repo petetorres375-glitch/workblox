@@ -1,0 +1,35 @@
+{
+  "title": "ATS <0>Analiz Aracı</0>",
+  "subtitle": "Bir özgeçmiş yükleyin — anında ATS puanı, eksik anahtar kelimeler ve önerileri alın.",
+  "dropZone": {
+    "label": "Özgeçmişi buraya sürükleyin veya göz atmak için tıklayın",
+    "hint": "TXT, PDF veya DOCX — maks. 5 MB"
+  },
+  "clientNamePlaceholder": "Müşteri adı (isteğe bağlı)",
+  "jobRolePlaceholder": "İş pozisyonu (isteğe bağlı)",
+  "submit": "Özgeçmişi Analiz Et",
+  "analyzing": "Analiz ediliyor...",
+  "score": {
+    "outOf100": "100 üzerinden",
+    "keywordsFound": "{{found}} / {{total}} anahtar kelime bulundu"
+  },
+  "contactCheck": {
+    "email": "E-posta",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Konum"
+  },
+  "recommendations": "Öneriler",
+  "keywordBreakdown": "Anahtar Kelime Dökümü",
+  "moreKeywords": "+{{count}} tane daha",
+  "jobMatch": {
+    "title": "İş Uyumu: {{role}}",
+    "matched": "{{score}} / {{total}} anahtar kelime eşleşti"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Oluşturuluyor..."
+  }
+}

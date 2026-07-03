@@ -1,0 +1,14 @@
+{
+  "title": "会议记录<0>整理工具</0>",
+  "subtitle": "粘贴杂乱的会议记录，即可获得清晰、结构化的摘要以及行动事项。",
+  "contextPlaceholder": "会议背景（例如：第三季度规划、客户启动会）",
+  "rawNotesPlaceholder": "在此粘贴您的原始会议记录 *",
+  "clean": "整理会议记录",
+  "cleaning": "正在整理…",
+  "summary": "摘要",
+  "copyAll": "全部复制",
+  "decisionsMade": "已做出的决定",
+  "actionItems": "行动事项",
+  "nextSteps": "下一步计划",
+  "followUpMeeting": "后续会议"
+}

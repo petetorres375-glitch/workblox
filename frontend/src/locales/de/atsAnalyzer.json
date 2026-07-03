@@ -1,0 +1,35 @@
+{
+  "title": "ATS-<0>Analyzer</0>",
+  "subtitle": "Lade einen Lebenslauf hoch — erhalte sofort einen ATS-Score, fehlende Schlüsselwörter und Empfehlungen.",
+  "dropZone": {
+    "label": "Lebenslauf hier ablegen oder klicken zum Durchsuchen",
+    "hint": "TXT, PDF oder DOCX — max. 5 MB"
+  },
+  "clientNamePlaceholder": "Kundenname (optional)",
+  "jobRolePlaceholder": "Stellenbezeichnung (optional)",
+  "submit": "Lebenslauf analysieren",
+  "analyzing": "Analyse läuft...",
+  "score": {
+    "outOf100": "von 100",
+    "keywordsFound": "{{found}} / {{total}} Schlüsselwörter gefunden"
+  },
+  "contactCheck": {
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "location": "Standort"
+  },
+  "recommendations": "Empfehlungen",
+  "keywordBreakdown": "Schlüsselwort-Übersicht",
+  "moreKeywords": "+{{count}} weitere",
+  "jobMatch": {
+    "title": "Stellen-Match: {{role}}",
+    "matched": "{{score}} / {{total}} Schlüsselwörter übereinstimmend"
+  },
+  "download": {
+    "txt": "↓ TXT",
+    "pdf": "↓ PDF",
+    "word": "↓ Word",
+    "generating": "Wird erstellt..."
+  }
+}

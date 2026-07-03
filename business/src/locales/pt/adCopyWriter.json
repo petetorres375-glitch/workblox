@@ -1,0 +1,22 @@
+{
+  "title": "<0>Redator</0> de Anúncios",
+  "subtitle": "Gere anúncios de alta conversão com várias variações de títulos e descrições.",
+  "productServicePlaceholder": "Produto ou serviço *",
+  "targetAudiencePlaceholder": "Público-alvo (ex.: donos de pequenos negócios, 25–45 anos)",
+  "uniqueValuePlaceholder": "Proposta de valor exclusiva",
+  "goalOptions": {
+    "conversions": "Conversões",
+    "awareness": "Reconhecimento",
+    "leads": "Leads",
+    "traffic": "Tráfego",
+    "app installs": "Instalações do app"
+  },
+  "write": "Escrever Anúncio",
+  "writing": "Escrevendo…",
+  "docTitle": "Anúncio",
+  "copy": "Copiar",
+  "headlines": "Títulos",
+  "descriptions": "Descrições",
+  "ctaOptions": "Opções de Chamada para Ação",
+  "valuePropositions": "Propostas de Valor"
+}

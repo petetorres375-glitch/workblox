@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { get, post } from "../../api/client";
 
+const FILTER_IDS = ["all", "pending", "active"];
+
 export default function Admin() {
+  const { t } = useTranslation("admin");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -73,55 +77,55 @@ export default function Admin() {
 
   return (
     <div>
-      <h1 className="page-title">Admin <span>Panel</span></h1>
-      <p className="page-subtitle">Manage client accounts and activations.</p>
+      <h1 className="page-title"><Trans t={t} i18nKey="title"><span /></Trans></h1>
+      <p className="page-subtitle">{t("subtitle")}</p>
 
       <div className="admin-user-card" style={{ marginBottom: "24px" }}>
         <div className="admin-user-info">
-          <span className="admin-user-name">App Kill Switch</span>
-          <span className="admin-user-email">Disable an app for all users instantly</span>
+          <span className="admin-user-name">{t("killSwitch.heading")}</span>
+          <span className="admin-user-email">{t("killSwitch.description")}</span>
         </div>
         <div className="admin-user-actions">
           <span className={`admin-badge ${killSwitch.personal_enabled ? "badge-active" : "badge-pending"}`}>
-            Personal: {killSwitch.personal_enabled ? "ON" : "OFF"}
+            {t("killSwitch.personal")} {killSwitch.personal_enabled ? t("killSwitch.on") : t("killSwitch.off")}
           </span>
           <button
             className={`admin-action-btn ${killSwitch.personal_enabled ? "btn-deactivate" : "btn-activate"}`}
             onClick={() => toggleKillSwitch("personal_enabled")}
             disabled={ksLoading}
           >
-            {killSwitch.personal_enabled ? "Disable Personal" : "Enable Personal"}
+            {killSwitch.personal_enabled ? t("killSwitch.disablePersonal") : t("killSwitch.enablePersonal")}
           </button>
           <span className={`admin-badge ${killSwitch.business_enabled ? "badge-active" : "badge-pending"}`}>
-            Business: {killSwitch.business_enabled ? "ON" : "OFF"}
+            {t("killSwitch.business")} {killSwitch.business_enabled ? t("killSwitch.on") : t("killSwitch.off")}
           </span>
           <button
             className={`admin-action-btn ${killSwitch.business_enabled ? "btn-deactivate" : "btn-activate"}`}
             onClick={() => toggleKillSwitch("business_enabled")}
             disabled={ksLoading}
           >
-            {killSwitch.business_enabled ? "Disable Business" : "Enable Business"}
+            {killSwitch.business_enabled ? t("killSwitch.disableBusiness") : t("killSwitch.enableBusiness")}
           </button>
         </div>
       </div>
 
       <div className="admin-filters">
-        {["all", "pending", "active"].map((f) => (
+        {FILTER_IDS.map((f) => (
           <button
             key={f}
             className={`admin-filter-btn${filter === f ? " active" : ""}`}
             onClick={() => setFilter(f)}
           >
-            {f.charAt(0).toUpperCase() + f.slice(1)}
+            {t(`filters.${f}`)}
           </button>
         ))}
       </div>
 
-      {loading && <p className="page-subtitle">Loading users…</p>}
+      {loading && <p className="page-subtitle">{t("loading")}</p>}
       {error && <p className="login-error">{error}</p>}
 
       {!loading && !error && filtered.length === 0 && (
-        <p className="page-subtitle">No users found.</p>
+        <p className="page-subtitle">{t("noUsers")}</p>
       )}
 
       {!loading && filtered.map((u) => (
@@ -130,27 +134,27 @@ export default function Admin() {
             <span className="admin-user-name">{u.name}</span>
             <span className="admin-user-email">{u.email}</span>
             <span className="admin-user-date">
-              Joined {new Date(u.created_at).toLocaleDateString()}
+              {t("joined", { date: new Date(u.created_at).toLocaleDateString() })}
             </span>
           </div>
           <div className="admin-user-actions">
             <span className={`admin-badge ${u.is_active ? "badge-active" : "badge-pending"}`}>
-              {u.is_active ? "Active" : "Pending"}
+              {u.is_active ? t("status.active") : t("status.pending")}
             </span>
             <button
               className={`admin-action-btn ${u.is_active ? "btn-deactivate" : "btn-activate"}`}
               onClick={() => toggleActive(u.email, !u.is_active)}
             >
-              {u.is_active ? "Deactivate" : "Activate"}
+              {u.is_active ? t("actions.deactivate") : t("actions.activate")}
             </button>
             <span className={`admin-badge ${u.plan === "business" ? "badge-active" : "badge-pending"}`}>
-              {u.plan === "business" ? "Business" : "Free"}
+              {u.plan === "business" ? t("plan.business") : t("plan.free")}
             </span>
             <button
               className={`admin-action-btn ${u.plan === "business" ? "btn-deactivate" : "btn-activate"}`}
               onClick={() => togglePlan(u.id, u.plan === "business" ? "free" : "business")}
             >
-              {u.plan === "business" ? "Set Free" : "Set Business"}
+              {u.plan === "business" ? t("planActions.setFree") : t("planActions.setBusiness")}
             </button>
           </div>
         </div>

@@ -1,0 +1,15 @@
+{
+  "title": "Linux-<0>assistent</0>",
+  "subtitle": "Beskriv ett Linux-problem i vanligt språk — få rätt kommando direkt.",
+  "placeholder": "t.ex. hitta alla .log-filer som ändrats de senaste 7 dagarna",
+  "ask": "Fråga",
+  "thinking": "Tänker...",
+  "result": {
+    "guiSteps": "Steg i det grafiska gränssnittet",
+    "command": "Kommando",
+    "copy": "Kopiera",
+    "copied": "Kopierat!",
+    "explanation": "Förklaring",
+    "warnings": "Varningar"
+  }
+}

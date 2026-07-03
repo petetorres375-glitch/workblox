@@ -1,0 +1,20 @@
+{
+  "title": "رد <0>العملاء</0>",
+  "subtitle": "صِغ ردودًا احترافية ومتعاطفة على رسائل العملاء وشكاواهم.",
+  "customerMessagePlaceholder": "الصق رسالة العميل *",
+  "contextPlaceholder": "السياق (مثال: ما الذي حدث، تفاصيل الطلب، إلخ)",
+  "tone": {
+    "professional": "احترافي",
+    "empathetic": "متعاطف",
+    "apologetic": "اعتذاري",
+    "firm": "حازم",
+    "friendly": "ودود"
+  },
+  "draft": "صياغة الرد",
+  "drafting": "جارٍ الصياغة…",
+  "subjectLine": "سطر الموضوع",
+  "responseDraft": "مسودة الرد",
+  "copy": "نسخ",
+  "pointsAddressed": "النقاط التي تمت معالجتها",
+  "followUpSuggested": "المتابعة المقترحة"
+}

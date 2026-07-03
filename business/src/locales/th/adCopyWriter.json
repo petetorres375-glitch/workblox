@@ -1,0 +1,22 @@
+{
+  "title": "เครื่องมือ<0>เขียน</0>คำโฆษณา",
+  "subtitle": "สร้างคำโฆษณาที่มีอัตราการแปลงสูง พร้อมพาดหัวและคำอธิบายหลากหลายรูปแบบ",
+  "productServicePlaceholder": "สินค้าหรือบริการ *",
+  "targetAudiencePlaceholder": "กลุ่มเป้าหมาย (เช่น เจ้าของธุรกิจขนาดเล็ก อายุ 25–45 ปี)",
+  "uniqueValuePlaceholder": "จุดขายที่เป็นเอกลักษณ์",
+  "goalOptions": {
+    "conversions": "การแปลง",
+    "awareness": "การรับรู้แบรนด์",
+    "leads": "ลูกค้าเป้าหมาย",
+    "traffic": "ทราฟฟิก",
+    "app installs": "การติดตั้งแอป"
+  },
+  "write": "เขียนคำโฆษณา",
+  "writing": "กำลังเขียน…",
+  "docTitle": "คำโฆษณา",
+  "copy": "คัดลอก",
+  "headlines": "พาดหัว",
+  "descriptions": "คำอธิบาย",
+  "ctaOptions": "ตัวเลือกคำกระตุ้นการตัดสินใจ",
+  "valuePropositions": "ข้อเสนอด้านคุณค่า"
+}

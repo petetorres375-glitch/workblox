@@ -1,0 +1,22 @@
+{
+  "title": "Reklam Metni <0>Yazarı</0>",
+  "subtitle": "Birden fazla başlık ve açıklama varyasyonuyla yüksek dönüşümlü reklam metinleri oluşturun.",
+  "productServicePlaceholder": "Ürün veya hizmet *",
+  "targetAudiencePlaceholder": "Hedef kitle (ör. küçük işletme sahipleri, 25–45 yaş)",
+  "uniqueValuePlaceholder": "Benzersiz değer önerisi",
+  "goalOptions": {
+    "conversions": "Dönüşümler",
+    "awareness": "Farkındalık",
+    "leads": "Potansiyel Müşteri",
+    "traffic": "Trafik",
+    "app installs": "Uygulama Yüklemeleri"
+  },
+  "write": "Reklam Metni Yaz",
+  "writing": "Yazılıyor…",
+  "docTitle": "Reklam Metni",
+  "copy": "Kopyala",
+  "headlines": "Başlıklar",
+  "descriptions": "Açıklamalar",
+  "ctaOptions": "Harekete Geçirici Mesaj Seçenekleri",
+  "valuePropositions": "Değer Önerileri"
+}

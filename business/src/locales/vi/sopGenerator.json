@@ -1,0 +1,17 @@
+{
+  "title": "<0>Công cụ Tạo</0> SOP",
+  "subtitle": "Tạo Quy trình Vận hành Tiêu chuẩn (SOP) rõ ràng, có thể áp dụng cho bất kỳ quy trình kinh doanh nào.",
+  "processNamePlaceholder": "Tên quy trình (vd: Tiếp nhận Khách hàng Mới) *",
+  "departmentPlaceholder": "Phòng ban",
+  "frequencyPlaceholder": "Tần suất (vd: Hàng ngày, Hàng tuần, Theo mỗi khách hàng mới)",
+  "descriptionPlaceholder": "Mô tả quy trình *",
+  "generate": "Tạo SOP",
+  "generating": "Đang tạo…",
+  "overview": "Tổng quan",
+  "frequencyLabel": "Tần suất: {{frequency}}",
+  "requiredTools": "Công cụ / Tài nguyên Cần thiết",
+  "steps": "Các Bước",
+  "stepLabel": "Bước {{number}}: {{action}}",
+  "qualityChecks": "Kiểm tra Chất lượng",
+  "notes": "Ghi chú"
+}

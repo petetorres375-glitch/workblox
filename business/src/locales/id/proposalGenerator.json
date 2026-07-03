@@ -1,0 +1,22 @@
+{
+  "title": "Pembuat <0>Proposal</0>",
+  "subtitle": "Buat proposal dan penawaran profesional untuk klien.",
+  "clientNamePlaceholder": "Nama klien",
+  "projectDescriptionPlaceholder": "Deskripsi proyek *",
+  "servicesPlaceholder": "Layanan yang disertakan",
+  "budgetRangePlaceholder": "Kisaran anggaran (mis. $5,000–$10,000)",
+  "timelinePlaceholder": "Linimasa (mis. 4–6 minggu)",
+  "generate": "Buat Proposal",
+  "generating": "Membuat…",
+  "executiveSummary": "Ringkasan Eksekutif",
+  "scopeOfWork": "Ruang Lingkup Pekerjaan",
+  "deliverables": "Hasil Kerja",
+  "lineItems": "Rincian Item",
+  "table": {
+    "description": "Deskripsi",
+    "qty": "Jml",
+    "unitPrice": "Harga Satuan",
+    "total": "Total"
+  },
+  "terms": "Ketentuan"
+}
