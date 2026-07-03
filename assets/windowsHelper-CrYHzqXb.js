@@ -1,0 +1,1 @@
+const t="Windows <0>助手</0>",e="用日常语言描述您的 Windows 问题 — 直接获取对应的 PowerShell 命令。",n="例如：列出所有正在运行的进程，按 CPU 使用率排序",s="提问",o="思考中...",i={guiSteps:"图形界面操作步骤",command:"命令",copy:"复制",copied:"已复制！",explanation:"说明",warnings:"注意事项"},l={title:t,subtitle:e,placeholder:n,ask:s,thinking:o,result:i};export{s as ask,l as default,n as placeholder,i as result,e as subtitle,o as thinking,t as title};

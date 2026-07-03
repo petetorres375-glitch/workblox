@@ -1,0 +1,1 @@
+const t="退出登录",n="安装",o="语言",l={title:"安装 Workblox",intro:"在 Android 上安装:",step1:"点击 Chrome 中的<0>⋮ 三点菜单</0>",step2:"点击<0>“添加到主屏幕”</0>",step3:"点击<0>“添加”</0>",gotIt:"知道了"},s={signOut:t,install:n,language:o,installModal:l};export{s as default,n as install,l as installModal,o as language,t as signOut};

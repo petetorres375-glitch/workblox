@@ -1,0 +1,1 @@
+const o="工作流<0>生成器</0>",t="描述一个重复性任务 — 获取一个可直接运行的 Python 脚本。",l="例如：按拍摄日期重命名文件夹中的所有照片",c="生成",d="生成中……",n="复制",e="已复制！",i="下载",s={title:o,subtitle:t,placeholder:l,build:c,building:d,copy:n,copied:e,download:i};export{c as build,d as building,e as copied,n as copy,s as default,i as download,l as placeholder,t as subtitle,o as title};

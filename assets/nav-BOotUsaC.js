@@ -1,0 +1,1 @@
+const n="Analizor ATS",o="Analizor Documente",s="Linux",c="Mac",t="Creare CV",a="Windows",e="Flux de lucru",i="Administrare",r={ats:n,doc:o,linux:s,mac:c,resume:t,windows:a,workflow:e,admin:i};export{i as admin,n as ats,r as default,o as doc,s as linux,c as mac,t as resume,a as windows,e as workflow};

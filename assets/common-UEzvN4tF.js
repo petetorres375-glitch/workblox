@@ -1,0 +1,1 @@
+const n="Đăng xuất",t="Cài đặt",o="Ngôn ngữ",l={title:"Cài đặt Workblox",intro:"Để cài đặt trên Android:",step1:"Nhấn vào <0>menu ba chấm ⋮</0> trong Chrome",step2:'Nhấn <0>"Thêm vào Màn hình chính"</0>',step3:'Nhấn <0>"Thêm"</0>',gotIt:"Đã hiểu"},s={signOut:n,install:t,language:o,installModal:l};export{s as default,t as install,l as installModal,o as language,n as signOut};

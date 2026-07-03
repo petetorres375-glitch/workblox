@@ -1,0 +1,1 @@
+const t="Linux <0>도우미</0>",n="Linux 문제를 평범한 말로 설명하면 필요한 명령어를 알려드립니다.",e="예: 최근 7일 이내에 수정된 모든 .log 파일 찾기",s="질문하기",i="생각 중...",l={guiSteps:"GUI 단계",command:"명령어",copy:"복사",copied:"복사됨!",explanation:"설명",warnings:"주의 사항"},o={title:t,subtitle:n,placeholder:e,ask:s,thinking:i,result:l};export{s as ask,o as default,e as placeholder,l as result,n as subtitle,i as thinking,t as title};

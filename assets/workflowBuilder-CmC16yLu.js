@@ -1,0 +1,1 @@
+const o="워크플로우 <0>빌더</0>",t="반복적인 작업을 설명하세요 — 바로 실행 가능한 Python 스크립트를 받아보세요.",l="예: 폴더 내 모든 사진을 촬영 날짜로 이름 바꾸기",c="생성",d="생성 중...",n="복사",e="복사됨!",i="다운로드",s={title:o,subtitle:t,placeholder:l,build:c,building:d,copy:n,copied:e,download:i};export{c as build,d as building,e as copied,n as copy,s as default,i as download,l as placeholder,t as subtitle,o as title};

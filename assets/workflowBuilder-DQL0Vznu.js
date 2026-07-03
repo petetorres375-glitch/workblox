@@ -1,0 +1,1 @@
+const o="ワークフロー<0>ビルダー</0>",t="繰り返しのタスクを説明してください — すぐに実行できるPythonスクリプトを取得できます。",l="例：フォルダ内のすべての写真を撮影日でリネームする",c="作成",d="作成中...",n="コピー",e="コピーしました！",i="ダウンロード",s={title:o,subtitle:t,placeholder:l,build:c,building:d,copy:n,copied:e,download:i};export{c as build,d as building,e as copied,n as copy,s as default,i as download,l as placeholder,t as subtitle,o as title};

@@ -1,0 +1,1 @@
+const t="Keluar",a="Instal",n="Bahasa",l={title:"Instal Workblox",intro:"Untuk menginstal di Android:",step1:"Ketuk <0>menu titik tiga ⋮</0> di Chrome",step2:'Ketuk <0>"Tambahkan ke layar utama"</0>',step3:'Ketuk <0>"Tambahkan"</0>',gotIt:"Mengerti"},s={signOut:t,install:a,language:n,installModal:l};export{s as default,a as install,l as installModal,n as language,t as signOut};

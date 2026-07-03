@@ -1,0 +1,1 @@
+const n="ATS Analizörü",o="Belge Analizörü",s="Linux",c="Mac",t="Özgeçmiş Oluşturucu",i="Windows",a="İş Akışı",e="Yönetici",u={ats:n,doc:o,linux:s,mac:c,resume:t,windows:i,workflow:a,admin:e};export{e as admin,n as ats,u as default,o as doc,s as linux,c as mac,t as resume,i as windows,a as workflow};

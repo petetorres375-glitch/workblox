@@ -1,0 +1,1 @@
+const t="Mac <0>助手</0>",e="用日常语言描述您的 macOS 问题 — 直接获取对应的终端命令。",n="例如：显示主目录中每个文件夹占用的磁盘空间",s="提问",c="思考中...",o={guiSteps:"图形界面操作步骤",command:"命令",copy:"复制",copied:"已复制！",explanation:"说明",warnings:"注意事项"},a={title:t,subtitle:e,placeholder:n,ask:s,thinking:c,result:o};export{s as ask,a as default,n as placeholder,o as result,e as subtitle,c as thinking,t as title};

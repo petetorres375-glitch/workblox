@@ -1,0 +1,1 @@
+const t="Mac <0>도우미</0>",e="macOS 문제를 평범한 말로 설명하면 터미널 명령어를 알려드립니다.",n="예: 홈 디렉터리 내 각 폴더의 디스크 사용량 표시하기",s="질문하기",c="생각 중...",o={guiSteps:"GUI 단계",command:"명령어",copy:"복사",copied:"복사됨!",explanation:"설명",warnings:"주의 사항"},a={title:t,subtitle:e,placeholder:n,ask:s,thinking:c,result:o};export{s as ask,a as default,n as placeholder,o as result,e as subtitle,c as thinking,t as title};

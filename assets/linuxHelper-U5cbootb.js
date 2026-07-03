@@ -1,0 +1,1 @@
+const t="Linux <0>助手</0>",n="用日常语言描述您的 Linux 问题 — 直接获取对应命令。",e="例如：查找过去 7 天内修改过的所有 .log 文件",s="提问",i="思考中...",l={guiSteps:"图形界面操作步骤",command:"命令",copy:"复制",copied:"已复制！",explanation:"说明",warnings:"注意事项"},o={title:t,subtitle:n,placeholder:e,ask:s,thinking:i,result:l};export{s as ask,o as default,e as placeholder,l as result,n as subtitle,i as thinking,t as title};
