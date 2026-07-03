@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
       // Treat whatever this browser is already showing (auto-detected via
       // i18next-browser-languagedetector, or manually chosen pre-login) as
       // the real preference, and save it so it's there next time.
-      patch("/api/profile/language", { language: i18n.language }).catch(() => {});
+      patch("/api/profile/language", { language: i18n.resolvedLanguage || i18n.language }).catch(() => {});
     }
   }, []);
 

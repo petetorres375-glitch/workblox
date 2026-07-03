@@ -38,7 +38,7 @@ export default function LanguageSwitcher() {
     <select
       aria-label={t("language")}
       className="language-switcher"
-      value={i18n.language}
+      value={i18n.resolvedLanguage || i18n.language}
       onChange={(e) => setLanguage(e.target.value)}
     >
       {SUPPORTED_LANGUAGES.map((lng) => (
