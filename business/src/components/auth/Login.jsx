@@ -37,7 +37,7 @@ function InstallModal({ onClose }) {
   );
 }
 
-export default function Login() {
+export default function Login({ onSwitchToSignUp }) {
   const { login } = useAuth();
   const { canInstall, install } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
@@ -149,6 +149,13 @@ export default function Login() {
           </button>
         </form>
 
+        <p className="auth-switch">
+          Don't have an account?{" "}
+          <button className="auth-link" onClick={onSwitchToSignUp}>
+            Sign up
+          </button>
+        </p>
+
         {demoVisible && (
           <form className="demo-form" onSubmit={handleDemo} style={{ marginTop: "1rem" }}>
             <input
@@ -175,8 +182,8 @@ export default function Login() {
         onClick={canInstall ? install : () => setShowInstallModal(true)}
         style={{
           marginTop: "1.25rem", background: "transparent",
-          border: "1.5px solid rgba(255,255,255,0.25)", borderRadius: "8px",
-          color: "rgba(255,255,255,0.75)", padding: "0.6rem 1.4rem",
+          border: "1.5px solid rgba(0,0,0,0.2)", borderRadius: "8px",
+          color: "rgba(0,0,0,0.6)", padding: "0.6rem 1.4rem",
           fontFamily: "inherit", fontSize: "0.88rem", cursor: "pointer",
         }}
       >
