@@ -2,20 +2,35 @@ import csv
 import io
 import re
 
+REASON_MISSING_NAME    = "Missing name"
+REASON_MALFORMED_VCARD = "Malformed vCard block"
+REASON_UNREADABLE_ROW  = "Unreadable row"
 
-def parse_vcf(text: str) -> list[dict]:
-    contacts = []
+
+def parse_vcf(text: str) -> tuple[list[dict], list[dict]]:
+    contacts, skipped = [], []
     blocks = re.split(r'BEGIN:VCARD', text, flags=re.IGNORECASE)
+    row_num = 0
     for block in blocks:
         if not block.strip():
             continue
+        row_num += 1
         end = block.upper().find('END:VCARD')
         if end != -1:
             block = block[:end]
-        c = _parse_vcard_block(block)
-        if c.get("first_name") or c.get("last_name"):
-            contacts.append(c)
-    return contacts
+        raw = " ".join(block.split())[:150]
+        try:
+            c = _parse_vcard_block(block)
+        except Exception:
+            skipped.append({"row": row_num, "raw": raw, "reason": REASON_MALFORMED_VCARD})
+            continue
+        if c["first_name"] or c["last_name"]:
+            c["valid"], c["reason"] = True, None
+        else:
+            c["valid"], c["reason"] = False, REASON_MISSING_NAME
+        c["row"] = row_num
+        contacts.append(c)
+    return contacts, skipped
 
 
 def _unfold(text: str) -> str:
@@ -71,7 +86,7 @@ def _parse_vcard_block(block: str) -> dict:
 
     return {
         "first_name": first_name, "last_name": last_name, "middle_init": middle_init,
-        "company": company, "contact_type": "Client",
+        "company": company, "contact_type": "Other",
         "phones": phones, "emails": emails,
         "street": street, "apt": apt, "city": city, "state": state, "zip": zip_code,
         "notes": "",
@@ -113,10 +128,37 @@ _HEADER_MAP = {
 }
 
 
-def parse_csv(text: str) -> list[dict]:
+def _build_csv_contact(row: dict, header_map: dict) -> dict:
+    c = {
+        "first_name": "", "last_name": "", "middle_init": "",
+        "company": "", "contact_type": "Other",
+        "phones": [], "emails": [],
+        "street": "", "apt": "", "city": "", "state": "", "zip": "", "notes": "",
+    }
+    for field, value in row.items():
+        if not value or field not in header_map:
+            continue
+        target = header_map[field]
+        value = value.strip()
+        if target == 'phone':
+            phone = _clean_phone(value)
+            if phone and phone not in c['phones']:
+                c['phones'].append(phone)
+        elif target == 'email':
+            email = value.lower()
+            if email and email not in c['emails']:
+                c['emails'].append(email)
+        elif target == 'middle_init':
+            c['middle_init'] = value[0] if value else ""
+        elif target in c:
+            c[target] = value
+    return c
+
+
+def parse_csv(text: str) -> tuple[list[dict], list[dict]]:
     reader = csv.DictReader(io.StringIO(text))
     if not reader.fieldnames:
-        return []
+        return [], []
 
     header_map = {}
     for field in reader.fieldnames:
@@ -130,33 +172,31 @@ def parse_csv(text: str) -> list[dict]:
         elif re.match(r'organization \d+ - name', norm):
             header_map[field] = 'company'
 
-    contacts = []
-    for row in reader:
-        c = {
-            "first_name": "", "last_name": "", "middle_init": "",
-            "company": "", "contact_type": "Client",
-            "phones": [], "emails": [],
-            "street": "", "apt": "", "city": "", "state": "", "zip": "", "notes": "",
-        }
-        for field, value in row.items():
-            if not value or field not in header_map:
-                continue
-            target = header_map[field]
-            value = value.strip()
-            if target == 'phone':
-                phone = _clean_phone(value)
-                if phone and phone not in c['phones']:
-                    c['phones'].append(phone)
-            elif target == 'email':
-                email = value.lower()
-                if email and email not in c['emails']:
-                    c['emails'].append(email)
-            elif target == 'middle_init':
-                c['middle_init'] = value[0] if value else ""
-            elif target in c:
-                c[target] = value
+    contacts, skipped = [], []
+    row_iter = iter(reader)
+    row_num = 0
+    while True:
+        row_num += 1
+        try:
+            row = next(row_iter)
+        except StopIteration:
+            break
+        except Exception:
+            skipped.append({"row": row_num, "raw": "", "reason": REASON_UNREADABLE_ROW})
+            continue
 
-        if c['first_name'] or c['last_name']:
-            contacts.append(c)
+        try:
+            c = _build_csv_contact(row, header_map)
+        except Exception:
+            raw = ", ".join(str(v) for v in list(row.values())[:4] if v)
+            skipped.append({"row": row_num, "raw": raw[:150], "reason": REASON_UNREADABLE_ROW})
+            continue
 
-    return contacts
+        if c["first_name"] or c["last_name"]:
+            c["valid"], c["reason"] = True, None
+        else:
+            c["valid"], c["reason"] = False, REASON_MISSING_NAME
+        c["row"] = row_num
+        contacts.append(c)
+
+    return contacts, skipped

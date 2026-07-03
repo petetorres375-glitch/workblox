@@ -226,6 +226,7 @@ function ContactForm({ initial, onSave, onCancel }) {
 function ImportPanel({ onImported, onCancel }) {
   const [step, setStep] = useState("upload"); // "upload" | "preview"
   const [parsed, setParsed] = useState([]);
+  const [parseSkipped, setParseSkipped] = useState([]);
   const [parseLoading, setParseLoading] = useState(false);
   const [parseError, setParseError] = useState(null);
   const [importLoading, setImportLoading] = useState(false);
@@ -240,10 +241,11 @@ function ImportPanel({ onImported, onCancel }) {
       const fd = new FormData();
       fd.append("file", file);
       const data = await postForm("/api/biz/contacts/parse", fd);
-      if (!data.contacts?.length) {
+      if (!data.contacts?.length && !data.skipped?.length) {
         setParseError("No contacts found in that file.");
       } else {
-        setParsed(data.contacts);
+        setParsed(data.contacts || []);
+        setParseSkipped(data.skipped || []);
         setStep("preview");
       }
     } catch (err) {
@@ -266,13 +268,15 @@ function ImportPanel({ onImported, onCancel }) {
     setImportLoading(true);
     try {
       const data = await post("/api/biz/contacts/import", { contacts: parsed });
-      onImported(data.imported);
+      onImported(data);
     } catch (err) {
       setImportError(err.message);
     } finally {
       setImportLoading(false);
     }
   }
+
+  const invalidCount = parsed.filter((c) => c.valid === false).length;
 
   if (step === "upload") {
     return (
@@ -306,6 +310,28 @@ function ImportPanel({ onImported, onCancel }) {
         </p>
       </div>
 
+      {invalidCount > 0 && (
+        <p style={{ color: "#dc2626", fontSize: "0.82rem", marginBottom: "0.75rem" }}>
+          {invalidCount} row{invalidCount !== 1 ? "s are" : " is"} missing a name and will be skipped unless removed.
+        </p>
+      )}
+
+      {parseSkipped.length > 0 && (
+        <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: "var(--radius)",
+          padding: "0.75rem 1rem", marginBottom: "1rem" }}>
+          <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#dc2626", margin: "0 0 0.4rem" }}>
+            {parseSkipped.length} row{parseSkipped.length !== 1 ? "s" : ""} couldn't be read from the file
+          </p>
+          <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
+            {parseSkipped.map((s, i) => (
+              <li key={i} style={{ fontSize: "0.8rem", color: "#991b1b" }}>
+                Row {s.row}: {s.reason}{s.raw ? ` — "${s.raw}"` : ""}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div style={{ overflowX: "auto", marginBottom: "1rem" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem" }}>
           <thead>
@@ -319,9 +345,15 @@ function ImportPanel({ onImported, onCancel }) {
           <tbody>
             {parsed.map((c, i) => {
               const name = [c.first_name, c.middle_init ? c.middle_init + "." : "", c.last_name].filter(Boolean).join(" ");
+              const invalid = c.valid === false;
               return (
-                <tr key={i} style={{ borderBottom: "1px solid var(--border)" }}>
-                  <td style={{ padding: "0.5rem 0.6rem", fontWeight: 600 }}>{name || "—"}</td>
+                <tr key={i} style={{ borderBottom: "1px solid var(--border)", background: invalid ? "#fef2f2" : "transparent" }}>
+                  <td style={{ padding: "0.5rem 0.6rem", fontWeight: 600 }}>
+                    {name || "—"}
+                    {invalid && (
+                      <div style={{ fontWeight: 400, fontSize: "0.75rem", color: "#dc2626" }}>⚠ {c.reason}</div>
+                    )}
+                  </td>
                   <td style={{ padding: "0.5rem 0.6rem", color: "var(--text-muted)" }}>{c.company || "—"}</td>
                   <td style={{ padding: "0.5rem 0.6rem" }}>
                     <select value={c.contact_type} onChange={(e) => updateType(i, e.target.value)}
@@ -373,6 +405,7 @@ export default function Contacts() {
   const [exportLoading, setExportLoading] = useState(false);
   const [exportError, setExportError] = useState(null);
   const [successMsg, setSuccessMsg]   = useState(null);
+  const [importSummary, setImportSummary] = useState(null);
   const [sortCol, setSortCol]         = useState("name");
   const [sortDir, setSortDir]         = useState("asc");
 
@@ -463,10 +496,10 @@ export default function Contacts() {
     flash(saved.id && editingContact?.id ? "Contact updated." : "Contact added.");
   }
 
-  function handleImported(count) {
+  function handleImported(summary) {
     setView("list");
     fetchContacts();
-    flash(`${count} contact${count !== 1 ? "s" : ""} imported.`);
+    setImportSummary(summary);
   }
 
   function toggleSelect(id) {
@@ -535,13 +568,13 @@ export default function Contacts() {
             {TYPES.map((t) => <option key={t}>{t}</option>)}
           </select>
           <div style={{ flex: 1 }} />
-          <button style={{ ...S.btn, ...S.btnGhost }} onClick={() => { setEditing(null); setView("import"); }}>
+          <button style={{ ...S.btn, ...S.btnGhost }} onClick={() => { setEditing(null); setImportSummary(null); setView("import"); }}>
             ↑ Import
           </button>
           <button style={{ ...S.btn, ...S.btnGhost }} onClick={handleExport} disabled={exportLoading || contacts.length === 0}>
             {exportLabel}
           </button>
-          <button style={{ ...S.btn, ...S.btnPrimary }} onClick={() => { setEditing(null); setView("add"); }}>
+          <button style={{ ...S.btn, ...S.btnPrimary }} onClick={() => { setEditing(null); setImportSummary(null); setView("add"); }}>
             + Add Contact
           </button>
         </div>
@@ -556,6 +589,51 @@ export default function Contacts() {
       )}
       {(error || exportError) && (
         <div className="error-banner" style={{ marginBottom: "1rem" }}>{error || exportError}</div>
+      )}
+
+      {/* ── Import summary ── */}
+      {importSummary && (
+        <div style={{ background: "#fff", border: "1.5px solid var(--border)", borderRadius: "var(--radius-lg)",
+          padding: "1rem 1.25rem", marginBottom: "1.25rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <p style={{ margin: 0, background: "#dcfce7", color: "#166534", display: "inline-block",
+              borderRadius: "var(--radius)", padding: "0.4rem 0.75rem", fontSize: "0.88rem", fontWeight: 600 }}>
+              {importSummary.imported_count} contact{importSummary.imported_count !== 1 ? "s" : ""} imported
+            </p>
+            <button style={{ ...S.btn, ...S.btnGhost, padding: "0.3rem 0.7rem", fontSize: "0.78rem" }}
+              onClick={() => setImportSummary(null)}>Dismiss</button>
+          </div>
+
+          {importSummary.skipped_count > 0 && (
+            <div style={{ marginTop: "0.85rem" }}>
+              <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#dc2626", margin: "0 0 0.4rem" }}>
+                {importSummary.skipped_count} skipped
+              </p>
+              <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
+                {importSummary.skipped.map((s, i) => (
+                  <li key={i} style={{ fontSize: "0.8rem", color: "#991b1b" }}>
+                    {s.name} (row {s.row}) — {s.reason}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {importSummary.duplicates_count > 0 && (
+            <div style={{ marginTop: "0.85rem" }}>
+              <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#dc2626", margin: "0 0 0.4rem" }}>
+                {importSummary.duplicates_count} possible duplicate{importSummary.duplicates_count !== 1 ? "s" : ""} (not imported)
+              </p>
+              <ul style={{ margin: 0, paddingLeft: "1.1rem" }}>
+                {importSummary.duplicates.map((d, i) => (
+                  <li key={i} style={{ fontSize: "0.8rem", color: "#991b1b" }}>
+                    {d.name} (row {d.row}) — already in your contacts
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       )}
 
       {/* ── Subviews ── */}

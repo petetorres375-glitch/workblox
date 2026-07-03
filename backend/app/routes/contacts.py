@@ -9,11 +9,12 @@ from sqlalchemy import case, func
 
 from .. import db, limiter
 from ..models import Contact, User
-from ..services.contact_parser import parse_vcf, parse_csv
+from ..services.contact_parser import parse_vcf, parse_csv, REASON_MISSING_NAME
 
 bp = Blueprint("contacts", __name__, url_prefix="/api/biz/contacts")
 
 CONTACT_TYPES = ["Client", "Vendor", "Partner", "Employee", "Personal", "Other"]
+REASON_DUPLICATE = "Possible duplicate"
 
 
 def _require_business():
@@ -49,14 +50,14 @@ def _to_dict(c: Contact) -> dict:
     }
 
 
-def _contact_from_body(body: dict, contact: Contact = None) -> Contact:
+def _contact_from_body(body: dict, contact: Contact = None, default_type: str = "Client") -> Contact:
     if contact is None:
         contact = Contact()
     contact.first_name   = (body.get("first_name") or "").strip()
     contact.last_name    = (body.get("last_name") or "").strip()
     contact.middle_init  = (body.get("middle_init") or "").strip() or None
     contact.company      = (body.get("company") or "").strip() or None
-    contact.contact_type = body.get("contact_type", "Client")
+    contact.contact_type = body.get("contact_type", default_type)
     contact.phones       = json.dumps(body.get("phones") or [])
     contact.emails       = json.dumps(body.get("emails") or [])
     contact.street       = (body.get("street") or "").strip() or None
@@ -66,6 +67,27 @@ def _contact_from_body(body: dict, contact: Contact = None) -> Contact:
     contact.zip          = (body.get("zip") or "").strip() or None
     contact.notes        = (body.get("notes") or "").strip() or None
     return contact
+
+
+def _row_name(item: dict) -> str:
+    first = (item.get("first_name") or "").strip()
+    last = (item.get("last_name") or "").strip()
+    return " ".join(p for p in [first, last] if p) or "(no name)"
+
+
+def _is_duplicate(item: dict, existing: list[Contact]) -> bool:
+    name = ((item.get("first_name") or "").strip().lower(), (item.get("last_name") or "").strip().lower())
+    item_phones = {p for p in (item.get("phones") or []) if p}
+    item_emails = {(e or "").lower() for e in (item.get("emails") or []) if e}
+    for c in existing:
+        c_name = ((c.first_name or "").strip().lower(), (c.last_name or "").strip().lower())
+        if c_name != name:
+            continue
+        c_phones = set(json.loads(c.phones)) if c.phones else set()
+        c_emails = {(e or "").lower() for e in (json.loads(c.emails) if c.emails else [])}
+        if (item_phones & c_phones) or (item_emails & c_emails):
+            return True
+    return False
 
 
 # ── Parse (no DB write) ────────────────────────────────────────────────────────
@@ -86,11 +108,15 @@ def parse():
         text = file.read().decode("utf-8", errors="replace")
     except Exception as e:
         return jsonify({"error": f"Could not read file: {e}"}), 422
-    try:
-        contacts = parse_vcf(text) if ext == ".vcf" else parse_csv(text)
-    except Exception as e:
-        return jsonify({"error": f"Parse error: {e}"}), 422
-    return jsonify({"contacts": contacts, "count": len(contacts)})
+
+    contacts, skipped = parse_vcf(text) if ext == ".vcf" else parse_csv(text)
+
+    return jsonify({
+        "contacts": contacts,
+        "skipped": skipped,
+        "count": len(contacts),
+        "skipped_count": len(skipped),
+    })
 
 
 # ── Bulk import ────────────────────────────────────────────────────────────────
@@ -105,13 +131,39 @@ def import_contacts():
     items = body.get("contacts", [])
     if not items:
         return jsonify({"error": "No contacts to import"}), 400
+
     user_id = _user_id()
-    for item in items:
-        contact = _contact_from_body(item)
+    existing = Contact.query.filter_by(user_id=user_id).all()
+
+    skipped, duplicates, to_insert = [], [], []
+    for idx, item in enumerate(items, start=1):
+        row = item.get("row", idx)
+        name = _row_name(item)
+
+        # Never trust a client-sent "valid" flag — re-check server-side.
+        if not ((item.get("first_name") or "").strip() or (item.get("last_name") or "").strip()):
+            skipped.append({"row": row, "name": name, "reason": REASON_MISSING_NAME})
+            continue
+
+        if _is_duplicate(item, existing):
+            duplicates.append({"row": row, "name": name, "reason": REASON_DUPLICATE})
+            continue
+
+        to_insert.append(item)
+
+    for item in to_insert:
+        contact = _contact_from_body(item, default_type="Other")
         contact.user_id = user_id
         db.session.add(contact)
     db.session.commit()
-    return jsonify({"imported": len(items)})
+
+    return jsonify({
+        "imported_count":  len(to_insert),
+        "skipped":         skipped,
+        "skipped_count":   len(skipped),
+        "duplicates":      duplicates,
+        "duplicates_count": len(duplicates),
+    })
 
 
 # ── List / search ──────────────────────────────────────────────────────────────
