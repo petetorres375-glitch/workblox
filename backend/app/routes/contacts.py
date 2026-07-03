@@ -249,6 +249,93 @@ def delete_contact(cid):
     return jsonify({"deleted": True})
 
 
+# ── VCF export ─────────────────────────────────────────────────────────────────
+
+def _vcard_escape(value: str) -> str:
+    if not value:
+        return ""
+    return (value.replace("\\", "\\\\")
+                 .replace(",", "\\,")
+                 .replace(";", "\\;")
+                 .replace("\n", "\\n"))
+
+
+def _to_vcard(c: Contact) -> str:
+    fn = " ".join(p for p in [c.first_name, c.middle_init, c.last_name] if p) or "Unnamed"
+    lines = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        f"N:{_vcard_escape(c.last_name)};{_vcard_escape(c.first_name)};{_vcard_escape(c.middle_init or '')};;",
+        f"FN:{_vcard_escape(fn)}",
+    ]
+    if c.company:
+        lines.append(f"ORG:{_vcard_escape(c.company)}")
+
+    for phone in (json.loads(c.phones) if c.phones else []):
+        lines.append(f"TEL;TYPE=CELL:{_vcard_escape(phone)}")
+    for email in (json.loads(c.emails) if c.emails else []):
+        lines.append(f"EMAIL:{_vcard_escape(email)}")
+
+    if c.street or c.apt or c.city or c.state or c.zip:
+        street = " ".join(p for p in [c.street, c.apt] if p)
+        lines.append(
+            f"ADR:;;{_vcard_escape(street)};{_vcard_escape(c.city or '')};"
+            f"{_vcard_escape(c.state or '')};{_vcard_escape(c.zip or '')};"
+        )
+
+    note_parts = []
+    if c.contact_type:
+        note_parts.append(f"Type: {c.contact_type}")
+    if c.notes:
+        note_parts.append(c.notes)
+    if note_parts:
+        lines.append(f"NOTE:{_vcard_escape(' | '.join(note_parts))}")
+
+    lines.append("END:VCARD")
+    return "\r\n".join(lines) + "\r\n"
+
+
+@bp.post("/export/vcf")
+@limiter.limit("20 per hour")
+def export_vcf():
+    err = _require_business()
+    if err:
+        return err
+
+    body    = request.get_json(silent=True) or {}
+    ids     = body.get("ids")  # list of IDs; None = export all
+    user_id = _user_id()
+
+    _sort = func.lower(case(
+        (Contact.last_name != "", Contact.last_name),
+        else_=Contact.first_name
+    ))
+    if ids:
+        contacts = (Contact.query
+            .filter(Contact.user_id == user_id, Contact.id.in_(ids))
+            .order_by(_sort, func.lower(Contact.first_name)).all())
+    else:
+        contacts = (Contact.query
+            .filter_by(user_id=user_id)
+            .order_by(_sort, func.lower(Contact.first_name)).all())
+
+    if not contacts:
+        return jsonify({"error": "No contacts to export"}), 400
+
+    vcf_text = "".join(_to_vcard(c) for c in contacts)
+    buf = io.BytesIO(vcf_text.encode("utf-8"))
+    buf.seek(0)
+
+    if len(contacts) == 1:
+        stem = (contacts[0].last_name or contacts[0].first_name or "contact").lower()
+    else:
+        stem = "contacts_export"
+
+    return send_file(buf, as_attachment=True,
+        download_name=f"{stem}.vcf",
+        mimetype="text/vcard")
+
+
 # ── PDF export ─────────────────────────────────────────────────────────────────
 
 @bp.post("/export/pdf")

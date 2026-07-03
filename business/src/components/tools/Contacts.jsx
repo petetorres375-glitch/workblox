@@ -403,6 +403,7 @@ export default function Contacts() {
   const [typeFilter, setTypeFilter]   = useState("All");
   const [selected, setSelected]       = useState(new Set());
   const [exportLoading, setExportLoading] = useState(false);
+  const [vcfLoading, setVcfLoading] = useState(false);
   const [exportError, setExportError] = useState(null);
   const [successMsg, setSuccessMsg]   = useState(null);
   const [importSummary, setImportSummary] = useState(null);
@@ -539,6 +540,27 @@ export default function Contacts() {
     }
   }
 
+  async function handleExportVcf() {
+    setExportError(null);
+    setVcfLoading(true);
+    try {
+      const ids = selected.size > 0 ? [...selected] : null;
+      const blob = await postBlob("/api/biz/contacts/export/vcf", { ids });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = ids?.length === 1
+        ? `${(contacts.find((c) => c.id === ids[0])?.last_name || "contact").toLowerCase()}.vcf`
+        : "contacts_export.vcf";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setExportError(err.message);
+    } finally {
+      setVcfLoading(false);
+    }
+  }
+
   const allChecked = filtered.length > 0 && selected.size === filtered.length;
   const someChecked = selected.size > 0 && selected.size < filtered.length;
   const exportLabel = exportLoading
@@ -546,6 +568,11 @@ export default function Contacts() {
     : selected.size > 0
     ? `Export PDF (${selected.size})`
     : "Export All PDF";
+  const vcfExportLabel = vcfLoading
+    ? "Exporting…"
+    : selected.size > 0
+    ? `Export VCF (${selected.size})`
+    : "Export All VCF";
 
   return (
     <div>
@@ -573,6 +600,9 @@ export default function Contacts() {
           </button>
           <button style={{ ...S.btn, ...S.btnGhost }} onClick={handleExport} disabled={exportLoading || contacts.length === 0}>
             {exportLabel}
+          </button>
+          <button style={{ ...S.btn, ...S.btnGhost }} onClick={handleExportVcf} disabled={vcfLoading || contacts.length === 0}>
+            {vcfExportLabel}
           </button>
           <button style={{ ...S.btn, ...S.btnPrimary }} onClick={() => { setEditing(null); setImportSummary(null); setView("add"); }}>
             + Add Contact
