@@ -425,6 +425,11 @@ footer a {
   border-color: #666;
 }
 
+.language-switcher option {
+  background: #fff;
+  color: #111;
+}
+
 /* ── Login page ── */
 .login-page {
   min-height: 100vh;
