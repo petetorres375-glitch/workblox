@@ -9,5 +9,9 @@
     "step2": "Stuknij <0>„Dodaj do ekranu głównego”</0>",
     "step3": "Stuknij <0>„Dodaj”</0>",
     "gotIt": "Rozumiem"
+  },
+  "linuxTrustTip": {
+    "title": "Jeszcze jeden krok dla Linuksa",
+    "body": "GNOME wymaga oznaczenia nowych skrótów na pulpicie jako zaufane, zanim będzie można je uruchomić. Kliknij prawym przyciskiem myszy ikonę Workblox i wybierz „Zezwól na uruchamianie” albo uruchom w terminalu:"
   }
 }

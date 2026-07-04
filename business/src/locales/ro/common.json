@@ -10,5 +10,9 @@
     "step2": "Atinge <0>„Adaugă pe ecranul principal”</0>",
     "step3": "Atinge <0>„Adaugă”</0>",
     "gotIt": "Am înțeles"
+  },
+  "linuxTrustTip": {
+    "title": "Încă un pas pentru Linux",
+    "body": "GNOME necesită ca noile comenzi rapide de pe desktop să fie marcate ca fiind de încredere înainte de a putea fi lansate. Faceți clic dreapta pe pictograma Workblox și alegeți „Permite lansarea” sau rulați următoarea comandă în terminal:"
   }
 }

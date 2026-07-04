@@ -10,5 +10,9 @@
     "step2": "Ketuk <0>\"Tambahkan ke layar utama\"</0>",
     "step3": "Ketuk <0>\"Tambahkan\"</0>",
     "gotIt": "Mengerti"
+  },
+  "linuxTrustTip": {
+    "title": "Satu langkah lagi untuk Linux",
+    "body": "GNOME mengharuskan pintasan desktop baru ditandai sebagai tepercaya sebelum bisa dijalankan. Klik kanan ikon Workblox dan pilih \"Allow Launching\", atau jalankan perintah ini di terminal:"
   }
 }

@@ -10,5 +10,9 @@
     "step2": "Toque em <0>\"Adicionar à tela inicial\"</0>",
     "step3": "Toque em <0>\"Adicionar\"</0>",
     "gotIt": "Entendi"
+  },
+  "linuxTrustTip": {
+    "title": "Mais um passo para o Linux",
+    "body": "O GNOME exige que novos atalhos de área de trabalho sejam marcados como confiáveis antes de poderem ser executados. Clique com o botão direito no ícone do Workblox e escolha \"Permitir execução\", ou execute isto no terminal:"
   }
 }

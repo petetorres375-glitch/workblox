@@ -37,12 +37,42 @@ function InstallModal({ onClose }) {
   );
 }
 
+function LinuxTrustTip({ onClose }) {
+  const { t } = useTranslation("common");
+  return (
+    <div style={{
+      position: "fixed", bottom: "1rem", right: "1rem", maxWidth: "340px",
+      background: "#1e293b", borderRadius: "12px", padding: "1.25rem",
+      color: "#fff", zIndex: 1000, boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+    }}>
+      <h3 style={{ margin: "0 0 0.5rem", fontSize: "0.95rem", color: "#fbbf9a" }}>
+        {t("linuxTrustTip.title")}
+      </h3>
+      <p style={{ fontSize: "0.8rem", color: "#cbd5e1", lineHeight: 1.6, marginBottom: "0.75rem" }}>
+        {t("linuxTrustTip.body")}
+      </p>
+      <pre style={{
+        background: "#0f172a", borderRadius: "8px", padding: "0.6rem 0.75rem",
+        fontSize: "0.72rem", color: "#93c5fd", margin: "0 0 1rem",
+        whiteSpace: "pre-wrap", wordBreak: "break-all",
+      }}>
+{"chmod +x ~/.local/share/applications/chrome-*.desktop\ngio set ~/.local/share/applications/chrome-*.desktop metadata::trusted true"}
+      </pre>
+      <button onClick={onClose} style={{
+        width: "100%", background: "#e05c2e", color: "#fff", border: "none",
+        borderRadius: "8px", padding: "0.55rem", fontSize: "0.85rem",
+        fontFamily: "inherit", cursor: "pointer", fontWeight: 600,
+      }}>{t("installModal.gotIt")}</button>
+    </div>
+  );
+}
+
 const NAV_IDS = ["ats", "doc", "linux", "mac", "resume", "windows", "workflow"];
 
 export default function Header({ active, onSelect }) {
   const { t } = useTranslation(["nav", "common"]);
   const { user, logout } = useAuth();
-  const { canInstall, install, isInstalled } = usePWA();
+  const { canInstall, install, isInstalled, showLinuxTrustTip, dismissLinuxTrustTip } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
 
   function handleInstall() {
@@ -85,6 +115,7 @@ export default function Header({ active, onSelect }) {
         <button className="header-signout" onClick={logout}>{t("common:signOut")}</button>
       </div>
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
+      {showLinuxTrustTip && <LinuxTrustTip onClose={dismissLinuxTrustTip} />}
     </header>
   );
 }

@@ -9,5 +9,9 @@
     "step2": "Nhấn <0>\"Thêm vào Màn hình chính\"</0>",
     "step3": "Nhấn <0>\"Thêm\"</0>",
     "gotIt": "Đã hiểu"
+  },
+  "linuxTrustTip": {
+    "title": "Thêm một bước cho Linux",
+    "body": "GNOME yêu cầu các lối tắt trên màn hình nền mới phải được đánh dấu là đáng tin cậy trước khi có thể chạy. Nhấp chuột phải vào biểu tượng Workblox và chọn \"Allow Launching\", hoặc chạy lệnh sau trong terminal:"
   }
 }

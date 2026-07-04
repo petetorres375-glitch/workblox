@@ -9,5 +9,9 @@
     "step2": "Klepněte na <0>„Přidat na plochu“</0>",
     "step3": "Klepněte na <0>„Přidat“</0>",
     "gotIt": "Rozumím"
+  },
+  "linuxTrustTip": {
+    "title": "Ještě jeden krok pro Linux",
+    "body": "GNOME vyžaduje, aby byly nové zástupce na ploše označeny jako důvěryhodné, než je bude možné spustit. Klikněte pravým tlačítkem na ikonu Workblox a vyberte „Povolit spuštění“, nebo v terminálu spusťte:"
   }
 }

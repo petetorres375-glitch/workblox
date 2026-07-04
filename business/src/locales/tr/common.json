@@ -10,5 +10,9 @@
     "step2": "<0>\"Ana ekrana ekle\"</0> seçeneğine dokunun",
     "step3": "<0>\"Ekle\"</0> seçeneğine dokunun",
     "gotIt": "Anladım"
+  },
+  "linuxTrustTip": {
+    "title": "Linux için bir adım daha",
+    "body": "GNOME, yeni masaüstü kısayollarının çalıştırılabilmesi için önce güvenilir olarak işaretlenmesini gerektirir. Workblox simgesine sağ tıklayıp \"Çalıştırmaya izin ver\" seçeneğini belirleyin veya terminalde şunu çalıştırın:"
   }
 }

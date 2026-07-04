@@ -9,5 +9,9 @@
     "step2": "Appuyez sur <0>« Ajouter à l'écran d'accueil »</0>",
     "step3": "Appuyez sur <0>« Ajouter »</0>",
     "gotIt": "Compris"
+  },
+  "linuxTrustTip": {
+    "title": "Une étape de plus pour Linux",
+    "body": "GNOME exige que les nouveaux raccourcis de bureau soient marqués comme fiables avant de pouvoir être lancés. Faites un clic droit sur l'icône Workblox et choisissez « Autoriser le lancement », ou exécutez ceci dans un terminal :"
   }
 }

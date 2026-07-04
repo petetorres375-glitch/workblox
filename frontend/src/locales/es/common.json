@@ -9,5 +9,9 @@
     "step2": "Toca <0>\"Añadir a la pantalla de inicio\"</0>",
     "step3": "Toca <0>\"Añadir\"</0>",
     "gotIt": "Entendido"
+  },
+  "linuxTrustTip": {
+    "title": "Un paso más para Linux",
+    "body": "GNOME requiere que los nuevos accesos directos de escritorio se marquen como de confianza antes de poder ejecutarlos. Haz clic derecho en el icono de Workblox y elige \"Permitir ejecución\", o ejecuta esto en una terminal:"
   }
 }

@@ -10,5 +10,9 @@
     "step2": "Tippen Sie auf <0>„Zum Startbildschirm hinzufügen“</0>",
     "step3": "Tippen Sie auf <0>„Hinzufügen“</0>",
     "gotIt": "Verstanden"
+  },
+  "linuxTrustTip": {
+    "title": "Noch ein Schritt für Linux",
+    "body": "GNOME verlangt, dass neue Desktop-Verknüpfungen als vertrauenswürdig markiert werden, bevor sie gestartet werden können. Klicken Sie mit der rechten Maustaste auf das Workblox-Symbol und wählen Sie „Ausführen erlauben“, oder führen Sie Folgendes im Terminal aus:"
   }
 }

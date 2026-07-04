@@ -10,5 +10,9 @@
     "step2": "Tik op <0>\"Toevoegen aan startscherm\"</0>",
     "step3": "Tik op <0>\"Toevoegen\"</0>",
     "gotIt": "Begrepen"
+  },
+  "linuxTrustTip": {
+    "title": "Nog één stap voor Linux",
+    "body": "GNOME vereist dat nieuwe bureaubladsnelkoppelingen als vertrouwd worden gemarkeerd voordat ze kunnen worden gestart. Klik met de rechtermuisknop op het Workblox-pictogram en kies \"Uitvoeren toestaan\", of voer dit uit in een terminal:"
   }
 }

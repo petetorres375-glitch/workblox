@@ -10,5 +10,9 @@
     "step2": "Tap <0>\"Add to Home screen\"</0>",
     "step3": "Tap <0>\"Add\"</0>",
     "gotIt": "Got it"
+  },
+  "linuxTrustTip": {
+    "title": "One more step for Linux",
+    "body": "GNOME needs new desktop shortcuts marked as trusted before they'll launch. Right-click the Workblox icon and choose \"Allow Launching\", or run this in a terminal:"
   }
 }

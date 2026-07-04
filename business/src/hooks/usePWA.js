@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 
+// GNOME requires new .desktop launchers to be marked trusted before they'll run,
+// so Chrome's PWA shortcut fails silently with an "Untrusted Desktop File" warning.
+const isLinux = () => /Linux/.test(navigator.userAgent) && !/Android/.test(navigator.userAgent);
+
 export function usePWA() {
   const [installPrompt, setInstallPrompt] = useState(() => window.__pwaPrompt || null);
+  const [showLinuxTrustTip, setShowLinuxTrustTip] = useState(false);
   const isInstalled = window.matchMedia("(display-mode: standalone)").matches;
 
   useEffect(() => {
@@ -20,8 +25,15 @@ export function usePWA() {
   function install() {
     if (!installPrompt) return;
     installPrompt.prompt();
-    installPrompt.userChoice.then(() => setInstallPrompt(null));
+    installPrompt.userChoice.then(({ outcome }) => {
+      setInstallPrompt(null);
+      if (outcome === "accepted" && isLinux()) setShowLinuxTrustTip(true);
+    });
   }
 
-  return { canInstall: !!installPrompt, install, isInstalled };
+  function dismissLinuxTrustTip() {
+    setShowLinuxTrustTip(false);
+  }
+
+  return { canInstall: !!installPrompt, install, isInstalled, showLinuxTrustTip, dismissLinuxTrustTip };
 }

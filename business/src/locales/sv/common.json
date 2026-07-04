@@ -10,5 +10,9 @@
     "step2": "Tryck på <0>\"Lägg till på startskärmen\"</0>",
     "step3": "Tryck på <0>\"Lägg till\"</0>",
     "gotIt": "Uppfattat"
+  },
+  "linuxTrustTip": {
+    "title": "Ytterligare ett steg för Linux",
+    "body": "GNOME kräver att nya skrivbordsgenvägar markeras som pålitliga innan de kan startas. Högerklicka på Workblox-ikonen och välj \"Tillåt körning\", eller kör detta i en terminal:"
   }
 }
