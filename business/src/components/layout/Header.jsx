@@ -37,6 +37,8 @@ function InstallModal({ onClose }) {
   );
 }
 
+// To exercise this locally with Playwright, run `npx playwright install chromium`
+// (no --with-deps — that shells out to sudo apt, which fails without a TTY here).
 function LinuxTrustTip({ onClose }) {
   const { t } = useTranslation("common");
   return (
