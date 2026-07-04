@@ -1,1 +1,0 @@
-const t="تسجيل الخروج",l="تثبيت",n="اللغة",o={title:"تثبيت Workblox",intro:"للتثبيت على أندرويد:",step1:"اضغط على <0>⋮ قائمة النقاط الثلاث</0> في Chrome",step2:"اضغط على <0>«إضافة إلى الشاشة الرئيسية»</0>",step3:"اضغط على <0>«إضافة»</0>",gotIt:"فهمت"},s={signOut:t,install:l,language:n,installModal:o};export{s as default,l as install,o as installModal,n as language,t as signOut};

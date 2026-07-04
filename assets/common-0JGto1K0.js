@@ -1,1 +1,0 @@
-const t="ออกจากระบบ",n="ติดตั้ง",o="ภาษา",l={title:"ติดตั้ง Workblox",intro:"วิธีติดตั้งบน Android:",step1:"แตะ <0>เมนูสามจุด ⋮</0> ใน Chrome",step2:'แตะ <0>"เพิ่มลงในหน้าจอหลัก"</0>',step3:'แตะ <0>"เพิ่ม"</0>',gotIt:"เข้าใจแล้ว"},s={signOut:t,install:n,language:o,installModal:l};export{s as default,n as install,l as installModal,o as language,t as signOut};

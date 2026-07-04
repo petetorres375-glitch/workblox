@@ -1,1 +1,0 @@
-const t="התנתקות",n="התקנה",l="שפה",o={title:"התקנת Workblox",intro:"להתקנה במכשיר Android:",step1:"הקישו על <0>תפריט שלוש הנקודות ⋮</0> בכרום",step2:'הקישו על <0>"הוספה למסך הבית"</0>',step3:'הקישו על <0>"הוספה"</0>',gotIt:"הבנתי"},s={signOut:t,install:n,language:l,installModal:o};export{s as default,n as install,o as installModal,l as language,t as signOut};

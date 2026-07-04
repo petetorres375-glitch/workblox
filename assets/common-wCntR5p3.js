@@ -1,1 +1,0 @@
-const t="로그아웃",n="설치",o="언어",l={title:"Workblox 설치",intro:"Android에 설치하는 방법:",step1:"Chrome에서 <0>⋮ 점 3개 메뉴</0> 탭",step2:"<0>“홈 화면에 추가”</0> 탭",step3:"<0>“추가”</0> 탭",gotIt:"확인했습니다"},s={signOut:t,install:n,language:o,installModal:l};export{s as default,n as install,l as installModal,o as language,t as signOut};
