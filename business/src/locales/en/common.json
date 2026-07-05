@@ -3,6 +3,8 @@
   "install": "Install",
   "installApp": "Install App",
   "language": "Language",
+  "menu": "Menu",
+  "closeMenu": "Close menu",
   "installModal": {
     "title": "Install Workblox Business",
     "intro": "To install on Android:",

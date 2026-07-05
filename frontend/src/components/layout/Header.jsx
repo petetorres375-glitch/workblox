@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePWA } from "../../hooks/usePWA";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+function MenuIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <line x1="3" y1="6" x2="19" y2="6" />
+      <line x1="3" y1="11" x2="19" y2="11" />
+      <line x1="3" y1="16" x2="19" y2="16" />
+    </svg>
+  );
+}
 
 function InstallModal({ onClose }) {
   const { t } = useTranslation("common");
@@ -76,14 +86,41 @@ export default function Header({ active, onSelect }) {
   const { user, logout } = useAuth();
   const { canInstall, install, isInstalled, showLinuxTrustTip, dismissLinuxTrustTip } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   function handleInstall() {
     if (canInstall) install();
     else setShowInstallModal(true);
   }
 
+  function selectFromDrawer(id) {
+    onSelect(id);
+    setDrawerOpen(false);
+  }
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    document.body.style.overflow = "hidden";
+    function onKeyDown(e) {
+      if (e.key === "Escape") setDrawerOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [drawerOpen]);
+
   return (
     <header className="site-header">
+      <button
+        className="nav-toggle"
+        aria-label={t("common:menu")}
+        aria-expanded={drawerOpen}
+        onClick={() => setDrawerOpen(true)}
+      >
+        <MenuIcon />
+      </button>
       <div className="brand">
         <span className="brand-name">
           Torres<span className="brand-accent">Tech</span> Remote
@@ -118,6 +155,50 @@ export default function Header({ active, onSelect }) {
       </div>
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
       {showLinuxTrustTip && <LinuxTrustTip onClose={dismissLinuxTrustTip} />}
+
+      <div className={`nav-drawer-overlay ${drawerOpen ? "open" : ""}`} onClick={() => setDrawerOpen(false)} />
+      <div className={`nav-drawer ${drawerOpen ? "open" : ""}`} role="dialog" aria-modal="true" aria-hidden={!drawerOpen}>
+        <div className="nav-drawer-header">
+          <span className="brand-name" style={{ fontSize: "1rem" }}>
+            Torres<span className="brand-accent">Tech</span> Remote
+          </span>
+          <button className="nav-drawer-close" aria-label={t("common:closeMenu")} onClick={() => setDrawerOpen(false)}>
+            ×
+          </button>
+        </div>
+        <nav className="nav-drawer-list">
+          {NAV_IDS.map((id) => (
+            <button
+              key={id}
+              className={`nav-drawer-item ${active === id ? "active" : ""}`}
+              onClick={() => selectFromDrawer(id)}
+            >
+              {t(`nav:${id}`)}
+            </button>
+          ))}
+          {user?.isAdmin && (
+            <button
+              className={`nav-drawer-item ${active === "admin" ? "active" : ""}`}
+              onClick={() => selectFromDrawer("admin")}
+            >
+              {t("nav:admin")}
+            </button>
+          )}
+        </nav>
+        <div className="nav-drawer-divider" />
+        <div className="nav-drawer-user">
+          <span className="header-user-name">{user?.name}</span>
+          <LanguageSwitcher />
+          {!isInstalled && (
+            <button className="header-install" onClick={() => { handleInstall(); setDrawerOpen(false); }}>
+              ⊕ {t("common:install")}
+            </button>
+          )}
+          <button className="header-signout" onClick={() => { logout(); setDrawerOpen(false); }}>
+            {t("common:signOut")}
+          </button>
+        </div>
+      </div>
     </header>
   );
 }
