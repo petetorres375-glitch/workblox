@@ -41,6 +41,18 @@ body {
 
 @media (max-width: 540px) {
   .site-header { padding: 0.5rem 1rem 0; }
+  .header-top {
+    grid-template-columns: 1fr;
+    row-gap: 0.4rem;
+  }
+  .header-top .brand,
+  .header-top .header-user {
+    grid-column: 1;
+    justify-content: center;
+  }
+  .header-user {
+    flex-wrap: wrap;
+  }
   .tool-nav button {
     padding: 5px 7px;
     font-size: 0.75rem;
