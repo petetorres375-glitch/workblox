@@ -1039,3 +1039,67 @@ footer a {
   background: var(--border);
   color: var(--text-muted);
 }
+
+/* ── Contacts: list table columns ── */
+.contact-col-name { flex: 1; }
+.contact-col-company { width: 160px; }
+.contact-col-type { width: 90px; }
+.contact-col-phone { width: 140px; }
+.contact-col-email { flex: 1; }
+.contact-col-actions { width: 80px; }
+
+/* ── Contacts: form field widths ── */
+.form-row { display: flex; gap: 0.75rem; }
+.form-half { flex: 1; }
+.form-field-mi { width: 72px; }
+.form-field-type { width: 160px; }
+.form-field-apt { width: 90px; }
+.form-field-state { width: 90px; }
+.form-field-zip { width: 90px; }
+.form-field-street { flex: 2; }
+
+/* ── Contacts: action bar ── */
+.contacts-actionbar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.contacts-search-input { flex: 1 1 200px; max-width: 320px; }
+.contacts-type-filter { flex: 0 0 auto; }
+.contacts-spacer { flex: 1; }
+
+@media (max-width: 640px) {
+  .contact-table-header { display: none; }
+
+  .contact-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.35rem 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+  .contact-col-name { flex-basis: 100%; }
+  .contact-col-company,
+  .contact-col-type { width: auto; }
+  .contact-col-phone,
+  .contact-col-email { flex-basis: 100%; width: auto; }
+  .contact-col-actions { width: auto; margin-left: auto; }
+
+  .form-row { flex-direction: column; gap: 0.85rem; }
+  .form-half,
+  .form-field-mi,
+  .form-field-type,
+  .form-field-apt,
+  .form-field-state,
+  .form-field-zip,
+  .form-field-street {
+    width: 100%;
+  }
+
+  .contacts-actionbar { flex-direction: column; align-items: stretch; }
+  .contacts-search-input { max-width: none; width: 100%; }
+  .contacts-type-filter { width: 100%; }
+  .contacts-spacer { display: none; }
+  .contacts-actionbar-btn { width: 100%; }
+}

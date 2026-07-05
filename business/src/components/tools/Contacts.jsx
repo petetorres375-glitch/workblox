@@ -136,9 +136,6 @@ function ContactForm({ initial, onSave, onCancel }) {
     }
   }
 
-  const row = { display: "flex", gap: "0.75rem" };
-  const half = { flex: 1 };
-
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.85rem",
       background: "#fff", border: "1.5px solid var(--border)", borderRadius: "var(--radius-lg)",
@@ -148,27 +145,27 @@ function ContactForm({ initial, onSave, onCancel }) {
         {initial?.id ? t("form.editTitle") : t("form.addTitle")}
       </p>
 
-      <div style={row}>
-        <div style={half}>
+      <div className="form-row">
+        <div className="form-half">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.firstName")}</label>
           <input style={S.input} value={form.first_name} onChange={(e) => set("first_name", e.target.value)} placeholder={t("form.firstNamePlaceholder")} required />
         </div>
-        <div style={{ width: 72 }}>
+        <div className="form-field-mi">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.middleInit")}</label>
           <input style={S.input} value={form.middle_init} onChange={(e) => set("middle_init", e.target.value)} placeholder={t("form.middleInitPlaceholder")} maxLength={1} />
         </div>
-        <div style={half}>
+        <div className="form-half">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.lastName")}</label>
           <input style={S.input} value={form.last_name} onChange={(e) => set("last_name", e.target.value)} placeholder={t("form.lastNamePlaceholder")} />
         </div>
       </div>
 
-      <div style={row}>
-        <div style={half}>
+      <div className="form-row">
+        <div className="form-half">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.company")}</label>
           <input style={S.input} value={form.company} onChange={(e) => set("company", e.target.value)} placeholder={t("form.companyPlaceholder")} />
         </div>
-        <div style={{ width: 160 }}>
+        <div className="form-field-type">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.type")}</label>
           <select style={{ ...S.select, width: "100%" }} value={form.contact_type} onChange={(e) => set("contact_type", e.target.value)}>
             {TYPES.map((type) => <option key={type} value={type}>{typeLabel(t, type)}</option>)}
@@ -186,27 +183,27 @@ function ContactForm({ initial, onSave, onCancel }) {
         <MultiInput values={form.emails} onChange={(v) => set("emails", v)} placeholder={t("form.emailPlaceholder")} addLabel={t("form.addEmail")} removeLabel={t("common.remove")} type="email" />
       </div>
 
-      <div style={row}>
-        <div style={{ flex: 2 }}>
+      <div className="form-row">
+        <div className="form-field-street">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.street")}</label>
           <input style={S.input} value={form.street} onChange={(e) => set("street", e.target.value)} placeholder={t("form.streetPlaceholder")} />
         </div>
-        <div style={{ width: 90 }}>
+        <div className="form-field-apt">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.apt")}</label>
           <input style={S.input} value={form.apt} onChange={(e) => set("apt", e.target.value)} placeholder={t("form.aptPlaceholder")} />
         </div>
       </div>
 
-      <div style={row}>
-        <div style={half}>
+      <div className="form-row">
+        <div className="form-half">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.city")}</label>
           <input style={S.input} value={form.city} onChange={(e) => set("city", e.target.value)} placeholder={t("form.cityPlaceholder")} />
         </div>
-        <div style={{ width: 90 }}>
+        <div className="form-field-state">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.state")}</label>
           <input style={S.input} value={form.state} onChange={(e) => set("state", e.target.value)} placeholder={t("form.statePlaceholder")} maxLength={30} />
         </div>
-        <div style={{ width: 90 }}>
+        <div className="form-field-zip">
           <label style={{ fontSize: "0.78rem", color: "var(--text-muted)", display: "block", marginBottom: "0.3rem" }}>{t("form.zip")}</label>
           <input style={S.input} value={form.zip} onChange={(e) => set("zip", e.target.value)} placeholder={t("form.zipPlaceholder")} maxLength={10} />
         </div>
@@ -591,30 +588,31 @@ export default function Contacts() {
 
       {/* ── Action bar ── */}
       {view === "list" && (
-        <div style={{ display: "flex", gap: "0.6rem", marginBottom: "1.25rem", flexWrap: "wrap", alignItems: "center" }}>
+        <div className="contacts-actionbar">
           <input
             type="search"
             placeholder={t("search.placeholder")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            style={{ ...S.input, flex: "1 1 200px", maxWidth: 320 }}
+            className="contacts-search-input"
+            style={S.input}
           />
           <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
-            style={{ ...S.select, flex: "0 0 auto" }}>
+            className="contacts-type-filter" style={S.select}>
             <option value="All">{t("contactTypes.all")}</option>
             {TYPES.map((type) => <option key={type} value={type}>{typeLabel(t, type)}</option>)}
           </select>
-          <div style={{ flex: 1 }} />
-          <button style={{ ...S.btn, ...S.btnGhost }} onClick={() => { setEditing(null); setImportSummary(null); setView("import"); }}>
+          <div className="contacts-spacer" />
+          <button className="contacts-actionbar-btn" style={{ ...S.btn, ...S.btnGhost }} onClick={() => { setEditing(null); setImportSummary(null); setView("import"); }}>
             ↑ {t("actions.import")}
           </button>
-          <button style={{ ...S.btn, ...S.btnGhost }} onClick={handleExport} disabled={exportLoading || contacts.length === 0}>
+          <button className="contacts-actionbar-btn" style={{ ...S.btn, ...S.btnGhost }} onClick={handleExport} disabled={exportLoading || contacts.length === 0}>
             {exportLabel}
           </button>
-          <button style={{ ...S.btn, ...S.btnGhost }} onClick={handleExportVcf} disabled={vcfLoading || contacts.length === 0}>
+          <button className="contacts-actionbar-btn" style={{ ...S.btn, ...S.btnGhost }} onClick={handleExportVcf} disabled={vcfLoading || contacts.length === 0}>
             {vcfExportLabel}
           </button>
-          <button style={{ ...S.btn, ...S.btnPrimary }} onClick={() => { setEditing(null); setImportSummary(null); setView("add"); }}>
+          <button className="contacts-actionbar-btn" style={{ ...S.btn, ...S.btnPrimary }} onClick={() => { setEditing(null); setImportSummary(null); setView("add"); }}>
             + {t("form.addContact")}
           </button>
         </div>
@@ -714,61 +712,61 @@ export default function Contacts() {
           {!loading && filtered.length > 0 && (
             <div style={{ background: "#fff", border: "1.5px solid var(--border)", borderRadius: "var(--radius-lg)", overflow: "hidden" }}>
               {/* Table header with select-all */}
-              <div style={{ display: "flex", alignItems: "center", padding: "0.6rem 1rem",
+              <div className="contact-table-header" style={{ display: "flex", alignItems: "center", padding: "0.6rem 1rem",
                 borderBottom: "2px solid var(--border)", background: "#fafafa" }}>
                 <input type="checkbox" checked={allChecked} ref={(el) => { if (el) el.indeterminate = someChecked; }}
                   onChange={toggleAll} style={{ marginRight: "0.75rem", cursor: "pointer" }} />
                 {[
-                  { col: "name",    label: t("table.name"),    style: { flex: 1 } },
-                  { col: "company", label: t("table.company"), style: { width: 160 } },
-                  { col: "type",    label: t("table.type"),    style: { width: 90 } },
-                  { col: "phone",   label: t("table.phone"),   style: { width: 140 } },
-                  { col: "email",   label: t("table.email"),   style: { flex: 1 } },
-                ].map(({ col, label, style }) => (
-                  <button key={col} onClick={() => toggleSort(col)}
-                    style={{ ...style, background: "none", border: "none", cursor: "pointer",
+                  { col: "name",    label: t("table.name"),    className: "contact-col-name" },
+                  { col: "company", label: t("table.company"), className: "contact-col-company" },
+                  { col: "type",    label: t("table.type"),    className: "contact-col-type" },
+                  { col: "phone",   label: t("table.phone"),   className: "contact-col-phone" },
+                  { col: "email",   label: t("table.email"),   className: "contact-col-email" },
+                ].map(({ col, label, className }) => (
+                  <button key={col} onClick={() => toggleSort(col)} className={className}
+                    style={{ background: "none", border: "none", cursor: "pointer",
                       fontFamily: "inherit", fontSize: "0.78rem", fontWeight: 600,
                       color: sortCol === col ? "var(--orange)" : "var(--text-muted)",
                       padding: 0, textAlign: "left", display: "flex", alignItems: "center" }}>
                     {label}<SortIcon col={col} />
                   </button>
                 ))}
-                <span style={{ width: 80 }} />
+                <span className="contact-col-actions" />
               </div>
 
               {filtered.map((c, idx) => {
                 const name = [c.first_name, c.middle_init ? c.middle_init + "." : "", c.last_name].filter(Boolean).join(" ");
                 const isLast = idx === filtered.length - 1;
                 return (
-                  <div key={c.id} style={{ display: "flex", alignItems: "center", padding: "0.75rem 1rem",
+                  <div key={c.id} className="contact-row" style={{ display: "flex", alignItems: "center", padding: "0.75rem 1rem",
                     borderBottom: isLast ? "none" : "1px solid var(--border)",
                     background: selected.has(c.id) ? "#eff6ff" : "transparent" }}>
                     <input type="checkbox" checked={selected.has(c.id)} onChange={() => toggleSelect(c.id)}
                       style={{ marginRight: "0.75rem", cursor: "pointer" }} />
-                    <div style={{ flex: 1, minWidth: 0 }}>
+                    <div className="contact-col-name" style={{ minWidth: 0 }}>
                       <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{name || "—"}</span>
                     </div>
-                    <div style={{ width: 160, fontSize: "0.85rem", color: "var(--text-muted)", overflow: "hidden",
+                    <div className="contact-col-company" style={{ fontSize: "0.85rem", color: "var(--text-muted)", overflow: "hidden",
                       textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {c.company || "—"}
                     </div>
-                    <div style={{ width: 90 }}>
+                    <div className="contact-col-type">
                       <span style={{ fontSize: "0.75rem", background: "#eff6ff", color: "var(--orange)",
                         borderRadius: 4, padding: "0.15rem 0.5rem", fontWeight: 600 }}>
                         {typeLabel(t, c.contact_type)}
                       </span>
                     </div>
-                    <div style={{ width: 140, fontSize: "0.83rem", color: "var(--text-muted)",
+                    <div className="contact-col-phone" style={{ fontSize: "0.83rem", color: "var(--text-muted)",
                       overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {c.phones[0] || "—"}
                       {c.phones.length > 1 && <span style={{ color: "var(--text-hint)", fontSize: "0.75rem" }}> +{c.phones.length - 1}</span>}
                     </div>
-                    <div style={{ flex: 1, fontSize: "0.83rem", color: "var(--text-muted)",
+                    <div className="contact-col-email" style={{ fontSize: "0.83rem", color: "var(--text-muted)",
                       overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {c.emails[0] || "—"}
                       {c.emails.length > 1 && <span style={{ color: "var(--text-hint)", fontSize: "0.75rem" }}> +{c.emails.length - 1}</span>}
                     </div>
-                    <div style={{ width: 80, display: "flex", gap: "0.25rem", justifyContent: "flex-end" }}>
+                    <div className="contact-col-actions" style={{ display: "flex", gap: "0.25rem", justifyContent: "flex-end" }}>
                       <button title={t("common.edit")} onClick={() => { setEditing({ ...c, phones: c.phones.length ? c.phones : [""], emails: c.emails.length ? c.emails : [""] }); setView("edit"); }}
                         style={{ ...S.btnDanger, color: "var(--orange)" }}>✏</button>
                       <button title={t("common.delete")} onClick={() => handleDelete(c.id)} style={S.btnDanger}>🗑</button>
