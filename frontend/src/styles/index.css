@@ -31,19 +31,6 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 540px) {
-  .site-header {
-    justify-content: flex-start;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-  }
-  .nav-toggle { display: flex; align-items: center; justify-content: center; }
-  .tool-nav,
-  .site-header > .header-user {
-    display: none;
-  }
-}
-
 .brand {
   display: flex;
   align-items: center;
@@ -94,6 +81,19 @@ body {
 
 .tool-nav button:hover { color: #fff; }
 .tool-nav button.active { color: var(--orange); font-weight: 700; }
+
+@media (max-width: 540px) {
+  .site-header {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .tool-nav,
+  .site-header > .header-user {
+    display: none;
+  }
+}
 
 /* ── Mobile nav drawer ── */
 .nav-drawer-overlay {

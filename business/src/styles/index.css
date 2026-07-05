@@ -50,23 +50,6 @@ body {
   justify-self: start;
 }
 
-@media (max-width: 540px) {
-  .site-header { padding: 0.5rem 1rem 0; }
-  .header-top {
-    grid-template-columns: auto 1fr;
-    justify-content: flex-start;
-  }
-  .header-top .brand {
-    grid-column: 2;
-    justify-content: flex-start;
-  }
-  .nav-toggle { display: flex; align-items: center; justify-content: center; }
-  .tool-nav,
-  .header-top .header-user {
-    display: none;
-  }
-}
-
 .brand {
   display: flex;
   align-items: center;
@@ -121,6 +104,23 @@ body {
 
 .tool-nav button:hover { color: #fff; }
 .tool-nav button.active { color: var(--orange); font-weight: 700; }
+
+@media (max-width: 540px) {
+  .site-header { padding: 0.5rem 1rem 0; }
+  .header-top {
+    grid-template-columns: auto 1fr;
+    justify-content: flex-start;
+  }
+  .header-top .brand {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .tool-nav,
+  .header-top .header-user {
+    display: none;
+  }
+}
 
 /* ── Mobile nav drawer ── */
 .nav-drawer-overlay {
