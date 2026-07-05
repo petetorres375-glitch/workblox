@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "./contexts/AuthContext";
 import Login from "./components/auth/Login";
-import SignUp from "./components/auth/SignUp";
 import Welcome from "./components/auth/Welcome";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -40,8 +39,12 @@ const TOOLS = {
 export default function App() {
   const { user, logout, planBlocked } = useAuth();
   const [active, setActive] = useState("hiring");
-  const [authView, setAuthView] = useState("welcome");
+  const [entered, setEntered] = useState(false);
   const Tool = TOOLS[active] || HiringManager;
+
+  useEffect(() => {
+    if (!user) setEntered(false);
+  }, [user]);
 
   if (!user) {
     if (planBlocked) {
@@ -71,12 +74,11 @@ export default function App() {
         </div>
       );
     }
-    if (authView === "welcome") {
-      return <Welcome onEnter={() => setAuthView("login")} />;
-    }
-    return authView === "signup"
-      ? <SignUp onSwitchToLogin={() => setAuthView("login")} onBack={() => setAuthView("welcome")} />
-      : <Login onSwitchToSignUp={() => setAuthView("signup")} onBack={() => setAuthView("welcome")} />;
+    return <Login />;
+  }
+
+  if (!entered) {
+    return <Welcome onEnter={() => setEntered(true)} />;
   }
 
   return (

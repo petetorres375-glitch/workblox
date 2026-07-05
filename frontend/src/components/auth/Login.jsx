@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { post } from "../../api/client";
 import PasswordInput from "../ui/PasswordInput";
 
-export default function Login({ onSwitchToSignUp, onBack }) {
+export default function Login() {
   const { t } = useTranslation("auth");
   const { login } = useAuth();
   const [email, setEmail] = useState("");
@@ -99,11 +99,6 @@ export default function Login({ onSwitchToSignUp, onBack }) {
   return (
     <div className="login-page">
       <div className="login-card">
-        {onBack && (
-          <button type="button" className="auth-back" onClick={onBack}>
-            ‹ {t("common:back")}
-          </button>
-        )}
         <div className="login-brand">
           <span className="brand-name" style={{ fontSize: "1.1rem" }}>
             Torres<span className="brand-accent">Tech</span> Remote
@@ -148,13 +143,6 @@ export default function Login({ onSwitchToSignUp, onBack }) {
 
         {info && <p className="login-info">{info}</p>}
         {error && <p className="login-error">{error}</p>}
-
-        <p className="auth-switch">
-          {t("noAccount")}{" "}
-          <button className="auth-link" onClick={onSwitchToSignUp}>
-            {t("signUp")}
-          </button>
-        </p>
 
         {demoVisible && (
           <form className="demo-form" onSubmit={handleDemo}>

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../layout/LanguageSwitcher";
 
 export default function Welcome({ onEnter }) {
-  const { t } = useTranslation(["common", "auth"]);
+  const { t } = useTranslation("common");
 
   return (
     <div className="login-page">
@@ -13,15 +13,15 @@ export default function Welcome({ onEnter }) {
           </span>
           <span className="login-product">Workblox Business</span>
         </div>
-        <h1 className="welcome-title">{t("common:welcomeTitle")}</h1>
-        <p className="page-subtitle">{t("common:welcomeTagline")}</p>
+        <h1 className="welcome-title">{t("welcomeTitle")}</h1>
+        <p className="page-subtitle">{t("welcomeTagline")}</p>
 
         <div className="welcome-language">
           <LanguageSwitcher />
         </div>
 
         <button type="button" className="submit-btn" onClick={onEnter}>
-          {t("auth:signIn")}
+          {t("enter")}
         </button>
       </div>
     </div>

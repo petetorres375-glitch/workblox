@@ -587,18 +587,6 @@ footer a {
   margin: 1.5rem 0;
 }
 
-.auth-back {
-  display: block;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-family: inherit;
-  font-size: 0.85rem;
-  cursor: pointer;
-  margin-bottom: 0.75rem;
-}
-
-.auth-back:hover { color: var(--text); }
 
 .login-google {
   display: flex;
