@@ -5,6 +5,9 @@
   "language": "Language",
   "menu": "Menu",
   "closeMenu": "Close menu",
+  "welcomeTitle": "Welcome to Workblox Business",
+  "welcomeTagline": "AI-powered tools for business owners and HR professionals",
+  "back": "Back",
   "installModal": {
     "title": "Install Workblox Business",
     "intro": "To install on Android:",

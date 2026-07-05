@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { post } from "../../api/client";
 import PasswordInput from "../ui/PasswordInput";
 
-export default function SignUp({ onSwitchToLogin }) {
+export default function SignUp({ onSwitchToLogin, onBack }) {
   const { login } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,6 +66,11 @@ export default function SignUp({ onSwitchToLogin }) {
   return (
     <div className="login-page">
       <div className="login-card">
+        {onBack && (
+          <button type="button" className="auth-back" onClick={onBack}>
+            ‹ Back
+          </button>
+        )}
         <div className="login-brand">
           <span className="brand-name" style={{ fontSize: "1.1rem" }}>
             Torres<span className="brand-accent">Tech</span> Remote

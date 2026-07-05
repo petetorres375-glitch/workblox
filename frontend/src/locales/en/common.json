@@ -4,6 +4,9 @@
   "language": "Language",
   "menu": "Menu",
   "closeMenu": "Close menu",
+  "welcomeTitle": "Welcome to Workblox",
+  "welcomeTagline": "AI-powered productivity tools in one place",
+  "back": "Back",
   "installModal": {
     "title": "Install Workblox",
     "intro": "To install on Android:",

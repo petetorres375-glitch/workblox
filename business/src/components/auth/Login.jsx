@@ -39,7 +39,7 @@ function InstallModal({ onClose }) {
   );
 }
 
-export default function Login({ onSwitchToSignUp }) {
+export default function Login({ onSwitchToSignUp, onBack }) {
   const { t } = useTranslation("auth");
   const { login } = useAuth();
   const { canInstall, install, isInstalled } = usePWA();
@@ -110,6 +110,11 @@ export default function Login({ onSwitchToSignUp }) {
   return (
     <div className="login-page">
       <div className="login-card">
+        {onBack && (
+          <button type="button" className="auth-back" onClick={onBack}>
+            ‹ {t("common:back")}
+          </button>
+        )}
         <div className="login-brand">
           <span className="brand-name" style={{ fontSize: "1.1rem" }}>
             Torres<span className="brand-accent">Tech</span> Remote
