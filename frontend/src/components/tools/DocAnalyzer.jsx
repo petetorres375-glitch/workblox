@@ -106,7 +106,11 @@ export default function DocAnalyzer() {
   }
 
   async function handlePhotoInput(e) {
-    const files = e.target.files;
+    // Snapshot into a plain array before clearing the input — e.target.files
+    // is a live FileList tied to the input, and resetting .value (needed so
+    // picking the same file again still fires onChange) can empty it out
+    // from under an async consumer if we hold onto the live list instead.
+    const files = Array.from(e.target.files || []);
     e.target.value = "";
     await addPhotoFiles(files);
   }
