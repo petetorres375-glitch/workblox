@@ -105,10 +105,10 @@ export default function DocAnalyzer() {
     handleDroppedOrSelected(e.dataTransfer.files);
   }
 
-  async function handleAddPhoto(e) {
-    const rawFile = e.target.files[0];
+  async function handlePhotoInput(e) {
+    const files = e.target.files;
     e.target.value = "";
-    await addPhotoFiles(rawFile ? [rawFile] : []);
+    await addPhotoFiles(files);
   }
 
   function removePhoto(id) {
@@ -197,8 +197,7 @@ export default function DocAnalyzer() {
           <input
             ref={fileRef}
             type="file"
-            accept=".pdf,.txt,.md,image/*"
-            multiple
+            accept=".pdf,.txt,.md"
             onChange={(e) => handleDroppedOrSelected(e.target.files)}
           />
           {file ? (
@@ -213,10 +212,16 @@ export default function DocAnalyzer() {
 
         <div className="photo-capture">
           <div className="photo-capture-divider">{t("photo.or")}</div>
-          <label className="photo-capture-btn">
-            {photos.length > 0 ? t("photo.addMore") : t("photo.add")}
-            <input type="file" accept="image/*" capture="environment" onChange={handleAddPhoto} />
-          </label>
+          <div className="photo-capture-buttons">
+            <label className="photo-capture-btn">
+              {t("photo.take")}
+              <input type="file" accept="image/*" capture="environment" onChange={handlePhotoInput} />
+            </label>
+            <label className="photo-capture-btn">
+              {t("photo.choose")}
+              <input type="file" accept="image/*" multiple onChange={handlePhotoInput} />
+            </label>
+          </div>
           <p className="photo-capture-hint">{t("photo.hint")}</p>
           {photoError && <div className="error-banner" style={{ marginTop: 8 }}>{photoError}</div>}
           {photos.length > 0 && (

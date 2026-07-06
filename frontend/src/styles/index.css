@@ -331,6 +331,12 @@ main {
   background: var(--border);
 }
 
+.photo-capture-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .photo-capture-btn {
   display: inline-flex;
   align-items: center;
