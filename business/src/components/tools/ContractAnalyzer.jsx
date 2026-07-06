@@ -7,6 +7,13 @@ import ReportToolbar from "../ui/ReportToolbar";
 
 const MAX_PHOTOS = 6;
 const RISK_COLOR = { low: "#16a34a", medium: "#b45309", high: "#dc2626" };
+const IMAGE_EXTENSIONS = /\.(jpe?g|png|heic|heif|webp|gif|bmp|tiff?)$/i;
+
+function isImageFile(f) {
+  // Some browsers (drag-and-drop especially) report HEIC files with no
+  // useful MIME type, so fall back to checking the extension too.
+  return f.type.startsWith("image/") || IMAGE_EXTENSIONS.test(f.name);
+}
 
 function buildTxt(data, fileName) {
   const lines = [`CONTRACT ANALYSIS — ${(data.document_type || fileName || "Document").toUpperCase()}`, "=".repeat(60)];
@@ -60,27 +67,49 @@ export default function ContractAnalyzer() {
     if (f) { clearPhotos(); setFile(f); setData(null); }
   }
 
-  async function handleAddPhoto(e) {
-    const rawFile = e.target.files[0];
-    e.target.value = "";
-    if (!rawFile) return;
-    if (photos.length >= MAX_PHOTOS) {
+  async function addPhotoFiles(rawFiles) {
+    const files = Array.from(rawFiles || []).filter(Boolean);
+    if (files.length === 0) return;
+    if (photos.length + files.length > MAX_PHOTOS) {
       setPhotoError(t("photo.limit", { max: MAX_PHOTOS }));
       return;
     }
     setPhotoError(null);
     setFile(null);
     setData(null);
-    let blob;
-    try {
-      blob = await compressImage(rawFile);
-    } catch {
-      // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
-      // decoder) — upload the original file and let the backend normalize it.
-      blob = rawFile;
+    const added = [];
+    for (const rawFile of files) {
+      let blob;
+      try {
+        blob = await compressImage(rawFile);
+      } catch {
+        // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
+        // decoder) — upload the original file and let the backend normalize it.
+        blob = rawFile;
+      }
+      added.push({ id: `${Date.now()}-${photos.length + added.length}`, blob, previewUrl: URL.createObjectURL(rawFile) });
     }
-    const previewUrl = URL.createObjectURL(rawFile);
-    setPhotos((prev) => [...prev, { id: `${Date.now()}-${prev.length}`, blob, previewUrl }]);
+    setPhotos((prev) => [...prev, ...added]);
+  }
+
+  // The drop-zone now accepts either a document or one/more photos — route
+  // dropped/selected files to whichever pipeline fits instead of always
+  // treating them as a single document.
+  function handleDroppedOrSelected(fileList) {
+    const files = Array.from(fileList || []).filter(Boolean);
+    if (files.length === 0) return;
+    const images = files.filter(isImageFile);
+    if (images.length > 0) {
+      addPhotoFiles(images);
+      return;
+    }
+    handleFile(files[0]);
+  }
+
+  async function handleAddPhoto(e) {
+    const rawFile = e.target.files[0];
+    e.target.value = "";
+    await addPhotoFiles(rawFile ? [rawFile] : []);
   }
 
   function removePhoto(id) {
@@ -118,9 +147,9 @@ export default function ContractAnalyzer() {
           onClick={() => document.getElementById("contract-file").click()}
           onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
           onDragLeave={() => setDragOver(false)}
-          onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files[0]); }}
+          onDrop={(e) => { e.preventDefault(); setDragOver(false); handleDroppedOrSelected(e.dataTransfer.files); }}
         >
-          <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc" onChange={(e) => handleFile(e.target.files[0])} />
+          <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc,image/*" multiple onChange={(e) => handleDroppedOrSelected(e.target.files)} />
           <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
         </div>

@@ -1,8 +1,8 @@
 {
   "title": "Doc <0>Analyzer</0>",
   "subtitle": "Upload a PDF, TXT, or MD file — get a structured AI summary.",
-  "dropLabel": "Drop a file here or click to browse",
-  "dropHint": "PDF, TXT, or MD — max 10 MB",
+  "dropLabel": "Drop a file or photo here or click to browse",
+  "dropHint": "PDF, TXT, MD, or photo — max 10 MB",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "photo": {

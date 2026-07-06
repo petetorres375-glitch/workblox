@@ -5,6 +5,13 @@ import { useApi } from "../../hooks/useApi";
 import { compressImage } from "../../utils/imageCapture";
 
 const MAX_PHOTOS = 6;
+const IMAGE_EXTENSIONS = /\.(jpe?g|png|heic|heif|webp|gif|bmp|tiff?)$/i;
+
+function isImageFile(f) {
+  // Some browsers (drag-and-drop especially) report HEIC files with no
+  // useful MIME type, so fall back to checking the extension too.
+  return f.type.startsWith("image/") || IMAGE_EXTENSIONS.test(f.name);
+}
 
 function buildTxtReport(filename, result) {
   const sections = [
@@ -52,17 +59,10 @@ export default function DocAnalyzer() {
     if (f) { clearPhotos(); setFile(f); setResult(null); setEmailSent(false); }
   }
 
-  function onDrop(e) {
-    e.preventDefault();
-    setDragOver(false);
-    handleFile(e.dataTransfer.files[0]);
-  }
-
-  async function handleAddPhoto(e) {
-    const rawFile = e.target.files[0];
-    e.target.value = "";
-    if (!rawFile) return;
-    if (photos.length >= MAX_PHOTOS) {
+  async function addPhotoFiles(rawFiles) {
+    const files = Array.from(rawFiles || []).filter(Boolean);
+    if (files.length === 0) return;
+    if (photos.length + files.length > MAX_PHOTOS) {
       setPhotoError(t("photo.limit", { max: MAX_PHOTOS }));
       return;
     }
@@ -70,16 +70,45 @@ export default function DocAnalyzer() {
     setFile(null);
     setResult(null);
     setEmailSent(false);
-    let blob;
-    try {
-      blob = await compressImage(rawFile);
-    } catch {
-      // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
-      // decoder) — upload the original file and let the backend normalize it.
-      blob = rawFile;
+    const added = [];
+    for (const rawFile of files) {
+      let blob;
+      try {
+        blob = await compressImage(rawFile);
+      } catch {
+        // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
+        // decoder) — upload the original file and let the backend normalize it.
+        blob = rawFile;
+      }
+      added.push({ id: `${Date.now()}-${photos.length + added.length}`, blob, previewUrl: URL.createObjectURL(rawFile) });
     }
-    const previewUrl = URL.createObjectURL(rawFile);
-    setPhotos((prev) => [...prev, { id: `${Date.now()}-${prev.length}`, blob, previewUrl }]);
+    setPhotos((prev) => [...prev, ...added]);
+  }
+
+  // The drop-zone now accepts either a document or one/more photos — route
+  // dropped/selected files to whichever pipeline fits instead of always
+  // treating them as a single document.
+  function handleDroppedOrSelected(fileList) {
+    const files = Array.from(fileList || []).filter(Boolean);
+    if (files.length === 0) return;
+    const images = files.filter(isImageFile);
+    if (images.length > 0) {
+      addPhotoFiles(images);
+      return;
+    }
+    handleFile(files[0]);
+  }
+
+  function onDrop(e) {
+    e.preventDefault();
+    setDragOver(false);
+    handleDroppedOrSelected(e.dataTransfer.files);
+  }
+
+  async function handleAddPhoto(e) {
+    const rawFile = e.target.files[0];
+    e.target.value = "";
+    await addPhotoFiles(rawFile ? [rawFile] : []);
   }
 
   function removePhoto(id) {
@@ -168,8 +197,9 @@ export default function DocAnalyzer() {
           <input
             ref={fileRef}
             type="file"
-            accept=".pdf,.txt,.md"
-            onChange={(e) => handleFile(e.target.files[0])}
+            accept=".pdf,.txt,.md,image/*"
+            multiple
+            onChange={(e) => handleDroppedOrSelected(e.target.files)}
           />
           {file ? (
             <p className="drop-label" style={{ color: "#111" }}>{file.name}</p>
