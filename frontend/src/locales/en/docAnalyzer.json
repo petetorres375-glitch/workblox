@@ -5,6 +5,16 @@
   "dropHint": "PDF, TXT, or MD — max 10 MB",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
+  "photo": {
+    "or": "or",
+    "add": "Take Photo",
+    "addMore": "Add Another Photo",
+    "hint": "Flat surface, good lighting works best.",
+    "limit": "Up to {{max}} photos per document.",
+    "pageLabel": "Page {{n}}",
+    "removeLabel": "Remove page {{n}}",
+    "filenameFallback": "Photo Document"
+  },
   "sections": {
     "summary": "Summary",
     "keyDataPoints": "Key Data Points",

@@ -1,6 +1,8 @@
 import io
 from unittest.mock import patch
 
+from app.services.claude_client import MAX_IMAGES
+
 MOCK_RESPONSE = {
     "summary": "A test document.",
     "key_data_points": ["Item 1"],
@@ -44,6 +46,57 @@ def test_doc_analyzer_empty_file(client):
     data = {"file": (io.BytesIO(b"   "), "blank.txt")}
     rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
     assert rv.status_code == 422
+
+
+def test_doc_analyzer_photo_single(client):
+    data = {"images": (io.BytesIO(b"fake-jpeg-bytes"), "photo-1.jpg")}
+    with patch("app.routes.doc_analyzer.prepare_image", return_value=b"normalized-jpeg-bytes"), \
+         patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE) as mock_call:
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 200
+    assert rv.get_json()["summary"] == MOCK_RESPONSE["summary"]
+    _, kwargs = mock_call.call_args
+    assert len(kwargs["images"]) == 1
+    assert kwargs["images"][0]["media_type"] == "image/jpeg"
+
+
+def test_doc_analyzer_photo_multiple_pages(client):
+    data = {"images": [
+        (io.BytesIO(b"page-1"), "photo-1.jpg"),
+        (io.BytesIO(b"page-2"), "photo-2.jpg"),
+        (io.BytesIO(b"page-3"), "photo-3.jpg"),
+    ]}
+    with patch("app.routes.doc_analyzer.prepare_image", return_value=b"normalized-jpeg-bytes"), \
+         patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE) as mock_call:
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 200
+    _, kwargs = mock_call.call_args
+    assert len(kwargs["images"]) == 3
+
+
+def test_doc_analyzer_photo_and_file_rejected(client):
+    data = {
+        "file": (io.BytesIO(b"This is a test document."), "test.txt"),
+        "images": (io.BytesIO(b"fake-jpeg-bytes"), "photo-1.jpg"),
+    }
+    rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 400
+
+
+def test_doc_analyzer_photo_too_many(client):
+    data = {"images": [
+        (io.BytesIO(f"page-{i}".encode()), f"photo-{i}.jpg") for i in range(MAX_IMAGES + 1)
+    ]}
+    rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 400
+
+
+def test_doc_analyzer_photo_unreadable(client):
+    data = {"images": (io.BytesIO(b"not-an-image"), "photo-1.jpg")}
+    with patch("app.routes.doc_analyzer.prepare_image",
+               side_effect=ValueError("Could not read 'photo-1.jpg' as an image.")):
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 415
 
 
 def test_doc_email_no_key(client):

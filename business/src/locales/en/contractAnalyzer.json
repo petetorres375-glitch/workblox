@@ -5,6 +5,15 @@
   "dropHint": "PDF, DOCX, or TXT",
   "analyze": "Analyze Contract",
   "analyzing": "Analyzing…",
+  "photo": {
+    "or": "or",
+    "add": "Take Photo",
+    "addMore": "Add Another Photo",
+    "hint": "Flat surface, good lighting works best.",
+    "limit": "Up to {{max}} photos per document.",
+    "pageLabel": "Page {{n}}",
+    "removeLabel": "Remove page {{n}}"
+  },
   "documentOverview": "Document Overview",
   "risk": {
     "low": "Low risk",

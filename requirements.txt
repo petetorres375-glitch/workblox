@@ -5,6 +5,7 @@ anthropic
 python-dotenv
 pymupdf
 pytesseract
+pillow-heif
 gunicorn
 pdfplumber
 fpdf2

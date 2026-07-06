@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { BASE_URL, post, postForm } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
+import { compressImage } from "../../utils/imageCapture";
+
+const MAX_PHOTOS = 6;
 
 function buildTxtReport(filename, result) {
   const sections = [
@@ -28,6 +31,8 @@ export default function DocAnalyzer() {
   const { t, i18n } = useTranslation("docAnalyzer");
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
+  const [photos, setPhotos] = useState([]); // [{ id, blob, previewUrl }]
+  const [photoError, setPhotoError] = useState(null);
   const [result, setResult] = useState(null);
   const [filename, setFilename] = useState("");
   const [emailAddr, setEmailAddr] = useState("");
@@ -38,8 +43,13 @@ export default function DocAnalyzer() {
   const fileRef = useRef();
   const { loading, error, call } = useApi();
 
+  function clearPhotos() {
+    photos.forEach((p) => URL.revokeObjectURL(p.previewUrl));
+    setPhotos([]);
+  }
+
   function handleFile(f) {
-    if (f) { setFile(f); setResult(null); setEmailSent(false); }
+    if (f) { clearPhotos(); setFile(f); setResult(null); setEmailSent(false); }
   }
 
   function onDrop(e) {
@@ -48,14 +58,50 @@ export default function DocAnalyzer() {
     handleFile(e.dataTransfer.files[0]);
   }
 
+  async function handleAddPhoto(e) {
+    const rawFile = e.target.files[0];
+    e.target.value = "";
+    if (!rawFile) return;
+    if (photos.length >= MAX_PHOTOS) {
+      setPhotoError(t("photo.limit", { max: MAX_PHOTOS }));
+      return;
+    }
+    setPhotoError(null);
+    setFile(null);
+    setResult(null);
+    setEmailSent(false);
+    let blob;
+    try {
+      blob = await compressImage(rawFile);
+    } catch {
+      // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
+      // decoder) — upload the original file and let the backend normalize it.
+      blob = rawFile;
+    }
+    const previewUrl = URL.createObjectURL(rawFile);
+    setPhotos((prev) => [...prev, { id: `${Date.now()}-${prev.length}`, blob, previewUrl }]);
+  }
+
+  function removePhoto(id) {
+    setPhotos((prev) => {
+      const target = prev.find((p) => p.id === id);
+      if (target) URL.revokeObjectURL(target.previewUrl);
+      return prev.filter((p) => p.id !== id);
+    });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!file) return;
+    if (!file && photos.length === 0) return;
     const fd = new FormData();
-    fd.append("file", file);
+    if (photos.length > 0) {
+      photos.forEach((p, i) => fd.append("images", p.blob, `photo-${i + 1}.jpg`));
+    } else {
+      fd.append("file", file);
+    }
     fd.append("language", i18n.language);
     const data = await call(() => postForm("/api/doc", fd));
-    if (data) { setResult(data); setFilename(file.name); }
+    if (data) { setResult(data); setFilename(photos.length > 0 ? t("photo.filenameFallback") : file.name); }
   }
 
   function downloadTxt() {
@@ -135,7 +181,30 @@ export default function DocAnalyzer() {
           )}
         </div>
 
-        <button type="submit" className="submit-btn" disabled={loading || !file}>
+        <div className="photo-capture">
+          <div className="photo-capture-divider">{t("photo.or")}</div>
+          <label className="photo-capture-btn">
+            {photos.length > 0 ? t("photo.addMore") : t("photo.add")}
+            <input type="file" accept="image/*" capture="environment" onChange={handleAddPhoto} />
+          </label>
+          <p className="photo-capture-hint">{t("photo.hint")}</p>
+          {photoError && <div className="error-banner" style={{ marginTop: 8 }}>{photoError}</div>}
+          {photos.length > 0 && (
+            <div className="photo-thumbs">
+              {photos.map((p, i) => (
+                <PhotoThumb
+                  key={p.id}
+                  photo={p}
+                  label={t("photo.pageLabel", { n: i + 1 })}
+                  removeLabel={t("photo.removeLabel", { n: i + 1 })}
+                  onRemove={() => removePhoto(p.id)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
+        <button type="submit" className="submit-btn" disabled={loading || (!file && photos.length === 0)}>
           {loading ? t("analyzing") : t("analyze")}
         </button>
       </form>
@@ -203,6 +272,20 @@ function DocSection({ title, content }) {
       ) : (
         <p className="explanation-text">{content}</p>
       )}
+    </div>
+  );
+}
+
+function PhotoThumb({ photo, label, removeLabel, onRemove }) {
+  const [broken, setBroken] = useState(false);
+  return (
+    <div className="photo-thumb">
+      {!broken ? (
+        <img src={photo.previewUrl} alt={label} onError={() => setBroken(true)} />
+      ) : (
+        <div className="photo-thumb-fallback">{label}</div>
+      )}
+      <button type="button" onClick={onRemove} aria-label={removeLabel}>&times;</button>
     </div>
   );
 }

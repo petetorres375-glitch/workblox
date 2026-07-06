@@ -4,6 +4,7 @@ flask-limiter
 anthropic
 python-dotenv
 pymupdf
+pillow-heif
 gunicorn
 pytest
 pdfplumber

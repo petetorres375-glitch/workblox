@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request, g, Response
 from .. import limiter
 from ..services import claude_client
 from ..services.email import send_pdf_email, send_report_email, _generate_pdf
-from ..services.file_handler import extract_text
+from ..services.file_handler import extract_text, prepare_image
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
 
@@ -484,17 +484,48 @@ def business_email_drafter():
 
 # ── Pattern B routes (file upload) ────────────────────────────────────────────
 
+_CONTRACT_PHOTO_INSTRUCTION = (
+    "Analyze the contract shown in the attached photo(s). If there are multiple "
+    "photos, treat them as consecutive pages of the same contract, in the order given."
+)
+
+
 @bp.post("/contract")
 @limiter.limit("10 per hour")
 def contract_analyzer():
     guard = _require_business()
     if guard:
         return guard
-    if "file" not in request.files:
+
+    file = request.files.get("file")
+    images = [f for f in request.files.getlist("images") if f and f.filename]
+    language = (request.form.get("language") or "en").strip()
+
+    if file and file.filename and images:
+        return jsonify({"error": "Provide either a file or photos, not both"}), 400
+
+    if images:
+        if len(images) > claude_client.MAX_IMAGES:
+            return jsonify({"error": f"Too many photos — {claude_client.MAX_IMAGES} max per submission"}), 400
+        try:
+            image_blocks = [claude_client.to_image_content(prepare_image(img)) for img in images]
+        except ValueError as e:
+            return jsonify({"error": str(e)}), 415
+        try:
+            result = claude_client.call(
+                system_prompt=_CONTRACT_PROMPT,
+                user_message=_CONTRACT_PHOTO_INSTRUCTION,
+                model="claude-haiku-4-5-20251001",
+                max_tokens=3000,
+                language=language,
+                images=image_blocks,
+            )
+            return jsonify(result)
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+    if not file or not file.filename:
         return jsonify({"error": "file is required"}), 400
-    file = request.files["file"]
-    if not file.filename:
-        return jsonify({"error": "no file selected"}), 400
     try:
         text = extract_text(file)
     except ValueError as e:
@@ -503,7 +534,6 @@ def contract_analyzer():
         return jsonify({"error": f"Could not read file: {e}"}), 422
     if not text.strip():
         return jsonify({"error": "Could not extract any text from the file"}), 422
-    language = (request.form.get("language") or "en").strip()
     try:
         result = claude_client.call(
             system_prompt=_CONTRACT_PROMPT,

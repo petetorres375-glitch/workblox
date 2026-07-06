@@ -12,7 +12,7 @@ from flask import Blueprint, jsonify, request, send_file
 
 from app import limiter
 from app.services import claude_client
-from app.services.file_handler import extract_text
+from app.services.file_handler import extract_text, prepare_image
 
 bp = Blueprint("doc_analyzer", __name__)
 
@@ -29,6 +29,11 @@ You are a helpful document analyst. Analyze the provided document and return a J
 
 Return only valid JSON. No markdown fences, no extra text.
 """
+
+_PHOTO_INSTRUCTION = (
+    "Analyze the document shown in the attached photo(s). If there are multiple "
+    "photos, treat them as consecutive pages of the same document, in the order given."
+)
 
 
 def _build_txt_report(filename: str, result: dict) -> str:
@@ -58,11 +63,36 @@ def _build_txt_report(filename: str, result: dict) -> str:
 @bp.post("/api/doc")
 @limiter.limit("10 per hour")
 def doc_analyzer():
-    if "file" not in request.files:
+    file = request.files.get("file")
+    images = [f for f in request.files.getlist("images") if f and f.filename]
+    language = (request.form.get("language") or "en").strip()
+
+    if file and file.filename and images:
+        return jsonify({"error": "Provide either a file or photos, not both"}), 400
+
+    if images:
+        if len(images) > claude_client.MAX_IMAGES:
+            return jsonify({"error": f"Too many photos — {claude_client.MAX_IMAGES} max per submission"}), 400
+        try:
+            image_blocks = [claude_client.to_image_content(prepare_image(img)) for img in images]
+        except ValueError as e:
+            return jsonify({"error": str(e)}), 415
+
+        try:
+            result = claude_client.call(
+                system_prompt=SYSTEM_PROMPT,
+                user_message=_PHOTO_INSTRUCTION,
+                model="claude-sonnet-4-6",
+                max_tokens=2048,
+                language=language,
+                images=image_blocks,
+            )
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+        return jsonify(result)
+
+    if not file or not file.filename:
         return jsonify({"error": "file is required"}), 400
-    file = request.files["file"]
-    if not file.filename:
-        return jsonify({"error": "no file selected"}), 400
 
     try:
         text = extract_text(file)
@@ -74,7 +104,6 @@ def doc_analyzer():
     if not text.strip():
         return jsonify({"error": "Could not extract any text from the file"}), 422
 
-    language = (request.form.get("language") or "en").strip()
     try:
         result = claude_client.call(
             system_prompt=SYSTEM_PROMPT,

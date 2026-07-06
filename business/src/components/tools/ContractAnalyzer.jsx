@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { postForm } from "../../api/client";
+import { compressImage } from "../../utils/imageCapture";
 import ReportToolbar from "../ui/ReportToolbar";
 
+const MAX_PHOTOS = 6;
 const RISK_COLOR = { low: "#16a34a", medium: "#b45309", high: "#dc2626" };
 
 function buildTxt(data, fileName) {
@@ -45,17 +47,59 @@ export default function ContractAnalyzer() {
   const { loading, error, call } = useApi();
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
+  const [photos, setPhotos] = useState([]); // [{ id, blob, previewUrl }]
+  const [photoError, setPhotoError] = useState(null);
   const [data, setData] = useState(null);
 
+  function clearPhotos() {
+    photos.forEach((p) => URL.revokeObjectURL(p.previewUrl));
+    setPhotos([]);
+  }
+
   function handleFile(f) {
-    if (f) { setFile(f); setData(null); }
+    if (f) { clearPhotos(); setFile(f); setData(null); }
+  }
+
+  async function handleAddPhoto(e) {
+    const rawFile = e.target.files[0];
+    e.target.value = "";
+    if (!rawFile) return;
+    if (photos.length >= MAX_PHOTOS) {
+      setPhotoError(t("photo.limit", { max: MAX_PHOTOS }));
+      return;
+    }
+    setPhotoError(null);
+    setFile(null);
+    setData(null);
+    let blob;
+    try {
+      blob = await compressImage(rawFile);
+    } catch {
+      // Couldn't decode client-side (e.g. HEIC on a browser with no HEIC
+      // decoder) — upload the original file and let the backend normalize it.
+      blob = rawFile;
+    }
+    const previewUrl = URL.createObjectURL(rawFile);
+    setPhotos((prev) => [...prev, { id: `${Date.now()}-${prev.length}`, blob, previewUrl }]);
+  }
+
+  function removePhoto(id) {
+    setPhotos((prev) => {
+      const target = prev.find((p) => p.id === id);
+      if (target) URL.revokeObjectURL(target.previewUrl);
+      return prev.filter((p) => p.id !== id);
+    });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!file) return;
+    if (!file && photos.length === 0) return;
     const fd = new FormData();
-    fd.append("file", file);
+    if (photos.length > 0) {
+      photos.forEach((p, i) => fd.append("images", p.blob, `photo-${i + 1}.jpg`));
+    } else {
+      fd.append("file", file);
+    }
     fd.append("language", i18n.language);
     const result = await call(() => postForm("/api/biz/contract", fd));
     if (result) setData(result);
@@ -80,7 +124,31 @@ export default function ContractAnalyzer() {
           <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
         </div>
-        <button type="submit" className="submit-btn" disabled={loading || !file}>{loading ? t("analyzing") : t("analyze")}</button>
+
+        <div className="photo-capture">
+          <div className="photo-capture-divider">{t("photo.or")}</div>
+          <label className="photo-capture-btn">
+            {photos.length > 0 ? t("photo.addMore") : t("photo.add")}
+            <input type="file" accept="image/*" capture="environment" onChange={handleAddPhoto} />
+          </label>
+          <p className="photo-capture-hint">{t("photo.hint")}</p>
+          {photoError && <div className="error-banner" style={{ marginTop: 8 }}>{photoError}</div>}
+          {photos.length > 0 && (
+            <div className="photo-thumbs">
+              {photos.map((p, i) => (
+                <PhotoThumb
+                  key={p.id}
+                  photo={p}
+                  label={t("photo.pageLabel", { n: i + 1 })}
+                  removeLabel={t("photo.removeLabel", { n: i + 1 })}
+                  onRemove={() => removePhoto(p.id)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
+        <button type="submit" className="submit-btn" disabled={loading || (!file && photos.length === 0)}>{loading ? t("analyzing") : t("analyze")}</button>
       </form>
 
       {error && <div className="error-banner no-print" style={{ marginTop: "1rem" }}>{error}</div>}
@@ -138,6 +206,20 @@ export default function ContractAnalyzer() {
           />
         </>
       )}
+    </div>
+  );
+}
+
+function PhotoThumb({ photo, label, removeLabel, onRemove }) {
+  const [broken, setBroken] = useState(false);
+  return (
+    <div className="photo-thumb">
+      {!broken ? (
+        <img src={photo.previewUrl} alt={label} onError={() => setBroken(true)} />
+      ) : (
+        <div className="photo-thumb-fallback">{label}</div>
+      )}
+      <button type="button" onClick={onRemove} aria-label={removeLabel}>&times;</button>
     </div>
   );
 }
