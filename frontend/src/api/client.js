@@ -41,6 +41,14 @@ export function patch(path, body) {
   }).then((res) => handleResponse(res, path));
 }
 
+export function put(path, body) {
+  return fetch(`${BASE_URL}${path}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(body),
+  }).then((res) => handleResponse(res, path));
+}
+
 export function postForm(path, formData) {
   return fetch(`${BASE_URL}${path}`, {
     method: "POST",
