@@ -84,12 +84,15 @@ const NAV_IDS = [
   "hiring", "job-desc", "meeting", "policy", "proposal", "review", "social", "sop",
 ];
 
-export default function Header({ active, onSelect }) {
+export default function Header({ active, onSelect, enabledKeys }) {
   const { t } = useTranslation(["nav", "common"]);
   const { user, logout } = useAuth();
   const { canInstall, install, isInstalled, showLinuxTrustTip, dismissLinuxTrustTip } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  // enabledKeys undefined means the entitlements check failed -- fail open
+  // and show every tool rather than hide the whole nav over a transient error.
+  const visibleNavIds = enabledKeys ? NAV_IDS.filter((id) => enabledKeys.has(id)) : NAV_IDS;
 
   function handleInstall() {
     if (canInstall) install();
@@ -142,7 +145,7 @@ export default function Header({ active, onSelect }) {
       {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
       {showLinuxTrustTip && <LinuxTrustTip onClose={dismissLinuxTrustTip} />}
       <nav className="tool-nav">
-        {NAV_IDS.map((id) => (
+        {visibleNavIds.map((id) => (
           <button
             key={id}
             className={active === id ? "active" : ""}
@@ -151,6 +154,12 @@ export default function Header({ active, onSelect }) {
             {t(`nav:${id}`)}
           </button>
         ))}
+        <button
+          className={active === "settings" ? "active" : ""}
+          onClick={() => onSelect("settings")}
+        >
+          {t("nav:settings")}
+        </button>
       </nav>
 
       <div className={`nav-drawer-overlay ${drawerOpen ? "open" : ""}`} onClick={() => setDrawerOpen(false)} />
@@ -164,7 +173,7 @@ export default function Header({ active, onSelect }) {
           </button>
         </div>
         <nav className="nav-drawer-list">
-          {NAV_IDS.map((id) => (
+          {visibleNavIds.map((id) => (
             <button
               key={id}
               className={`nav-drawer-item ${active === id ? "active" : ""}`}
@@ -173,6 +182,12 @@ export default function Header({ active, onSelect }) {
               {t(`nav:${id}`)}
             </button>
           ))}
+          <button
+            className={`nav-drawer-item ${active === "settings" ? "active" : ""}`}
+            onClick={() => selectFromDrawer("settings")}
+          >
+            {t("nav:settings")}
+          </button>
         </nav>
         <div className="nav-drawer-divider" />
         <div className="nav-drawer-user">
