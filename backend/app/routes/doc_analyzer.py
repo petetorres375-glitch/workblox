@@ -12,6 +12,7 @@ from flask import Blueprint, jsonify, request, send_file
 
 from app import limiter
 from app.services import claude_client
+from app.services.entitlements import require_tool
 from app.services.file_handler import extract_text, prepare_image
 
 bp = Blueprint("doc_analyzer", __name__)
@@ -63,6 +64,9 @@ def _build_txt_report(filename: str, result: dict) -> str:
 @bp.post("/api/doc")
 @limiter.limit("10 per hour")
 def doc_analyzer():
+    guard = require_tool("doc")
+    if guard:
+        return guard
     file = request.files.get("file")
     images = [f for f in request.files.getlist("images") if f and f.filename]
     language = (request.form.get("language") or "en").strip()
@@ -121,6 +125,9 @@ def doc_analyzer():
 @bp.post("/api/doc/download/pdf")
 @limiter.limit("10 per hour")
 def doc_download_pdf():
+    guard = require_tool("doc")
+    if guard:
+        return guard
     from fpdf import FPDF
 
     FONT_DIR  = os.path.join(os.path.dirname(__file__), "..", "..", "fonts")
@@ -217,6 +224,9 @@ def doc_download_pdf():
 @bp.post("/api/doc/email")
 @limiter.limit("10 per hour")
 def doc_email():
+    guard = require_tool("doc")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     email_addr = (body.get("email") or "").strip()
     filename = (body.get("filename") or "document").strip()

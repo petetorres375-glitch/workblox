@@ -1,10 +1,23 @@
 from unittest.mock import patch
 
+import pytest
+
 MOCK_RESPONSE = {
     "command": "ls -la",
     "explanation": "Lists all files in long format.",
     "warnings": ["None."],
 }
+
+
+@pytest.fixture(autouse=True)
+def _bypass_tool_entitlement():
+    # TESTING mode skips auth entirely (see app/__init__.py::require_auth), so
+    # g.user is never set — require_tool() would blow up reading it. These
+    # tests are about the OS-helper logic, not entitlements, so bypass it.
+    with patch("app.routes.linux_helper.require_tool", return_value=None), \
+         patch("app.routes.mac_helper.require_tool", return_value=None), \
+         patch("app.routes.windows_helper.require_tool", return_value=None):
+        yield
 
 
 def test_linux_helper_success(client):

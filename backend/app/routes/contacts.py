@@ -10,6 +10,7 @@ from sqlalchemy import case, func
 from .. import db, limiter
 from ..models import Contact, User
 from ..services.contact_parser import parse_vcf, parse_csv, REASON_MISSING_NAME
+from ..services.entitlements import require_tool
 
 bp = Blueprint("contacts", __name__, url_prefix="/api/biz/contacts")
 
@@ -98,6 +99,9 @@ def parse():
     err = _require_business()
     if err:
         return err
+    err = require_tool("contacts")
+    if err:
+        return err
     if "file" not in request.files:
         return jsonify({"error": "file is required"}), 400
     file = request.files["file"]
@@ -125,6 +129,9 @@ def parse():
 @limiter.limit("10 per hour")
 def import_contacts():
     err = _require_business()
+    if err:
+        return err
+    err = require_tool("contacts")
     if err:
         return err
     body = request.get_json(silent=True) or {}
@@ -174,6 +181,9 @@ def list_contacts():
     err = _require_business()
     if err:
         return err
+    err = require_tool("contacts")
+    if err:
+        return err
     user_id      = _user_id()
     q            = (request.args.get("q") or "").strip().lower()
     contact_type = (request.args.get("type") or "").strip()
@@ -206,6 +216,9 @@ def add_contact():
     err = _require_business()
     if err:
         return err
+    err = require_tool("contacts")
+    if err:
+        return err
     body = request.get_json(silent=True) or {}
     if not (body.get("first_name") or body.get("last_name")):
         return jsonify({"error": "first_name or last_name is required"}), 400
@@ -224,6 +237,9 @@ def edit_contact(cid):
     err = _require_business()
     if err:
         return err
+    err = require_tool("contacts")
+    if err:
+        return err
     contact = Contact.query.filter_by(id=cid, user_id=_user_id()).first()
     if not contact:
         return jsonify({"error": "Contact not found"}), 404
@@ -239,6 +255,9 @@ def edit_contact(cid):
 @limiter.limit("60 per hour")
 def delete_contact(cid):
     err = _require_business()
+    if err:
+        return err
+    err = require_tool("contacts")
     if err:
         return err
     contact = Contact.query.filter_by(id=cid, user_id=_user_id()).first()
@@ -301,6 +320,9 @@ def export_vcf():
     err = _require_business()
     if err:
         return err
+    err = require_tool("contacts")
+    if err:
+        return err
 
     body    = request.get_json(silent=True) or {}
     ids     = body.get("ids")  # list of IDs; None = export all
@@ -342,6 +364,9 @@ def export_vcf():
 @limiter.limit("20 per hour")
 def export_pdf():
     err = _require_business()
+    if err:
+        return err
+    err = require_tool("contacts")
     if err:
         return err
 

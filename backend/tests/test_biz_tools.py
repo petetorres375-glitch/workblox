@@ -1,4 +1,5 @@
 import io
+from contextlib import contextmanager
 from unittest.mock import patch
 
 from app.services.claude_client import MAX_IMAGES
@@ -17,12 +18,16 @@ MOCK_CONTRACT_RESPONSE = {
 }
 
 
+@contextmanager
 def _bypass_business_guard():
     # TESTING mode skips auth entirely (see app/__init__.py::require_auth), so
-    # g.user is never set — _require_business() would blow up reading it.
-    # Patching the guard itself isolates these tests to the photo-handling
-    # logic being added here, not the unrelated business-plan check.
-    return patch("app.routes.biz_tools._require_business", return_value=None)
+    # g.user is never set — _require_business() and require_tool() would both
+    # blow up reading it. Patching both guards isolates these tests to the
+    # photo-handling logic being added here, not the unrelated business-plan
+    # or per-tool entitlement checks.
+    with patch("app.routes.biz_tools._require_business", return_value=None), \
+         patch("app.routes.biz_tools.require_tool", return_value=None):
+        yield
 
 
 def test_contract_analyzer_photo_single(client):

@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 
 from app import limiter
 from app.services import claude_client
+from app.services.entitlements import require_tool
 
 bp = Blueprint("windows_helper", __name__)
 
@@ -20,6 +21,9 @@ Return only valid JSON. No markdown fences, no extra text.
 @bp.post("/api/windows")
 @limiter.limit("20 per hour")
 def windows_helper():
+    guard = require_tool("windows")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     problem = (body.get("problem") or "").strip()
     language = (body.get("language") or "en").strip()

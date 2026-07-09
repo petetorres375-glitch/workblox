@@ -1,6 +1,8 @@
 import io
 from unittest.mock import patch
 
+import pytest
+
 from app.services.claude_client import MAX_IMAGES
 
 MOCK_RESPONSE = {
@@ -9,6 +11,15 @@ MOCK_RESPONSE = {
     "action_items": ["None identified."],
     "red_flags": ["None identified."],
 }
+
+
+@pytest.fixture(autouse=True)
+def _bypass_tool_entitlement():
+    # TESTING mode skips auth entirely, so g.user is never set — require_tool()
+    # would blow up reading it. These tests are about doc-analyzer logic, not
+    # entitlements, so bypass it.
+    with patch("app.routes.doc_analyzer.require_tool", return_value=None):
+        yield
 
 
 def test_doc_analyzer_txt(client):

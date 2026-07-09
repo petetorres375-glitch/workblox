@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, request, g, Response
 from .. import limiter
 from ..services import claude_client
 from ..services.email import send_pdf_email, send_report_email, _generate_pdf
+from ..services.entitlements import require_tool
 from ..services.file_handler import extract_text, prepare_image
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
@@ -193,6 +194,9 @@ def hiring_manager():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("hiring")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     description = (body.get("description") or "").strip()
     language = (body.get("language") or "en").strip()
@@ -215,6 +219,9 @@ def hiring_manager():
 @limiter.limit("20 per hour")
 def job_desc_writer():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("job-desc")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -245,6 +252,9 @@ def proposal_generator():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("proposal")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     client_name = (body.get("client_name") or "").strip()
     project_description = (body.get("project_description") or "").strip()
@@ -273,6 +283,9 @@ def customer_response_drafter():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("customer")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     customer_message = (body.get("customer_message") or "").strip()
     context = (body.get("context") or "").strip()
@@ -297,6 +310,9 @@ def customer_response_drafter():
 @limiter.limit("20 per hour")
 def review_request_email():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("review")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -324,6 +340,9 @@ def review_request_email():
 @limiter.limit("20 per hour")
 def social_media_generator():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("social")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -354,6 +373,9 @@ def ad_copy_writer():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("ad-copy")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     product_service = (body.get("product_service") or "").strip()
     target_audience = (body.get("target_audience") or "").strip()
@@ -380,6 +402,9 @@ def ad_copy_writer():
 @limiter.limit("15 per hour")
 def policy_generator():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("policy")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -409,6 +434,9 @@ def sop_generator():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("sop")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     process_name = (body.get("process_name") or "").strip()
     department = (body.get("department") or "").strip()
@@ -436,6 +464,9 @@ def meeting_notes_cleaner():
     guard = _require_business()
     if guard:
         return guard
+    guard = require_tool("meeting")
+    if guard:
+        return guard
     body = request.get_json(silent=True) or {}
     raw_notes = (body.get("raw_notes") or "").strip()
     context = (body.get("context") or "").strip()
@@ -459,6 +490,9 @@ def meeting_notes_cleaner():
 @limiter.limit("30 per hour")
 def business_email_drafter():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("email")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -494,6 +528,9 @@ _CONTRACT_PHOTO_INSTRUCTION = (
 @limiter.limit("10 per hour")
 def contract_analyzer():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("contract")
     if guard:
         return guard
 
@@ -551,6 +588,9 @@ def contract_analyzer():
 @limiter.limit("5 per hour")
 def batch_ats():
     guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("batch-ats")
     if guard:
         return guard
     files = request.files.getlist("resumes")

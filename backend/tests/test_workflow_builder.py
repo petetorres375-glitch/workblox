@@ -1,9 +1,20 @@
 from unittest.mock import patch
 
+import pytest
+
 MOCK_RESPONSE = {
     "filename": "rename_photos.py",
     "script": "# renames photos\nprint('done')",
 }
+
+
+@pytest.fixture(autouse=True)
+def _bypass_tool_entitlement():
+    # TESTING mode skips auth entirely, so g.user is never set — require_tool()
+    # would blow up reading it. These tests are about the workflow-builder
+    # logic, not entitlements, so bypass it.
+    with patch("app.routes.workflow_builder.require_tool", return_value=None):
+        yield
 
 
 def test_workflow_builder_success(client):
