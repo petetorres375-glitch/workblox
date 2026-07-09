@@ -67,6 +67,9 @@ def create_app(testing=False):
         except Exception:
             db.session.rollback()
 
+        from .services.entitlements import seed_tools
+        seed_tools()
+
     @app.errorhandler(429)
     def rate_limit_exceeded(e):
         return jsonify({"error": "Too many requests — please wait a moment and try again."}), 429
@@ -80,9 +83,13 @@ def create_app(testing=False):
         if any(request.path.startswith(p) for p in _PUBLIC_PREFIXES):
             return
 
-        # Kill switch — admin routes are exempt so Pedro can re-enable; profile routes
-        # are exempt because they're shared account settings, not an app-specific AI feature
-        if not request.path.startswith("/api/admin") and not request.path.startswith("/api/profile"):
+        # Kill switch — admin routes are exempt so Pedro can re-enable; profile and
+        # entitlement routes are exempt because they're shared account settings, not
+        # an app-specific AI feature. Without this, a Business user's own /api/tools
+        # or /api/entitlements call would incorrectly get checked against
+        # personal_enabled, since neither path starts with /api/biz.
+        _KILL_SWITCH_EXEMPT_PREFIXES = ("/api/admin", "/api/profile", "/api/tools", "/api/entitlements")
+        if not any(request.path.startswith(p) for p in _KILL_SWITCH_EXEMPT_PREFIXES):
             from .models import AppConfig
             if request.path.startswith("/api/biz"):
                 cfg = db.session.get(AppConfig, "business_enabled")

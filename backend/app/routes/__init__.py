@@ -4,6 +4,7 @@ from .contacts import bp as contacts_bp
 from .auth import bp as auth_bp
 from .ats_analyzer import bp as ats_analyzer_bp
 from .doc_analyzer import bp as doc_analyzer_bp
+from .entitlements import bp as entitlements_bp
 from .health import bp as health_bp
 from .linux_helper import bp as linux_helper_bp
 from .mac_helper import bp as mac_helper_bp
@@ -18,6 +19,7 @@ def register_blueprints(app):
     app.register_blueprint(biz_bp)
     app.register_blueprint(contacts_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(entitlements_bp)
     app.register_blueprint(health_bp)
     app.register_blueprint(linux_helper_bp)
     app.register_blueprint(windows_helper_bp)

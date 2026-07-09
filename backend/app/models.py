@@ -52,3 +52,24 @@ class User(db.Model):
     plan = db.Column(db.String(50), nullable=False, default="free", server_default="free")
     language = db.Column(db.String(10), nullable=True)  # NULL = never synced a language preference yet
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class Tool(db.Model):
+    __tablename__ = "tools"
+
+    id   = db.Column(db.Integer, primary_key=True)
+    key  = db.Column(db.String(50), unique=True, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    app  = db.Column(db.String(20), nullable=False)  # "personal" | "business" | "both"
+
+
+class UserEntitlement(db.Model):
+    __tablename__ = "user_entitlements"
+
+    id         = db.Column(db.Integer, primary_key=True)
+    user_id    = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    tool_id    = db.Column(db.Integer, db.ForeignKey("tools.id"), nullable=False)
+    enabled_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    source     = db.Column(db.String(50), nullable=False)  # "self_service" | "admin_manual" | "plan_default"
+
+    __table_args__ = (db.UniqueConstraint("user_id", "tool_id", name="uq_user_entitlement"),)
