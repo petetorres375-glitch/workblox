@@ -47,17 +47,23 @@ def seed_tools():
         db.session.commit()
 
 
-def get_enabled_tool_keys(user_id) -> set:
-    """Every tool key this user currently has enabled."""
+def get_enabled_tool_keys(user_id, app: str = None) -> set:
+    """Every tool key this user currently has enabled. Pass app="personal" or
+    "business" to scope to just that app's tools (plus "both") -- both
+    frontends must always pass this, since a Business-plan user's entitlements
+    otherwise leak across apps that share this one backend/DB (e.g. Personal's
+    Settings page showing a count that silently includes Business tools it
+    never displays)."""
     from ..models import Tool, UserEntitlement
 
-    rows = (
+    query = (
         UserEntitlement.query
         .join(Tool, Tool.id == UserEntitlement.tool_id)
         .filter(UserEntitlement.user_id == user_id)
-        .with_entities(Tool.key)
-        .all()
     )
+    if app:
+        query = query.filter(Tool.app.in_([app, "both"]))
+    rows = query.with_entities(Tool.key).all()
     return {key for (key,) in rows}
 
 
@@ -120,14 +126,17 @@ def set_entitlement(user_id, tool_key: str, enabled: bool, source: str):
     db.session.commit()
 
 
-def set_entitlements(user_id, tool_keys, source: str):
-    """Replace a user's full selection in one call (the self-service picker).
+def set_entitlements(user_id, tool_keys, source: str, app: str = None):
+    """Replace a user's selection in one call (the self-service picker).
     Diffs against what's already enabled so untouched tools keep their
-    original enabled_at/source instead of being rewritten."""
+    original enabled_at/source instead of being rewritten. Pass app= to scope
+    the diff to just that app's tools -- otherwise saving Personal's picker
+    would wipe out a Business-plan user's Business entitlements entirely,
+    since this function has no other way to know they're out of scope."""
     from .. import db
     from ..models import Tool
 
-    current = get_enabled_tool_keys(user_id)
+    current = get_enabled_tool_keys(user_id, app=app)
     target = set(tool_keys)
     relevant_keys = current | target
     tools_by_key = {t.key: t for t in Tool.query.filter(Tool.key.in_(relevant_keys)).all()}

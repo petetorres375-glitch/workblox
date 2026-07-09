@@ -9,3 +9,5 @@ dist/
 .DS_Store
 *.egg-info/
 backend/instance/
+venv/
+

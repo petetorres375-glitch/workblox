@@ -73,12 +73,19 @@ export default function App() {
   useEffect(() => {
     if (!user || !entered) return;
     let cancelled = false;
-    get("/api/entitlements")
+    get("/api/entitlements?app=business")
       .then((data) => {
         if (cancelled) return;
         const keys = new Set(data.tool_keys);
         setEnabledKeys(keys);
-        setActive((current) => (current && keys.has(current) ? current : [...keys][0] ?? null));
+        setActive((current) => {
+          // "settings" isn't a tool key -- it's always available regardless
+          // of entitlements, so a refresh (e.g. right after saving in
+          // Settings) must never bounce the user away from it the way it
+          // would for a tool they just deselected.
+          if (current === "settings") return current;
+          return current && keys.has(current) ? current : [...keys][0] ?? null;
+        });
       })
       .catch(() => {
         if (!cancelled) setEnabledKeys(undefined);

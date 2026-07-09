@@ -117,6 +117,45 @@ def test_removing_contacts_deletes_contact_rows(client, test_user):
         assert Contact.query.filter_by(user_id=test_user).count() == 0
 
 
+def test_get_entitlements_scoped_by_app(client, test_user):
+    # The exact bug a live business-plan user hit: without app scoping,
+    # Personal's page saw the user's Business entitlements too.
+    with client.application.app_context():
+        from app.services.entitlements import set_entitlements
+        set_entitlements(test_user, {"ats", "resume", "hiring", "contract"}, source="self_service")
+
+    with _as_user(test_user):
+        rv = client.get("/api/entitlements?app=personal")
+    assert sorted(rv.get_json()["tool_keys"]) == ["ats", "resume"]
+
+    with _as_user(test_user):
+        rv = client.get("/api/entitlements?app=business")
+    assert sorted(rv.get_json()["tool_keys"]) == ["contract", "hiring"]
+
+
+def test_put_entitlements_scoped_to_app_leaves_other_app_untouched(client, test_user):
+    with client.application.app_context():
+        from app.services.entitlements import set_entitlements
+        set_entitlements(test_user, {"ats", "resume", "hiring", "contract"}, source="self_service")
+
+    # Saving Personal's picker with a different Personal selection must not
+    # touch the Business entitlements at all.
+    with _as_user(test_user):
+        rv = client.put("/api/entitlements", json={"tool_keys": ["doc"], "app": "personal"})
+    assert rv.status_code == 200
+    assert rv.get_json()["tool_keys"] == ["doc"]
+
+    with _as_user(test_user):
+        rv = client.get("/api/entitlements?app=business")
+    assert sorted(rv.get_json()["tool_keys"]) == ["contract", "hiring"]
+
+
+def test_put_entitlements_rejects_cross_app_key(client, test_user):
+    with _as_user(test_user):
+        rv = client.put("/api/entitlements", json={"tool_keys": ["hiring"], "app": "personal"})
+    assert rv.status_code == 400
+
+
 def test_set_entitlement_single_tool_for_admin_path(client, test_user):
     from app.services.entitlements import get_enabled_tool_keys, set_entitlement
 

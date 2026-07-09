@@ -16,7 +16,7 @@ export default function ToolPicker({ variant = "settings", onDone }) {
       try {
         const [toolList, entitlements] = await Promise.all([
           get("/api/tools?app=personal"),
-          get("/api/entitlements"),
+          get("/api/entitlements?app=personal"),
         ]);
         if (cancelled) return;
         setTools(toolList);
@@ -48,7 +48,7 @@ export default function ToolPicker({ variant = "settings", onDone }) {
     setSaving(true);
     setError("");
     try {
-      await put("/api/entitlements", { tool_keys: Array.from(selected) });
+      await put("/api/entitlements", { tool_keys: Array.from(selected), app: "personal" });
       onDone?.();
     } catch (err) {
       setError(err.message);
