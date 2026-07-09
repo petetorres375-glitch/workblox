@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request, g
 
 from .. import db
-from ..models import User, AppConfig
+from ..models import User, AppConfig, Tool, UserEntitlement
+from ..services.entitlements import get_enabled_tool_keys, set_entitlement
 
 bp = Blueprint("admin", __name__, url_prefix="/api/admin")
 
@@ -97,3 +98,62 @@ def set_kill_switch():
             results[key] = body[key]
     db.session.commit()
     return jsonify(results)
+
+
+@bp.get("/users/<int:user_id>/entitlements")
+def get_user_entitlements(user_id):
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    user = db.session.get(User, user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    return jsonify({"tool_keys": sorted(get_enabled_tool_keys(user_id))})
+
+
+@bp.post("/users/<int:user_id>/entitlements")
+def set_user_entitlement(user_id):
+    # Manual comp/support path -- writes to the exact same user_entitlements
+    # table as the self-service picker (via the shared set_entitlement()
+    # function), just tagged source="admin_manual" so the dashboard can tell
+    # real client demand apart from comps. Nothing client-facing ever
+    # surfaces that distinction.
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    user = db.session.get(User, user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    body = request.get_json(silent=True) or {}
+    tool_key = body.get("tool_key")
+    enabled = bool(body.get("enabled"))
+    if not tool_key or not Tool.query.filter_by(key=tool_key).first():
+        return jsonify({"error": "Unknown tool_key"}), 400
+
+    set_entitlement(user_id, tool_key, enabled, source="admin_manual")
+    return jsonify({"tool_keys": sorted(get_enabled_tool_keys(user_id))})
+
+
+@bp.get("/entitlements/summary")
+def entitlements_summary():
+    # Read-only, raw per-row feed -- Pedro's dashboard aggregates client-side
+    # (by tool, by app, by source, by week) rather than this endpoint
+    # committing to a fixed set of GROUP BY shapes. No user-identifying data
+    # included; this is for tool-popularity reporting, not a user lookup.
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    rows = (
+        UserEntitlement.query
+        .join(Tool, Tool.id == UserEntitlement.tool_id)
+        .with_entities(Tool.key, Tool.name, Tool.app, UserEntitlement.source, UserEntitlement.enabled_at)
+        .all()
+    )
+    return jsonify([
+        {
+            "tool_key": key,
+            "tool_name": name,
+            "app": app,
+            "source": source,
+            "enabled_at": enabled_at.isoformat() if enabled_at else None,
+        }
+        for key, name, app, source, enabled_at in rows
+    ])

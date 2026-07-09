@@ -36,5 +36,27 @@
   "planActions": {
     "setFree": "Set Free",
     "setBusiness": "Set Business"
+  },
+  "views": {
+    "users": "Users",
+    "dashboard": "Tool Selection"
+  },
+  "tools": {
+    "manage": "Manage tools",
+    "hide": "Hide tools",
+    "loading": "Loading tools…"
+  },
+  "dashboard": {
+    "loading": "Loading tool selection data…",
+    "totalSelections": "Total tool selections",
+    "personalTools": "Personal tools",
+    "businessTools": "Business tools",
+    "noData": "No selections yet.",
+    "sourceFilters": {
+      "all": "All sources",
+      "self_service": "Self-service",
+      "admin_manual": "Admin comps",
+      "plan_default": "Plan default"
+    }
   }
 }
