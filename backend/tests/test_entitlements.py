@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from app.models import Tool, User, UserEntitlement
+from app.models import Tool, ToolRequest, User, UserEntitlement
 
 
 def _as_user(user_id):
@@ -31,6 +31,7 @@ def test_user(client):
     yield user_id
     with client.application.app_context():
         UserEntitlement.query.filter_by(user_id=user_id).delete()
+        ToolRequest.query.filter_by(user_id=user_id).delete()
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
 
@@ -153,6 +154,60 @@ def test_put_entitlements_scoped_to_app_leaves_other_app_untouched(client, test_
 def test_put_entitlements_rejects_cross_app_key(client, test_user):
     with _as_user(test_user):
         rv = client.put("/api/entitlements", json={"tool_keys": ["hiring"], "app": "personal"})
+    assert rv.status_code == 400
+
+
+def test_sync_new_tool_becomes_pending_not_active(client, test_user):
+    # The core rule: unlike PUT (signup's first pick), /sync's new additions
+    # don't take effect immediately.
+    with _as_user(test_user):
+        rv = client.post("/api/entitlements/sync", json={"tool_keys": ["ats"], "app": "personal"})
+    assert rv.status_code == 200
+    assert rv.get_json()["tool_keys"] == []
+    assert rv.get_json()["pending_keys"] == ["ats"]
+
+    with client.application.app_context():
+        assert UserEntitlement.query.filter_by(user_id=test_user).count() == 0
+        assert ToolRequest.query.filter_by(user_id=test_user).count() == 1
+
+
+def test_sync_removes_active_tool_immediately(client, test_user):
+    with _as_user(test_user):
+        client.put("/api/entitlements", json={"tool_keys": ["ats", "doc"], "app": "personal"})
+        rv = client.post("/api/entitlements/sync", json={"tool_keys": ["ats"], "app": "personal"})
+    assert rv.status_code == 200
+    assert rv.get_json()["tool_keys"] == ["ats"]
+    assert rv.get_json()["pending_keys"] == []
+
+
+def test_sync_unchecking_a_pending_tool_cancels_the_request(client, test_user):
+    with _as_user(test_user):
+        client.post("/api/entitlements/sync", json={"tool_keys": ["ats", "doc"], "app": "personal"})
+        rv = client.post("/api/entitlements/sync", json={"tool_keys": ["ats"], "app": "personal"})
+    assert rv.status_code == 200
+    assert rv.get_json()["pending_keys"] == ["ats"]
+
+    with client.application.app_context():
+        assert ToolRequest.query.filter_by(user_id=test_user).count() == 1
+
+
+def test_sync_does_not_touch_other_apps_entitlements(client, test_user):
+    with client.application.app_context():
+        from app.services.entitlements import set_entitlements
+        set_entitlements(test_user, {"hiring"}, source="self_service")
+
+    with _as_user(test_user):
+        rv = client.post("/api/entitlements/sync", json={"tool_keys": ["ats"], "app": "personal"})
+    assert rv.status_code == 200
+
+    with _as_user(test_user):
+        rv = client.get("/api/entitlements?app=business")
+    assert rv.get_json()["tool_keys"] == ["hiring"]
+
+
+def test_sync_requires_app(client, test_user):
+    with _as_user(test_user):
+        rv = client.post("/api/entitlements/sync", json={"tool_keys": ["ats"]})
     assert rv.status_code == 400
 
 

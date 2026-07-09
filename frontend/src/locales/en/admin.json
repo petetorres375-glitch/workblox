@@ -39,7 +39,14 @@
   },
   "views": {
     "users": "Users",
+    "requests": "Requests",
     "dashboard": "Tool Selection"
+  },
+  "requests": {
+    "loading": "Loading requests…",
+    "none": "No pending requests.",
+    "grant": "Grant",
+    "dismiss": "Dismiss"
   },
   "tools": {
     "manage": "Manage tools",

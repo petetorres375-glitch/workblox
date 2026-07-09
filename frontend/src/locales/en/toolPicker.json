@@ -2,11 +2,12 @@
   "signupTitle": "Choose your tools",
   "signupSubtitle": "Pick the tools you want enabled on your account. You can add more anytime from Settings.",
   "settingsTitle": "Your tools",
-  "settingsSubtitle": "Choose which tools are enabled on your account.",
+  "settingsSubtitle": "Choose which tools are enabled on your account. New tools need approval before they're ready to use; removing a tool takes effect right away.",
   "loading": "Loading tools…",
   "selectedCount_one": "{{count}} tool selected",
   "selectedCount_other": "{{count}} tools selected",
   "errorMinOne": "Select at least one tool to continue.",
   "continueButton": "Continue",
-  "saveButton": "Save"
+  "saveButton": "Save",
+  "pendingApproval": "Pending approval"
 }

@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from app.models import User, UserEntitlement
+from app.models import Tool, ToolRequest, User, UserEntitlement
 from app.services.entitlements import set_entitlements
 
 
@@ -31,6 +31,7 @@ def target_user(client):
     yield user_id
     with client.application.app_context():
         UserEntitlement.query.filter_by(user_id=user_id).delete()
+        ToolRequest.query.filter_by(user_id=user_id).delete()
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
 
@@ -97,3 +98,71 @@ def test_entitlements_summary_shape(client, target_user):
     assert row["tool_name"] == "Hiring Manager"
     assert row["app"] == "business"
     assert row["enabled_at"] is not None
+
+
+def test_list_tool_requests_shape(client, target_user):
+    with client.application.app_context():
+        from app import db
+        tool = Tool.query.filter_by(key="sop").first()
+        db.session.add(ToolRequest(user_id=target_user, tool_id=tool.id))
+        db.session.commit()
+
+    with _as_admin():
+        rv = client.get("/api/admin/tool-requests")
+    assert rv.status_code == 200
+    rows = rv.get_json()
+    matches = [r for r in rows if r["user_id"] == target_user]
+    assert len(matches) == 1
+    row = matches[0]
+    assert row["tool_key"] == "sop"
+    assert row["tool_name"] == "SOP Generator"
+    assert row["app"] == "business"
+    assert row["requested_at"] is not None
+    assert "request_id" in row
+
+
+def test_grant_tool_request_creates_entitlement_and_clears_request(client, target_user):
+    with client.application.app_context():
+        from app import db
+        tool = Tool.query.filter_by(key="sop").first()
+        req = ToolRequest(user_id=target_user, tool_id=tool.id)
+        db.session.add(req)
+        db.session.commit()
+        request_id = req.id
+
+    with _as_admin():
+        rv = client.post(f"/api/admin/tool-requests/{request_id}/grant")
+    assert rv.status_code == 200
+
+    with client.application.app_context():
+        assert db.session.get(ToolRequest, request_id) is None
+        row = UserEntitlement.query.filter_by(user_id=target_user).first()
+        assert row.source == "admin_manual"
+
+
+def test_dismiss_tool_request_clears_without_granting(client, target_user):
+    with client.application.app_context():
+        from app import db
+        tool = Tool.query.filter_by(key="sop").first()
+        req = ToolRequest(user_id=target_user, tool_id=tool.id)
+        db.session.add(req)
+        db.session.commit()
+        request_id = req.id
+
+    with _as_admin():
+        rv = client.post(f"/api/admin/tool-requests/{request_id}/dismiss")
+    assert rv.status_code == 200
+
+    with client.application.app_context():
+        assert db.session.get(ToolRequest, request_id) is None
+        assert UserEntitlement.query.filter_by(user_id=target_user).count() == 0
+
+
+def test_tool_requests_forbidden_for_non_admin(client, target_user):
+    with patch("app.routes.admin._is_admin", return_value=False):
+        rv = client.get("/api/admin/tool-requests")
+        assert rv.status_code == 403
+        rv = client.post("/api/admin/tool-requests/1/grant")
+        assert rv.status_code == 403
+        rv = client.post("/api/admin/tool-requests/1/dismiss")
+        assert rv.status_code == 403

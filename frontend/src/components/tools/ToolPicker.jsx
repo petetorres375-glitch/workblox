@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { get, put } from "../../api/client";
+import { get, post, put } from "../../api/client";
 
 export default function ToolPicker({ variant = "settings", onDone }) {
   const { t } = useTranslation(["toolPicker", "nav"]);
   const [tools, setTools] = useState([]);
   const [selected, setSelected] = useState(new Set());
+  const [pendingKeys, setPendingKeys] = useState(new Set());
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  const isSignup = variant === "signup";
 
   useEffect(() => {
     let cancelled = false;
@@ -20,7 +23,8 @@ export default function ToolPicker({ variant = "settings", onDone }) {
         ]);
         if (cancelled) return;
         setTools(toolList);
-        setSelected(new Set(entitlements.tool_keys));
+        setSelected(new Set([...entitlements.tool_keys, ...entitlements.pending_keys]));
+        setPendingKeys(new Set(entitlements.pending_keys));
       } catch (err) {
         if (!cancelled) setError(err.message);
       } finally {
@@ -48,7 +52,16 @@ export default function ToolPicker({ variant = "settings", onDone }) {
     setSaving(true);
     setError("");
     try {
-      await put("/api/entitlements", { tool_keys: Array.from(selected), app: "personal" });
+      if (isSignup) {
+        // Signup's first pick is granted immediately -- unlike every later
+        // Settings change, a brand-new client isn't left staring at an
+        // empty app waiting for approval.
+        await put("/api/entitlements", { tool_keys: Array.from(selected), app: "personal" });
+      } else {
+        const result = await post("/api/entitlements/sync", { tool_keys: Array.from(selected), app: "personal" });
+        setPendingKeys(new Set(result.pending_keys));
+        setSelected(new Set([...result.tool_keys, ...result.pending_keys]));
+      }
       onDone?.();
     } catch (err) {
       setError(err.message);
@@ -56,8 +69,6 @@ export default function ToolPicker({ variant = "settings", onDone }) {
       setSaving(false);
     }
   }
-
-  const isSignup = variant === "signup";
 
   const body = loading ? (
     <p className="page-subtitle">{t("loading")}</p>
@@ -77,6 +88,9 @@ export default function ToolPicker({ variant = "settings", onDone }) {
               onChange={() => toggle(tool.key)}
             />
             <span>{t(`nav:${tool.key}`)}</span>
+            {!isSignup && pendingKeys.has(tool.key) && selected.has(tool.key) && (
+              <span className="tool-picker-pending-tag">{t("pendingApproval")}</span>
+            )}
           </label>
         ))}
       </div>

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { get, post } from "../../api/client";
 import AdminToolsEditor from "./AdminToolsEditor";
+import PendingRequests from "./PendingRequests";
 import ToolSelectionDashboard from "./ToolSelectionDashboard";
 
 const FILTER_IDS = ["all", "pending", "active"];
-const VIEW_IDS = ["users", "dashboard"];
+const VIEW_IDS = ["users", "requests", "dashboard"];
 
 export default function Admin() {
   const { t } = useTranslation("admin");
@@ -99,6 +100,8 @@ export default function Admin() {
 
       {view === "dashboard" ? (
         <ToolSelectionDashboard />
+      ) : view === "requests" ? (
+        <PendingRequests />
       ) : (
         <>
           <div className="admin-user-card" style={{ marginBottom: "24px" }}>

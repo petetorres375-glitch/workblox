@@ -1239,6 +1239,16 @@ footer a {
   flex-shrink: 0;
 }
 
+.tool-picker-pending-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: auto;
+}
+
 .tool-picker-count {
   color: var(--text-muted);
   font-size: 0.85rem;

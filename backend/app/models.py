@@ -73,3 +73,18 @@ class UserEntitlement(db.Model):
     source     = db.Column(db.String(50), nullable=False)  # "self_service" | "admin_manual" | "plan_default"
 
     __table_args__ = (db.UniqueConstraint("user_id", "tool_id", name="uq_user_entitlement"),)
+
+
+class ToolRequest(db.Model):
+    """A client's request for a NEW tool via Settings (not their first pick
+    at signup, which is still granted immediately). Existence of a row IS
+    the pending state -- granting or dismissing simply deletes it, so
+    there's no separate status column to keep in sync."""
+    __tablename__ = "tool_requests"
+
+    id            = db.Column(db.Integer, primary_key=True)
+    user_id       = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    tool_id       = db.Column(db.Integer, db.ForeignKey("tools.id"), nullable=False)
+    requested_at  = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+    __table_args__ = (db.UniqueConstraint("user_id", "tool_id", name="uq_tool_request"),)

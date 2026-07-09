@@ -2,7 +2,13 @@ from flask import Blueprint, jsonify, request, g
 
 from .. import db
 from ..models import User, AppConfig, Tool, UserEntitlement
-from ..services.entitlements import get_enabled_tool_keys, set_entitlement
+from ..services.entitlements import (
+    dismiss_tool_request,
+    get_enabled_tool_keys,
+    grant_tool_request,
+    list_pending_requests,
+    set_entitlement,
+)
 
 bp = Blueprint("admin", __name__, url_prefix="/api/admin")
 
@@ -157,3 +163,32 @@ def entitlements_summary():
         }
         for key, name, app, source, enabled_at in rows
     ])
+
+
+@bp.get("/tool-requests")
+def list_tool_requests():
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    return jsonify(list_pending_requests())
+
+
+@bp.post("/tool-requests/<int:request_id>/grant")
+def grant_tool_request_route(request_id):
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    try:
+        grant_tool_request(request_id)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 404
+    return jsonify({"granted": True})
+
+
+@bp.post("/tool-requests/<int:request_id>/dismiss")
+def dismiss_tool_request_route(request_id):
+    if not _is_admin():
+        return jsonify({"error": "Forbidden"}), 403
+    try:
+        dismiss_tool_request(request_id)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 404
+    return jsonify({"dismissed": True})

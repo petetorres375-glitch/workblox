@@ -127,12 +127,16 @@ def set_entitlement(user_id, tool_key: str, enabled: bool, source: str):
 
 
 def set_entitlements(user_id, tool_keys, source: str, app: str = None):
-    """Replace a user's selection in one call (the self-service picker).
-    Diffs against what's already enabled so untouched tools keep their
-    original enabled_at/source instead of being rewritten. Pass app= to scope
-    the diff to just that app's tools -- otherwise saving Personal's picker
-    would wipe out a Business-plan user's Business entitlements entirely,
-    since this function has no other way to know they're out of scope."""
+    """Replace a user's selection in one call. Used only for a brand-new
+    user's FIRST pick at signup (source="self_service", immediate) and for
+    admin/backfill bulk grants -- Settings' ongoing self-service edits go
+    through sync_tool_selection() instead, since new additions there need
+    approval rather than immediate access. Diffs against what's already
+    enabled so untouched tools keep their original enabled_at/source instead
+    of being rewritten. Pass app= to scope the diff to just that app's tools
+    -- otherwise saving Personal's picker would wipe out a Business-plan
+    user's Business entitlements entirely, since this function has no other
+    way to know they're out of scope."""
     from .. import db
     from ..models import Tool
 
@@ -146,4 +150,119 @@ def set_entitlements(user_id, tool_keys, source: str, app: str = None):
     for key in current - target:
         _apply_entitlement(user_id, tools_by_key[key], False, source)
 
+    db.session.commit()
+
+
+def get_pending_request_keys(user_id, app: str = None) -> set:
+    """Tool keys this user has an open (unapproved) request for."""
+    from ..models import Tool, ToolRequest
+
+    query = (
+        ToolRequest.query
+        .join(Tool, Tool.id == ToolRequest.tool_id)
+        .filter(ToolRequest.user_id == user_id)
+    )
+    if app:
+        query = query.filter(Tool.app.in_([app, "both"]))
+    rows = query.with_entities(Tool.key).all()
+    return {key for (key,) in rows}
+
+
+def sync_tool_selection(user_id, tool_keys, app: str):
+    """Settings' ongoing self-service save. Unlike set_entitlements(), a
+    NEWLY checked tool doesn't take effect immediately -- it becomes a
+    pending ToolRequest for Pedro to grant or dismiss. Removing a tool the
+    user already has active still happens immediately (giving up access
+    needs no approval, and this preserves the existing Contacts-delete-on-
+    remove behavior via _apply_entitlement). Unchecking a tool that was only
+    pending just cancels that request. Returns the resulting
+    (active_keys, pending_keys), both scoped to `app`."""
+    from .. import db
+    from ..models import Tool, ToolRequest
+
+    current_active = get_enabled_tool_keys(user_id, app=app)
+    current_pending = get_pending_request_keys(user_id, app=app)
+    target = set(tool_keys)
+
+    to_remove_active = current_active - target
+    to_cancel_pending = current_pending - target
+    to_request = target - current_active - current_pending
+
+    relevant_keys = to_remove_active | to_request | to_cancel_pending
+    tools_by_key = {t.key: t for t in Tool.query.filter(Tool.key.in_(relevant_keys)).all()}
+
+    for key in to_remove_active:
+        _apply_entitlement(user_id, tools_by_key[key], False, "self_service")
+
+    if to_cancel_pending:
+        cancel_tool_ids = [tools_by_key[key].id for key in to_cancel_pending]
+        (ToolRequest.query
+            .filter(ToolRequest.user_id == user_id, ToolRequest.tool_id.in_(cancel_tool_ids))
+            .delete(synchronize_session=False))
+
+    for key in to_request:
+        db.session.add(ToolRequest(user_id=user_id, tool_id=tools_by_key[key].id))
+
+    db.session.commit()
+    return (
+        get_enabled_tool_keys(user_id, app=app),
+        get_pending_request_keys(user_id, app=app),
+    )
+
+
+def list_pending_requests():
+    """Every open tool request across all clients, for the admin queue."""
+    from ..models import Tool, ToolRequest, User
+
+    rows = (
+        ToolRequest.query
+        .join(Tool, Tool.id == ToolRequest.tool_id)
+        .join(User, User.id == ToolRequest.user_id)
+        .with_entities(
+            ToolRequest.id, User.id, User.name, User.email,
+            Tool.key, Tool.name, Tool.app, ToolRequest.requested_at,
+        )
+        .order_by(ToolRequest.requested_at.asc())
+        .all()
+    )
+    return [
+        {
+            "request_id": request_id,
+            "user_id": user_id,
+            "user_name": user_name,
+            "user_email": user_email,
+            "tool_key": tool_key,
+            "tool_name": tool_name,
+            "app": app,
+            "requested_at": requested_at.isoformat() if requested_at else None,
+        }
+        for request_id, user_id, user_name, user_email, tool_key, tool_name, app, requested_at in rows
+    ]
+
+
+def grant_tool_request(request_id):
+    """Admin approves a pending request: create the real entitlement via
+    set_entitlement() (source="admin_manual") so this can never drift from
+    the existing manual-grant path, then remove the request."""
+    from .. import db
+    from ..models import Tool, ToolRequest
+
+    req = db.session.get(ToolRequest, request_id)
+    if not req:
+        raise ValueError("Request not found")
+    tool = db.session.get(Tool, req.tool_id)
+    set_entitlement(req.user_id, tool.key, True, source="admin_manual")
+    db.session.delete(req)
+    db.session.commit()
+
+
+def dismiss_tool_request(request_id):
+    """Admin declines a pending request without granting anything."""
+    from .. import db
+    from ..models import ToolRequest
+
+    req = db.session.get(ToolRequest, request_id)
+    if not req:
+        raise ValueError("Request not found")
+    db.session.delete(req)
     db.session.commit()
