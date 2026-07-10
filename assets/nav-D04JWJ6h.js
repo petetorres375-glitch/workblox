@@ -1,1 +1,0 @@
-const o="Аналізатор ATS",n="Аналізатор документів",s="Linux",c="Mac",t="Конструктор резюме",a="Windows",w="Робочий процес",d="Адміністрування",i={ats:o,doc:n,linux:s,mac:c,resume:t,windows:a,workflow:w,admin:d};export{d as admin,o as ats,i as default,n as doc,s as linux,c as mac,t as resume,a as windows,w as workflow};

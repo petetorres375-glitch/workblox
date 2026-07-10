@@ -1,0 +1,1 @@
+const s="ATS विश्लेषक",n="दस्तावेज़ विश्लेषक",o="Linux",t="Mac",c="रिज़्यूमे बिल्डर",a="Windows",i="वर्कफ़्लो",w="एडमिन",d="सेटिंग्स",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

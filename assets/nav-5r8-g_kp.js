@@ -1,0 +1,1 @@
+const s="ATS 分析工具",n="文档分析工具",o="Linux",t="Mac",c="简历生成器",a="Windows",i="工作流程",w="管理",d="设置",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

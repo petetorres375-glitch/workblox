@@ -1,0 +1,1 @@
+const s="เครื่องมือวิเคราะห์ ATS",n="เครื่องมือวิเคราะห์เอกสาร",o="Linux",t="Mac",c="เครื่องมือสร้างเรซูเม่",a="Windows",i="เวิร์กโฟลว์",w="ผู้ดูแลระบบ",d="การตั้งค่า",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

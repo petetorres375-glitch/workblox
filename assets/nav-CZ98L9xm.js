@@ -1,0 +1,1 @@
+const s="ATS アナライザー",n="文書アナライザー",o="Linux",t="Mac",c="履歴書ビルダー",a="Windows",i="ワークフロー",w="管理",d="設定",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

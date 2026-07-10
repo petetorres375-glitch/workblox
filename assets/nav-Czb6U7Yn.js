@@ -1,0 +1,1 @@
+const s="ATS 분석기",n="문서 분석기",o="Linux",t="Mac",c="이력서 작성기",a="Windows",i="워크플로우",w="관리자",d="설정",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

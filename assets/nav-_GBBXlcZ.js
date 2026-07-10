@@ -1,0 +1,1 @@
+const s="محلل ATS",n="محلل المستندات",o="Linux",t="Mac",c="منشئ السيرة الذاتية",a="Windows",i="سير العمل",w="الإدارة",d="الإعدادات",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};

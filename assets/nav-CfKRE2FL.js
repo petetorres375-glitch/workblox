@@ -1,0 +1,1 @@
+const n="ATS-Analyse",s="Dokumentenanalyse",o="Linux",t="Mac",e="Lebenslauf-Ersteller",a="Windows",c="Workflow",l="Verwaltung",i="Einstellungen",w={ats:n,doc:s,linux:o,mac:t,resume:e,windows:a,workflow:c,admin:l,settings:i};export{l as admin,n as ats,w as default,s as doc,o as linux,t as mac,e as resume,i as settings,a as windows,c as workflow};

@@ -1,0 +1,1 @@
+const s="Ανάλυση ATS",n="Ανάλυση Εγγράφων",o="Linux",t="Mac",c="Δημιουργία Βιογραφικού",a="Windows",i="Ροή Εργασίας",w="Διαχείριση",d="Ρυθμίσεις",e={ats:s,doc:n,linux:o,mac:t,resume:c,windows:a,workflow:i,admin:w,settings:d};export{w as admin,s as ats,e as default,n as doc,o as linux,t as mac,c as resume,d as settings,a as windows,i as workflow};
