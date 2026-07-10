@@ -191,7 +191,7 @@ export default function Admin() {
                     {u.has_business ? t("access.revokeBusiness") : t("access.grantBusiness")}
                   </button>
                   <button
-                    className="admin-action-btn btn-deactivate"
+                    className="admin-action-btn btn-activate"
                     onClick={() => setExpandedUserId(expandedUserId === u.id ? null : u.id)}
                   >
                     {expandedUserId === u.id ? t("tools.hide") : t("tools.manage")}
