@@ -18,6 +18,7 @@
     "pending": "În Așteptare",
     "active": "Activi"
   },
+  "searchPlaceholder": "Căutare după nume sau email…",
   "loading": "Se încarcă utilizatorii…",
   "noUsers": "Nu au fost găsiți utilizatori.",
   "joined": "S-a alăturat la {{date}}",

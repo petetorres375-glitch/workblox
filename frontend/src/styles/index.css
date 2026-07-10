@@ -892,8 +892,32 @@ footer a {
 /* ── Admin panel ── */
 .admin-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+.admin-search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-search-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.12);
+}
+
+.admin-search-input::placeholder {
+  color: var(--text-hint);
 }
 
 .admin-filter-btn {

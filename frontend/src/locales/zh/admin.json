@@ -18,6 +18,7 @@
     "pending": "待激活",
     "active": "已激活"
   },
+  "searchPlaceholder": "按姓名或邮箱搜索…",
   "loading": "正在加载用户…",
   "noUsers": "未找到用户。",
   "joined": "加入于 {{date}}",

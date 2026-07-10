@@ -14,6 +14,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState("all");
+  const [search, setSearch] = useState("");
   const [view, setView] = useState("users");
   const [killSwitch, setKillSwitch] = useState({ personal_enabled: true, business_enabled: true });
   const [ksLoading, setKsLoading] = useState(false);
@@ -76,8 +77,10 @@ export default function Admin() {
   }
 
   const filtered = users.filter((u) => {
-    if (filter === "pending") return !u.is_active;
-    if (filter === "active") return u.is_active;
+    if (filter === "pending" && u.is_active) return false;
+    if (filter === "active" && !u.is_active) return false;
+    const q = search.trim().toLowerCase();
+    if (q && !u.name.toLowerCase().includes(q) && !u.email.toLowerCase().includes(q)) return false;
     return true;
   });
 
@@ -143,6 +146,13 @@ export default function Admin() {
                 {t(`filters.${f}`)}
               </button>
             ))}
+            <input
+              type="text"
+              className="admin-search-input"
+              placeholder={t("searchPlaceholder")}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
 
           {loading && <p className="page-subtitle">{t("loading")}</p>}

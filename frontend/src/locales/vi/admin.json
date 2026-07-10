@@ -18,6 +18,7 @@
     "pending": "Đang Chờ",
     "active": "Hoạt Động"
   },
+  "searchPlaceholder": "Tìm theo tên hoặc email…",
   "loading": "Đang tải người dùng…",
   "noUsers": "Không tìm thấy người dùng nào.",
   "joined": "Tham gia {{date}}",

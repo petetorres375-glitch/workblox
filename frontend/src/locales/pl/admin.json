@@ -18,6 +18,7 @@
     "pending": "Oczekujący",
     "active": "Aktywni"
   },
+  "searchPlaceholder": "Szukaj po nazwie lub e-mailu…",
   "loading": "Ładowanie użytkowników…",
   "noUsers": "Nie znaleziono użytkowników.",
   "joined": "Dołączył {{date}}",

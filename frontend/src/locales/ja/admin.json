@@ -18,6 +18,7 @@
     "pending": "保留中",
     "active": "有効"
   },
+  "searchPlaceholder": "名前またはメールで検索…",
   "loading": "ユーザーを読み込み中…",
   "noUsers": "ユーザーが見つかりません。",
   "joined": "登録日 {{date}}",

@@ -18,6 +18,7 @@
     "pending": "Tertunda",
     "active": "Aktif"
   },
+  "searchPlaceholder": "Cari berdasarkan nama atau email…",
   "loading": "Memuat pengguna…",
   "noUsers": "Tidak ada pengguna ditemukan.",
   "joined": "Bergabung {{date}}",

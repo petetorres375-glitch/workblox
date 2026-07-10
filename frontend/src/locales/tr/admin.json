@@ -18,6 +18,7 @@
     "pending": "Bekleyen",
     "active": "Aktif"
   },
+  "searchPlaceholder": "İsim veya e-posta ile ara…",
   "loading": "Kullanıcılar yükleniyor…",
   "noUsers": "Kullanıcı bulunamadı.",
   "joined": "{{date}} tarihinde katıldı",

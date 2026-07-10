@@ -18,6 +18,7 @@
     "pending": "Väntande",
     "active": "Aktiva"
   },
+  "searchPlaceholder": "Sök efter namn eller e-post…",
   "loading": "Laddar användare…",
   "noUsers": "Inga användare hittades.",
   "joined": "Gick med {{date}}",

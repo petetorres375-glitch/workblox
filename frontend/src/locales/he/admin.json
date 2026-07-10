@@ -18,6 +18,7 @@
     "pending": "ממתינים",
     "active": "פעילים"
   },
+  "searchPlaceholder": "חיפוש לפי שם או אימייל…",
   "loading": "טוען משתמשים…",
   "noUsers": "לא נמצאו משתמשים.",
   "joined": "הצטרף ב-{{date}}",

@@ -18,6 +18,7 @@
     "pending": "Čekající",
     "active": "Aktivní"
   },
+  "searchPlaceholder": "Hledat podle jména nebo e-mailu…",
   "loading": "Načítání uživatelů…",
   "noUsers": "Nebyli nalezeni žádní uživatelé.",
   "joined": "Připojil se {{date}}",

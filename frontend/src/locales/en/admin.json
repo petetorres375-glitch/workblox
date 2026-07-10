@@ -18,6 +18,7 @@
     "pending": "Pending",
     "active": "Active"
   },
+  "searchPlaceholder": "Search by name or email…",
   "loading": "Loading users…",
   "noUsers": "No users found.",
   "joined": "Joined {{date}}",

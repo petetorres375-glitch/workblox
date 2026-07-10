@@ -18,6 +18,7 @@
     "pending": "In Behandeling",
     "active": "Actief"
   },
+  "searchPlaceholder": "Zoeken op naam of e-mail…",
   "loading": "Gebruikers laden…",
   "noUsers": "Geen gebruikers gevonden.",
   "joined": "Lid geworden op {{date}}",
