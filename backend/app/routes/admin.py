@@ -30,7 +30,8 @@ def list_users():
             "email": u.email,
             "name": u.name,
             "is_active": u.is_active,
-            "plan": u.plan,
+            "has_personal": u.has_personal,
+            "has_business": u.has_business,
             "created_at": u.created_at.isoformat(),
         }
         for u in users
@@ -61,19 +62,24 @@ def deactivate_user(email):
     return jsonify({"message": f"{user.email} deactivated"})
 
 
-@bp.post("/users/<int:user_id>/plan")
-def set_user_plan(user_id):
+@bp.post("/users/<int:user_id>/access")
+def set_user_access(user_id):
+    # Personal and Business are separate paid products -- independent
+    # toggles (partial update, same pattern as the kill-switch endpoint
+    # below) rather than one mutually-exclusive plan, since a client can
+    # have either, both, or neither.
     if not _is_admin():
         return jsonify({"error": "Forbidden"}), 403
-    new_plan = (request.get_json(silent=True) or {}).get("plan", "free")
-    if new_plan not in ("free", "business"):
-        return jsonify({"error": "plan must be 'free' or 'business'"}), 400
     user = db.session.get(User, user_id)
     if not user:
         return jsonify({"error": "User not found"}), 404
-    user.plan = new_plan
+    body = request.get_json(silent=True) or {}
+    if "has_personal" in body:
+        user.has_personal = bool(body["has_personal"])
+    if "has_business" in body:
+        user.has_business = bool(body["has_business"])
     db.session.commit()
-    return jsonify({"plan": new_plan})
+    return jsonify({"has_personal": user.has_personal, "has_business": user.has_business})
 
 
 @bp.get("/kill-switch")

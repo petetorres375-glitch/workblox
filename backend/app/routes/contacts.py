@@ -9,6 +9,7 @@ from sqlalchemy import case, func
 
 from .. import db, limiter
 from ..models import Contact, User
+from ..services.access import require_business as _require_business
 from ..services.contact_parser import parse_vcf, parse_csv, REASON_MISSING_NAME
 from ..services.entitlements import require_tool
 
@@ -16,12 +17,6 @@ bp = Blueprint("contacts", __name__, url_prefix="/api/biz/contacts")
 
 CONTACT_TYPES = ["Client", "Vendor", "Partner", "Employee", "Personal", "Other"]
 REASON_DUPLICATE = "Possible duplicate"
-
-
-def _require_business():
-    if g.user.get("plan") != "business":
-        return jsonify({"error": "Business subscription required"}), 403
-    return None
 
 
 def _user_id():

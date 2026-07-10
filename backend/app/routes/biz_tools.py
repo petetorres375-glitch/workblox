@@ -2,17 +2,12 @@ from flask import Blueprint, jsonify, request, g, Response
 
 from .. import limiter
 from ..services import claude_client
+from ..services.access import require_business as _require_business
 from ..services.email import send_pdf_email, send_report_email, _generate_pdf
 from ..services.entitlements import require_tool
 from ..services.file_handler import extract_text, prepare_image
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
-
-
-def _require_business():
-    if g.user.get("plan") != "business":
-        return jsonify({"error": "Business subscription required"}), 403
-    return None
 
 
 # ── System prompts ─────────────────────────────────────────────────────────────

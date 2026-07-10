@@ -57,6 +57,35 @@ def create_app(testing=False):
             db.session.commit()
         except Exception:
             db.session.rollback()
+        try:
+            db.session.execute(text(
+                "ALTER TABLE users ADD COLUMN has_personal BOOLEAN NOT NULL DEFAULT FALSE"
+            ))
+            db.session.commit()
+            # One-time backfill, tied to this column being created for the
+            # first time: every existing user has been using Personal for
+            # free until now (it had no gate at all), so grandfather them in
+            # rather than lock them out the moment this deploys. A future
+            # boot where the column already exists hits the except branch
+            # and skips this -- it can only ever run once, at the instant
+            # the column is introduced, before any new signup could exist.
+            db.session.execute(text("UPDATE users SET has_personal = TRUE"))
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
+        try:
+            db.session.execute(text(
+                "ALTER TABLE users ADD COLUMN has_business BOOLEAN NOT NULL DEFAULT FALSE"
+            ))
+            db.session.commit()
+            # Same one-time backfill for Business: copy whatever the old
+            # `plan` column already said. `plan` itself is left in place
+            # (unused, harmless) rather than dropped -- this app never runs
+            # column-removing migrations.
+            db.session.execute(text("UPDATE users SET has_business = TRUE WHERE plan = 'business'"))
+            db.session.commit()
+        except Exception:
+            db.session.rollback()
         # seed kill-switch rows if missing
         from .models import AppConfig
         for key, val in [("personal_enabled", "true"), ("business_enabled", "true")]:

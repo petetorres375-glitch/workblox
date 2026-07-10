@@ -7,6 +7,7 @@ from flask import Blueprint, jsonify, request, send_file
 from app import limiter
 from app.services.ats_engine import analyze, build_report, grade, JOB_KEYWORDS
 from app.services.ats_reports import generate_pdf, generate_docx
+from app.services.access import require_personal
 from app.services.entitlements import require_tool
 
 bp = Blueprint("ats_analyzer", __name__)
@@ -58,7 +59,7 @@ def _extract_text(file):
 
 @bp.get("/api/ats/roles")
 def get_roles():
-    guard = require_tool("ats")
+    guard = require_personal() or require_tool("ats")
     if guard:
         return guard
     return jsonify(list(JOB_KEYWORDS.keys()))
@@ -67,7 +68,7 @@ def get_roles():
 @bp.post("/api/ats")
 @limiter.limit("20 per hour")
 def ats_analyze():
-    guard = require_tool("ats")
+    guard = require_personal() or require_tool("ats")
     if guard:
         return guard
     if "resume" not in request.files:
@@ -110,7 +111,7 @@ def ats_analyze():
 @bp.post("/api/ats/download/txt")
 @limiter.limit("30 per hour")
 def ats_download_txt():
-    guard = require_tool("ats")
+    guard = require_personal() or require_tool("ats")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -132,7 +133,7 @@ def ats_download_txt():
 @bp.post("/api/ats/download/pdf")
 @limiter.limit("10 per hour")
 def ats_download_pdf():
-    guard = require_tool("ats")
+    guard = require_personal() or require_tool("ats")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}
@@ -158,7 +159,7 @@ def ats_download_pdf():
 @bp.post("/api/ats/download/docx")
 @limiter.limit("10 per hour")
 def ats_download_docx():
-    guard = require_tool("ats")
+    guard = require_personal() or require_tool("ats")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}

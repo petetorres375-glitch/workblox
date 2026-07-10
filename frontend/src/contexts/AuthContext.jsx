@@ -15,22 +15,30 @@ export function AuthProvider({ children }) {
       const token = localStorage.getItem("wb_token");
       const name = localStorage.getItem("wb_name");
       const email = localStorage.getItem("wb_email");
-      return token ? { token, name, email, isAdmin: ADMIN_EMAILS.has(email) } : null;
+      const hasPersonal = localStorage.getItem("wb_has_personal");
+      return (token && hasPersonal === "true") ? { token, name, email, isAdmin: ADMIN_EMAILS.has(email) } : null;
     } catch {
       return null;
     }
   });
+  const [accessBlocked, setAccessBlocked] = useState(false);
   // Tracks whether the user explicitly picked a language this session (e.g.
   // via the pre-login Welcome screen) — if so, that choice must win over
   // whatever was previously saved on the account, rather than login()
   // silently reverting it.
   const manualLanguage = useRef(false);
 
-  const login = useCallback((token, name, email = "", language = null) => {
+  const login = useCallback((token, name, email = "", hasPersonal = false, language = null) => {
+    if (!hasPersonal) {
+      setAccessBlocked(true);
+      return;
+    }
     localStorage.setItem("wb_token", token);
     localStorage.setItem("wb_name", name);
     localStorage.setItem("wb_email", email);
+    localStorage.setItem("wb_has_personal", "true");
     setUser({ token, name, email, isAdmin: ADMIN_EMAILS.has(email) });
+    setAccessBlocked(false);
 
     if (language && !manualLanguage.current) {
       // The profile already has an explicit saved language — it wins over
@@ -64,11 +72,13 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("wb_token");
     localStorage.removeItem("wb_name");
     localStorage.removeItem("wb_email");
+    localStorage.removeItem("wb_has_personal");
     setUser(null);
+    setAccessBlocked(false);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, setLanguage }}>
+    <AuthContext.Provider value={{ user, login, logout, accessBlocked, setLanguage }}>
       {children}
     </AuthContext.Provider>
   );

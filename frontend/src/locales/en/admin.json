@@ -29,13 +29,15 @@
     "deactivate": "Deactivate",
     "activate": "Activate"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Free"
-  },
-  "planActions": {
-    "setFree": "Set Free",
-    "setBusiness": "Set Business"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ON",
+    "off": "OFF",
+    "grantPersonal": "Grant Personal",
+    "revokePersonal": "Revoke Personal",
+    "grantBusiness": "Grant Business",
+    "revokeBusiness": "Revoke Business"
   },
   "views": {
     "users": "Users",

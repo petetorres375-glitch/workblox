@@ -36,6 +36,29 @@ def target_user(client):
         db.session.commit()
 
 
+def test_admin_grants_access_independently(client, target_user):
+    with _as_admin():
+        rv = client.post(f"/api/admin/users/{target_user}/access", json={"has_personal": True})
+    assert rv.status_code == 200
+    assert rv.get_json() == {"has_personal": True, "has_business": False}
+
+    with _as_admin():
+        rv = client.post(f"/api/admin/users/{target_user}/access", json={"has_business": True})
+    assert rv.status_code == 200
+    assert rv.get_json() == {"has_personal": True, "has_business": True}
+
+    with _as_admin():
+        rv = client.post(f"/api/admin/users/{target_user}/access", json={"has_personal": False})
+    assert rv.status_code == 200
+    assert rv.get_json() == {"has_personal": False, "has_business": True}
+
+
+def test_admin_access_endpoint_forbidden_for_non_admin(client, target_user):
+    with patch("app.routes.admin._is_admin", return_value=False):
+        rv = client.post(f"/api/admin/users/{target_user}/access", json={"has_personal": True})
+    assert rv.status_code == 403
+
+
 def test_get_user_entitlements_empty(client, target_user):
     with _as_admin():
         rv = client.get(f"/api/admin/users/{target_user}/entitlements")

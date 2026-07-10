@@ -12,8 +12,9 @@ MOCK_RESPONSE = {
 def _bypass_tool_entitlement():
     # TESTING mode skips auth entirely, so g.user is never set — require_tool()
     # would blow up reading it. These tests are about the workflow-builder
-    # logic, not entitlements, so bypass it.
-    with patch("app.routes.workflow_builder.require_tool", return_value=None):
+    # logic, not access control, so bypass require_tool() and require_personal().
+    with patch("app.routes.workflow_builder.require_tool", return_value=None), \
+         patch("app.routes.workflow_builder.require_personal", return_value=None):
         yield
 
 

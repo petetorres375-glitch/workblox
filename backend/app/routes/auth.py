@@ -12,6 +12,16 @@ from ..services.email import send_verification_email, send_admin_notification
 bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 _PENDING_MSG = "Your account is pending activation. You'll get access once your subscription is confirmed."
+_OWNER = {"pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
+
+
+def _origin_app(origin: str) -> str:
+    """Which app a request's Origin belongs to -- Business's domain and dev
+    port are the only "business" signals, everything else defaults to
+    personal. Used to decide which product a new signup gets access to."""
+    if "business" in (origin or "") or ":5174" in (origin or ""):
+        return "business"
+    return "personal"
 
 
 @bp.post("/register")
@@ -29,11 +39,17 @@ def register():
     if User.query.filter_by(email=email).first():
         return jsonify({"error": "An account with this email already exists"}), 409
 
-    user = User(email=email, name=name, password_hash=generate_password_hash(password))
+    origin = request.headers.get("Origin", "")
+    app_signed_up_for = _origin_app(origin)
+
+    user = User(
+        email=email, name=name, password_hash=generate_password_hash(password),
+        has_personal=(app_signed_up_for == "personal"),
+        has_business=(app_signed_up_for == "business"),
+    )
     db.session.add(user)
     db.session.commit()
 
-    origin = request.headers.get("Origin", "")
     if origin not in Config.ALLOWED_ORIGINS:
         origin = None
 
@@ -64,13 +80,15 @@ def login():
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
 
-    _OWNER = {"pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
-    if email in _OWNER and user.plan != "business":
-        user.plan = "business"
+    if email in _OWNER and not (user.has_personal and user.has_business):
+        user.has_personal = True
+        user.has_business = True
         db.session.commit()
 
-    token = create_token(sub=user.email, name=user.name, plan=user.plan)
-    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan,
+    token = create_token(sub=user.email, name=user.name,
+                          has_personal=user.has_personal, has_business=user.has_business)
+    return jsonify({"token": token, "name": user.name, "email": user.email,
+                     "has_personal": user.has_personal, "has_business": user.has_business,
                      "language": user.language})
 
 
@@ -109,14 +127,16 @@ def google_login():
 
     email = info["email"].lower()
     name = info.get("name", email)
-
-    _OWNER = {"pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
+    app_signed_up_for = _origin_app(request.headers.get("Origin", ""))
 
     user = User.query.filter_by(email=email).first()
     if not user:
         is_owner = email in _OWNER
-        user = User(email=email, name=name, email_verified=True, is_active=True,
-                    plan="business" if is_owner else "free")
+        user = User(
+            email=email, name=name, email_verified=True, is_active=True,
+            has_personal=True if is_owner else (app_signed_up_for == "personal"),
+            has_business=True if is_owner else (app_signed_up_for == "business"),
+        )
         db.session.add(user)
         db.session.commit()
         if not is_owner:
@@ -126,8 +146,9 @@ def google_login():
         if not user.is_active:
             user.is_active = True
             changed = True
-        if user.plan != "business":
-            user.plan = "business"
+        if not (user.has_personal and user.has_business):
+            user.has_personal = True
+            user.has_business = True
             changed = True
         if changed:
             db.session.commit()
@@ -135,8 +156,10 @@ def google_login():
     if not user.is_active:
         return jsonify({"error": _PENDING_MSG}), 403
 
-    token = create_token(sub=user.email, name=user.name, plan=user.plan)
-    return jsonify({"token": token, "name": user.name, "email": user.email, "plan": user.plan,
+    token = create_token(sub=user.email, name=user.name,
+                          has_personal=user.has_personal, has_business=user.has_business)
+    return jsonify({"token": token, "name": user.name, "email": user.email,
+                     "has_personal": user.has_personal, "has_business": user.has_business,
                      "language": user.language})
 
 
@@ -147,6 +170,9 @@ def demo_login():
     demo_pw = current_app.config.get("DEMO_PASSWORD", "")
     if not demo_pw or password != demo_pw:
         return jsonify({"error": "Invalid"}), 401
-    plan = data.get("plan", "free")
-    token = create_token(sub="demo", name="Demo User", hours=8, plan=plan)
-    return jsonify({"token": token, "name": "Demo User", "plan": plan, "language": None})
+    # Demo has no User row and bypasses every access/entitlement check
+    # (see require_personal()/require_business()/require_tool()) -- it
+    # always shows everything, regardless of which app it's launched from.
+    token = create_token(sub="demo", name="Demo User", hours=8, has_personal=True, has_business=True)
+    return jsonify({"token": token, "name": "Demo User",
+                     "has_personal": True, "has_business": True, "language": None})

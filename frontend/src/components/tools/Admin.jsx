@@ -64,11 +64,11 @@ export default function Admin() {
     }
   }
 
-  async function togglePlan(id, newPlan) {
+  async function toggleAccess(id, field, nextValue) {
     try {
-      await post(`/api/admin/users/${id}/plan`, { plan: newPlan });
+      await post(`/api/admin/users/${id}/access`, { [field]: nextValue });
       setUsers((prev) =>
-        prev.map((u) => u.id === id ? { ...u, plan: newPlan } : u)
+        prev.map((u) => u.id === id ? { ...u, [field]: nextValue } : u)
       );
     } catch (err) {
       alert(err.message);
@@ -172,14 +172,23 @@ export default function Admin() {
                   >
                     {u.is_active ? t("actions.deactivate") : t("actions.activate")}
                   </button>
-                  <span className={`admin-badge ${u.plan === "business" ? "badge-active" : "badge-pending"}`}>
-                    {u.plan === "business" ? t("plan.business") : t("plan.free")}
+                  <span className={`admin-badge ${u.has_personal ? "badge-active" : "badge-pending"}`}>
+                    {t("access.personal")} {u.has_personal ? t("access.on") : t("access.off")}
                   </span>
                   <button
-                    className={`admin-action-btn ${u.plan === "business" ? "btn-deactivate" : "btn-activate"}`}
-                    onClick={() => togglePlan(u.id, u.plan === "business" ? "free" : "business")}
+                    className={`admin-action-btn ${u.has_personal ? "btn-deactivate" : "btn-activate"}`}
+                    onClick={() => toggleAccess(u.id, "has_personal", !u.has_personal)}
                   >
-                    {u.plan === "business" ? t("planActions.setFree") : t("planActions.setBusiness")}
+                    {u.has_personal ? t("access.revokePersonal") : t("access.grantPersonal")}
+                  </button>
+                  <span className={`admin-badge ${u.has_business ? "badge-active" : "badge-pending"}`}>
+                    {t("access.business")} {u.has_business ? t("access.on") : t("access.off")}
+                  </span>
+                  <button
+                    className={`admin-action-btn ${u.has_business ? "btn-deactivate" : "btn-activate"}`}
+                    onClick={() => toggleAccess(u.id, "has_business", !u.has_business)}
+                  >
+                    {u.has_business ? t("access.revokeBusiness") : t("access.grantBusiness")}
                   </button>
                   <button
                     className="admin-action-btn btn-deactivate"

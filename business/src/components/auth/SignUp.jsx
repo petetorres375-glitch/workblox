@@ -32,7 +32,7 @@ export default function SignUp({ onSwitchToLogin }) {
     setError("");
     try {
       const data = await post("/api/auth/google", { credential });
-      login(data.token, data.name, data.email, data.plan);
+      login(data.token, data.name, data.email, data.has_business, data.language);
     } catch (err) {
       setError(err.message);
     } finally {

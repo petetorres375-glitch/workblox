@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 
 from app import limiter
 from app.services import claude_client
+from app.services.access import require_personal
 from app.services.entitlements import require_tool
 
 bp = Blueprint("workflow_builder", __name__)
@@ -31,7 +32,7 @@ Return only valid JSON. No markdown fences, no extra text.
 @bp.post("/api/workflow")
 @limiter.limit("10 per hour")
 def workflow_builder():
-    guard = require_tool("workflow")
+    guard = require_personal() or require_tool("workflow")
     if guard:
         return guard
     body = request.get_json(silent=True) or {}

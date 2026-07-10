@@ -10,30 +10,30 @@ export function AuthProvider({ children }) {
       const token = localStorage.getItem("wbb_token");
       const name = localStorage.getItem("wbb_name");
       const email = localStorage.getItem("wbb_email");
-      const plan = localStorage.getItem("wbb_plan");
-      return (token && plan === "business") ? { token, name, email, plan } : null;
+      const hasBusiness = localStorage.getItem("wbb_has_business");
+      return (token && hasBusiness === "true") ? { token, name, email } : null;
     } catch {
       return null;
     }
   });
-  const [planBlocked, setPlanBlocked] = useState(false);
+  const [accessBlocked, setAccessBlocked] = useState(false);
   // Tracks whether the user explicitly picked a language this session (e.g.
   // via the pre-login Welcome screen) — if so, that choice must win over
   // whatever was previously saved on the account, rather than login()
   // silently reverting it.
   const manualLanguage = useRef(false);
 
-  const login = useCallback((token, name, email = "", plan = "free", language = null) => {
-    if (plan !== "business") {
-      setPlanBlocked(true);
+  const login = useCallback((token, name, email = "", hasBusiness = false, language = null) => {
+    if (!hasBusiness) {
+      setAccessBlocked(true);
       return;
     }
     localStorage.setItem("wbb_token", token);
     localStorage.setItem("wbb_name", name);
     localStorage.setItem("wbb_email", email);
-    localStorage.setItem("wbb_plan", plan);
-    setUser({ token, name, email, plan });
-    setPlanBlocked(false);
+    localStorage.setItem("wbb_has_business", "true");
+    setUser({ token, name, email });
+    setAccessBlocked(false);
 
     if (language && !manualLanguage.current) {
       // The profile already has an explicit saved language — it wins over
@@ -67,13 +67,13 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("wbb_token");
     localStorage.removeItem("wbb_name");
     localStorage.removeItem("wbb_email");
-    localStorage.removeItem("wbb_plan");
+    localStorage.removeItem("wbb_has_business");
     setUser(null);
-    setPlanBlocked(false);
+    setAccessBlocked(false);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, planBlocked, setLanguage }}>
+    <AuthContext.Provider value={{ user, login, logout, accessBlocked, setLanguage }}>
       {children}
     </AuthContext.Provider>
   );

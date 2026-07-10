@@ -17,7 +17,7 @@ async function handleResponse(res, path) {
     localStorage.removeItem("wbb_token");
     localStorage.removeItem("wbb_name");
     localStorage.removeItem("wbb_email");
-    localStorage.removeItem("wbb_plan");
+    localStorage.removeItem("wbb_has_business");
     window.location.reload();
   }
   if (!res.ok) {

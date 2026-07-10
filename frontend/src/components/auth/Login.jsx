@@ -59,7 +59,7 @@ export default function Login() {
     setInfo("");
     try {
       const data = await post("/api/auth/login", { email, password });
-      login(data.token, data.name, data.email, data.language);
+      login(data.token, data.name, data.email, data.has_personal, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -73,7 +73,7 @@ export default function Login() {
     setInfo("");
     try {
       const data = await post("/api/auth/google", { credential });
-      login(data.token, data.name, data.email, data.language);
+      login(data.token, data.name, data.email, data.has_personal, data.language);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -87,7 +87,7 @@ export default function Login() {
     setError("");
     try {
       const data = await post("/api/auth/demo", { password: demoPassword });
-      login(data.token, data.name);
+      login(data.token, data.name, "", data.has_personal, data.language);
     } catch {
       setError(t("incorrectPassword"));
     } finally {

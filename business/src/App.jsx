@@ -41,7 +41,7 @@ const TOOLS = {
 };
 
 export default function App() {
-  const { user, logout, planBlocked } = useAuth();
+  const { user, logout, accessBlocked } = useAuth();
   const [active, setActive] = useState(null);
   const [entered, setEntered] = useState(false);
   // null = still checking; a Set = the user's real enabled tool keys;
@@ -94,7 +94,7 @@ export default function App() {
   }, [user, entered, refreshKey]);
 
   if (!user) {
-    if (planBlocked) {
+    if (accessBlocked) {
       return (
         <div className="login-page">
           <div className="login-card">

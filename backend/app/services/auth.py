@@ -3,11 +3,12 @@ from datetime import datetime, timedelta, timezone
 from flask import current_app
 
 
-def create_token(sub, name, hours=168, plan="free"):
+def create_token(sub, name, hours=168, has_personal=False, has_business=False):
     payload = {
         "sub": sub,
         "name": name,
-        "plan": plan,
+        "has_personal": has_personal,
+        "has_business": has_business,
         "exp": datetime.now(timezone.utc) + timedelta(hours=hours),
     }
     return jwt.encode(payload, current_app.config["JWT_SECRET"], algorithm="HS256")

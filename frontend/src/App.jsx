@@ -29,7 +29,7 @@ const TOOLS = {
 };
 
 export default function App() {
-  const { user } = useAuth();
+  const { user, logout, accessBlocked } = useAuth();
   const [active, setActive] = useState(null);
   const [entered, setEntered] = useState(false);
   // null = still checking; a Set = the user's real enabled tool keys;
@@ -82,6 +82,33 @@ export default function App() {
   }, [user, entered, refreshKey]);
 
   if (!user) {
+    if (accessBlocked) {
+      return (
+        <div className="login-page">
+          <div className="login-card">
+            <div className="login-brand">
+              <span className="brand-name" style={{ fontSize: "1.1rem" }}>
+                Torres<span className="brand-accent">Tech</span> Remote
+              </span>
+              <span className="login-product">Workblox</span>
+            </div>
+            <p className="login-error" style={{ marginTop: "1.5rem" }}>
+              Personal access required.
+            </p>
+            <p className="page-subtitle" style={{ marginTop: "0.5rem", fontSize: "0.85rem" }}>
+              Contact{" "}
+              <a href="mailto:pedro_torres@torrestechremote.com" style={{ color: "var(--orange)", fontWeight: 600 }}>
+                Torres Tech Remote
+              </a>{" "}
+              to activate your account.
+            </p>
+            <button className="auth-link" onClick={logout} style={{ marginTop: "1.25rem" }}>
+              Sign out
+            </button>
+          </div>
+        </div>
+      );
+    }
     return authView === "signup"
       ? <SignUp onSwitchToLogin={() => setAuthView("login")} />
       : <Login />;

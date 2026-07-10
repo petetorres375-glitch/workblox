@@ -17,8 +17,9 @@ MOCK_RESPONSE = {
 def _bypass_tool_entitlement():
     # TESTING mode skips auth entirely, so g.user is never set — require_tool()
     # would blow up reading it. These tests are about doc-analyzer logic, not
-    # entitlements, so bypass it.
-    with patch("app.routes.doc_analyzer.require_tool", return_value=None):
+    # access control, so bypass require_tool() and require_personal().
+    with patch("app.routes.doc_analyzer.require_tool", return_value=None), \
+         patch("app.routes.doc_analyzer.require_personal", return_value=None):
         yield
 
 
