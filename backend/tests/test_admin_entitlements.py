@@ -123,6 +123,37 @@ def test_entitlements_summary_shape(client, target_user):
     assert row["enabled_at"] is not None
 
 
+def test_entitlements_summary_excludes_internal_test_accounts(client):
+    from app import db
+    from app.models import User
+    from app.routes.admin import DASHBOARD_EXCLUDED_EMAILS
+
+    with client.application.app_context():
+        excluded_email = next(iter(DASHBOARD_EXCLUDED_EMAILS))
+        user = User.query.filter_by(email=excluded_email).first()
+        created = False
+        if not user:
+            user = User(email=excluded_email, name="Internal", is_active=True, email_verified=True)
+            db.session.add(user)
+            db.session.commit()
+            created = True
+        set_entitlements(user.id, {"sop"}, source="self_service")
+        user_id = user.id
+
+    with _as_admin():
+        rv = client.get("/api/admin/entitlements/summary")
+    assert rv.status_code == 200
+    rows = rv.get_json()
+    assert all(r["tool_key"] != "sop" for r in rows), "excluded account's entitlement leaked into the dashboard"
+
+    with client.application.app_context():
+        from app.models import UserEntitlement
+        UserEntitlement.query.filter_by(user_id=user_id).delete()
+        if created:
+            User.query.filter_by(id=user_id).delete()
+        db.session.commit()
+
+
 def test_list_tool_requests_shape(client, target_user):
     with client.application.app_context():
         from app import db

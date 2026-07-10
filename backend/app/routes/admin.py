@@ -14,6 +14,16 @@ bp = Blueprint("admin", __name__, url_prefix="/api/admin")
 
 ADMIN_SUBS = {"demo", "pete.torres.375@gmail.com", "pedro_torres@torrestechremote.com"}
 
+# Internal/test accounts -- excluded from the tool-selection dashboard so it
+# reflects real client demand, not Pedro's own accounts or people testing the
+# app on his behalf. Not the same set as ADMIN_SUBS (e.g. a tester here isn't
+# an admin, and this list has nothing to do with API access).
+DASHBOARD_EXCLUDED_EMAILS = {
+    "pete.torres.375@gmail.com",
+    "pedro_torres@torrestechremote.com",
+    "berto@themissionfwd.com",
+}
+
 
 def _is_admin():
     return g.user.get("sub") in ADMIN_SUBS
@@ -151,11 +161,15 @@ def entitlements_summary():
     # (by tool, by app, by source, by week) rather than this endpoint
     # committing to a fixed set of GROUP BY shapes. No user-identifying data
     # included; this is for tool-popularity reporting, not a user lookup.
+    # Internal/test accounts are filtered out here (not just for one source
+    # filter) so every view of the dashboard reflects real client activity.
     if not _is_admin():
         return jsonify({"error": "Forbidden"}), 403
     rows = (
         UserEntitlement.query
         .join(Tool, Tool.id == UserEntitlement.tool_id)
+        .join(User, User.id == UserEntitlement.user_id)
+        .filter(~User.email.in_(DASHBOARD_EXCLUDED_EMAILS))
         .with_entities(Tool.key, Tool.name, Tool.app, UserEntitlement.source, UserEntitlement.enabled_at)
         .all()
     )
