@@ -131,7 +131,7 @@ export default function App() {
   return (
     <>
       <Header active={active} onSelect={setActive} enabledKeys={enabledKeys} />
-      <main>
+      <main className={active === "admin" ? "main-wide" : undefined}>
         {active === "settings" ? (
           <AccountSettings onSaved={() => setRefreshKey((k) => k + 1)} />
         ) : (

@@ -210,6 +210,13 @@ main {
   padding: 2.5rem 1.5rem 4rem;
 }
 
+/* Admin has many action buttons per user card -- wider than the default
+   760px so a full row (activate/access toggles/manage tools) fits without
+   wrapping or overflowing. Only applied on the admin page. */
+main.main-wide {
+  max-width: 1100px;
+}
+
 /* ── Two-tone heading ── */
 .page-title {
   font-size: 1.9rem;
@@ -945,8 +952,8 @@ footer a {
 .admin-user-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.75rem;
-  flex-shrink: 0;
 }
 
 .admin-badge {
