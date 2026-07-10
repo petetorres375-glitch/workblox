@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Alege-ți instrumentele",
+  "signupSubtitle": "Alege instrumentele pe care vrei să le activezi în contul tău. Poți adăuga oricând altele din Setări.",
+  "settingsTitle": "Instrumentele tale",
+  "settingsSubtitle": "Alege ce instrumente sunt activate în contul tău. Instrumentele noi necesită aprobare înainte de a fi gata de utilizare; eliminarea unui instrument are efect imediat.",
+  "loading": "Se încarcă instrumentele…",
+  "selectedCount_one": "{{count}} instrument selectat",
+  "selectedCount_other": "{{count}} instrumente selectate",
+  "errorMinOne": "Selectează cel puțin un instrument pentru a continua.",
+  "continueButton": "Continuă",
+  "saveButton": "Salvează",
+  "pendingApproval": "În așteptarea aprobării",
+  "contactsDeleteConfirm": "Eliminarea Contactelor va șterge definitiv contactele salvate. Continui?"
+}

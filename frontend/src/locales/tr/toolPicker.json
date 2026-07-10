@@ -1,0 +1,13 @@
+{
+  "signupTitle": "Araçlarınızı seçin",
+  "signupSubtitle": "Hesabınızda etkinleştirmek istediğiniz araçları seçin. Ayarlar'dan istediğiniz zaman daha fazlasını ekleyebilirsiniz.",
+  "settingsTitle": "Araçlarınız",
+  "settingsSubtitle": "Hesabınızda hangi araçların etkin olacağını seçin. Yeni araçlar kullanıma hazır olmadan önce onay gerektirir; bir aracı kaldırmak hemen etkili olur.",
+  "loading": "Araçlar yükleniyor…",
+  "selectedCount_one": "{{count}} araç seçildi",
+  "selectedCount_other": "{{count}} araç seçildi",
+  "errorMinOne": "Devam etmek için en az bir araç seçin.",
+  "continueButton": "Devam Et",
+  "saveButton": "Kaydet",
+  "pendingApproval": "Onay bekliyor"
+}

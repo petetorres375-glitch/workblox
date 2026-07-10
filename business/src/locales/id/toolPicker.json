@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Pilih Alat Anda",
+  "signupSubtitle": "Pilih alat yang ingin Anda aktifkan di akun Anda. Anda dapat menambahkan lebih banyak kapan saja dari Pengaturan.",
+  "settingsTitle": "Alat Anda",
+  "settingsSubtitle": "Pilih alat mana yang diaktifkan di akun Anda. Alat baru memerlukan persetujuan sebelum siap digunakan; menghapus alat akan berlaku langsung.",
+  "loading": "Memuat alat…",
+  "selectedCount_one": "{{count}} alat dipilih",
+  "selectedCount_other": "{{count}} alat dipilih",
+  "errorMinOne": "Pilih setidaknya satu alat untuk melanjutkan.",
+  "continueButton": "Lanjutkan",
+  "saveButton": "Simpan",
+  "pendingApproval": "Menunggu persetujuan",
+  "contactsDeleteConfirm": "Menghapus Kontak akan menghapus permanen kontak yang tersimpan. Lanjutkan?"
+}

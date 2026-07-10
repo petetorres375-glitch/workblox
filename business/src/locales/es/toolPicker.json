@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Elige tus herramientas",
+  "signupSubtitle": "Elige las herramientas que quieres habilitar en tu cuenta. Puedes añadir más en cualquier momento desde Ajustes.",
+  "settingsTitle": "Tus herramientas",
+  "settingsSubtitle": "Elige qué herramientas están habilitadas en tu cuenta. Las herramientas nuevas necesitan aprobación antes de estar listas para usarse; quitar una herramienta surte efecto de inmediato.",
+  "loading": "Cargando herramientas…",
+  "selectedCount_one": "{{count}} herramienta seleccionada",
+  "selectedCount_other": "{{count}} herramientas seleccionadas",
+  "errorMinOne": "Selecciona al menos una herramienta para continuar.",
+  "continueButton": "Continuar",
+  "saveButton": "Guardar",
+  "pendingApproval": "Aprobación pendiente",
+  "contactsDeleteConfirm": "Quitar Contactos eliminará permanentemente tus contactos guardados. ¿Continuar?"
+}

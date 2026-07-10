@@ -29,12 +29,43 @@
     "deactivate": "إلغاء التفعيل",
     "activate": "تفعيل"
   },
-  "plan": {
-    "business": "Business",
-    "free": "مجاني"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "مفعّل",
+    "off": "معطّل",
+    "grantPersonal": "منح Personal",
+    "revokePersonal": "سحب Personal",
+    "grantBusiness": "منح Business",
+    "revokeBusiness": "سحب Business"
   },
-  "planActions": {
-    "setFree": "تعيين كمجاني",
-    "setBusiness": "تعيين إلى Business"
+  "views": {
+    "users": "المستخدمون",
+    "requests": "الطلبات",
+    "dashboard": "اختيار الأدوات"
+  },
+  "requests": {
+    "loading": "جارٍ تحميل الطلبات…",
+    "none": "لا توجد طلبات معلقة.",
+    "grant": "منح",
+    "dismiss": "تجاهل"
+  },
+  "tools": {
+    "manage": "إدارة الأدوات",
+    "hide": "إخفاء الأدوات",
+    "loading": "جارٍ تحميل الأدوات…"
+  },
+  "dashboard": {
+    "loading": "جارٍ تحميل بيانات اختيار الأدوات…",
+    "totalSelections": "إجمالي اختيارات الأدوات",
+    "personalTools": "أدوات Personal",
+    "businessTools": "أدوات Business",
+    "noData": "لا توجد اختيارات بعد.",
+    "sourceFilters": {
+      "all": "جميع المصادر",
+      "self_service": "ذاتي الخدمة",
+      "admin_manual": "منح إداري",
+      "plan_default": "افتراضي الخطة"
+    }
   }
 }

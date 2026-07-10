@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Choisissez vos outils",
+  "signupSubtitle": "Sélectionnez les outils que vous souhaitez activer sur votre compte. Vous pourrez en ajouter d'autres à tout moment depuis les Paramètres.",
+  "settingsTitle": "Vos outils",
+  "settingsSubtitle": "Choisissez les outils activés sur votre compte. Les nouveaux outils nécessitent une approbation avant d'être utilisables ; la suppression d'un outil prend effet immédiatement.",
+  "loading": "Chargement des outils…",
+  "selectedCount_one": "{{count}} outil sélectionné",
+  "selectedCount_other": "{{count}} outils sélectionnés",
+  "errorMinOne": "Sélectionnez au moins un outil pour continuer.",
+  "continueButton": "Continuer",
+  "saveButton": "Enregistrer",
+  "pendingApproval": "En attente d'approbation",
+  "contactsDeleteConfirm": "La suppression de Contacts effacera définitivement vos contacts enregistrés. Continuer ?"
+}

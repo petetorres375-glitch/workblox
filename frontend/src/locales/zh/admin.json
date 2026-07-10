@@ -29,12 +29,43 @@
     "deactivate": "停用",
     "activate": "激活"
   },
-  "plan": {
-    "business": "Business",
-    "free": "免费版"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "开启",
+    "off": "关闭",
+    "grantPersonal": "授予 Personal",
+    "revokePersonal": "撤销 Personal",
+    "grantBusiness": "授予 Business",
+    "revokeBusiness": "撤销 Business"
   },
-  "planActions": {
-    "setFree": "设为免费版",
-    "setBusiness": "设为 Business"
+  "views": {
+    "users": "用户",
+    "requests": "请求",
+    "dashboard": "工具选择"
+  },
+  "requests": {
+    "loading": "正在加载请求…",
+    "none": "没有待处理的请求。",
+    "grant": "授予",
+    "dismiss": "驳回"
+  },
+  "tools": {
+    "manage": "管理工具",
+    "hide": "隐藏工具",
+    "loading": "正在加载工具…"
+  },
+  "dashboard": {
+    "loading": "正在加载工具选择数据…",
+    "totalSelections": "工具选择总数",
+    "personalTools": "个人工具",
+    "businessTools": "商业工具",
+    "noData": "暂无选择数据。",
+    "sourceFilters": {
+      "all": "所有来源",
+      "self_service": "自助选择",
+      "admin_manual": "管理员赠送",
+      "plan_default": "套餐默认"
+    }
   }
 }

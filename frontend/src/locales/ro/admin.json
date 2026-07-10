@@ -29,12 +29,43 @@
     "deactivate": "Dezactivează",
     "activate": "Activează"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Gratuit"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ACTIVAT",
+    "off": "DEZACTIVAT",
+    "grantPersonal": "Acordă Personal",
+    "revokePersonal": "Revocă Personal",
+    "grantBusiness": "Acordă Business",
+    "revokeBusiness": "Revocă Business"
   },
-  "planActions": {
-    "setFree": "Setează Gratuit",
-    "setBusiness": "Setează Business"
+  "views": {
+    "users": "Utilizatori",
+    "requests": "Cereri",
+    "dashboard": "Selecție Instrumente"
+  },
+  "requests": {
+    "loading": "Se încarcă cererile…",
+    "none": "Nu există cereri în așteptare.",
+    "grant": "Acordă",
+    "dismiss": "Respinge"
+  },
+  "tools": {
+    "manage": "Gestionează instrumentele",
+    "hide": "Ascunde instrumentele",
+    "loading": "Se încarcă instrumentele…"
+  },
+  "dashboard": {
+    "loading": "Se încarcă datele de selecție a instrumentelor…",
+    "totalSelections": "Total selecții de instrumente",
+    "personalTools": "Instrumente Personale",
+    "businessTools": "Instrumente Business",
+    "noData": "Nu există selecții încă.",
+    "sourceFilters": {
+      "all": "Toate sursele",
+      "self_service": "Autoservire",
+      "admin_manual": "Compensații administrator",
+      "plan_default": "Implicit din plan"
+    }
   }
 }

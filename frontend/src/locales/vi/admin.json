@@ -29,12 +29,43 @@
     "deactivate": "Vô Hiệu Hóa",
     "activate": "Kích Hoạt"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Miễn Phí"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "BẬT",
+    "off": "TẮT",
+    "grantPersonal": "Cấp Personal",
+    "revokePersonal": "Thu Hồi Personal",
+    "grantBusiness": "Cấp Business",
+    "revokeBusiness": "Thu Hồi Business"
   },
-  "planActions": {
-    "setFree": "Đặt Miễn Phí",
-    "setBusiness": "Đặt Business"
+  "views": {
+    "users": "Người Dùng",
+    "requests": "Yêu Cầu",
+    "dashboard": "Lựa Chọn Công Cụ"
+  },
+  "requests": {
+    "loading": "Đang tải yêu cầu…",
+    "none": "Không có yêu cầu đang chờ.",
+    "grant": "Cấp",
+    "dismiss": "Bỏ Qua"
+  },
+  "tools": {
+    "manage": "Quản Lý Công Cụ",
+    "hide": "Ẩn Công Cụ",
+    "loading": "Đang tải công cụ…"
+  },
+  "dashboard": {
+    "loading": "Đang tải dữ liệu lựa chọn công cụ…",
+    "totalSelections": "Tổng Số Lượt Chọn Công Cụ",
+    "personalTools": "Công Cụ Personal",
+    "businessTools": "Công Cụ Business",
+    "noData": "Chưa có lựa chọn nào.",
+    "sourceFilters": {
+      "all": "Tất Cả Nguồn",
+      "self_service": "Tự Chọn",
+      "admin_manual": "Quản Trị Viên Cấp",
+      "plan_default": "Mặc Định Theo Gói"
+    }
   }
 }

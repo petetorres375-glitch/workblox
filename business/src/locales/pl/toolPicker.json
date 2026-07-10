@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Wybierz swoje narzędzia",
+  "signupSubtitle": "Wybierz narzędzia, które chcesz włączyć na swoim koncie. W każdej chwili możesz dodać więcej w Ustawieniach.",
+  "settingsTitle": "Twoje narzędzia",
+  "settingsSubtitle": "Wybierz, które narzędzia są włączone na Twoim koncie. Nowe narzędzia wymagają zatwierdzenia, zanim będą gotowe do użycia; usunięcie narzędzia obowiązuje natychmiast.",
+  "loading": "Ładowanie narzędzi…",
+  "selectedCount_one": "Wybrano {{count}} narzędzie",
+  "selectedCount_other": "Wybrano {{count}} narzędzi",
+  "errorMinOne": "Wybierz co najmniej jedno narzędzie, aby kontynuować.",
+  "continueButton": "Kontynuuj",
+  "saveButton": "Zapisz",
+  "pendingApproval": "Oczekuje na zatwierdzenie",
+  "contactsDeleteConfirm": "Usunięcie Kontaktów spowoduje trwałe usunięcie zapisanych kontaktów. Kontynuować?"
+}

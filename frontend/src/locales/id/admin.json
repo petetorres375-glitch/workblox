@@ -29,12 +29,43 @@
     "deactivate": "Nonaktifkan",
     "activate": "Aktifkan"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Gratis"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AKTIF",
+    "off": "NONAKTIF",
+    "grantPersonal": "Berikan Personal",
+    "revokePersonal": "Cabut Personal",
+    "grantBusiness": "Berikan Business",
+    "revokeBusiness": "Cabut Business"
   },
-  "planActions": {
-    "setFree": "Atur ke Gratis",
-    "setBusiness": "Atur ke Business"
+  "views": {
+    "users": "Pengguna",
+    "requests": "Permintaan",
+    "dashboard": "Pemilihan Alat"
+  },
+  "requests": {
+    "loading": "Memuat permintaan…",
+    "none": "Tidak ada permintaan tertunda.",
+    "grant": "Berikan",
+    "dismiss": "Abaikan"
+  },
+  "tools": {
+    "manage": "Kelola alat",
+    "hide": "Sembunyikan alat",
+    "loading": "Memuat alat…"
+  },
+  "dashboard": {
+    "loading": "Memuat data pemilihan alat…",
+    "totalSelections": "Total pemilihan alat",
+    "personalTools": "Alat Personal",
+    "businessTools": "Alat Business",
+    "noData": "Belum ada pemilihan.",
+    "sourceFilters": {
+      "all": "Semua sumber",
+      "self_service": "Layanan mandiri",
+      "admin_manual": "Pemberian admin",
+      "plan_default": "Default paket"
+    }
   }
 }

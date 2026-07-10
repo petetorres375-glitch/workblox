@@ -29,12 +29,43 @@
     "deactivate": "निष्क्रिय करें",
     "activate": "सक्रिय करें"
   },
-  "plan": {
-    "business": "Business",
-    "free": "फ्री"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "चालू",
+    "off": "बंद",
+    "grantPersonal": "Personal प्रदान करें",
+    "revokePersonal": "Personal वापस लें",
+    "grantBusiness": "Business प्रदान करें",
+    "revokeBusiness": "Business वापस लें"
   },
-  "planActions": {
-    "setFree": "फ्री सेट करें",
-    "setBusiness": "Business सेट करें"
+  "views": {
+    "users": "उपयोगकर्ता",
+    "requests": "अनुरोध",
+    "dashboard": "टूल चयन"
+  },
+  "requests": {
+    "loading": "अनुरोध लोड हो रहे हैं…",
+    "none": "कोई लंबित अनुरोध नहीं है।",
+    "grant": "प्रदान करें",
+    "dismiss": "खारिज करें"
+  },
+  "tools": {
+    "manage": "टूल प्रबंधित करें",
+    "hide": "टूल छिपाएं",
+    "loading": "टूल लोड हो रहे हैं…"
+  },
+  "dashboard": {
+    "loading": "टूल चयन डेटा लोड हो रहा है…",
+    "totalSelections": "कुल टूल चयन",
+    "personalTools": "Personal टूल",
+    "businessTools": "Business टूल",
+    "noData": "अभी तक कोई चयन नहीं।",
+    "sourceFilters": {
+      "all": "सभी स्रोत",
+      "self_service": "सेल्फ़-सर्विस",
+      "admin_manual": "एडमिन अनुदान",
+      "plan_default": "प्लान डिफ़ॉल्ट"
+    }
   }
 }

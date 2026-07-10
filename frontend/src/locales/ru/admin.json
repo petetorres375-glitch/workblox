@@ -29,12 +29,43 @@
     "deactivate": "Деактивировать",
     "activate": "Активировать"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Бесплатно"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ВКЛ",
+    "off": "ВЫКЛ",
+    "grantPersonal": "Предоставить Personal",
+    "revokePersonal": "Отозвать Personal",
+    "grantBusiness": "Предоставить Business",
+    "revokeBusiness": "Отозвать Business"
   },
-  "planActions": {
-    "setFree": "Установить Бесплатно",
-    "setBusiness": "Установить Business"
+  "views": {
+    "users": "Пользователи",
+    "requests": "Заявки",
+    "dashboard": "Выбор инструментов"
+  },
+  "requests": {
+    "loading": "Загрузка заявок…",
+    "none": "Нет ожидающих заявок.",
+    "grant": "Предоставить",
+    "dismiss": "Отклонить"
+  },
+  "tools": {
+    "manage": "Управление инструментами",
+    "hide": "Скрыть инструменты",
+    "loading": "Загрузка инструментов…"
+  },
+  "dashboard": {
+    "loading": "Загрузка данных о выборе инструментов…",
+    "totalSelections": "Всего выборов инструментов",
+    "personalTools": "Личные инструменты",
+    "businessTools": "Бизнес-инструменты",
+    "noData": "Пока нет выборов.",
+    "sourceFilters": {
+      "all": "Все источники",
+      "self_service": "Самостоятельный выбор",
+      "admin_manual": "Выдано администратором",
+      "plan_default": "По умолчанию для тарифа"
+    }
   }
 }

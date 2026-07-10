@@ -29,12 +29,43 @@
     "deactivate": "השבת",
     "activate": "הפעל"
   },
-  "plan": {
-    "business": "Business",
-    "free": "חינם"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "פעיל",
+    "off": "כבוי",
+    "grantPersonal": "הענק Personal",
+    "revokePersonal": "בטל Personal",
+    "grantBusiness": "הענק Business",
+    "revokeBusiness": "בטל Business"
   },
-  "planActions": {
-    "setFree": "הגדר כחינם",
-    "setBusiness": "הגדר כ-Business"
+  "views": {
+    "users": "משתמשים",
+    "requests": "בקשות",
+    "dashboard": "בחירת כלים"
+  },
+  "requests": {
+    "loading": "טוען בקשות…",
+    "none": "אין בקשות ממתינות.",
+    "grant": "הענק",
+    "dismiss": "התעלם"
+  },
+  "tools": {
+    "manage": "נהל כלים",
+    "hide": "הסתר כלים",
+    "loading": "טוען כלים…"
+  },
+  "dashboard": {
+    "loading": "טוען נתוני בחירת כלים…",
+    "totalSelections": "סך כל הבחירות בכלים",
+    "personalTools": "כלי Personal",
+    "businessTools": "כלי Business",
+    "noData": "אין בחירות עדיין.",
+    "sourceFilters": {
+      "all": "כל המקורות",
+      "self_service": "שירות עצמי",
+      "admin_manual": "הענקת מנהל",
+      "plan_default": "ברירת מחדל של התוכנית"
+    }
   }
 }

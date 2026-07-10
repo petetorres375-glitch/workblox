@@ -1,0 +1,13 @@
+{
+  "signupTitle": "Wählen Sie Ihre Tools",
+  "signupSubtitle": "Wählen Sie die Tools aus, die Sie für Ihr Konto aktivieren möchten. Sie können jederzeit weitere über die Einstellungen hinzufügen.",
+  "settingsTitle": "Ihre Tools",
+  "settingsSubtitle": "Wählen Sie, welche Tools für Ihr Konto aktiviert sind. Neue Tools benötigen eine Genehmigung, bevor sie einsatzbereit sind; das Entfernen eines Tools wirkt sich sofort aus.",
+  "loading": "Tools werden geladen…",
+  "selectedCount_one": "{{count}} Tool ausgewählt",
+  "selectedCount_other": "{{count}} Tools ausgewählt",
+  "errorMinOne": "Wählen Sie mindestens ein Tool aus, um fortzufahren.",
+  "continueButton": "Weiter",
+  "saveButton": "Speichern",
+  "pendingApproval": "Genehmigung ausstehend"
+}

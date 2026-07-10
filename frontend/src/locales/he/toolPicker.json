@@ -1,0 +1,13 @@
+{
+  "signupTitle": "בחר את הכלים שלך",
+  "signupSubtitle": "בחר את הכלים שברצונך להפעיל בחשבון שלך. תוכל להוסיף עוד בכל עת דרך ההגדרות.",
+  "settingsTitle": "הכלים שלך",
+  "settingsSubtitle": "בחר אילו כלים מופעלים בחשבון שלך. כלים חדשים דורשים אישור לפני שהם מוכנים לשימוש; הסרת כלי נכנסת לתוקף באופן מיידי.",
+  "loading": "טוען כלים…",
+  "selectedCount_one": "{{count}} כלי נבחר",
+  "selectedCount_other": "{{count}} כלים נבחרו",
+  "errorMinOne": "בחר לפחות כלי אחד כדי להמשיך.",
+  "continueButton": "המשך",
+  "saveButton": "שמור",
+  "pendingApproval": "ממתין לאישור"
+}

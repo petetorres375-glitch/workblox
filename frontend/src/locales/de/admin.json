@@ -29,12 +29,43 @@
     "deactivate": "Deaktivieren",
     "activate": "Aktivieren"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Kostenlos"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AN",
+    "off": "AUS",
+    "grantPersonal": "Personal gewähren",
+    "revokePersonal": "Personal entziehen",
+    "grantBusiness": "Business gewähren",
+    "revokeBusiness": "Business entziehen"
   },
-  "planActions": {
-    "setFree": "Auf Kostenlos setzen",
-    "setBusiness": "Auf Business setzen"
+  "views": {
+    "users": "Benutzer",
+    "requests": "Anfragen",
+    "dashboard": "Tool-Auswahl"
+  },
+  "requests": {
+    "loading": "Anfragen werden geladen…",
+    "none": "Keine ausstehenden Anfragen.",
+    "grant": "Gewähren",
+    "dismiss": "Verwerfen"
+  },
+  "tools": {
+    "manage": "Tools verwalten",
+    "hide": "Tools ausblenden",
+    "loading": "Tools werden geladen…"
+  },
+  "dashboard": {
+    "loading": "Tool-Auswahldaten werden geladen…",
+    "totalSelections": "Gesamtzahl der Tool-Auswahlen",
+    "personalTools": "Personal-Tools",
+    "businessTools": "Business-Tools",
+    "noData": "Noch keine Auswahlen.",
+    "sourceFilters": {
+      "all": "Alle Quellen",
+      "self_service": "Selbstbedienung",
+      "admin_manual": "Admin-Vergabe",
+      "plan_default": "Plan-Standard"
+    }
   }
 }

@@ -29,12 +29,43 @@
     "deactivate": "ปิดใช้งาน",
     "activate": "เปิดใช้งาน"
   },
-  "plan": {
-    "business": "Business",
-    "free": "ฟรี"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "เปิด",
+    "off": "ปิด",
+    "grantPersonal": "ให้สิทธิ์ Personal",
+    "revokePersonal": "เพิกถอนสิทธิ์ Personal",
+    "grantBusiness": "ให้สิทธิ์ Business",
+    "revokeBusiness": "เพิกถอนสิทธิ์ Business"
   },
-  "planActions": {
-    "setFree": "ตั้งเป็นฟรี",
-    "setBusiness": "ตั้งเป็น Business"
+  "views": {
+    "users": "ผู้ใช้",
+    "requests": "คำขอ",
+    "dashboard": "การเลือกเครื่องมือ"
+  },
+  "requests": {
+    "loading": "กำลังโหลดคำขอ…",
+    "none": "ไม่มีคำขอที่รอดำเนินการ",
+    "grant": "อนุมัติ",
+    "dismiss": "ปฏิเสธ"
+  },
+  "tools": {
+    "manage": "จัดการเครื่องมือ",
+    "hide": "ซ่อนเครื่องมือ",
+    "loading": "กำลังโหลดเครื่องมือ…"
+  },
+  "dashboard": {
+    "loading": "กำลังโหลดข้อมูลการเลือกเครื่องมือ…",
+    "totalSelections": "จำนวนการเลือกเครื่องมือทั้งหมด",
+    "personalTools": "เครื่องมือส่วนบุคคล",
+    "businessTools": "เครื่องมือธุรกิจ",
+    "noData": "ยังไม่มีการเลือก",
+    "sourceFilters": {
+      "all": "ทุกแหล่งที่มา",
+      "self_service": "เลือกเอง",
+      "admin_manual": "ผู้ดูแลระบบให้สิทธิ์",
+      "plan_default": "ค่าเริ่มต้นของแผน"
+    }
   }
 }

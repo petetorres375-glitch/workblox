@@ -29,12 +29,43 @@
     "deactivate": "Деактивувати",
     "activate": "Активувати"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Безкоштовно"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "УВІМК",
+    "off": "ВИМК",
+    "grantPersonal": "Надати Personal",
+    "revokePersonal": "Відкликати Personal",
+    "grantBusiness": "Надати Business",
+    "revokeBusiness": "Відкликати Business"
   },
-  "planActions": {
-    "setFree": "Встановити Безкоштовно",
-    "setBusiness": "Встановити Business"
+  "views": {
+    "users": "Користувачі",
+    "requests": "Запити",
+    "dashboard": "Вибір інструментів"
+  },
+  "requests": {
+    "loading": "Завантаження запитів…",
+    "none": "Немає запитів, що очікують.",
+    "grant": "Надати",
+    "dismiss": "Відхилити"
+  },
+  "tools": {
+    "manage": "Керувати інструментами",
+    "hide": "Приховати інструменти",
+    "loading": "Завантаження інструментів…"
+  },
+  "dashboard": {
+    "loading": "Завантаження даних вибору інструментів…",
+    "totalSelections": "Загальна кількість вибраних інструментів",
+    "personalTools": "Особисті інструменти",
+    "businessTools": "Бізнес-інструменти",
+    "noData": "Поки немає виборів.",
+    "sourceFilters": {
+      "all": "Усі джерела",
+      "self_service": "Самостійний вибір",
+      "admin_manual": "Надано адміністратором",
+      "plan_default": "За замовчуванням тарифу"
+    }
   }
 }

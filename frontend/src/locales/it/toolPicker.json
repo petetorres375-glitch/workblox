@@ -1,0 +1,13 @@
+{
+  "signupTitle": "Scegli i tuoi strumenti",
+  "signupSubtitle": "Scegli gli strumenti che vuoi attivare sul tuo account. Potrai aggiungerne altri in qualsiasi momento dalle Impostazioni.",
+  "settingsTitle": "I tuoi strumenti",
+  "settingsSubtitle": "Scegli quali strumenti sono attivi sul tuo account. I nuovi strumenti richiedono l'approvazione prima di essere pronti all'uso; la rimozione di uno strumento ha effetto immediato.",
+  "loading": "Caricamento strumenti…",
+  "selectedCount_one": "{{count}} strumento selezionato",
+  "selectedCount_other": "{{count}} strumenti selezionati",
+  "errorMinOne": "Seleziona almeno uno strumento per continuare.",
+  "continueButton": "Continua",
+  "saveButton": "Salva",
+  "pendingApproval": "In attesa di approvazione"
+}

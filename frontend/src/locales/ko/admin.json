@@ -29,12 +29,43 @@
     "deactivate": "비활성화",
     "activate": "활성화"
   },
-  "plan": {
-    "business": "Business",
-    "free": "무료"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "켜짐",
+    "off": "꺼짐",
+    "grantPersonal": "Personal 부여",
+    "revokePersonal": "Personal 회수",
+    "grantBusiness": "Business 부여",
+    "revokeBusiness": "Business 회수"
   },
-  "planActions": {
-    "setFree": "무료로 설정",
-    "setBusiness": "Business로 설정"
+  "views": {
+    "users": "사용자",
+    "requests": "요청",
+    "dashboard": "도구 선택 현황"
+  },
+  "requests": {
+    "loading": "요청을 불러오는 중…",
+    "none": "대기 중인 요청이 없습니다.",
+    "grant": "승인",
+    "dismiss": "무시"
+  },
+  "tools": {
+    "manage": "도구 관리",
+    "hide": "도구 숨기기",
+    "loading": "도구를 불러오는 중…"
+  },
+  "dashboard": {
+    "loading": "도구 선택 데이터를 불러오는 중…",
+    "totalSelections": "총 도구 선택 수",
+    "personalTools": "Personal 도구",
+    "businessTools": "Business 도구",
+    "noData": "아직 선택 항목이 없습니다.",
+    "sourceFilters": {
+      "all": "모든 소스",
+      "self_service": "셀프 서비스",
+      "admin_manual": "관리자 지급",
+      "plan_default": "요금제 기본값"
+    }
   }
 }

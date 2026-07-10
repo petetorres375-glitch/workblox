@@ -29,12 +29,43 @@
     "deactivate": "Deaktivovat",
     "activate": "Aktivovat"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Zdarma"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ZAPNUTO",
+    "off": "VYPNUTO",
+    "grantPersonal": "Udělit Personal",
+    "revokePersonal": "Odebrat Personal",
+    "grantBusiness": "Udělit Business",
+    "revokeBusiness": "Odebrat Business"
   },
-  "planActions": {
-    "setFree": "Nastavit Zdarma",
-    "setBusiness": "Nastavit Business"
+  "views": {
+    "users": "Uživatelé",
+    "requests": "Žádosti",
+    "dashboard": "Výběr Nástrojů"
+  },
+  "requests": {
+    "loading": "Načítání žádostí…",
+    "none": "Žádné čekající žádosti.",
+    "grant": "Udělit",
+    "dismiss": "Zamítnout"
+  },
+  "tools": {
+    "manage": "Spravovat nástroje",
+    "hide": "Skrýt nástroje",
+    "loading": "Načítání nástrojů…"
+  },
+  "dashboard": {
+    "loading": "Načítání dat o výběru nástrojů…",
+    "totalSelections": "Celkový počet výběrů nástrojů",
+    "personalTools": "Nástroje Personal",
+    "businessTools": "Nástroje Business",
+    "noData": "Zatím žádné výběry.",
+    "sourceFilters": {
+      "all": "Všechny zdroje",
+      "self_service": "Samoobsluha",
+      "admin_manual": "Administrátorské udělení",
+      "plan_default": "Výchozí dle plánu"
+    }
   }
 }

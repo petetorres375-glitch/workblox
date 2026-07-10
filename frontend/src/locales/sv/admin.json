@@ -29,12 +29,43 @@
     "deactivate": "Inaktivera",
     "activate": "Aktivera"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Gratis"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "PÅ",
+    "off": "AV",
+    "grantPersonal": "Ge Personal",
+    "revokePersonal": "Återkalla Personal",
+    "grantBusiness": "Ge Business",
+    "revokeBusiness": "Återkalla Business"
   },
-  "planActions": {
-    "setFree": "Sätt till Gratis",
-    "setBusiness": "Sätt till Business"
+  "views": {
+    "users": "Användare",
+    "requests": "Förfrågningar",
+    "dashboard": "Verktygsval"
+  },
+  "requests": {
+    "loading": "Laddar förfrågningar…",
+    "none": "Inga väntande förfrågningar.",
+    "grant": "Bevilja",
+    "dismiss": "Avvisa"
+  },
+  "tools": {
+    "manage": "Hantera verktyg",
+    "hide": "Dölj verktyg",
+    "loading": "Laddar verktyg…"
+  },
+  "dashboard": {
+    "loading": "Laddar data för verktygsval…",
+    "totalSelections": "Totalt antal verktygsval",
+    "personalTools": "Personliga verktyg",
+    "businessTools": "Företagsverktyg",
+    "noData": "Inga val ännu.",
+    "sourceFilters": {
+      "all": "Alla källor",
+      "self_service": "Självbetjäning",
+      "admin_manual": "Admin-tilldelning",
+      "plan_default": "Standard för plan"
+    }
   }
 }

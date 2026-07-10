@@ -1,0 +1,13 @@
+{
+  "signupTitle": "Välj dina verktyg",
+  "signupSubtitle": "Välj de verktyg du vill aktivera på ditt konto. Du kan lägga till fler när som helst från Inställningar.",
+  "settingsTitle": "Dina verktyg",
+  "settingsSubtitle": "Välj vilka verktyg som är aktiverade på ditt konto. Nya verktyg behöver godkännas innan de kan användas; att ta bort ett verktyg gäller direkt.",
+  "loading": "Laddar verktyg…",
+  "selectedCount_one": "{{count}} verktyg valt",
+  "selectedCount_other": "{{count}} verktyg valda",
+  "errorMinOne": "Välj minst ett verktyg för att fortsätta.",
+  "continueButton": "Fortsätt",
+  "saveButton": "Spara",
+  "pendingApproval": "Väntar på godkännande"
+}

@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Vyberte si nástroje",
+  "signupSubtitle": "Vyberte nástroje, které chcete mít povolené ve svém účtu. Další můžete kdykoli přidat v Nastavení.",
+  "settingsTitle": "Vaše nástroje",
+  "settingsSubtitle": "Vyberte, které nástroje jsou povolené ve vašem účtu. Nové nástroje potřebují schválení, než budou připraveny k použití; odebrání nástroje se projeví okamžitě.",
+  "loading": "Načítání nástrojů…",
+  "selectedCount_one": "Vybrán {{count}} nástroj",
+  "selectedCount_other": "Vybráno {{count}} nástrojů",
+  "errorMinOne": "Pro pokračování vyberte alespoň jeden nástroj.",
+  "continueButton": "Pokračovat",
+  "saveButton": "Uložit",
+  "pendingApproval": "Čeká na schválení",
+  "contactsDeleteConfirm": "Odebráním Kontaktů trvale smažete vaše uložené kontakty. Pokračovat?"
+}

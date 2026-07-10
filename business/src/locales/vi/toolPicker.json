@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Chọn công cụ của bạn",
+  "signupSubtitle": "Chọn các công cụ bạn muốn bật cho tài khoản của mình. Bạn có thể thêm bất cứ lúc nào từ Cài đặt.",
+  "settingsTitle": "Công cụ của bạn",
+  "settingsSubtitle": "Chọn công cụ nào được bật cho tài khoản của bạn. Công cụ mới cần được phê duyệt trước khi sẵn sàng sử dụng; việc xóa một công cụ có hiệu lực ngay lập tức.",
+  "loading": "Đang tải công cụ…",
+  "selectedCount_one": "Đã chọn {{count}} công cụ",
+  "selectedCount_other": "Đã chọn {{count}} công cụ",
+  "errorMinOne": "Chọn ít nhất một công cụ để tiếp tục.",
+  "continueButton": "Tiếp tục",
+  "saveButton": "Lưu",
+  "pendingApproval": "Đang chờ phê duyệt",
+  "contactsDeleteConfirm": "Xóa Danh bạ sẽ xóa vĩnh viễn các liên hệ đã lưu của bạn. Tiếp tục?"
+}

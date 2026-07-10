@@ -29,12 +29,43 @@
     "deactivate": "Devre Dışı Bırak",
     "activate": "Etkinleştir"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Ücretsiz"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AÇIK",
+    "off": "KAPALI",
+    "grantPersonal": "Personal Ver",
+    "revokePersonal": "Personal'ı İptal Et",
+    "grantBusiness": "Business Ver",
+    "revokeBusiness": "Business'ı İptal Et"
   },
-  "planActions": {
-    "setFree": "Ücretsiz Yap",
-    "setBusiness": "Business Yap"
+  "views": {
+    "users": "Kullanıcılar",
+    "requests": "Talepler",
+    "dashboard": "Araç Seçimi"
+  },
+  "requests": {
+    "loading": "Talepler yükleniyor…",
+    "none": "Bekleyen talep yok.",
+    "grant": "Onayla",
+    "dismiss": "Reddet"
+  },
+  "tools": {
+    "manage": "Araçları yönet",
+    "hide": "Araçları gizle",
+    "loading": "Araçlar yükleniyor…"
+  },
+  "dashboard": {
+    "loading": "Araç seçim verileri yükleniyor…",
+    "totalSelections": "Toplam araç seçimi",
+    "personalTools": "Kişisel araçlar",
+    "businessTools": "İş araçları",
+    "noData": "Henüz seçim yok.",
+    "sourceFilters": {
+      "all": "Tüm kaynaklar",
+      "self_service": "Kendi kendine seçim",
+      "admin_manual": "Yönetici tarafından verilen",
+      "plan_default": "Plan varsayılanı"
+    }
   }
 }

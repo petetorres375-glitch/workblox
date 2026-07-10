@@ -29,12 +29,43 @@
     "deactivate": "Deactiveren",
     "activate": "Activeren"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Gratis"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "AAN",
+    "off": "UIT",
+    "grantPersonal": "Personal toekennen",
+    "revokePersonal": "Personal intrekken",
+    "grantBusiness": "Business toekennen",
+    "revokeBusiness": "Business intrekken"
   },
-  "planActions": {
-    "setFree": "Instellen op Gratis",
-    "setBusiness": "Instellen op Business"
+  "views": {
+    "users": "Gebruikers",
+    "requests": "Aanvragen",
+    "dashboard": "Toolselectie"
+  },
+  "requests": {
+    "loading": "Aanvragen laden…",
+    "none": "Geen openstaande aanvragen.",
+    "grant": "Toekennen",
+    "dismiss": "Afwijzen"
+  },
+  "tools": {
+    "manage": "Tools beheren",
+    "hide": "Tools verbergen",
+    "loading": "Tools laden…"
+  },
+  "dashboard": {
+    "loading": "Toolselectiegegevens laden…",
+    "totalSelections": "Totaal aantal toolselecties",
+    "personalTools": "Personal-tools",
+    "businessTools": "Business-tools",
+    "noData": "Nog geen selecties.",
+    "sourceFilters": {
+      "all": "Alle bronnen",
+      "self_service": "Zelfbediening",
+      "admin_manual": "Handmatig door beheerder",
+      "plan_default": "Standaard van abonnement"
+    }
   }
 }

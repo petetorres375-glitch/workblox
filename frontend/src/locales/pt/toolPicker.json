@@ -1,0 +1,13 @@
+{
+  "signupTitle": "Escolha suas ferramentas",
+  "signupSubtitle": "Selecione as ferramentas que deseja ativar na sua conta. Você pode adicionar mais a qualquer momento em Configurações.",
+  "settingsTitle": "Suas ferramentas",
+  "settingsSubtitle": "Escolha quais ferramentas estão ativadas na sua conta. Novas ferramentas precisam de aprovação antes de estarem prontas para uso; remover uma ferramenta tem efeito imediato.",
+  "loading": "Carregando ferramentas…",
+  "selectedCount_one": "{{count}} ferramenta selecionada",
+  "selectedCount_other": "{{count}} ferramentas selecionadas",
+  "errorMinOne": "Selecione pelo menos uma ferramenta para continuar.",
+  "continueButton": "Continuar",
+  "saveButton": "Salvar",
+  "pendingApproval": "Aguardando aprovação"
+}

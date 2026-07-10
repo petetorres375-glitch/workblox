@@ -1,0 +1,14 @@
+{
+  "signupTitle": "Kies je tools",
+  "signupSubtitle": "Selecteer de tools die je wilt inschakelen voor je account. Je kunt op elk moment meer toevoegen via Instellingen.",
+  "settingsTitle": "Jouw tools",
+  "settingsSubtitle": "Kies welke tools zijn ingeschakeld voor je account. Nieuwe tools moeten worden goedgekeurd voordat ze klaar zijn voor gebruik; het verwijderen van een tool heeft direct effect.",
+  "loading": "Tools laden…",
+  "selectedCount_one": "{{count}} tool geselecteerd",
+  "selectedCount_other": "{{count}} tools geselecteerd",
+  "errorMinOne": "Selecteer minstens één tool om door te gaan.",
+  "continueButton": "Doorgaan",
+  "saveButton": "Opslaan",
+  "pendingApproval": "In afwachting van goedkeuring",
+  "contactsDeleteConfirm": "Als je Contacten verwijdert, worden je opgeslagen contacten permanent gewist. Doorgaan?"
+}

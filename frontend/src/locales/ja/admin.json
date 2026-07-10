@@ -29,12 +29,43 @@
     "deactivate": "無効化",
     "activate": "有効化"
   },
-  "plan": {
-    "business": "Business",
-    "free": "無料版"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "オン",
+    "off": "オフ",
+    "grantPersonal": "Personalを付与",
+    "revokePersonal": "Personalを取消",
+    "grantBusiness": "Businessを付与",
+    "revokeBusiness": "Businessを取消"
   },
-  "planActions": {
-    "setFree": "無料版に設定",
-    "setBusiness": "Businessに設定"
+  "views": {
+    "users": "ユーザー",
+    "requests": "リクエスト",
+    "dashboard": "ツール選択状況"
+  },
+  "requests": {
+    "loading": "リクエストを読み込み中…",
+    "none": "保留中のリクエストはありません。",
+    "grant": "付与",
+    "dismiss": "却下"
+  },
+  "tools": {
+    "manage": "ツールを管理",
+    "hide": "ツールを非表示",
+    "loading": "ツールを読み込み中…"
+  },
+  "dashboard": {
+    "loading": "ツール選択データを読み込み中…",
+    "totalSelections": "選択されたツールの合計",
+    "personalTools": "Personalツール",
+    "businessTools": "Businessツール",
+    "noData": "まだ選択がありません。",
+    "sourceFilters": {
+      "all": "すべてのソース",
+      "self_service": "セルフサービス",
+      "admin_manual": "管理者による付与",
+      "plan_default": "プラン既定"
+    }
   }
 }

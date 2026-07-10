@@ -29,12 +29,43 @@
     "deactivate": "Απενεργοποίηση",
     "activate": "Ενεργοποίηση"
   },
-  "plan": {
-    "business": "Business",
-    "free": "Δωρεάν"
+  "access": {
+    "personal": "Personal:",
+    "business": "Business:",
+    "on": "ΕΝΕΡΓΟ",
+    "off": "ΑΝΕΝΕΡΓΟ",
+    "grantPersonal": "Χορήγηση Personal",
+    "revokePersonal": "Ανάκληση Personal",
+    "grantBusiness": "Χορήγηση Business",
+    "revokeBusiness": "Ανάκληση Business"
   },
-  "planActions": {
-    "setFree": "Ορισμός ως Δωρεάν",
-    "setBusiness": "Ορισμός ως Business"
+  "views": {
+    "users": "Χρήστες",
+    "requests": "Αιτήματα",
+    "dashboard": "Επιλογή Εργαλείων"
+  },
+  "requests": {
+    "loading": "Φόρτωση αιτημάτων…",
+    "none": "Δεν υπάρχουν εκκρεμή αιτήματα.",
+    "grant": "Χορήγηση",
+    "dismiss": "Απόρριψη"
+  },
+  "tools": {
+    "manage": "Διαχείριση εργαλείων",
+    "hide": "Απόκρυψη εργαλείων",
+    "loading": "Φόρτωση εργαλείων…"
+  },
+  "dashboard": {
+    "loading": "Φόρτωση δεδομένων επιλογής εργαλείων…",
+    "totalSelections": "Συνολικές επιλογές εργαλείων",
+    "personalTools": "Εργαλεία Personal",
+    "businessTools": "Εργαλεία Business",
+    "noData": "Καμία επιλογή ακόμη.",
+    "sourceFilters": {
+      "all": "Όλες οι πηγές",
+      "self_service": "Αυτοεξυπηρέτηση",
+      "admin_manual": "Χορήγηση από Διαχειριστή",
+      "plan_default": "Προεπιλογή Πλάνου"
+    }
   }
 }
