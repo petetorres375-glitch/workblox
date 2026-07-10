@@ -9,6 +9,5 @@
   "errorMinOne": "Wybierz co najmniej jedno narzędzie, aby kontynuować.",
   "continueButton": "Kontynuuj",
   "saveButton": "Zapisz",
-  "pendingApproval": "Oczekuje na zatwierdzenie",
-  "contactsDeleteConfirm": "Usunięcie Kontaktów spowoduje trwałe usunięcie zapisanych kontaktów. Kontynuować?"
+  "pendingApproval": "Oczekuje na zatwierdzenie"
 }

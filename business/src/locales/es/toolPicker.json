@@ -9,6 +9,5 @@
   "errorMinOne": "Selecciona al menos una herramienta para continuar.",
   "continueButton": "Continuar",
   "saveButton": "Guardar",
-  "pendingApproval": "Aprobación pendiente",
-  "contactsDeleteConfirm": "Quitar Contactos eliminará permanentemente tus contactos guardados. ¿Continuar?"
+  "pendingApproval": "Aprobación pendiente"
 }

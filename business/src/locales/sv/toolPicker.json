@@ -9,6 +9,5 @@
   "errorMinOne": "Välj minst ett verktyg för att fortsätta.",
   "continueButton": "Fortsätt",
   "saveButton": "Spara",
-  "pendingApproval": "Väntar på godkännande",
-  "contactsDeleteConfirm": "Om du tar bort Kontakter raderas dina sparade kontakter permanent. Fortsätta?"
+  "pendingApproval": "Väntar på godkännande"
 }

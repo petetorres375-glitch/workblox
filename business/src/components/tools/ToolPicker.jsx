@@ -2,13 +2,10 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { get, post, put } from "../../api/client";
 
-const CONTACTS_KEY = "contacts";
-
 export default function ToolPicker({ variant = "settings", onDone }) {
   const { t } = useTranslation(["toolPicker", "nav"]);
   const [tools, setTools] = useState([]);
   const [selected, setSelected] = useState(new Set());
-  const [activeKeys, setActiveKeys] = useState(new Set());
   const [pendingKeys, setPendingKeys] = useState(new Set());
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -27,7 +24,6 @@ export default function ToolPicker({ variant = "settings", onDone }) {
         if (cancelled) return;
         setTools(toolList);
         setSelected(new Set([...entitlements.tool_keys, ...entitlements.pending_keys]));
-        setActiveKeys(new Set(entitlements.tool_keys));
         setPendingKeys(new Set(entitlements.pending_keys));
       } catch (err) {
         if (!cancelled) setError(err.message);
@@ -53,14 +49,6 @@ export default function ToolPicker({ variant = "settings", onDone }) {
       setError(t("errorMinOne"));
       return;
     }
-    // Contacts is the one tool with real stored per-user data -- deselecting
-    // an ACTIVE Contacts grant deletes that data server-side, so confirm
-    // before submitting. A merely-pending (never-granted) Contacts request
-    // has no data to lose, so it's excluded from this check.
-    const removingContacts = activeKeys.has(CONTACTS_KEY) && !selected.has(CONTACTS_KEY);
-    if (removingContacts && !window.confirm(t("contactsDeleteConfirm"))) {
-      return;
-    }
 
     setSaving(true);
     setError("");
@@ -72,7 +60,6 @@ export default function ToolPicker({ variant = "settings", onDone }) {
         await put("/api/entitlements", { tool_keys: Array.from(selected), app: "business" });
       } else {
         const result = await post("/api/entitlements/sync", { tool_keys: Array.from(selected), app: "business" });
-        setActiveKeys(new Set(result.tool_keys));
         setPendingKeys(new Set(result.pending_keys));
         setSelected(new Set([...result.tool_keys, ...result.pending_keys]));
       }

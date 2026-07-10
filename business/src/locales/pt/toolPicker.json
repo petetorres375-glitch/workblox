@@ -9,6 +9,5 @@
   "errorMinOne": "Selecione pelo menos uma ferramenta para continuar.",
   "continueButton": "Continuar",
   "saveButton": "Salvar",
-  "pendingApproval": "Aguardando aprovação",
-  "contactsDeleteConfirm": "Remover Contatos excluirá permanentemente seus contatos salvos. Continuar?"
+  "pendingApproval": "Aguardando aprovação"
 }

@@ -9,6 +9,5 @@
   "errorMinOne": "Selecteer minstens één tool om door te gaan.",
   "continueButton": "Doorgaan",
   "saveButton": "Opslaan",
-  "pendingApproval": "In afwachting van goedkeuring",
-  "contactsDeleteConfirm": "Als je Contacten verwijdert, worden je opgeslagen contacten permanent gewist. Doorgaan?"
+  "pendingApproval": "In afwachting van goedkeuring"
 }

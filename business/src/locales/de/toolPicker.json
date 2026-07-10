@@ -9,6 +9,5 @@
   "errorMinOne": "Wählen Sie mindestens ein Tool aus, um fortzufahren.",
   "continueButton": "Weiter",
   "saveButton": "Speichern",
-  "pendingApproval": "Genehmigung ausstehend",
-  "contactsDeleteConfirm": "Das Entfernen von Kontakten löscht Ihre gespeicherten Kontakte dauerhaft. Fortfahren?"
+  "pendingApproval": "Genehmigung ausstehend"
 }

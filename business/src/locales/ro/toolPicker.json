@@ -9,6 +9,5 @@
   "errorMinOne": "Selectează cel puțin un instrument pentru a continua.",
   "continueButton": "Continuă",
   "saveButton": "Salvează",
-  "pendingApproval": "În așteptarea aprobării",
-  "contactsDeleteConfirm": "Eliminarea Contactelor va șterge definitiv contactele salvate. Continui?"
+  "pendingApproval": "În așteptarea aprobării"
 }

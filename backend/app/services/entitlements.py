@@ -28,9 +28,6 @@ TOOL_SEED = [
     ("sop", "SOP Generator", "business"),
 ]
 
-CONTACTS_TOOL_KEY = "contacts"
-
-
 def seed_tools():
     """Insert any tool from TOOL_SEED not already in the `tools` table.
     Safe to call on every startup -- existing rows are left untouched."""
@@ -91,9 +88,12 @@ def require_tool(tool_key: str):
 
 
 def _apply_entitlement(user_id, tool, enabled: bool, source: str):
-    """Mutates the session but does not commit -- callers commit once."""
+    """Mutates the session but does not commit -- callers commit once.
+    Disabling a tool only revokes access -- it never deletes the underlying
+    data (e.g. a client's saved Contacts). Re-enabling the tool later
+    restores whatever was there before."""
     from .. import db
-    from ..models import Contact, UserEntitlement
+    from ..models import UserEntitlement
 
     existing = UserEntitlement.query.filter_by(user_id=user_id, tool_id=tool.id).first()
     if enabled:
@@ -107,15 +107,12 @@ def _apply_entitlement(user_id, tool, enabled: bool, source: str):
     else:
         if existing:
             db.session.delete(existing)
-        if tool.key == CONTACTS_TOOL_KEY:
-            Contact.query.filter_by(user_id=user_id).delete()
 
 
 def set_entitlement(user_id, tool_key: str, enabled: bool, source: str):
     """Add or remove a single tool entitlement (the admin one-tool-at-a-time
-    path). Shares _apply_entitlement with set_entitlements so the Contacts
-    delete-on-remove behavior can never drift between the self-service and
-    admin routes."""
+    path). Shares _apply_entitlement with set_entitlements so this can
+    never drift from the self-service route."""
     from .. import db
     from ..models import Tool
 
@@ -173,9 +170,8 @@ def sync_tool_selection(user_id, tool_keys, app: str):
     NEWLY checked tool doesn't take effect immediately -- it becomes a
     pending ToolRequest for Pedro to grant or dismiss. Removing a tool the
     user already has active still happens immediately (giving up access
-    needs no approval, and this preserves the existing Contacts-delete-on-
-    remove behavior via _apply_entitlement). Unchecking a tool that was only
-    pending just cancels that request. Returns the resulting
+    needs no approval). Unchecking a tool that was only pending just
+    cancels that request. Returns the resulting
     (active_keys, pending_keys), both scoped to `app`."""
     from .. import db
     from ..models import Tool, ToolRequest

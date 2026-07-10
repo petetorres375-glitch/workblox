@@ -9,6 +9,5 @@
   "errorMinOne": "请至少选择一个工具以继续。",
   "continueButton": "继续",
   "saveButton": "保存",
-  "pendingApproval": "待审批",
-  "contactsDeleteConfirm": "移除联系人将永久删除您已保存的联系人。是否继续？"
+  "pendingApproval": "待审批"
 }

@@ -9,6 +9,5 @@
   "errorMinOne": "続けるにはツールを1つ以上選択してください。",
   "continueButton": "続ける",
   "saveButton": "保存",
-  "pendingApproval": "承認待ち",
-  "contactsDeleteConfirm": "連絡先を削除すると、保存された連絡先が完全に削除されます。続けますか？"
+  "pendingApproval": "承認待ち"
 }

@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 
-from app.models import Tool, ToolRequest, User, UserEntitlement
+from app.models import Contact, Tool, ToolRequest, User, UserEntitlement
 
 
 def _as_user(user_id):
@@ -32,6 +32,11 @@ def test_user(client):
     with client.application.app_context():
         UserEntitlement.query.filter_by(user_id=user_id).delete()
         ToolRequest.query.filter_by(user_id=user_id).delete()
+        # Contacts are no longer deleted as a side effect of disabling the
+        # tool (see _apply_entitlement), so this fixture must clean them up
+        # itself -- otherwise leftover rows bleed into a later test that
+        # happens to reuse this same recycled SQLite rowid.
+        Contact.query.filter_by(user_id=user_id).delete()
         User.query.filter_by(id=user_id).delete()
         db.session.commit()
 
@@ -96,7 +101,7 @@ def test_put_entitlements_rejects_unknown_key(client, test_user):
     assert rv.status_code == 400
 
 
-def test_removing_contacts_deletes_contact_rows(client, test_user):
+def test_removing_contacts_preserves_contact_rows(client, test_user):
     from app import db
     from app.models import Contact
 
@@ -114,8 +119,19 @@ def test_removing_contacts_deletes_contact_rows(client, test_user):
         rv = client.put("/api/entitlements", json={"tool_keys": ["resume"]})
     assert rv.status_code == 200
 
+    # Removing the tool only revokes access -- the client's saved contacts
+    # are kept and reappear if they turn Contacts back on.
     with client.application.app_context():
-        assert Contact.query.filter_by(user_id=test_user).count() == 0
+        assert Contact.query.filter_by(user_id=test_user).count() == 1
+
+    with _as_user(test_user):
+        rv = client.put("/api/entitlements", json={"tool_keys": ["contacts", "resume"]})
+    assert rv.status_code == 200
+
+    with client.application.app_context():
+        contact = Contact.query.filter_by(user_id=test_user).first()
+        assert contact is not None
+        assert contact.first_name == "Jane"
 
 
 def test_get_entitlements_scoped_by_app(client, test_user):

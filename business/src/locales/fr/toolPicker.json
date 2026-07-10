@@ -9,6 +9,5 @@
   "errorMinOne": "Sélectionnez au moins un outil pour continuer.",
   "continueButton": "Continuer",
   "saveButton": "Enregistrer",
-  "pendingApproval": "En attente d'approbation",
-  "contactsDeleteConfirm": "La suppression de Contacts effacera définitivement vos contacts enregistrés. Continuer ?"
+  "pendingApproval": "En attente d'approbation"
 }
