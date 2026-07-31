@@ -1,5 +1,6 @@
 import os
 import re
+import unicodedata
 from datetime import datetime
 
 KEYWORDS = {
@@ -321,6 +322,81 @@ def normalize(text):
         .replace('“', '"').replace('”', '"')
         .replace('—', '-').replace('–', '-')
     )
+
+
+# Everything below scores a resume by matching ~715 hardcoded English terms, so
+# the engine only produces a meaningful number for an English resume. Given a
+# resume in any other language it does not fail -- it matches nothing and
+# reports 0/100, which reads as "your resume is terrible" rather than "this
+# tool cannot read it". Detect that case up front and say so instead.
+
+# Only reject on positive evidence of another language, never on absence of
+# English. A terse, keyword-stuffed English resume ("Built microservices. Led
+# migration.") contains almost no English function words either, and wrongly
+# refusing to score one of those is worse than the bug this guards against.
+_ENGLISH_FUNCTION_WORDS = frozenset("""
+    and the of with for to an by from are was were been
+    my our their his her its this that these those not all any each
+""".split())
+
+# Function words from the Latin-script languages the UI supports. Tokens that
+# are also ordinary English resume words (a, in, is, on, at, as, or, do, no,
+# os, van) are deliberately left out -- a collision here costs a real user a
+# real score.
+_NON_ENGLISH_FUNCTION_WORDS = frozenset("""
+    de la el en y con para los las del por un una que su
+    le les des et du dans sur au aux
+    und der die das den von mit fur im ein eine bei auch ist
+    da em nao com uma pelo pela
+    di il per della dei nel gli
+    het een voor dat te zijn
+    w na nie oraz dla jest sie
+    ve ile icin bir bu olarak
+    va cua cac trong cho voi duoc
+    dan yang untuk dengan dari pada
+    och att av som det
+    pro je se
+    si cu pentru
+""".split())
+
+# Below this a resume is mostly headings and contact lines, too sparse to judge.
+_MIN_WORDS_FOR_LANGUAGE_CHECK = 40
+_MAX_NON_LATIN_LETTER_RATIO = 0.20
+# Another language has to be clearly dominant, not merely present -- English
+# resumes legitimately contain "de" and "la" in names and place names.
+_FOREIGN_DOMINANCE_RATIO = 2.0
+_MIN_FOREIGN_RATIO = 0.06
+
+
+def check_language_support(text):
+    """Decide whether this resume can be scored meaningfully.
+
+    Returns (supported, reason) where reason is a short machine-readable code
+    for the client to translate: "non_latin_script" or "not_english".
+    """
+    letters = [c for c in text if c.isalpha()]
+    if letters:
+        # Arabic, Hebrew, CJK, Thai, Devanagari, Cyrillic: unambiguous.
+        non_latin = sum(1 for c in letters if ord(c) > 0x24F)
+        if non_latin / len(letters) > _MAX_NON_LATIN_LETTER_RATIO:
+            return False, "non_latin_script"
+
+    # Fold accents so "funcion" and "fur" tokenize as plain ASCII words.
+    folded = unicodedata.normalize("NFKD", text.lower())
+    folded = "".join(c for c in folded if not unicodedata.combining(c))
+    words = re.findall(r"[a-z']+", folded)
+    if len(words) < _MIN_WORDS_FOR_LANGUAGE_CHECK:
+        # Too sparse to judge; score it rather than block on a guess.
+        return True, None
+
+    english = sum(1 for w in words if w in _ENGLISH_FUNCTION_WORDS)
+    foreign = sum(1 for w in words if w in _NON_ENGLISH_FUNCTION_WORDS)
+
+    if (foreign / len(words) >= _MIN_FOREIGN_RATIO
+            and foreign >= english * _FOREIGN_DOMINANCE_RATIO):
+        return False, "not_english"
+
+    return True, None
 
 
 def match_keywords(text, keyword_list):

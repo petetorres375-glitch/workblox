@@ -15,7 +15,7 @@ export default function ATSAnalyzer() {
   const [data, setData]           = useState(null);
   const [downloading, setDownloading] = useState(null);
   const fileRef = useRef();
-  const { loading, error, call }  = useApi();
+  const { loading, error, errorCode, call }  = useApi();
 
   useEffect(() => {
     const token = localStorage.getItem("wb_token");
@@ -171,7 +171,15 @@ export default function ATSAnalyzer() {
         </button>
       </form>
 
-      {error && <div className="error-banner" style={{ marginTop: 16 }}>{error}</div>}
+      {error && (
+        <div className="error-banner" style={{ marginTop: 16 }}>
+          {/* The engine only scores English resumes; show our own copy for that
+              case so it reads in the user's language once translated. */}
+          {errorCode === "not_english" || errorCode === "non_latin_script"
+            ? t("unsupportedLanguage")
+            : error}
+        </div>
+      )}
 
       {data && !loading && (
         <>
