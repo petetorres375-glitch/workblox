@@ -3,39 +3,38 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const title = data.job_title || "Position";
-  const lines = [`HIRING PACKAGE — ${title.toUpperCase()}`, "=".repeat(60), ""];
-  lines.push("POSITION SUMMARY", "-".repeat(40), data.position_summary || "", "");
-  lines.push("INTERVIEW QUESTIONS", "-".repeat(40));
+function buildTxt(data, t) {
+  const lines = [`${reportTitle(t)}${data.job_title ? ` — ${data.job_title}` : ""}`, "=".repeat(60), ""];
+  lines.push(t("positionSummary"), "-".repeat(40), data.position_summary || "", "");
+  lines.push(t("interviewQuestions"), "-".repeat(40));
   (data.interview_questions || []).forEach((q, i) => lines.push(`${i + 1}. ${q}`));
-  lines.push("", "EVALUATION CRITERIA", "-".repeat(40));
+  lines.push("", t("evaluationCriteria"), "-".repeat(40));
   (data.evaluation_criteria || []).forEach((c, i) => lines.push(`${i + 1}. ${c}`));
   if (data.red_flags?.length) {
-    lines.push("", "RED FLAGS TO WATCH", "-".repeat(40));
+    lines.push("", t("redFlags"), "-".repeat(40));
     data.red_flags.forEach((f, i) => lines.push(`${i + 1}. ${f}`));
   }
   if (data.onboarding_tips?.length) {
-    lines.push("", "ONBOARDING TIPS", "-".repeat(40));
+    lines.push("", t("onboardingTips"), "-".repeat(40));
     data.onboarding_tips.forEach((t, i) => lines.push(`${i + 1}. ${t}`));
   }
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const title = data.job_title || "Position";
-  const lines = [`# Hiring Package — ${title}`, "", "## Position Summary", data.position_summary || "", ""];
-  lines.push("## Interview Questions");
+function buildMd(data, t) {
+  const lines = [`# ${reportTitle(t)}${data.job_title ? ` — ${data.job_title}` : ""}`, "", `## ${t("positionSummary")}`, data.position_summary || "", ""];
+  lines.push(`## ${t("interviewQuestions")}`);
   (data.interview_questions || []).forEach((q) => lines.push(`- ${q}`));
-  lines.push("", "## Evaluation Criteria");
+  lines.push("", `## ${t("evaluationCriteria")}`);
   (data.evaluation_criteria || []).forEach((c) => lines.push(`- ${c}`));
   if (data.red_flags?.length) {
-    lines.push("", "## Red Flags to Watch");
+    lines.push("", `## ${t("redFlags")}`);
     data.red_flags.forEach((f) => lines.push(`- ${f}`));
   }
   if (data.onboarding_tips?.length) {
-    lines.push("", "## Onboarding Tips");
+    lines.push("", `## ${t("onboardingTips")}`);
     data.onboarding_tips.forEach((t) => lines.push(`- ${t}`));
   }
   return lines.join("\n");
@@ -113,9 +112,9 @@ export default function HiringManager() {
           )}
           <ReportToolbar
             filename={slug(data.job_title) || "hiring_package"}
-            subject={`Hiring Package — ${data.job_title}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)} — ${data.job_title}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

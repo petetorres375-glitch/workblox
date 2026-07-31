@@ -6,28 +6,28 @@ import ReportToolbar, { slug } from "../ui/ReportToolbar";
 
 const PLATFORM_COLORS = { LinkedIn: "#0077b5", Instagram: "#e1306c", Facebook: "#1877f2", Twitter: "#1da1f2", TikTok: "#000000" };
 
-function buildTxt(data, topic) {
-  const lines = [`SOCIAL MEDIA POSTS${topic ? ` — ${topic.toUpperCase()}` : ""}`, "=".repeat(60)];
+function buildTxt(data, topic, t) {
+  const lines = [`${t("docTitle")}${topic ? ` — ${topic}` : ""}`, "=".repeat(60)];
   (data.posts || []).forEach((p) => {
-    lines.push("", p.platform.toUpperCase(), "-".repeat(40), p.content || "");
+    lines.push("", p.platform, "-".repeat(40), p.content || "");
     if (p.hashtags?.length) lines.push("", p.hashtags.map(h => `#${h}`).join(" "));
-    if (p.best_time_to_post) lines.push(`Best time to post: ${p.best_time_to_post}`);
+    if (p.best_time_to_post) lines.push(t("bestTime", { time: p.best_time_to_post }));
   });
   if (data.content_tips?.length) {
-    lines.push("", "CONTENT TIPS", "-".repeat(40));
+    lines.push("", t("contentTips"), "-".repeat(40));
     data.content_tips.forEach((t, i) => lines.push(`${i + 1}. ${t}`));
   }
   return lines.join("\n");
 }
 
-function buildMd(data, topic) {
-  const lines = [`# Social Media Posts${topic ? ` — ${topic}` : ""}`];
+function buildMd(data, topic, t) {
+  const lines = [`# ${t("docTitle")}${topic ? ` — ${topic}` : ""}`];
   (data.posts || []).forEach((p) => {
     lines.push("", `## ${p.platform}`, p.content || "");
     if (p.hashtags?.length) lines.push("", p.hashtags.map(h => `#${h}`).join(" "));
-    if (p.best_time_to_post) lines.push(``, `*Best time: ${p.best_time_to_post}*`);
+    if (p.best_time_to_post) lines.push(``, `*${t("bestTime", { time: p.best_time_to_post })}*`);
   });
-  if (data.content_tips?.length) { lines.push("", "## Content Tips"); data.content_tips.forEach((t) => lines.push(`- ${t}`)); }
+  if (data.content_tips?.length) { lines.push("", `## ${t("contentTips")}`); data.content_tips.forEach((t) => lines.push(`- ${t}`)); }
   return lines.join("\n");
 }
 
@@ -98,8 +98,8 @@ export default function SocialMediaGenerator() {
           <ReportToolbar
             filename={slug(topic) || "social_media_posts"}
             subject={`${t("docTitle")}${topic ? ` — ${topic}` : ""}`}
-            txtContent={buildTxt(data, topic)}
-            mdContent={buildMd(data, topic)}
+            txtContent={buildTxt(data, topic, t)}
+            mdContent={buildMd(data, topic, t)}
           />
         </>
       )}

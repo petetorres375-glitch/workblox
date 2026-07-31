@@ -4,21 +4,22 @@ import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
 
-function buildTxt(data) {
-  const lines = [data.title || "POLICY DOCUMENT", "=".repeat(60), `Effective: ${data.effective_date_placeholder || ""}`, ""];
-  if (data.purpose) lines.push("PURPOSE", "-".repeat(40), data.purpose, "");
-  if (data.scope) lines.push("SCOPE", "-".repeat(40), data.scope, "");
-  (data.sections || []).forEach((s) => { lines.push(s.heading.toUpperCase(), "-".repeat(40), s.content, ""); });
-  if (data.acknowledgment_statement) lines.push("ACKNOWLEDGMENT", "-".repeat(40), data.acknowledgment_statement);
+function buildTxt(data, t) {
+  const lines = [data.title || t("policyDocument"), "=".repeat(60), t("effective", { date: data.effective_date_placeholder || "" }), ""];
+  if (data.purpose) lines.push(t("purpose"), "-".repeat(40), data.purpose, "");
+  if (data.scope) lines.push(t("scope"), "-".repeat(40), data.scope, "");
+  // Section headings come back from the model already in the report language.
+  (data.sections || []).forEach((s) => { lines.push(s.heading, "-".repeat(40), s.content, ""); });
+  if (data.acknowledgment_statement) lines.push(t("acknowledgment"), "-".repeat(40), data.acknowledgment_statement);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = [`# ${data.title || "Policy Document"}`, "", `*Effective: ${data.effective_date_placeholder || ""}*`];
-  if (data.purpose) lines.push("", "## Purpose", data.purpose);
-  if (data.scope) lines.push("", "## Scope", data.scope);
+function buildMd(data, t) {
+  const lines = [`# ${data.title || t("policyDocument")}`, "", `*${t("effective", { date: data.effective_date_placeholder || "" })}*`];
+  if (data.purpose) lines.push("", `## ${t("purpose")}`, data.purpose);
+  if (data.scope) lines.push("", `## ${t("scope")}`, data.scope);
   (data.sections || []).forEach((s) => lines.push("", `## ${s.heading}`, s.content));
-  if (data.acknowledgment_statement) lines.push("", "## Acknowledgment", `*${data.acknowledgment_statement}*`);
+  if (data.acknowledgment_statement) lines.push("", `## ${t("acknowledgment")}`, `*${data.acknowledgment_statement}*`);
   return lines.join("\n");
 }
 
@@ -60,7 +61,7 @@ export default function PolicyGenerator() {
           <div className="result-card">
             <div className="result-header">
               <p className="result-label">{t("policyDocument")}</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data))}>{t("copyAll")}</button>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data, t))}>{t("copyAll")}</button>
             </div>
             <p style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "0.25rem" }}>{data.title}</p>
             <p style={{ fontSize: "0.82rem", color: "var(--text-hint)" }}>{t("effective", { date: data.effective_date_placeholder })}</p>
@@ -92,8 +93,8 @@ export default function PolicyGenerator() {
           <ReportToolbar
             filename={slug(policyType) || "policy"}
             subject={`${t("policyPrefix")} — ${data.title || policyType}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

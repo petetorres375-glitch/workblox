@@ -3,32 +3,33 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { postForm } from "../../api/client";
 import ReportToolbar from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
 const LEVEL_COLOR = { Strong: "#16a34a", Good: "#2563eb", Fair: "#b45309", Weak: "#dc2626" };
 const REC_COLOR = { Advance: "#16a34a", Maybe: "#b45309", Pass: "#dc2626" };
 
-function buildTxt(data) {
-  const lines = ["BATCH ATS ANALYSIS RESULTS", "=".repeat(60), `${data.total} resume${data.total !== 1 ? "s" : ""} analyzed`];
+function buildTxt(data, t) {
+  const lines = [reportTitle(t), "=".repeat(60), t("resumesAnalyzed", { count: data.total })];
   const sorted = [...(data.results || [])].sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
   sorted.forEach((r, i) => {
     lines.push("", `[${i + 1}] ${r.candidate_name || r.filename}`, "-".repeat(40));
-    if (r.error) { lines.push(`Error: ${r.error}`); return; }
+    if (r.error) { lines.push(t("errorLabel", { error: r.error })); return; }
     lines.push(`File: ${r.filename}`, `Match: ${r.match_score}% (${r.match_level}) — ${r.recommendation}`);
-    if (r.top_strengths?.length) lines.push(`Strengths: ${r.top_strengths.join(", ")}`);
-    if (r.concerns?.length) lines.push(`Concerns: ${r.concerns.join(", ")}`);
+    if (r.top_strengths?.length) lines.push(`${t("strengths")}: ${r.top_strengths.join(", ")}`);
+    if (r.concerns?.length) lines.push(`${t("concerns")}: ${r.concerns.join(", ")}`);
   });
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = ["# Batch ATS Analysis Results", "", `**${data.total} resume${data.total !== 1 ? "s" : ""} analyzed**`];
+function buildMd(data, t) {
+  const lines = [`# ${reportTitle(t)}`, "", `**${t("resumesAnalyzed", { count: data.total })}**`];
   const sorted = [...(data.results || [])].sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
   sorted.forEach((r, i) => {
     lines.push("", `## ${i + 1}. ${r.candidate_name || r.filename}`);
-    if (r.error) { lines.push(`*Error: ${r.error}*`); return; }
+    if (r.error) { lines.push(`*${t("errorLabel", { error: r.error })}*`); return; }
     lines.push(`**Match:** ${r.match_score}% (${r.match_level}) — **${r.recommendation}**`);
-    if (r.top_strengths?.length) { lines.push("", "**Strengths:**"); r.top_strengths.forEach((s) => lines.push(`- ${s}`)); }
-    if (r.concerns?.length) { lines.push("", "**Concerns:**"); r.concerns.forEach((c) => lines.push(`- ${c}`)); }
+    if (r.top_strengths?.length) { lines.push("", `**${t("strengths")}:**`); r.top_strengths.forEach((s) => lines.push(`- ${s}`)); }
+    if (r.concerns?.length) { lines.push("", `**${t("concerns")}:**`); r.concerns.forEach((c) => lines.push(`- ${c}`)); }
   });
   return lines.join("\n");
 }
@@ -137,9 +138,9 @@ export default function BatchATSAnalyzer() {
           </div>
           <ReportToolbar
             filename="ats_batch_results"
-            subject={`Batch ATS Results — ${data.total} Resume${data.total !== 1 ? "s" : ""}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)} — ${t("resumesAnalyzed", { count: data.total })}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

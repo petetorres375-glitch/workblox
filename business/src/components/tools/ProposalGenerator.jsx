@@ -3,40 +3,41 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data, clientName) {
-  const header = clientName ? `PROPOSAL — ${clientName.toUpperCase()}` : "PROPOSAL";
-  const lines = [header, "=".repeat(60), "", "EXECUTIVE SUMMARY", "-".repeat(40), data.executive_summary || ""];
+function buildTxt(data, clientName, t) {
+  const header = clientName ? `${reportTitle(t)} — ${clientName}` : reportTitle(t);
+  const lines = [header, "=".repeat(60), "", t("executiveSummary"), "-".repeat(40), data.executive_summary || ""];
   if (data.scope_of_work?.length) {
-    lines.push("", "SCOPE OF WORK", "-".repeat(40));
+    lines.push("", t("scopeOfWork"), "-".repeat(40));
     data.scope_of_work.forEach((s, i) => lines.push(`${i + 1}. ${s}`));
   }
   if (data.deliverables?.length) {
-    lines.push("", "DELIVERABLES", "-".repeat(40));
+    lines.push("", t("deliverables"), "-".repeat(40));
     data.deliverables.forEach((d, i) => lines.push(`${i + 1}. ${d}`));
   }
   if (data.line_items?.length) {
-    lines.push("", "LINE ITEMS", "-".repeat(40));
-    lines.push("Description                          Qty    Unit Price    Total");
+    lines.push("", t("lineItems"), "-".repeat(40));
+    lines.push(`${t("table.description").padEnd(36)} ${t("table.qty").padEnd(6)} ${t("table.unitPrice").padEnd(14)} ${t("table.total")}`);
     data.line_items.forEach((item) => {
       lines.push(`${item.description.padEnd(36)} ${String(item.quantity).padEnd(6)} $${String(Number(item.unit_price).toLocaleString()).padEnd(13)} $${Number(item.total).toLocaleString()}`);
     });
-    if (data.subtotal != null) lines.push("", `TOTAL: $${Number(data.subtotal).toLocaleString()}`);
+    if (data.subtotal != null) lines.push("", `${t("table.total")}: $${Number(data.subtotal).toLocaleString()}`);
   }
-  if (data.terms) lines.push("", "TERMS", "-".repeat(40), data.terms);
+  if (data.terms) lines.push("", t("terms"), "-".repeat(40), data.terms);
   return lines.join("\n");
 }
 
-function buildMd(data, clientName) {
-  const lines = [`# ${clientName ? `Proposal — ${clientName}` : "Proposal"}`, "", "## Executive Summary", data.executive_summary || ""];
-  if (data.scope_of_work?.length) { lines.push("", "## Scope of Work"); data.scope_of_work.forEach((s) => lines.push(`- ${s}`)); }
-  if (data.deliverables?.length) { lines.push("", "## Deliverables"); data.deliverables.forEach((d) => lines.push(`- ${d}`)); }
+function buildMd(data, clientName, t) {
+  const lines = [`# ${clientName ? `${reportTitle(t)} — ${clientName}` : reportTitle(t)}`, "", `## ${t("executiveSummary")}`, data.executive_summary || ""];
+  if (data.scope_of_work?.length) { lines.push("", `## ${t("scopeOfWork")}`); data.scope_of_work.forEach((s) => lines.push(`- ${s}`)); }
+  if (data.deliverables?.length) { lines.push("", `## ${t("deliverables")}`); data.deliverables.forEach((d) => lines.push(`- ${d}`)); }
   if (data.line_items?.length) {
-    lines.push("", "## Line Items", "", "| Description | Qty | Unit Price | Total |", "|---|---|---|---|");
+    lines.push("", `## ${t("lineItems")}`, "", `| ${t("table.description")} | ${t("table.qty")} | ${t("table.unitPrice")} | ${t("table.total")} |`, "|---|---|---|---|");
     data.line_items.forEach((item) => lines.push(`| ${item.description} | ${item.quantity} | $${Number(item.unit_price).toLocaleString()} | $${Number(item.total).toLocaleString()} |`));
-    if (data.subtotal != null) lines.push("", `**Total: $${Number(data.subtotal).toLocaleString()}**`);
+    if (data.subtotal != null) lines.push("", `**${t("table.total")}: $${Number(data.subtotal).toLocaleString()}**`);
   }
-  if (data.terms) lines.push("", "## Terms", data.terms);
+  if (data.terms) lines.push("", `## ${t("terms")}`, data.terms);
   return lines.join("\n");
 }
 
@@ -133,9 +134,9 @@ export default function ProposalGenerator() {
           )}
           <ReportToolbar
             filename={slug(clientName) || "proposal"}
-            subject={`Proposal${clientName ? ` — ${clientName}` : ""}`}
-            txtContent={buildTxt(data, clientName)}
-            mdContent={buildMd(data, clientName)}
+            subject={`${reportTitle(t)}${clientName ? ` — ${clientName}` : ""}`}
+            txtContent={buildTxt(data, clientName, t)}
+            mdContent={buildMd(data, clientName, t)}
           />
         </>
       )}

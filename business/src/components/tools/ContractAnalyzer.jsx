@@ -4,6 +4,7 @@ import { useApi } from "../../hooks/useApi";
 import { postForm } from "../../api/client";
 import { compressImage } from "../../utils/imageCapture";
 import ReportToolbar from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
 const MAX_PHOTOS = 6;
 const RISK_COLOR = { low: "#16a34a", medium: "#b45309", high: "#dc2626" };
@@ -15,37 +16,42 @@ function isImageFile(f) {
   return f.type.startsWith("image/") || IMAGE_EXTENSIONS.test(f.name);
 }
 
-function buildTxt(data, fileName) {
-  const lines = [`CONTRACT ANALYSIS — ${(data.document_type || fileName || "Document").toUpperCase()}`, "=".repeat(60)];
-  if (data.overall_risk) lines.push(`Overall Risk: ${data.overall_risk.toUpperCase()}`);
-  lines.push("", "SUMMARY", "-".repeat(40), data.summary || "");
+// Exported reports reuse the same translated labels as the on-screen result,
+// so a report reads in the language it was generated in. Headings are left in
+// their natural case: uppercasing is wrong for Turkish (i -> I) and a no-op for
+// every non-cased script, and the PDF finds headings by the ---- rule anyway.
+function buildTxt(data, fileName, t) {
+  const subject = data.document_type || fileName || "";
+  const lines = [`${reportTitle(t)} — ${subject}`.trim(), "=".repeat(60)];
+  if (data.overall_risk) lines.push(t(`risk.${data.overall_risk}`));
+  lines.push("", t("documentOverview"), "-".repeat(40), data.summary || "");
   if (data.key_obligations?.length) {
-    lines.push("", "KEY OBLIGATIONS", "-".repeat(40));
+    lines.push("", t("keyObligations"), "-".repeat(40));
     data.key_obligations.forEach((o, i) => lines.push(`${i + 1}. ${o}`));
   }
-  if (data.payment_terms) lines.push("", "PAYMENT TERMS", "-".repeat(40), data.payment_terms);
+  if (data.payment_terms) lines.push("", t("paymentTerms"), "-".repeat(40), data.payment_terms);
   if (data.red_flags?.length) {
-    lines.push("", "RED FLAGS", "-".repeat(40));
+    lines.push("", t("redFlags"), "-".repeat(40));
     data.red_flags.forEach((f, i) => lines.push(`${i + 1}. ${f}`));
   }
   if (data.missing_standard_clauses?.length) {
-    lines.push("", "MISSING STANDARD CLAUSES", "-".repeat(40));
+    lines.push("", t("missingClauses"), "-".repeat(40));
     data.missing_standard_clauses.forEach((c, i) => lines.push(`${i + 1}. ${c}`));
   }
-  if (data.recommendation) lines.push("", "RECOMMENDATION", "-".repeat(40), data.recommendation);
+  if (data.recommendation) lines.push("", t("recommendation"), "-".repeat(40), data.recommendation);
   return lines.join("\n");
 }
 
-function buildMd(data, fileName) {
-  const title = data.document_type || fileName || "Document";
-  const lines = [`# Contract Analysis — ${title}`];
-  if (data.overall_risk) lines.push(``, `**Overall Risk: ${data.overall_risk.toUpperCase()}**`);
-  lines.push("", "## Summary", data.summary || "");
-  if (data.key_obligations?.length) { lines.push("", "## Key Obligations"); data.key_obligations.forEach((o) => lines.push(`- ${o}`)); }
-  if (data.payment_terms) lines.push("", "## Payment Terms", data.payment_terms);
-  if (data.red_flags?.length) { lines.push("", "## Red Flags"); data.red_flags.forEach((f) => lines.push(`- ${f}`)); }
-  if (data.missing_standard_clauses?.length) { lines.push("", "## Missing Standard Clauses"); data.missing_standard_clauses.forEach((c) => lines.push(`- ${c}`)); }
-  if (data.recommendation) lines.push("", "## Recommendation", data.recommendation);
+function buildMd(data, fileName, t) {
+  const subject = data.document_type || fileName || "";
+  const lines = [`# ${reportTitle(t)} — ${subject}`.trim()];
+  if (data.overall_risk) lines.push(``, `**${t(`risk.${data.overall_risk}`)}**`);
+  lines.push("", `## ${t("documentOverview")}`, data.summary || "");
+  if (data.key_obligations?.length) { lines.push("", `## ${t("keyObligations")}`); data.key_obligations.forEach((o) => lines.push(`- ${o}`)); }
+  if (data.payment_terms) lines.push("", `## ${t("paymentTerms")}`, data.payment_terms);
+  if (data.red_flags?.length) { lines.push("", `## ${t("redFlags")}`); data.red_flags.forEach((f) => lines.push(`- ${f}`)); }
+  if (data.missing_standard_clauses?.length) { lines.push("", `## ${t("missingClauses")}`); data.missing_standard_clauses.forEach((c) => lines.push(`- ${c}`)); }
+  if (data.recommendation) lines.push("", `## ${t("recommendation")}`, data.recommendation);
   return lines.join("\n");
 }
 
@@ -239,9 +245,9 @@ export default function ContractAnalyzer() {
           )}
           <ReportToolbar
             filename={`${baseName}_analysis`}
-            subject={`Contract Analysis — ${data.document_type || baseName}`}
-            txtContent={buildTxt(data, baseName)}
-            mdContent={buildMd(data, baseName)}
+            subject={`${reportTitle(t)} — ${data.document_type || baseName}`}
+            txtContent={buildTxt(data, baseName, t)}
+            mdContent={buildMd(data, baseName, t)}
           />
         </>
       )}

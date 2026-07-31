@@ -10,6 +10,7 @@ gunicorn
 pytest
 pdfplumber
 fpdf2
+uharfbuzz  # text shaping for Arabic/Hebrew/Indic PDF output
 python-docx
 openai
 google-auth

@@ -3,40 +3,41 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const lines = ["STANDARD OPERATING PROCEDURE", "=".repeat(60), data.title || "", `Frequency: ${data.frequency || ""}`, "", "PURPOSE", "-".repeat(40), data.purpose || ""];
+function buildTxt(data, t) {
+  const lines = [data.title || reportTitle(t), "=".repeat(60), t("frequencyLabel", { frequency: data.frequency || "" }), "", t("overview"), "-".repeat(40), data.purpose || ""];
   if (data.required_tools?.length) {
-    lines.push("", "REQUIRED TOOLS / RESOURCES", "-".repeat(40));
+    lines.push("", t("requiredTools"), "-".repeat(40));
     data.required_tools.forEach((t, i) => lines.push(`${i + 1}. ${t}`));
   }
   if (data.steps?.length) {
-    lines.push("", "STEPS", "-".repeat(40));
+    lines.push("", t("steps"), "-".repeat(40));
     data.steps.forEach((step) => {
-      lines.push(``, `Step ${step.step_number}: ${step.action}`, step.details || "");
+      lines.push(``, t("stepLabel", { number: step.step_number, action: step.action }), step.details || "");
       if (step.warning) lines.push(`⚠ ${step.warning}`);
     });
   }
   if (data.quality_checks?.length) {
-    lines.push("", "QUALITY CHECKS", "-".repeat(40));
+    lines.push("", t("qualityChecks"), "-".repeat(40));
     data.quality_checks.forEach((q, i) => lines.push(`${i + 1}. ${q}`));
   }
-  if (data.notes) lines.push("", "NOTES", "-".repeat(40), data.notes);
+  if (data.notes) lines.push("", t("notes"), "-".repeat(40), data.notes);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = [`# ${data.title || "Standard Operating Procedure"}`, "", `**Frequency:** ${data.frequency || ""}`, "", "## Purpose", data.purpose || ""];
-  if (data.required_tools?.length) { lines.push("", "## Required Tools / Resources"); data.required_tools.forEach((t) => lines.push(`- ${t}`)); }
+function buildMd(data, t) {
+  const lines = [`# ${data.title || reportTitle(t)}`, "", `**${t("frequencyLabel", { frequency: data.frequency || "" })}**`, "", `## ${t("overview")}`, data.purpose || ""];
+  if (data.required_tools?.length) { lines.push("", `## ${t("requiredTools")}`); data.required_tools.forEach((t) => lines.push(`- ${t}`)); }
   if (data.steps?.length) {
-    lines.push("", "## Steps");
+    lines.push("", `## ${t("steps")}`);
     data.steps.forEach((step) => {
-      lines.push("", `### Step ${step.step_number}: ${step.action}`, step.details || "");
+      lines.push("", `### ${t("stepLabel", { number: step.step_number, action: step.action })}`, step.details || "");
       if (step.warning) lines.push("", `> ⚠ ${step.warning}`);
     });
   }
-  if (data.quality_checks?.length) { lines.push("", "## Quality Checks"); data.quality_checks.forEach((q) => lines.push(`- ${q}`)); }
-  if (data.notes) lines.push("", "## Notes", data.notes);
+  if (data.quality_checks?.length) { lines.push("", `## ${t("qualityChecks")}`); data.quality_checks.forEach((q) => lines.push(`- ${q}`)); }
+  if (data.notes) lines.push("", `## ${t("notes")}`, data.notes);
   return lines.join("\n");
 }
 
@@ -113,9 +114,9 @@ export default function SOPGenerator() {
           )}
           <ReportToolbar
             filename={slug(processName) || "sop"}
-            subject={`SOP — ${data.title || processName}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)} — ${data.title || processName}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

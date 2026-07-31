@@ -4,31 +4,31 @@ import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
 
-function buildTxt(data, platform, productService) {
-  const lines = [`AD COPY — ${platform.toUpperCase()}${productService ? ` — ${productService.toUpperCase()}` : ""}`, "=".repeat(60)];
+function buildTxt(data, platform, productService, t) {
+  const lines = [`${t("docTitle")} — ${platform}${productService ? ` — ${productService}` : ""}`, "=".repeat(60)];
   if (data.headlines?.length) {
-    lines.push("", "HEADLINES", "-".repeat(40));
+    lines.push("", t("headlines"), "-".repeat(40));
     data.headlines.forEach((h, i) => lines.push(`${i + 1}. ${h}`));
   }
   if (data.primary_descriptions?.length) {
-    lines.push("", "DESCRIPTIONS", "-".repeat(40));
+    lines.push("", t("descriptions"), "-".repeat(40));
     data.primary_descriptions.forEach((d, i) => lines.push(`${i + 1}. ${d}`));
   }
-  if (data.cta_options?.length) lines.push("", "CALL-TO-ACTION OPTIONS", "-".repeat(40), data.cta_options.join(" · "));
+  if (data.cta_options?.length) lines.push("", t("ctaOptions"), "-".repeat(40), data.cta_options.join(" · "));
   if (data.value_propositions?.length) {
-    lines.push("", "VALUE PROPOSITIONS", "-".repeat(40));
+    lines.push("", t("valuePropositions"), "-".repeat(40));
     data.value_propositions.forEach((v, i) => lines.push(`${i + 1}. ${v}`));
   }
   return lines.join("\n");
 }
 
-function buildMd(data, platform, productService) {
-  const title = productService ? `Ad Copy — ${platform} — ${productService}` : `Ad Copy — ${platform}`;
+function buildMd(data, platform, productService, t) {
+  const title = productService ? `${t("docTitle")} — ${platform} — ${productService}` : `${t("docTitle")} — ${platform}`;
   const lines = [`# ${title}`];
-  if (data.headlines?.length) { lines.push("", "## Headlines"); data.headlines.forEach((h, i) => lines.push(`${i + 1}. ${h}`)); }
-  if (data.primary_descriptions?.length) { lines.push("", "## Descriptions"); data.primary_descriptions.forEach((d, i) => lines.push(`${i + 1}. ${d}`)); }
-  if (data.cta_options?.length) { lines.push("", "## Call-to-Action Options"); data.cta_options.forEach((c) => lines.push(`- ${c}`)); }
-  if (data.value_propositions?.length) { lines.push("", "## Value Propositions"); data.value_propositions.forEach((v) => lines.push(`- ${v}`)); }
+  if (data.headlines?.length) { lines.push("", `## ${t("headlines")}`); data.headlines.forEach((h, i) => lines.push(`${i + 1}. ${h}`)); }
+  if (data.primary_descriptions?.length) { lines.push("", `## ${t("descriptions")}`); data.primary_descriptions.forEach((d, i) => lines.push(`${i + 1}. ${d}`)); }
+  if (data.cta_options?.length) { lines.push("", `## ${t("ctaOptions")}`); data.cta_options.forEach((c) => lines.push(`- ${c}`)); }
+  if (data.value_propositions?.length) { lines.push("", `## ${t("valuePropositions")}`); data.value_propositions.forEach((v) => lines.push(`- ${v}`)); }
   return lines.join("\n");
 }
 
@@ -112,8 +112,8 @@ export default function AdCopyWriter() {
           <ReportToolbar
             filename={slug(productService) || "ad_copy"}
             subject={`${t("docTitle")} — ${platform}${productService ? ` — ${productService}` : ""}`}
-            txtContent={buildTxt(data, platform, productService)}
-            mdContent={buildMd(data, platform, productService)}
+            txtContent={buildTxt(data, platform, productService, t)}
+            mdContent={buildMd(data, platform, productService, t)}
           />
         </>
       )}

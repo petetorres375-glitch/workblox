@@ -61,7 +61,18 @@ export default function ResumeBuilder() {
       const res = await fetch(`${BASE_URL}/api/resume/download/${fmt}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": `Bearer ${localStorage.getItem("wb_token")}` },
-        body: JSON.stringify(result),
+        // Section headings travel with the request — the PDF/DOCX/TXT are
+        // rendered server-side, which has no translations of its own.
+        body: JSON.stringify({
+          ...result,
+          labels: {
+            summary:        t("result.summary"),
+            experience:     t("result.workExperience"),
+            education:      t("result.education"),
+            skills:         t("result.skills"),
+            certifications: t("result.certifications"),
+          },
+        }),
       });
       if (!res.ok) throw new Error("Download failed");
       const blob = await res.blob();
