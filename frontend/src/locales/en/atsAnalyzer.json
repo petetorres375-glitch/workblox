@@ -31,5 +31,6 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Generating..."
-  }
+  },
+  "unsupportedLanguage": "This resume doesn't look like it's in English. The ATS Analyzer scores resumes against English keywords, so it can't rate this one accurately. Upload an English version to get a score."
 }

@@ -20,7 +20,11 @@ async function handleResponse(res, path) {
   }
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    throw new Error(data.error || `Request failed (${res.status})`);
+    const err = new Error(data.error || `Request failed (${res.status})`);
+    // Some endpoints also return a stable code so the UI can show its own
+    // translated copy instead of the backend's English sentence.
+    if (data.code) err.code = data.code;
+    throw err;
   }
   return res.json();
 }

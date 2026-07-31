@@ -5,7 +5,7 @@ from datetime import datetime
 from flask import Blueprint, jsonify, request, send_file
 
 from app import limiter
-from app.services.ats_engine import analyze, build_report, grade, JOB_KEYWORDS
+from app.services.ats_engine import check_language_support, analyze, build_report, grade, JOB_KEYWORDS
 from app.services.ats_reports import generate_pdf, generate_docx
 from app.services.access import require_personal
 from app.services.entitlements import require_tool
@@ -92,6 +92,18 @@ def ats_analyze():
 
     if not resume_text.strip():
         return jsonify({"error": "Could not extract any text from the file. Try saving as .txt."}), 422
+
+    # Scoring matches English keywords, so a resume in another language would
+    # come back 0/100 -- which reads as "your resume is bad" rather than "this
+    # tool cannot read it". Refuse clearly instead of returning a false score.
+    supported, reason = check_language_support(resume_text)
+    if not supported:
+        return jsonify({
+            "error": ("This resume does not appear to be in English. The ATS Analyzer "
+                      "scores resumes against English keywords, so it cannot rate this "
+                      "one accurately. Upload an English version to get a score."),
+            "code": reason,
+        }), 422
 
     results   = analyze(resume_text, job_role=job_role, custom_keywords=custom_keywords)
     now_label = datetime.now().strftime("%B %d, %Y  %H:%M")
