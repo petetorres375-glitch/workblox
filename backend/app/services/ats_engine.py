@@ -1,319 +1,20 @@
 import os
 import re
-import unicodedata
 from datetime import datetime
 
-KEYWORDS = {
-    "Technical Skills": [
-        "microsoft office", "excel", "word", "powerpoint", "outlook",
-        "google sheets", "google docs", "google forms", "data entry", "quickbooks",
-        "zoom", "slack", "trello", "asana", "wordpress",
-    ],
-    "Soft Skills": [
-        "communication", "teamwork", "leadership", "problem solving",
-        "time management", "attention to detail", "organized", "reliable",
-        "multitasking", "customer service", "adaptable", "self-motivated",
-        "critical thinking", "collaboration", "conflict resolution",
-    ],
-    "Action Verbs": [
-        "managed", "managing", "developed", "created", "led", "improved", "increased",
-        "reduced", "designed", "implemented", "coordinated", "coordinating", "analyzed",
-        "delivered", "delivering", "achieved", "trained", "maintained", "maintaining",
-        "streamlined", "generated", "launched", "negotiated", "supervised",
-        "supported", "supporting", "provided", "providing", "assisted", "assisting",
-    ],
-    "Resume Essentials": [
-        "experience", "education", "skills", "summary", "objective",
-        "certifications", "references", "volunteer", "achievements", "projects",
-    ],
-}
+from app.services import ats_corpora
+from app.services.ats_corpora import en as _en_corpus
+from app.services.ats_corpora import detect_language, fold, get_corpus
 
-JOB_KEYWORDS = {
-    # --- Office & Admin ---
-    "administrative assistant": [
-        "administrative", "scheduling", "calendar management", "correspondence",
-        "filing", "microsoft office", "excel", "word", "outlook", "data entry",
-        "organized", "multitasking", "communication", "attention to detail",
-        "office management", "travel arrangements", "expense reports", "confidential",
-    ],
-    "executive assistant": [
-        "executive support", "calendar management", "scheduling", "travel arrangements",
-        "correspondence", "confidential", "microsoft office", "board meetings",
-        "expense reports", "project coordination", "stakeholder", "discretion",
-        "communication", "organized", "prioritization",
-    ],
-    "receptionist": [
-        "front desk", "reception", "phone handling", "customer service", "scheduling",
-        "calendar management", "microsoft office", "organized", "communication",
-        "multitasking", "professional", "greeting", "email management", "data entry",
-    ],
-    "office manager": [
-        "office management", "administrative", "scheduling", "vendor management",
-        "budgeting", "microsoft office", "organized", "leadership", "communication",
-        "facilities", "supply ordering", "onboarding", "policies", "procedures",
-    ],
-    "data entry": [
-        "data entry", "accuracy", "spreadsheet", "excel", "google sheets",
-        "typing", "attention to detail", "organized", "quickbooks", "10-key",
-        "database", "records management", "data integrity", "microsoft office",
-    ],
-    "virtual assistant": [
-        "scheduling", "calendar management", "email management", "data entry",
-        "communication", "organized", "microsoft office", "zoom", "trello", "asana",
-        "remote", "research", "social media", "customer support", "invoicing",
-    ],
-    # --- Customer Facing ---
-    "customer service": [
-        "customer service", "communication", "problem solving", "crm",
-        "salesforce", "phone support", "email support", "conflict resolution",
-        "empathy", "patience", "customer satisfaction", "retention", "ticketing",
-        "zendesk", "help desk", "follow-up",
-    ],
-    "call center": [
-        "inbound", "outbound", "call center", "phone support", "crm", "salesforce",
-        "customer service", "communication", "de-escalation", "conflict resolution",
-        "high-volume", "multitasking", "empathy", "scripts", "metrics", "kpi",
-    ],
-    "sales associate": [
-        "sales", "customer service", "product knowledge", "upselling", "cross-selling",
-        "pos", "point of sale", "cash handling", "inventory", "communication",
-        "goal-oriented", "quota", "teamwork", "retail", "merchandising",
-    ],
-    "retail associate": [
-        "retail", "customer service", "cash handling", "pos", "point of sale",
-        "inventory", "stocking", "merchandising", "product knowledge", "upselling",
-        "teamwork", "communication", "organized", "loss prevention",
-    ],
-    "cashier": [
-        "cash handling", "pos", "point of sale", "customer service", "accuracy",
-        "transactions", "counting", "retail", "communication", "teamwork",
-        "fast-paced", "reliable", "punctual",
-    ],
-    # --- Food & Hospitality ---
-    "event server": [
-        "fine dining", "banquet", "catering", "hospitality", "customer service",
-        "food running", "food handler", "alcohol", "beverage service", "hors d'oeuvres",
-        "tableside service", "buffet", "event setup", "breakdown", "guest engagement",
-        "high-volume", "plating", "presentation", "wine", "punctuality", "reliability",
-        "bilingual", "communication", "teamwork", "attention to detail",
-    ],
-    "hospitality": [
-        "fine dining", "banquet", "catering", "hospitality", "customer service",
-        "food running", "food handler", "alcohol", "beverage service", "hors d'oeuvres",
-        "tableside service", "buffet", "event setup", "breakdown", "guest engagement",
-        "high-volume", "plating", "presentation", "wine", "punctuality", "reliability",
-        "bilingual", "communication", "teamwork", "attention to detail",
-    ],
-    "server": [
-        "food service", "customer service", "menu knowledge", "upselling",
-        "pos", "cash handling", "teamwork", "communication", "multitasking",
-        "food handler", "alcohol", "fast-paced", "guest satisfaction", "sidework",
-    ],
-    "barista": [
-        "espresso", "coffee", "latte art", "pos", "cash handling", "customer service",
-        "food handler", "fast-paced", "teamwork", "communication", "cleanliness",
-        "drink preparation", "inventory", "opening", "closing",
-    ],
-    "cook": [
-        "food preparation", "knife skills", "food safety", "servsafe", "food handler",
-        "line cook", "prep cook", "recipe", "portion control", "sanitation",
-        "fast-paced", "teamwork", "inventory", "cleanliness", "mise en place",
-    ],
-    "restaurant manager": [
-        "restaurant management", "food service", "scheduling", "inventory",
-        "food safety", "servsafe", "customer service", "leadership", "training",
-        "budgeting", "cost control", "pos", "staff management", "communication",
-    ],
-    # --- Warehouse & Logistics ---
-    "warehouse associate": [
-        "warehouse", "forklift", "pallet jack", "inventory", "shipping", "receiving",
-        "pick and pack", "order fulfillment", "rf scanner", "safety", "lifting",
-        "organized", "teamwork", "fast-paced", "accuracy",
-    ],
-    "forklift operator": [
-        "forklift", "forklift certified", "pallet jack", "warehouse", "inventory",
-        "shipping", "receiving", "safety", "rf scanner", "order fulfillment",
-        "lifting", "organized", "accuracy", "reach truck",
-    ],
-    "delivery driver": [
-        "driving", "route optimization", "delivery", "customer service", "navigation",
-        "gps", "dot", "clean driving record", "vehicle inspection", "time management",
-        "communication", "punctual", "reliable", "lifting", "organized",
-    ],
-    "inventory specialist": [
-        "inventory management", "cycle counts", "stock", "shipping", "receiving",
-        "rf scanner", "accuracy", "organized", "data entry", "excel",
-        "warehouse management system", "wms", "shrinkage", "reconciliation",
-    ],
-    # --- Healthcare & Caregiving ---
-    "caregiver": [
-        "caregiving", "personal care", "activities of daily living", "adl",
-        "companionship", "medication reminders", "patient care", "empathy",
-        "communication", "reliable", "cpr", "first aid", "compassionate",
-        "homecare", "elderly care", "documentation",
-    ],
-    "home health aide": [
-        "home health", "patient care", "activities of daily living", "adl",
-        "vital signs", "medication", "documentation", "empathy", "cpr",
-        "first aid", "reliable", "compassionate", "hha certified", "homecare",
-    ],
-    "medical assistant": [
-        "medical assistant", "clinical", "administrative", "ehr", "epic",
-        "vital signs", "phlebotomy", "injections", "patient care", "hipaa",
-        "scheduling", "insurance", "medical terminology", "cpr", "certified",
-    ],
-    "certified nursing assistant": [
-        "cna", "certified nursing assistant", "patient care", "vital signs",
-        "adl", "activities of daily living", "documentation", "empathy",
-        "teamwork", "long-term care", "hipaa", "cpr", "reliable", "compassionate",
-    ],
-    "pharmacy technician": [
-        "pharmacy", "medication dispensing", "prescription", "accuracy",
-        "insurance billing", "customer service", "data entry", "hipaa",
-        "retail pharmacy", "inventory", "ptcb", "certified", "communication",
-    ],
-    # --- Cleaning & Maintenance ---
-    "housekeeper": [
-        "housekeeping", "cleaning", "sanitizing", "laundry", "attention to detail",
-        "organized", "reliable", "punctual", "teamwork", "time management",
-        "chemical safety", "room turnover", "linen", "hospitality",
-    ],
-    "janitor": [
-        "janitorial", "cleaning", "sanitizing", "floor care", "buffing",
-        "chemical safety", "organized", "reliable", "time management",
-        "maintenance", "trash removal", "attention to detail", "teamwork",
-    ],
-    "maintenance technician": [
-        "maintenance", "repair", "troubleshooting", "electrical", "plumbing",
-        "hvac", "preventive maintenance", "work orders", "tools", "safety",
-        "organized", "reliable", "communication", "facilities",
-    ],
-    # --- Education & Childcare ---
-    "teacher assistant": [
-        "classroom support", "lesson plans", "student engagement", "communication",
-        "organized", "patience", "teamwork", "curriculum", "special needs",
-        "documentation", "behavior management", "bilingual", "technology",
-    ],
-    "childcare worker": [
-        "childcare", "child development", "cpr", "first aid", "patience",
-        "communication", "organized", "creative", "teamwork", "lesson planning",
-        "safety", "nurturing", "reliable", "documentation",
-    ],
-    "tutor": [
-        "tutoring", "lesson planning", "communication", "patience", "organized",
-        "curriculum", "student progress", "subject matter", "assessment",
-        "adaptable", "technology", "math", "reading", "writing",
-    ],
-    # --- Security ---
-    "security guard": [
-        "security", "patrol", "surveillance", "access control", "incident report",
-        "communication", "cpr", "first aid", "licensed", "reliable", "punctual",
-        "conflict resolution", "de-escalation", "customer service", "observant",
-    ],
-    # --- Tech ---
-    "web developer": [
-        "html", "css", "javascript", "responsive", "mobile-friendly",
-        "wordpress", "git", "debugging", "python", "sql", "react", "api",
-        "version control", "deployment", "testing",
-    ],
-    "it support": [
-        "troubleshooting", "help desk", "technical support", "windows", "active directory",
-        "networking", "hardware", "software", "ticketing", "communication",
-        "customer service", "comptia", "remote support", "documentation", "vpn",
-    ],
-    "social media manager": [
-        "social media", "content creation", "instagram", "facebook", "tiktok",
-        "scheduling", "analytics", "engagement", "canva", "copywriting",
-        "brand voice", "strategy", "community management", "paid ads", "seo",
-    ],
-    # --- Finance & Bookkeeping ---
-    "bookkeeper": [
-        "bookkeeping", "quickbooks", "accounts payable", "accounts receivable",
-        "bank reconciliation", "payroll", "invoicing", "excel", "accuracy",
-        "organized", "financial reporting", "gaap", "attention to detail",
-    ],
-    "accounting clerk": [
-        "accounting", "accounts payable", "accounts receivable", "data entry",
-        "excel", "quickbooks", "invoicing", "reconciliation", "organized",
-        "accuracy", "communication", "financial records", "attention to detail",
-    ],
-    # --- Construction & Labor ---
-    "general laborer": [
-        "labor", "lifting", "physical stamina", "safety", "osha", "teamwork",
-        "reliable", "punctual", "tools", "construction", "outdoor", "fast-paced",
-        "organized", "following instructions",
-    ],
-    "landscaper": [
-        "landscaping", "lawn care", "mowing", "trimming", "planting", "irrigation",
-        "outdoor", "physical stamina", "safety", "reliable", "tools",
-        "customer service", "teamwork", "organized",
-    ],
-    "catering": [
-        "catering", "banquet", "event setup", "breakdown", "food service",
-        "food handler", "beverage service", "buffet", "plating", "presentation",
-        "high-volume", "customer service", "teamwork", "communication",
-        "alcohol", "servsafe", "punctuality", "reliability", "hospitality",
-        "tableside service", "guest engagement", "event coordination",
-    ],
-    "freelance caterer": [
-        "catering", "freelance", "event planning", "food preparation", "food handler",
-        "servsafe", "banquet", "buffet", "beverage service", "plating", "presentation",
-        "event setup", "breakdown", "client relations", "self-motivated", "reliable",
-        "scheduling", "invoicing", "menu planning", "food safety", "hospitality",
-        "alcohol", "high-volume", "communication", "attention to detail",
-    ],
+# Role identifiers are English in every corpus (they are IDs, not display
+# text), so the roles endpoint keeps serving this one list.
+JOB_KEYWORDS = _en_corpus.JOB_KEYWORDS
 
-}
 
-SECTION_PATTERNS = {
-    "Summary / Objective": r'\b(summary|objective|profile|about me|professional profile)\b',
-    "Work Experience":      r'\b(experience|work history|employment|professional experience|work experience)\b',
-    "Education":            r'\b(education|academic|degree|university|college|school|diploma|graduate)\b',
-    "Skills":               r'\b(skills|competencies|technical skills|core competencies|areas of expertise)\b',
-    "Certifications":       r'\b(certif|license|credential|accredit)\w*\b',
-    "Achievements":         r'\b(achievement|award|honor|recognition|accomplishment)\w*\b',
-    "Volunteer":            r'\b(volunteer|community service|nonprofit)\w*\b',
-}
 
-_ROLE_SUMMARIES = {
-    "hospitality": (
-        "Dedicated hospitality professional with extensive experience in banquet service, "
-        "fine dining, and catering. Known for delivering exceptional guest experiences in "
-        "high-volume environments with a commitment to attention to detail, punctuality, "
-        "and teamwork. Bilingual with a polished, professional presentation."
-    ),
-    "event server": (
-        "Experienced event server and banquet professional with a strong background in "
-        "tableside service, buffet operations, and guest engagement. Reliable and punctual "
-        "with a proven ability to thrive in fast-paced, high-volume catering environments."
-    ),
-    "customer service": (
-        "Customer-focused professional with proven experience resolving inquiries, building "
-        "client relationships, and delivering consistent service excellence. Strong communicator "
-        "skilled in CRM systems, conflict resolution, and multi-channel support."
-    ),
-    "data entry": (
-        "Detail-oriented data entry specialist with demonstrated accuracy in spreadsheet "
-        "management, data processing, and administrative support. Proficient in Microsoft "
-        "Office Suite with a strong commitment to organized, efficient workflow."
-    ),
-    "virtual assistant": (
-        "Organized and self-motivated virtual assistant with expertise in calendar management, "
-        "email coordination, and remote team support. Proficient in Microsoft Office, Google "
-        "Workspace, and project management tools including Trello and Asana."
-    ),
-    "web developer": (
-        "Results-driven web developer with hands-on experience in HTML, CSS, JavaScript, and "
-        "responsive design. Skilled in debugging, version control with Git, and delivering "
-        "clean, mobile-friendly interfaces on schedule."
-    ),
-}
 
-_GENERIC_SUMMARY = (
-    "Results-oriented professional with a strong foundation in communication, teamwork, and "
-    "attention to detail. Committed to delivering quality work efficiently while adapting "
-    "to new challenges with a positive, solutions-focused mindset."
-)
+
+
 
 
 def normalize(text):
@@ -324,124 +25,67 @@ def normalize(text):
     )
 
 
-# Everything below scores a resume by matching ~715 hardcoded English terms, so
-# the engine only produces a meaningful number for an English resume. Given a
-# resume in any other language it does not fail -- it matches nothing and
-# reports 0/100, which reads as "your resume is terrible" rather than "this
-# tool cannot read it". Detect that case up front and say so instead.
-
-# Only reject on positive evidence of another language, never on absence of
-# English. A terse, keyword-stuffed English resume ("Built microservices. Led
-# migration.") contains almost no English function words either, and wrongly
-# refusing to score one of those is worse than the bug this guards against.
-_ENGLISH_FUNCTION_WORDS = frozenset("""
-    and the of with for to an by from are was were been
-    my our their his her its this that these those not all any each
-""".split())
-
-# Function words from the Latin-script languages the UI supports. Tokens that
-# are also ordinary English resume words (a, in, is, on, at, as, or, do, no,
-# os, van) are deliberately left out -- a collision here costs a real user a
-# real score.
-_NON_ENGLISH_FUNCTION_WORDS = frozenset("""
-    de la el en y con para los las del por un una que su
-    le les des et du dans sur au aux
-    und der die das den von mit fur im ein eine bei auch ist
-    da em nao com uma pelo pela
-    di il per della dei nel gli
-    het een voor dat te zijn
-    w na nie oraz dla jest sie
-    ve ile icin bir bu olarak
-    va cua cac trong cho voi duoc
-    dan yang untuk dengan dari pada
-    och att av som det
-    pro je se
-    si cu pentru
-""".split())
-
-# Below this a resume is mostly headings and contact lines, too sparse to judge.
-_MIN_WORDS_FOR_LANGUAGE_CHECK = 40
-_MAX_NON_LATIN_LETTER_RATIO = 0.20
-# Another language has to be clearly dominant, not merely present -- English
-# resumes legitimately contain "de" and "la" in names and place names.
-_FOREIGN_DOMINANCE_RATIO = 2.0
-_MIN_FOREIGN_RATIO = 0.06
+# Language handling lives in ats_corpora: it owns the per-language keyword sets
+# and therefore knows which languages can actually be scored.
 
 
 def check_language_support(text):
-    """Decide whether this resume can be scored meaningfully.
-
-    Returns (supported, reason) where reason is a short machine-readable code
-    for the client to translate: "non_latin_script" or "not_english".
-    """
-    letters = [c for c in text if c.isalpha()]
-    if letters:
-        # Arabic, Hebrew, CJK, Thai, Devanagari, Cyrillic: unambiguous.
-        non_latin = sum(1 for c in letters if ord(c) > 0x24F)
-        if non_latin / len(letters) > _MAX_NON_LATIN_LETTER_RATIO:
-            return False, "non_latin_script"
-
-    # Fold accents so "funcion" and "fur" tokenize as plain ASCII words.
-    folded = unicodedata.normalize("NFKD", text.lower())
-    folded = "".join(c for c in folded if not unicodedata.combining(c))
-    words = re.findall(r"[a-z']+", folded)
-    if len(words) < _MIN_WORDS_FOR_LANGUAGE_CHECK:
-        # Too sparse to judge; score it rather than block on a guess.
-        return True, None
-
-    english = sum(1 for w in words if w in _ENGLISH_FUNCTION_WORDS)
-    foreign = sum(1 for w in words if w in _NON_ENGLISH_FUNCTION_WORDS)
-
-    if (foreign / len(words) >= _MIN_FOREIGN_RATIO
-            and foreign >= english * _FOREIGN_DOMINANCE_RATIO):
-        return False, "not_english"
-
-    return True, None
+    """Back-compat shim: True when the CV can be scored in some language."""
+    language, reason = detect_language(text)
+    return language is not None, reason
 
 
 def match_keywords(text, keyword_list):
-    text_lower = re.sub(r'\s+', ' ', normalize(text).lower())
-    pairs = [(kw, normalize(kw).lower()) for kw in keyword_list]
-    found   = [kw for kw, nkw in pairs if nkw in text_lower]
-    missing = [kw for kw, nkw in pairs if nkw not in text_lower]
+    """Match keywords against the CV, accent-insensitively.
+
+    A keyword entry is either a plain string, or a (display, [forms]) pair for
+    languages that inflect. Spanish conjugates heavily, so "gestionar" is
+    matched by the stem "gestion" -- catching gestioné / gestionar / gestionado
+    / gestión -- while the report still shows the user "gestionar".
+    """
+    haystack = re.sub(r'\s+', ' ', fold(normalize(text)))
+    found, missing = [], []
+    for entry in keyword_list:
+        if isinstance(entry, (tuple, list)):
+            display, forms = entry[0], entry[1]
+        else:
+            display, forms = entry, [entry]
+        if any(fold(normalize(f)) in haystack for f in forms):
+            found.append(display)
+        else:
+            missing.append(display)
     return found, missing
 
 
-def check_formatting(text):
+def check_formatting(text, corpus):
+    msg = corpus.MESSAGES
     warnings, tips = [], []
     if len(text) < 200:
-        warnings.append("Resume seems very short (under 200 characters)")
+        warnings.append(msg["warn_short"])
     if not re.search(r'\b[\w.-]+@[\w.-]+\.\w+\b', text):
-        warnings.append("No email address detected")
+        warnings.append(msg["warn_no_email"])
     if not re.search(r'\b(\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b', text):
-        tips.append("Consider adding a phone number")
+        tips.append(msg["tip_phone"])
     if len(text) > 6000:
-        tips.append("Resume may be too long — aim for 1 page (or 2 max)")
+        tips.append(msg["tip_too_long"])
     word_count = len(text.split())
     if word_count < 100:
-        warnings.append(f"Very few words detected ({word_count}) — resume may be incomplete")
+        warnings.append(msg["warn_few_words"].format(count=word_count))
     return warnings, tips
 
 
-def check_contact_info(text):
+def check_contact_info(text, corpus):
     return {
         "email":    bool(re.search(r'\b[\w.-]+@[\w.-]+\.\w+\b', text)),
         "phone":    bool(re.search(r'\b(\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b', text)),
         "linkedin": bool(re.search(r'linkedin\.com/in/', text, re.I)),
-        "location": bool(re.search(r'\b[A-Z][a-zA-Z\s]+,\s*[A-Z]{2}\b', text)),
+        "location": bool(re.search(corpus.LOCATION_PATTERN, text)),
     }
 
 
-def check_quantification(text):
-    metric_patterns = [
-        r'\d+\s*%',
-        r'\$\s*[\d,]+',
-        r'\b\d+\s*(?:people|employees|staff|clients|customers|guests|accounts|members|team)\b',
-        r'\b(?:increased|decreased|reduced|improved|grew|saved|generated|managed)\w*\s+\w+\s+by\s+\d+',
-        r'\b\d{1,3}(?:,\d{3})+\b',
-    ]
+def check_quantification(text, corpus):
     examples = []
-    for pattern in metric_patterns:
+    for pattern in corpus.METRIC_PATTERNS:
         examples.extend(m.group(0) for m in re.finditer(pattern, text, re.I))
     return {
         "has_metrics":  bool(examples),
@@ -450,102 +94,86 @@ def check_quantification(text):
     }
 
 
-def check_sections(text):
-    text_lower = re.sub(r'\s+', ' ', text.lower())
-    return {name: bool(re.search(pat, text_lower)) for name, pat in SECTION_PATTERNS.items()}
+def check_sections(text, corpus):
+    folded = re.sub(r'\s+', ' ', fold(text))
+    return {name: bool(re.search(pat, folded))
+            for name, pat in corpus.SECTION_PATTERNS.items()}
 
 
-def build_recommendations(results, job_role=None):
+def build_recommendations(results, corpus, job_role=None):
+    msg  = corpus.MESSAGES
     recs = []
     cats = results["categories"]
 
-    if results.get("job_match") and results["job_match"]["missing"]:
-        missing = results["job_match"]["missing"]
-        tail = f" (+{len(missing)-6} more)" if len(missing) > 6 else ""
+    def add(priority, title_key, detail_key, **fmt):
         recs.append({
-            "priority": "high",
-            "title": f"Add {job_role or 'job'}-specific keywords",
-            "detail": f"Critical for this role — add to Skills or Experience: {', '.join(missing[:6])}{tail}",
+            "priority": priority,
+            "title":  msg[title_key].format(**fmt),
+            "detail": msg[detail_key].format(**fmt),
         })
 
+    if results.get("job_match") and results["job_match"]["missing"]:
+        missing = results["job_match"]["missing"]
+        tail = msg["rec_role_overflow"].format(count=len(missing) - 6) if len(missing) > 6 else ""
+        add("high", "rec_role_title", "rec_role_detail",
+            role=(results["job_match"].get("role") or msg["job_role_generic"]),
+            keywords=", ".join(missing[:6]) + tail)
+
     if not results.get("quantification", {}).get("has_metrics"):
-        recs.append({
-            "priority": "high",
-            "title": "Add measurable achievements",
-            "detail": 'Numbers make bullets stand out — e.g. "Managed 15-person team", "Reduced costs by 20%"',
-        })
+        add("high", "rec_metrics_title", "rec_metrics_detail")
 
     missing_verbs = cats["Action Verbs"]["missing"]
     if len(missing_verbs) > 10:
-        recs.append({
-            "priority": "high",
-            "title": "Strengthen bullet points with action verbs",
-            "detail": f"Start each bullet with: {', '.join(missing_verbs[:6])}",
-        })
+        add("high", "rec_verbs_strong_title", "rec_verbs_strong_detail",
+            keywords=", ".join(missing_verbs[:6]))
     elif len(missing_verbs) > 4:
-        recs.append({
-            "priority": "medium",
-            "title": "Add more action verbs",
-            "detail": f"Consider using: {', '.join(missing_verbs[:5])}",
-        })
+        add("medium", "rec_verbs_more_title", "rec_verbs_more_detail",
+            keywords=", ".join(missing_verbs[:5]))
 
     missing_tech = cats["Technical Skills"]["missing"]
     if len(missing_tech) > len(cats["Technical Skills"]["found"]):
-        recs.append({
-            "priority": "high",
-            "title": "Expand your Technical Skills section",
-            "detail": f"Add any you're familiar with: {', '.join(missing_tech[:6])}",
-        })
+        add("high", "rec_tech_title", "rec_tech_detail",
+            keywords=", ".join(missing_tech[:6]))
 
     sections = results.get("sections", {})
     if not sections.get("Summary / Objective"):
-        recs.append({
-            "priority": "medium",
-            "title": "Add a professional summary",
-            "detail": "3–4 lines at the top tailored to the target role",
-        })
-
+        add("medium", "rec_summary_title", "rec_summary_detail")
     if not sections.get("Skills"):
-        recs.append({
-            "priority": "medium",
-            "title": 'Add a dedicated "Skills" section',
-            "detail": "A clearly labeled Skills section helps ATS extract your qualifications instantly",
-        })
+        add("medium", "rec_skills_title", "rec_skills_detail")
 
     contact = results.get("contact", {})
     missing_contact = []
-    if not contact.get("linkedin"): missing_contact.append("LinkedIn URL")
-    if not contact.get("location"): missing_contact.append("City, State")
+    if not contact.get("linkedin"): missing_contact.append(msg["contact_linkedin"])
+    if not contact.get("location"): missing_contact.append(msg["contact_location"])
     if missing_contact:
-        recs.append({
-            "priority": "medium",
-            "title": "Complete your contact information",
-            "detail": f"Consider adding: {', '.join(missing_contact)}",
-        })
+        add("medium", "rec_contact_title", "rec_contact_detail",
+            items=", ".join(missing_contact))
 
     missing_soft = cats["Soft Skills"]["missing"]
     if len(missing_soft) > 7:
-        recs.append({
-            "priority": "low",
-            "title": "Weave in more soft skills",
-            "detail": f"Use naturally in your summary or bullets: {', '.join(missing_soft[:5])}",
-        })
+        add("low", "rec_soft_title", "rec_soft_detail",
+            keywords=", ".join(missing_soft[:5]))
 
     order = {"high": 0, "medium": 1, "low": 2}
     recs.sort(key=lambda r: order.get(r["priority"], 3))
     return recs
 
 
-def analyze(resume_text, job_role=None, custom_keywords=None):
-    results = {}
+def analyze(resume_text, job_role=None, custom_keywords=None, language=None):
+    """Score a CV against the corpus for `language` (default: English)."""
+    corpus = get_corpus(language)
+    results = {"language": language or ats_corpora.REFERENCE}
     total_found = total_possible = 0
 
     category_results = {}
-    for category, keywords in KEYWORDS.items():
+    for category, keywords in corpus.KEYWORDS.items():
         found, missing = match_keywords(resume_text, keywords)
         category_results[category] = {
             "found": found, "missing": missing,
             "score": len(found), "total": len(keywords),
+            # Key stays the English identifier so scoring rules keep working;
+            # the label is what the report shows.
+            "label": corpus.CATEGORY_LABELS.get(category, category),
         }
         total_found    += len(found)
         total_possible += len(keywords)
@@ -553,11 +181,15 @@ def analyze(resume_text, job_role=None, custom_keywords=None):
 
     if job_role:
         role_key = job_role.lower().strip()
-        job_kws  = next((v for k, v in JOB_KEYWORDS.items() if k in role_key or role_key in k), None)
+        matched  = next((k for k in corpus.JOB_KEYWORDS
+                         if k in role_key or role_key in k), None)
+        job_kws  = corpus.JOB_KEYWORDS.get(matched) if matched else None
         if job_kws:
             found, missing = match_keywords(resume_text, job_kws)
             results["job_match"] = {
-                "role": job_role, "found": found, "missing": missing,
+                # Role keys are English identifiers; show the localized name.
+                "role": corpus.ROLE_LABELS.get(matched, job_role),
+                "found": found, "missing": missing,
                 "score": len(found), "total": len(job_kws),
             }
             total_found    += len(found)
@@ -574,91 +206,99 @@ def analyze(resume_text, job_role=None, custom_keywords=None):
         total_found    += len(found)
         total_possible += len(custom_keywords)
 
-    warnings, tips = check_formatting(resume_text)
+    warnings, tips = check_formatting(resume_text, corpus)
     results["warnings"]        = warnings
     results["tips"]            = tips
-    results["contact"]         = check_contact_info(resume_text)
-    results["quantification"]  = check_quantification(resume_text)
-    results["sections"]        = check_sections(resume_text)
+    results["contact"]         = check_contact_info(resume_text, corpus)
+    results["quantification"]  = check_quantification(resume_text, corpus)
+    results["sections"]        = check_sections(resume_text, corpus)
+    results["section_labels"]  = dict(corpus.SECTION_LABELS)
 
     base_score = int((total_found / total_possible) * 85) if total_possible else 0
     results["score"]          = max(0, min(100, base_score - len(warnings) * 5))
     results["total_found"]    = total_found
     results["total_possible"] = total_possible
-    results["recommendations"] = build_recommendations(results, job_role)
+    results["recommendations"] = build_recommendations(results, corpus, job_role)
 
     return results
 
 
-def grade(score):
-    if score >= 80: return "A — Excellent"
-    if score >= 65: return "B — Good"
-    if score >= 50: return "C — Needs Work"
-    if score >= 35: return "D — Weak"
-    return            "F — Major Revision Needed"
+def grade(score, language=None):
+    msg = get_corpus(language).MESSAGES
+    if score >= 80: return msg["grade_a"]
+    if score >= 65: return msg["grade_b"]
+    if score >= 50: return msg["grade_c"]
+    if score >= 35: return msg["grade_d"]
+    return            msg["grade_f"]
 
 
-def build_report(results, filename):
+def build_report(results, filename, language=None):
+    msg = get_corpus(language or results.get("language")).MESSAGES
     lines = []
     w = 58
     lines += [
         "=" * w,
-        "  ATS RESUME ANALYZER — REPORT",
-        f"  File : {os.path.basename(filename)}",
-        f"  Date : {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"  {msg['report_title']}",
+        f"  {msg['report_file']} : {os.path.basename(filename)}",
+        f"  {msg['report_date']} : {datetime.now().strftime('%Y-%m-%d %H:%M')}",
         "=" * w,
-        f"\n  OVERALL SCORE : {results['score']} / 100",
-        f"  GRADE         : {grade(results['score'])}",
-        f"  KEYWORDS FOUND: {results['total_found']} / {results['total_possible']}",
+        f"\n  {msg['hdr_overall']} : {results['score']} / 100",
+        f"  {msg['hdr_grade']} : {grade(results['score'], results.get('language'))}",
+        f"  {msg['hdr_found']}: {results['total_found']} / {results['total_possible']}",
         "",
     ]
     filled = int(results['score'] / 5)
     lines.append(f"  [{'█' * filled}{'░' * (20 - filled)}] {results['score']}%\n")
 
     c = results.get("contact", {})
-    lines += ["=" * w, "  CONTACT INFO", "-" * w]
-    for label, key in [("Email", "email"), ("Phone", "phone"), ("LinkedIn", "linkedin"), ("Location", "location")]:
-        lines.append(f"  {label:<12}: {'YES' if c.get(key) else 'MISSING'}")
+    lines += ["=" * w, f"  {msg['hdr_contact']}", "-" * w]
+    for label, key in [(msg["label_email"], "email"), (msg["label_phone"], "phone"),
+                       (msg["label_linkedin"], "linkedin"), (msg["label_location"], "location")]:
+        lines.append(f"  {label:<20}: {msg['report_yes'] if c.get(key) else msg['report_no']}")
 
     recs = results.get("recommendations", [])
     if recs:
-        lines += ["", "=" * w, "  RECOMMENDATIONS", "-" * w]
+        lines += ["", "=" * w, f"  {msg['hdr_recs']}", "-" * w]
         for i, rec in enumerate(recs, 1):
-            lines += [f"  {i}. [{rec['priority'].upper()}] {rec['title']}", f"     {rec['detail']}", ""]
+            prio = msg.get(f"priority_{rec['priority']}", rec['priority'].upper())
+            lines += [f"  {i}. [{prio}] {rec['title']}", f"     {rec['detail']}", ""]
 
     if results["warnings"]:
-        lines += ["=" * w, "  WARNINGS", "-" * w]
+        lines += ["=" * w, f"  {msg['hdr_warnings']}", "-" * w]
         lines += [f"  !  {m}" for m in results["warnings"]]
 
     if results["tips"]:
-        lines += ["", "  TIPS"]
+        lines += ["", f"  {msg['hdr_tips']}"]
         lines += [f"  ->  {t}" for t in results["tips"]]
 
     if results.get("job_match"):
         jm = results["job_match"]
         lines += ["", "=" * w, f"  JOB MATCH: {jm['role'].upper()}", f"  {jm['score']} / {jm['total']} keywords found", "-" * w]
-        if jm["found"]:   lines.append("  Found   : " + ", ".join(jm["found"]))
-        if jm["missing"]: lines.append("  Missing : " + ", ".join(jm["missing"]))
+        if jm["found"]:   lines.append(f"  {msg['report_found']}   : " + ", ".join(jm["found"]))
+        if jm["missing"]: lines.append(f"  {msg['report_missing']} : " + ", ".join(jm["missing"]))
 
-    lines += ["", "=" * w, "  KEYWORD BREAKDOWN", "=" * w]
+    lines += ["", "=" * w, f"  {msg['hdr_breakdown']}", "=" * w]
     for cat, data in results["categories"].items():
+        cat = data.get("label", cat)
         pct = int((data["score"] / data["total"]) * 100) if data["total"] else 0
         lines += [f"\n  {cat}  ({data['score']}/{data['total']}  {pct}%)", "  " + "-" * (w - 2)]
-        if data["found"]:   lines.append("  Found   : " + ", ".join(data["found"]))
-        if data["missing"]: lines.append("  Missing : " + ", ".join(data["missing"]))
+        if data["found"]:   lines.append(f"  {msg['report_found']}   : " + ", ".join(data["found"]))
+        if data["missing"]: lines.append(f"  {msg['report_missing']} : " + ", ".join(data["missing"]))
 
-    lines += ["", "=" * w, "  END OF REPORT — Generated by Workblox", "=" * w]
+    lines += ["", "=" * w, f"  {msg['hdr_end']}", "=" * w]
     return "\n".join(lines)
 
 
-def generate_revised(original_text, results, job_role=None):
+def generate_revised(original_text, results, job_role=None, language=None):
+    corpus  = get_corpus(language or results.get('language'))
     lines   = original_text.rstrip().split('\n')
     revised = list(lines)
     changes = []
 
     if not results.get('sections', {}).get('Summary / Objective'):
         role_key = (job_role or '').lower().strip()
-        body = next((v for k, v in _ROLE_SUMMARIES.items() if k in role_key or role_key in k), _GENERIC_SUMMARY)
+        body = next((v for k, v in corpus.ROLE_SUMMARIES.items()
+                     if k in role_key or role_key in k), corpus.GENERIC_SUMMARY)
         revised = ['PROFESSIONAL SUMMARY', '-' * 28, body, ''] + revised
         changes.append('Added Professional Summary section at top')
 

@@ -5,7 +5,8 @@ from datetime import datetime
 from flask import Blueprint, jsonify, request, send_file
 
 from app import limiter
-from app.services.ats_engine import check_language_support, analyze, build_report, grade, JOB_KEYWORDS
+from app.services.ats_corpora import detect_language, supported_languages
+from app.services.ats_engine import analyze, build_report, grade, JOB_KEYWORDS
 from app.services.ats_reports import generate_pdf, generate_docx
 from app.services.access import require_personal
 from app.services.entitlements import require_tool
@@ -93,19 +94,21 @@ def ats_analyze():
     if not resume_text.strip():
         return jsonify({"error": "Could not extract any text from the file. Try saving as .txt."}), 422
 
-    # Scoring matches English keywords, so a resume in another language would
-    # come back 0/100 -- which reads as "your resume is bad" rather than "this
-    # tool cannot read it". Refuse clearly instead of returning a false score.
-    supported, reason = check_language_support(resume_text)
-    if not supported:
+    # Scoring matches a language-specific keyword corpus, so detect the CV's
+    # language and score it against the right one. A language with no corpus
+    # would come back 0/100 -- which reads as "your resume is bad" rather than
+    # "this tool cannot read it" -- so refuse clearly instead.
+    language, reason = detect_language(resume_text)
+    if language is None:
         return jsonify({
-            "error": ("This resume does not appear to be in English. The ATS Analyzer "
-                      "scores resumes against English keywords, so it cannot rate this "
-                      "one accurately. Upload an English version to get a score."),
+            "error": ("This resume is not in a language the ATS Analyzer can score yet. "
+                      "It currently rates resumes written in English or Spanish."),
             "code": reason,
+            "supported_languages": supported_languages(),
         }), 422
 
-    results   = analyze(resume_text, job_role=job_role, custom_keywords=custom_keywords)
+    results   = analyze(resume_text, job_role=job_role,
+                        custom_keywords=custom_keywords, language=language)
     now_label = datetime.now().strftime("%B %d, %Y  %H:%M")
 
     return jsonify({
@@ -114,9 +117,10 @@ def ats_analyze():
         "filename":     file.filename,
         "job_role":     job_role,
         "now":          now_label,
-        "grade":        grade(results["score"]),
+        "grade":        grade(results["score"], language),
         "score_color":  "green" if results["score"] >= 65 else "amber" if results["score"] >= 50 else "red",
         "resume_text":  resume_text,
+        "language":     language,
     })
 
 
@@ -132,7 +136,7 @@ def ats_download_txt():
     if not results:
         return jsonify({"error": "results required"}), 400
 
-    report_txt = build_report(results, filename)
+    report_txt = build_report(results, filename)  # language travels in results
     safe_name  = (body.get("client_name") or "Client").replace(" ", "_")
     return send_file(
         io.BytesIO(report_txt.encode("utf-8")),

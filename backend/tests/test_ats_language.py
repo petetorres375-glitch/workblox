@@ -3,7 +3,8 @@ from unittest.mock import patch
 
 import pytest
 
-from app.services.ats_engine import check_language_support
+from app.services.ats_corpora import check_parity, detect_language
+from app.services.ats_engine import analyze
 
 # Prose English, the easy case.
 EN_PROSE = """John Smith | john@example.com
@@ -99,29 +100,41 @@ def _bypass_tool_entitlement():
     ("terse", EN_TERSE),
     ("spanish proper nouns", EN_WITH_SPANISH_NAMES),
 ])
-def test_english_resumes_are_scored(label, text):
-    supported, reason = check_language_support(text)
-    assert supported is True, f"{label} English resume was wrongly rejected ({reason})"
+def test_english_resumes_are_detected_as_english(label, text):
+    language, reason = detect_language(text)
+    assert language == "en", f"{label} English resume detected as {language} ({reason})"
+    assert reason is None
+
+
+def test_spanish_resume_is_now_scored_not_refused():
+    # Spanish has a corpus, so it is scored rather than declined.
+    language, reason = detect_language(SPANISH)
+    assert language == "es"
     assert reason is None
 
 
 @pytest.mark.parametrize("label,text,expected", [
-    ("spanish", SPANISH, "not_english"),
     ("arabic", ARABIC, "non_latin_script"),
     ("chinese", CHINESE, "non_latin_script"),
 ])
-def test_non_english_resumes_are_refused(label, text, expected):
-    supported, reason = check_language_support(text)
-    assert supported is False, f"{label} resume should not be scored"
+def test_resumes_without_a_corpus_are_refused(label, text, expected):
+    language, reason = detect_language(text)
+    assert language is None, f"{label} resume should not be scored"
     assert reason == expected
 
 
 def test_short_text_is_not_rejected():
     # Too sparse to judge — score it rather than guess. A false refusal costs a
     # real user a real score.
-    supported, reason = check_language_support("John Smith\njohn@example.com\nDeveloper")
-    assert supported is True
+    language, reason = detect_language("John Smith\njohn@example.com\nDeveloper")
+    assert language == "en"
     assert reason is None
+
+
+def test_corpora_stay_in_parity_with_english():
+    # Category and section keys are looked up by name while scoring, so a
+    # translated key silently breaks rules rather than translating them.
+    assert check_parity() == []
 
 
 def _upload(client, payload):
@@ -147,7 +160,31 @@ def test_route_refuses_arabic_resume_instead_of_scoring_zero(client):
     assert "results" not in body
 
 
-def test_route_refuses_spanish_resume(client):
+def test_route_scores_spanish_resume_in_spanish(client):
     rv = _upload(client, SPANISH)
-    assert rv.status_code == 422
-    assert rv.get_json()["code"] == "not_english"
+    assert rv.status_code == 200
+    body = rv.get_json()
+    assert body["language"] == "es"
+    # The whole point of the corpus: a real score, not the 0 it used to give.
+    assert body["results"]["score"] > 0
+    assert body["results"]["categories"]["Soft Skills"]["label"] == "Habilidades blandas"
+
+
+def test_spanish_recommendations_are_in_spanish(client):
+    rv = _upload(client, SPANISH)
+    recs = rv.get_json()["results"]["recommendations"]
+    assert recs, "expected recommendations for this resume"
+    joined = " ".join(r["title"] + r["detail"] for r in recs)
+    assert "Agrega" in joined or "Considera" in joined or "Completa" in joined
+    # No English leaking into a Spanish report.
+    assert "Add " not in joined and "Consider adding" not in joined
+
+
+def test_spanish_verb_stems_match_conjugations():
+    # "Gestioné" / "mejoré" must count as the verbs gestionar / mejorar.
+    text = SPANISH + "\nGestioné, mejoré y desarrollé procesos internos."
+    results = analyze(text, language="es")
+    found = results["categories"]["Action Verbs"]["found"]
+    assert "gestionar" in found
+    assert "mejorar" in found
+    assert "desarrollar" in found
