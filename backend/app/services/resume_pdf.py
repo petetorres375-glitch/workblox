@@ -1,12 +1,12 @@
 import io
-import os
 
 from fpdf import FPDF
+
+from .pdf_fonts import BASE_FONT, register_pdf_fonts
 import docx as python_docx
 from docx.shared import Pt, RGBColor, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-_FONTS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "fonts")
 
 C_NAME    = (15,  23,  42)
 C_ACCENT  = (37,  99,  235)
@@ -14,9 +14,26 @@ C_BODY    = (30,  30,  30)
 C_MUTED   = (90, 100, 120)
 C_RULE    = (200, 210, 225)
 
-FONT_NAME = "DejaVu"
-FONT_REG  = os.path.join(_FONTS_DIR, "DejaVuSans.ttf")
-FONT_BOLD = os.path.join(_FONTS_DIR, "DejaVuSans-Bold.ttf")
+# Font files and fallbacks live in pdf_fonts so every generator stays in sync.
+FONT_NAME = BASE_FONT
+
+# Section headings arrive already translated from the client, because this
+# service has no locale files of its own. English is only the fallback.
+DEFAULT_LABELS = {
+    "summary":        "Professional Summary",
+    "experience":     "Work Experience",
+    "education":      "Education",
+    "skills":         "Skills",
+    "certifications": "Certifications",
+}
+
+
+def resolve_labels(supplied):
+    supplied = supplied or {}
+    return {
+        key: (str(supplied.get(key) or "").strip() or default)
+        for key, default in DEFAULT_LABELS.items()
+    }
 
 L_MARGIN  = 18
 R_MARGIN  = 18
@@ -27,8 +44,7 @@ CONTENT_W = PAGE_W - L_MARGIN - R_MARGIN
 class _PDF(FPDF):
     def __init__(self):
         super().__init__()
-        self.add_font(FONT_NAME, "",  FONT_REG)
-        self.add_font(FONT_NAME, "B", FONT_BOLD)
+        register_pdf_fonts(self)
 
     def section_header(self, title):
         self.ln(4)
@@ -50,7 +66,8 @@ class _PDF(FPDF):
         self.multi_cell(CONTENT_W - 8, 5.5, text.strip(), ln=True)
 
 
-def generate_resume_pdf(contact, resume, job_role):
+def generate_resume_pdf(contact, resume, job_role, labels=None):
+    labels = resolve_labels(labels)
     pdf = _PDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
@@ -84,7 +101,7 @@ def generate_resume_pdf(contact, resume, job_role):
 
     # Summary
     if resume.get("summary"):
-        pdf.section_header("Professional Summary")
+        pdf.section_header(labels["summary"])
         pdf.set_font(FONT_NAME, "", 9.5)
         pdf.set_text_color(*C_BODY)
         pdf.multi_cell(CONTENT_W, 5.5, resume["summary"], ln=True)
@@ -93,7 +110,7 @@ def generate_resume_pdf(contact, resume, job_role):
     # Experience
     exp = resume.get("experience", [])
     if exp:
-        pdf.section_header("Work Experience")
+        pdf.section_header(labels["experience"])
         for job in exp:
             pdf.set_font(FONT_NAME, "B", 10)
             pdf.set_text_color(*C_NAME)
@@ -116,7 +133,7 @@ def generate_resume_pdf(contact, resume, job_role):
     # Education
     edu = resume.get("education", [])
     if edu:
-        pdf.section_header("Education")
+        pdf.section_header(labels["education"])
         for e in edu:
             pdf.set_font(FONT_NAME, "B", 10)
             pdf.set_text_color(*C_NAME)
@@ -137,7 +154,7 @@ def generate_resume_pdf(contact, resume, job_role):
     # Skills
     skills = resume.get("skills", [])
     if skills:
-        pdf.section_header("Skills")
+        pdf.section_header(labels["skills"])
         pdf.set_font(FONT_NAME, "", 9.5)
         pdf.set_text_color(*C_BODY)
         pdf.multi_cell(CONTENT_W, 5.5, " • ".join(skills), ln=True)
@@ -146,7 +163,7 @@ def generate_resume_pdf(contact, resume, job_role):
     # Certifications
     certs = resume.get("certifications", [])
     if certs:
-        pdf.section_header("Certifications")
+        pdf.section_header(labels["certifications"])
         for cert in certs:
             if cert.strip():
                 pdf.bullet(cert)
@@ -157,7 +174,8 @@ def generate_resume_pdf(contact, resume, job_role):
     return buf
 
 
-def generate_resume_docx(contact, resume, job_role):
+def generate_resume_docx(contact, resume, job_role, labels=None):
+    labels = resolve_labels(labels)
     doc = python_docx.Document()
     for section in doc.sections:
         section.top_margin    = Inches(0.75)
@@ -196,7 +214,7 @@ def generate_resume_docx(contact, resume, job_role):
         r.font.size = Pt(9); r.font.bold = True; r.font.color.rgb = _rgb(C_ACCENT)
 
     if resume.get("summary"):
-        _section_heading("Professional Summary")
+        _section_heading(labels["summary"])
         p = doc.add_paragraph()
         p.paragraph_format.space_after = Pt(4)
         r = p.add_run(resume["summary"])
@@ -204,7 +222,7 @@ def generate_resume_docx(contact, resume, job_role):
 
     exp = resume.get("experience", [])
     if exp:
-        _section_heading("Work Experience")
+        _section_heading(labels["experience"])
         for job in exp:
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(1)
@@ -221,7 +239,7 @@ def generate_resume_docx(contact, resume, job_role):
 
     edu = resume.get("education", [])
     if edu:
-        _section_heading("Education")
+        _section_heading(labels["education"])
         for e in edu:
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(1)
@@ -232,7 +250,7 @@ def generate_resume_docx(contact, resume, job_role):
 
     skills = resume.get("skills", [])
     if skills:
-        _section_heading("Skills")
+        _section_heading(labels["skills"])
         p = doc.add_paragraph()
         p.paragraph_format.space_after = Pt(4)
         r = p.add_run(" • ".join(skills))
@@ -240,7 +258,7 @@ def generate_resume_docx(contact, resume, job_role):
 
     certs = resume.get("certifications", [])
     if certs:
-        _section_heading("Certifications")
+        _section_heading(labels["certifications"])
         for cert in certs:
             if cert.strip():
                 p = doc.add_paragraph(style="List Bullet")
@@ -254,7 +272,8 @@ def generate_resume_docx(contact, resume, job_role):
     return buf
 
 
-def generate_resume_txt(contact, resume, job_role):
+def generate_resume_txt(contact, resume, job_role, labels=None):
+    labels = resolve_labels(labels)
     lines = []
     name = contact.get("name", "")
     if name:
@@ -268,10 +287,10 @@ def generate_resume_txt(contact, resume, job_role):
     lines.append("")
 
     if resume.get("summary"):
-        lines += ["PROFESSIONAL SUMMARY", "-" * 30, resume["summary"], ""]
+        lines += [labels["summary"], "-" * 30, resume["summary"], ""]
 
     if resume.get("experience"):
-        lines += ["WORK EXPERIENCE", "-" * 30]
+        lines += [labels["experience"], "-" * 30]
         for job in resume["experience"]:
             lines.append(f"{job.get('title', '')}  —  {job.get('company', '')}  |  {job.get('dates', '')}")
             for b in job.get("bullets", []):
@@ -279,16 +298,16 @@ def generate_resume_txt(contact, resume, job_role):
             lines.append("")
 
     if resume.get("education"):
-        lines += ["EDUCATION", "-" * 30]
+        lines += [labels["education"], "-" * 30]
         for e in resume["education"]:
             lines.append(f"{e.get('degree', '')}  |  {e.get('school', '')}  |  {e.get('year', '')}")
         lines.append("")
 
     if resume.get("skills"):
-        lines += ["SKILLS", "-" * 30, " • ".join(resume["skills"]), ""]
+        lines += [labels["skills"], "-" * 30, " • ".join(resume["skills"]), ""]
 
     if resume.get("certifications"):
-        lines += ["CERTIFICATIONS", "-" * 30]
+        lines += [labels["certifications"], "-" * 30]
         for c in resume["certifications"]:
             if c.strip():
                 lines.append(f"  • {c.strip()}")

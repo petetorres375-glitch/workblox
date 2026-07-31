@@ -645,10 +645,11 @@ def email_pdf():
     subject = (body.get("subject") or "Workblox Report").strip()
     content_txt = (body.get("content_txt") or "").strip()
     filename = (body.get("filename") or "report").strip()
+    language = (body.get("language") or "").strip()
     if not email_to or not content_txt:
         return jsonify({"error": "email and content are required"}), 400
     try:
-        success = send_pdf_email(email_to, subject, content_txt, filename)
+        success = send_pdf_email(email_to, subject, content_txt, filename, language)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     if not success:
@@ -666,10 +667,11 @@ def download_pdf():
     subject = (body.get("subject") or "Workblox Report").strip()
     content_txt = (body.get("content_txt") or "").strip()
     filename = (body.get("filename") or "report").strip()
+    language = (body.get("language") or "").strip()
     if not content_txt:
         return jsonify({"error": "content_txt is required"}), 400
     try:
-        pdf_bytes = _generate_pdf(subject, content_txt)
+        pdf_bytes = _generate_pdf(subject, content_txt, language)
         return Response(
             pdf_bytes,
             mimetype="application/pdf",

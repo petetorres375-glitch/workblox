@@ -3,20 +3,21 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const lines = ["BUSINESS EMAIL DRAFT", "=".repeat(60)];
-  if (data.subject) lines.push(`Subject: ${data.subject}`);
+function buildTxt(data, t) {
+  const lines = [reportTitle(t), "=".repeat(60)];
+  if (data.subject) lines.push(`${t("subjectLine")}: ${data.subject}`);
   lines.push("", data.body || "");
-  if (data.call_to_action) lines.push("", "CALL TO ACTION", "-".repeat(40), data.call_to_action);
+  if (data.call_to_action) lines.push("", t("callToAction"), "-".repeat(40), data.call_to_action);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = ["# Business Email Draft"];
-  if (data.subject) lines.push("", `**Subject:** ${data.subject}`);
-  lines.push("", "## Email Body", data.body || "");
-  if (data.call_to_action) lines.push("", "## Call to Action", data.call_to_action);
+function buildMd(data, t) {
+  const lines = [`# ${reportTitle(t)}`];
+  if (data.subject) lines.push("", `**${t("subjectLine")}:** ${data.subject}`);
+  lines.push("", `## ${t("emailBody")}`, data.body || "");
+  if (data.call_to_action) lines.push("", `## ${t("callToAction")}`, data.call_to_action);
   return lines.join("\n");
 }
 
@@ -80,9 +81,9 @@ export default function BusinessEmailDrafter() {
           )}
           <ReportToolbar
             filename={slug(purpose) || "business_email"}
-            subject={`Business Email${data.subject ? ` — ${data.subject}` : ""}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)}${data.subject ? ` — ${data.subject}` : ""}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

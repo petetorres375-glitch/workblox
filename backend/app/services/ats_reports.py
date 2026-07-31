@@ -1,5 +1,4 @@
 import io
-import os
 import re as _re
 
 from fpdf import FPDF
@@ -8,8 +7,8 @@ from docx.shared import Pt, RGBColor, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 from app.services.ats_engine import grade
+from app.services.pdf_fonts import BASE_FONT, register_pdf_fonts
 
-_FONTS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "fonts")
 
 C_INK    = (27,  34,  48)
 C_MID    = (90,  100, 120)
@@ -31,9 +30,8 @@ R_MARGIN  = 15
 PAGE_W    = 210
 CONTENT_W = PAGE_W - L_MARGIN - R_MARGIN
 
-FONT_NAME = 'DejaVu'
-FONT_REG  = os.path.join(_FONTS_DIR, 'DejaVuSans.ttf')
-FONT_BOLD = os.path.join(_FONTS_DIR, 'DejaVuSans-Bold.ttf')
+# Font files and fallbacks live in pdf_fonts so every generator stays in sync.
+FONT_NAME = BASE_FONT
 
 _HEADER_RE = _re.compile(
     r'^\s*(?:PROFESSIONAL\s+)?'
@@ -68,8 +66,7 @@ def _line_type(line):
 class _PDF(FPDF):
     def __init__(self):
         super().__init__()
-        self.add_font(FONT_NAME, '',  FONT_REG)
-        self.add_font(FONT_NAME, 'B', FONT_BOLD)
+        register_pdf_fonts(self)
 
     def section_title(self, title):
         self.ln(2)

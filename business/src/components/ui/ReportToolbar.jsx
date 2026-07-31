@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { post, postBlob } from "../../api/client";
 
 function triggerDownload(content, filename, mime) {
@@ -88,6 +89,9 @@ function txtToHtml(txt, subject) {
 }
 
 export default function ReportToolbar({ filename, subject, txtContent, mdContent, htmlContent }) {
+  // The backend needs the language to pick text direction for the PDF.
+  const { i18n } = useTranslation();
+  const language = i18n.language;
   const [emailTo, setEmailTo] = useState(localStorage.getItem("wbb_email") || "");
   const [emailSent, setEmailSent] = useState(null); // "html" | "pdf" | null
   const [emailLoading, setEmailLoading] = useState(false);
@@ -126,6 +130,7 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
         subject,
         content_txt: txtContent,
         filename,
+        language,
       });
       setEmailSent("pdf");
     } catch (err) {
@@ -140,7 +145,7 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
   async function handleDownloadPdf() {
     setDlPdfLoading(true);
     try {
-      const blob = await postBlob("/api/biz/download-pdf", { subject, content_txt: txtContent, filename });
+      const blob = await postBlob("/api/biz/download-pdf", { subject, content_txt: txtContent, filename, language });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;

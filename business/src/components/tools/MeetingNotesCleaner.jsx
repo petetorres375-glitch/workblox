@@ -3,34 +3,35 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const lines = ["MEETING NOTES", "=".repeat(60), `Date: ${data.date_placeholder || ""}`, `Attendees: ${data.attendees_placeholder || ""}`, "", "SUMMARY", "-".repeat(40), data.meeting_summary || ""];
+function buildTxt(data, t) {
+  const lines = [reportTitle(t), "=".repeat(60), `Date: ${data.date_placeholder || ""}`, `Attendees: ${data.attendees_placeholder || ""}`, "", t("summary"), "-".repeat(40), data.meeting_summary || ""];
   if (data.decisions_made?.length) {
-    lines.push("", "DECISIONS MADE", "-".repeat(40));
+    lines.push("", t("decisionsMade"), "-".repeat(40));
     data.decisions_made.forEach((d, i) => lines.push(`${i + 1}. ${d}`));
   }
   if (data.action_items?.length) {
-    lines.push("", "ACTION ITEMS", "-".repeat(40));
+    lines.push("", t("actionItems"), "-".repeat(40));
     data.action_items.forEach((a, i) => lines.push(`${i + 1}. ${a.task} — ${a.owner} (Due: ${a.due_date})`));
   }
   if (data.next_steps?.length) {
-    lines.push("", "NEXT STEPS", "-".repeat(40));
+    lines.push("", t("nextSteps"), "-".repeat(40));
     data.next_steps.forEach((s, i) => lines.push(`${i + 1}. ${s}`));
   }
-  if (data.follow_up_meeting) lines.push("", "FOLLOW-UP MEETING", "-".repeat(40), data.follow_up_meeting);
+  if (data.follow_up_meeting) lines.push("", t("followUpMeeting"), "-".repeat(40), data.follow_up_meeting);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = ["# Meeting Notes", "", `**Date:** ${data.date_placeholder || ""}`, `**Attendees:** ${data.attendees_placeholder || ""}`, "", "## Summary", data.meeting_summary || ""];
-  if (data.decisions_made?.length) { lines.push("", "## Decisions Made"); data.decisions_made.forEach((d) => lines.push(`- ${d}`)); }
+function buildMd(data, t) {
+  const lines = [`# ${reportTitle(t)}`, "", `**Date:** ${data.date_placeholder || ""}`, `**Attendees:** ${data.attendees_placeholder || ""}`, "", `## ${t("summary")}`, data.meeting_summary || ""];
+  if (data.decisions_made?.length) { lines.push("", `## ${t("decisionsMade")}`); data.decisions_made.forEach((d) => lines.push(`- ${d}`)); }
   if (data.action_items?.length) {
-    lines.push("", "## Action Items", "", "| Task | Owner | Due |", "|---|---|---|");
+    lines.push("", `## ${t("actionItems")}`, "", "| Task | Owner | Due |", "|---|---|---|");
     data.action_items.forEach((a) => lines.push(`| ${a.task} | ${a.owner} | ${a.due_date} |`));
   }
-  if (data.next_steps?.length) { lines.push("", "## Next Steps"); data.next_steps.forEach((s) => lines.push(`- ${s}`)); }
-  if (data.follow_up_meeting) lines.push("", "## Follow-Up Meeting", data.follow_up_meeting);
+  if (data.next_steps?.length) { lines.push("", `## ${t("nextSteps")}`); data.next_steps.forEach((s) => lines.push(`- ${s}`)); }
+  if (data.follow_up_meeting) lines.push("", `## ${t("followUpMeeting")}`, data.follow_up_meeting);
   return lines.join("\n");
 }
 
@@ -68,7 +69,7 @@ export default function MeetingNotesCleaner() {
           <div className="result-card">
             <div className="result-header">
               <p className="result-label">{t("summary")}</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data))}>{t("copyAll")}</button>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildTxt(data, t))}>{t("copyAll")}</button>
             </div>
             <p style={{ fontSize: "0.82rem", color: "var(--text-hint)", marginBottom: "0.5rem" }}>{data.date_placeholder} · {data.attendees_placeholder}</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.meeting_summary}</p>
@@ -104,9 +105,9 @@ export default function MeetingNotesCleaner() {
           )}
           <ReportToolbar
             filename={slug(context) || "meeting_notes"}
-            subject={`Meeting Notes${context ? ` — ${context}` : ""}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)}${context ? ` — ${context}` : ""}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

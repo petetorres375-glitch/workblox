@@ -64,7 +64,7 @@ def download_resume_pdf():
     if not resume:
         return jsonify({"error": "resume data required"}), 400
     try:
-        buf = generate_resume_pdf(contact, resume, job_role)
+        buf = generate_resume_pdf(contact, resume, job_role, body.get("labels"))
     except Exception as e:
         return jsonify({"error": f"PDF generation failed: {e}"}), 500
     safe = (contact.get("name") or "Resume").replace(" ", "_")
@@ -86,7 +86,7 @@ def download_resume_docx():
     if not resume:
         return jsonify({"error": "resume data required"}), 400
     try:
-        buf = generate_resume_docx(contact, resume, job_role)
+        buf = generate_resume_docx(contact, resume, job_role, body.get("labels"))
     except Exception as e:
         return jsonify({"error": f"Word document generation failed: {e}"}), 500
     safe = (contact.get("name") or "Resume").replace(" ", "_")
@@ -107,7 +107,7 @@ def download_resume_txt():
     job_role = body.get("job_role")
     if not resume:
         return jsonify({"error": "resume data required"}), 400
-    txt  = generate_resume_txt(contact, resume, job_role)
+    txt  = generate_resume_txt(contact, resume, job_role, body.get("labels"))
     safe = (contact.get("name") or "Resume").replace(" ", "_")
     return send_file(
         io.BytesIO(txt.encode("utf-8")),

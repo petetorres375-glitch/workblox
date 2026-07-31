@@ -4,19 +4,19 @@ import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
 
-function buildTxt(data) {
-  const lines = ["REVIEW REQUEST EMAIL", "=".repeat(60)];
-  if (data.subject) lines.push(`Subject: ${data.subject}`);
+function buildTxt(data, t) {
+  const lines = [t("docTitle"), "=".repeat(60)];
+  if (data.subject) lines.push(`${t("subjectLine")}: ${data.subject}`);
   lines.push("", data.body || "");
-  if (data.timing_advice) lines.push("", "TIMING ADVICE", "-".repeat(40), data.timing_advice);
+  if (data.timing_advice) lines.push("", t("timingAdvice"), "-".repeat(40), data.timing_advice);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = ["# Review Request Email"];
-  if (data.subject) lines.push("", `**Subject:** ${data.subject}`);
-  lines.push("", "## Email Body", data.body || "");
-  if (data.timing_advice) lines.push("", "## Timing Advice", data.timing_advice);
+function buildMd(data, t) {
+  const lines = [`# ${t("docTitle")}`];
+  if (data.subject) lines.push("", `**${t("subjectLine")}:** ${data.subject}`);
+  lines.push("", `## ${t("emailBody")}`, data.body || "");
+  if (data.timing_advice) lines.push("", `## ${t("timingAdvice")}`, data.timing_advice);
   return lines.join("\n");
 }
 
@@ -77,8 +77,8 @@ export default function ReviewRequestEmail() {
           <ReportToolbar
             filename={slug(businessName) || "review_request"}
             subject={`${t("docTitle")}${businessName ? ` — ${businessName}` : ""}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

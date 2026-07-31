@@ -3,25 +3,26 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const lines = ["CUSTOMER RESPONSE DRAFT", "=".repeat(60)];
-  if (data.subject) lines.push(`Subject: ${data.subject}`);
+function buildTxt(data, t) {
+  const lines = [reportTitle(t), "=".repeat(60)];
+  if (data.subject) lines.push(`${t("subjectLine")}: ${data.subject}`);
   lines.push("", data.response_draft || "");
   if (data.key_points_addressed?.length) {
-    lines.push("", "POINTS ADDRESSED", "-".repeat(40));
+    lines.push("", t("pointsAddressed"), "-".repeat(40));
     data.key_points_addressed.forEach((p, i) => lines.push(`${i + 1}. ${p}`));
   }
-  if (data.follow_up_suggested) lines.push("", "SUGGESTED FOLLOW-UP", "-".repeat(40), data.follow_up_suggested);
+  if (data.follow_up_suggested) lines.push("", t("followUpSuggested"), "-".repeat(40), data.follow_up_suggested);
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = ["# Customer Response Draft"];
-  if (data.subject) lines.push("", `**Subject:** ${data.subject}`);
-  lines.push("", "## Response", data.response_draft || "");
-  if (data.key_points_addressed?.length) { lines.push("", "## Points Addressed"); data.key_points_addressed.forEach((p) => lines.push(`- ${p}`)); }
-  if (data.follow_up_suggested) lines.push("", "## Suggested Follow-Up", data.follow_up_suggested);
+function buildMd(data, t) {
+  const lines = [`# ${reportTitle(t)}`];
+  if (data.subject) lines.push("", `**${t("subjectLine")}:** ${data.subject}`);
+  lines.push("", `## ${t("responseDraft")}`, data.response_draft || "");
+  if (data.key_points_addressed?.length) { lines.push("", `## ${t("pointsAddressed")}`); data.key_points_addressed.forEach((p) => lines.push(`- ${p}`)); }
+  if (data.follow_up_suggested) lines.push("", `## ${t("followUpSuggested")}`, data.follow_up_suggested);
   return lines.join("\n");
 }
 
@@ -90,8 +91,8 @@ export default function CustomerResponseDrafter() {
           <ReportToolbar
             filename="customer_response"
             subject="Customer Response Draft"
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}

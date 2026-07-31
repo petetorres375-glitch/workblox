@@ -3,19 +3,20 @@ import { Trans, useTranslation } from "react-i18next";
 import { useApi } from "../../hooks/useApi";
 import { post } from "../../api/client";
 import ReportToolbar, { slug } from "../ui/ReportToolbar";
+import { reportTitle } from "../../utils/reportLabels";
 
-function buildTxt(data) {
-  const lines = [`JOB DESCRIPTION — ${(data.job_title || "").toUpperCase()}`, "=".repeat(60), "", data.overview || "", ""];
-  lines.push("RESPONSIBILITIES", "-".repeat(40));
+function buildTxt(data, t) {
+  const lines = [`${reportTitle(t)}${data.job_title ? ` — ${data.job_title}` : ""}`, "=".repeat(60), "", data.overview || "", ""];
+  lines.push(t("responsibilities"), "-".repeat(40));
   (data.responsibilities || []).forEach((r, i) => lines.push(`${i + 1}. ${r}`));
-  lines.push("", "REQUIREMENTS", "-".repeat(40));
+  lines.push("", t("requirements"), "-".repeat(40));
   (data.requirements || []).forEach((r, i) => lines.push(`${i + 1}. ${r}`));
   if (data.nice_to_have?.length) {
-    lines.push("", "NICE TO HAVE", "-".repeat(40));
+    lines.push("", t("niceToHave"), "-".repeat(40));
     data.nice_to_have.forEach((r, i) => lines.push(`${i + 1}. ${r}`));
   }
   if (data.benefits?.length) {
-    lines.push("", "BENEFITS", "-".repeat(40));
+    lines.push("", t("benefits"), "-".repeat(40));
     data.benefits.forEach((r, i) => lines.push(`${i + 1}. ${r}`));
   }
   if (data.about_company_placeholder) {
@@ -24,14 +25,14 @@ function buildTxt(data) {
   return lines.join("\n");
 }
 
-function buildMd(data) {
-  const lines = [`# ${data.job_title || "Job Description"}`, "", data.overview || "", ""];
-  lines.push("## Responsibilities");
+function buildMd(data, t) {
+  const lines = [`# ${data.job_title || reportTitle(t)}`, "", data.overview || "", ""];
+  lines.push(`## ${t("responsibilities")}`);
   (data.responsibilities || []).forEach((r) => lines.push(`- ${r}`));
-  lines.push("", "## Requirements");
+  lines.push("", `## ${t("requirements")}`);
   (data.requirements || []).forEach((r) => lines.push(`- ${r}`));
-  if (data.nice_to_have?.length) { lines.push("", "## Nice to Have"); data.nice_to_have.forEach((r) => lines.push(`- ${r}`)); }
-  if (data.benefits?.length) { lines.push("", "## Benefits"); data.benefits.forEach((r) => lines.push(`- ${r}`)); }
+  if (data.nice_to_have?.length) { lines.push("", `## ${t("niceToHave")}`); data.nice_to_have.forEach((r) => lines.push(`- ${r}`)); }
+  if (data.benefits?.length) { lines.push("", `## ${t("benefits")}`); data.benefits.forEach((r) => lines.push(`- ${r}`)); }
   if (data.about_company_placeholder) { lines.push("", "## About the Company", data.about_company_placeholder); }
   return lines.join("\n");
 }
@@ -78,7 +79,7 @@ export default function JobDescWriter() {
           <div className="result-card">
             <div className="result-header">
               <p className="result-label">{t("overview")}</p>
-              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildMd(data))}>{t("copyAll")}</button>
+              <button className="copy-btn no-print" onClick={() => navigator.clipboard.writeText(buildMd(data, t))}>{t("copyAll")}</button>
             </div>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65, fontWeight: 700, marginBottom: "0.5rem" }}>{data.job_title}</p>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.65 }}>{data.overview}</p>
@@ -93,9 +94,9 @@ export default function JobDescWriter() {
           )}
           <ReportToolbar
             filename={slug(jobTitle) || "job_description"}
-            subject={`Job Description — ${data.job_title || jobTitle}`}
-            txtContent={buildTxt(data)}
-            mdContent={buildMd(data)}
+            subject={`${reportTitle(t)} — ${data.job_title || jobTitle}`}
+            txtContent={buildTxt(data, t)}
+            mdContent={buildMd(data, t)}
           />
         </>
       )}
