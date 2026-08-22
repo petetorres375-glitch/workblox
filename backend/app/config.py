@@ -29,3 +29,7 @@ class Config:
     # Railway exposes postgres:// but SQLAlchemy requires postgresql://
     SQLALCHEMY_DATABASE_URI = _db_url.replace("postgres://", "postgresql://", 1) if _db_url.startswith("postgres://") else _db_url
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    # Railway restarts Postgres for maintenance/security patches, which kills every
+    # pooled connection. Without pre-ping the app only finds out mid-request (500s
+    # until each stale connection is used once and discarded).
+    SQLALCHEMY_ENGINE_OPTIONS = {"pool_pre_ping": True, "pool_recycle": 300}
