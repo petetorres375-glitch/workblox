@@ -78,3 +78,11 @@ def test_health(client):
     rv = client.get("/api/health")
     assert rv.status_code == 200
     assert rv.get_json()["status"] == "ok"
+
+
+def test_health_reports_build(client):
+    body = client.get("/api/health").get_json()
+    # Railway's git vars are absent locally, so this asserts the fallback rather
+    # than a real SHA — the point is that the keys are always present.
+    assert body["commit"] == "unknown"
+    assert body["branch"] == "unknown"
