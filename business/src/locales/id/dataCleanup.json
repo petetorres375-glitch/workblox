@@ -1,0 +1,46 @@
+{
+  "title": "Pembersihan <0>Data</0>",
+  "subtitle": "Unggah spreadsheet yang berantakan dan dapatkan tanggal yang konsisten, teks yang rapi, dan duplikat yang sudah ditangani.",
+  "dropLabel": "Letakkan spreadsheet di sini atau klik untuk memilih",
+  "dropHint": "XLSX atau CSV · hingga 5.000 baris",
+  "retentionNote": "Berkas Anda diproses lalu dibuang — tidak ada yang disimpan.",
+  "descriptionPlaceholder": "Data apa ini? (opsional — mis. daftar pelanggan, catatan faktur)",
+  "dateFormatLabel": "Format tanggal",
+  "dateFormatOptions": {
+    "auto": "Deteksi otomatis",
+    "mdy": "BB-HH-TTTT",
+    "dmy": "HH-BB-TTTT"
+  },
+  "duplicateLabel": "Duplikat",
+  "duplicateOptions": {
+    "flag": "Tandai untuk ditinjau",
+    "merge": "Gabungkan yang sama persis"
+  },
+  "clean": "Bersihkan Data Saya",
+  "cleaning": "Membersihkan…",
+  "summaryLabel": "Ringkasan",
+  "summaryLead": "Berkas dibersihkan —",
+  "summaryDates_one": "memperbaiki {{count}} format tanggal",
+  "summaryDates_other": "memperbaiki {{count}} format tanggal",
+  "summaryMerged_one": "menggabungkan {{count}} baris duplikat",
+  "summaryMerged_other": "menggabungkan {{count}} baris duplikat",
+  "summaryFlagged_one": "menandai {{count}} baris untuk Anda tinjau",
+  "summaryFlagged_other": "menandai {{count}} baris untuk Anda tinjau",
+  "summaryTrimmed_one": "merapikan {{count}} sel",
+  "summaryTrimmed_other": "merapikan {{count}} sel",
+  "summaryClean": "Tidak ada masalah ditemukan — data Anda memang sudah bersih.",
+  "rowCount": "{{before}} baris masuk, {{after}} baris keluar",
+  "previewLabel": "Sebelum dan sesudah",
+  "previewCount": "Menampilkan {{shown}} dari {{total}} baris",
+  "statusColumn": "Status",
+  "blank": "(kosong)",
+  "flags": {
+    "duplicate": "Duplikat",
+    "ambiguous_date": "Tanggal ambigu",
+    "unparseable_date": "Tanggal tidak terbaca"
+  },
+  "mergedTag_one": "{{count}} baris digabungkan",
+  "mergedTag_other": "{{count}} baris digabungkan",
+  "download": "Unduh Berkas yang Sudah Bersih",
+  "preparing": "Menyiapkan…"
+}

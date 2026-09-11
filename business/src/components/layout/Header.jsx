@@ -79,9 +79,12 @@ function LinuxTrustTip({ onClose }) {
   );
 }
 
+// Ordered by English display label, not by key -- "email" renders as
+// "Business Email" and so sits in the B slot.
 const NAV_IDS = [
   "ad-copy", "batch-ats", "email", "contacts", "contract", "customer",
-  "hiring", "job-desc", "meeting", "policy", "proposal", "review", "social", "sop",
+  "data-cleanup", "expenses", "hiring", "job-desc", "meeting", "policy",
+  "proposal", "review", "social", "sop",
 ];
 
 export default function Header({ active, onSelect, enabledKeys }) {

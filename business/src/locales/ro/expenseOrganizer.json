@@ -1,0 +1,41 @@
+{
+  "title": "Organizator <0>Cheltuieli</0>",
+  "subtitle": "Adaugă bonuri și extrase bancare și primești un tabel de cheltuieli pe categorii, gata de editat și exportat.",
+  "dropLabel": "Trage bonuri sau extrase aici ori dă clic pentru a răsfoi",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV sau XLSX · până la 10 fișiere",
+  "retentionNote": "Fișierele tale sunt procesate și eliminate — nu se stochează nimic.",
+  "filesSelected_one": "{{count}} fișier selectat",
+  "filesSelected_other": "{{count}} fișiere selectate",
+  "categoriesPlaceholder": "Propriile categorii, separate prin virgulă (opțional)",
+  "dateRangeLabel": "Interval de date",
+  "dateRangeOptions": {
+    "this_month": "Luna aceasta",
+    "last_month": "Luna trecută",
+    "custom": "Interval personalizat",
+    "all": "Toate datele"
+  },
+  "startDate": "De la",
+  "endDate": "Până la",
+  "organize": "Organizează-mi Cheltuielile",
+  "organizing": "Se organizează…",
+  "skippedLabel": "Fișiere pe care nu le-am putut citi",
+  "filteredOut_one": "{{count}} intrare a rămas în afara intervalului de date.",
+  "filteredOut_other": "{{count}} intrări au rămas în afara intervalului de date.",
+  "noEntries": "Nu s-au găsit cheltuieli în aceste fișiere pentru intervalul selectat.",
+  "entriesLabel": "Cheltuieli",
+  "editHint": "Editează orice celulă pentru a o corecta",
+  "columns": {
+    "date": "Dată",
+    "vendor": "Furnizor",
+    "amount": "Sumă",
+    "category": "Categorie",
+    "source": "Sursă",
+    "notes": "Note"
+  },
+  "needsReview": "De verificat",
+  "remove": "Elimină",
+  "totalsLabel": "Totaluri pe categorii",
+  "grandTotal": "Total",
+  "export": "Exportă în Foaie de Calcul",
+  "exporting": "Se exportă…"
+}

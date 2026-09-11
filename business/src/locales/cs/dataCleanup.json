@@ -1,0 +1,46 @@
+{
+  "title": "Čištění <0>dat</0>",
+  "subtitle": "Nahrajte nepřehlednou tabulku a získejte jednotná data, uklizený text a vyřešené duplicity.",
+  "dropLabel": "Přetáhněte sem tabulku nebo klikněte pro výběr",
+  "dropHint": "XLSX nebo CSV · až 5 000 řádků",
+  "retentionNote": "Váš soubor se zpracuje a zahodí — nic se neukládá.",
+  "descriptionPlaceholder": "O jaká data jde? (nepovinné — např. seznam zákazníků, evidence faktur)",
+  "dateFormatLabel": "Formát data",
+  "dateFormatOptions": {
+    "auto": "Rozpoznat automaticky",
+    "mdy": "MM-DD-RRRR",
+    "dmy": "DD-MM-RRRR"
+  },
+  "duplicateLabel": "Duplicity",
+  "duplicateOptions": {
+    "flag": "Označit ke kontrole",
+    "merge": "Sloučit přesné shody"
+  },
+  "clean": "Vyčistit moje data",
+  "cleaning": "Čištění…",
+  "summaryLabel": "Souhrn",
+  "summaryLead": "Soubor vyčištěn —",
+  "summaryDates_one": "opraven {{count}} formát data",
+  "summaryDates_other": "opraveno formátů data: {{count}}",
+  "summaryMerged_one": "sloučen {{count}} duplicitní řádek",
+  "summaryMerged_other": "sloučeno duplicitních řádků: {{count}}",
+  "summaryFlagged_one": "označen {{count}} řádek ke kontrole",
+  "summaryFlagged_other": "označeno řádků ke kontrole: {{count}}",
+  "summaryTrimmed_one": "upravena {{count}} buňka",
+  "summaryTrimmed_other": "upraveno buněk: {{count}}",
+  "summaryClean": "Nenalezeny žádné problémy — vaše data už byla v pořádku.",
+  "rowCount": "řádků na vstupu: {{before}}, na výstupu: {{after}}",
+  "previewLabel": "Před a po",
+  "previewCount": "Zobrazeno {{shown}} z {{total}} řádků",
+  "statusColumn": "Stav",
+  "blank": "(prázdné)",
+  "flags": {
+    "duplicate": "Duplicita",
+    "ambiguous_date": "Nejednoznačné datum",
+    "unparseable_date": "Nečitelné datum"
+  },
+  "mergedTag_one": "přidán {{count}} řádek",
+  "mergedTag_other": "přidáno řádků: {{count}}",
+  "download": "Stáhnout vyčištěný soubor",
+  "preparing": "Připravuji…"
+}

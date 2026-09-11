@@ -1,0 +1,46 @@
+{
+  "title": "ניקוי <0>נתונים</0>",
+  "subtitle": "העלו גיליון מבולגן וקבלו תאריכים אחידים, טקסט מסודר וכפילויות שטופלו.",
+  "dropLabel": "גררו לכאן גיליון או לחצו לבחירה",
+  "dropHint": "XLSX או CSV · עד 5,000 שורות",
+  "retentionNote": "הקובץ שלכם מעובד ונמחק — שום דבר לא נשמר.",
+  "descriptionPlaceholder": "אילו נתונים אלה? (לא חובה — למשל רשימת לקוחות, יומן חשבוניות)",
+  "dateFormatLabel": "תבנית תאריך",
+  "dateFormatOptions": {
+    "auto": "זיהוי אוטומטי",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "כפילויות",
+  "duplicateOptions": {
+    "flag": "סימון לבדיקה",
+    "merge": "מיזוג התאמות מדויקות"
+  },
+  "clean": "נקו את הנתונים שלי",
+  "cleaning": "מנקה…",
+  "summaryLabel": "סיכום",
+  "summaryLead": "הקובץ נוקה —",
+  "summaryDates_one": "תוקנה {{count}} תבנית תאריך",
+  "summaryDates_other": "תוקנו {{count}} תבניות תאריך",
+  "summaryMerged_one": "מוזגה {{count}} שורה כפולה",
+  "summaryMerged_other": "מוזגו {{count}} שורות כפולות",
+  "summaryFlagged_one": "סומנה {{count}} שורה לבדיקתכם",
+  "summaryFlagged_other": "סומנו {{count}} שורות לבדיקתכם",
+  "summaryTrimmed_one": "סודרה {{count}} תא",
+  "summaryTrimmed_other": "סודרו {{count}} תאים",
+  "summaryClean": "לא נמצאו בעיות — הנתונים שלכם כבר היו נקיים.",
+  "rowCount": "{{before}} שורות בכניסה, {{after}} ביציאה",
+  "previewLabel": "לפני ואחרי",
+  "previewCount": "מוצגות {{shown}} מתוך {{total}} שורות",
+  "statusColumn": "סטטוס",
+  "blank": "(ריק)",
+  "flags": {
+    "duplicate": "כפילות",
+    "ambiguous_date": "תאריך דו-משמעי",
+    "unparseable_date": "תאריך לא קריא"
+  },
+  "mergedTag_one": "מוזגה {{count}} שורה",
+  "mergedTag_other": "מוזגו {{count}} שורות",
+  "download": "הורדת הקובץ הנקי",
+  "preparing": "מכין…"
+}

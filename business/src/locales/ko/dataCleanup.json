@@ -1,0 +1,46 @@
+{
+  "title": "데이터 <0>정리</0>",
+  "subtitle": "지저분한 스프레드시트를 올리면 날짜 형식 통일, 텍스트 정돈, 중복 정리까지 해서 돌려드립니다.",
+  "dropLabel": "스프레드시트를 여기에 놓거나 클릭해 선택하세요",
+  "dropHint": "XLSX 또는 CSV · 최대 5,000행",
+  "retentionNote": "파일은 처리 후 폐기됩니다 — 아무것도 저장하지 않습니다.",
+  "descriptionPlaceholder": "어떤 데이터인가요? (선택 — 예: 고객 명단, 청구서 기록)",
+  "dateFormatLabel": "날짜 형식",
+  "dateFormatOptions": {
+    "auto": "자동 감지",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "중복 처리",
+  "duplicateOptions": {
+    "flag": "검토 표시",
+    "merge": "완전히 일치하는 항목 병합"
+  },
+  "clean": "내 데이터 정리하기",
+  "cleaning": "정리하는 중…",
+  "summaryLabel": "요약",
+  "summaryLead": "파일을 정리했습니다 —",
+  "summaryDates_one": "날짜 형식 {{count}}건 수정",
+  "summaryDates_other": "날짜 형식 {{count}}건 수정",
+  "summaryMerged_one": "중복 행 {{count}}건 병합",
+  "summaryMerged_other": "중복 행 {{count}}건 병합",
+  "summaryFlagged_one": "검토가 필요한 행 {{count}}건 표시",
+  "summaryFlagged_other": "검토가 필요한 행 {{count}}건 표시",
+  "summaryTrimmed_one": "셀 {{count}}개 정돈",
+  "summaryTrimmed_other": "셀 {{count}}개 정돈",
+  "summaryClean": "문제를 찾지 못했습니다 — 데이터가 이미 깔끔했습니다.",
+  "rowCount": "입력 {{before}}행, 출력 {{after}}행",
+  "previewLabel": "변경 전후",
+  "previewCount": "{{total}}행 중 {{shown}}행 표시",
+  "statusColumn": "상태",
+  "blank": "(비어 있음)",
+  "flags": {
+    "duplicate": "중복",
+    "ambiguous_date": "모호한 날짜",
+    "unparseable_date": "읽을 수 없는 날짜"
+  },
+  "mergedTag_one": "{{count}}행 병합됨",
+  "mergedTag_other": "{{count}}행 병합됨",
+  "download": "정리된 파일 내려받기",
+  "preparing": "준비 중…"
+}

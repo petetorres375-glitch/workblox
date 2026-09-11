@@ -1,0 +1,46 @@
+{
+  "title": "Pulizia <0>Dati</0>",
+  "subtitle": "Carica un foglio di calcolo disordinato e ottieni date coerenti, testo pulito e duplicati risolti.",
+  "dropLabel": "Trascina qui un foglio di calcolo o clicca per sfogliare",
+  "dropHint": "XLSX o CSV · fino a 5.000 righe",
+  "retentionNote": "Il tuo file viene elaborato e scartato — non viene conservato nulla.",
+  "descriptionPlaceholder": "Di che dati si tratta? (facoltativo — es. elenco clienti, registro fatture)",
+  "dateFormatLabel": "Formato data",
+  "dateFormatOptions": {
+    "auto": "Rileva automaticamente",
+    "mdy": "MM-GG-AAAA",
+    "dmy": "GG-MM-AAAA"
+  },
+  "duplicateLabel": "Duplicati",
+  "duplicateOptions": {
+    "flag": "Segnala per revisione",
+    "merge": "Unisci corrispondenze esatte"
+  },
+  "clean": "Pulisci i Miei Dati",
+  "cleaning": "Pulizia in corso…",
+  "summaryLabel": "Riepilogo",
+  "summaryLead": "File pulito —",
+  "summaryDates_one": "{{count}} formato data corretto",
+  "summaryDates_other": "{{count}} formati data corretti",
+  "summaryMerged_one": "{{count}} riga duplicata unita",
+  "summaryMerged_other": "{{count}} righe duplicate unite",
+  "summaryFlagged_one": "{{count}} riga segnalata per la revisione",
+  "summaryFlagged_other": "{{count}} righe segnalate per la revisione",
+  "summaryTrimmed_one": "{{count}} cella sistemata",
+  "summaryTrimmed_other": "{{count}} celle sistemate",
+  "summaryClean": "Nessun problema rilevato — i tuoi dati erano già puliti.",
+  "rowCount": "{{before}} righe in ingresso, {{after}} in uscita",
+  "previewLabel": "Prima e dopo",
+  "previewCount": "Mostrate {{shown}} righe su {{total}}",
+  "statusColumn": "Stato",
+  "blank": "(vuoto)",
+  "flags": {
+    "duplicate": "Duplicato",
+    "ambiguous_date": "Data ambigua",
+    "unparseable_date": "Data illeggibile"
+  },
+  "mergedTag_one": "{{count}} riga unita",
+  "mergedTag_other": "{{count}} righe unite",
+  "download": "Scarica il File Pulito",
+  "preparing": "Preparazione…"
+}

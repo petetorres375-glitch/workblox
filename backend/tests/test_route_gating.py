@@ -131,3 +131,29 @@ def test_demo_bypasses_access_and_entitlement_checks(real_client):
     with patch("app.routes.linux_helper.claude_client.call", return_value=mock_resp):
         rv = c.post("/api/linux", json={"problem": "x"}, headers={"Authorization": f"Bearer {token}"})
     assert rv.status_code == 200
+
+
+def test_new_business_tools_blocked_without_entitlement(real_client):
+    # Data Cleanup and Expense Organizer are gated the same way every other
+    # business tool is -- having the Business plan is not enough on its own.
+    app, c = real_client
+    _make_user(app, "gating-new-tools@example.com", has_business=True)
+    token = _token(app, "gating-new-tools@example.com", has_business=True)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    assert c.post("/api/biz/data-cleanup", headers=headers).status_code == 403
+    assert c.post("/api/biz/expenses", headers=headers).status_code == 403
+
+
+def test_new_business_tools_allowed_with_entitlement(real_client):
+    app, c = real_client
+    user_id = _make_user(app, "gating-new-tools2@example.com", has_business=True)
+    with app.app_context():
+        set_entitlements(user_id, {"data-cleanup"}, source="self_service")
+    token = _token(app, "gating-new-tools2@example.com", has_business=True)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # Entitled: gets past the guard and fails validation instead (no file).
+    assert c.post("/api/biz/data-cleanup", headers=headers).status_code == 400
+    # Still blocked on the tool it wasn't granted.
+    assert c.post("/api/biz/expenses", headers=headers).status_code == 403

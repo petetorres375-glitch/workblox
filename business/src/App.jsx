@@ -13,6 +13,8 @@ import BatchATSAnalyzer from "./components/tools/BatchATSAnalyzer";
 import BusinessEmailDrafter from "./components/tools/BusinessEmailDrafter";
 import ContractAnalyzer from "./components/tools/ContractAnalyzer";
 import CustomerResponseDrafter from "./components/tools/CustomerResponseDrafter";
+import DataCleanup from "./components/tools/DataCleanup";
+import ExpenseOrganizer from "./components/tools/ExpenseOrganizer";
 import HiringManager from "./components/tools/HiringManager";
 import JobDescWriter from "./components/tools/JobDescWriter";
 import MeetingNotesCleaner from "./components/tools/MeetingNotesCleaner";
@@ -30,6 +32,8 @@ const TOOLS = {
   proposal: ProposalGenerator,
   contract: ContractAnalyzer,
   customer: CustomerResponseDrafter,
+  "data-cleanup": DataCleanup,
+  expenses: ExpenseOrganizer,
   review: ReviewRequestEmail,
   social: SocialMediaGenerator,
   "ad-copy": AdCopyWriter,

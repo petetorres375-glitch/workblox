@@ -1,0 +1,46 @@
+{
+  "title": "Czyszczenie <0>Danych</0>",
+  "subtitle": "Prześlij nieuporządkowany arkusz i odbierz spójne daty, uporządkowany tekst i rozwiązane duplikaty.",
+  "dropLabel": "Przeciągnij arkusz tutaj lub kliknij, aby wybrać",
+  "dropHint": "XLSX lub CSV · do 5000 wierszy",
+  "retentionNote": "Twój plik jest przetwarzany i usuwany — nic nie jest przechowywane.",
+  "descriptionPlaceholder": "Czego dotyczą te dane? (opcjonalnie — np. lista klientów, rejestr faktur)",
+  "dateFormatLabel": "Format daty",
+  "dateFormatOptions": {
+    "auto": "Wykryj automatycznie",
+    "mdy": "MM-DD-RRRR",
+    "dmy": "DD-MM-RRRR"
+  },
+  "duplicateLabel": "Duplikaty",
+  "duplicateOptions": {
+    "flag": "Oznacz do sprawdzenia",
+    "merge": "Scal dokładne dopasowania"
+  },
+  "clean": "Wyczyść Moje Dane",
+  "cleaning": "Czyszczenie…",
+  "summaryLabel": "Podsumowanie",
+  "summaryLead": "Plik wyczyszczony —",
+  "summaryDates_one": "poprawiono {{count}} format daty",
+  "summaryDates_other": "poprawiono {{count}} formatów dat",
+  "summaryMerged_one": "scalono {{count}} zduplikowany wiersz",
+  "summaryMerged_other": "scalono {{count}} zduplikowanych wierszy",
+  "summaryFlagged_one": "oznaczono {{count}} wiersz do sprawdzenia",
+  "summaryFlagged_other": "oznaczono {{count}} wierszy do sprawdzenia",
+  "summaryTrimmed_one": "uporządkowano {{count}} komórkę",
+  "summaryTrimmed_other": "uporządkowano {{count}} komórek",
+  "summaryClean": "Nie znaleziono problemów — Twoje dane były już czyste.",
+  "rowCount": "{{before}} wierszy na wejściu, {{after}} na wyjściu",
+  "previewLabel": "Przed i po",
+  "previewCount": "Pokazano {{shown}} z {{total}} wierszy",
+  "statusColumn": "Status",
+  "blank": "(puste)",
+  "flags": {
+    "duplicate": "Duplikat",
+    "ambiguous_date": "Niejednoznaczna data",
+    "unparseable_date": "Nieczytelna data"
+  },
+  "mergedTag_one": "scalono {{count}} wiersz",
+  "mergedTag_other": "scalono {{count}} wierszy",
+  "download": "Pobierz Wyczyszczony Plik",
+  "preparing": "Przygotowywanie…"
+}

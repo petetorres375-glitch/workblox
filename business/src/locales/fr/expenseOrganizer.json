@@ -1,0 +1,41 @@
+{
+  "title": "Organisateur de <0>Dépenses</0>",
+  "subtitle": "Déposez vos reçus et relevés bancaires et obtenez un tableau de dépenses catégorisé, modifiable et exportable.",
+  "dropLabel": "Déposez reçus ou relevés ici ou cliquez pour parcourir",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV ou XLSX · jusqu'à 10 fichiers",
+  "retentionNote": "Vos fichiers sont traités puis supprimés — rien n'est conservé.",
+  "filesSelected_one": "{{count}} fichier sélectionné",
+  "filesSelected_other": "{{count}} fichiers sélectionnés",
+  "categoriesPlaceholder": "Vos propres catégories, séparées par des virgules (facultatif)",
+  "dateRangeLabel": "Période",
+  "dateRangeOptions": {
+    "this_month": "Ce mois-ci",
+    "last_month": "Le mois dernier",
+    "custom": "Période personnalisée",
+    "all": "Toutes les dates"
+  },
+  "startDate": "Du",
+  "endDate": "Au",
+  "organize": "Organiser Mes Dépenses",
+  "organizing": "Organisation…",
+  "skippedLabel": "Fichiers illisibles",
+  "filteredOut_one": "{{count}} entrée était hors de votre période.",
+  "filteredOut_other": "{{count}} entrées étaient hors de votre période.",
+  "noEntries": "Aucune dépense trouvée dans ces fichiers pour la période sélectionnée.",
+  "entriesLabel": "Dépenses",
+  "editHint": "Modifiez n'importe quelle cellule pour la corriger",
+  "columns": {
+    "date": "Date",
+    "vendor": "Fournisseur",
+    "amount": "Montant",
+    "category": "Catégorie",
+    "source": "Source",
+    "notes": "Notes"
+  },
+  "needsReview": "À vérifier",
+  "remove": "Supprimer",
+  "totalsLabel": "Totaux par catégorie",
+  "grandTotal": "Total",
+  "export": "Exporter vers un Tableur",
+  "exporting": "Exportation…"
+}

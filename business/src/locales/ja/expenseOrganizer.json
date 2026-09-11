@@ -1,0 +1,41 @@
+{
+  "title": "経費<0>整理</0>",
+  "subtitle": "領収書や明細をまとめて取り込み、編集・書き出しができるカテゴリ別の経費表にします。",
+  "dropLabel": "領収書や明細をここにドロップ、またはクリックして選択",
+  "dropHint": "JPG、PNG、HEIC、PDF、CSV、XLSX · 最大 10 ファイル",
+  "retentionNote": "ファイルは処理後に破棄されます — 保存は一切行いません。",
+  "filesSelected_one": "{{count}} 件のファイルを選択",
+  "filesSelected_other": "{{count}} 件のファイルを選択",
+  "categoriesPlaceholder": "独自のカテゴリをカンマ区切りで（任意）",
+  "dateRangeLabel": "期間",
+  "dateRangeOptions": {
+    "this_month": "今月",
+    "last_month": "先月",
+    "custom": "期間を指定",
+    "all": "すべての日付"
+  },
+  "startDate": "開始",
+  "endDate": "終了",
+  "organize": "経費を整理する",
+  "organizing": "整理中…",
+  "skippedLabel": "読み取れなかったファイル",
+  "filteredOut_one": "{{count}} 件が指定期間の対象外でした。",
+  "filteredOut_other": "{{count}} 件が指定期間の対象外でした。",
+  "noEntries": "指定した期間に該当する経費はこれらのファイルにありませんでした。",
+  "entriesLabel": "経費",
+  "editHint": "任意のセルを編集して修正できます",
+  "columns": {
+    "date": "日付",
+    "vendor": "支払先",
+    "amount": "金額",
+    "category": "カテゴリ",
+    "source": "出典",
+    "notes": "メモ"
+  },
+  "needsReview": "要確認",
+  "remove": "削除",
+  "totalsLabel": "カテゴリ別合計",
+  "grandTotal": "合計",
+  "export": "表計算ファイルに書き出す",
+  "exporting": "書き出し中…"
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Organizer <0>Wydatków</0>",
+  "subtitle": "Dodaj paragony i wyciągi bankowe, a otrzymasz skategoryzowaną tabelę wydatków do edycji i eksportu.",
+  "dropLabel": "Przeciągnij paragony lub wyciągi tutaj albo kliknij, aby wybrać",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV lub XLSX · do 10 plików",
+  "retentionNote": "Twoje pliki są przetwarzane i usuwane — nic nie jest przechowywane.",
+  "filesSelected_one": "wybrano {{count}} plik",
+  "filesSelected_other": "wybrano {{count}} plików",
+  "categoriesPlaceholder": "Twoje własne kategorie, oddzielone przecinkami (opcjonalnie)",
+  "dateRangeLabel": "Zakres dat",
+  "dateRangeOptions": {
+    "this_month": "Ten miesiąc",
+    "last_month": "Poprzedni miesiąc",
+    "custom": "Zakres niestandardowy",
+    "all": "Wszystkie daty"
+  },
+  "startDate": "Od",
+  "endDate": "Do",
+  "organize": "Uporządkuj Moje Wydatki",
+  "organizing": "Porządkowanie…",
+  "skippedLabel": "Pliki, których nie udało się odczytać",
+  "filteredOut_one": "{{count}} pozycja wykracza poza wybrany zakres dat.",
+  "filteredOut_other": "{{count}} pozycji wykracza poza wybrany zakres dat.",
+  "noEntries": "Nie znaleziono wydatków w tych plikach dla wybranego zakresu dat.",
+  "entriesLabel": "Wydatki",
+  "editHint": "Edytuj dowolną komórkę, aby ją poprawić",
+  "columns": {
+    "date": "Data",
+    "vendor": "Sprzedawca",
+    "amount": "Kwota",
+    "category": "Kategoria",
+    "source": "Źródło",
+    "notes": "Notatki"
+  },
+  "needsReview": "Sprawdź",
+  "remove": "Usuń",
+  "totalsLabel": "Sumy według kategorii",
+  "grandTotal": "Razem",
+  "export": "Eksportuj do Arkusza",
+  "exporting": "Eksportowanie…"
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Pengatur <0>Pengeluaran</0>",
+  "subtitle": "Masukkan struk dan mutasi bank, lalu dapatkan tabel pengeluaran berkategori yang bisa Anda sunting dan ekspor.",
+  "dropLabel": "Letakkan struk atau mutasi di sini atau klik untuk memilih",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV atau XLSX · hingga 10 berkas",
+  "retentionNote": "Berkas Anda diproses lalu dibuang — tidak ada yang disimpan.",
+  "filesSelected_one": "{{count}} berkas dipilih",
+  "filesSelected_other": "{{count}} berkas dipilih",
+  "categoriesPlaceholder": "Kategori Anda sendiri, dipisahkan koma (opsional)",
+  "dateRangeLabel": "Rentang tanggal",
+  "dateRangeOptions": {
+    "this_month": "Bulan ini",
+    "last_month": "Bulan lalu",
+    "custom": "Rentang khusus",
+    "all": "Semua tanggal"
+  },
+  "startDate": "Dari",
+  "endDate": "Sampai",
+  "organize": "Atur Pengeluaran Saya",
+  "organizing": "Mengatur…",
+  "skippedLabel": "Berkas yang tidak bisa dibaca",
+  "filteredOut_one": "{{count}} entri berada di luar rentang tanggal Anda.",
+  "filteredOut_other": "{{count}} entri berada di luar rentang tanggal Anda.",
+  "noEntries": "Tidak ada pengeluaran yang ditemukan dalam berkas ini untuk rentang tanggal yang dipilih.",
+  "entriesLabel": "Pengeluaran",
+  "editHint": "Sunting sel mana pun untuk memperbaikinya",
+  "columns": {
+    "date": "Tanggal",
+    "vendor": "Penjual",
+    "amount": "Jumlah",
+    "category": "Kategori",
+    "source": "Sumber",
+    "notes": "Catatan"
+  },
+  "needsReview": "Periksa ini",
+  "remove": "Hapus",
+  "totalsLabel": "Total per kategori",
+  "grandTotal": "Total",
+  "export": "Ekspor ke Spreadsheet",
+  "exporting": "Mengekspor…"
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Limpeza de <0>Dados</0>",
+  "subtitle": "Envie uma planilha desorganizada e receba datas consistentes, texto limpo e duplicados resolvidos.",
+  "dropLabel": "Arraste uma planilha aqui ou clique para procurar",
+  "dropHint": "XLSX ou CSV · até 5.000 linhas",
+  "retentionNote": "O seu ficheiro é processado e descartado — nada é armazenado.",
+  "descriptionPlaceholder": "O que são estes dados? (opcional — ex. lista de clientes, registo de faturas)",
+  "dateFormatLabel": "Formato de data",
+  "dateFormatOptions": {
+    "auto": "Detetar automaticamente",
+    "mdy": "MM-DD-AAAA",
+    "dmy": "DD-MM-AAAA"
+  },
+  "duplicateLabel": "Duplicados",
+  "duplicateOptions": {
+    "flag": "Marcar para revisão",
+    "merge": "Juntar correspondências exatas"
+  },
+  "clean": "Limpar os Meus Dados",
+  "cleaning": "A limpar…",
+  "summaryLabel": "Resumo",
+  "summaryLead": "Ficheiro limpo —",
+  "summaryDates_one": "{{count}} formato de data corrigido",
+  "summaryDates_other": "{{count}} formatos de data corrigidos",
+  "summaryMerged_one": "{{count}} linha duplicada juntada",
+  "summaryMerged_other": "{{count}} linhas duplicadas juntadas",
+  "summaryFlagged_one": "{{count}} linha marcada para revisão",
+  "summaryFlagged_other": "{{count}} linhas marcadas para revisão",
+  "summaryTrimmed_one": "{{count}} célula arrumada",
+  "summaryTrimmed_other": "{{count}} células arrumadas",
+  "summaryClean": "Nenhum problema encontrado — os seus dados já estavam limpos.",
+  "rowCount": "{{before}} linhas de entrada, {{after}} de saída",
+  "previewLabel": "Antes e depois",
+  "previewCount": "A mostrar {{shown}} de {{total}} linhas",
+  "statusColumn": "Estado",
+  "blank": "(vazio)",
+  "flags": {
+    "duplicate": "Duplicado",
+    "ambiguous_date": "Data ambígua",
+    "unparseable_date": "Data ilegível"
+  },
+  "mergedTag_one": "{{count}} linha juntada",
+  "mergedTag_other": "{{count}} linhas juntadas",
+  "download": "Transferir Ficheiro Limpo",
+  "preparing": "A preparar…"
+}

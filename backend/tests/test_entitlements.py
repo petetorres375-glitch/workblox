@@ -41,9 +41,9 @@ def test_user(client):
         db.session.commit()
 
 
-def test_seed_tools_creates_all_21(client):
+def test_seed_tools_creates_all_23(client):
     with client.application.app_context():
-        assert Tool.query.count() == 21
+        assert Tool.query.count() == 23
         assert Tool.query.filter_by(key="contacts").first().app == "business"
         assert Tool.query.filter_by(key="resume").first().app == "personal"
 
@@ -59,8 +59,8 @@ def test_list_tools_filtered_to_business(client):
     rv = client.get("/api/tools?app=business")
     assert rv.status_code == 200
     keys = {t["key"] for t in rv.get_json()}
-    assert len(keys) == 14
-    assert "contacts" in keys
+    assert len(keys) == 16
+    assert {"contacts", "batch-ats", "data-cleanup", "expenses"} <= keys
 
 
 def test_get_entitlements_empty_for_new_user(client, test_user):

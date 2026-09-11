@@ -1,0 +1,46 @@
+{
+  "title": "Очистка <0>данных</0>",
+  "subtitle": "Загрузите неаккуратную таблицу и получите единообразные даты, опрятный текст и разобранные дубликаты.",
+  "dropLabel": "Перетащите таблицу сюда или нажмите для выбора",
+  "dropHint": "XLSX или CSV · до 5000 строк",
+  "retentionNote": "Ваш файл обрабатывается и удаляется — ничего не сохраняется.",
+  "descriptionPlaceholder": "Что это за данные? (необязательно — напр. список клиентов, журнал счетов)",
+  "dateFormatLabel": "Формат даты",
+  "dateFormatOptions": {
+    "auto": "Определить автоматически",
+    "mdy": "ММ-ДД-ГГГГ",
+    "dmy": "ДД-ММ-ГГГГ"
+  },
+  "duplicateLabel": "Дубликаты",
+  "duplicateOptions": {
+    "flag": "Отметить для проверки",
+    "merge": "Объединить точные совпадения"
+  },
+  "clean": "Очистить мои данные",
+  "cleaning": "Очистка…",
+  "summaryLabel": "Итоги",
+  "summaryLead": "Файл очищен —",
+  "summaryDates_one": "исправлен {{count}} формат даты",
+  "summaryDates_other": "исправлено форматов дат: {{count}}",
+  "summaryMerged_one": "объединена {{count}} дублирующаяся строка",
+  "summaryMerged_other": "объединено дублирующихся строк: {{count}}",
+  "summaryFlagged_one": "отмечена {{count}} строка для проверки",
+  "summaryFlagged_other": "отмечено строк для проверки: {{count}}",
+  "summaryTrimmed_one": "приведена в порядок {{count}} ячейка",
+  "summaryTrimmed_other": "приведено в порядок ячеек: {{count}}",
+  "summaryClean": "Проблем не найдено — ваши данные уже были в порядке.",
+  "rowCount": "строк на входе: {{before}}, на выходе: {{after}}",
+  "previewLabel": "До и после",
+  "previewCount": "Показано {{shown}} из {{total}} строк",
+  "statusColumn": "Статус",
+  "blank": "(пусто)",
+  "flags": {
+    "duplicate": "Дубликат",
+    "ambiguous_date": "Неоднозначная дата",
+    "unparseable_date": "Нечитаемая дата"
+  },
+  "mergedTag_one": "присоединена {{count}} строка",
+  "mergedTag_other": "присоединено строк: {{count}}",
+  "download": "Скачать очищенный файл",
+  "preparing": "Подготовка…"
+}
