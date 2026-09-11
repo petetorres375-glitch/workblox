@@ -1,0 +1,41 @@
+{
+  "title": "Správce <0>výdajů</0>",
+  "subtitle": "Vložte účtenky a bankovní výpisy a získejte tabulku výdajů podle kategorií, kterou lze upravit a exportovat.",
+  "dropLabel": "Přetáhněte sem účtenky nebo výpisy či klikněte pro výběr",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV nebo XLSX · až 10 souborů",
+  "retentionNote": "Vaše soubory se zpracují a zahodí — nic se neukládá.",
+  "filesSelected_one": "vybrán {{count}} soubor",
+  "filesSelected_other": "vybráno souborů: {{count}}",
+  "categoriesPlaceholder": "Vaše vlastní kategorie oddělené čárkami (nepovinné)",
+  "dateRangeLabel": "Časové období",
+  "dateRangeOptions": {
+    "this_month": "Tento měsíc",
+    "last_month": "Minulý měsíc",
+    "custom": "Vlastní období",
+    "all": "Všechna data"
+  },
+  "startDate": "Od",
+  "endDate": "Do",
+  "organize": "Uspořádat moje výdaje",
+  "organizing": "Zpracovávám…",
+  "skippedLabel": "Soubory, které se nepodařilo přečíst",
+  "filteredOut_one": "{{count}} položka byla mimo zvolené období.",
+  "filteredOut_other": "Položek mimo zvolené období: {{count}}.",
+  "noEntries": "V těchto souborech nebyly nalezeny žádné výdaje ve zvoleném období.",
+  "entriesLabel": "Výdaje",
+  "editHint": "Upravte kteroukoli buňku a opravte ji",
+  "columns": {
+    "date": "Datum",
+    "vendor": "Dodavatel",
+    "amount": "Částka",
+    "category": "Kategorie",
+    "source": "Zdroj",
+    "notes": "Poznámky"
+  },
+  "needsReview": "Zkontrolovat",
+  "remove": "Odebrat",
+  "totalsLabel": "Součty podle kategorií",
+  "grandTotal": "Celkem",
+  "export": "Exportovat do tabulky",
+  "exporting": "Exportuji…"
+}

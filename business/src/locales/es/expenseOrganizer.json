@@ -1,0 +1,41 @@
+{
+  "title": "Organizador de <0>Gastos</0>",
+  "subtitle": "Sube recibos y extractos bancarios y obtén una tabla de gastos categorizada que puedes editar y exportar.",
+  "dropLabel": "Arrastra recibos o extractos aquí o haz clic para buscar",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV o XLSX · hasta 10 archivos",
+  "retentionNote": "Tus archivos se procesan y se descartan: no se almacena nada.",
+  "filesSelected_one": "{{count}} archivo seleccionado",
+  "filesSelected_other": "{{count}} archivos seleccionados",
+  "categoriesPlaceholder": "Tus propias categorías, separadas por comas (opcional)",
+  "dateRangeLabel": "Rango de fechas",
+  "dateRangeOptions": {
+    "this_month": "Este mes",
+    "last_month": "Mes pasado",
+    "custom": "Rango personalizado",
+    "all": "Todas las fechas"
+  },
+  "startDate": "Desde",
+  "endDate": "Hasta",
+  "organize": "Organizar Mis Gastos",
+  "organizing": "Organizando…",
+  "skippedLabel": "Archivos que no pudimos leer",
+  "filteredOut_one": "{{count}} entrada quedó fuera de tu rango de fechas.",
+  "filteredOut_other": "{{count}} entradas quedaron fuera de tu rango de fechas.",
+  "noEntries": "No se encontraron gastos en estos archivos para el rango seleccionado.",
+  "entriesLabel": "Gastos",
+  "editHint": "Edita cualquier celda para corregirla",
+  "columns": {
+    "date": "Fecha",
+    "vendor": "Proveedor",
+    "amount": "Importe",
+    "category": "Categoría",
+    "source": "Origen",
+    "notes": "Notas"
+  },
+  "needsReview": "Revisar",
+  "remove": "Quitar",
+  "totalsLabel": "Totales por categoría",
+  "grandTotal": "Total",
+  "export": "Exportar a Hoja de Cálculo",
+  "exporting": "Exportando…"
+}

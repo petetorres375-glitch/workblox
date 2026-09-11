@@ -1,0 +1,46 @@
+{
+  "title": "データ<0>クリーンアップ</0>",
+  "subtitle": "乱れた表計算ファイルをアップロードすると、日付の統一・テキストの整形・重複の整理をして返します。",
+  "dropLabel": "表計算ファイルをここにドロップ、またはクリックして選択",
+  "dropHint": "XLSX または CSV · 最大 5,000 行",
+  "retentionNote": "ファイルは処理後に破棄されます — 保存は一切行いません。",
+  "descriptionPlaceholder": "これはどんなデータですか？（任意 — 例：顧客リスト、請求書台帳）",
+  "dateFormatLabel": "日付形式",
+  "dateFormatOptions": {
+    "auto": "自動判別",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "重複の扱い",
+  "duplicateOptions": {
+    "flag": "確認用にフラグを立てる",
+    "merge": "完全一致を自動で統合"
+  },
+  "clean": "データをクリーンアップ",
+  "cleaning": "処理中…",
+  "summaryLabel": "サマリー",
+  "summaryLead": "ファイルを整えました —",
+  "summaryDates_one": "日付形式を {{count}} 件修正",
+  "summaryDates_other": "日付形式を {{count}} 件修正",
+  "summaryMerged_one": "重複行を {{count}} 件統合",
+  "summaryMerged_other": "重複行を {{count}} 件統合",
+  "summaryFlagged_one": "確認が必要な行を {{count}} 件フラグ",
+  "summaryFlagged_other": "確認が必要な行を {{count}} 件フラグ",
+  "summaryTrimmed_one": "セルを {{count}} 件整形",
+  "summaryTrimmed_other": "セルを {{count}} 件整形",
+  "summaryClean": "問題は見つかりませんでした — データはすでに整っていました。",
+  "rowCount": "入力 {{before}} 行、出力 {{after}} 行",
+  "previewLabel": "変更前と変更後",
+  "previewCount": "{{total}} 行中 {{shown}} 行を表示",
+  "statusColumn": "ステータス",
+  "blank": "（空）",
+  "flags": {
+    "duplicate": "重複",
+    "ambiguous_date": "日付が曖昧",
+    "unparseable_date": "日付を読み取れません"
+  },
+  "mergedTag_one": "{{count}} 行を統合",
+  "mergedTag_other": "{{count}} 行を統合",
+  "download": "整えたファイルをダウンロード",
+  "preparing": "準備中…"
+}

@@ -1,0 +1,41 @@
+{
+  "title": "ארגון <0>הוצאות</0>",
+  "subtitle": "העלו קבלות ודפי בנק וקבלו טבלת הוצאות מקוטלגת שניתן לערוך ולייצא.",
+  "dropLabel": "גררו לכאן קבלות או דפי חשבון או לחצו לבחירה",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV או XLSX · עד 10 קבצים",
+  "retentionNote": "הקבצים שלכם מעובדים ונמחקים — שום דבר לא נשמר.",
+  "filesSelected_one": "נבחר {{count}} קובץ",
+  "filesSelected_other": "נבחרו {{count}} קבצים",
+  "categoriesPlaceholder": "הקטגוריות שלכם, מופרדות בפסיקים (לא חובה)",
+  "dateRangeLabel": "טווח תאריכים",
+  "dateRangeOptions": {
+    "this_month": "החודש",
+    "last_month": "החודש שעבר",
+    "custom": "טווח מותאם",
+    "all": "כל התאריכים"
+  },
+  "startDate": "מתאריך",
+  "endDate": "עד תאריך",
+  "organize": "ארגנו את ההוצאות שלי",
+  "organizing": "מארגן…",
+  "skippedLabel": "קבצים שלא הצלחנו לקרוא",
+  "filteredOut_one": "רשומה {{count}} נמצאה מחוץ לטווח התאריכים.",
+  "filteredOut_other": "{{count}} רשומות נמצאו מחוץ לטווח התאריכים.",
+  "noEntries": "לא נמצאו הוצאות בקבצים אלה בטווח התאריכים שנבחר.",
+  "entriesLabel": "הוצאות",
+  "editHint": "ערכו כל תא כדי לתקן אותו",
+  "columns": {
+    "date": "תאריך",
+    "vendor": "ספק",
+    "amount": "סכום",
+    "category": "קטגוריה",
+    "source": "מקור",
+    "notes": "הערות"
+  },
+  "needsReview": "לבדיקה",
+  "remove": "הסרה",
+  "totalsLabel": "סיכומים לפי קטגוריה",
+  "grandTotal": "סה\"כ",
+  "export": "ייצוא לגיליון",
+  "exporting": "מייצא…"
+}

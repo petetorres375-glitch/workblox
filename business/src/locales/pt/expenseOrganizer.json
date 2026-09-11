@@ -1,0 +1,41 @@
+{
+  "title": "Organizador de <0>Despesas</0>",
+  "subtitle": "Envie recibos e extratos bancários e obtenha uma tabela de despesas categorizada, pronta a editar e exportar.",
+  "dropLabel": "Arraste recibos ou extratos aqui ou clique para procurar",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV ou XLSX · até 10 ficheiros",
+  "retentionNote": "Os seus ficheiros são processados e descartados — nada é armazenado.",
+  "filesSelected_one": "{{count}} ficheiro selecionado",
+  "filesSelected_other": "{{count}} ficheiros selecionados",
+  "categoriesPlaceholder": "As suas categorias, separadas por vírgulas (opcional)",
+  "dateRangeLabel": "Intervalo de datas",
+  "dateRangeOptions": {
+    "this_month": "Este mês",
+    "last_month": "Mês passado",
+    "custom": "Intervalo personalizado",
+    "all": "Todas as datas"
+  },
+  "startDate": "De",
+  "endDate": "Até",
+  "organize": "Organizar as Minhas Despesas",
+  "organizing": "A organizar…",
+  "skippedLabel": "Ficheiros que não conseguimos ler",
+  "filteredOut_one": "{{count}} entrada ficou fora do seu intervalo de datas.",
+  "filteredOut_other": "{{count}} entradas ficaram fora do seu intervalo de datas.",
+  "noEntries": "Não foram encontradas despesas nestes ficheiros para o intervalo selecionado.",
+  "entriesLabel": "Despesas",
+  "editHint": "Edite qualquer célula para a corrigir",
+  "columns": {
+    "date": "Data",
+    "vendor": "Fornecedor",
+    "amount": "Valor",
+    "category": "Categoria",
+    "source": "Origem",
+    "notes": "Notas"
+  },
+  "needsReview": "Verificar",
+  "remove": "Remover",
+  "totalsLabel": "Totais por categoria",
+  "grandTotal": "Total",
+  "export": "Exportar para Folha de Cálculo",
+  "exporting": "A exportar…"
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Limpieza de <0>Datos</0>",
+  "subtitle": "Sube una hoja de cálculo desordenada y recupérala con fechas coherentes, texto limpio y los duplicados resueltos.",
+  "dropLabel": "Arrastra una hoja de cálculo aquí o haz clic para buscar",
+  "dropHint": "XLSX o CSV · hasta 5.000 filas",
+  "retentionNote": "Tu archivo se procesa y se descarta: no se almacena nada.",
+  "descriptionPlaceholder": "¿Qué son estos datos? (opcional — p. ej. lista de clientes, registro de facturas)",
+  "dateFormatLabel": "Formato de fecha",
+  "dateFormatOptions": {
+    "auto": "Detectar automáticamente",
+    "mdy": "MM-DD-AAAA",
+    "dmy": "DD-MM-AAAA"
+  },
+  "duplicateLabel": "Duplicados",
+  "duplicateOptions": {
+    "flag": "Marcar para revisión",
+    "merge": "Combinar coincidencias exactas"
+  },
+  "clean": "Limpiar Mis Datos",
+  "cleaning": "Limpiando…",
+  "summaryLabel": "Resumen",
+  "summaryLead": "Archivo limpiado:",
+  "summaryDates_one": "se corrigió {{count}} formato de fecha",
+  "summaryDates_other": "se corrigieron {{count}} formatos de fecha",
+  "summaryMerged_one": "se combinó {{count}} fila duplicada",
+  "summaryMerged_other": "se combinaron {{count}} filas duplicadas",
+  "summaryFlagged_one": "se marcó {{count}} fila para tu revisión",
+  "summaryFlagged_other": "se marcaron {{count}} filas para tu revisión",
+  "summaryTrimmed_one": "se depuró {{count}} celda",
+  "summaryTrimmed_other": "se depuraron {{count}} celdas",
+  "summaryClean": "No se encontraron problemas: tus datos ya estaban limpios.",
+  "rowCount": "{{before}} filas de entrada, {{after}} de salida",
+  "previewLabel": "Antes y después",
+  "previewCount": "Mostrando {{shown}} de {{total}} filas",
+  "statusColumn": "Estado",
+  "blank": "(vacío)",
+  "flags": {
+    "duplicate": "Duplicado",
+    "ambiguous_date": "Fecha ambigua",
+    "unparseable_date": "Fecha ilegible"
+  },
+  "mergedTag_one": "{{count}} fila combinada",
+  "mergedTag_other": "{{count}} filas combinadas",
+  "download": "Descargar Archivo Limpio",
+  "preparing": "Preparando…"
+}

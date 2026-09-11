@@ -1,0 +1,41 @@
+{
+  "title": "Gider <0>Düzenleyici</0>",
+  "subtitle": "Fişleri ve banka ekstrelerini ekleyin; düzenleyip dışa aktarabileceğiniz kategorilere ayrılmış bir gider tablosu alın.",
+  "dropLabel": "Fişleri veya ekstreleri buraya bırakın ya da seçmek için tıklayın",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV veya XLSX · en fazla 10 dosya",
+  "retentionNote": "Dosyalarınız işlenip atılır — hiçbir şey saklanmaz.",
+  "filesSelected_one": "{{count}} dosya seçildi",
+  "filesSelected_other": "{{count}} dosya seçildi",
+  "categoriesPlaceholder": "Kendi kategorileriniz, virgülle ayrılmış (isteğe bağlı)",
+  "dateRangeLabel": "Tarih aralığı",
+  "dateRangeOptions": {
+    "this_month": "Bu ay",
+    "last_month": "Geçen ay",
+    "custom": "Özel aralık",
+    "all": "Tüm tarihler"
+  },
+  "startDate": "Başlangıç",
+  "endDate": "Bitiş",
+  "organize": "Giderlerimi Düzenle",
+  "organizing": "Düzenleniyor…",
+  "skippedLabel": "Okuyamadığımız dosyalar",
+  "filteredOut_one": "{{count}} kayıt tarih aralığınızın dışında kaldı.",
+  "filteredOut_other": "{{count}} kayıt tarih aralığınızın dışında kaldı.",
+  "noEntries": "Seçilen tarih aralığı için bu dosyalarda gider bulunamadı.",
+  "entriesLabel": "Giderler",
+  "editHint": "Düzeltmek için herhangi bir hücreyi düzenleyin",
+  "columns": {
+    "date": "Tarih",
+    "vendor": "Satıcı",
+    "amount": "Tutar",
+    "category": "Kategori",
+    "source": "Kaynak",
+    "notes": "Notlar"
+  },
+  "needsReview": "Kontrol edin",
+  "remove": "Kaldır",
+  "totalsLabel": "Kategori toplamları",
+  "grandTotal": "Toplam",
+  "export": "Tabloya Aktar",
+  "exporting": "Aktarılıyor…"
+}

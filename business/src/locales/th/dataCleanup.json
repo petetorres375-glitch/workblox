@@ -1,0 +1,46 @@
+{
+  "title": "ล้าง<0>ข้อมูล</0>",
+  "subtitle": "อัปโหลดสเปรดชีตที่ยุ่งเหยิง แล้วรับกลับเป็นวันที่รูปแบบเดียวกัน ข้อความที่เรียบร้อย และรายการซ้ำที่จัดการแล้ว",
+  "dropLabel": "วางสเปรดชีตที่นี่ หรือคลิกเพื่อเลือกไฟล์",
+  "dropHint": "XLSX หรือ CSV · สูงสุด 5,000 แถว",
+  "retentionNote": "ไฟล์ของคุณถูกประมวลผลแล้วทิ้งทันที — ไม่มีการจัดเก็บใด ๆ",
+  "descriptionPlaceholder": "ข้อมูลนี้คืออะไร? (ไม่บังคับ — เช่น รายชื่อลูกค้า บันทึกใบแจ้งหนี้)",
+  "dateFormatLabel": "รูปแบบวันที่",
+  "dateFormatOptions": {
+    "auto": "ตรวจจับอัตโนมัติ",
+    "mdy": "ดด-วว-ปปปป",
+    "dmy": "วว-ดด-ปปปป"
+  },
+  "duplicateLabel": "รายการซ้ำ",
+  "duplicateOptions": {
+    "flag": "ทำเครื่องหมายเพื่อตรวจสอบ",
+    "merge": "รวมรายการที่ตรงกันทุกประการ"
+  },
+  "clean": "ล้างข้อมูลของฉัน",
+  "cleaning": "กำลังล้าง…",
+  "summaryLabel": "สรุป",
+  "summaryLead": "ล้างไฟล์เรียบร้อย —",
+  "summaryDates_one": "แก้รูปแบบวันที่ {{count}} รายการ",
+  "summaryDates_other": "แก้รูปแบบวันที่ {{count}} รายการ",
+  "summaryMerged_one": "รวมแถวซ้ำ {{count}} แถว",
+  "summaryMerged_other": "รวมแถวซ้ำ {{count}} แถว",
+  "summaryFlagged_one": "ทำเครื่องหมาย {{count}} แถวให้คุณตรวจสอบ",
+  "summaryFlagged_other": "ทำเครื่องหมาย {{count}} แถวให้คุณตรวจสอบ",
+  "summaryTrimmed_one": "จัดระเบียบ {{count}} ช่อง",
+  "summaryTrimmed_other": "จัดระเบียบ {{count}} ช่อง",
+  "summaryClean": "ไม่พบปัญหา — ข้อมูลของคุณสะอาดอยู่แล้ว",
+  "rowCount": "เข้า {{before}} แถว ออก {{after}} แถว",
+  "previewLabel": "ก่อนและหลัง",
+  "previewCount": "แสดง {{shown}} จาก {{total}} แถว",
+  "statusColumn": "สถานะ",
+  "blank": "(ว่าง)",
+  "flags": {
+    "duplicate": "ซ้ำ",
+    "ambiguous_date": "วันที่กำกวม",
+    "unparseable_date": "วันที่อ่านไม่ได้"
+  },
+  "mergedTag_one": "รวมมา {{count}} แถว",
+  "mergedTag_other": "รวมมา {{count}} แถว",
+  "download": "ดาวน์โหลดไฟล์ที่ล้างแล้ว",
+  "preparing": "กำลังเตรียม…"
+}

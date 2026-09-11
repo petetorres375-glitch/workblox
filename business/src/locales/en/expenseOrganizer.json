@@ -1,0 +1,41 @@
+{
+  "title": "Expense <0>Organizer</0>",
+  "subtitle": "Drop in receipts and bank exports, and get a categorized expense table you can edit and export.",
+  "dropLabel": "Drop receipts or statements here or click to browse",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV or XLSX · up to 10 files",
+  "retentionNote": "Your files are processed and discarded — nothing is stored.",
+  "filesSelected_one": "{{count}} file selected",
+  "filesSelected_other": "{{count}} files selected",
+  "categoriesPlaceholder": "Your own categories, comma separated (optional)",
+  "dateRangeLabel": "Date range",
+  "dateRangeOptions": {
+    "this_month": "This month",
+    "last_month": "Last month",
+    "custom": "Custom range",
+    "all": "All dates"
+  },
+  "startDate": "From",
+  "endDate": "To",
+  "organize": "Organize My Expenses",
+  "organizing": "Organizing…",
+  "skippedLabel": "Files we could not read",
+  "filteredOut_one": "{{count}} entry fell outside your date range.",
+  "filteredOut_other": "{{count}} entries fell outside your date range.",
+  "noEntries": "No expenses found in these files for the selected date range.",
+  "entriesLabel": "Expenses",
+  "editHint": "Edit any cell to correct it",
+  "columns": {
+    "date": "Date",
+    "vendor": "Vendor",
+    "amount": "Amount",
+    "category": "Category",
+    "source": "Source",
+    "notes": "Notes"
+  },
+  "needsReview": "Check this",
+  "remove": "Remove",
+  "totalsLabel": "Category totals",
+  "grandTotal": "Total",
+  "export": "Export to Spreadsheet",
+  "exporting": "Exporting…"
+}

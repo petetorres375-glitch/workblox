@@ -1,11 +1,18 @@
-from flask import Blueprint, jsonify, request, g, Response
+import io
+import json
+import re
+from datetime import date, timedelta
+from pathlib import Path
+
+from flask import Blueprint, jsonify, request, g, Response, send_file
 
 from .. import limiter
-from ..services import claude_client
+from ..services import claude_client, data_cleaner, spreadsheet
 from ..services.access import require_business as _require_business
 from ..services.email import send_pdf_email, send_report_email, _generate_pdf
 from ..services.entitlements import require_tool
 from ..services.file_handler import extract_text, prepare_image
+from ..services.spreadsheet import TableTooLarge, format_for_filename, read_table, write_table
 
 bp = Blueprint("biz", __name__, url_prefix="/api/biz")
 
@@ -179,6 +186,60 @@ Return ONLY valid JSON with this structure:
   "concerns": ["string", ...],
   "recommendation": "Advance|Maybe|Pass"
 }"""
+
+
+_DATA_COLUMN_PLAN_PROMPT = """You are a data analyst. You will be shown a spreadsheet's column headers, a sample of its rows, and possibly a note from the user describing what the data is.
+
+Classify each column, and identify which columns together identify a unique real-world record.
+
+Return ONLY valid JSON with this structure:
+{
+  "types": {"<exact column header>": "date|currency|email|phone|name|number|text", ...},
+  "identity": ["<exact column header>", ...]
+}
+
+Rules:
+- Use the EXACT column header strings you were given as the keys in "types". Do not rename, reword, or translate them.
+- Every column must appear in "types".
+- "identity" must be the SMALLEST set of columns that together identify one record (e.g. an email column on its own, or first name + last name). Never include columns that merely describe a record, such as notes, amounts, or status.
+- If nothing in the data reliably identifies a record, return an empty "identity" list."""
+
+_EXPENSE_RECEIPT_PROMPT = """You are an expert bookkeeper reading a receipt.
+
+Return ONLY valid JSON with this structure:
+{
+  "date": "YYYY-MM-DD",
+  "vendor": "string",
+  "amount": number,
+  "currency": "string",
+  "category": "string",
+  "confidence": "high|low",
+  "reason": "string",
+  "notes": "string"
+}
+
+Rules:
+- Report ONLY what is actually visible on the receipt. Never infer, complete, or invent a vendor, date, or amount.
+- "amount" must be the final total paid, as a plain number with no currency symbol.
+- If any of date, vendor or amount is missing or illegible, leave that field as an empty string (or 0 for amount), set "confidence" to "low", and say which field was unreadable in "reason".
+- Set "confidence" to "low" whenever you are unsure of the category as well, and explain why in "reason".
+- Leave "reason" as an empty string when confidence is "high"."""
+
+_EXPENSE_CATEGORIZE_PROMPT = """You are an expert bookkeeper categorizing bank and credit-card transactions.
+
+Return ONLY valid JSON with this structure:
+{
+  "entries": [
+    {"index": number, "vendor": "string", "category": "string", "confidence": "high|low", "reason": "string", "notes": "string"}
+  ]
+}
+
+Rules:
+- Return exactly one entry for every transaction you were given, echoing back the same "index".
+- "vendor" is the human-readable merchant name recovered from the raw bank description (e.g. "SQ *BLUE BOTTLE COFFEE 0123" becomes "Blue Bottle Coffee").
+- Choose "category" from the allowed list you are given. Use the closest match.
+- Set "confidence" to "low" when the description is too cryptic to categorize reliably, and explain why in "reason". Never guess a specific merchant from an unreadable description.
+- Leave "reason" as an empty string when confidence is "high"."""
 
 
 # ── Pattern A routes (JSON in → Claude → JSON out) ─────────────────────────────
@@ -613,6 +674,538 @@ def batch_ats():
         except Exception as e:
             results.append({"filename": file.filename, "error": str(e)})
     return jsonify({"results": results, "total": len(results)})
+
+
+# ── Data Cleanup ──────────────────────────────────────────────────────────────
+
+_ALLOWED_COLUMN_TYPES = {"date", "currency", "email", "phone", "name", "number", "text"}
+_DATE_FORMAT_MODES = {"auto", "mdy", "dmy"}
+_DUPLICATE_MODES = {"flag", "merge"}
+
+
+def _column_plan(headers, rows, description):
+    """Ask Claude what each column means. Returns a validated plan, or None to
+    let data_cleaner fall back to its own heuristics -- the tool has to keep
+    working when the AI call fails, since the cleanup itself doesn't need it."""
+    sample = [
+        ["" if cell is None else str(cell) for cell in row[:len(headers)]]
+        for row in rows[:20]
+    ]
+    payload = {"columns": headers, "sample_rows": sample}
+    if description:
+        payload["user_description"] = description
+
+    try:
+        plan = claude_client.call(
+            system_prompt=_DATA_COLUMN_PLAN_PROMPT,
+            user_message=json.dumps(payload, ensure_ascii=False)[:12000],
+            model="claude-haiku-4-5-20251001",
+            max_tokens=1024,
+            # Deliberately not the user's language: this response is read by
+            # code and keyed on the file's own column headers, so translating
+            # it would break the lookup. Only user-facing copy gets localized.
+            language="en",
+        )
+    except Exception:
+        return None
+
+    if not isinstance(plan, dict):
+        return None
+    raw_types = plan.get("types")
+    if not isinstance(raw_types, dict):
+        return None
+
+    # Trust nothing about the shape: keep only real headers with known types,
+    # and drop any identity column the model invented.
+    types = {h: raw_types[h] for h in headers if raw_types.get(h) in _ALLOWED_COLUMN_TYPES}
+    if not types:
+        return None
+    raw_identity = plan.get("identity")
+    identity = [h for h in raw_identity if h in headers] if isinstance(raw_identity, list) else []
+    return {"types": types, "identity": identity}
+
+
+@bp.post("/data-cleanup")
+@limiter.limit("15 per hour")
+def data_cleanup():
+    guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("data-cleanup")
+    if guard:
+        return guard
+
+    file = request.files.get("file")
+    if not file or not file.filename:
+        return jsonify({"error": "file is required"}), 400
+
+    description = (request.form.get("description") or "").strip()
+    date_format = (request.form.get("date_format") or "auto").strip()
+    duplicate_handling = (request.form.get("duplicate_handling") or "flag").strip()
+    if date_format not in _DATE_FORMAT_MODES:
+        date_format = "auto"
+    if duplicate_handling not in _DUPLICATE_MODES:
+        duplicate_handling = "flag"
+
+    try:
+        headers, rows = read_table(file)
+    except TableTooLarge as e:
+        return jsonify({"error": str(e)}), 413
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 415
+    except Exception as e:
+        return jsonify({"error": f"Could not read that file: {e}"}), 422
+
+    if not rows:
+        return jsonify({"error": "That file has a header row but no data rows."}), 422
+
+    plan = _column_plan(headers, rows, description)
+    result = data_cleaner.clean_table(
+        headers, rows,
+        date_format=date_format,
+        duplicate_handling=duplicate_handling,
+        column_plan=plan,
+    )
+    result["source_format"] = format_for_filename(file.filename)
+    result["ai_plan_used"] = plan is not None
+    return jsonify(result)
+
+
+@bp.post("/data-cleanup/download")
+@limiter.limit("20 per hour")
+def data_cleanup_download():
+    """The cleaned table round-trips through the browser rather than being held
+    server-side between the two requests -- that's what keeps this tool
+    genuinely no-retention."""
+    guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("data-cleanup")
+    if guard:
+        return guard
+
+    body = request.get_json(silent=True) or {}
+    headers = body.get("headers")
+    rows = body.get("rows")
+    if not isinstance(headers, list) or not headers or not isinstance(rows, list):
+        return jsonify({"error": "headers and rows are required"}), 400
+    if len(rows) > spreadsheet.MAX_ROWS:
+        return jsonify({"error": f"Too many rows — {spreadsheet.MAX_ROWS:,} is the maximum."}), 413
+
+    fmt = "xlsx" if body.get("format") == "xlsx" else "csv"
+    filename = (body.get("filename") or "cleaned_data").strip() or "cleaned_data"
+    try:
+        data = write_table(headers, rows, fmt)
+    except Exception as e:
+        return jsonify({"error": f"Could not build the file: {e}"}), 500
+
+    mimetype = (
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        if fmt == "xlsx" else "text/csv"
+    )
+    return send_file(io.BytesIO(data), mimetype=mimetype,
+                     as_attachment=True, download_name=f"{filename}.{fmt}")
+
+
+# ── Expense Organizer ─────────────────────────────────────────────────────────
+
+_DEFAULT_EXPENSE_CATEGORIES = [
+    "Meals", "Travel", "Lodging", "Office Supplies", "Software", "Utilities",
+    "Professional Services", "Marketing", "Equipment", "Other",
+]
+_RECEIPT_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".heif"}
+_TRANSACTION_EXTS = {".csv", ".xlsx"}
+_MAX_EXPENSE_FILES = 10
+_DATE_RANGES = {"this_month", "last_month", "custom", "all"}
+
+
+def _month_bounds(today, months_back=0):
+    year, month = today.year, today.month - months_back
+    while month < 1:
+        month += 12
+        year -= 1
+    start = date(year, month, 1)
+    end = (date(year + 1, 1, 1) if month == 12 else date(year, month + 1, 1)) - timedelta(days=1)
+    return start, end
+
+
+def _resolve_range(mode, start_raw, end_raw):
+    """Returns (start, end) as dates, or (None, None) for no filtering."""
+    today = date.today()
+    if mode == "this_month":
+        return _month_bounds(today, 0)
+    if mode == "last_month":
+        return _month_bounds(today, 1)
+    if mode == "custom":
+        start = _iso_or_none(start_raw)
+        end = _iso_or_none(end_raw)
+        if start and end and start > end:
+            start, end = end, start
+        return start, end
+    return None, None
+
+
+def _iso_or_none(raw):
+    try:
+        return date.fromisoformat((raw or "").strip())
+    except ValueError:
+        return None
+
+
+def _to_amount(raw):
+    """Parse a spreadsheet money cell. Returns (value, ok)."""
+    if raw is None:
+        return 0.0, False
+    if isinstance(raw, (int, float)):
+        return float(raw), True
+    text = str(raw).strip()
+    if not text:
+        return 0.0, False
+    negative = text.startswith("(") and text.endswith(")")
+    cleaned = re.sub(r"[^\d.\-]", "", text.replace(",", ""))
+    if cleaned in ("", "-", ".", "-."):
+        return 0.0, False
+    try:
+        value = float(cleaned)
+    except ValueError:
+        return 0.0, False
+    return (-value if negative else value), True
+
+
+def _find_column(headers, *keywords):
+    lowered = [h.lower() for h in headers]
+    for index, header in enumerate(lowered):
+        if any(keyword in header for keyword in keywords):
+            return index
+    return None
+
+
+def _transactions_from_table(headers, rows, filename):
+    """Pull (date, description, amount) out of a bank or card export. Column
+    names vary wildly between banks, so this matches on keywords and falls back
+    to type detection when nothing recognizable is there."""
+    date_i = _find_column(headers, "date", "posted")
+    desc_i = _find_column(headers, "description", "details", "memo", "payee",
+                          "merchant", "narrative", "reference", "particulars")
+    amount_i = _find_column(headers, "amount", "value")
+    debit_i = _find_column(headers, "debit", "withdrawal", "money out", "paid out")
+    credit_i = _find_column(headers, "credit", "deposit", "money in", "paid in")
+
+    types = data_cleaner.detect_column_types(headers, rows)
+    if date_i is None:
+        date_i = next((i for i, h in enumerate(headers) if types.get(h) == "date"), None)
+    if amount_i is None and debit_i is None:
+        amount_i = next((i for i, h in enumerate(headers) if types.get(h) == "number"), None)
+    if desc_i is None:
+        desc_i = next((i for i, h in enumerate(headers)
+                       if types.get(h) == "text" and i not in (date_i, amount_i)), None)
+
+    if amount_i is None and debit_i is None:
+        raise ValueError("Could not find an amount column in this file.")
+
+    # Resolve M/D vs D/M once for the whole column, the same way Data Cleanup
+    # does -- a single transaction can't disambiguate itself.
+    order = "auto"
+    if date_i is not None:
+        order = data_cleaner.resolve_date_order(
+            [data_cleaner.normalize_cell(r[date_i]) for r in rows if date_i < len(r)], "auto"
+        )
+
+    signed_values = []
+    if amount_i is not None:
+        for row in rows:
+            if amount_i < len(row):
+                value, ok = _to_amount(row[amount_i])
+                if ok:
+                    signed_values.append(value)
+    mixed_signs = any(v < 0 for v in signed_values) and any(v > 0 for v in signed_values)
+
+    transactions = []
+    for row in rows:
+        def cell(index):
+            return data_cleaner.normalize_cell(row[index]) if index is not None and index < len(row) else ""
+
+        raw_amount, ok = (0.0, False)
+        possible_refund = False
+        if debit_i is not None and cell(debit_i):
+            raw_amount, ok = _to_amount(row[debit_i])
+        elif credit_i is not None and cell(credit_i):
+            raw_amount, ok = _to_amount(row[credit_i])
+            possible_refund = ok
+        elif amount_i is not None and amount_i < len(row):
+            raw_amount, ok = _to_amount(row[amount_i])
+            # Most exports write spending as negative. When a file mixes signs,
+            # a positive row is probably money coming in -- surface it rather
+            # than dropping it, and let the user delete it if it doesn't belong.
+            possible_refund = ok and mixed_signs and raw_amount > 0
+        if not ok:
+            continue
+
+        iso_date = ""
+        date_ok = True
+        raw_date = cell(date_i)
+        if raw_date:
+            parsed = data_cleaner.parse_date(raw_date)
+            if parsed:
+                resolved, ambiguous = data_cleaner.apply_date_order(parsed, order)
+                if resolved and not ambiguous:
+                    iso_date = resolved.isoformat()
+                else:
+                    date_ok = False
+            else:
+                date_ok = False
+
+        transactions.append({
+            "date": iso_date,
+            "date_ok": date_ok,
+            "raw_date": raw_date,
+            "description": cell(desc_i) or "(no description)",
+            "amount": round(abs(raw_amount), 2),
+            "possible_refund": possible_refund,
+            "source": filename,
+        })
+    return transactions
+
+
+def _categorize_transactions(transactions, categories, language):
+    """One batched call for the whole file rather than one per row -- a 300-line
+    bank export stays a single request."""
+    if not transactions:
+        return {}
+    payload = {
+        "allowed_categories": categories,
+        "transactions": [
+            {"index": i, "description": t["description"], "amount": t["amount"], "date": t["date"]}
+            for i, t in enumerate(transactions)
+        ],
+    }
+    try:
+        result = claude_client.call(
+            system_prompt=_EXPENSE_CATEGORIZE_PROMPT,
+            user_message=json.dumps(payload, ensure_ascii=False)[:24000],
+            model="claude-haiku-4-5-20251001",
+            max_tokens=4096,
+            language=language,
+        )
+    except Exception:
+        return {}
+
+    entries = result.get("entries") if isinstance(result, dict) else None
+    if not isinstance(entries, list):
+        return {}
+    by_index = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        index = entry.get("index")
+        if isinstance(index, int) and 0 <= index < len(transactions):
+            by_index[index] = entry
+    return by_index
+
+
+def _receipt_entry(file, ext, categories, language):
+    """Extract one receipt. Images go to Claude's vision; PDFs are read as text
+    first (file_handler already OCRs image-only pages) and only fall back to
+    vision if that turns up nothing."""
+    instruction = (
+        "Extract the expense from this receipt. "
+        f"Choose a category from this list: {', '.join(categories)}."
+    )
+
+    if ext == ".pdf":
+        text = extract_text(file)
+        if text.strip():
+            return claude_client.call(
+                system_prompt=_EXPENSE_RECEIPT_PROMPT,
+                user_message=f"{instruction}\n\nReceipt text:\n{text[:6000]}",
+                model="claude-haiku-4-5-20251001",
+                max_tokens=1024,
+                language=language,
+            )
+        file.stream.seek(0)
+
+    image = claude_client.to_image_content(prepare_image(file))
+    return claude_client.call(
+        system_prompt=_EXPENSE_RECEIPT_PROMPT,
+        user_message=instruction,
+        model="claude-haiku-4-5-20251001",
+        max_tokens=1024,
+        language=language,
+        images=[image],
+    )
+
+
+def _normalize_entry(raw, source, fallback_category):
+    amount, _ = _to_amount(raw.get("amount"))
+    confidence = "low" if str(raw.get("confidence", "")).lower() == "low" else "high"
+    iso = str(raw.get("date") or "").strip()
+    if iso and _iso_or_none(iso) is None:
+        iso = ""
+    category = str(raw.get("category") or "").strip() or fallback_category
+    return {
+        "date": iso,
+        "vendor": str(raw.get("vendor") or "").strip(),
+        "amount": round(abs(amount), 2),
+        "currency": str(raw.get("currency") or "").strip(),
+        "category": category,
+        "source": source,
+        "notes": str(raw.get("notes") or "").strip(),
+        "confidence": confidence,
+        "reason": str(raw.get("reason") or "").strip(),
+    }
+
+
+@bp.post("/expenses")
+@limiter.limit("10 per hour")
+def expense_organizer():
+    guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("expenses")
+    if guard:
+        return guard
+
+    files = [f for f in request.files.getlist("files") if f and f.filename]
+    if not files:
+        return jsonify({"error": "at least one receipt or statement file is required"}), 400
+    if len(files) > _MAX_EXPENSE_FILES:
+        return jsonify({"error": f"Too many files — {_MAX_EXPENSE_FILES} max per submission"}), 400
+
+    language = (request.form.get("language") or "en").strip()
+    date_range = (request.form.get("date_range") or "all").strip()
+    if date_range not in _DATE_RANGES:
+        date_range = "all"
+    start, end = _resolve_range(date_range,
+                               request.form.get("start_date"),
+                               request.form.get("end_date"))
+
+    custom = [c.strip() for c in (request.form.get("categories") or "").split(",") if c.strip()]
+    categories = custom or _DEFAULT_EXPENSE_CATEGORIES
+    fallback_category = categories[-1]
+
+    entries = []
+    errors = []
+
+    for file in files:
+        ext = Path(file.filename or "").suffix.lower()
+        try:
+            if ext in _TRANSACTION_EXTS:
+                headers, rows = read_table(file)
+                transactions = _transactions_from_table(headers, rows, file.filename)
+                categorized = _categorize_transactions(transactions, categories, language)
+                for index, transaction in enumerate(transactions):
+                    detail = categorized.get(index, {})
+                    entry = _normalize_entry({
+                        "date": transaction["date"],
+                        "vendor": detail.get("vendor") or transaction["description"],
+                        "amount": transaction["amount"],
+                        "category": detail.get("category"),
+                        "notes": detail.get("notes") or "",
+                        "confidence": detail.get("confidence", "low" if not detail else "high"),
+                        "reason": detail.get("reason") or ("Could not categorize automatically." if not detail else ""),
+                    }, file.filename, fallback_category)
+                    _apply_transaction_flags(entry, transaction)
+                    entries.append(entry)
+            elif ext in _RECEIPT_IMAGE_EXTS or ext == ".pdf":
+                raw = _receipt_entry(file, ext, categories, language)
+                entries.append(_normalize_entry(raw, file.filename, fallback_category))
+            else:
+                errors.append({"filename": file.filename,
+                               "error": f"Unsupported file type '{ext}'. Upload receipts (JPG, PNG, HEIC, PDF) or a .csv/.xlsx statement."})
+        except Exception as e:
+            errors.append({"filename": file.filename, "error": str(e)})
+
+    kept, filtered_out = _filter_by_range(entries, start, end)
+    totals = {}
+    for entry in kept:
+        totals[entry["category"]] = round(totals.get(entry["category"], 0.0) + entry["amount"], 2)
+
+    return jsonify({
+        "entries": kept,
+        "totals": totals,
+        "grand_total": round(sum(e["amount"] for e in kept), 2),
+        "categories": categories,
+        "errors": errors,
+        "filtered_out": filtered_out,
+        "range": {
+            "mode": date_range,
+            "start": start.isoformat() if start else "",
+            "end": end.isoformat() if end else "",
+        },
+    })
+
+
+def _apply_transaction_flags(entry, transaction):
+    reasons = [entry["reason"]] if entry["reason"] else []
+    if not transaction["date_ok"]:
+        entry["confidence"] = "low"
+        reasons.append(f"Could not read the date \"{transaction['raw_date']}\".")
+    if transaction["possible_refund"]:
+        entry["confidence"] = "low"
+        reasons.append("This looks like money coming in, not an expense.")
+    entry["reason"] = " ".join(reasons)
+
+
+def _filter_by_range(entries, start, end):
+    """Entries whose date couldn't be read are always kept -- dropping a receipt
+    because its date was smudged is the worst thing this tool could do."""
+    if not start and not end:
+        return entries, 0
+    kept = []
+    removed = 0
+    for entry in entries:
+        parsed = _iso_or_none(entry["date"])
+        if parsed is None:
+            kept.append(entry)
+            continue
+        if (start and parsed < start) or (end and parsed > end):
+            removed += 1
+            continue
+        kept.append(entry)
+    return kept, removed
+
+
+@bp.post("/expenses/export")
+@limiter.limit("20 per hour")
+def expenses_export():
+    guard = _require_business()
+    if guard:
+        return guard
+    guard = require_tool("expenses")
+    if guard:
+        return guard
+
+    body = request.get_json(silent=True) or {}
+    entries = body.get("entries")
+    if not isinstance(entries, list) or not entries:
+        return jsonify({"error": "entries are required"}), 400
+    if len(entries) > spreadsheet.MAX_ROWS:
+        return jsonify({"error": f"Too many rows — {spreadsheet.MAX_ROWS:,} is the maximum."}), 413
+
+    labels = body.get("labels") if isinstance(body.get("labels"), list) else None
+    headers = labels if labels and len(labels) == 6 else ["Date", "Vendor", "Amount", "Category", "Source", "Notes"]
+    rows = [
+        [
+            str(e.get("date") or ""),
+            str(e.get("vendor") or ""),
+            _to_amount(e.get("amount"))[0],
+            str(e.get("category") or ""),
+            str(e.get("source") or ""),
+            str(e.get("notes") or ""),
+        ]
+        for e in entries if isinstance(e, dict)
+    ]
+    filename = (body.get("filename") or "expenses").strip() or "expenses"
+    try:
+        data = write_table(headers, rows, "xlsx")
+    except Exception as e:
+        return jsonify({"error": f"Could not build the file: {e}"}), 500
+    return send_file(
+        io.BytesIO(data),
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        as_attachment=True,
+        download_name=f"{filename}.xlsx",
+    )
 
 
 @bp.post("/send-report")

@@ -1,0 +1,41 @@
+{
+  "title": "Utgifts<0>hanterare</0>",
+  "subtitle": "Lägg in kvitton och bankutdrag och få en kategoriserad utgiftstabell som du kan redigera och exportera.",
+  "dropLabel": "Släpp kvitton eller kontoutdrag här eller klicka för att bläddra",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV eller XLSX · upp till 10 filer",
+  "retentionNote": "Dina filer bearbetas och kastas — ingenting sparas.",
+  "filesSelected_one": "{{count}} fil vald",
+  "filesSelected_other": "{{count}} filer valda",
+  "categoriesPlaceholder": "Dina egna kategorier, kommaseparerade (valfritt)",
+  "dateRangeLabel": "Datumintervall",
+  "dateRangeOptions": {
+    "this_month": "Denna månad",
+    "last_month": "Förra månaden",
+    "custom": "Eget intervall",
+    "all": "Alla datum"
+  },
+  "startDate": "Från",
+  "endDate": "Till",
+  "organize": "Organisera Mina Utgifter",
+  "organizing": "Organiserar…",
+  "skippedLabel": "Filer vi inte kunde läsa",
+  "filteredOut_one": "{{count}} post hamnade utanför ditt datumintervall.",
+  "filteredOut_other": "{{count}} poster hamnade utanför ditt datumintervall.",
+  "noEntries": "Inga utgifter hittades i dessa filer för valt datumintervall.",
+  "entriesLabel": "Utgifter",
+  "editHint": "Redigera valfri cell för att rätta den",
+  "columns": {
+    "date": "Datum",
+    "vendor": "Leverantör",
+    "amount": "Belopp",
+    "category": "Kategori",
+    "source": "Källa",
+    "notes": "Anteckningar"
+  },
+  "needsReview": "Kontrollera",
+  "remove": "Ta bort",
+  "totalsLabel": "Summor per kategori",
+  "grandTotal": "Totalt",
+  "export": "Exportera till Kalkylark",
+  "exporting": "Exporterar…"
+}

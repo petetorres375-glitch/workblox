@@ -1,0 +1,41 @@
+{
+  "title": "Gestione <0>Spese</0>",
+  "subtitle": "Carica scontrini ed estratti conto e ottieni una tabella delle spese categorizzata, modificabile ed esportabile.",
+  "dropLabel": "Trascina qui scontrini o estratti conto o clicca per sfogliare",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV o XLSX · fino a 10 file",
+  "retentionNote": "I tuoi file vengono elaborati e scartati — non viene conservato nulla.",
+  "filesSelected_one": "{{count}} file selezionato",
+  "filesSelected_other": "{{count}} file selezionati",
+  "categoriesPlaceholder": "Le tue categorie, separate da virgole (facoltativo)",
+  "dateRangeLabel": "Intervallo di date",
+  "dateRangeOptions": {
+    "this_month": "Questo mese",
+    "last_month": "Mese scorso",
+    "custom": "Intervallo personalizzato",
+    "all": "Tutte le date"
+  },
+  "startDate": "Dal",
+  "endDate": "Al",
+  "organize": "Organizza le Mie Spese",
+  "organizing": "Organizzazione…",
+  "skippedLabel": "File che non siamo riusciti a leggere",
+  "filteredOut_one": "{{count}} voce era fuori dall'intervallo di date.",
+  "filteredOut_other": "{{count}} voci erano fuori dall'intervallo di date.",
+  "noEntries": "Nessuna spesa trovata in questi file per l'intervallo selezionato.",
+  "entriesLabel": "Spese",
+  "editHint": "Modifica qualsiasi cella per correggerla",
+  "columns": {
+    "date": "Data",
+    "vendor": "Fornitore",
+    "amount": "Importo",
+    "category": "Categoria",
+    "source": "Origine",
+    "notes": "Note"
+  },
+  "needsReview": "Da verificare",
+  "remove": "Rimuovi",
+  "totalsLabel": "Totali per categoria",
+  "grandTotal": "Totale",
+  "export": "Esporta in Foglio di Calcolo",
+  "exporting": "Esportazione…"
+}

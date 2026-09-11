@@ -1,0 +1,41 @@
+{
+  "title": "Uitgaven <0>Ordenen</0>",
+  "subtitle": "Voeg bonnetjes en bankafschriften toe en krijg een gecategoriseerde uitgaventabel die je kunt bewerken en exporteren.",
+  "dropLabel": "Sleep bonnetjes of afschriften hierheen of klik om te bladeren",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV of XLSX · tot 10 bestanden",
+  "retentionNote": "Je bestanden worden verwerkt en weggegooid — er wordt niets bewaard.",
+  "filesSelected_one": "{{count}} bestand geselecteerd",
+  "filesSelected_other": "{{count}} bestanden geselecteerd",
+  "categoriesPlaceholder": "Je eigen categorieën, gescheiden door komma's (optioneel)",
+  "dateRangeLabel": "Datumbereik",
+  "dateRangeOptions": {
+    "this_month": "Deze maand",
+    "last_month": "Vorige maand",
+    "custom": "Aangepast bereik",
+    "all": "Alle datums"
+  },
+  "startDate": "Van",
+  "endDate": "Tot",
+  "organize": "Mijn Uitgaven Ordenen",
+  "organizing": "Bezig met ordenen…",
+  "skippedLabel": "Bestanden die we niet konden lezen",
+  "filteredOut_one": "{{count}} item viel buiten je datumbereik.",
+  "filteredOut_other": "{{count}} items vielen buiten je datumbereik.",
+  "noEntries": "Geen uitgaven gevonden in deze bestanden voor het gekozen datumbereik.",
+  "entriesLabel": "Uitgaven",
+  "editHint": "Bewerk elke cel om die te corrigeren",
+  "columns": {
+    "date": "Datum",
+    "vendor": "Leverancier",
+    "amount": "Bedrag",
+    "category": "Categorie",
+    "source": "Bron",
+    "notes": "Notities"
+  },
+  "needsReview": "Controleren",
+  "remove": "Verwijderen",
+  "totalsLabel": "Totalen per categorie",
+  "grandTotal": "Totaal",
+  "export": "Exporteren naar Spreadsheet",
+  "exporting": "Exporteren…"
+}

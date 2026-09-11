@@ -1,0 +1,46 @@
+{
+  "title": "डेटा <0>सफ़ाई</0>",
+  "subtitle": "बिखरी हुई स्प्रेडशीट अपलोड करें और एक समान तारीखें, साफ़ टेक्स्ट और सुलझे हुए डुप्लिकेट वापस पाएँ।",
+  "dropLabel": "स्प्रेडशीट यहाँ छोड़ें या चुनने के लिए क्लिक करें",
+  "dropHint": "XLSX या CSV · 5,000 पंक्तियों तक",
+  "retentionNote": "आपकी फ़ाइल प्रोसेस करके हटा दी जाती है — कुछ भी संग्रहित नहीं होता।",
+  "descriptionPlaceholder": "यह किस तरह का डेटा है? (वैकल्पिक — जैसे ग्राहक सूची, इनवॉइस रिकॉर्ड)",
+  "dateFormatLabel": "तारीख़ का प्रारूप",
+  "dateFormatOptions": {
+    "auto": "अपने आप पहचानें",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "डुप्लिकेट",
+  "duplicateOptions": {
+    "flag": "समीक्षा के लिए चिह्नित करें",
+    "merge": "पूरी तरह मेल खाते रिकॉर्ड मिलाएँ"
+  },
+  "clean": "मेरा डेटा साफ़ करें",
+  "cleaning": "साफ़ किया जा रहा है…",
+  "summaryLabel": "सारांश",
+  "summaryLead": "फ़ाइल साफ़ हो गई —",
+  "summaryDates_one": "{{count}} तारीख़ प्रारूप ठीक किया",
+  "summaryDates_other": "{{count}} तारीख़ प्रारूप ठीक किए",
+  "summaryMerged_one": "{{count}} डुप्लिकेट पंक्ति मिलाई",
+  "summaryMerged_other": "{{count}} डुप्लिकेट पंक्तियाँ मिलाईं",
+  "summaryFlagged_one": "आपकी समीक्षा के लिए {{count}} पंक्ति चिह्नित की",
+  "summaryFlagged_other": "आपकी समीक्षा के लिए {{count}} पंक्तियाँ चिह्नित कीं",
+  "summaryTrimmed_one": "{{count}} सेल व्यवस्थित किया",
+  "summaryTrimmed_other": "{{count}} सेल व्यवस्थित किए",
+  "summaryClean": "कोई समस्या नहीं मिली — आपका डेटा पहले से ही साफ़ था।",
+  "rowCount": "{{before}} पंक्तियाँ अंदर, {{after}} पंक्तियाँ बाहर",
+  "previewLabel": "पहले और बाद में",
+  "previewCount": "{{total}} में से {{shown}} पंक्तियाँ दिख रही हैं",
+  "statusColumn": "स्थिति",
+  "blank": "(खाली)",
+  "flags": {
+    "duplicate": "डुप्लिकेट",
+    "ambiguous_date": "अस्पष्ट तारीख़",
+    "unparseable_date": "अपठनीय तारीख़"
+  },
+  "mergedTag_one": "{{count}} पंक्ति शामिल की",
+  "mergedTag_other": "{{count}} पंक्तियाँ शामिल कीं",
+  "download": "साफ़ की गई फ़ाइल डाउनलोड करें",
+  "preparing": "तैयार किया जा रहा है…"
+}

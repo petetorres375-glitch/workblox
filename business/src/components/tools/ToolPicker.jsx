@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { get, post, put } from "../../api/client";
+import { inNavOrder } from "../../toolOrder";
 
 export default function ToolPicker({ variant = "settings", onDone }) {
   const { t } = useTranslation(["toolPicker", "nav"]);
@@ -22,7 +23,9 @@ export default function ToolPicker({ variant = "settings", onDone }) {
           get("/api/entitlements?app=business"),
         ]);
         if (cancelled) return;
-        setTools(toolList);
+        // /api/tools sorts by tool key, which doesn't match how these are
+        // labelled or how the nav bar lists them.
+        setTools(inNavOrder(toolList));
         setSelected(new Set([...entitlements.tool_keys, ...entitlements.pending_keys]));
         setPendingKeys(new Set(entitlements.pending_keys));
       } catch (err) {

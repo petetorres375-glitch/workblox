@@ -18,6 +18,8 @@ TOOL_SEED = [
     ("contacts", "Contacts", "business"),
     ("contract", "Contract Analyzer", "business"),
     ("customer", "Customer Response Drafter", "business"),
+    ("data-cleanup", "Data Cleanup", "business"),
+    ("expenses", "Expense Organizer", "business"),
     ("hiring", "Hiring Manager", "business"),
     ("job-desc", "Job Description Writer", "business"),
     ("meeting", "Meeting Notes Cleaner", "business"),

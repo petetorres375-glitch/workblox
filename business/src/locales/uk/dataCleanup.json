@@ -1,0 +1,46 @@
+{
+  "title": "Очищення <0>даних</0>",
+  "subtitle": "Завантажте неохайну таблицю й отримайте однакові дати, впорядкований текст і розібрані дублікати.",
+  "dropLabel": "Перетягніть таблицю сюди або натисніть, щоб обрати",
+  "dropHint": "XLSX або CSV · до 5000 рядків",
+  "retentionNote": "Ваш файл обробляється і видаляється — нічого не зберігається.",
+  "descriptionPlaceholder": "Що це за дані? (необов'язково — напр. список клієнтів, журнал рахунків)",
+  "dateFormatLabel": "Формат дати",
+  "dateFormatOptions": {
+    "auto": "Визначити автоматично",
+    "mdy": "ММ-ДД-РРРР",
+    "dmy": "ДД-ММ-РРРР"
+  },
+  "duplicateLabel": "Дублікати",
+  "duplicateOptions": {
+    "flag": "Позначити для перевірки",
+    "merge": "Об'єднати точні збіги"
+  },
+  "clean": "Очистити мої дані",
+  "cleaning": "Очищення…",
+  "summaryLabel": "Підсумок",
+  "summaryLead": "Файл очищено —",
+  "summaryDates_one": "виправлено {{count}} формат дати",
+  "summaryDates_other": "виправлено форматів дат: {{count}}",
+  "summaryMerged_one": "об'єднано {{count}} дубльований рядок",
+  "summaryMerged_other": "об'єднано дубльованих рядків: {{count}}",
+  "summaryFlagged_one": "позначено {{count}} рядок для перевірки",
+  "summaryFlagged_other": "позначено рядків для перевірки: {{count}}",
+  "summaryTrimmed_one": "впорядковано {{count}} комірку",
+  "summaryTrimmed_other": "впорядковано комірок: {{count}}",
+  "summaryClean": "Проблем не знайдено — ваші дані вже були охайними.",
+  "rowCount": "рядків на вході: {{before}}, на виході: {{after}}",
+  "previewLabel": "До і після",
+  "previewCount": "Показано {{shown}} з {{total}} рядків",
+  "statusColumn": "Статус",
+  "blank": "(порожньо)",
+  "flags": {
+    "duplicate": "Дублікат",
+    "ambiguous_date": "Неоднозначна дата",
+    "unparseable_date": "Нечитабельна дата"
+  },
+  "mergedTag_one": "приєднано {{count}} рядок",
+  "mergedTag_other": "приєднано рядків: {{count}}",
+  "download": "Завантажити очищений файл",
+  "preparing": "Підготовка…"
+}

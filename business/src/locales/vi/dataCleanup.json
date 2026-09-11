@@ -1,0 +1,46 @@
+{
+  "title": "Làm sạch <0>Dữ liệu</0>",
+  "subtitle": "Tải lên bảng tính lộn xộn và nhận lại ngày tháng nhất quán, văn bản gọn gàng và các bản trùng đã được xử lý.",
+  "dropLabel": "Kéo bảng tính vào đây hoặc bấm để chọn",
+  "dropHint": "XLSX hoặc CSV · tối đa 5.000 dòng",
+  "retentionNote": "Tệp của bạn được xử lý rồi loại bỏ — không lưu lại bất cứ thứ gì.",
+  "descriptionPlaceholder": "Đây là dữ liệu gì? (tùy chọn — ví dụ danh sách khách hàng, sổ hóa đơn)",
+  "dateFormatLabel": "Định dạng ngày",
+  "dateFormatOptions": {
+    "auto": "Tự động nhận diện",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "Bản trùng",
+  "duplicateOptions": {
+    "flag": "Đánh dấu để xem lại",
+    "merge": "Tự động gộp bản trùng khớp hoàn toàn"
+  },
+  "clean": "Làm sạch Dữ liệu của tôi",
+  "cleaning": "Đang làm sạch…",
+  "summaryLabel": "Tóm tắt",
+  "summaryLead": "Đã làm sạch tệp —",
+  "summaryDates_one": "sửa {{count}} định dạng ngày",
+  "summaryDates_other": "sửa {{count}} định dạng ngày",
+  "summaryMerged_one": "gộp {{count}} dòng trùng",
+  "summaryMerged_other": "gộp {{count}} dòng trùng",
+  "summaryFlagged_one": "đánh dấu {{count}} dòng để bạn xem lại",
+  "summaryFlagged_other": "đánh dấu {{count}} dòng để bạn xem lại",
+  "summaryTrimmed_one": "chỉnh gọn {{count}} ô",
+  "summaryTrimmed_other": "chỉnh gọn {{count}} ô",
+  "summaryClean": "Không phát hiện vấn đề nào — dữ liệu của bạn vốn đã sạch.",
+  "rowCount": "{{before}} dòng vào, {{after}} dòng ra",
+  "previewLabel": "Trước và sau",
+  "previewCount": "Hiển thị {{shown}} trong {{total}} dòng",
+  "statusColumn": "Trạng thái",
+  "blank": "(trống)",
+  "flags": {
+    "duplicate": "Trùng lặp",
+    "ambiguous_date": "Ngày không rõ ràng",
+    "unparseable_date": "Ngày không đọc được"
+  },
+  "mergedTag_one": "đã gộp {{count}} dòng",
+  "mergedTag_other": "đã gộp {{count}} dòng",
+  "download": "Tải xuống Tệp đã Làm sạch",
+  "preparing": "Đang chuẩn bị…"
+}

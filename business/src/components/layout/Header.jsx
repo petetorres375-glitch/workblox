@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePWA } from "../../hooks/usePWA";
+import { NAV_IDS } from "../../toolOrder";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function MenuIcon() {
@@ -78,11 +79,6 @@ function LinuxTrustTip({ onClose }) {
     </div>
   );
 }
-
-const NAV_IDS = [
-  "ad-copy", "batch-ats", "email", "contacts", "contract", "customer",
-  "hiring", "job-desc", "meeting", "policy", "proposal", "review", "social", "sop",
-];
 
 export default function Header({ active, onSelect, enabledKeys }) {
   const { t } = useTranslation(["nav", "common"]);

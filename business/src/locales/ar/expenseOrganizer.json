@@ -1,0 +1,41 @@
+{
+  "title": "منظم <0>المصروفات</0>",
+  "subtitle": "أضف الإيصالات وكشوف الحساب البنكية واحصل على جدول مصروفات مصنّف يمكنك تعديله وتصديره.",
+  "dropLabel": "أفلت الإيصالات أو كشوف الحساب هنا أو انقر للاختيار",
+  "dropHint": "JPG أو PNG أو HEIC أو PDF أو CSV أو XLSX · حتى 10 ملفات",
+  "retentionNote": "تتم معالجة ملفاتك ثم التخلص منها — لا يُحفظ أي شيء.",
+  "filesSelected_one": "تم اختيار {{count}} ملف",
+  "filesSelected_other": "تم اختيار {{count}} ملف",
+  "categoriesPlaceholder": "فئاتك الخاصة مفصولة بفواصل (اختياري)",
+  "dateRangeLabel": "النطاق الزمني",
+  "dateRangeOptions": {
+    "this_month": "هذا الشهر",
+    "last_month": "الشهر الماضي",
+    "custom": "نطاق مخصص",
+    "all": "كل التواريخ"
+  },
+  "startDate": "من",
+  "endDate": "إلى",
+  "organize": "نظّم مصروفاتي",
+  "organizing": "جارٍ التنظيم…",
+  "skippedLabel": "ملفات تعذّرت قراءتها",
+  "filteredOut_one": "{{count}} إدخال خارج النطاق الزمني المحدد.",
+  "filteredOut_other": "{{count}} إدخال خارج النطاق الزمني المحدد.",
+  "noEntries": "لم يُعثر على مصروفات في هذه الملفات ضمن النطاق الزمني المحدد.",
+  "entriesLabel": "المصروفات",
+  "editHint": "عدّل أي خلية لتصحيحها",
+  "columns": {
+    "date": "التاريخ",
+    "vendor": "المورّد",
+    "amount": "المبلغ",
+    "category": "الفئة",
+    "source": "المصدر",
+    "notes": "ملاحظات"
+  },
+  "needsReview": "يحتاج مراجعة",
+  "remove": "إزالة",
+  "totalsLabel": "الإجماليات حسب الفئة",
+  "grandTotal": "الإجمالي",
+  "export": "تصدير إلى جدول بيانات",
+  "exporting": "جارٍ التصدير…"
+}

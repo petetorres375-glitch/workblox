@@ -12,6 +12,7 @@ pdfplumber
 fpdf2
 uharfbuzz  # text shaping for Arabic/Hebrew/Indic PDF output
 python-docx
+openpyxl  # .xlsx read/write for Data Cleanup + Expense Organizer
 openai
 google-auth
 PyJWT
