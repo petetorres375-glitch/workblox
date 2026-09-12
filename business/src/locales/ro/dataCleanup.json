@@ -1,0 +1,46 @@
+{
+  "title": "Curățare <0>Date</0>",
+  "subtitle": "Încarcă o foaie de calcul dezordonată și primești date consecvente, text curat și duplicatele rezolvate.",
+  "dropLabel": "Trage o foaie de calcul aici sau dă clic pentru a răsfoi",
+  "dropHint": "XLSX sau CSV · până la 5.000 de rânduri",
+  "retentionNote": "Fișierul tău este procesat și eliminat — nu se stochează nimic.",
+  "descriptionPlaceholder": "Ce fel de date sunt acestea? (opțional — ex. listă de clienți, registru de facturi)",
+  "dateFormatLabel": "Format dată",
+  "dateFormatOptions": {
+    "auto": "Detectează automat",
+    "mdy": "LL-ZZ-AAAA",
+    "dmy": "ZZ-LL-AAAA"
+  },
+  "duplicateLabel": "Duplicate",
+  "duplicateOptions": {
+    "flag": "Marchează pentru verificare",
+    "merge": "Îmbină potrivirile exacte"
+  },
+  "clean": "Curăță Datele Mele",
+  "cleaning": "Se curăță…",
+  "summaryLabel": "Rezumat",
+  "summaryLead": "Fișier curățat —",
+  "summaryDates_one": "{{count}} format de dată corectat",
+  "summaryDates_other": "{{count}} formate de dată corectate",
+  "summaryMerged_one": "{{count}} rând duplicat îmbinat",
+  "summaryMerged_other": "{{count}} rânduri duplicate îmbinate",
+  "summaryFlagged_one": "{{count}} rând marcat pentru verificare",
+  "summaryFlagged_other": "{{count}} rânduri marcate pentru verificare",
+  "summaryTrimmed_one": "{{count}} celulă aranjată",
+  "summaryTrimmed_other": "{{count}} celule aranjate",
+  "summaryClean": "Nu s-au găsit probleme — datele tale erau deja curate.",
+  "rowCount": "{{before}} rânduri la intrare, {{after}} la ieșire",
+  "previewLabel": "Înainte și după",
+  "previewCount": "Se afișează {{shown}} din {{total}} rânduri",
+  "statusColumn": "Stare",
+  "blank": "(gol)",
+  "flags": {
+    "duplicate": "Duplicat",
+    "ambiguous_date": "Dată ambiguă",
+    "unparseable_date": "Dată ilizibilă"
+  },
+  "mergedTag_one": "{{count}} rând îmbinat",
+  "mergedTag_other": "{{count}} rânduri îmbinate",
+  "download": "Descarcă Fișierul Curățat",
+  "preparing": "Se pregătește…"
+}

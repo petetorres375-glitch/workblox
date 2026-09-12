@@ -1,0 +1,46 @@
+{
+  "title": "Daten<0>bereinigung</0>",
+  "subtitle": "Laden Sie eine unordentliche Tabelle hoch und erhalten Sie einheitliche Datumsangaben, sauberen Text und geklärte Duplikate.",
+  "dropLabel": "Tabelle hierher ziehen oder klicken zum Auswählen",
+  "dropHint": "XLSX oder CSV · bis zu 5.000 Zeilen",
+  "retentionNote": "Ihre Datei wird verarbeitet und verworfen — nichts wird gespeichert.",
+  "descriptionPlaceholder": "Worum geht es bei diesen Daten? (optional — z. B. Kundenliste, Rechnungsjournal)",
+  "dateFormatLabel": "Datumsformat",
+  "dateFormatOptions": {
+    "auto": "Automatisch erkennen",
+    "mdy": "MM-TT-JJJJ",
+    "dmy": "TT-MM-JJJJ"
+  },
+  "duplicateLabel": "Duplikate",
+  "duplicateOptions": {
+    "flag": "Zur Prüfung markieren",
+    "merge": "Exakte Treffer zusammenführen"
+  },
+  "clean": "Meine Daten Bereinigen",
+  "cleaning": "Wird bereinigt…",
+  "summaryLabel": "Zusammenfassung",
+  "summaryLead": "Datei bereinigt —",
+  "summaryDates_one": "{{count}} Datumsformat korrigiert",
+  "summaryDates_other": "{{count}} Datumsformate korrigiert",
+  "summaryMerged_one": "{{count}} doppelte Zeile zusammengeführt",
+  "summaryMerged_other": "{{count}} doppelte Zeilen zusammengeführt",
+  "summaryFlagged_one": "{{count}} Zeile zur Prüfung markiert",
+  "summaryFlagged_other": "{{count}} Zeilen zur Prüfung markiert",
+  "summaryTrimmed_one": "{{count}} Zelle bereinigt",
+  "summaryTrimmed_other": "{{count}} Zellen bereinigt",
+  "summaryClean": "Keine Probleme gefunden — Ihre Daten waren bereits sauber.",
+  "rowCount": "{{before}} Zeilen eingelesen, {{after}} ausgegeben",
+  "previewLabel": "Vorher und nachher",
+  "previewCount": "{{shown}} von {{total}} Zeilen werden angezeigt",
+  "statusColumn": "Status",
+  "blank": "(leer)",
+  "flags": {
+    "duplicate": "Duplikat",
+    "ambiguous_date": "Mehrdeutiges Datum",
+    "unparseable_date": "Unlesbares Datum"
+  },
+  "mergedTag_one": "{{count}} Zeile eingefügt",
+  "mergedTag_other": "{{count}} Zeilen eingefügt",
+  "download": "Bereinigte Datei Herunterladen",
+  "preparing": "Wird vorbereitet…"
+}

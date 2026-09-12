@@ -1,0 +1,46 @@
+{
+  "title": "Data <0>Opschonen</0>",
+  "subtitle": "Upload een rommelig spreadsheet en krijg consistente datums, opgeschoonde tekst en afgehandelde duplicaten terug.",
+  "dropLabel": "Sleep een spreadsheet hierheen of klik om te bladeren",
+  "dropHint": "XLSX of CSV · tot 5.000 rijen",
+  "retentionNote": "Je bestand wordt verwerkt en weggegooid — er wordt niets bewaard.",
+  "descriptionPlaceholder": "Wat voor gegevens zijn dit? (optioneel — bijv. klantenlijst, factuurlogboek)",
+  "dateFormatLabel": "Datumnotatie",
+  "dateFormatOptions": {
+    "auto": "Automatisch detecteren",
+    "mdy": "MM-DD-JJJJ",
+    "dmy": "DD-MM-JJJJ"
+  },
+  "duplicateLabel": "Duplicaten",
+  "duplicateOptions": {
+    "flag": "Markeren ter controle",
+    "merge": "Exacte matches samenvoegen"
+  },
+  "clean": "Mijn Data Opschonen",
+  "cleaning": "Bezig met opschonen…",
+  "summaryLabel": "Samenvatting",
+  "summaryLead": "Bestand opgeschoond —",
+  "summaryDates_one": "{{count}} datumnotatie hersteld",
+  "summaryDates_other": "{{count}} datumnotaties hersteld",
+  "summaryMerged_one": "{{count}} dubbele rij samengevoegd",
+  "summaryMerged_other": "{{count}} dubbele rijen samengevoegd",
+  "summaryFlagged_one": "{{count}} rij gemarkeerd ter controle",
+  "summaryFlagged_other": "{{count}} rijen gemarkeerd ter controle",
+  "summaryTrimmed_one": "{{count}} cel opgeruimd",
+  "summaryTrimmed_other": "{{count}} cellen opgeruimd",
+  "summaryClean": "Geen problemen gevonden — je gegevens waren al schoon.",
+  "rowCount": "{{before}} rijen erin, {{after}} rijen eruit",
+  "previewLabel": "Voor en na",
+  "previewCount": "{{shown}} van {{total}} rijen weergegeven",
+  "statusColumn": "Status",
+  "blank": "(leeg)",
+  "flags": {
+    "duplicate": "Duplicaat",
+    "ambiguous_date": "Dubbelzinnige datum",
+    "unparseable_date": "Onleesbare datum"
+  },
+  "mergedTag_one": "{{count}} rij samengevoegd",
+  "mergedTag_other": "{{count}} rijen samengevoegd",
+  "download": "Opgeschoond Bestand Downloaden",
+  "preparing": "Voorbereiden…"
+}

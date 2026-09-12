@@ -1,0 +1,41 @@
+{
+  "title": "Quản lý <0>Chi phí</0>",
+  "subtitle": "Thêm hóa đơn và sao kê ngân hàng để nhận bảng chi phí đã phân loại, có thể chỉnh sửa và xuất ra.",
+  "dropLabel": "Kéo hóa đơn hoặc sao kê vào đây hoặc bấm để chọn",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV hoặc XLSX · tối đa 10 tệp",
+  "retentionNote": "Các tệp của bạn được xử lý rồi loại bỏ — không lưu lại bất cứ thứ gì.",
+  "filesSelected_one": "Đã chọn {{count}} tệp",
+  "filesSelected_other": "Đã chọn {{count}} tệp",
+  "categoriesPlaceholder": "Danh mục riêng của bạn, cách nhau bằng dấu phẩy (tùy chọn)",
+  "dateRangeLabel": "Khoảng thời gian",
+  "dateRangeOptions": {
+    "this_month": "Tháng này",
+    "last_month": "Tháng trước",
+    "custom": "Khoảng tùy chỉnh",
+    "all": "Tất cả ngày"
+  },
+  "startDate": "Từ",
+  "endDate": "Đến",
+  "organize": "Sắp xếp Chi phí của tôi",
+  "organizing": "Đang sắp xếp…",
+  "skippedLabel": "Tệp không đọc được",
+  "filteredOut_one": "{{count}} mục nằm ngoài khoảng thời gian đã chọn.",
+  "filteredOut_other": "{{count}} mục nằm ngoài khoảng thời gian đã chọn.",
+  "noEntries": "Không tìm thấy chi phí nào trong các tệp này cho khoảng thời gian đã chọn.",
+  "entriesLabel": "Chi phí",
+  "editHint": "Chỉnh sửa bất kỳ ô nào để sửa lại",
+  "columns": {
+    "date": "Ngày",
+    "vendor": "Nhà cung cấp",
+    "amount": "Số tiền",
+    "category": "Danh mục",
+    "source": "Nguồn",
+    "notes": "Ghi chú"
+  },
+  "needsReview": "Cần kiểm tra",
+  "remove": "Xóa",
+  "totalsLabel": "Tổng theo danh mục",
+  "grandTotal": "Tổng cộng",
+  "export": "Xuất ra Bảng tính",
+  "exporting": "Đang xuất…"
+}

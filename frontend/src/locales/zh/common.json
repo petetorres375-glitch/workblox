@@ -5,6 +5,11 @@
   "installModal": {
     "title": "安装 Workblox",
     "intro": "在 Android 上安装:",
+    "introIos": "在 iPhone 或 iPad 上安装：",
+    "iosStep1": "请在 <0>Safari</0> 中打开本页 — 其他浏览器无法添加到主屏幕",
+    "iosStep2": "点按屏幕底部的 <0>共享</0> 按钮",
+    "iosStep3": "向下滑动并点按 <0>“添加到主屏幕”</0>",
+    "iosStep4": "点按右上角的 <0>“添加”</0>",
     "step1": "点击 Chrome 中的<0>⋮ 三点菜单</0>",
     "step2": "点击<0>“添加到主屏幕”</0>",
     "step3": "点击<0>“添加”</0>",

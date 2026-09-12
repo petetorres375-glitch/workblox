@@ -1,0 +1,46 @@
+{
+  "title": "Nettoyage de <0>Données</0>",
+  "subtitle": "Importez un tableur en désordre et récupérez des dates cohérentes, un texte propre et les doublons traités.",
+  "dropLabel": "Déposez un tableur ici ou cliquez pour parcourir",
+  "dropHint": "XLSX ou CSV · jusqu'à 5 000 lignes",
+  "retentionNote": "Votre fichier est traité puis supprimé — rien n'est conservé.",
+  "descriptionPlaceholder": "De quelles données s'agit-il ? (facultatif — ex. liste de clients, journal de factures)",
+  "dateFormatLabel": "Format de date",
+  "dateFormatOptions": {
+    "auto": "Détecter automatiquement",
+    "mdy": "MM-JJ-AAAA",
+    "dmy": "JJ-MM-AAAA"
+  },
+  "duplicateLabel": "Doublons",
+  "duplicateOptions": {
+    "flag": "Signaler pour vérification",
+    "merge": "Fusionner les correspondances exactes"
+  },
+  "clean": "Nettoyer Mes Données",
+  "cleaning": "Nettoyage…",
+  "summaryLabel": "Résumé",
+  "summaryLead": "Fichier nettoyé —",
+  "summaryDates_one": "{{count}} format de date corrigé",
+  "summaryDates_other": "{{count}} formats de date corrigés",
+  "summaryMerged_one": "{{count}} ligne en double fusionnée",
+  "summaryMerged_other": "{{count}} lignes en double fusionnées",
+  "summaryFlagged_one": "{{count}} ligne signalée pour vérification",
+  "summaryFlagged_other": "{{count}} lignes signalées pour vérification",
+  "summaryTrimmed_one": "{{count}} cellule nettoyée",
+  "summaryTrimmed_other": "{{count}} cellules nettoyées",
+  "summaryClean": "Aucun problème détecté — vos données étaient déjà propres.",
+  "rowCount": "{{before}} lignes en entrée, {{after}} en sortie",
+  "previewLabel": "Avant et après",
+  "previewCount": "Affichage de {{shown}} lignes sur {{total}}",
+  "statusColumn": "Statut",
+  "blank": "(vide)",
+  "flags": {
+    "duplicate": "Doublon",
+    "ambiguous_date": "Date ambiguë",
+    "unparseable_date": "Date illisible"
+  },
+  "mergedTag_one": "{{count}} ligne fusionnée",
+  "mergedTag_other": "{{count}} lignes fusionnées",
+  "download": "Télécharger le Fichier Nettoyé",
+  "preparing": "Préparation…"
+}

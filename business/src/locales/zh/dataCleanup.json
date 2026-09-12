@@ -1,0 +1,46 @@
+{
+  "title": "数据<0>清理</0>",
+  "subtitle": "上传杂乱的表格，获得统一的日期格式、整洁的文本和处理好的重复项。",
+  "dropLabel": "将表格拖到此处或点击浏览",
+  "dropHint": "XLSX 或 CSV · 最多 5,000 行",
+  "retentionNote": "您的文件处理后即被丢弃——不会保存任何内容。",
+  "descriptionPlaceholder": "这是什么数据？（选填 — 例如客户名单、发票记录）",
+  "dateFormatLabel": "日期格式",
+  "dateFormatOptions": {
+    "auto": "自动识别",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "重复项处理",
+  "duplicateOptions": {
+    "flag": "标记待复核",
+    "merge": "自动合并完全相同项"
+  },
+  "clean": "清理我的数据",
+  "cleaning": "清理中…",
+  "summaryLabel": "摘要",
+  "summaryLead": "文件已清理 —",
+  "summaryDates_one": "修正了 {{count}} 处日期格式",
+  "summaryDates_other": "修正了 {{count}} 处日期格式",
+  "summaryMerged_one": "合并了 {{count}} 行重复数据",
+  "summaryMerged_other": "合并了 {{count}} 行重复数据",
+  "summaryFlagged_one": "标记了 {{count}} 行供您复核",
+  "summaryFlagged_other": "标记了 {{count}} 行供您复核",
+  "summaryTrimmed_one": "整理了 {{count}} 个单元格",
+  "summaryTrimmed_other": "整理了 {{count}} 个单元格",
+  "summaryClean": "未发现问题——您的数据本来就很干净。",
+  "rowCount": "输入 {{before}} 行，输出 {{after}} 行",
+  "previewLabel": "清理前后对比",
+  "previewCount": "显示 {{total}} 行中的 {{shown}} 行",
+  "statusColumn": "状态",
+  "blank": "（空）",
+  "flags": {
+    "duplicate": "重复",
+    "ambiguous_date": "日期有歧义",
+    "unparseable_date": "日期无法识别"
+  },
+  "mergedTag_one": "并入 {{count}} 行",
+  "mergedTag_other": "并入 {{count}} 行",
+  "download": "下载清理后的文件",
+  "preparing": "准备中…"
+}

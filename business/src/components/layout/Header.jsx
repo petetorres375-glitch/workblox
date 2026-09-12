@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { usePWA } from "../../hooks/usePWA";
+import { NAV_IDS } from "../../toolOrder";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 function MenuIcon() {
@@ -14,7 +15,7 @@ function MenuIcon() {
   );
 }
 
-function InstallModal({ onClose }) {
+function InstallModal({ onClose, isIOS }) {
   const { t } = useTranslation("common");
   return (
     <div style={{
@@ -30,12 +31,25 @@ function InstallModal({ onClose }) {
           {t("installModal.title")}
         </h3>
         <p style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "1rem", lineHeight: 1.6 }}>
-          {t("installModal.intro")}
+          {t(isIOS ? "installModal.introIos" : "installModal.intro")}
         </p>
         <ol style={{ fontSize: "0.85rem", color: "#cbd5e1", lineHeight: 2, paddingLeft: "1.2rem", margin: "0 0 1.25rem" }}>
-          <li><Trans t={t} i18nKey="installModal.step1"><strong style={{ color: "#fff" }}>⋮ three-dot menu</strong></Trans></li>
-          <li><Trans t={t} i18nKey="installModal.step2"><strong style={{ color: "#fff" }}>"Add to Home screen"</strong></Trans></li>
-          <li><Trans t={t} i18nKey="installModal.step3"><strong style={{ color: "#fff" }}>"Add"</strong></Trans></li>
+          {isIOS ? (
+            <>
+              {/* Safari's Share sheet is the ONLY way in on iOS -- there's no
+                  install button to look for, which is what trips people up. */}
+              <li><Trans t={t} i18nKey="installModal.iosStep1"><strong style={{ color: "#fff" }}>Safari</strong></Trans></li>
+              <li><Trans t={t} i18nKey="installModal.iosStep2"><strong style={{ color: "#fff" }}>Share</strong></Trans></li>
+              <li><Trans t={t} i18nKey="installModal.iosStep3"><strong style={{ color: "#fff" }}>"Add to Home Screen"</strong></Trans></li>
+              <li><Trans t={t} i18nKey="installModal.iosStep4"><strong style={{ color: "#fff" }}>"Add"</strong></Trans></li>
+            </>
+          ) : (
+            <>
+              <li><Trans t={t} i18nKey="installModal.step1"><strong style={{ color: "#fff" }}>⋮ three-dot menu</strong></Trans></li>
+              <li><Trans t={t} i18nKey="installModal.step2"><strong style={{ color: "#fff" }}>"Add to Home screen"</strong></Trans></li>
+              <li><Trans t={t} i18nKey="installModal.step3"><strong style={{ color: "#fff" }}>"Add"</strong></Trans></li>
+            </>
+          )}
         </ol>
         <button onClick={onClose} style={{
           width: "100%", background: "#2563eb", color: "#fff", border: "none",
@@ -79,15 +93,10 @@ function LinuxTrustTip({ onClose }) {
   );
 }
 
-const NAV_IDS = [
-  "ad-copy", "batch-ats", "email", "contacts", "contract", "customer",
-  "hiring", "job-desc", "meeting", "policy", "proposal", "review", "social", "sop",
-];
-
 export default function Header({ active, onSelect, enabledKeys }) {
   const { t } = useTranslation(["nav", "common"]);
   const { user, logout } = useAuth();
-  const { canInstall, install, isInstalled, showLinuxTrustTip, dismissLinuxTrustTip } = usePWA();
+  const { canInstall, install, isInstalled, isIOS, showLinuxTrustTip, dismissLinuxTrustTip } = usePWA();
   const [showInstallModal, setShowInstallModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   // enabledKeys undefined means the entitlements check failed -- fail open
@@ -142,7 +151,7 @@ export default function Header({ active, onSelect, enabledKeys }) {
           <button className="header-signout" onClick={logout}>{t("common:signOut")}</button>
         </div>
       </div>
-      {showInstallModal && <InstallModal onClose={() => setShowInstallModal(false)} />}
+      {showInstallModal && <InstallModal isIOS={isIOS} onClose={() => setShowInstallModal(false)} />}
       {showLinuxTrustTip && <LinuxTrustTip onClose={dismissLinuxTrustTip} />}
       <nav className="tool-nav">
         {visibleNavIds.map((id) => (

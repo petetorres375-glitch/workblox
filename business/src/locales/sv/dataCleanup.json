@@ -1,0 +1,46 @@
+{
+  "title": "Data<0>städning</0>",
+  "subtitle": "Ladda upp ett rörigt kalkylark och få tillbaka enhetliga datum, städad text och hanterade dubbletter.",
+  "dropLabel": "Släpp ett kalkylark här eller klicka för att bläddra",
+  "dropHint": "XLSX eller CSV · upp till 5 000 rader",
+  "retentionNote": "Din fil bearbetas och kastas — ingenting sparas.",
+  "descriptionPlaceholder": "Vad är det här för data? (valfritt — t.ex. kundlista, fakturaregister)",
+  "dateFormatLabel": "Datumformat",
+  "dateFormatOptions": {
+    "auto": "Identifiera automatiskt",
+    "mdy": "MM-DD-ÅÅÅÅ",
+    "dmy": "DD-MM-ÅÅÅÅ"
+  },
+  "duplicateLabel": "Dubbletter",
+  "duplicateOptions": {
+    "flag": "Flagga för granskning",
+    "merge": "Slå ihop exakta träffar"
+  },
+  "clean": "Städa Mina Data",
+  "cleaning": "Städar…",
+  "summaryLabel": "Sammanfattning",
+  "summaryLead": "Filen är städad —",
+  "summaryDates_one": "{{count}} datumformat rättat",
+  "summaryDates_other": "{{count}} datumformat rättade",
+  "summaryMerged_one": "{{count}} dubblettrad sammanslagen",
+  "summaryMerged_other": "{{count}} dubblettrader sammanslagna",
+  "summaryFlagged_one": "{{count}} rad flaggad för granskning",
+  "summaryFlagged_other": "{{count}} rader flaggade för granskning",
+  "summaryTrimmed_one": "{{count}} cell städad",
+  "summaryTrimmed_other": "{{count}} celler städade",
+  "summaryClean": "Inga problem hittades — dina data var redan rena.",
+  "rowCount": "{{before}} rader in, {{after}} rader ut",
+  "previewLabel": "Före och efter",
+  "previewCount": "Visar {{shown}} av {{total}} rader",
+  "statusColumn": "Status",
+  "blank": "(tomt)",
+  "flags": {
+    "duplicate": "Dubblett",
+    "ambiguous_date": "Tvetydigt datum",
+    "unparseable_date": "Oläsbart datum"
+  },
+  "mergedTag_one": "{{count}} rad inflätad",
+  "mergedTag_other": "{{count}} rader inflätade",
+  "download": "Ladda Ner Städad Fil",
+  "preparing": "Förbereder…"
+}

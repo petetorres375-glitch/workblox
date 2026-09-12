@@ -1,0 +1,46 @@
+{
+  "title": "تنظيف <0>البيانات</0>",
+  "subtitle": "ارفع جدول بيانات غير مرتب واحصل على تواريخ موحّدة ونص مرتب وتكرارات تمت معالجتها.",
+  "dropLabel": "أفلت جدول بيانات هنا أو انقر للاختيار",
+  "dropHint": "XLSX أو CSV · حتى 5000 صف",
+  "retentionNote": "تتم معالجة ملفك ثم التخلص منه — لا يُحفظ أي شيء.",
+  "descriptionPlaceholder": "ما نوع هذه البيانات؟ (اختياري — مثل قائمة عملاء، سجل فواتير)",
+  "dateFormatLabel": "تنسيق التاريخ",
+  "dateFormatOptions": {
+    "auto": "اكتشاف تلقائي",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "التكرارات",
+  "duplicateOptions": {
+    "flag": "وضع علامة للمراجعة",
+    "merge": "دمج المطابقات التامة"
+  },
+  "clean": "نظّف بياناتي",
+  "cleaning": "جارٍ التنظيف…",
+  "summaryLabel": "الملخص",
+  "summaryLead": "تم تنظيف الملف —",
+  "summaryDates_one": "تصحيح {{count}} تنسيق تاريخ",
+  "summaryDates_other": "تصحيح {{count}} من تنسيقات التاريخ",
+  "summaryMerged_one": "دمج {{count}} صف مكرر",
+  "summaryMerged_other": "دمج {{count}} من الصفوف المكررة",
+  "summaryFlagged_one": "تمييز {{count}} صف لمراجعتك",
+  "summaryFlagged_other": "تمييز {{count}} من الصفوف لمراجعتك",
+  "summaryTrimmed_one": "ترتيب {{count}} خلية",
+  "summaryTrimmed_other": "ترتيب {{count}} من الخلايا",
+  "summaryClean": "لم يُعثر على أي مشكلات — بياناتك كانت مرتبة بالفعل.",
+  "rowCount": "{{before}} صف عند الإدخال، {{after}} عند الإخراج",
+  "previewLabel": "قبل وبعد",
+  "previewCount": "عرض {{shown}} من أصل {{total}} صف",
+  "statusColumn": "الحالة",
+  "blank": "(فارغ)",
+  "flags": {
+    "duplicate": "مكرر",
+    "ambiguous_date": "تاريخ غامض",
+    "unparseable_date": "تاريخ غير مقروء"
+  },
+  "mergedTag_one": "تم دمج {{count}} صف",
+  "mergedTag_other": "تم دمج {{count}} صف",
+  "download": "تنزيل الملف بعد التنظيف",
+  "preparing": "جارٍ التحضير…"
+}

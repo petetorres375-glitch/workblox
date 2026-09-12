@@ -1,0 +1,41 @@
+{
+  "title": "费用<0>整理</0>",
+  "subtitle": "上传收据和银行流水，获得可编辑、可导出的分类费用表。",
+  "dropLabel": "将收据或对账单拖到此处或点击浏览",
+  "dropHint": "JPG、PNG、HEIC、PDF、CSV 或 XLSX · 最多 10 个文件",
+  "retentionNote": "您的文件处理后即被丢弃——不会保存任何内容。",
+  "filesSelected_one": "已选择 {{count}} 个文件",
+  "filesSelected_other": "已选择 {{count}} 个文件",
+  "categoriesPlaceholder": "您自己的分类，用逗号分隔（选填）",
+  "dateRangeLabel": "日期范围",
+  "dateRangeOptions": {
+    "this_month": "本月",
+    "last_month": "上月",
+    "custom": "自定义范围",
+    "all": "全部日期"
+  },
+  "startDate": "起始",
+  "endDate": "结束",
+  "organize": "整理我的费用",
+  "organizing": "整理中…",
+  "skippedLabel": "无法读取的文件",
+  "filteredOut_one": "有 {{count}} 条记录不在您选择的日期范围内。",
+  "filteredOut_other": "有 {{count}} 条记录不在您选择的日期范围内。",
+  "noEntries": "在所选日期范围内，这些文件中没有找到费用记录。",
+  "entriesLabel": "费用",
+  "editHint": "点击任意单元格即可修改",
+  "columns": {
+    "date": "日期",
+    "vendor": "商家",
+    "amount": "金额",
+    "category": "类别",
+    "source": "来源",
+    "notes": "备注"
+  },
+  "needsReview": "请核对",
+  "remove": "移除",
+  "totalsLabel": "各类别合计",
+  "grandTotal": "总计",
+  "export": "导出为表格",
+  "exporting": "导出中…"
+}

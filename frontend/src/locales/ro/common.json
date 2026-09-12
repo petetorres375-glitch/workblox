@@ -5,6 +5,11 @@
   "installModal": {
     "title": "Instalează Workblox",
     "intro": "Pentru a instala pe Android:",
+    "introIos": "Pentru instalare pe iPhone sau iPad:",
+    "iosStep1": "Deschide această pagină în <0>Safari</0> — alte browsere nu pot adăuga pe ecranul principal",
+    "iosStep2": "Atinge butonul <0>Partajare</0> din partea de jos a ecranului",
+    "iosStep3": "Derulează în jos și atinge <0>„Adaugă la ecran principal”</0>",
+    "iosStep4": "Atinge <0>„Adaugă”</0> în colțul din dreapta sus",
     "step1": "Atinge <0>meniul ⋮ cu trei puncte</0> din Chrome",
     "step2": "Atinge <0>„Adaugă pe ecranul principal”</0>",
     "step3": "Atinge <0>„Adaugă”</0>",

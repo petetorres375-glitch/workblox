@@ -1,0 +1,46 @@
+{
+  "title": "Veri <0>Temizleme</0>",
+  "subtitle": "Dağınık bir elektronik tabloyu yükleyin; tutarlı tarihler, düzenli metin ve çözülmüş yinelenen kayıtlar alın.",
+  "dropLabel": "Tabloyu buraya bırakın veya seçmek için tıklayın",
+  "dropHint": "XLSX veya CSV · en fazla 5.000 satır",
+  "retentionNote": "Dosyanız işlenip atılır — hiçbir şey saklanmaz.",
+  "descriptionPlaceholder": "Bu veriler ne? (isteğe bağlı — ör. müşteri listesi, fatura kaydı)",
+  "dateFormatLabel": "Tarih biçimi",
+  "dateFormatOptions": {
+    "auto": "Otomatik algıla",
+    "mdy": "AA-GG-YYYY",
+    "dmy": "GG-AA-YYYY"
+  },
+  "duplicateLabel": "Yinelenenler",
+  "duplicateOptions": {
+    "flag": "İnceleme için işaretle",
+    "merge": "Tam eşleşenleri birleştir"
+  },
+  "clean": "Verilerimi Temizle",
+  "cleaning": "Temizleniyor…",
+  "summaryLabel": "Özet",
+  "summaryLead": "Dosya temizlendi —",
+  "summaryDates_one": "{{count}} tarih biçimi düzeltildi",
+  "summaryDates_other": "{{count}} tarih biçimi düzeltildi",
+  "summaryMerged_one": "{{count}} yinelenen satır birleştirildi",
+  "summaryMerged_other": "{{count}} yinelenen satır birleştirildi",
+  "summaryFlagged_one": "incelemeniz için {{count}} satır işaretlendi",
+  "summaryFlagged_other": "incelemeniz için {{count}} satır işaretlendi",
+  "summaryTrimmed_one": "{{count}} hücre düzenlendi",
+  "summaryTrimmed_other": "{{count}} hücre düzenlendi",
+  "summaryClean": "Sorun bulunamadı — verileriniz zaten temizdi.",
+  "rowCount": "{{before}} satır girdi, {{after}} satır çıktı",
+  "previewLabel": "Öncesi ve sonrası",
+  "previewCount": "{{total}} satırın {{shown}} tanesi gösteriliyor",
+  "statusColumn": "Durum",
+  "blank": "(boş)",
+  "flags": {
+    "duplicate": "Yinelenen",
+    "ambiguous_date": "Belirsiz tarih",
+    "unparseable_date": "Okunamayan tarih"
+  },
+  "mergedTag_one": "{{count}} satır birleştirildi",
+  "mergedTag_other": "{{count}} satır birleştirildi",
+  "download": "Temizlenmiş Dosyayı İndir",
+  "preparing": "Hazırlanıyor…"
+}

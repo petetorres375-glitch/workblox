@@ -1,0 +1,46 @@
+{
+  "title": "Data <0>Cleanup</0>",
+  "subtitle": "Upload a messy spreadsheet and get back consistent dates, tidy text, and duplicates sorted out.",
+  "dropLabel": "Drop a spreadsheet here or click to browse",
+  "dropHint": "XLSX or CSV · up to 5,000 rows",
+  "retentionNote": "Your file is processed and discarded — nothing is stored.",
+  "descriptionPlaceholder": "What is this data? (optional — e.g. customer list, invoice log)",
+  "dateFormatLabel": "Date format",
+  "dateFormatOptions": {
+    "auto": "Detect automatically",
+    "mdy": "MM-DD-YYYY",
+    "dmy": "DD-MM-YYYY"
+  },
+  "duplicateLabel": "Duplicate handling",
+  "duplicateOptions": {
+    "flag": "Flag for review",
+    "merge": "Auto-merge exact matches"
+  },
+  "clean": "Clean My Data",
+  "cleaning": "Cleaning…",
+  "summaryLabel": "Summary",
+  "summaryLead": "Cleaned your file —",
+  "summaryDates_one": "fixed {{count}} date format",
+  "summaryDates_other": "fixed {{count}} date formats",
+  "summaryMerged_one": "merged {{count}} duplicate row",
+  "summaryMerged_other": "merged {{count}} duplicate rows",
+  "summaryFlagged_one": "flagged {{count}} row for your review",
+  "summaryFlagged_other": "flagged {{count}} rows for your review",
+  "summaryTrimmed_one": "tidied {{count}} cell",
+  "summaryTrimmed_other": "tidied {{count}} cells",
+  "summaryClean": "No issues found — your data was already clean.",
+  "rowCount": "{{before}} rows in, {{after}} rows out",
+  "previewLabel": "Before and after",
+  "previewCount": "Showing {{shown}} of {{total}} rows",
+  "statusColumn": "Status",
+  "blank": "(blank)",
+  "flags": {
+    "duplicate": "Duplicate",
+    "ambiguous_date": "Ambiguous date",
+    "unparseable_date": "Unreadable date"
+  },
+  "mergedTag_one": "{{count}} row merged in",
+  "mergedTag_other": "{{count}} rows merged in",
+  "download": "Download Cleaned File",
+  "preparing": "Preparing…"
+}

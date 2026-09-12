@@ -1,0 +1,41 @@
+{
+  "title": "Ausgaben-<0>Organizer</0>",
+  "subtitle": "Laden Sie Belege und Bankauszüge hoch und erhalten Sie eine kategorisierte Ausgabentabelle zum Bearbeiten und Exportieren.",
+  "dropLabel": "Belege oder Auszüge hierher ziehen oder klicken zum Auswählen",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV oder XLSX · bis zu 10 Dateien",
+  "retentionNote": "Ihre Dateien werden verarbeitet und verworfen — nichts wird gespeichert.",
+  "filesSelected_one": "{{count}} Datei ausgewählt",
+  "filesSelected_other": "{{count}} Dateien ausgewählt",
+  "categoriesPlaceholder": "Eigene Kategorien, durch Komma getrennt (optional)",
+  "dateRangeLabel": "Zeitraum",
+  "dateRangeOptions": {
+    "this_month": "Dieser Monat",
+    "last_month": "Letzter Monat",
+    "custom": "Eigener Zeitraum",
+    "all": "Alle Daten"
+  },
+  "startDate": "Von",
+  "endDate": "Bis",
+  "organize": "Meine Ausgaben Organisieren",
+  "organizing": "Wird organisiert…",
+  "skippedLabel": "Nicht lesbare Dateien",
+  "filteredOut_one": "{{count}} Eintrag lag außerhalb Ihres Zeitraums.",
+  "filteredOut_other": "{{count}} Einträge lagen außerhalb Ihres Zeitraums.",
+  "noEntries": "In diesen Dateien wurden für den gewählten Zeitraum keine Ausgaben gefunden.",
+  "entriesLabel": "Ausgaben",
+  "editHint": "Jede Zelle lässt sich zur Korrektur bearbeiten",
+  "columns": {
+    "date": "Datum",
+    "vendor": "Händler",
+    "amount": "Betrag",
+    "category": "Kategorie",
+    "source": "Quelle",
+    "notes": "Notizen"
+  },
+  "needsReview": "Prüfen",
+  "remove": "Entfernen",
+  "totalsLabel": "Summen nach Kategorie",
+  "grandTotal": "Gesamt",
+  "export": "In Tabelle Exportieren",
+  "exporting": "Wird exportiert…"
+}
