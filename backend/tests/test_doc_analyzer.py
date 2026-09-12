@@ -112,8 +112,16 @@ def test_doc_analyzer_photo_unreadable(client):
 
 
 def test_doc_email_no_key(client):
+    # The route reads SENDGRID_API_KEY straight from the environment, and
+    # Config.load_dotenv() has already pulled the real key out of backend/.env
+    # by the time tests run -- so without forcing it empty here, this test
+    # can't reach the branch it exists to cover, falls through to a live
+    # SendGrid request, and fails with a 500 instead. patch.dict restores the
+    # original value afterwards, matching test_doc_email_sends below.
+    import os
     payload = {"email": "test@example.com", "filename": "doc.txt", "result": MOCK_RESPONSE}
-    rv = client.post("/api/doc/email", json=payload)
+    with patch.dict(os.environ, {"SENDGRID_API_KEY": ""}):
+        rv = client.post("/api/doc/email", json=payload)
     assert rv.status_code == 503
     assert "not configured" in rv.get_json()["error"]
 
