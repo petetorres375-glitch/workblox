@@ -6,6 +6,11 @@
   "installModal": {
     "title": "Instalar Workblox Business",
     "intro": "Para instalar en Android:",
+    "introIos": "Para instalar en iPhone o iPad:",
+    "iosStep1": "Abre esta página en <0>Safari</0> — otros navegadores no pueden añadir a la pantalla de inicio",
+    "iosStep2": "Toca el botón <0>Compartir</0> en la parte inferior de la pantalla",
+    "iosStep3": "Desplázate y toca <0>\"Añadir a pantalla de inicio\"</0>",
+    "iosStep4": "Toca <0>\"Añadir\"</0> arriba a la derecha",
     "step1": "Toca el <0>menú de tres puntos ⋮</0> en Chrome",
     "step2": "Toca <0>\"Añadir a la pantalla de inicio\"</0>",
     "step3": "Toca <0>\"Añadir\"</0>",

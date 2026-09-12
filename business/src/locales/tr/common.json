@@ -6,6 +6,11 @@
   "installModal": {
     "title": "Workblox Business'ı Yükle",
     "intro": "Android'e yüklemek için:",
+    "introIos": "iPhone veya iPad'e yüklemek için:",
+    "iosStep1": "Bu sayfayı <0>Safari</0>'de açın — diğer tarayıcılar ana ekrana ekleyemez",
+    "iosStep2": "Ekranın altındaki <0>Paylaş</0> düğmesine dokunun",
+    "iosStep3": "Aşağı kaydırıp <0>\"Ana Ekrana Ekle\"</0> seçeneğine dokunun",
+    "iosStep4": "Sağ üstteki <0>\"Ekle\"</0> düğmesine dokunun",
     "step1": "Chrome'da <0>⋮ üç nokta menüsüne</0> dokunun",
     "step2": "<0>\"Ana ekrana ekle\"</0> seçeneğine dokunun",
     "step3": "<0>\"Ekle\"</0> seçeneğine dokunun",

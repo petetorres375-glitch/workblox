@@ -6,6 +6,11 @@
   "installModal": {
     "title": "Installa Workblox Business",
     "intro": "Per installare su Android:",
+    "introIos": "Per installare su iPhone o iPad:",
+    "iosStep1": "Apri questa pagina in <0>Safari</0> — gli altri browser non possono aggiungere alla schermata Home",
+    "iosStep2": "Tocca il pulsante <0>Condividi</0> in fondo allo schermo",
+    "iosStep3": "Scorri verso il basso e tocca <0>\"Aggiungi a Home\"</0>",
+    "iosStep4": "Tocca <0>\"Aggiungi\"</0> in alto a destra",
     "step1": "Tocca il <0>menu a tre puntini ⋮</0> in Chrome",
     "step2": "Tocca <0>\"Aggiungi a schermata Home\"</0>",
     "step3": "Tocca <0>\"Aggiungi\"</0>",

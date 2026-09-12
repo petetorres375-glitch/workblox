@@ -5,6 +5,11 @@
   "installModal": {
     "title": "Zainstaluj Workblox",
     "intro": "Aby zainstalować na Androidzie:",
+    "introIos": "Aby zainstalować na iPhonie lub iPadzie:",
+    "iosStep1": "Otwórz tę stronę w <0>Safari</0> — inne przeglądarki nie mogą dodawać do ekranu początkowego",
+    "iosStep2": "Dotknij przycisku <0>Udostępnij</0> na dole ekranu",
+    "iosStep3": "Przewiń w dół i dotknij <0>\"Dodaj do ekranu początkowego\"</0>",
+    "iosStep4": "Dotknij <0>\"Dodaj\"</0> w prawym górnym rogu",
     "step1": "Stuknij <0>menu ⋮ (trzy kropki)</0> w Chrome",
     "step2": "Stuknij <0>„Dodaj do ekranu głównego”</0>",
     "step3": "Stuknij <0>„Dodaj”</0>",

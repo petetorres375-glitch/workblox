@@ -10,6 +10,11 @@
   "installModal": {
     "title": "Install Workblox",
     "intro": "To install on Android:",
+    "introIos": "To install on iPhone or iPad:",
+    "iosStep1": "Open this page in <0>Safari</0> — other browsers can't add to the Home Screen",
+    "iosStep2": "Tap the <0>Share</0> button at the bottom of the screen",
+    "iosStep3": "Scroll down and tap <0>\"Add to Home Screen\"</0>",
+    "iosStep4": "Tap <0>\"Add\"</0> in the top-right corner",
     "step1": "Tap the <0>⋮ three-dot menu</0> in Chrome",
     "step2": "Tap <0>\"Add to Home screen\"</0>",
     "step3": "Tap <0>\"Add\"</0>",
