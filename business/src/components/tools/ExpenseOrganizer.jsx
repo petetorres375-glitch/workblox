@@ -116,7 +116,7 @@ export default function ExpenseOrganizer() {
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files); }}
         >
           <input id="expense-files" type="file" multiple
-            accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,.csv,.xlsx"
+            accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,.csv,.xlsx,.numbers"
             onChange={(e) => handleFiles(e.target.files)} />
           <p className="drop-label">{files.length ? t("filesSelected", { count: files.length }) : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>

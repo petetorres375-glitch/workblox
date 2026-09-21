@@ -2,7 +2,7 @@
   "title": "経費<0>整理</0>",
   "subtitle": "領収書や明細をまとめて取り込み、編集・書き出しができるカテゴリ別の経費表にします。",
   "dropLabel": "領収書や明細をここにドロップ、またはクリックして選択",
-  "dropHint": "JPG、PNG、HEIC、PDF、CSV、XLSX · 最大 10 ファイル",
+  "dropHint": "JPG、PNG、HEIC、PDF、CSV、XLSX、Numbers · 最大 10 ファイル",
   "retentionNote": "ファイルは処理後に破棄されます — 保存は一切行いません。",
   "filesSelected_one": "{{count}} 件のファイルを選択",
   "filesSelected_other": "{{count}} 件のファイルを選択",

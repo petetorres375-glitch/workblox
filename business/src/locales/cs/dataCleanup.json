@@ -2,7 +2,7 @@
   "title": "Čištění <0>dat</0>",
   "subtitle": "Nahrajte nepřehlednou tabulku a získejte jednotná data, uklizený text a vyřešené duplicity.",
   "dropLabel": "Přetáhněte sem tabulku nebo klikněte pro výběr",
-  "dropHint": "XLSX nebo CSV · až 5 000 řádků",
+  "dropHint": "XLSX, CSV nebo Numbers · až 5 000 řádků",
   "retentionNote": "Váš soubor se zpracuje a zahodí — nic se neukládá.",
   "descriptionPlaceholder": "O jaká data jde? (nepovinné — např. seznam zákazníků, evidence faktur)",
   "dateFormatLabel": "Formát data",

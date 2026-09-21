@@ -2,7 +2,7 @@
   "title": "データ<0>クリーンアップ</0>",
   "subtitle": "乱れた表計算ファイルをアップロードすると、日付の統一・テキストの整形・重複の整理をして返します。",
   "dropLabel": "表計算ファイルをここにドロップ、またはクリックして選択",
-  "dropHint": "XLSX または CSV · 最大 5,000 行",
+  "dropHint": "XLSX、CSV または Numbers · 最大 5,000 行",
   "retentionNote": "ファイルは処理後に破棄されます — 保存は一切行いません。",
   "descriptionPlaceholder": "これはどんなデータですか？（任意 — 例：顧客リスト、請求書台帳）",
   "dateFormatLabel": "日付形式",

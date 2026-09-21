@@ -2,7 +2,7 @@
   "title": "Organizador de <0>Despesas</0>",
   "subtitle": "Envie recibos e extratos bancários e obtenha uma tabela de despesas categorizada, pronta a editar e exportar.",
   "dropLabel": "Arraste recibos ou extratos aqui ou clique para procurar",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV ou XLSX · até 10 ficheiros",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX ou Numbers · até 10 ficheiros",
   "retentionNote": "Os seus ficheiros são processados e descartados — nada é armazenado.",
   "filesSelected_one": "{{count}} ficheiro selecionado",
   "filesSelected_other": "{{count}} ficheiros selecionados",

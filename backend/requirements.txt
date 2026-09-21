@@ -13,6 +13,7 @@ fpdf2
 uharfbuzz  # text shaping for Arabic/Hebrew/Indic PDF output
 python-docx
 openpyxl  # .xlsx read/write for Data Cleanup + Expense Organizer
+numbers-parser  # Apple Numbers read for the same two tools
 openai
 google-auth
 PyJWT

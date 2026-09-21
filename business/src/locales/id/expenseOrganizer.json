@@ -2,7 +2,7 @@
   "title": "Pengatur <0>Pengeluaran</0>",
   "subtitle": "Masukkan struk dan mutasi bank, lalu dapatkan tabel pengeluaran berkategori yang bisa Anda sunting dan ekspor.",
   "dropLabel": "Letakkan struk atau mutasi di sini atau klik untuk memilih",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV atau XLSX · hingga 10 berkas",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX atau Numbers · hingga 10 berkas",
   "retentionNote": "Berkas Anda diproses lalu dibuang — tidak ada yang disimpan.",
   "filesSelected_one": "{{count}} berkas dipilih",
   "filesSelected_other": "{{count}} berkas dipilih",

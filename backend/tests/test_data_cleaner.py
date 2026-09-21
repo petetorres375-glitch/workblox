@@ -5,6 +5,7 @@ and reads no clock, so every one of these asserts an exact, reproducible
 outcome. That's the property that lets the UI show a client a hard number.
 """
 import io
+from pathlib import Path
 
 from app.services import spreadsheet
 from app.services.data_cleaner import (
@@ -302,6 +303,53 @@ def test_xlsx_round_trip_and_date_cells():
     assert result["rows"][0][1] == "2024-03-05"
     assert result["counts"]["dates_fixed"] == 0
     assert spreadsheet.write_table(headers, result["rows"], "xlsx")[:2] == b"PK"
+
+
+def _numbers_bytes(cells):
+    """Build a real .numbers file the way a Mac user's would arrive."""
+    import tempfile
+
+    from numbers_parser import Document
+
+    doc = Document()
+    table = doc.sheets[0].tables[0]
+    for r, row in enumerate(cells):
+        for c, value in enumerate(row):
+            table.write(r, c, value)
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        doc.save(tmp.name)
+        return Path(tmp.name).read_bytes()
+
+
+def test_numbers_reads_like_xlsx():
+    from datetime import datetime as dt
+
+    raw = _numbers_bytes([
+        ["Name", "Signup Date", "Qty", "Price"],
+        ["  Alice ", dt(2024, 3, 5), 3, 12.5],
+        ["", "", "", ""],
+        ["Bob", "March 4, 2024", 10, 0.1],
+    ])
+    headers, rows = spreadsheet.read_table(_Upload(raw, "in.numbers"))
+    # Numbers pads the default table out to a wide blank grid; none of that
+    # padding should show up as "Column 5" headers or empty rows.
+    assert headers == ["Name", "Signup Date", "Qty", "Price"]
+    assert len(rows) == 2
+    # Whole numbers arrive as int and decimals lose numbers-parser's float
+    # noise, so the cleaner sees exactly what an .xlsx upload would give it.
+    assert rows[0][2] == 3 and isinstance(rows[0][2], int)
+    assert rows[0][3] == 12.5
+    result = clean_table(headers, rows)
+    assert result["rows"][0][:3] == ["Alice", "2024-03-05", "3"]
+    assert result["counts"]["dates_fixed"] == 1  # only Bob's typed-in date
+    # A Numbers upload downloads as .xlsx -- Numbers opens that directly.
+    assert spreadsheet.format_for_filename("in.numbers") == "xlsx"
+
+
+def test_corrupt_numbers_file_is_a_clean_error():
+    import pytest
+    with pytest.raises(ValueError, match="Could not read that .numbers file"):
+        spreadsheet.read_table(_Upload(b"not a numbers file", "bad.numbers"))
 
 
 def test_unsupported_extension_is_rejected():

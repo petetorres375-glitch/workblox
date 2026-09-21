@@ -2,7 +2,7 @@
   "title": "Curățare <0>Date</0>",
   "subtitle": "Încarcă o foaie de calcul dezordonată și primești date consecvente, text curat și duplicatele rezolvate.",
   "dropLabel": "Trage o foaie de calcul aici sau dă clic pentru a răsfoi",
-  "dropHint": "XLSX sau CSV · până la 5.000 de rânduri",
+  "dropHint": "XLSX, CSV sau Numbers · până la 5.000 de rânduri",
   "retentionNote": "Fișierul tău este procesat și eliminat — nu se stochează nimic.",
   "descriptionPlaceholder": "Ce fel de date sunt acestea? (opțional — ex. listă de clienți, registru de facturi)",
   "dateFormatLabel": "Format dată",

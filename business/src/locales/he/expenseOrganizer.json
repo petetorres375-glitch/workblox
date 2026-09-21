@@ -2,7 +2,7 @@
   "title": "ארגון <0>הוצאות</0>",
   "subtitle": "העלו קבלות ודפי בנק וקבלו טבלת הוצאות מקוטלגת שניתן לערוך ולייצא.",
   "dropLabel": "גררו לכאן קבלות או דפי חשבון או לחצו לבחירה",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV או XLSX · עד 10 קבצים",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX או Numbers · עד 10 קבצים",
   "retentionNote": "הקבצים שלכם מעובדים ונמחקים — שום דבר לא נשמר.",
   "filesSelected_one": "נבחר {{count}} קובץ",
   "filesSelected_other": "נבחרו {{count}} קבצים",

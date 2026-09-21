@@ -2,7 +2,7 @@
   "title": "Data <0>Opschonen</0>",
   "subtitle": "Upload een rommelig spreadsheet en krijg consistente datums, opgeschoonde tekst en afgehandelde duplicaten terug.",
   "dropLabel": "Sleep een spreadsheet hierheen of klik om te bladeren",
-  "dropHint": "XLSX of CSV · tot 5.000 rijen",
+  "dropHint": "XLSX, CSV of Numbers · tot 5.000 rijen",
   "retentionNote": "Je bestand wordt verwerkt en weggegooid — er wordt niets bewaard.",
   "descriptionPlaceholder": "Wat voor gegevens zijn dit? (optioneel — bijv. klantenlijst, factuurlogboek)",
   "dateFormatLabel": "Datumnotatie",

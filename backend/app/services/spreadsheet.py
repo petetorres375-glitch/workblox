@@ -1,4 +1,4 @@
-"""Reading and writing .csv / .xlsx tables.
+"""Reading .csv / .xlsx / .numbers tables and writing .csv / .xlsx.
 
 Kept separate from file_handler.extract_text() on purpose: that function's
 SUPPORTED_EXTENSIONS set is shared by the Contract Analyzer, Batch ATS and Doc
@@ -8,10 +8,11 @@ back. Tabular input gets its own door.
 """
 import csv
 import io
+import math
 from datetime import date, datetime
 from pathlib import Path
 
-SUPPORTED_EXTENSIONS = {".csv", ".xlsx"}
+SUPPORTED_EXTENSIONS = {".csv", ".xlsx", ".numbers"}
 
 # Bounds the work a single request can trigger: the whole table is held in
 # memory, echoed back to the browser, and posted again for download.
@@ -27,18 +28,23 @@ def read_table(file_storage):
     """Parse an uploaded spreadsheet into (headers, rows).
 
     Everything comes back as Python scalars -- str for text, real date/datetime
-    for .xlsx date cells (openpyxl decodes those for us, and data_cleaner
-    normalizes them to ISO without counting them as a fix, since they were
-    never malformed to begin with)."""
+    for .xlsx and .numbers date cells (openpyxl / numbers-parser decode those
+    for us, and data_cleaner normalizes them to ISO without counting them as a
+    fix, since they were never malformed to begin with)."""
     ext = Path(file_storage.filename or "").suffix.lower()
     if ext not in SUPPORTED_EXTENSIONS:
-        raise ValueError(f"Unsupported file type '{ext}'. Upload a .csv or .xlsx file.")
+        raise ValueError(f"Unsupported file type '{ext}'. Upload a .csv, .xlsx or .numbers file.")
 
     raw = file_storage.read()
     if not raw:
         raise ValueError("That file is empty.")
 
-    headers, rows = _read_xlsx(raw) if ext == ".xlsx" else _read_csv(raw)
+    if ext == ".xlsx":
+        headers, rows = _read_xlsx(raw)
+    elif ext == ".numbers":
+        headers, rows = _read_numbers(raw)
+    else:
+        headers, rows = _read_csv(raw)
 
     if not headers:
         raise ValueError("Could not find a header row in that file.")
@@ -109,6 +115,53 @@ def _read_xlsx(raw: bytes):
     return _dedupe_headers(headers), rows
 
 
+def _read_numbers(raw: bytes):
+    """Apple Numbers. Mac and iPhone users have no Excel by default, so this is
+    the format their spreadsheets are actually in. numbers-parser needs a real
+    path, and the first table on the first sheet is the one people mean."""
+    import tempfile
+
+    from numbers_parser import Document
+
+    try:
+        with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+            tmp.write(raw)
+            tmp.flush()
+            document = Document(tmp.name)
+            table = document.sheets[0].tables[0]
+            grid = [list(row) for row in table.rows(values_only=True)]
+    except Exception as exc:
+        raise ValueError(f"Could not read that .numbers file: {exc}") from None
+
+    headers = []
+    rows = []
+    for values in grid:
+        if not any(v is not None and str(v).strip() for v in values):
+            continue
+        if not headers:
+            headers = [str(v).strip() if v is not None else "" for v in values]
+            continue
+        rows.append([_tidy_number(v) for v in values])
+
+    # A Numbers table is a fixed grid, so the blank cells to the right of the
+    # data always come through; trim them the same way the .xlsx reader does.
+    while headers and not headers[-1]:
+        headers.pop()
+    return _dedupe_headers(headers), rows
+
+
+def _tidy_number(value):
+    """numbers-parser hands every numeric cell back as a float, artefacts
+    included (12.5 arrives as 12.500000000000002). openpyxl gives int for
+    whole numbers, and the cleaner works in text, so line the two up or a
+    Qty of 3 reads "3.0" from Numbers and "3" from Excel."""
+    if isinstance(value, float) and math.isfinite(value):
+        value = float(f"{value:.15g}")
+        if value.is_integer():
+            return int(value)
+    return value
+
+
 def _dedupe_headers(headers):
     """Blank and repeated header cells become distinct, stable names -- the
     cleanup engine keys columns by header, so collisions would silently merge
@@ -168,4 +221,7 @@ def _write_xlsx(headers, rows) -> bytes:
 
 
 def format_for_filename(filename: str) -> str:
-    return "xlsx" if Path(filename or "").suffix.lower() == ".xlsx" else "csv"
+    """Download format for a cleaned file. .numbers uploads come back as .xlsx:
+    Numbers opens it with one tap, and writing native .numbers is slow and not
+    worth the risk for no user-visible gain."""
+    return "xlsx" if Path(filename or "").suffix.lower() in (".xlsx", ".numbers") else "csv"

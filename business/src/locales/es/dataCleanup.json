@@ -2,7 +2,7 @@
   "title": "Limpieza de <0>Datos</0>",
   "subtitle": "Sube una hoja de cálculo desordenada y recupérala con fechas coherentes, texto limpio y los duplicados resueltos.",
   "dropLabel": "Arrastra una hoja de cálculo aquí o haz clic para buscar",
-  "dropHint": "XLSX o CSV · hasta 5.000 filas",
+  "dropHint": "XLSX, CSV o Numbers · hasta 5.000 filas",
   "retentionNote": "Tu archivo se procesa y se descarta: no se almacena nada.",
   "descriptionPlaceholder": "¿Qué son estos datos? (opcional — p. ej. lista de clientes, registro de facturas)",
   "dateFormatLabel": "Formato de fecha",

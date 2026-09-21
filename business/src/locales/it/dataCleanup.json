@@ -2,7 +2,7 @@
   "title": "Pulizia <0>Dati</0>",
   "subtitle": "Carica un foglio di calcolo disordinato e ottieni date coerenti, testo pulito e duplicati risolti.",
   "dropLabel": "Trascina qui un foglio di calcolo o clicca per sfogliare",
-  "dropHint": "XLSX o CSV · fino a 5.000 righe",
+  "dropHint": "XLSX, CSV o Numbers · fino a 5.000 righe",
   "retentionNote": "Il tuo file viene elaborato e scartato — non viene conservato nulla.",
   "descriptionPlaceholder": "Di che dati si tratta? (facoltativo — es. elenco clienti, registro fatture)",
   "dateFormatLabel": "Formato data",

@@ -5,6 +5,8 @@ validation of model output, the deterministic fallbacks when the model is
 unavailable, date-range filtering, and per-file error isolation.
 """
 import io
+from datetime import datetime
+from pathlib import Path
 from contextlib import contextmanager
 from unittest.mock import patch
 
@@ -20,6 +22,23 @@ def _bypass_guards():
 
 def _csv(text, name="data.csv"):
     return {"file": (io.BytesIO(text.encode()), name)}
+
+
+def _numbers(cells, field="file", name="data.numbers"):
+    """A real Apple Numbers upload -- the format Mac and iPhone users have."""
+    import tempfile
+
+    from numbers_parser import Document
+
+    doc = Document()
+    table = doc.sheets[0].tables[0]
+    for r, row in enumerate(cells):
+        for c, value in enumerate(row):
+            table.write(r, c, value)
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        doc.save(tmp.name)
+        raw = Path(tmp.name).read_bytes()
+    return {field: (io.BytesIO(raw), name)}
 
 
 CUSTOMERS_CSV = (
@@ -122,6 +141,28 @@ def test_data_cleanup_download_returns_an_xlsx(client):
     assert rv.data[:2] == b"PK"  # xlsx is a zip container
 
 
+def test_data_cleanup_accepts_a_numbers_file(client):
+    cells = [
+        ["Name", "Email", "Signup Date"],
+        ["  Alice  Smith ", "alice@x.co", datetime(2024, 4, 3)],
+        ["Alice Smith", "alice@x.co", datetime(2024, 4, 3)],
+    ]
+    plan = {"types": {"Name": "name", "Email": "email", "Signup Date": "date"},
+            "identity": ["Email"]}
+    with _bypass_guards(), \
+         patch("app.routes.biz_tools.claude_client.call", return_value=plan):
+        rv = client.post("/api/biz/data-cleanup",
+                         data={**_numbers(cells), "duplicate_handling": "merge"},
+                         content_type="multipart/form-data")
+    assert rv.status_code == 200, rv.get_json()
+    body = rv.get_json()
+    assert body["headers"] == ["Name", "Email", "Signup Date"]
+    assert body["total_rows_out"] == 1
+    assert body["rows"][0] == ["Alice Smith", "alice@x.co", "2024-04-03"]
+    # Numbers opens .xlsx directly, so that's what the cleaned file comes back as.
+    assert body["source_format"] == "xlsx"
+
+
 def test_data_cleanup_download_validates_its_input(client):
     with _bypass_guards():
         rv = client.post("/api/biz/data-cleanup/download", json={"rows": []})
@@ -159,6 +200,28 @@ def test_expenses_categorizes_a_bank_statement(client):
     assert body["entries"][0]["vendor"] == "Blue Bottle Coffee"
     # Amounts are reported as positive spend regardless of the export's sign.
     assert body["entries"][0]["amount"] == 12.50
+    assert body["totals"] == {"Meals": 12.5, "Software": 52.99, "Travel": 341.2}
+    assert body["grand_total"] == 406.69
+
+
+def test_expenses_reads_a_numbers_statement(client):
+    # Typed cells, the way Numbers stores them: real dates and real numbers,
+    # not the strings a CSV export would carry.
+    cells = [
+        ["Date", "Description", "Amount"],
+        [datetime(2024, 3, 5), "SQ *BLUE BOTTLE COFFEE 0123", -12.50],
+        [datetime(2024, 3, 7), "ADOBE  *CREATIVE CLOUD", -52.99],
+        [datetime(2024, 4, 2), "DELTA AIR LINES", -341.20],
+    ]
+    with _bypass_guards(), \
+         patch("app.routes.biz_tools.claude_client.call", return_value=CATEGORIZED):
+        rv = client.post("/api/biz/expenses",
+                         data=_numbers(cells, field="files", name="statement.numbers"),
+                         content_type="multipart/form-data")
+    assert rv.status_code == 200, rv.get_json()
+    body = rv.get_json()
+    assert body["errors"] == []
+    assert [e["date"] for e in body["entries"]] == ["2024-03-05", "2024-03-07", "2024-04-02"]
     assert body["totals"] == {"Meals": 12.5, "Software": 52.99, "Travel": 341.2}
     assert body["grand_total"] == 406.69
 

@@ -2,7 +2,7 @@
   "title": "경비 <0>정리</0>",
   "subtitle": "영수증과 카드 내역을 올리면 편집하고 내보낼 수 있는 분류된 경비 표를 만들어 드립니다.",
   "dropLabel": "영수증이나 거래 내역을 여기에 놓거나 클릭해 선택하세요",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV 또는 XLSX · 최대 10개 파일",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX 또는 Numbers · 최대 10개 파일",
   "retentionNote": "파일은 처리 후 폐기됩니다 — 아무것도 저장하지 않습니다.",
   "filesSelected_one": "파일 {{count}}개 선택됨",
   "filesSelected_other": "파일 {{count}}개 선택됨",

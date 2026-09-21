@@ -2,7 +2,7 @@
   "title": "Pembersihan <0>Data</0>",
   "subtitle": "Unggah spreadsheet yang berantakan dan dapatkan tanggal yang konsisten, teks yang rapi, dan duplikat yang sudah ditangani.",
   "dropLabel": "Letakkan spreadsheet di sini atau klik untuk memilih",
-  "dropHint": "XLSX atau CSV · hingga 5.000 baris",
+  "dropHint": "XLSX, CSV atau Numbers · hingga 5.000 baris",
   "retentionNote": "Berkas Anda diproses lalu dibuang — tidak ada yang disimpan.",
   "descriptionPlaceholder": "Data apa ini? (opsional — mis. daftar pelanggan, catatan faktur)",
   "dateFormatLabel": "Format tanggal",

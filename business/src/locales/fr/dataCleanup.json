@@ -2,7 +2,7 @@
   "title": "Nettoyage de <0>Données</0>",
   "subtitle": "Importez un tableur en désordre et récupérez des dates cohérentes, un texte propre et les doublons traités.",
   "dropLabel": "Déposez un tableur ici ou cliquez pour parcourir",
-  "dropHint": "XLSX ou CSV · jusqu'à 5 000 lignes",
+  "dropHint": "XLSX, CSV ou Numbers · jusqu'à 5 000 lignes",
   "retentionNote": "Votre fichier est traité puis supprimé — rien n'est conservé.",
   "descriptionPlaceholder": "De quelles données s'agit-il ? (facultatif — ex. liste de clients, journal de factures)",
   "dateFormatLabel": "Format de date",

@@ -2,7 +2,7 @@
   "title": "Uitgaven <0>Ordenen</0>",
   "subtitle": "Voeg bonnetjes en bankafschriften toe en krijg een gecategoriseerde uitgaventabel die je kunt bewerken en exporteren.",
   "dropLabel": "Sleep bonnetjes of afschriften hierheen of klik om te bladeren",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV of XLSX · tot 10 bestanden",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX of Numbers · tot 10 bestanden",
   "retentionNote": "Je bestanden worden verwerkt en weggegooid — er wordt niets bewaard.",
   "filesSelected_one": "{{count}} bestand geselecteerd",
   "filesSelected_other": "{{count}} bestanden geselecteerd",

@@ -2,7 +2,7 @@
   "title": "Organizer <0>Wydatków</0>",
   "subtitle": "Dodaj paragony i wyciągi bankowe, a otrzymasz skategoryzowaną tabelę wydatków do edycji i eksportu.",
   "dropLabel": "Przeciągnij paragony lub wyciągi tutaj albo kliknij, aby wybrać",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV lub XLSX · do 10 plików",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX lub Numbers · do 10 plików",
   "retentionNote": "Twoje pliki są przetwarzane i usuwane — nic nie jest przechowywane.",
   "filesSelected_one": "wybrano {{count}} plik",
   "filesSelected_other": "wybrano {{count}} plików",

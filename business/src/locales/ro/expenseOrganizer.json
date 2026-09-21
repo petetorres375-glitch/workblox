@@ -2,7 +2,7 @@
   "title": "Organizator <0>Cheltuieli</0>",
   "subtitle": "Adaugă bonuri și extrase bancare și primești un tabel de cheltuieli pe categorii, gata de editat și exportat.",
   "dropLabel": "Trage bonuri sau extrase aici ori dă clic pentru a răsfoi",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV sau XLSX · până la 10 fișiere",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX sau Numbers · până la 10 fișiere",
   "retentionNote": "Fișierele tale sunt procesate și eliminate — nu se stochează nimic.",
   "filesSelected_one": "{{count}} fișier selectat",
   "filesSelected_other": "{{count}} fișiere selectate",

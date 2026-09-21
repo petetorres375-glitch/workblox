@@ -2,7 +2,7 @@
   "title": "Czyszczenie <0>Danych</0>",
   "subtitle": "Prześlij nieuporządkowany arkusz i odbierz spójne daty, uporządkowany tekst i rozwiązane duplikaty.",
   "dropLabel": "Przeciągnij arkusz tutaj lub kliknij, aby wybrać",
-  "dropHint": "XLSX lub CSV · do 5000 wierszy",
+  "dropHint": "XLSX, CSV lub Numbers · do 5000 wierszy",
   "retentionNote": "Twój plik jest przetwarzany i usuwany — nic nie jest przechowywane.",
   "descriptionPlaceholder": "Czego dotyczą te dane? (opcjonalnie — np. lista klientów, rejestr faktur)",
   "dateFormatLabel": "Format daty",

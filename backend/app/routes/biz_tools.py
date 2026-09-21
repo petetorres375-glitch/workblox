@@ -814,7 +814,7 @@ _DEFAULT_EXPENSE_CATEGORIES = [
     "Professional Services", "Marketing", "Equipment", "Other",
 ]
 _RECEIPT_IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".heif"}
-_TRANSACTION_EXTS = {".csv", ".xlsx"}
+_TRANSACTION_EXTS = {".csv", ".xlsx", ".numbers"}
 _MAX_EXPENSE_FILES = 10
 _DATE_RANGES = {"this_month", "last_month", "custom", "all"}
 
@@ -1111,7 +1111,7 @@ def expense_organizer():
                 entries.append(_normalize_entry(raw, file.filename, fallback_category))
             else:
                 errors.append({"filename": file.filename,
-                               "error": f"Unsupported file type '{ext}'. Upload receipts (JPG, PNG, HEIC, PDF) or a .csv/.xlsx statement."})
+                               "error": f"Unsupported file type '{ext}'. Upload receipts (JPG, PNG, HEIC, PDF) or a .csv/.xlsx/.numbers statement."})
         except Exception as e:
             errors.append({"filename": file.filename, "error": str(e)})
 

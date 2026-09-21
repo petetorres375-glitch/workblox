@@ -2,7 +2,7 @@
   "title": "منظم <0>المصروفات</0>",
   "subtitle": "أضف الإيصالات وكشوف الحساب البنكية واحصل على جدول مصروفات مصنّف يمكنك تعديله وتصديره.",
   "dropLabel": "أفلت الإيصالات أو كشوف الحساب هنا أو انقر للاختيار",
-  "dropHint": "JPG أو PNG أو HEIC أو PDF أو CSV أو XLSX · حتى 10 ملفات",
+  "dropHint": "JPG أو PNG أو HEIC أو PDF أو CSV أو XLSX أو Numbers · حتى 10 ملفات",
   "retentionNote": "تتم معالجة ملفاتك ثم التخلص منها — لا يُحفظ أي شيء.",
   "filesSelected_one": "تم اختيار {{count}} ملف",
   "filesSelected_other": "تم اختيار {{count}} ملف",

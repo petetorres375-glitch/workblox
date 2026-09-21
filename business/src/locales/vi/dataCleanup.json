@@ -2,7 +2,7 @@
   "title": "Làm sạch <0>Dữ liệu</0>",
   "subtitle": "Tải lên bảng tính lộn xộn và nhận lại ngày tháng nhất quán, văn bản gọn gàng và các bản trùng đã được xử lý.",
   "dropLabel": "Kéo bảng tính vào đây hoặc bấm để chọn",
-  "dropHint": "XLSX hoặc CSV · tối đa 5.000 dòng",
+  "dropHint": "XLSX, CSV hoặc Numbers · tối đa 5.000 dòng",
   "retentionNote": "Tệp của bạn được xử lý rồi loại bỏ — không lưu lại bất cứ thứ gì.",
   "descriptionPlaceholder": "Đây là dữ liệu gì? (tùy chọn — ví dụ danh sách khách hàng, sổ hóa đơn)",
   "dateFormatLabel": "Định dạng ngày",

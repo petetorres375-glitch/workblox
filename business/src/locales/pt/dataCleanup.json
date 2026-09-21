@@ -2,7 +2,7 @@
   "title": "Limpeza de <0>Dados</0>",
   "subtitle": "Envie uma planilha desorganizada e receba datas consistentes, texto limpo e duplicados resolvidos.",
   "dropLabel": "Arraste uma planilha aqui ou clique para procurar",
-  "dropHint": "XLSX ou CSV · até 5.000 linhas",
+  "dropHint": "XLSX, CSV ou Numbers · até 5.000 linhas",
   "retentionNote": "O seu ficheiro é processado e descartado — nada é armazenado.",
   "descriptionPlaceholder": "O que são estes dados? (opcional — ex. lista de clientes, registo de faturas)",
   "dateFormatLabel": "Formato de data",

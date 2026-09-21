@@ -2,7 +2,7 @@
   "title": "Expense <0>Organizer</0>",
   "subtitle": "Drop in receipts and bank exports, and get a categorized expense table you can edit and export.",
   "dropLabel": "Drop receipts or statements here or click to browse",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV or XLSX · up to 10 files",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX or Numbers · up to 10 files",
   "retentionNote": "Your files are processed and discarded — nothing is stored.",
   "filesSelected_one": "{{count}} file selected",
   "filesSelected_other": "{{count}} files selected",

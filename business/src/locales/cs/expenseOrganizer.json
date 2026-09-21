@@ -2,7 +2,7 @@
   "title": "Správce <0>výdajů</0>",
   "subtitle": "Vložte účtenky a bankovní výpisy a získejte tabulku výdajů podle kategorií, kterou lze upravit a exportovat.",
   "dropLabel": "Přetáhněte sem účtenky nebo výpisy či klikněte pro výběr",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV nebo XLSX · až 10 souborů",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX nebo Numbers · až 10 souborů",
   "retentionNote": "Vaše soubory se zpracují a zahodí — nic se neukládá.",
   "filesSelected_one": "vybrán {{count}} soubor",
   "filesSelected_other": "vybráno souborů: {{count}}",

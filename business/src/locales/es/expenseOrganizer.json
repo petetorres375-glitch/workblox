@@ -2,7 +2,7 @@
   "title": "Organizador de <0>Gastos</0>",
   "subtitle": "Sube recibos y extractos bancarios y obtén una tabla de gastos categorizada que puedes editar y exportar.",
   "dropLabel": "Arrastra recibos o extractos aquí o haz clic para buscar",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV o XLSX · hasta 10 archivos",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX o Numbers · hasta 10 archivos",
   "retentionNote": "Tus archivos se procesan y se descartan: no se almacena nada.",
   "filesSelected_one": "{{count}} archivo seleccionado",
   "filesSelected_other": "{{count}} archivos seleccionados",

@@ -2,7 +2,7 @@
   "title": "Ausgaben-<0>Organizer</0>",
   "subtitle": "Laden Sie Belege und Bankauszüge hoch und erhalten Sie eine kategorisierte Ausgabentabelle zum Bearbeiten und Exportieren.",
   "dropLabel": "Belege oder Auszüge hierher ziehen oder klicken zum Auswählen",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV oder XLSX · bis zu 10 Dateien",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX oder Numbers · bis zu 10 Dateien",
   "retentionNote": "Ihre Dateien werden verarbeitet und verworfen — nichts wird gespeichert.",
   "filesSelected_one": "{{count}} Datei ausgewählt",
   "filesSelected_other": "{{count}} Dateien ausgewählt",

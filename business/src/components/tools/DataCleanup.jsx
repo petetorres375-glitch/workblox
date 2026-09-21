@@ -101,7 +101,7 @@ export default function DataCleanup() {
           onDragLeave={() => setDragOver(false)}
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files); }}
         >
-          <input id="cleanup-file" type="file" accept=".xlsx,.csv" onChange={(e) => handleFiles(e.target.files)} />
+          <input id="cleanup-file" type="file" accept=".xlsx,.csv,.numbers" onChange={(e) => handleFiles(e.target.files)} />
           <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
         </div>

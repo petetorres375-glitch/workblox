@@ -2,7 +2,7 @@
   "title": "Gider <0>Düzenleyici</0>",
   "subtitle": "Fişleri ve banka ekstrelerini ekleyin; düzenleyip dışa aktarabileceğiniz kategorilere ayrılmış bir gider tablosu alın.",
   "dropLabel": "Fişleri veya ekstreleri buraya bırakın ya da seçmek için tıklayın",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV veya XLSX · en fazla 10 dosya",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX veya Numbers · en fazla 10 dosya",
   "retentionNote": "Dosyalarınız işlenip atılır — hiçbir şey saklanmaz.",
   "filesSelected_one": "{{count}} dosya seçildi",
   "filesSelected_other": "{{count}} dosya seçildi",

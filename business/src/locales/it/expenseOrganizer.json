@@ -2,7 +2,7 @@
   "title": "Gestione <0>Spese</0>",
   "subtitle": "Carica scontrini ed estratti conto e ottieni una tabella delle spese categorizzata, modificabile ed esportabile.",
   "dropLabel": "Trascina qui scontrini o estratti conto o clicca per sfogliare",
-  "dropHint": "JPG, PNG, HEIC, PDF, CSV o XLSX · fino a 10 file",
+  "dropHint": "JPG, PNG, HEIC, PDF, CSV, XLSX o Numbers · fino a 10 file",
   "retentionNote": "I tuoi file vengono elaborati e scartati — non viene conservato nulla.",
   "filesSelected_one": "{{count}} file selezionato",
   "filesSelected_other": "{{count}} file selezionati",

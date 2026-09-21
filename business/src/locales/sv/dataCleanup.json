@@ -2,7 +2,7 @@
   "title": "Data<0>städning</0>",
   "subtitle": "Ladda upp ett rörigt kalkylark och få tillbaka enhetliga datum, städad text och hanterade dubbletter.",
   "dropLabel": "Släpp ett kalkylark här eller klicka för att bläddra",
-  "dropHint": "XLSX eller CSV · upp till 5 000 rader",
+  "dropHint": "XLSX, CSV eller Numbers · upp till 5 000 rader",
   "retentionNote": "Din fil bearbetas och kastas — ingenting sparas.",
   "descriptionPlaceholder": "Vad är det här för data? (valfritt — t.ex. kundlista, fakturaregister)",
   "dateFormatLabel": "Datumformat",
