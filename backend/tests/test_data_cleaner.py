@@ -342,8 +342,27 @@ def test_numbers_reads_like_xlsx():
     result = clean_table(headers, rows)
     assert result["rows"][0][:3] == ["Alice", "2024-03-05", "3"]
     assert result["counts"]["dates_fixed"] == 1  # only Bob's typed-in date
-    # A Numbers upload downloads as .xlsx -- Numbers opens that directly.
-    assert spreadsheet.format_for_filename("in.numbers") == "xlsx"
+    # A Numbers upload downloads as a real .numbers file that Numbers can
+    # open back into the same table: header row, no header column, no padding.
+    assert spreadsheet.format_for_filename("in.numbers") == "numbers"
+    out = spreadsheet.write_table(headers, result["rows"], "numbers")
+    assert out[:2] == b"PK"  # .numbers is a zip container too
+    headers2, rows2 = spreadsheet.read_table(_Upload(out, "out.numbers"))
+    assert headers2 == headers
+    assert rows2 == result["rows"]
+
+
+def test_numbers_writer_keeps_typed_cells_and_blanks():
+    from datetime import date as d, datetime as dt
+
+    headers = ["Name", "Qty", "When", "Note"]
+    rows = [["Alice", 3, dt(2024, 3, 5), None], ["Bob", 2.5, d(2024, 4, 1), ""]]
+    out = spreadsheet.write_table(headers, rows, "numbers")
+    headers2, rows2 = spreadsheet.read_table(_Upload(out, "out.numbers"))
+    assert headers2 == headers
+    assert rows2[0] == ["Alice", 3, dt(2024, 3, 5), None]
+    # Plain dates go in as midnight datetimes; blanks stay blank (None), not "".
+    assert rows2[1] == ["Bob", 2.5, dt(2024, 4, 1), None]
 
 
 def test_corrupt_numbers_file_is_a_clean_error():

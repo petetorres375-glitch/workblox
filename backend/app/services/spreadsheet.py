@@ -1,4 +1,4 @@
-"""Reading .csv / .xlsx / .numbers tables and writing .csv / .xlsx.
+"""Reading and writing .csv / .xlsx / .numbers tables.
 
 Kept separate from file_handler.extract_text() on purpose: that function's
 SUPPORTED_EXTENSIONS set is shared by the Contract Analyzer, Batch ATS and Doc
@@ -179,9 +179,18 @@ def _dedupe_headers(headers):
     return result
 
 
+WRITE_FORMATS = {
+    "csv": ("text/csv", "csv"),
+    "xlsx": ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx"),
+    "numbers": ("application/vnd.apple.numbers", "numbers"),
+}
+
+
 def write_table(headers, rows, fmt: str = "csv") -> bytes:
     if fmt == "xlsx":
         return _write_xlsx(headers, rows)
+    if fmt == "numbers":
+        return _write_numbers(headers, rows)
     return _write_csv(headers, rows)
 
 
@@ -220,8 +229,62 @@ def _write_xlsx(headers, rows) -> bytes:
     return buf.getvalue()
 
 
+def _write_numbers(headers, rows) -> bytes:
+    """Native Apple Numbers output, so a client who uploaded a .numbers file
+    gets a .numbers file back rather than an Excel file with a strange icon.
+
+    The table is sized to the data exactly (no blank 12x8 default grid), row 1
+    is a real Numbers header row, and there's no header column -- the first
+    column is ordinary data, not row labels."""
+    import tempfile
+
+    from numbers_parser import Document
+
+    document = Document(
+        sheet_name="Sheet 1", table_name="Table 1",
+        num_header_rows=1, num_header_cols=0,
+        num_rows=len(rows) + 1, num_cols=max(len(headers), 1),
+    )
+    table = document.sheets[0].tables[0]
+    for col, header in enumerate(headers):
+        table.write(0, col, str(header))
+    for row_index, row in enumerate(rows, start=1):
+        for col, cell in enumerate(row[:len(headers)]):
+            if cell is None or cell == "":
+                continue  # an untouched cell is already blank
+            table.write(row_index, col, _numbers_cell(cell))
+
+    # Numbers stores widths in points; roughly 7pt per character, same
+    # heuristic as the .xlsx writer's column sizing.
+    for col, header in enumerate(headers):
+        longest = max(
+            [len(str(header))] + [len(str(r[col])) for r in rows[:200] if col < len(r)]
+        )
+        table.col_width(col, min(max(longest * 7 + 16, 70), 350))
+
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        document.save(tmp.name)
+        return Path(tmp.name).read_bytes()
+
+
+def _numbers_cell(cell):
+    """numbers-parser accepts str, int, float, bool, datetime and timedelta.
+    Anything else (a date without a time, Decimal, ...) goes in as text."""
+    if isinstance(cell, datetime):
+        return cell
+    if isinstance(cell, date):
+        return datetime(cell.year, cell.month, cell.day)
+    if isinstance(cell, (bool, int, float, str)):
+        return cell
+    return str(cell)
+
+
 def format_for_filename(filename: str) -> str:
-    """Download format for a cleaned file. .numbers uploads come back as .xlsx:
-    Numbers opens it with one tap, and writing native .numbers is slow and not
-    worth the risk for no user-visible gain."""
-    return "xlsx" if Path(filename or "").suffix.lower() in (".xlsx", ".numbers") else "csv"
+    """Download format for a cleaned file: whatever the client uploaded, so a
+    Numbers user gets Numbers back and an Excel user gets Excel."""
+    ext = Path(filename or "").suffix.lower()
+    if ext == ".xlsx":
+        return "xlsx"
+    if ext == ".numbers":
+        return "numbers"
+    return "csv"

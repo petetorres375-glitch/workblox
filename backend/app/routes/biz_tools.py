@@ -792,19 +792,16 @@ def data_cleanup_download():
     if len(rows) > spreadsheet.MAX_ROWS:
         return jsonify({"error": f"Too many rows — {spreadsheet.MAX_ROWS:,} is the maximum."}), 413
 
-    fmt = "xlsx" if body.get("format") == "xlsx" else "csv"
+    fmt = body.get("format") if body.get("format") in spreadsheet.WRITE_FORMATS else "csv"
     filename = (body.get("filename") or "cleaned_data").strip() or "cleaned_data"
     try:
         data = write_table(headers, rows, fmt)
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
 
-    mimetype = (
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        if fmt == "xlsx" else "text/csv"
-    )
+    mimetype, extension = spreadsheet.WRITE_FORMATS[fmt]
     return send_file(io.BytesIO(data), mimetype=mimetype,
-                     as_attachment=True, download_name=f"{filename}.{fmt}")
+                     as_attachment=True, download_name=f"{filename}.{extension}")
 
 
 # ── Expense Organizer ─────────────────────────────────────────────────────────

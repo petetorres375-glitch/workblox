@@ -159,8 +159,29 @@ def test_data_cleanup_accepts_a_numbers_file(client):
     assert body["headers"] == ["Name", "Email", "Signup Date"]
     assert body["total_rows_out"] == 1
     assert body["rows"][0] == ["Alice Smith", "alice@x.co", "2024-04-03"]
-    # Numbers opens .xlsx directly, so that's what the cleaned file comes back as.
-    assert body["source_format"] == "xlsx"
+    # The cleaned file comes back as native Numbers, not Excel.
+    assert body["source_format"] == "numbers"
+
+
+def test_data_cleanup_download_returns_a_numbers_file(client):
+    with _bypass_guards():
+        rv = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["Name"], "rows": [["Alice"]], "format": "numbers",
+            "filename": "customers_cleaned",
+        })
+    assert rv.status_code == 200
+    assert rv.mimetype == "application/vnd.apple.numbers"
+    assert "customers_cleaned.numbers" in rv.headers["Content-Disposition"]
+    assert rv.data[:2] == b"PK"
+
+
+def test_data_cleanup_download_rejects_unknown_format_to_csv(client):
+    with _bypass_guards():
+        rv = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["Name"], "rows": [["Alice"]], "format": "docx",
+        })
+    assert rv.status_code == 200
+    assert rv.mimetype == "text/csv"
 
 
 def test_data_cleanup_download_validates_its_input(client):
