@@ -342,9 +342,9 @@ def test_numbers_reads_like_xlsx():
     result = clean_table(headers, rows)
     assert result["rows"][0][:3] == ["Alice", "2024-03-05", "3"]
     assert result["counts"]["dates_fixed"] == 1  # only Bob's typed-in date
-    # A Numbers upload downloads as a real .numbers file that Numbers can
-    # open back into the same table: header row, no header column, no padding.
-    assert spreadsheet.format_for_filename("in.numbers") == "numbers"
+    # A Numbers upload downloads as .xlsx until the native writer is verified
+    # in real Numbers; the writer itself still round-trips its own output.
+    assert spreadsheet.format_for_filename("in.numbers") == "xlsx"
     out = spreadsheet.write_table(headers, result["rows"], "numbers")
     assert out[:2] == b"PK"  # .numbers is a zip container too
     headers2, rows2 = spreadsheet.read_table(_Upload(out, "out.numbers"))

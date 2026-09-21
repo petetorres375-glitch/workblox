@@ -280,11 +280,11 @@ def _numbers_cell(cell):
 
 
 def format_for_filename(filename: str) -> str:
-    """Download format for a cleaned file: whatever the client uploaded, so a
-    Numbers user gets Numbers back and an Excel user gets Excel."""
-    ext = Path(filename or "").suffix.lower()
-    if ext == ".xlsx":
-        return "xlsx"
-    if ext == ".numbers":
-        return "numbers"
-    return "csv"
+    """Download format for a cleaned file.
+
+    .numbers uploads come back as .xlsx for now. Numbers opens .xlsx with one
+    tap, whereas nobody on the team has an Apple device to confirm that
+    _write_numbers output opens cleanly in the real app -- the writer stays
+    wired into WRITE_FORMATS so this is a one-line flip once that's verified
+    (see the .numbers download test in tests/test_expenses.py)."""
+    return "xlsx" if Path(filename or "").suffix.lower() in (".xlsx", ".numbers") else "csv"

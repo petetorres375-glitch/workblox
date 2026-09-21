@@ -159,8 +159,9 @@ def test_data_cleanup_accepts_a_numbers_file(client):
     assert body["headers"] == ["Name", "Email", "Signup Date"]
     assert body["total_rows_out"] == 1
     assert body["rows"][0] == ["Alice Smith", "alice@x.co", "2024-04-03"]
-    # The cleaned file comes back as native Numbers, not Excel.
-    assert body["source_format"] == "numbers"
+    # Cleaned file comes back as .xlsx (Numbers opens it directly) until the
+    # native .numbers writer is verified on a real Apple device.
+    assert body["source_format"] == "xlsx"
 
 
 def test_data_cleanup_download_returns_a_numbers_file(client):
