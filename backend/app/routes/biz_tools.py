@@ -1265,10 +1265,11 @@ def email_pdf():
     content_txt = (body.get("content_txt") or "").strip()
     filename = (body.get("filename") or "report").strip()
     language = (body.get("language") or "").strip()
+    badge = body.get("badge") if isinstance(body.get("badge"), dict) else None
     if not email_to or not content_txt:
         return jsonify({"error": "email and content are required"}), 400
     try:
-        success = send_pdf_email(email_to, subject, content_txt, filename, language)
+        success = send_pdf_email(email_to, subject, content_txt, filename, language, badge)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     if not success:
@@ -1287,10 +1288,11 @@ def download_pdf():
     content_txt = (body.get("content_txt") or "").strip()
     filename = (body.get("filename") or "report").strip()
     language = (body.get("language") or "").strip()
+    badge = body.get("badge") if isinstance(body.get("badge"), dict) else None
     if not content_txt:
         return jsonify({"error": "content_txt is required"}), 400
     try:
-        pdf_bytes = _generate_pdf(subject, content_txt, language)
+        pdf_bytes = _generate_pdf(subject, content_txt, language, badge)
         return Response(
             pdf_bytes,
             mimetype="application/pdf",

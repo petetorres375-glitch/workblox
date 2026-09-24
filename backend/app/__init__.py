@@ -27,7 +27,7 @@ def create_app(testing=False):
         origin = request.headers.get("Origin", "")
         if origin in allowed_origins:
             response.headers["Access-Control-Allow-Origin"] = origin
-            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, X-Timezone"
             response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE, PATCH"
             response.headers["Vary"] = "Origin"
         return response

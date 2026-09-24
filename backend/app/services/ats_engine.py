@@ -1,10 +1,10 @@
 import os
 import re
-from datetime import datetime
 
 from app.services import ats_corpora
 from app.services.ats_corpora import en as _en_corpus
 from app.services.ats_corpora import detect_language, fold, get_corpus
+from app.services.localtime import local_now
 
 # Role identifiers are English in every corpus (they are IDs, not display
 # text), so the roles endpoint keeps serving this one list.
@@ -240,7 +240,7 @@ def build_report(results, filename, language=None):
         "=" * w,
         f"  {msg['report_title']}",
         f"  {msg['report_file']} : {os.path.basename(filename)}",
-        f"  {msg['report_date']} : {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"  {msg['report_date']} : {local_now().strftime('%Y-%m-%d %H:%M')}",
         "=" * w,
         f"\n  {msg['hdr_overall']} : {results['score']} / 100",
         f"  {msg['hdr_grade']} : {grade(results['score'], results.get('language'))}",

@@ -1,7 +1,6 @@
 import io
 import json
 import os
-from datetime import datetime
 from pathlib import Path
 
 from flask import Blueprint, jsonify, request, g, send_file
@@ -12,6 +11,7 @@ from ..models import Contact, User
 from ..services.access import require_business as _require_business
 from ..services.contact_parser import parse_vcf, parse_csv, REASON_MISSING_NAME
 from ..services.entitlements import require_tool
+from ..services.localtime import local_now
 
 bp = Blueprint("contacts", __name__, url_prefix="/api/biz/contacts")
 
@@ -407,7 +407,7 @@ def export_pdf():
             self.set_y(-14)
             self.set_font("DJ", "", 7.5)
             self.set_text_color(*C_SOFT)
-            now = datetime.now().strftime("%B %d, %Y")
+            now = local_now().strftime("%B %d, %Y")
             self.cell(W, 5, f"Contacts — Workblox Business  |  {now}", align="C")
 
     pdf = _PDF()
@@ -427,7 +427,7 @@ def export_pdf():
     pdf.set_font("DJ", "", 8.5)
     pdf.set_text_color(180, 190, 210)
     count_label = f"{len(contacts)} contact{'s' if len(contacts) != 1 else ''}"
-    now = datetime.now().strftime("%B %d, %Y  %H:%M")
+    now = local_now().strftime("%B %d, %Y  %H:%M")
     pdf.cell(W, 5, f"{count_label}   |   {now}   |   Workblox Business")
     pdf.ln(16)
 

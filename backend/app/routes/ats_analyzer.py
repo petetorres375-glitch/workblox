@@ -1,6 +1,5 @@
 import io
 import re
-from datetime import datetime
 
 from flask import Blueprint, jsonify, request, send_file
 
@@ -10,6 +9,7 @@ from app.services.ats_engine import analyze, build_report, grade, JOB_KEYWORDS
 from app.services.ats_reports import generate_pdf, generate_docx
 from app.services.access import require_personal
 from app.services.entitlements import require_tool
+from app.services.localtime import local_now
 
 bp = Blueprint("ats_analyzer", __name__)
 
@@ -121,7 +121,7 @@ def ats_analyze():
 
     results   = analyze(resume_text, job_role=job_role,
                         custom_keywords=custom_keywords, language=language)
-    now_label = datetime.now().strftime("%B %d, %Y  %H:%M")
+    now_label = local_now().strftime("%B %d, %Y  %H:%M")
 
     return jsonify({
         "results":      results,
@@ -170,7 +170,7 @@ def ats_download_pdf():
     client_name = body.get("client_name", "Client")
     filename    = body.get("filename", "resume")
     job_role    = body.get("job_role")
-    now         = body.get("now", datetime.now().strftime("%B %d, %Y  %H:%M"))
+    now         = body.get("now", local_now().strftime("%B %d, %Y  %H:%M"))
     if not results:
         return jsonify({"error": "results required"}), 400
 
@@ -196,7 +196,7 @@ def ats_download_docx():
     client_name = body.get("client_name", "Client")
     filename    = body.get("filename", "resume")
     job_role    = body.get("job_role")
-    now         = body.get("now", datetime.now().strftime("%B %d, %Y  %H:%M"))
+    now         = body.get("now", local_now().strftime("%B %d, %Y  %H:%M"))
     if not results:
         return jsonify({"error": "results required"}), 400
 

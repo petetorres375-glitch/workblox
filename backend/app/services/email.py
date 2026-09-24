@@ -8,7 +8,20 @@ from flask import current_app
 from .auth import create_verification_token
 
 
-def _generate_pdf(subject, txt_content, language=None):
+# Same colors the Contract Analyzer uses for the risk label on screen.
+_BADGE_COLORS = {"low": (22, 163, 74), "medium": (180, 83, 9), "high": (220, 38, 38)}
+
+# A section heading needs room for itself, its rule and a couple of body lines
+# below it; with less than this left on the page it would sit alone at the
+# bottom with its content starting on the next page.
+_HEADING_KEEP_MM = 30
+
+
+def _generate_pdf(subject, txt_content, language=None, badge=None):
+    """badge: optional {"label": str, "level": "low"|"medium"|"high"} drawn as
+    a colored pill under the header. The report text also carries that label
+    as its first body line (so .txt/.md/email keep it); the PDF skips that
+    line instead of printing it twice."""
     from fpdf import FPDF
 
     from .pdf_fonts import align_for, register_pdf_fonts
@@ -46,6 +59,19 @@ def _generate_pdf(subject, txt_content, language=None):
     pdf.cell(W, 8, subject[:90], align=body_align)
     pdf.set_xy(20, 40)
 
+    badge_label = ""
+    if badge and badge.get("level") in _BADGE_COLORS and (badge.get("label") or "").strip():
+        badge_label = badge["label"].strip()[:40]
+        pdf.set_font(font, "B", 8)
+        pill_w = pdf.get_string_width(badge_label) + 8
+        pill_x = 190 - pill_w if body_align == "R" else 20
+        pdf.set_fill_color(*_BADGE_COLORS[badge["level"]])
+        pdf.rect(pill_x, 38, pill_w, 7, "F", round_corners=True, corner_radius=2)
+        pdf.set_text_color(255, 255, 255)
+        pdf.set_xy(pill_x, 38)
+        pdf.cell(pill_w, 7, badge_label, align="C")
+        pdf.set_xy(20, 48)
+
     lines = txt_content.split("\n")
     i = 0
     first = True
@@ -65,6 +91,8 @@ def _generate_pdf(subject, txt_content, language=None):
                 first = False
                 i += 2
                 continue
+            if pdf.get_y() + _HEADING_KEEP_MM > pdf.page_break_trigger:
+                pdf.add_page()
             pdf.ln(5)
             pdf.set_x(pdf.l_margin)
             pdf.set_font(font, "B", 9)
@@ -77,6 +105,11 @@ def _generate_pdf(subject, txt_content, language=None):
             pdf.ln(3)
             pdf.set_x(pdf.l_margin)
             i += 2
+            continue
+
+        if badge_label and line.strip() == badge_label:
+            badge_label = ""  # only the first occurrence is the risk line
+            i += 1
             continue
 
         if not line.strip():
@@ -104,12 +137,12 @@ def _generate_pdf(subject, txt_content, language=None):
     return bytes(pdf.output())
 
 
-def send_pdf_email(to_email, subject, txt_content, filename="report", language=None):
+def send_pdf_email(to_email, subject, txt_content, filename="report", language=None, badge=None):
     api_key = current_app.config.get("SENDGRID_API_KEY", "")
     mail_from = current_app.config.get("MAIL_FROM", "")
     if not api_key or not mail_from:
         return False
-    pdf_bytes = _generate_pdf(subject, txt_content, language)
+    pdf_bytes = _generate_pdf(subject, txt_content, language, badge)
     pdf_b64 = base64.b64encode(pdf_bytes).decode()
     return _sendgrid_post({
         "personalizations": [{"to": [{"email": to_email}]}],

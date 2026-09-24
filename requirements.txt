@@ -19,4 +19,5 @@ PyJWT
 flask-sqlalchemy
 sqlalchemy<2.1  # 2.1 defaults postgresql:// to psycopg v3; we ship psycopg2
 requests
+tzdata  # IANA zones for report timestamps; the slim build image may have no /usr/share/zoneinfo
 psycopg2-binary

@@ -5,7 +5,6 @@ import os
 import re
 import urllib.request
 import urllib.error
-from datetime import datetime
 from pathlib import Path
 
 from flask import Blueprint, jsonify, request, send_file
@@ -16,6 +15,7 @@ from app.services.access import require_personal
 from app.services.entitlements import require_tool
 from app.services.file_handler import extract_document, prepare_image
 from app.services import untrusted
+from app.services.localtime import local_now
 
 bp = Blueprint("doc_analyzer", __name__)
 
@@ -181,6 +181,10 @@ def doc_download_pdf():
             register_pdf_fonts(self)
 
         def sec(self, title, color):
+            # Keep a heading with the start of its section: with less than
+            # ~30mm left, move it to the next page instead of stranding it.
+            if self.get_y() + 30 > self.page_break_trigger:
+                self.add_page()
             self.ln(4)
             self.set_font(BASE_FONT, "B", 8)
             self.set_text_color(*color)
@@ -210,7 +214,7 @@ def doc_download_pdf():
     pdf.set_x(15)
     pdf.set_font(BASE_FONT, "", 8.5)
     pdf.set_text_color(180, 190, 210)
-    now = datetime.now().strftime("%B %d, %Y  %H:%M")
+    now = local_now().strftime("%B %d, %Y  %H:%M")
     pdf.cell(W, 5, f"{filename}   |   {now}   |   Workblox — Torres Tech Remote")
     pdf.ln(16)
 
