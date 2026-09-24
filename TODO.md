@@ -3,8 +3,14 @@
 Open items as of September 24, 2026. Check them off (or delete them) as they're done.
 
 ## Accounts & safety
-- [ ] Review usage and billing settings on the AI provider accounts (Anthropic, OpenAI).
-- [ ] Decide whether this repository should stay public or be made private.
+- [ ] Set spending caps on the AI provider accounts (Anthropic, OpenAI): turn off auto-reload/auto-recharge and set a monthly limit. OpenAI is only the backup provider, so keep a small balance there.
+- [ ] Make this repository private. Decided September 24, 2026; started, then paused.
+  - [x] Scanned the full git history for committed secrets. None found.
+  - [x] Chose the free route: publish the Personal app from a separate public repo, the way the Business app already works.
+  - [ ] Create the public `workblox-personal` repo and give the deploy token access to it.
+  - [ ] Check that Railway's GitHub app can still read this repo once it's private.
+  - [ ] Push the deploy-workflow change (drafted, saved in `git stash`), then move the `workblox.torrestechremote.com` domain to the new repo in Pages settings.
+  - [ ] Make this repo private, then confirm the site and the next Railway deploy still work.
 
 ## Get found on search
 - [ ] Add torrestechremote.com to Google Search Console (verify via DNS at Porkbun), submit the sitemap, request indexing.
