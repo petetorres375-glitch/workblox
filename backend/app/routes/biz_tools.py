@@ -794,8 +794,13 @@ def data_cleanup_download():
 
     fmt = body.get("format") if body.get("format") in spreadsheet.WRITE_FORMATS else "csv"
     filename = (body.get("filename") or "cleaned_data").strip() or "cleaned_data"
+    money_columns = None
+    if fmt != "csv":
+        # CSV stays byte-for-byte what the cleaner produced; the spreadsheet
+        # formats get real numbers so amounts can be formatted and summed.
+        rows, money_columns = spreadsheet.convert_money_columns(headers, rows, body.get("column_types"))
     try:
-        data = write_table(headers, rows, fmt, title=filename)
+        data = write_table(headers, rows, fmt, title=filename, money_columns=money_columns)
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
 
@@ -1193,15 +1198,19 @@ def expenses_export():
         for e in entries if isinstance(e, dict)
     ]
     filename = (body.get("filename") or "expenses").strip() or "expenses"
+    # Numbers users (anyone who uploaded a .numbers statement) get a native
+    # .numbers report; everyone else keeps .xlsx.
+    fmt = "numbers" if body.get("format") == "numbers" else "xlsx"
     try:
-        data = write_table(headers, rows, "xlsx")
+        data = write_table(headers, rows, fmt, title=filename, money_columns={2: None})
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
+    mimetype, extension = spreadsheet.WRITE_FORMATS[fmt]
     return send_file(
         io.BytesIO(data),
-        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        mimetype=mimetype,
         as_attachment=True,
-        download_name=f"{filename}.xlsx",
+        download_name=f"{filename}.{extension}",
     )
 
 

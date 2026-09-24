@@ -9,6 +9,7 @@ back. Tabular input gets its own door.
 import csv
 import io
 import math
+import re
 from datetime import date, datetime
 from pathlib import Path
 
@@ -186,13 +187,17 @@ WRITE_FORMATS = {
 }
 
 
-def write_table(headers, rows, fmt: str = "csv", title: str = None) -> bytes:
+def write_table(headers, rows, fmt: str = "csv", title: str = None, money_columns=None) -> bytes:
     """title labels the table inside a .numbers file (Numbers shows it above
-    the table); the other formats have no equivalent and ignore it."""
+    the table); the other formats have no equivalent and ignore it.
+    money_columns maps column index -> currency symbol ("$", "€", "£") or
+    None; those columns are shown with two decimals and thousands separators
+    in .xlsx/.numbers so amounts line up. CSV has no formatting."""
+    money_columns = _money_map(money_columns)
     if fmt == "xlsx":
-        return _write_xlsx(headers, rows)
+        return _write_xlsx(headers, rows, money_columns)
     if fmt == "numbers":
-        return _write_numbers(headers, rows, title)
+        return _write_numbers(headers, rows, title, money_columns)
     return _write_csv(headers, rows)
 
 
@@ -207,7 +212,7 @@ def _write_csv(headers, rows) -> bytes:
     return buf.getvalue().encode("utf-8-sig")
 
 
-def _write_xlsx(headers, rows) -> bytes:
+def _write_xlsx(headers, rows, money_columns=None) -> bytes:
     from openpyxl import Workbook
     from openpyxl.styles import Font
 
@@ -219,6 +224,11 @@ def _write_xlsx(headers, rows) -> bytes:
     for row in rows:
         sheet.append(["" if cell is None else cell for cell in row])
     sheet.freeze_panes = "A2"
+    for col, symbol in (money_columns or {}).items():
+        number_format = f'"{symbol}"#,##0.00' if symbol else "#,##0.00"
+        for (cell,) in sheet.iter_rows(min_row=2, min_col=col + 1, max_col=col + 1):
+            if isinstance(cell.value, (int, float)) and not isinstance(cell.value, bool):
+                cell.number_format = number_format
 
     for index, header in enumerate(headers, start=1):
         longest = max(
@@ -239,7 +249,7 @@ _NUMBERS_BAND_BG = (243, 246, 251)
 _NUMBERS_HEADER_HEIGHT = 28
 
 
-def _write_numbers(headers, rows, title=None) -> bytes:
+def _write_numbers(headers, rows, title=None, money_columns=None) -> bytes:
     """Native Apple Numbers output, so a client who uploaded a .numbers file
     gets a .numbers file back rather than an Excel file with a strange icon.
 
@@ -283,7 +293,20 @@ def _write_numbers(headers, rows, title=None) -> bytes:
     for row_index, row in enumerate(rows, start=1):
         for col, cell in enumerate(row[:len(headers)]):
             if cell is not None and cell != "":
-                table.write(row_index, col, _numbers_cell(cell))
+                value = _numbers_cell(cell)
+                table.write(row_index, col, value)
+                if col in money_columns and isinstance(value, (int, float)) and not isinstance(value, bool):
+                    currency = _CURRENCY_CODES.get(money_columns[col])
+                    if currency:
+                        table.set_cell_formatting(
+                            row_index, col, "currency", currency_code=currency,
+                            decimal_places=2, show_thousands_separator=True,
+                        )
+                    else:
+                        table.set_cell_formatting(
+                            row_index, col, "number",
+                            decimal_places=2, show_thousands_separator=True,
+                        )
         # Style blank cells too, or the banding shows gaps wherever a value
         # was missing.
         style = band_style if row_index % 2 == 0 else body_style
@@ -311,9 +334,84 @@ def _numbers_cell(cell):
         return cell
     if isinstance(cell, date):
         return datetime(cell.year, cell.month, cell.day)
-    if isinstance(cell, (bool, int, float, str)):
+    if isinstance(cell, float):
+        # numbers-parser keeps 15 significant digits and logs a warning for
+        # every value with float noise (3.3000000000000003) -- round first so
+        # a large download doesn't flood the server logs.
+        return float(f"{cell:.15g}") if math.isfinite(cell) else str(cell)
+    if isinstance(cell, (bool, int, str)):
         return cell
     return str(cell)
+
+
+_CURRENCY_CODES = {"$": "USD", "€": "EUR", "£": "GBP"}
+
+# One amount in US/UK notation: optional sign or accounting parentheses, an
+# optional $/€/£, then either plain digits or properly grouped thousands, and
+# an optional decimal part. "1.204,00" / "12,5" (comma decimals) deliberately
+# don't match -- whether "1,204" means 1204 or 1.204 can't be known, and
+# guessing wrong would silently change someone's money.
+_MONEY_RE = re.compile(
+    r"^(?P<open>\()?\s*(?P<neg1>-)?\s*(?P<sym>[$€£])?\s*(?P<neg2>-)?\s*"
+    r"(?P<num>\d{1,3}(?:,\d{3})+|\d+)(?P<dec>\.\d+)?\s*(?P<close>\))?$"
+)
+
+
+def _money_map(money_columns):
+    if not money_columns:
+        return {}
+    if isinstance(money_columns, dict):
+        return dict(money_columns)
+    return {col: None for col in money_columns}
+
+
+def _parse_money(text):
+    """Return (value, symbol) for an unambiguous amount, else None."""
+    match = _MONEY_RE.match(text.strip())
+    if not match or bool(match["open"]) != bool(match["close"]):
+        return None
+    value = float(match["num"].replace(",", "") + (match["dec"] or ""))
+    if match["open"] or match["neg1"] or match["neg2"]:
+        value = -value
+    return value, match["sym"]
+
+
+def convert_money_columns(headers, rows, column_types):
+    """Turn Data Cleanup's text amounts into real numbers for the columns the
+    column plan typed as "currency", so they can be formatted and summed.
+
+    All-or-nothing per column: a column converts only if every non-blank
+    value parses and at most one currency symbol appears. Otherwise it stays
+    exactly as the cleaner left it, so a stray note or a comma-decimal value
+    can never be half-converted. Returns (rows, money_columns)."""
+    column_types = column_types if isinstance(column_types, dict) else {}
+    rows = [list(row) for row in rows]
+    money_columns = {}
+    for col, header in enumerate(headers):
+        if column_types.get(header) != "currency":
+            continue
+        parsed = {}
+        symbols = set()
+        for index, row in enumerate(rows):
+            cell = row[col] if col < len(row) else None
+            if cell is None or (isinstance(cell, str) and not cell.strip()):
+                continue
+            if isinstance(cell, (int, float)) and not isinstance(cell, bool):
+                parsed[index] = float(cell)
+                continue
+            result = _parse_money(str(cell))
+            if result is None:
+                parsed = None
+                break
+            parsed[index] = result[0]
+            if result[1]:
+                symbols.add(result[1])
+        if not parsed or len(symbols) > 1:
+            continue
+        for index, value in parsed.items():
+            rows[index][col] = value
+        money_columns[col] = next(iter(symbols), None)
+    return rows, money_columns
 
 
 def format_for_filename(filename: str) -> str:

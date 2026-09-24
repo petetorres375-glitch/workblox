@@ -392,6 +392,105 @@ def test_expenses_export_returns_an_xlsx(client):
     assert "expenses.xlsx" in rv.headers["Content-Disposition"]
 
 
+def test_expenses_export_amounts_have_two_decimals_in_xlsx(client):
+    import io as _io
+
+    from openpyxl import load_workbook
+
+    with _bypass_guards():
+        rv = client.post("/api/biz/expenses/export", json={"entries": [
+            {"date": "2024-03-05", "vendor": "Blue Bottle", "amount": 12.5, "category": "Meals"},
+            {"date": "2024-03-06", "vendor": "Delta", "amount": "1,204.00", "category": "Travel"},
+        ]})
+    sheet = load_workbook(_io.BytesIO(rv.data)).active
+    assert sheet["C2"].value == 12.5
+    assert sheet["C2"].number_format == "#,##0.00"
+    assert sheet["C3"].value == 1204.0
+
+
+def _read_numbers_download(data):
+    import tempfile
+
+    from numbers_parser import Document
+
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        tmp.write(data)
+        tmp.flush()
+        return Document(tmp.name).sheets[0].tables[0]
+
+
+def test_expenses_export_returns_a_styled_numbers_file(client):
+    from numbers_parser import RGB
+
+    labels = ["Fecha", "Proveedor", "Importe", "Categoría", "Origen", "Notas"]
+    with _bypass_guards():
+        rv = client.post("/api/biz/expenses/export", json={
+            "format": "numbers", "labels": labels, "filename": "expenses",
+            "entries": [
+                {"date": "2024-03-05", "vendor": "Blue Bottle", "amount": 12.5,
+                 "category": "Meals", "source": "statement.numbers", "notes": ""},
+                {"date": "2024-03-06", "vendor": "Delta", "amount": 1204,
+                 "category": "Travel", "source": "statement.numbers", "notes": "Seat upgrade"},
+            ],
+        })
+    assert rv.status_code == 200
+    assert rv.mimetype == "application/vnd.apple.numbers"
+    assert "expenses.numbers" in rv.headers["Content-Disposition"]
+
+    table = _read_numbers_download(rv.data)
+    assert table.name == "expenses"
+    assert [table.cell(0, c).value for c in range(6)] == labels
+    assert table.cell(0, 0).style.bg_color == RGB(37, 99, 235)
+    assert table.cell(1, 2).formatted_value == "12.50"
+    assert table.cell(2, 2).formatted_value == "1,204.00"
+    assert table.cell(2, 5).value == "Seat upgrade"
+
+
+def test_expenses_export_ignores_unknown_formats(client):
+    with _bypass_guards():
+        rv = client.post("/api/biz/expenses/export", json={
+            "format": "exe", "entries": [{"vendor": "X", "amount": 1}],
+        })
+    assert rv.status_code == 200
+    assert "expenses.xlsx" in rv.headers["Content-Disposition"]
+
+
+def test_numbers_writer_does_not_warn_on_float_noise(recwarn):
+    from app.services import spreadsheet
+
+    spreadsheet.write_table(["Amount"], [[0.1 + 0.2], [1.1 * 3]], "numbers", money_columns={0})
+    assert not [w for w in recwarn if "significant digits" in str(w.message)]
+
+
+def test_data_cleanup_download_formats_currency_columns(client):
+    from openpyxl import load_workbook as _load
+
+    with _bypass_guards():
+        rv = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["Name", "Paid"], "rows": [["Alice", "$1,204.00"], ["Bob", "$1"]],
+            "column_types": {"Name": "name", "Paid": "currency"}, "format": "xlsx",
+        })
+        csv_rv = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["Name", "Paid"], "rows": [["Alice", "$1,204.00"]],
+            "column_types": {"Paid": "currency"}, "format": "csv",
+        })
+    sheet = _load(__import__("io").BytesIO(rv.data)).active
+    assert sheet["B2"].value == 1204.0 and sheet["B3"].value == 1.0
+    assert sheet["B2"].number_format == '"$"#,##0.00'
+    # CSV keeps exactly what the cleaner produced.
+    assert b"$1,204.00" in csv_rv.data
+
+
+def test_data_cleanup_download_without_column_types_is_unchanged(client):
+    from openpyxl import load_workbook as _load
+
+    with _bypass_guards():
+        rv = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["Paid"], "rows": [["$1,204.00"]], "format": "xlsx",
+        })
+    assert _load(__import__("io").BytesIO(rv.data)).active["A2"].value == "$1,204.00"
+
+
 def test_expenses_export_requires_entries(client):
     with _bypass_guards():
         rv = client.post("/api/biz/expenses/export", json={"entries": []})

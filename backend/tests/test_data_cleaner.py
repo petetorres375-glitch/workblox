@@ -7,6 +7,8 @@ outcome. That's the property that lets the UI show a client a hard number.
 import io
 from pathlib import Path
 
+import pytest
+
 from app.services import spreadsheet
 from app.services.data_cleaner import (
     FLAG_AMBIGUOUS_DATE,
@@ -409,6 +411,65 @@ def test_numbers_writer_handles_a_large_table_quickly():
     out = spreadsheet.write_table(headers, rows, "numbers")
     assert out[:2] == b"PK"
     assert time.time() - started < 30
+
+
+@pytest.mark.parametrize("text, expected", [
+    ("1", (1.0, None)),
+    ("1,204.00", (1204.0, None)),
+    ("$12.50", (12.5, "$")),
+    ("(5.00)", (-5.0, None)),
+    ("-$3.20", (-3.2, "$")),
+    ("€1,000", (1000.0, "€")),
+    # Comma decimals are ambiguous (is "1,204" 1204 or 1.204?), so never guessed.
+    ("1.204,00", None),
+    ("12,50", None),
+    ("$1,20", None),
+    ("(5.00", None),
+    ("n/a", None),
+])
+def test_parse_money_only_accepts_unambiguous_amounts(text, expected):
+    assert spreadsheet._parse_money(text) == expected
+
+
+def test_convert_money_columns_is_all_or_nothing_per_column():
+    headers = ["Name", "Paid", "Mixed", "Messy", "Qty"]
+    rows = [
+        ["Alice", "$1,204.00", "$1", "10.00", "3"],
+        ["Bob", "12.5", "€2", "see note", "4"],
+        ["Cy", "", "3", "", "5"],
+    ]
+    types = {"Paid": "currency", "Mixed": "currency", "Messy": "currency", "Qty": "number"}
+    out, money = spreadsheet.convert_money_columns(headers, rows, types)
+    assert money == {1: "$"}
+    assert [r[1] for r in out] == [1204.0, 12.5, ""]
+    assert [r[2] for r in out] == ["$1", "€2", "3"]         # two symbols: untouched
+    assert [r[3] for r in out] == ["10.00", "see note", ""]  # a stray note: untouched
+    assert [r[4] for r in out] == ["3", "4", "5"]            # not a currency column
+    assert rows[0][1] == "$1,204.00"                         # input not mutated
+
+
+def test_money_columns_show_two_decimals_and_symbol():
+    import tempfile
+
+    from numbers_parser import Document
+    from openpyxl import load_workbook
+
+    headers = ["Item", "Price", "Fee"]
+    rows = [["A", 1.0, 1204.0], ["B", 12.5, 0.5]]
+    money = {1: "$", 2: None}
+
+    sheet = load_workbook(io.BytesIO(spreadsheet.write_table(headers, rows, "xlsx", money_columns=money))).active
+    assert sheet["B2"].number_format == '"$"#,##0.00'
+    assert sheet["C2"].number_format == "#,##0.00"
+
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        tmp.write(spreadsheet.write_table(headers, rows, "numbers", money_columns=money))
+        tmp.flush()
+        table = Document(tmp.name).sheets[0].tables[0]
+    assert table.cell(1, 1).formatted_value == "$1.00"
+    assert table.cell(2, 1).formatted_value == "$12.50"
+    assert table.cell(1, 2).formatted_value == "1,204.00"
+    assert table.cell(2, 2).formatted_value == "0.50"
 
 
 def test_corrupt_numbers_file_is_a_clean_error():

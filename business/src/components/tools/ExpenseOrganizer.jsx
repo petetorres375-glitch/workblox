@@ -73,9 +73,13 @@ export default function ExpenseOrganizer() {
   async function handleExport() {
     setExporting(true);
     setExportError(null);
+    // Someone who uploaded a Numbers statement is a Numbers user -- give them
+    // a .numbers report back instead of an Excel file.
+    const format = files.some((f) => /\.numbers$/i.test(f.name)) ? "numbers" : "xlsx";
     try {
       const blob = await postBlob("/api/biz/expenses/export", {
         entries,
+        format,
         filename: "expenses",
         labels: [
           t("columns.date"), t("columns.vendor"), t("columns.amount"),
@@ -85,7 +89,7 @@ export default function ExpenseOrganizer() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "expenses.xlsx";
+      a.download = `expenses.${format}`;
       a.click();
       URL.revokeObjectURL(url);
     } catch (err) {

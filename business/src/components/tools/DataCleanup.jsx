@@ -67,6 +67,7 @@ export default function DataCleanup() {
         headers: data.headers,
         rows: data.rows,
         format: data.source_format,
+        column_types: data.column_types,
         filename: `${baseName(file?.name)}_cleaned`,
       });
       const url = URL.createObjectURL(blob);
