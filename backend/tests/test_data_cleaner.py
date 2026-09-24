@@ -342,9 +342,10 @@ def test_numbers_reads_like_xlsx():
     result = clean_table(headers, rows)
     assert result["rows"][0][:3] == ["Alice", "2024-03-05", "3"]
     assert result["counts"]["dates_fixed"] == 1  # only Bob's typed-in date
-    # A Numbers upload downloads as .xlsx until the native writer is verified
-    # in real Numbers; the writer itself still round-trips its own output.
-    assert spreadsheet.format_for_filename("in.numbers") == "xlsx"
+    # A Numbers upload downloads as a native .numbers file.
+    assert spreadsheet.format_for_filename("in.numbers") == "numbers"
+    assert spreadsheet.format_for_filename("in.xlsx") == "xlsx"
+    assert spreadsheet.format_for_filename("in.csv") == "csv"
     out = spreadsheet.write_table(headers, result["rows"], "numbers")
     assert out[:2] == b"PK"  # .numbers is a zip container too
     headers2, rows2 = spreadsheet.read_table(_Upload(out, "out.numbers"))
@@ -363,6 +364,51 @@ def test_numbers_writer_keeps_typed_cells_and_blanks():
     assert rows2[0] == ["Alice", 3, dt(2024, 3, 5), None]
     # Plain dates go in as midnight datetimes; blanks stay blank (None), not "".
     assert rows2[1] == ["Bob", 2.5, dt(2024, 4, 1), None]
+
+
+def test_numbers_writer_styles_the_table():
+    import tempfile
+
+    from numbers_parser import RGB, Document
+
+    headers = ["Name", "Email Address", "City"]
+    rows = [["Alice", "alice@x.co", "Austin"], ["Bob", None, "Boston"], ["Cy", "cy@x.co", ""]]
+    out = spreadsheet.write_table(headers, rows, "numbers", title="customers_cleaned")
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        tmp.write(out)
+        tmp.flush()
+        document = Document(tmp.name)
+    sheet = document.sheets[0]
+    table = sheet.tables[0]
+
+    assert sheet.name == "Cleaned Data"
+    assert table.name == "customers_cleaned"
+    assert (table.num_rows, table.num_cols) == (4, 3)
+
+    header = table.cell(0, 0).style
+    assert header.bold
+    assert header.bg_color == RGB(37, 99, 235)
+    assert header.font_color == RGB(255, 255, 255)
+    assert table.row_height(0) == 28
+
+    # Every other row is banded -- including its blank cells, so the band
+    # has no gaps where a value was missing.
+    assert table.cell(1, 0).style.bg_color is None
+    assert table.cell(2, 0).style.bg_color == RGB(243, 246, 251)
+    assert table.cell(2, 1).style.bg_color == RGB(243, 246, 251)
+    assert table.cell(3, 2).style.bg_color is None
+    assert all(not table.cell(r, c).style.text_wrap for r in range(4) for c in range(3))
+
+
+def test_numbers_writer_handles_a_large_table_quickly():
+    import time
+
+    headers = [f"Column {c}" for c in range(spreadsheet.MAX_COLUMNS)]
+    rows = [[f"r{r}c{c}" for c in range(spreadsheet.MAX_COLUMNS)] for r in range(1000)]
+    started = time.time()
+    out = spreadsheet.write_table(headers, rows, "numbers")
+    assert out[:2] == b"PK"
+    assert time.time() - started < 30
 
 
 def test_corrupt_numbers_file_is_a_clean_error():

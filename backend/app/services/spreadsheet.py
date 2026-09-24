@@ -186,11 +186,13 @@ WRITE_FORMATS = {
 }
 
 
-def write_table(headers, rows, fmt: str = "csv") -> bytes:
+def write_table(headers, rows, fmt: str = "csv", title: str = None) -> bytes:
+    """title labels the table inside a .numbers file (Numbers shows it above
+    the table); the other formats have no equivalent and ignore it."""
     if fmt == "xlsx":
         return _write_xlsx(headers, rows)
     if fmt == "numbers":
-        return _write_numbers(headers, rows)
+        return _write_numbers(headers, rows, title)
     return _write_csv(headers, rows)
 
 
@@ -229,36 +231,71 @@ def _write_xlsx(headers, rows) -> bytes:
     return buf.getvalue()
 
 
-def _write_numbers(headers, rows) -> bytes:
+# Brand blue header with white bold text, and a very light blue-grey band on
+# every other row so long tables stay easy to follow across the columns.
+_NUMBERS_HEADER_BG = (37, 99, 235)
+_NUMBERS_HEADER_TEXT = (255, 255, 255)
+_NUMBERS_BAND_BG = (243, 246, 251)
+_NUMBERS_HEADER_HEIGHT = 28
+
+
+def _write_numbers(headers, rows, title=None) -> bytes:
     """Native Apple Numbers output, so a client who uploaded a .numbers file
     gets a .numbers file back rather than an Excel file with a strange icon.
 
     The table is sized to the data exactly (no blank 12x8 default grid), row 1
     is a real Numbers header row, and there's no header column -- the first
-    column is ordinary data, not row labels."""
+    column is ordinary data, not row labels. Styling is applied through named
+    styles, so it shows up in Numbers' own style list rather than as
+    per-cell overrides."""
     import tempfile
 
-    from numbers_parser import Document
+    from numbers_parser import RGB, Alignment, Document
 
+    num_cols = max(len(headers), 1)
     document = Document(
-        sheet_name="Sheet 1", table_name="Table 1",
+        sheet_name="Cleaned Data", table_name=(title or "Cleaned Data")[:255],
         num_header_rows=1, num_header_cols=0,
-        num_rows=len(rows) + 1, num_cols=max(len(headers), 1),
+        num_rows=len(rows) + 1, num_cols=num_cols,
     )
     table = document.sheets[0].tables[0]
+
+    # text_wrap off keeps every record on one line; long values are still
+    # fully visible in the cell editor and widths below cover most of them.
+    header_style = document.add_style(
+        name="Workblox Header", bold=True, font_size=12.0,
+        font_color=RGB(*_NUMBERS_HEADER_TEXT), bg_color=RGB(*_NUMBERS_HEADER_BG),
+        alignment=Alignment("left", "middle"), text_wrap=False,
+    )
+    body_style = document.add_style(
+        name="Workblox Row", alignment=Alignment("auto", "middle"), text_wrap=False,
+    )
+    band_style = document.add_style(
+        name="Workblox Row Alt", bg_color=RGB(*_NUMBERS_BAND_BG),
+        alignment=Alignment("auto", "middle"), text_wrap=False,
+    )
+
     for col, header in enumerate(headers):
         table.write(0, col, str(header))
+        table.set_cell_style(0, col, header_style)
+    table.row_height(0, _NUMBERS_HEADER_HEIGHT)
+
     for row_index, row in enumerate(rows, start=1):
         for col, cell in enumerate(row[:len(headers)]):
-            if cell is None or cell == "":
-                continue  # an untouched cell is already blank
-            table.write(row_index, col, _numbers_cell(cell))
+            if cell is not None and cell != "":
+                table.write(row_index, col, _numbers_cell(cell))
+        # Style blank cells too, or the banding shows gaps wherever a value
+        # was missing.
+        style = band_style if row_index % 2 == 0 else body_style
+        for col in range(num_cols):
+            table.set_cell_style(row_index, col, style)
 
     # Numbers stores widths in points; roughly 7pt per character, same
-    # heuristic as the .xlsx writer's column sizing.
+    # heuristic as the .xlsx writer's column sizing. The header is measured
+    # at its larger bold size so it never gets clipped.
     for col, header in enumerate(headers):
         longest = max(
-            [len(str(header))] + [len(str(r[col])) for r in rows[:200] if col < len(r)]
+            [int(len(str(header)) * 1.25)] + [len(str(r[col])) for r in rows[:200] if col < len(r)]
         )
         table.col_width(col, min(max(longest * 7 + 16, 70), 350))
 
@@ -280,11 +317,9 @@ def _numbers_cell(cell):
 
 
 def format_for_filename(filename: str) -> str:
-    """Download format for a cleaned file.
-
-    .numbers uploads come back as .xlsx for now. Numbers opens .xlsx with one
-    tap, whereas nobody on the team has an Apple device to confirm that
-    _write_numbers output opens cleanly in the real app -- the writer stays
-    wired into WRITE_FORMATS so this is a one-line flip once that's verified
-    (see the .numbers download test in tests/test_expenses.py)."""
-    return "xlsx" if Path(filename or "").suffix.lower() in (".xlsx", ".numbers") else "csv"
+    """Download format for a cleaned file: the same format that was uploaded,
+    so a Numbers user gets a .numbers file back and never sees an Excel icon."""
+    ext = Path(filename or "").suffix.lower()
+    if ext == ".numbers":
+        return "numbers"
+    return "xlsx" if ext == ".xlsx" else "csv"

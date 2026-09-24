@@ -795,7 +795,7 @@ def data_cleanup_download():
     fmt = body.get("format") if body.get("format") in spreadsheet.WRITE_FORMATS else "csv"
     filename = (body.get("filename") or "cleaned_data").strip() or "cleaned_data"
     try:
-        data = write_table(headers, rows, fmt)
+        data = write_table(headers, rows, fmt, title=filename)
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
 
