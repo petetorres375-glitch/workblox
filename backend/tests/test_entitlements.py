@@ -238,3 +238,49 @@ def test_set_entitlement_single_tool_for_admin_path(client, test_user):
 
         set_entitlement(test_user, "hiring", False, source="admin_manual")
         assert get_enabled_tool_keys(test_user) == set()
+
+
+def _as_demo():
+    return patch("app.routes.entitlements._is_demo", return_value=True)
+
+
+def test_is_demo_reads_the_session_sub(client):
+    from flask import g
+
+    from app.routes.entitlements import _is_demo
+
+    with client.application.test_request_context():
+        assert _is_demo() is False  # no session at all
+        g.user = {"sub": "demo"}
+        assert _is_demo() is True
+        g.user = {"sub": "someone@example.com"}
+        assert _is_demo() is False
+
+
+def test_demo_sees_every_personal_tool(client):
+    # An empty list would send demo to the signup ToolPicker, which can't
+    # save for an account with no User row -- demo got stuck there.
+    with _as_demo():
+        rv = client.get("/api/entitlements?app=personal")
+    assert rv.status_code == 200
+    assert rv.get_json() == {
+        "tool_keys": ["ats", "doc", "linux", "mac", "resume", "windows", "workflow"],
+        "pending_keys": [],
+    }
+
+
+def test_demo_sees_every_business_tool(client):
+    with _as_demo():
+        keys = client.get("/api/entitlements?app=business").get_json()["tool_keys"]
+    assert len(keys) == 16
+    assert {"contacts", "batch-ats", "contract"} <= set(keys)
+
+
+def test_demo_cannot_save_a_selection(client):
+    body = {"tool_keys": ["ats"], "app": "personal"}
+    with _as_demo():
+        put = client.put("/api/entitlements", json=body)
+        sync = client.post("/api/entitlements/sync", json=body)
+    for rv in (put, sync):
+        assert rv.status_code == 403
+        assert "demo account" in rv.get_json()["error"]

@@ -11,6 +11,24 @@ from ..services.entitlements import (
 bp = Blueprint("entitlements", __name__, url_prefix="/api")
 
 
+DEMO_READ_ONLY_ERROR = "The demo account shows every tool and can't change its selection."
+
+
+def _is_demo():
+    # Demo sessions have no User row. require_tool() already lets them use
+    # every tool, so they must also be *shown* every tool -- an empty list
+    # here sends them to the signup ToolPicker, which can't save for them.
+    user = getattr(g, "user", None) or {}
+    return user.get("sub") == "demo"
+
+
+def _all_tool_keys(app_filter):
+    query = Tool.query
+    if app_filter in ("personal", "business"):
+        query = query.filter(Tool.app.in_([app_filter, "both"]))
+    return sorted(t.key for t in query.all())
+
+
 def _user_id():
     sub = g.user.get("sub")
     if not sub:
@@ -31,8 +49,10 @@ def list_tools():
 
 @bp.get("/entitlements")
 def get_entitlements():
-    user_id = _user_id()
     app_filter = request.args.get("app")
+    if _is_demo():
+        return jsonify({"tool_keys": _all_tool_keys(app_filter), "pending_keys": []})
+    user_id = _user_id()
     if user_id is None:
         return jsonify({"tool_keys": [], "pending_keys": []})
     return jsonify({
@@ -61,6 +81,8 @@ def put_entitlements():
     """Immediate full-replace -- used only for a brand-new user's FIRST pick
     at signup, so they're not left staring at an empty app waiting on Pedro.
     Every later self-service change goes through /entitlements/sync instead."""
+    if _is_demo():
+        return jsonify({"error": DEMO_READ_ONLY_ERROR}), 403
     user_id = _user_id()
     if user_id is None:
         return jsonify({"error": "User not found"}), 404
@@ -80,6 +102,8 @@ def sync_entitlements():
     """Settings' ongoing self-service save. Removing an already-active tool
     still happens immediately; a newly checked tool becomes a pending
     request instead of taking effect right away."""
+    if _is_demo():
+        return jsonify({"error": DEMO_READ_ONLY_ERROR}), 403
     user_id = _user_id()
     if user_id is None:
         return jsonify({"error": "User not found"}), 404
