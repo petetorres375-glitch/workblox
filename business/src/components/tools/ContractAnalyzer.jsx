@@ -251,6 +251,7 @@ export default function ContractAnalyzer() {
             subject={`${reportTitle(t)} — ${data.document_type || baseName}`}
             txtContent={buildTxt(data, baseName, t)}
             mdContent={buildMd(data, baseName, t)}
+            badge={data.overall_risk ? { label: t(`risk.${data.overall_risk}`), level: data.overall_risk } : undefined}
           />
         </>
       )}

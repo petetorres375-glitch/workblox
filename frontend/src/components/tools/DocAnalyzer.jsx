@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { BASE_URL, post, postForm } from "../../api/client";
+import { BASE_URL, post, postForm, tzHeader } from "../../api/client";
 import { useApi } from "../../hooks/useApi";
 import { compressImage } from "../../utils/imageCapture";
 
@@ -166,7 +166,7 @@ export default function DocAnalyzer() {
     try {
       const res = await fetch(`${BASE_URL}/api/doc/download/pdf`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${localStorage.getItem("wb_token")}` },
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${localStorage.getItem("wb_token")}`, ...tzHeader() },
         body: JSON.stringify({ filename, result, language: i18n.language, labels: sectionLabels(t) }),
       });
       if (!res.ok) throw new Error("PDF generation failed");

@@ -88,7 +88,9 @@ function txtToHtml(txt, subject) {
 </html>`;
 }
 
-export default function ReportToolbar({ filename, subject, txtContent, mdContent, htmlContent }) {
+// badge: optional { label, level } ("low" | "medium" | "high") that the PDF
+// draws as a colored pill -- e.g. the Contract Analyzer's risk level.
+export default function ReportToolbar({ filename, subject, txtContent, mdContent, htmlContent, badge }) {
   // The backend needs the language to pick text direction for the PDF.
   const { i18n } = useTranslation();
   const language = i18n.language;
@@ -131,6 +133,7 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
         content_txt: txtContent,
         filename,
         language,
+        badge,
       });
       setEmailSent("pdf");
     } catch (err) {
@@ -145,7 +148,7 @@ export default function ReportToolbar({ filename, subject, txtContent, mdContent
   async function handleDownloadPdf() {
     setDlPdfLoading(true);
     try {
-      const blob = await postBlob("/api/biz/download-pdf", { subject, content_txt: txtContent, filename, language });
+      const blob = await postBlob("/api/biz/download-pdf", { subject, content_txt: txtContent, filename, language, badge });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;

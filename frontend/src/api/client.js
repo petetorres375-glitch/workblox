@@ -1,15 +1,26 @@
 export const BASE_URL = import.meta.env.VITE_API_URL || "";
 
+// Reports print a timestamp on the server, whose clock is UTC; sending the
+// browser's zone lets it print the user's local time instead.
+export function tzHeader() {
+  try {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return zone ? { "X-Timezone": zone } : {};
+  } catch {
+    return {};
+  }
+}
+
 export function get(path) {
   const token = localStorage.getItem("wb_token");
   return fetch(`${BASE_URL}${path}`, {
-    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    headers: { ...tzHeader(), ...(token ? { Authorization: `Bearer ${token}` } : {}) },
   }).then((res) => handleResponse(res, path));
 }
 
 function authHeaders() {
   const token = localStorage.getItem("wb_token");
-  return token ? { Authorization: `Bearer ${token}` } : {};
+  return { ...tzHeader(), ...(token ? { Authorization: `Bearer ${token}` } : {}) };
 }
 
 async function handleResponse(res, path) {
