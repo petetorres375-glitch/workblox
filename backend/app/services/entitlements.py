@@ -18,7 +18,7 @@ TOOL_SEED = [
     ("contacts", "Contacts", "business"),
     ("contract", "Contract Analyzer", "business"),
     ("customer", "Customer Response Drafter", "business"),
-    ("data-cleanup", "Data Cleanup", "business"),
+    ("data-cleanup", "Spreadsheet Organizer", "business"),
     ("expenses", "Expense Organizer", "business"),
     ("hiring", "Hiring Manager", "business"),
     ("job-desc", "Job Description Writer", "business"),
@@ -31,18 +31,25 @@ TOOL_SEED = [
 ]
 
 def seed_tools():
-    """Insert any tool from TOOL_SEED not already in the `tools` table.
-    Safe to call on every startup -- existing rows are left untouched."""
+    """Insert any tool from TOOL_SEED not already in the `tools` table, and
+    bring existing rows' display names in line with it (a tool can be
+    renamed -- e.g. Data Cleanup became Spreadsheet Organizer -- while its
+    key, and so everyone's entitlements, stays the same). Safe to call on
+    every startup: it only writes when something actually differs."""
     from .. import db
     from ..models import Tool
 
-    existing_keys = {t.key for t in Tool.query.all()}
-    added = False
+    existing = {t.key: t for t in Tool.query.all()}
+    changed = False
     for key, name, app in TOOL_SEED:
-        if key not in existing_keys:
+        tool = existing.get(key)
+        if tool is None:
             db.session.add(Tool(key=key, name=name, app=app))
-            added = True
-    if added:
+            changed = True
+        elif tool.name != name:
+            tool.name = name
+            changed = True
+    if changed:
         db.session.commit()
 
 

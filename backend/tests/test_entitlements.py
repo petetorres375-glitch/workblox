@@ -284,3 +284,23 @@ def test_demo_cannot_save_a_selection(client):
     for rv in (put, sync):
         assert rv.status_code == 403
         assert "demo account" in rv.get_json()["error"]
+
+
+def test_seed_tools_renames_existing_rows_without_touching_access(client, test_user):
+    # Production already has a "Data Cleanup" row; startup must rename it in
+    # place (same key) so every existing grant keeps pointing at it.
+    from app import db
+    from app.services.entitlements import get_enabled_tool_keys, seed_tools
+
+    with client.application.app_context():
+        tool = Tool.query.filter_by(key="data-cleanup").first()
+        tool.name = "Data Cleanup"
+        db.session.commit()
+        with _as_user(test_user):
+            client.put("/api/entitlements", json={"tool_keys": ["data-cleanup"], "app": "business"})
+
+        seed_tools()
+
+        assert Tool.query.filter_by(key="data-cleanup").first().name == "Spreadsheet Organizer"
+        assert Tool.query.count() == 23
+        assert get_enabled_tool_keys(test_user, app="business") == {"data-cleanup"}

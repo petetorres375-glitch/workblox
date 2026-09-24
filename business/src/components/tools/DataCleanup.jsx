@@ -112,7 +112,10 @@ export default function DataCleanup() {
         <input type="text" placeholder={t("descriptionPlaceholder")} value={description}
           onChange={(e) => setDescription(e.target.value)} disabled={loading} style={inputStyle} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+        {/* Side by side where there's room, stacked on phones: a plain 1fr 1fr
+            grid can't shrink below each select's longest option, which pushed
+            the second select off-screen at phone width. */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: "0.75rem" }}>
           <label style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
             <span className="field-label">{t("dateFormatLabel")}</span>
             <select value={dateFormat} onChange={(e) => setDateFormat(e.target.value)} disabled={loading} style={selectStyle}>
