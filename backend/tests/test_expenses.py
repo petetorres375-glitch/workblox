@@ -491,6 +491,21 @@ def test_data_cleanup_download_without_column_types_is_unchanged(client):
     assert _load(__import__("io").BytesIO(rv.data)).active["A2"].value == "$1,204.00"
 
 
+def test_expense_and_cleanup_downloads_use_the_callers_sheet_name(client):
+    from openpyxl import load_workbook as _load
+
+    with _bypass_guards():
+        expense_default = client.post("/api/biz/expenses/export", json={
+            "entries": [{"vendor": "X", "amount": 1}]})
+        expense_es = client.post("/api/biz/expenses/export", json={
+            "entries": [{"vendor": "X", "amount": 1}], "sheet_name": "Gastos", "format": "numbers"})
+        cleanup_es = client.post("/api/biz/data-cleanup/download", json={
+            "headers": ["A"], "rows": [["1"]], "format": "xlsx", "sheet_name": "Datos limpios"})
+    assert _load(__import__("io").BytesIO(expense_default.data)).active.title == "Expenses"
+    assert _read_numbers_download(expense_es.data).name == "expenses"  # table keeps the file name
+    assert _load(__import__("io").BytesIO(cleanup_es.data)).active.title == "Datos limpios"
+
+
 def test_expenses_export_requires_entries(client):
     with _bypass_guards():
         rv = client.post("/api/biz/expenses/export", json={"entries": []})

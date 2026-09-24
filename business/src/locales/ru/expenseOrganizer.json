@@ -37,5 +37,6 @@
   "totalsLabel": "Итоги по категориям",
   "grandTotal": "Всего",
   "export": "Выгрузить в таблицу",
-  "exporting": "Выгрузка…"
+  "exporting": "Выгрузка…",
+  "sheetName": "Расходы"
 }

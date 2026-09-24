@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}}행 병합됨",
   "mergedTag_other": "{{count}}행 병합됨",
   "download": "정리된 파일 내려받기",
-  "preparing": "준비 중…"
+  "preparing": "준비 중…",
+  "sheetName": "정리된 데이터"
 }

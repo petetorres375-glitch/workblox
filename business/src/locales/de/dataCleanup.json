@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} Zeile eingefügt",
   "mergedTag_other": "{{count}} Zeilen eingefügt",
   "download": "Bereinigte Datei Herunterladen",
-  "preparing": "Wird vorbereitet…"
+  "preparing": "Wird vorbereitet…",
+  "sheetName": "Bereinigte Daten"
 }

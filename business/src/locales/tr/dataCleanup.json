@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} satır birleştirildi",
   "mergedTag_other": "{{count}} satır birleştirildi",
   "download": "Temizlenmiş Dosyayı İndir",
-  "preparing": "Hazırlanıyor…"
+  "preparing": "Hazırlanıyor…",
+  "sheetName": "Temizlenmiş Veriler"
 }

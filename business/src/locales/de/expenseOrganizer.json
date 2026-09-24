@@ -37,5 +37,6 @@
   "totalsLabel": "Summen nach Kategorie",
   "grandTotal": "Gesamt",
   "export": "In Tabelle Exportieren",
-  "exporting": "Wird exportiert…"
+  "exporting": "Wird exportiert…",
+  "sheetName": "Ausgaben"
 }

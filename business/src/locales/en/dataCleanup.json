@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} row merged in",
   "mergedTag_other": "{{count}} rows merged in",
   "download": "Download Cleaned File",
-  "preparing": "Preparing…"
+  "preparing": "Preparing…",
+  "sheetName": "Cleaned Data"
 }

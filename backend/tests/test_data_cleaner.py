@@ -472,6 +472,31 @@ def test_money_columns_show_two_decimals_and_symbol():
     assert table.cell(2, 2).formatted_value == "0.50"
 
 
+@pytest.mark.parametrize("name", ["Datos limpios", "البيانات المنظفة", "クリーニング済みデータ", "ข้อมูลที่ทำความสะอาดแล้ว"])
+def test_sheet_name_is_used_in_both_formats(name):
+    import tempfile
+
+    from numbers_parser import Document
+    from openpyxl import load_workbook
+
+    xlsx = spreadsheet.write_table(["A"], [["1"]], "xlsx", sheet_name=name)
+    assert load_workbook(io.BytesIO(xlsx)).active.title == name
+    with tempfile.NamedTemporaryFile(suffix=".numbers") as tmp:
+        tmp.write(spreadsheet.write_table(["A"], [["1"]], "numbers", sheet_name=name))
+        tmp.flush()
+        assert Document(tmp.name).sheets[0].name == name
+
+
+@pytest.mark.parametrize("raw, expected", [
+    (None, "Cleaned Data"),
+    ("   ", "Cleaned Data"),
+    ("Q1/Q2: [draft]?", "Q1Q2 draft"),
+    ("x" * 40, "x" * 31),
+])
+def test_sheet_names_are_made_safe_for_excel(raw, expected):
+    assert spreadsheet._clean_sheet_name(raw) == expected
+
+
 def test_corrupt_numbers_file_is_a_clean_error():
     import pytest
     with pytest.raises(ValueError, match="Could not read that .numbers file"):

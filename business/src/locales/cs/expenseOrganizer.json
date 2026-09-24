@@ -37,5 +37,6 @@
   "totalsLabel": "Součty podle kategorií",
   "grandTotal": "Celkem",
   "export": "Exportovat do tabulky",
-  "exporting": "Exportuji…"
+  "exporting": "Exportuji…",
+  "sheetName": "Výdaje"
 }

@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} fila combinada",
   "mergedTag_other": "{{count}} filas combinadas",
   "download": "Descargar Archivo Limpio",
-  "preparing": "Preparando…"
+  "preparing": "Preparando…",
+  "sheetName": "Datos limpios"
 }

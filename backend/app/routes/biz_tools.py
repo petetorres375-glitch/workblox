@@ -800,7 +800,8 @@ def data_cleanup_download():
         # formats get real numbers so amounts can be formatted and summed.
         rows, money_columns = spreadsheet.convert_money_columns(headers, rows, body.get("column_types"))
     try:
-        data = write_table(headers, rows, fmt, title=filename, money_columns=money_columns)
+        data = write_table(headers, rows, fmt, title=filename, money_columns=money_columns,
+                           sheet_name=body.get("sheet_name"))
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
 
@@ -1202,7 +1203,8 @@ def expenses_export():
     # .numbers report; everyone else keeps .xlsx.
     fmt = "numbers" if body.get("format") == "numbers" else "xlsx"
     try:
-        data = write_table(headers, rows, fmt, title=filename, money_columns={2: None})
+        data = write_table(headers, rows, fmt, title=filename, money_columns={2: None},
+                           sheet_name=body.get("sheet_name") or "Expenses")
     except Exception as e:
         return jsonify({"error": f"Could not build the file: {e}"}), 500
     mimetype, extension = spreadsheet.WRITE_FORMATS[fmt]

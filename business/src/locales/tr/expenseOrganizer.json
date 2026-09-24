@@ -37,5 +37,6 @@
   "totalsLabel": "Kategori toplamları",
   "grandTotal": "Toplam",
   "export": "Tabloya Aktar",
-  "exporting": "Aktarılıyor…"
+  "exporting": "Aktarılıyor…",
+  "sheetName": "Giderler"
 }

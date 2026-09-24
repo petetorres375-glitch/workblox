@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} riga unita",
   "mergedTag_other": "{{count}} righe unite",
   "download": "Scarica il File Pulito",
-  "preparing": "Preparazione…"
+  "preparing": "Preparazione…",
+  "sheetName": "Dati puliti"
 }

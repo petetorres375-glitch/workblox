@@ -42,5 +42,6 @@
   "mergedTag_one": "scalono {{count}} wiersz",
   "mergedTag_other": "scalono {{count}} wierszy",
   "download": "Pobierz Wyczyszczony Plik",
-  "preparing": "Przygotowywanie…"
+  "preparing": "Przygotowywanie…",
+  "sheetName": "Oczyszczone dane"
 }

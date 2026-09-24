@@ -37,5 +37,6 @@
   "totalsLabel": "Total per kategori",
   "grandTotal": "Total",
   "export": "Ekspor ke Spreadsheet",
-  "exporting": "Mengekspor…"
+  "exporting": "Mengekspor…",
+  "sheetName": "Pengeluaran"
 }

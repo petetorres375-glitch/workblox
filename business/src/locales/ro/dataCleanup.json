@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} rând îmbinat",
   "mergedTag_other": "{{count}} rânduri îmbinate",
   "download": "Descarcă Fișierul Curățat",
-  "preparing": "Se pregătește…"
+  "preparing": "Se pregătește…",
+  "sheetName": "Date curățate"
 }

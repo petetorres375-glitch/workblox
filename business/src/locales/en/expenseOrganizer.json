@@ -37,5 +37,6 @@
   "totalsLabel": "Category totals",
   "grandTotal": "Total",
   "export": "Export to Spreadsheet",
-  "exporting": "Exporting…"
+  "exporting": "Exporting…",
+  "sheetName": "Expenses"
 }

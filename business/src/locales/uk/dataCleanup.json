@@ -42,5 +42,6 @@
   "mergedTag_one": "приєднано {{count}} рядок",
   "mergedTag_other": "приєднано рядків: {{count}}",
   "download": "Завантажити очищений файл",
-  "preparing": "Підготовка…"
+  "preparing": "Підготовка…",
+  "sheetName": "Очищені дані"
 }

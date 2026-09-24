@@ -42,5 +42,6 @@
   "mergedTag_one": "đã gộp {{count}} dòng",
   "mergedTag_other": "đã gộp {{count}} dòng",
   "download": "Tải xuống Tệp đã Làm sạch",
-  "preparing": "Đang chuẩn bị…"
+  "preparing": "Đang chuẩn bị…",
+  "sheetName": "Dữ liệu đã làm sạch"
 }

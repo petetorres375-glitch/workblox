@@ -37,5 +37,6 @@
   "totalsLabel": "カテゴリ別合計",
   "grandTotal": "合計",
   "export": "表計算ファイルに書き出す",
-  "exporting": "書き出し中…"
+  "exporting": "書き出し中…",
+  "sheetName": "経費"
 }

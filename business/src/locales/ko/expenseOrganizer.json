@@ -37,5 +37,6 @@
   "totalsLabel": "분류별 합계",
   "grandTotal": "합계",
   "export": "스프레드시트로 내보내기",
-  "exporting": "내보내는 중…"
+  "exporting": "내보내는 중…",
+  "sheetName": "경비"
 }

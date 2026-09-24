@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} linha juntada",
   "mergedTag_other": "{{count}} linhas juntadas",
   "download": "Transferir Ficheiro Limpo",
-  "preparing": "A preparar…"
+  "preparing": "A preparar…",
+  "sheetName": "Dados limpos"
 }

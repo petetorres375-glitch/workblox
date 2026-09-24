@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} rij samengevoegd",
   "mergedTag_other": "{{count}} rijen samengevoegd",
   "download": "Opgeschoond Bestand Downloaden",
-  "preparing": "Voorbereiden…"
+  "preparing": "Voorbereiden…",
+  "sheetName": "Opgeschoonde gegevens"
 }

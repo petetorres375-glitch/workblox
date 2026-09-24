@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} baris digabungkan",
   "mergedTag_other": "{{count}} baris digabungkan",
   "download": "Unduh Berkas yang Sudah Bersih",
-  "preparing": "Menyiapkan…"
+  "preparing": "Menyiapkan…",
+  "sheetName": "Data Bersih"
 }

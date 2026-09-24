@@ -37,5 +37,6 @@
   "totalsLabel": "各类别合计",
   "grandTotal": "总计",
   "export": "导出为表格",
-  "exporting": "导出中…"
+  "exporting": "导出中…",
+  "sheetName": "支出"
 }

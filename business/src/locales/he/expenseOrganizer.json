@@ -37,5 +37,6 @@
   "totalsLabel": "סיכומים לפי קטגוריה",
   "grandTotal": "סה\"כ",
   "export": "ייצוא לגיליון",
-  "exporting": "מייצא…"
+  "exporting": "מייצא…",
+  "sheetName": "הוצאות"
 }

@@ -187,17 +187,21 @@ WRITE_FORMATS = {
 }
 
 
-def write_table(headers, rows, fmt: str = "csv", title: str = None, money_columns=None) -> bytes:
+def write_table(headers, rows, fmt: str = "csv", title: str = None, money_columns=None,
+                sheet_name: str = None) -> bytes:
     """title labels the table inside a .numbers file (Numbers shows it above
     the table); the other formats have no equivalent and ignore it.
+    sheet_name is the tab name in .xlsx/.numbers -- the caller passes it in
+    the user's language, since the tab is the first thing they read.
     money_columns maps column index -> currency symbol ("$", "€", "£") or
     None; those columns are shown with two decimals and thousands separators
     in .xlsx/.numbers so amounts line up. CSV has no formatting."""
     money_columns = _money_map(money_columns)
+    sheet_name = _clean_sheet_name(sheet_name)
     if fmt == "xlsx":
-        return _write_xlsx(headers, rows, money_columns)
+        return _write_xlsx(headers, rows, money_columns, sheet_name)
     if fmt == "numbers":
-        return _write_numbers(headers, rows, title, money_columns)
+        return _write_numbers(headers, rows, title, money_columns, sheet_name)
     return _write_csv(headers, rows)
 
 
@@ -212,12 +216,25 @@ def _write_csv(headers, rows) -> bytes:
     return buf.getvalue().encode("utf-8-sig")
 
 
-def _write_xlsx(headers, rows, money_columns=None) -> bytes:
+DEFAULT_SHEET_NAME = "Cleaned Data"
+# Excel refuses these in a tab name and caps it at 31 characters; Numbers is
+# more lenient, but one rule for both keeps the two downloads identical.
+_SHEET_NAME_FORBIDDEN = re.compile(r"[\[\]:*?/\\]")
+_SHEET_NAME_MAX = 31
+
+
+def _clean_sheet_name(name) -> str:
+    name = _SHEET_NAME_FORBIDDEN.sub("", str(name or "")).strip().strip("'")
+    return name[:_SHEET_NAME_MAX].strip() or DEFAULT_SHEET_NAME
+
+
+def _write_xlsx(headers, rows, money_columns=None, sheet_name=DEFAULT_SHEET_NAME) -> bytes:
     from openpyxl import Workbook
     from openpyxl.styles import Font
 
     workbook = Workbook()
     sheet = workbook.active
+    sheet.title = sheet_name
     sheet.append(list(headers))
     for cell in sheet[1]:
         cell.font = Font(bold=True)
@@ -249,7 +266,7 @@ _NUMBERS_BAND_BG = (243, 246, 251)
 _NUMBERS_HEADER_HEIGHT = 28
 
 
-def _write_numbers(headers, rows, title=None, money_columns=None) -> bytes:
+def _write_numbers(headers, rows, title=None, money_columns=None, sheet_name=DEFAULT_SHEET_NAME) -> bytes:
     """Native Apple Numbers output, so a client who uploaded a .numbers file
     gets a .numbers file back rather than an Excel file with a strange icon.
 
@@ -264,7 +281,7 @@ def _write_numbers(headers, rows, title=None, money_columns=None) -> bytes:
 
     num_cols = max(len(headers), 1)
     document = Document(
-        sheet_name="Cleaned Data", table_name=(title or "Cleaned Data")[:255],
+        sheet_name=sheet_name, table_name=(title or sheet_name)[:255],
         num_header_rows=1, num_header_cols=0,
         num_rows=len(rows) + 1, num_cols=num_cols,
     )

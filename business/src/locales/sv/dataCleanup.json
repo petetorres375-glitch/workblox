@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} rad inflätad",
   "mergedTag_other": "{{count}} rader inflätade",
   "download": "Ladda Ner Städad Fil",
-  "preparing": "Förbereder…"
+  "preparing": "Förbereder…",
+  "sheetName": "Rensade data"
 }

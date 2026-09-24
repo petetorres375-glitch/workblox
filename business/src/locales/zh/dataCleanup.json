@@ -42,5 +42,6 @@
   "mergedTag_one": "并入 {{count}} 行",
   "mergedTag_other": "并入 {{count}} 行",
   "download": "下载清理后的文件",
-  "preparing": "准备中…"
+  "preparing": "准备中…",
+  "sheetName": "已清理的数据"
 }

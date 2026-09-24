@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} ligne fusionnée",
   "mergedTag_other": "{{count}} lignes fusionnées",
   "download": "Télécharger le Fichier Nettoyé",
-  "preparing": "Préparation…"
+  "preparing": "Préparation…",
+  "sheetName": "Données nettoyées"
 }

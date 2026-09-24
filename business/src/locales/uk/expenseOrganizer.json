@@ -37,5 +37,6 @@
   "totalsLabel": "Підсумки за категоріями",
   "grandTotal": "Разом",
   "export": "Експортувати в таблицю",
-  "exporting": "Експорт…"
+  "exporting": "Експорт…",
+  "sheetName": "Витрати"
 }

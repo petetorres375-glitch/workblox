@@ -42,5 +42,6 @@
   "mergedTag_one": "รวมมา {{count}} แถว",
   "mergedTag_other": "รวมมา {{count}} แถว",
   "download": "ดาวน์โหลดไฟล์ที่ล้างแล้ว",
-  "preparing": "กำลังเตรียม…"
+  "preparing": "กำลังเตรียม…",
+  "sheetName": "ข้อมูลที่ทำความสะอาดแล้ว"
 }

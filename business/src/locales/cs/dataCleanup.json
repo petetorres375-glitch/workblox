@@ -42,5 +42,6 @@
   "mergedTag_one": "přidán {{count}} řádek",
   "mergedTag_other": "přidáno řádků: {{count}}",
   "download": "Stáhnout vyčištěný soubor",
-  "preparing": "Připravuji…"
+  "preparing": "Připravuji…",
+  "sheetName": "Vyčištěná data"
 }

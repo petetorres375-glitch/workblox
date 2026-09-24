@@ -42,5 +42,6 @@
   "mergedTag_one": "{{count}} 行を統合",
   "mergedTag_other": "{{count}} 行を統合",
   "download": "整えたファイルをダウンロード",
-  "preparing": "準備中…"
+  "preparing": "準備中…",
+  "sheetName": "クリーニング済みデータ"
 }

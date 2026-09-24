@@ -81,6 +81,7 @@ export default function ExpenseOrganizer() {
         entries,
         format,
         filename: "expenses",
+        sheet_name: t("sheetName"),
         labels: [
           t("columns.date"), t("columns.vendor"), t("columns.amount"),
           t("columns.category"), t("columns.source"), t("columns.notes"),

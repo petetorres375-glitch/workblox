@@ -37,5 +37,6 @@
   "totalsLabel": "Totais por categoria",
   "grandTotal": "Total",
   "export": "Exportar para Folha de Cálculo",
-  "exporting": "A exportar…"
+  "exporting": "A exportar…",
+  "sheetName": "Despesas"
 }

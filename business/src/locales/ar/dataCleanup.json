@@ -42,5 +42,6 @@
   "mergedTag_one": "تم دمج {{count}} صف",
   "mergedTag_other": "تم دمج {{count}} صف",
   "download": "تنزيل الملف بعد التنظيف",
-  "preparing": "جارٍ التحضير…"
+  "preparing": "جارٍ التحضير…",
+  "sheetName": "البيانات المنظفة"
 }

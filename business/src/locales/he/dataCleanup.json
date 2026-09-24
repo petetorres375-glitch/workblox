@@ -42,5 +42,6 @@
   "mergedTag_one": "מוזגה {{count}} שורה",
   "mergedTag_other": "מוזגו {{count}} שורות",
   "download": "הורדת הקובץ הנקי",
-  "preparing": "מכין…"
+  "preparing": "מכין…",
+  "sheetName": "נתונים מנוקים"
 }
