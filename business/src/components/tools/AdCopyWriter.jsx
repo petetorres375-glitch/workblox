@@ -59,7 +59,7 @@ export default function AdCopyWriter() {
         <textarea placeholder={t("productServicePlaceholder")} value={productService} onChange={(e) => setProductService(e.target.value)} required rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
         <input type="text" placeholder={t("targetAudiencePlaceholder")} value={targetAudience} onChange={(e) => setTargetAudience(e.target.value)} disabled={loading} style={inputStyle} />
         <input type="text" placeholder={t("uniqueValuePlaceholder")} value={uniqueValue} onChange={(e) => setUniqueValue(e.target.value)} disabled={loading} style={inputStyle} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: "0.75rem" }}>
           <select value={platform} onChange={(e) => setPlatform(e.target.value)} disabled={loading} style={{ ...inputStyle, background: "var(--surface)", cursor: "pointer" }}>
             {["Google Ads", "Facebook Ads", "Instagram Ads", "LinkedIn Ads", "TikTok Ads"].map(p => <option key={p} value={p}>{p}</option>)}
           </select>

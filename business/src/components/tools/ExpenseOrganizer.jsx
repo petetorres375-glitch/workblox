@@ -150,7 +150,7 @@ export default function ExpenseOrganizer() {
         </label>
 
         {dateRange === "custom" && (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: "0.75rem" }}>
             <label style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
               <span className="field-label">{t("startDate")}</span>
               <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} disabled={loading} style={inputStyle} />

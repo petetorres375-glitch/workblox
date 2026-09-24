@@ -58,7 +58,7 @@ export default function SocialMediaGenerator() {
         <textarea placeholder={t("topicPlaceholder")} value={topic} onChange={(e) => setTopic(e.target.value)} required rows={2} disabled={loading} style={{ ...inputStyle, resize: "vertical" }} />
         <input type="text" placeholder={t("businessNamePlaceholder")} value={businessName} onChange={(e) => setBusinessName(e.target.value)} disabled={loading} style={inputStyle} />
         <input type="text" placeholder={t("platformsPlaceholder")} value={platforms} onChange={(e) => setPlatforms(e.target.value)} disabled={loading} style={inputStyle} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: "0.75rem" }}>
           <select value={tone} onChange={(e) => setTone(e.target.value)} disabled={loading} style={{ ...inputStyle, background: "var(--surface)", cursor: "pointer" }}>
             {["professional", "casual", "humorous", "inspiring", "educational"].map(opt => <option key={opt} value={opt}>{t(`toneOptions.${opt}`)}</option>)}
           </select>
