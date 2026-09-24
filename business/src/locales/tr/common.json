@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Linux için bir adım daha",
     "body": "GNOME, yeni masaüstü kısayollarının çalıştırılabilmesi için önce güvenilir olarak işaretlenmesini gerektirir. Workblox simgesine sağ tıklayıp \"Çalıştırmaya izin ver\" seçeneğini belirleyin veya terminalde şunu çalıştırın:"
-  }
+  },
+  "closeMenu": "Menüyü kapat",
+  "enter": "Giriş",
+  "menu": "Menü",
+  "welcomeTagline": "İşletme sahipleri ve İK profesyonelleri için yapay zekâ destekli araçlar",
+  "welcomeTitle": "Workblox Business'a hoş geldiniz"
 }

@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Linux에서 한 단계가 더 필요합니다",
     "body": "GNOME에서는 새 바탕화면 바로가기를 실행하기 전에 신뢰함으로 표시해야 합니다. Workblox 아이콘을 마우스 오른쪽 버튼으로 클릭하고 \"실행 허용\"을 선택하거나 터미널에서 다음을 실행하세요:"
-  }
+  },
+  "closeMenu": "메뉴 닫기",
+  "enter": "들어가기",
+  "menu": "메뉴",
+  "welcomeTagline": "AI 기반 생산성 도구를 한곳에서",
+  "welcomeTitle": "Workblox에 오신 것을 환영합니다"
 }

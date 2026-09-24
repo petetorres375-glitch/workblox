@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Un altro passaggio per Linux",
     "body": "GNOME richiede che i nuovi collegamenti del desktop siano contrassegnati come attendibili prima di poter essere avviati. Fai clic destro sull'icona di Workblox e scegli \"Consenti avvio\", oppure esegui questo comando nel terminale:"
-  }
+  },
+  "closeMenu": "Chiudi menu",
+  "enter": "Entra",
+  "menu": "Menu",
+  "welcomeTagline": "Strumenti di produttività con IA in un unico posto",
+  "welcomeTitle": "Benvenuto in Workblox"
 }

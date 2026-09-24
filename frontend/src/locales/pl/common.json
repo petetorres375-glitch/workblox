@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Jeszcze jeden krok dla Linuksa",
     "body": "GNOME wymaga oznaczenia nowych skrótów na pulpicie jako zaufane, zanim będzie można je uruchomić. Kliknij prawym przyciskiem myszy ikonę Workblox i wybierz „Zezwól na uruchamianie” albo uruchom w terminalu:"
-  }
+  },
+  "closeMenu": "Zamknij menu",
+  "enter": "Wejdź",
+  "menu": "Menu",
+  "welcomeTagline": "Narzędzia produktywności oparte na AI w jednym miejscu",
+  "welcomeTitle": "Witamy w Workblox"
 }

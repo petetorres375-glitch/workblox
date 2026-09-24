@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Ytterligare ett steg för Linux",
     "body": "GNOME kräver att nya skrivbordsgenvägar markeras som pålitliga innan de kan startas. Högerklicka på Workblox-ikonen och välj \"Tillåt körning\", eller kör detta i en terminal:"
-  }
+  },
+  "closeMenu": "Stäng menyn",
+  "enter": "Gå in",
+  "menu": "Meny",
+  "welcomeTagline": "AI-drivna verktyg för företagare och HR-proffs",
+  "welcomeTitle": "Välkommen till Workblox Business"
 }

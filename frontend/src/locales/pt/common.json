@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Mais um passo para o Linux",
     "body": "O GNOME exige que novos atalhos de área de trabalho sejam marcados como confiáveis antes de poderem ser executados. Clique com o botão direito no ícone do Workblox e escolha \"Permitir execução\", ou execute isto no terminal:"
-  }
+  },
+  "closeMenu": "Fechar menu",
+  "enter": "Entrar",
+  "menu": "Menu",
+  "welcomeTagline": "Ferramentas de produtividade com IA em um só lugar",
+  "welcomeTitle": "Bem-vindo ao Workblox"
 }

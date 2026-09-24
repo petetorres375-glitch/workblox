@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Nog één stap voor Linux",
     "body": "GNOME vereist dat nieuwe bureaubladsnelkoppelingen als vertrouwd worden gemarkeerd voordat ze kunnen worden gestart. Klik met de rechtermuisknop op het Workblox-pictogram en kies \"Uitvoeren toestaan\", of voer dit uit in een terminal:"
-  }
+  },
+  "closeMenu": "Menu sluiten",
+  "enter": "Binnengaan",
+  "menu": "Menu",
+  "welcomeTagline": "AI-tools voor ondernemers en HR-professionals",
+  "welcomeTitle": "Welkom bij Workblox Business"
 }

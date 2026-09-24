@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Linux ではもう一手順必要です",
     "body": "GNOME では、新しいデスクトップショートカットを起動する前に「信頼済み」としてマークする必要があります。Workblox アイコンを右クリックして「起動を許可」を選ぶか、ターミナルで次を実行してください:"
-  }
+  },
+  "closeMenu": "メニューを閉じる",
+  "enter": "入る",
+  "menu": "メニュー",
+  "welcomeTagline": "経営者と人事担当者のためのAIツール",
+  "welcomeTitle": "Workblox Businessへようこそ"
 }

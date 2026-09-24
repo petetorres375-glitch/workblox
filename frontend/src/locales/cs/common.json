@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Ještě jeden krok pro Linux",
     "body": "GNOME vyžaduje, aby byly nové zástupce na ploše označeny jako důvěryhodné, než je bude možné spustit. Klikněte pravým tlačítkem na ikonu Workblox a vyberte „Povolit spuštění“, nebo v terminálu spusťte:"
-  }
+  },
+  "closeMenu": "Zavřít nabídku",
+  "enter": "Vstoupit",
+  "menu": "Nabídka",
+  "welcomeTagline": "Nástroje pro produktivitu s AI na jednom místě",
+  "welcomeTitle": "Vítejte ve Workblox"
 }

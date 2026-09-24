@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Satu langkah lagi untuk Linux",
     "body": "GNOME mengharuskan pintasan desktop baru ditandai sebagai tepercaya sebelum bisa dijalankan. Klik kanan ikon Workblox dan pilih \"Allow Launching\", atau jalankan perintah ini di terminal:"
-  }
+  },
+  "closeMenu": "Tutup menu",
+  "enter": "Masuk",
+  "menu": "Menu",
+  "welcomeTagline": "Alat produktivitas bertenaga AI dalam satu tempat",
+  "welcomeTitle": "Selamat datang di Workblox"
 }

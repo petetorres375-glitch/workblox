@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Un paso más para Linux",
     "body": "GNOME requiere que los nuevos accesos directos de escritorio se marquen como de confianza antes de poder ejecutarlos. Haz clic derecho en el icono de Workblox y elige \"Permitir ejecución\", o ejecuta esto en una terminal:"
-  }
+  },
+  "closeMenu": "Cerrar menú",
+  "enter": "Entrar",
+  "menu": "Menú",
+  "welcomeTagline": "Herramientas con IA para dueños de negocios y profesionales de RR. HH.",
+  "welcomeTitle": "Bienvenido a Workblox Business"
 }

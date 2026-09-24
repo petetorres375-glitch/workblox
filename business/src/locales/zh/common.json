@@ -19,5 +19,10 @@
   "linuxTrustTip": {
     "title": "Linux 用户还需一步",
     "body": "GNOME 要求新的桌面快捷方式在启动前先标记为受信任。右键点击 Workblox 图标并选择“允许启动”，或在终端中运行:"
-  }
+  },
+  "closeMenu": "关闭菜单",
+  "enter": "进入",
+  "menu": "菜单",
+  "welcomeTagline": "面向企业主和 HR 专业人士的 AI 工具",
+  "welcomeTitle": "欢迎使用 Workblox Business"
 }

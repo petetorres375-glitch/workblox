@@ -18,5 +18,10 @@
   "linuxTrustTip": {
     "title": "Noch ein Schritt für Linux",
     "body": "GNOME verlangt, dass neue Desktop-Verknüpfungen als vertrauenswürdig markiert werden, bevor sie gestartet werden können. Klicken Sie mit der rechten Maustaste auf das Workblox-Symbol und wählen Sie „Ausführen erlauben“, oder führen Sie Folgendes im Terminal aus:"
-  }
+  },
+  "closeMenu": "Menü schließen",
+  "enter": "Eintreten",
+  "menu": "Menü",
+  "welcomeTagline": "KI-gestützte Produktivitätstools an einem Ort",
+  "welcomeTitle": "Willkommen bei Workblox"
 }
