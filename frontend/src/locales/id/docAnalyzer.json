@@ -1,8 +1,8 @@
 {
   "title": "Analisis <0>Dokumen</0>",
-  "subtitle": "Unggah file PDF, TXT, atau MD — dapatkan ringkasan AI yang terstruktur.",
+  "subtitle": "Unggah file PDF, Pages, DOCX, TXT, atau MD — dapatkan ringkasan AI yang terstruktur.",
   "dropLabel": "Jatuhkan file di sini atau klik untuk menelusuri",
-  "dropHint": "PDF, TXT, atau MD — maks. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT, atau MD — maks. 10 MB",
   "analyze": "Analisis",
   "analyzing": "Menganalisis...",
   "sections": {

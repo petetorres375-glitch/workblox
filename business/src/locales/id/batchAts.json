@@ -4,7 +4,7 @@
   "dropLabel": "Letakkan resume di sini atau klik untuk menelusuri",
   "resumesSelected_one": "{{count}} resume dipilih",
   "resumesSelected_other": "{{count}} resume dipilih",
-  "dropHint": "PDF, DOCX, atau TXT · hingga 10 file",
+  "dropHint": "PDF, Pages, DOCX, atau TXT · hingga 10 file",
   "jobDescriptionPlaceholder": "Deskripsi pekerjaan (tempel di sini untuk pencocokan yang lebih baik)",
   "analyzeAll": "Analisis Semua Resume",
   "analyzingCount_one": "Menganalisis {{count}} resume…",

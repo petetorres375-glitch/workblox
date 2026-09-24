@@ -1,8 +1,8 @@
 {
   "title": "Dokument-<0>Analyzer</0>",
-  "subtitle": "Laden Sie eine PDF-, TXT- oder MD-Datei hoch — erhalten Sie eine strukturierte KI-Zusammenfassung.",
+  "subtitle": "Laden Sie eine PDF-, Pages-, DOCX-, TXT- oder MD-Datei hoch — erhalten Sie eine strukturierte KI-Zusammenfassung.",
   "dropLabel": "Datei hier ablegen oder klicken zum Durchsuchen",
-  "dropHint": "PDF, TXT oder MD — max. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT oder MD — max. 10 MB",
   "analyze": "Analysieren",
   "analyzing": "Analysiere...",
   "sections": {

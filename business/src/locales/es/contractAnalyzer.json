@@ -2,7 +2,7 @@
   "title": "Analizador de <0>Contratos</0>",
   "subtitle": "Sube un contrato y obtén un resumen en lenguaje sencillo, una evaluación de riesgos y las cláusulas clave.",
   "dropLabel": "Suelta el contrato aquí o haz clic para buscarlo",
-  "dropHint": "PDF, DOCX o TXT",
+  "dropHint": "PDF, Pages, DOCX o TXT",
   "analyze": "Analizar Contrato",
   "analyzing": "Analizando…",
   "documentOverview": "Resumen del Documento",

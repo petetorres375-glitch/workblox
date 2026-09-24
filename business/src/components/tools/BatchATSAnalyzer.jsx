@@ -71,7 +71,7 @@ export default function BatchATSAnalyzer() {
           onDragLeave={() => setDragOver(false)}
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files); }}
         >
-          <input id="batch-resumes" type="file" accept=".pdf,.txt,.docx,.doc" multiple onChange={(e) => handleFiles(e.target.files)} />
+          <input id="batch-resumes" type="file" accept=".pdf,.txt,.docx,.doc,.pages" multiple onChange={(e) => handleFiles(e.target.files)} />
           <p className="drop-label">{files.length ? t("resumesSelected", { count: files.length }) : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
         </div>

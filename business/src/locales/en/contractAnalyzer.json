@@ -2,7 +2,7 @@
   "title": "Contract <0>Analyzer</0>",
   "subtitle": "Upload a contract and get a plain-language summary, risk assessment, and key clauses.",
   "dropLabel": "Drop contract here or click to browse",
-  "dropHint": "PDF, DOCX, or TXT",
+  "dropHint": "PDF, Pages, DOCX, or TXT",
   "analyze": "Analyze Contract",
   "analyzing": "Analyzing…",
   "photo": {

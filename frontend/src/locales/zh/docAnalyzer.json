@@ -1,8 +1,8 @@
 {
   "title": "文档<0>分析器</0>",
-  "subtitle": "上传 PDF、TXT 或 MD 文件 — 获取结构化的 AI 摘要。",
+  "subtitle": "上传 PDF、Pages、DOCX、TXT 或 MD 文件 — 获取结构化的 AI 摘要。",
   "dropLabel": "将文件拖放到此处或点击浏览",
-  "dropHint": "PDF、TXT 或 MD — 最大 10 MB",
+  "dropHint": "PDF、Pages、DOCX、TXT 或 MD — 最大 10 MB",
   "analyze": "分析",
   "analyzing": "分析中...",
   "sections": {

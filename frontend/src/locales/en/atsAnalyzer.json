@@ -3,7 +3,7 @@
   "subtitle": "Upload a resume — get an instant ATS score, keyword gaps, and recommendations.",
   "dropZone": {
     "label": "Drop a resume here or click to browse",
-    "hint": "TXT, PDF, or DOCX — max 5 MB"
+    "hint": "TXT, PDF, Pages, or DOCX — max 5 MB"
   },
   "clientNamePlaceholder": "Client name (optional)",
   "jobRolePlaceholder": "Job role (optional)",

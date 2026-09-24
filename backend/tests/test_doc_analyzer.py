@@ -43,6 +43,19 @@ def test_doc_analyzer_md(client):
     assert rv.status_code == 200
 
 
+def test_doc_analyzer_docx(client):
+    from docx import Document
+    buf = io.BytesIO()
+    doc = Document()
+    doc.add_paragraph("Quarterly vendor agreement.")
+    doc.save(buf)
+    data = {"file": (io.BytesIO(buf.getvalue()), "agreement.docx")}
+    with patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE) as mock_call:
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 200
+    assert "Quarterly vendor agreement." in mock_call.call_args.kwargs["user_message"]
+
+
 def test_doc_analyzer_no_file(client):
     rv = client.post("/api/doc", data={}, content_type="multipart/form-data")
     assert rv.status_code == 400

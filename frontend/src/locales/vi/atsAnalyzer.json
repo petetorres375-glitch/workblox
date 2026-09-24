@@ -3,7 +3,7 @@
   "subtitle": "Tải sơ yếu lý lịch lên — nhận ngay điểm ATS, các từ khóa còn thiếu và đề xuất cải thiện.",
   "dropZone": {
     "label": "Kéo thả sơ yếu lý lịch vào đây hoặc nhấp để chọn",
-    "hint": "TXT, PDF hoặc DOCX — tối đa 5 MB"
+    "hint": "TXT, PDF, Pages hoặc DOCX — tối đa 5 MB"
   },
   "clientNamePlaceholder": "Tên khách hàng (không bắt buộc)",
   "jobRolePlaceholder": "Vị trí công việc (không bắt buộc)",

@@ -3,7 +3,7 @@
   "subtitle": "履歴書をアップロードすると、ATSスコア、不足キーワード、改善提案がすぐに表示されます。",
   "dropZone": {
     "label": "ここに履歴書をドロップ、またはクリックして選択",
-    "hint": "TXT、PDF、またはDOCX — 最大5MB"
+    "hint": "TXT、PDF、Pages、またはDOCX — 最大5MB"
   },
   "clientNamePlaceholder": "クライアント名（任意）",
   "jobRolePlaceholder": "希望職種（任意）",

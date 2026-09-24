@@ -3,7 +3,7 @@
   "subtitle": "Unggah resume — dapatkan skor ATS, kesenjangan kata kunci, dan rekomendasi secara instan.",
   "dropZone": {
     "label": "Seret resume ke sini atau klik untuk memilih file",
-    "hint": "TXT, PDF, atau DOCX — maks. 5 MB"
+    "hint": "TXT, PDF, Pages, atau DOCX — maks. 5 MB"
   },
   "clientNamePlaceholder": "Nama klien (opsional)",
   "jobRolePlaceholder": "Posisi pekerjaan (opsional)",

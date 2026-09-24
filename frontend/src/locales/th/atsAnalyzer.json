@@ -3,7 +3,7 @@
   "subtitle": "อัปโหลดเรซูเม่ — รับคะแนน ATS คำสำคัญที่ขาดหาย และคำแนะนำได้ทันที",
   "dropZone": {
     "label": "ลากเรซูเม่มาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์",
-    "hint": "TXT, PDF หรือ DOCX — สูงสุด 5 MB"
+    "hint": "TXT, PDF, Pages หรือ DOCX — สูงสุด 5 MB"
   },
   "clientNamePlaceholder": "ชื่อลูกค้า (ไม่บังคับ)",
   "jobRolePlaceholder": "ตำแหน่งงาน (ไม่บังคับ)",

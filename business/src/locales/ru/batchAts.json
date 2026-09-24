@@ -4,7 +4,7 @@
   "dropLabel": "Перетащите резюме сюда или нажмите для выбора",
   "resumesSelected_one": "Выбрано {{count}} резюме",
   "resumesSelected_other": "Выбрано {{count}} резюме",
-  "dropHint": "PDF, DOCX или TXT · до 10 файлов",
+  "dropHint": "PDF, Pages, DOCX или TXT · до 10 файлов",
   "jobDescriptionPlaceholder": "Описание вакансии (вставьте сюда для лучшего соответствия)",
   "analyzeAll": "Анализировать Все Резюме",
   "analyzingCount_one": "Анализ {{count}} резюме…",

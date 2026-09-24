@@ -2,7 +2,7 @@
   "title": "合同<0>分析工具</0>",
   "subtitle": "上传合同,即可获得通俗易懂的摘要、风险评估和关键条款。",
   "dropLabel": "将合同拖拽至此或点击浏览",
-  "dropHint": "PDF、DOCX 或 TXT 格式",
+  "dropHint": "PDF、Pages、DOCX 或 TXT 格式",
   "analyze": "分析合同",
   "analyzing": "分析中…",
   "documentOverview": "文档概览",

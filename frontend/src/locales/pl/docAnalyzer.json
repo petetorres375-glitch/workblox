@@ -1,8 +1,8 @@
 {
   "title": "Analizator <0>Dokumentów</0>",
-  "subtitle": "Prześlij plik PDF, TXT lub MD — otrzymaj ustrukturyzowane podsumowanie AI.",
+  "subtitle": "Prześlij plik PDF, Pages, DOCX, TXT lub MD — otrzymaj ustrukturyzowane podsumowanie AI.",
   "dropLabel": "Upuść plik tutaj lub kliknij, aby przeglądać",
-  "dropHint": "PDF, TXT lub MD — maks. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT lub MD — maks. 10 MB",
   "analyze": "Analizuj",
   "analyzing": "Analizowanie...",
   "sections": {

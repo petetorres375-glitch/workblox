@@ -3,7 +3,7 @@
   "subtitle": "Sube un currículum y obtén al instante una puntuación ATS, brechas de palabras clave y recomendaciones.",
   "dropZone": {
     "label": "Arrastra un currículum aquí o haz clic para seleccionarlo",
-    "hint": "TXT, PDF o DOCX — máx. 5 MB"
+    "hint": "TXT, PDF, Pages o DOCX — máx. 5 MB"
   },
   "clientNamePlaceholder": "Nombre del cliente (opcional)",
   "jobRolePlaceholder": "Puesto de trabajo (opcional)",

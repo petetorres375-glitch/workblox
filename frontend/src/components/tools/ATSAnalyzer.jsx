@@ -125,7 +125,7 @@ export default function ATSAnalyzer() {
           <input
             ref={fileRef}
             type="file"
-            accept=".txt,.pdf,.docx"
+            accept=".txt,.pdf,.docx,.pages"
             onChange={(e) => handleFile(e.target.files[0])}
           />
           {file ? (

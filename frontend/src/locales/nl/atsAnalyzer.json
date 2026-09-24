@@ -3,7 +3,7 @@
   "subtitle": "Upload een cv — krijg direct een ATS-score, ontbrekende trefwoorden en aanbevelingen.",
   "dropZone": {
     "label": "Sleep hier een cv naartoe of klik om te bladeren",
-    "hint": "TXT, PDF of DOCX — max. 5 MB"
+    "hint": "TXT, PDF, Pages of DOCX — max. 5 MB"
   },
   "clientNamePlaceholder": "Naam klant (optioneel)",
   "jobRolePlaceholder": "Functie (optioneel)",

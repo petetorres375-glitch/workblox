@@ -3,7 +3,7 @@
   "subtitle": "Încarcă un CV — obții instant un scor ATS, lacune de cuvinte-cheie și recomandări.",
   "dropZone": {
     "label": "Trage un CV aici sau apasă pentru a-l selecta",
-    "hint": "TXT, PDF sau DOCX — max. 5 MB"
+    "hint": "TXT, PDF, Pages sau DOCX — max. 5 MB"
   },
   "clientNamePlaceholder": "Numele clientului (opțional)",
   "jobRolePlaceholder": "Rol/poziție (opțional)",

@@ -159,7 +159,7 @@ export default function ContractAnalyzer() {
           onDragLeave={() => setDragOver(false)}
           onDrop={(e) => { e.preventDefault(); setDragOver(false); handleDroppedOrSelected(e.dataTransfer.files); }}
         >
-          <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc" onChange={(e) => handleDroppedOrSelected(e.target.files)} />
+          <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc,.pages" onChange={(e) => handleDroppedOrSelected(e.target.files)} />
           <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
         </div>

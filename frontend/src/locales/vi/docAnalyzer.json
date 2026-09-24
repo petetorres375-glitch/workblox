@@ -1,8 +1,8 @@
 {
   "title": "Trình Phân Tích <0>Tài Liệu</0>",
-  "subtitle": "Tải lên tệp PDF, TXT hoặc MD — nhận bản tóm tắt AI có cấu trúc.",
+  "subtitle": "Tải lên tệp PDF, Pages, DOCX, TXT hoặc MD — nhận bản tóm tắt AI có cấu trúc.",
   "dropLabel": "Kéo thả tệp vào đây hoặc nhấp để duyệt",
-  "dropHint": "PDF, TXT hoặc MD — tối đa 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT hoặc MD — tối đa 10 MB",
   "analyze": "Phân Tích",
   "analyzing": "Đang phân tích...",
   "sections": {

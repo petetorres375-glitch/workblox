@@ -4,7 +4,7 @@
   "dropLabel": "גרור קורות חיים לכאן או לחץ לעיון",
   "resumesSelected_one": "{{count}} קורות חיים נבחרו",
   "resumesSelected_other": "{{count}} קורות חיים נבחרו",
-  "dropHint": "PDF, DOCX או TXT · עד 10 קבצים",
+  "dropHint": "PDF, Pages, DOCX או TXT · עד 10 קבצים",
   "jobDescriptionPlaceholder": "תיאור המשרה (הדבק כאן להתאמה טובה יותר)",
   "analyzeAll": "נתח את כל קורות החיים",
   "analyzingCount_one": "מנתח {{count}} קורות חיים…",

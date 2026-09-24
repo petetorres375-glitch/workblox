@@ -1,8 +1,8 @@
 {
   "title": "दस्तावेज़ <0>विश्लेषक</0>",
-  "subtitle": "एक PDF, TXT, या MD फ़ाइल अपलोड करें — एक संरचित AI सारांश प्राप्त करें।",
+  "subtitle": "एक PDF, Pages, DOCX, TXT, या MD फ़ाइल अपलोड करें — एक संरचित AI सारांश प्राप्त करें।",
   "dropLabel": "यहाँ फ़ाइल छोड़ें या ब्राउज़ करने के लिए क्लिक करें",
-  "dropHint": "PDF, TXT, या MD — अधिकतम 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT, या MD — अधिकतम 10 MB",
   "analyze": "विश्लेषण करें",
   "analyzing": "विश्लेषण हो रहा है...",
   "sections": {

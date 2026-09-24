@@ -1,19 +1,22 @@
 from pathlib import Path
 
-SUPPORTED_EXTENSIONS = {".pdf", ".txt", ".md", ".docx"}
+SUPPORTED_EXTENSIONS = {".pdf", ".txt", ".md", ".docx", ".pages"}
 
 
 def extract_text(file_storage) -> str:
     filename = file_storage.filename or ""
     ext = Path(filename).suffix.lower()
     if ext not in SUPPORTED_EXTENSIONS:
-        raise ValueError(f"Unsupported file type '{ext}'. Supported: PDF, DOCX, TXT, MD")
+        raise ValueError(f"Unsupported file type '{ext}'. Supported: PDF, DOCX, PAGES, TXT, MD")
 
     raw = file_storage.read()
     if ext == ".pdf":
         return _read_pdf_bytes(raw)
     if ext == ".docx":
         return _read_docx_bytes(raw)
+    if ext == ".pages":
+        from app.services.pages_reader import read_pages
+        return read_pages(raw)
     return raw.decode("utf-8", errors="replace")
 
 

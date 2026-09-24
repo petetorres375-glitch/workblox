@@ -1,8 +1,8 @@
 {
   "title": "Analizzatore di <0>Documenti</0>",
-  "subtitle": "Carica un file PDF, TXT o MD — ottieni un riepilogo strutturato con l'IA.",
+  "subtitle": "Carica un file PDF, Pages, DOCX, TXT o MD — ottieni un riepilogo strutturato con l'IA.",
   "dropLabel": "Trascina un file qui o clicca per sfogliare",
-  "dropHint": "PDF, TXT o MD — max 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT o MD — max 10 MB",
   "analyze": "Analizza",
   "analyzing": "Analisi in corso...",
   "sections": {

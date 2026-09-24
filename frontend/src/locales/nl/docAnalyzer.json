@@ -1,8 +1,8 @@
 {
   "title": "Document<0>analyzer</0>",
-  "subtitle": "Upload een PDF-, TXT- of MD-bestand — krijg een gestructureerde AI-samenvatting.",
+  "subtitle": "Upload een PDF-, Pages-, DOCX-, TXT- of MD-bestand — krijg een gestructureerde AI-samenvatting.",
   "dropLabel": "Sleep hier een bestand of klik om te bladeren",
-  "dropHint": "PDF, TXT of MD — max. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT of MD — max. 10 MB",
   "analyze": "Analyseren",
   "analyzing": "Analyseren...",
   "sections": {

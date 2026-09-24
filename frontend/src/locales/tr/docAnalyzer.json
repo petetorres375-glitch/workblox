@@ -1,8 +1,8 @@
 {
   "title": "Belge <0>Analizörü</0>",
-  "subtitle": "Bir PDF, TXT veya MD dosyası yükleyin — yapılandırılmış bir AI özeti alın.",
+  "subtitle": "Bir PDF, Pages, DOCX, TXT veya MD dosyası yükleyin — yapılandırılmış bir AI özeti alın.",
   "dropLabel": "Dosyayı buraya bırakın veya göz atmak için tıklayın",
-  "dropHint": "PDF, TXT veya MD — maks. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT veya MD — maks. 10 MB",
   "analyze": "Analiz Et",
   "analyzing": "Analiz ediliyor...",
   "sections": {

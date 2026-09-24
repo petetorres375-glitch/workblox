@@ -4,7 +4,7 @@
   "dropLabel": "履歴書をここにドロップ、またはクリックして選択",
   "resumesSelected_one": "{{count}}件の履歴書を選択",
   "resumesSelected_other": "{{count}}件の履歴書を選択",
-  "dropHint": "PDF、DOCX、TXT · 最大10ファイル",
+  "dropHint": "PDF、Pages、DOCX、TXT · 最大10ファイル",
   "jobDescriptionPlaceholder": "求人内容（より高精度なマッチングのためにここに貼り付けてください）",
   "analyzeAll": "すべての履歴書を分析",
   "analyzingCount_one": "{{count}}件の履歴書を分析中…",

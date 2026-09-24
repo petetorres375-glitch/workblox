@@ -4,7 +4,7 @@
   "dropLabel": "Trage CV-urile aici sau apasă pentru a răsfoi",
   "resumesSelected_one": "{{count}} CV selectat",
   "resumesSelected_other": "{{count}} CV-uri selectate",
-  "dropHint": "PDF, DOCX sau TXT · până la 10 fișiere",
+  "dropHint": "PDF, Pages, DOCX sau TXT · până la 10 fișiere",
   "jobDescriptionPlaceholder": "Descrierea postului (lipește aici pentru o potrivire mai bună)",
   "analyzeAll": "Analizează Toate CV-urile",
   "analyzingCount_one": "Se analizează {{count}} CV…",

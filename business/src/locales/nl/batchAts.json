@@ -4,7 +4,7 @@
   "dropLabel": "Sleep cv's hierheen of klik om te bladeren",
   "resumesSelected_one": "{{count}} cv geselecteerd",
   "resumesSelected_other": "{{count}} cv's geselecteerd",
-  "dropHint": "PDF, DOCX of TXT · tot 10 bestanden",
+  "dropHint": "PDF, Pages, DOCX of TXT · tot 10 bestanden",
   "jobDescriptionPlaceholder": "Functieomschrijving (plak hier voor een betere match)",
   "analyzeAll": "Alle Cv's Analyseren",
   "analyzingCount_one": "{{count}} cv wordt geanalyseerd…",

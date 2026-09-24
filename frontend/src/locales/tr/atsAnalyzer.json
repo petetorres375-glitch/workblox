@@ -3,7 +3,7 @@
   "subtitle": "Bir özgeçmiş yükleyin — anında ATS puanı, eksik anahtar kelimeler ve önerileri alın.",
   "dropZone": {
     "label": "Özgeçmişi buraya sürükleyin veya göz atmak için tıklayın",
-    "hint": "TXT, PDF veya DOCX — maks. 5 MB"
+    "hint": "TXT, PDF, Pages veya DOCX — maks. 5 MB"
   },
   "clientNamePlaceholder": "Müşteri adı (isteğe bağlı)",
   "jobRolePlaceholder": "İş pozisyonu (isteğe bağlı)",

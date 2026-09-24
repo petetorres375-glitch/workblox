@@ -2,7 +2,7 @@
   "title": "Analiza <0>Umów</0>",
   "subtitle": "Prześlij umowę i otrzymaj podsumowanie prostym językiem, ocenę ryzyka i kluczowe klauzule.",
   "dropLabel": "Przeciągnij tu umowę lub kliknij, aby wybrać plik",
-  "dropHint": "PDF, DOCX lub TXT",
+  "dropHint": "PDF, Pages, DOCX lub TXT",
   "analyze": "Analizuj umowę",
   "analyzing": "Analizowanie…",
   "documentOverview": "Przegląd dokumentu",

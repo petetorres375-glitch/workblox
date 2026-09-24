@@ -3,7 +3,7 @@
   "subtitle": "Ladda upp ett CV — få direkt ett ATS-betyg, saknade nyckelord och rekommendationer.",
   "dropZone": {
     "label": "Släpp ett CV här eller klicka för att bläddra",
-    "hint": "TXT, PDF eller DOCX — max 5 MB"
+    "hint": "TXT, PDF, Pages eller DOCX — max 5 MB"
   },
   "clientNamePlaceholder": "Klientens namn (valfritt)",
   "jobRolePlaceholder": "Yrkesroll (valfritt)",

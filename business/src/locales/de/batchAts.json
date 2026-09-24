@@ -4,7 +4,7 @@
   "dropLabel": "Lebensläufe hier ablegen oder klicken, um Dateien auszuwählen",
   "resumesSelected_one": "{{count}} Lebenslauf ausgewählt",
   "resumesSelected_other": "{{count}} Lebensläufe ausgewählt",
-  "dropHint": "PDF, DOCX oder TXT · bis zu 10 Dateien",
+  "dropHint": "PDF, Pages, DOCX oder TXT · bis zu 10 Dateien",
   "jobDescriptionPlaceholder": "Stellenbeschreibung (hier einfügen für bessere Übereinstimmung)",
   "analyzeAll": "Alle Lebensläufe Analysieren",
   "analyzingCount_one": "{{count}} Lebenslauf wird analysiert…",

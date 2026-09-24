@@ -2,7 +2,7 @@
   "title": "محلل <0>العقود</0>",
   "subtitle": "ارفع العقد للحصول على ملخص بلغة مبسطة وتقييم للمخاطر وأهم البنود.",
   "dropLabel": "أسقط العقد هنا أو انقر للاستعراض",
-  "dropHint": "PDF أو DOCX أو TXT",
+  "dropHint": "PDF أو Pages أو DOCX أو TXT",
   "analyze": "تحليل العقد",
   "analyzing": "جارٍ التحليل…",
   "documentOverview": "نظرة عامة على المستند",

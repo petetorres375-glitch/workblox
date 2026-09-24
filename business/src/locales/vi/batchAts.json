@@ -4,7 +4,7 @@
   "dropLabel": "Thả sơ yếu lý lịch vào đây hoặc nhấp để duyệt",
   "resumesSelected_one": "Đã chọn {{count}} sơ yếu lý lịch",
   "resumesSelected_other": "Đã chọn {{count}} sơ yếu lý lịch",
-  "dropHint": "PDF, DOCX hoặc TXT · tối đa 10 tệp",
+  "dropHint": "PDF, Pages, DOCX hoặc TXT · tối đa 10 tệp",
   "jobDescriptionPlaceholder": "Mô tả công việc (dán vào đây để khớp chính xác hơn)",
   "analyzeAll": "Phân Tích Tất Cả Sơ Yếu Lý Lịch",
   "analyzingCount_one": "Đang phân tích {{count}} sơ yếu lý lịch…",

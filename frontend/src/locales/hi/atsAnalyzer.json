@@ -3,7 +3,7 @@
   "subtitle": "रिज़्यूमे अपलोड करें — तुरंत ATS स्कोर, कीवर्ड की कमी और सुझाव पाएं।",
   "dropZone": {
     "label": "यहाँ रिज़्यूमे ड्रॉप करें या ब्राउज़ करने के लिए क्लिक करें",
-    "hint": "TXT, PDF या DOCX — अधिकतम 5 MB"
+    "hint": "TXT, PDF, Pages या DOCX — अधिकतम 5 MB"
   },
   "clientNamePlaceholder": "क्लाइंट का नाम (वैकल्पिक)",
   "jobRolePlaceholder": "नौकरी की भूमिका (वैकल्पिक)",

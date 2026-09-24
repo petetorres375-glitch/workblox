@@ -1,8 +1,8 @@
 {
   "title": "Analyseur de <0>Documents</0>",
-  "subtitle": "Téléversez un fichier PDF, TXT ou MD — obtenez un résumé structuré par IA.",
+  "subtitle": "Téléversez un fichier PDF, Pages, DOCX, TXT ou MD — obtenez un résumé structuré par IA.",
   "dropLabel": "Déposez un fichier ici ou cliquez pour parcourir",
-  "dropHint": "PDF, TXT ou MD — 10 Mo maximum",
+  "dropHint": "PDF, Pages, DOCX, TXT ou MD — 10 Mo maximum",
   "analyze": "Analyser",
   "analyzing": "Analyse en cours...",
   "sections": {

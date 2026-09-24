@@ -4,7 +4,7 @@
   "dropLabel": "Upuść CV tutaj lub kliknij, aby przeglądać",
   "resumesSelected_one": "Wybrano {{count}} CV",
   "resumesSelected_other": "Wybrano {{count}} CV",
-  "dropHint": "PDF, DOCX lub TXT · do 10 plików",
+  "dropHint": "PDF, Pages, DOCX lub TXT · do 10 plików",
   "jobDescriptionPlaceholder": "Opis stanowiska (wklej tutaj dla lepszego dopasowania)",
   "analyzeAll": "Analizuj Wszystkie CV",
   "analyzingCount_one": "Analizowanie {{count}} CV…",

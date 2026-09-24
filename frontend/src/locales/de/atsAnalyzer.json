@@ -3,7 +3,7 @@
   "subtitle": "Lade einen Lebenslauf hoch — erhalte sofort einen ATS-Score, fehlende Schlüsselwörter und Empfehlungen.",
   "dropZone": {
     "label": "Lebenslauf hier ablegen oder klicken zum Durchsuchen",
-    "hint": "TXT, PDF oder DOCX — max. 5 MB"
+    "hint": "TXT, PDF, Pages oder DOCX — max. 5 MB"
   },
   "clientNamePlaceholder": "Kundenname (optional)",
   "jobRolePlaceholder": "Stellenbezeichnung (optional)",

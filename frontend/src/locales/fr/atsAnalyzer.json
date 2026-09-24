@@ -3,7 +3,7 @@
   "subtitle": "Téléchargez un CV — obtenez instantanément un score ATS, les mots-clés manquants et des recommandations.",
   "dropZone": {
     "label": "Déposez un CV ici ou cliquez pour parcourir",
-    "hint": "TXT, PDF ou DOCX — 5 Mo max"
+    "hint": "TXT, PDF, Pages ou DOCX — 5 Mo max"
   },
   "clientNamePlaceholder": "Nom du client (facultatif)",
   "jobRolePlaceholder": "Poste visé (facultatif)",

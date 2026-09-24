@@ -4,7 +4,7 @@
   "dropLabel": "Přetáhněte sem životopisy nebo klikněte pro procházení",
   "resumesSelected_one": "Vybrán {{count}} životopis",
   "resumesSelected_other": "Vybráno {{count}} životopisů",
-  "dropHint": "PDF, DOCX nebo TXT · až 10 souborů",
+  "dropHint": "PDF, Pages, DOCX nebo TXT · až 10 souborů",
   "jobDescriptionPlaceholder": "Popis pracovní pozice (vložte sem pro lepší shodu)",
   "analyzeAll": "Analyzovat Všechny Životopisy",
   "analyzingCount_one": "Analyzuje se {{count}} životopis…",

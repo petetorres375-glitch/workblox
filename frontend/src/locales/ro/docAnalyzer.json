@@ -1,8 +1,8 @@
 {
   "title": "Analizator de <0>Documente</0>",
-  "subtitle": "Încarcă un fișier PDF, TXT sau MD — obține un rezumat structurat generat de AI.",
+  "subtitle": "Încarcă un fișier PDF, Pages, DOCX, TXT sau MD — obține un rezumat structurat generat de AI.",
   "dropLabel": "Trage un fișier aici sau apasă pentru a răsfoi",
-  "dropHint": "PDF, TXT sau MD — max. 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT sau MD — max. 10 MB",
   "analyze": "Analizează",
   "analyzing": "Se analizează...",
   "sections": {

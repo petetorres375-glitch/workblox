@@ -3,7 +3,7 @@
   "subtitle": "Carica un curriculum — ottieni all'istante un punteggio ATS, le parole chiave mancanti e i consigli.",
   "dropZone": {
     "label": "Trascina qui un curriculum o clicca per selezionarlo",
-    "hint": "TXT, PDF o DOCX — max 5 MB"
+    "hint": "TXT, PDF, Pages o DOCX — max 5 MB"
   },
   "clientNamePlaceholder": "Nome del cliente (facoltativo)",
   "jobRolePlaceholder": "Ruolo lavorativo (facoltativo)",

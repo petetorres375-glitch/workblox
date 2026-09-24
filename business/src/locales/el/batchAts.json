@@ -4,7 +4,7 @@
   "dropLabel": "Σύρετε τα βιογραφικά εδώ ή κάντε κλικ για περιήγηση",
   "resumesSelected_one": "{{count}} βιογραφικό επιλέχθηκε",
   "resumesSelected_other": "{{count}} βιογραφικά επιλέχθηκαν",
-  "dropHint": "PDF, DOCX ή TXT · έως 10 αρχεία",
+  "dropHint": "PDF, Pages, DOCX ή TXT · έως 10 αρχεία",
   "jobDescriptionPlaceholder": "Περιγραφή θέσης εργασίας (επικολλήστε εδώ για καλύτερη αντιστοίχιση)",
   "analyzeAll": "Ανάλυση Όλων των Βιογραφικών",
   "analyzingCount_one": "Ανάλυση {{count}} βιογραφικού…",

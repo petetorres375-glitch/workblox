@@ -214,7 +214,7 @@ export default function DocAnalyzer() {
           <input
             ref={fileRef}
             type="file"
-            accept=".pdf,.txt,.md"
+            accept=".pdf,.txt,.md,.docx,.pages"
             onChange={(e) => handleDroppedOrSelected(e.target.files)}
           />
           {file ? (

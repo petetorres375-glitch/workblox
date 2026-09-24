@@ -2,7 +2,7 @@
   "title": "Penganalisis <0>Kontrak</0>",
   "subtitle": "Unggah kontrak untuk mendapatkan ringkasan berbahasa sederhana, penilaian risiko, dan klausul utama.",
   "dropLabel": "Letakkan kontrak di sini atau klik untuk memilih file",
-  "dropHint": "PDF, DOCX, atau TXT",
+  "dropHint": "PDF, Pages, DOCX, atau TXT",
   "analyze": "Analisis Kontrak",
   "analyzing": "Menganalisis…",
   "documentOverview": "Ringkasan Dokumen",

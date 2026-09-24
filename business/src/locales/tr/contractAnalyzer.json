@@ -2,7 +2,7 @@
   "title": "Sözleşme <0>Analizörü</0>",
   "subtitle": "Bir sözleşme yükleyin; sade bir dille özet, risk değerlendirmesi ve önemli maddeleri alın.",
   "dropLabel": "Sözleşmeyi buraya sürükleyin veya göz atmak için tıklayın",
-  "dropHint": "PDF, DOCX veya TXT",
+  "dropHint": "PDF, Pages, DOCX veya TXT",
   "analyze": "Sözleşmeyi Analiz Et",
   "analyzing": "Analiz ediliyor…",
   "documentOverview": "Belge Genel Bakışı",

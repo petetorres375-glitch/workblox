@@ -3,7 +3,7 @@
   "subtitle": "Prześlij CV — uzyskaj natychmiastowy wynik ATS, brakujące słowa kluczowe i rekomendacje.",
   "dropZone": {
     "label": "Upuść CV tutaj lub kliknij, aby wybrać plik",
-    "hint": "TXT, PDF lub DOCX — maks. 5 MB"
+    "hint": "TXT, PDF, Pages lub DOCX — maks. 5 MB"
   },
   "clientNamePlaceholder": "Imię i nazwisko klienta (opcjonalnie)",
   "jobRolePlaceholder": "Stanowisko (opcjonalnie)",

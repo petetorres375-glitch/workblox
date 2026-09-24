@@ -4,7 +4,7 @@
   "dropLabel": "Släpp CV:n här eller klicka för att bläddra",
   "resumesSelected_one": "{{count}} CV valt",
   "resumesSelected_other": "{{count}} CV:n valda",
-  "dropHint": "PDF, DOCX eller TXT · upp till 10 filer",
+  "dropHint": "PDF, Pages, DOCX eller TXT · upp till 10 filer",
   "jobDescriptionPlaceholder": "Jobbeskrivning (klistra in här för bättre matchning)",
   "analyzeAll": "Analysera Alla CV:n",
   "analyzingCount_one": "Analyserar {{count}} CV…",

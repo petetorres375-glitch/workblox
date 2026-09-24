@@ -13,7 +13,7 @@ from app.services.entitlements import require_tool
 
 bp = Blueprint("ats_analyzer", __name__)
 
-ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx"}
+ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx", ".pages"}
 
 
 def _extract_text(file):
@@ -55,7 +55,11 @@ def _extract_text(file):
         doc = python_docx.Document(io.BytesIO(raw))
         return "\n".join(p.text for p in doc.paragraphs)
 
-    raise ValueError(f"Unsupported file type '.{ext}'. Upload TXT, PDF, or DOCX.")
+    if ext == "pages":
+        from app.services.pages_reader import read_pages
+        return read_pages(raw)
+
+    raise ValueError(f"Unsupported file type '.{ext}'. Upload TXT, PDF, DOCX, or PAGES.")
 
 
 @bp.get("/api/ats/roles")

@@ -2,7 +2,7 @@
   "title": "ניתוח <0>חוזה</0>",
   "subtitle": "העלו חוזה וקבלו תקציר בשפה פשוטה, הערכת סיכונים וסעיפים מרכזיים.",
   "dropLabel": "גררו את החוזה לכאן או לחצו לבחירת קובץ",
-  "dropHint": "PDF, DOCX או TXT",
+  "dropHint": "PDF, Pages, DOCX או TXT",
   "analyze": "ניתוח חוזה",
   "analyzing": "מנתח…",
   "documentOverview": "סקירת המסמך",

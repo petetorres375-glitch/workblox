@@ -1,8 +1,8 @@
 {
   "title": "Αναλυτής <0>Εγγράφων</0>",
-  "subtitle": "Ανεβάστε ένα αρχείο PDF, TXT ή MD — λάβετε μια δομημένη περίληψη από AI.",
+  "subtitle": "Ανεβάστε ένα αρχείο PDF, Pages, DOCX, TXT ή MD — λάβετε μια δομημένη περίληψη από AI.",
   "dropLabel": "Ρίξτε ένα αρχείο εδώ ή κάντε κλικ για περιήγηση",
-  "dropHint": "PDF, TXT ή MD — έως 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT ή MD — έως 10 MB",
   "analyze": "Ανάλυση",
   "analyzing": "Ανάλυση σε εξέλιξη...",
   "sections": {

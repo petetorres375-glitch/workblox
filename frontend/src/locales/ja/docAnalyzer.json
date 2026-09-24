@@ -1,8 +1,8 @@
 {
   "title": "ドキュメント<0>アナライザー</0>",
-  "subtitle": "PDF、TXT、またはMDファイルをアップロードして、構造化されたAI要約を取得しましょう。",
+  "subtitle": "PDF、Pages、DOCX、TXT、またはMDファイルをアップロードして、構造化されたAI要約を取得しましょう。",
   "dropLabel": "ここにファイルをドロップするか、クリックして参照",
-  "dropHint": "PDF、TXT、MD — 最大10MB",
+  "dropHint": "PDF、Pages、DOCX、TXT、MD — 最大10MB",
   "analyze": "分析する",
   "analyzing": "分析中...",
   "sections": {

@@ -1,8 +1,8 @@
 {
   "title": "Dokument<0>analysator</0>",
-  "subtitle": "Ladda upp en PDF-, TXT- eller MD-fil — få en strukturerad AI-sammanfattning.",
+  "subtitle": "Ladda upp en PDF-, Pages-, DOCX-, TXT- eller MD-fil — få en strukturerad AI-sammanfattning.",
   "dropLabel": "Släpp en fil här eller klicka för att bläddra",
-  "dropHint": "PDF, TXT eller MD — max 10 MB",
+  "dropHint": "PDF, Pages, DOCX, TXT eller MD — max 10 MB",
   "analyze": "Analysera",
   "analyzing": "Analyserar...",
   "sections": {

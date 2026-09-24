@@ -2,7 +2,7 @@
   "title": "Analizzatore <0>Contratti</0>",
   "subtitle": "Carica un contratto e ottieni un riepilogo in linguaggio semplice, una valutazione dei rischi e le clausole principali.",
   "dropLabel": "Trascina qui il contratto o clicca per sfogliare",
-  "dropHint": "PDF, DOCX o TXT",
+  "dropHint": "PDF, Pages, DOCX o TXT",
   "analyze": "Analizza contratto",
   "analyzing": "Analisi in corso…",
   "documentOverview": "Panoramica del documento",

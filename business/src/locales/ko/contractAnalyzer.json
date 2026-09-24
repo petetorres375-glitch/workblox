@@ -2,7 +2,7 @@
   "title": "계약서 <0>분석기</0>",
   "subtitle": "계약서를 업로드하면 쉬운 설명, 위험도 평가, 주요 조항을 확인할 수 있습니다.",
   "dropLabel": "계약서를 여기에 드래그하거나 클릭하여 찾아보기",
-  "dropHint": "PDF, DOCX 또는 TXT",
+  "dropHint": "PDF, Pages, DOCX 또는 TXT",
   "analyze": "계약서 분석",
   "analyzing": "분석 중…",
   "documentOverview": "문서 개요",

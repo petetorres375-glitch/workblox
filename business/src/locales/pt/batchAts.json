@@ -4,7 +4,7 @@
   "dropLabel": "Solte os currículos aqui ou clique para procurar",
   "resumesSelected_one": "{{count}} currículo selecionado",
   "resumesSelected_other": "{{count}} currículos selecionados",
-  "dropHint": "PDF, DOCX ou TXT · até 10 arquivos",
+  "dropHint": "PDF, Pages, DOCX ou TXT · até 10 arquivos",
   "jobDescriptionPlaceholder": "Descrição da vaga (cole aqui para uma melhor correspondência)",
   "analyzeAll": "Analisar Todos os Currículos",
   "analyzingCount_one": "Analisando {{count}} currículo…",
