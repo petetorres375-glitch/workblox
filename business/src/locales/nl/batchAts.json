@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} cv's geanalyseerd",
   "errorLabel": "Fout: {{error}}",
   "strengths": "Sterke Punten",
-  "concerns": "Aandachtspunten"
+  "concerns": "Aandachtspunten",
+  "hiddenTextWarning": "Verborgen tekst gevonden in dit cv (zoals witte of piepkleine tekst). Die is genegeerd en telde niet mee voor de score.",
+  "fileLabel": "Bestand",
+  "matchLabel": "Match",
+  "recommendationLabels": {
+    "Advance": "Door",
+    "Maybe": "Misschien",
+    "Pass": "Afwijzen"
+  },
+  "matchLevelLabels": {
+    "Strong": "Sterk",
+    "Good": "Goed",
+    "Fair": "Redelijk",
+    "Weak": "Zwak"
+  }
 }

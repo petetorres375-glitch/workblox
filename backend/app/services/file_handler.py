@@ -4,6 +4,20 @@ SUPPORTED_EXTENSIONS = {".pdf", ".txt", ".md", ".docx", ".pages"}
 
 
 def extract_text(file_storage) -> str:
+    """Visible text of an uploaded document (see extract_document)."""
+    return extract_document(file_storage).text
+
+
+def extract_document(file_storage):
+    """Read an uploaded document, keeping only text a person could see.
+
+    Returns hidden_text.Extraction: .text is what gets analyzed, and
+    .hidden_runs counts text that was dropped for being invisible (white on
+    white, microscopic, off the page, marked hidden), so the tool can tell
+    the user. .pages/.txt/.md have no hidden-text check -- Pages files are
+    rare and plain text has no styling to hide behind."""
+    from app.services.hidden_text import Extraction, docx_visible_text, pdf_visible_text
+
     filename = file_storage.filename or ""
     ext = Path(filename).suffix.lower()
     if ext not in SUPPORTED_EXTENSIONS:
@@ -11,13 +25,13 @@ def extract_text(file_storage) -> str:
 
     raw = file_storage.read()
     if ext == ".pdf":
-        return _read_pdf_bytes(raw)
+        return pdf_visible_text(raw)
     if ext == ".docx":
-        return _read_docx_bytes(raw)
+        return docx_visible_text(raw)
     if ext == ".pages":
         from app.services.pages_reader import read_pages
-        return read_pages(raw)
-    return raw.decode("utf-8", errors="replace")
+        return Extraction(read_pages(raw))
+    return Extraction(raw.decode("utf-8", errors="replace"))
 
 
 OCR_DPI = 300

@@ -21,5 +21,16 @@
     "send": "Versturen",
     "sending": "Versturen...",
     "sent": "Rapport verzonden naar {{email}}"
+  },
+  "hiddenTextWarning": "Dit document bevatte verborgen tekst (zoals witte of piepkleine tekst). Die is weggelaten uit deze analyse.",
+  "photo": {
+    "or": "of",
+    "take": "Foto maken",
+    "choose": "Foto kiezen",
+    "hint": "Werkt het best op een vlakke ondergrond met goed licht.",
+    "limit": "Maximaal {{max}} foto's per document.",
+    "pageLabel": "Pagina {{n}}",
+    "removeLabel": "Pagina {{n}} verwijderen",
+    "filenameFallback": "Gefotografeerd document"
   }
 }

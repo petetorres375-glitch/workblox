@@ -15,5 +15,15 @@
   "paymentTerms": "Ödeme Koşulları",
   "redFlags": "Uyarı İşaretleri",
   "missingClauses": "Eksik Standart Maddeler",
-  "recommendation": "Öneri"
+  "recommendation": "Öneri",
+  "hiddenTextWarning": "Bu sözleşme gizli metin içeriyordu (örneğin beyaz veya çok küçük metin). Bu metin analize dahil edilmedi — orijinal dosyayı dikkatle inceleyin.",
+  "photo": {
+    "or": "veya",
+    "take": "Fotoğraf çek",
+    "choose": "Fotoğraf seç",
+    "hint": "En iyi sonuç için düz bir yüzey ve iyi ışık kullanın.",
+    "limit": "Belge başına en fazla {{max}} fotoğraf.",
+    "pageLabel": "Sayfa {{n}}",
+    "removeLabel": "{{n}}. sayfayı kaldır"
+  }
 }

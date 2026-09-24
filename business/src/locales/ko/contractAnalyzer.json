@@ -15,5 +15,15 @@
   "paymentTerms": "지급 조건",
   "redFlags": "주의 사항",
   "missingClauses": "누락된 표준 조항",
-  "recommendation": "권장 사항"
+  "recommendation": "권장 사항",
+  "hiddenTextWarning": "이 계약서에는 숨겨진 텍스트(흰색 글자나 아주 작은 글자 등)가 있었습니다. 이번 분석에서 제외했습니다. 원본 파일을 꼼꼼히 확인하세요.",
+  "photo": {
+    "or": "또는",
+    "take": "사진 찍기",
+    "choose": "사진 선택",
+    "hint": "평평한 곳에서 밝은 조명으로 찍으면 가장 좋습니다.",
+    "limit": "문서당 최대 {{max}}장의 사진.",
+    "pageLabel": "{{n}}페이지",
+    "removeLabel": "{{n}}페이지 삭제"
+  }
 }

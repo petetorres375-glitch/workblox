@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} CV analysés",
   "errorLabel": "Erreur : {{error}}",
   "strengths": "Points Forts",
-  "concerns": "Points de Vigilance"
+  "concerns": "Points de Vigilance",
+  "hiddenTextWarning": "Texte masqué détecté dans ce CV (par exemple du texte blanc ou minuscule). Il a été ignoré et n'a pas influencé le score.",
+  "fileLabel": "Fichier",
+  "matchLabel": "Correspondance",
+  "recommendationLabels": {
+    "Advance": "Retenir",
+    "Maybe": "Peut-être",
+    "Pass": "Écarter"
+  },
+  "matchLevelLabels": {
+    "Strong": "Forte",
+    "Good": "Bonne",
+    "Fair": "Moyenne",
+    "Weak": "Faible"
+  }
 }

@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Generuji..."
-  }
+  },
+  "hiddenTextWarning": "Tento životopis obsahoval skrytý text (např. bílý nebo drobný text). Byl vynechán, takže neovlivňuje skóre.",
+  "unsupportedLanguage": "Tento životopis není v jazyce, který ATS Analyzátor zatím umí hodnotit. Momentálně hodnotí životopisy v angličtině nebo španělštině."
 }

@@ -15,5 +15,15 @@
   "paymentTerms": "Betalningsvillkor",
   "redFlags": "Varningssignaler",
   "missingClauses": "Saknade standardvillkor",
-  "recommendation": "Rekommendation"
+  "recommendation": "Rekommendation",
+  "hiddenTextWarning": "Detta avtal innehöll dold text (till exempel vit eller mycket liten text). Den har uteslutits från analysen – granska originalfilen noggrant.",
+  "photo": {
+    "or": "eller",
+    "take": "Ta foto",
+    "choose": "Välj foto",
+    "hint": "Fungerar bäst på plant underlag i bra ljus.",
+    "limit": "Upp till {{max}} foton per dokument.",
+    "pageLabel": "Sida {{n}}",
+    "removeLabel": "Ta bort sida {{n}}"
+  }
 }

@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "Analyzováno {{count}} životopisů",
   "errorLabel": "Chyba: {{error}}",
   "strengths": "Silné Stránky",
-  "concerns": "Slabá Místa"
+  "concerns": "Slabá Místa",
+  "hiddenTextWarning": "V tomto životopisu byl nalezen skrytý text (např. bílý nebo drobný text). Byl ignorován a skóre neovlivnil.",
+  "fileLabel": "Soubor",
+  "matchLabel": "Shoda",
+  "recommendationLabels": {
+    "Advance": "Postoupit",
+    "Maybe": "Možná",
+    "Pass": "Zamítnout"
+  },
+  "matchLevelLabels": {
+    "Strong": "Silná",
+    "Good": "Dobrá",
+    "Fair": "Průměrná",
+    "Weak": "Slabá"
+  }
 }

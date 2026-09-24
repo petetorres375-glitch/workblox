@@ -31,5 +31,6 @@
     "send": "Send",
     "sending": "Sending...",
     "sent": "Report sent to {{email}}"
-  }
+  },
+  "hiddenTextWarning": "This document contained hidden text (such as white or tiny text). It was left out of this analysis."
 }

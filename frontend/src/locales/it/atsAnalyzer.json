@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Generazione..."
-  }
+  },
+  "hiddenTextWarning": "Questo curriculum conteneva testo nascosto (ad esempio testo bianco o minuscolo). È stato escluso, quindi non influisce sul punteggio.",
+  "unsupportedLanguage": "Questo curriculum non è in una lingua che l'Analizzatore ATS può ancora valutare. Al momento valuta curriculum in inglese o spagnolo."
 }

@@ -15,5 +15,15 @@
   "paymentTerms": "Điều khoản Thanh toán",
   "redFlags": "Dấu hiệu Cảnh báo",
   "missingClauses": "Điều khoản Tiêu chuẩn Còn thiếu",
-  "recommendation": "Khuyến nghị"
+  "recommendation": "Khuyến nghị",
+  "hiddenTextWarning": "Hợp đồng này chứa văn bản ẩn (ví dụ chữ trắng hoặc chữ rất nhỏ). Phần đó đã bị loại khỏi lần phân tích này — hãy xem kỹ tệp gốc.",
+  "photo": {
+    "or": "hoặc",
+    "take": "Chụp ảnh",
+    "choose": "Chọn ảnh",
+    "hint": "Hiệu quả nhất trên bề mặt phẳng, đủ ánh sáng.",
+    "limit": "Tối đa {{max}} ảnh mỗi tài liệu.",
+    "pageLabel": "Trang {{n}}",
+    "removeLabel": "Xóa trang {{n}}"
+  }
 }

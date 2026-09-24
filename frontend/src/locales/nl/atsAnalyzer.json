@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Bezig met genereren..."
-  }
+  },
+  "hiddenTextWarning": "Dit cv bevatte verborgen tekst (zoals witte of piepkleine tekst). Die is weggelaten en telt niet mee voor de score.",
+  "unsupportedLanguage": "Dit cv is geschreven in een taal die de ATS-analyzer nog niet kan beoordelen. Momenteel beoordeelt hij cv's in het Engels of Spaans."
 }

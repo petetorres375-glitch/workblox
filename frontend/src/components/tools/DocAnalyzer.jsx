@@ -265,6 +265,9 @@ export default function DocAnalyzer() {
 
       {result && !loading && (
         <>
+          {result.hidden_text && (
+            <p className="hidden-text-warning" style={{ marginTop: 24 }}>{t("hiddenTextWarning")}</p>
+          )}
           <div style={{ marginTop: 24 }}>
             <DocSection title={t("sections.summary")} content={result.summary} />
             <DocSection title={t("sections.keyDataPoints")} content={result.key_data_points} />

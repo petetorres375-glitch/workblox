@@ -15,5 +15,15 @@
   "paymentTerms": "Platební podmínky",
   "redFlags": "Varovné signály",
   "missingClauses": "Chybějící standardní doložky",
-  "recommendation": "Doporučení"
+  "recommendation": "Doporučení",
+  "hiddenTextWarning": "Tato smlouva obsahovala skrytý text (např. bílý nebo drobný text). Byl z této analýzy vynechán – pečlivě zkontrolujte původní soubor.",
+  "photo": {
+    "or": "nebo",
+    "take": "Vyfotit",
+    "choose": "Vybrat fotku",
+    "hint": "Nejlépe na rovném povrchu a při dobrém světle.",
+    "limit": "Až {{max}} fotek na dokument.",
+    "pageLabel": "Strana {{n}}",
+    "removeLabel": "Odebrat stranu {{n}}"
+  }
 }

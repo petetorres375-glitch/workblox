@@ -15,5 +15,15 @@
   "paymentTerms": "Betalingsvoorwaarden",
   "redFlags": "Waarschuwingssignalen",
   "missingClauses": "Ontbrekende standaardclausules",
-  "recommendation": "Aanbeveling"
+  "recommendation": "Aanbeveling",
+  "hiddenTextWarning": "Dit contract bevatte verborgen tekst (zoals witte of piepkleine tekst). Die is weggelaten uit deze analyse — bekijk het originele bestand zorgvuldig.",
+  "photo": {
+    "or": "of",
+    "take": "Foto maken",
+    "choose": "Foto kiezen",
+    "hint": "Werkt het best op een vlakke ondergrond met goed licht.",
+    "limit": "Maximaal {{max}} foto's per document.",
+    "pageLabel": "Pagina {{n}}",
+    "removeLabel": "Pagina {{n}} verwijderen"
+  }
 }

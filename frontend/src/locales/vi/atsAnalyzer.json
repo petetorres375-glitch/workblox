@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Đang tạo..."
-  }
+  },
+  "hiddenTextWarning": "Hồ sơ này chứa văn bản ẩn (ví dụ chữ trắng hoặc chữ rất nhỏ). Phần đó đã bị loại bỏ nên không ảnh hưởng đến điểm.",
+  "unsupportedLanguage": "Hồ sơ này không thuộc ngôn ngữ mà Trình phân tích ATS có thể chấm điểm. Hiện công cụ chỉ đánh giá hồ sơ viết bằng tiếng Anh hoặc tiếng Tây Ban Nha."
 }

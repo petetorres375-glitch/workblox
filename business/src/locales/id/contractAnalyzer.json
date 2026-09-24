@@ -15,5 +15,15 @@
   "paymentTerms": "Ketentuan Pembayaran",
   "redFlags": "Tanda Peringatan",
   "missingClauses": "Klausul Standar yang Hilang",
-  "recommendation": "Rekomendasi"
+  "recommendation": "Rekomendasi",
+  "hiddenTextWarning": "Kontrak ini berisi teks tersembunyi (misalnya teks putih atau sangat kecil). Teks itu dikecualikan dari analisis ini — periksa file aslinya dengan saksama.",
+  "photo": {
+    "or": "atau",
+    "take": "Ambil foto",
+    "choose": "Pilih foto",
+    "hint": "Paling baik di permukaan datar dengan cahaya yang cukup.",
+    "limit": "Maksimal {{max}} foto per dokumen.",
+    "pageLabel": "Halaman {{n}}",
+    "removeLabel": "Hapus halaman {{n}}"
+  }
 }

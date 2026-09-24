@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "已分析 {{count}} 份简历",
   "errorLabel": "错误：{{error}}",
   "strengths": "优势",
-  "concerns": "顾虑"
+  "concerns": "顾虑",
+  "hiddenTextWarning": "在这份简历中发现隐藏文字（例如白色或极小的文字）。这些文字已被忽略，未影响评分。",
+  "fileLabel": "文件",
+  "matchLabel": "匹配度",
+  "recommendationLabels": {
+    "Advance": "推进",
+    "Maybe": "待定",
+    "Pass": "淘汰"
+  },
+  "matchLevelLabels": {
+    "Strong": "强",
+    "Good": "良好",
+    "Fair": "一般",
+    "Weak": "弱"
+  }
 }

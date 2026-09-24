@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} currículos analisados",
   "errorLabel": "Erro: {{error}}",
   "strengths": "Pontos Fortes",
-  "concerns": "Pontos de Atenção"
+  "concerns": "Pontos de Atenção",
+  "hiddenTextWarning": "Texto oculto encontrado neste currículo (como texto branco ou minúsculo). Ele foi ignorado e não afetou a pontuação.",
+  "fileLabel": "Arquivo",
+  "matchLabel": "Compatibilidade",
+  "recommendationLabels": {
+    "Advance": "Avançar",
+    "Maybe": "Talvez",
+    "Pass": "Descartar"
+  },
+  "matchLevelLabels": {
+    "Strong": "Forte",
+    "Good": "Boa",
+    "Fair": "Regular",
+    "Weak": "Fraca"
+  }
 }

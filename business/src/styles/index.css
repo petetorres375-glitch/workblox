@@ -1416,3 +1416,23 @@ footer a {
 @media (max-width: 640px) {
   .clean-col-flags { flex-basis: 110px; }
 }
+
+/* Shown when an uploaded file had text a reader can't see (white on white,
+   microscopic, off the page) -- that text was left out of the analysis. */
+.hidden-text-warning {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  color: #92400e;
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.hidden-text-warning::before {
+  content: "⚠";
+  font-weight: 700;
+}

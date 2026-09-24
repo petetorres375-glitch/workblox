@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} βιογραφικά αναλύθηκαν",
   "errorLabel": "Σφάλμα: {{error}}",
   "strengths": "Δυνατά Σημεία",
-  "concerns": "Ανησυχίες"
+  "concerns": "Ανησυχίες",
+  "hiddenTextWarning": "Βρέθηκε κρυφό κείμενο σε αυτό το βιογραφικό (π.χ. λευκό ή πολύ μικρό κείμενο). Αγνοήθηκε και δεν επηρέασε τη βαθμολογία.",
+  "fileLabel": "Αρχείο",
+  "matchLabel": "Αντιστοίχιση",
+  "recommendationLabels": {
+    "Advance": "Προώθηση",
+    "Maybe": "Ίσως",
+    "Pass": "Απόρριψη"
+  },
+  "matchLevelLabels": {
+    "Strong": "Ισχυρή",
+    "Good": "Καλή",
+    "Fair": "Μέτρια",
+    "Weak": "Αδύναμη"
+  }
 }

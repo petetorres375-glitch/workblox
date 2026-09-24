@@ -21,5 +21,16 @@
     "send": "Gửi",
     "sending": "Đang gửi...",
     "sent": "Đã gửi báo cáo đến {{email}}"
+  },
+  "hiddenTextWarning": "Tài liệu này chứa văn bản ẩn (ví dụ chữ trắng hoặc chữ rất nhỏ). Phần đó đã bị loại khỏi lần phân tích này.",
+  "photo": {
+    "or": "hoặc",
+    "take": "Chụp ảnh",
+    "choose": "Chọn ảnh",
+    "hint": "Hiệu quả nhất trên bề mặt phẳng, đủ ánh sáng.",
+    "limit": "Tối đa {{max}} ảnh mỗi tài liệu.",
+    "pageLabel": "Trang {{n}}",
+    "removeLabel": "Xóa trang {{n}}",
+    "filenameFallback": "Tài liệu chụp ảnh"
   }
 }

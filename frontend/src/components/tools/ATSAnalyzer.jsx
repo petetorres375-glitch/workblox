@@ -173,9 +173,10 @@ export default function ATSAnalyzer() {
 
       {error && (
         <div className="error-banner" style={{ marginTop: 16 }}>
-          {/* The engine only scores English resumes; show our own copy for that
-              case so it reads in the user's language once translated. */}
-          {errorCode === "not_english" || errorCode === "non_latin_script"
+          {/* The engine scores English and Spanish resumes; for any other
+              language show our own translated copy rather than the backend's
+              English sentence. */}
+          {errorCode === "unsupported_language" || errorCode === "not_english" || errorCode === "non_latin_script"
             ? t("unsupportedLanguage")
             : error}
         </div>
@@ -183,6 +184,9 @@ export default function ATSAnalyzer() {
 
       {data && !loading && (
         <>
+          {data.hidden_text && (
+            <p className="hidden-text-warning" style={{ marginTop: 24 }}>{t("hiddenTextWarning")}</p>
+          )}
           {/* Score card */}
           <div className="result-card" style={{ marginTop: 24, textAlign: "center" }}>
             <div style={{ fontSize: "4rem", fontWeight: 700, color: scoreColor, lineHeight: 1 }}>

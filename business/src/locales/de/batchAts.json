@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} Lebensläufe analysiert",
   "errorLabel": "Fehler: {{error}}",
   "strengths": "Stärken",
-  "concerns": "Bedenken"
+  "concerns": "Bedenken",
+  "hiddenTextWarning": "Versteckter Text in diesem Lebenslauf gefunden (z. B. weißer oder winziger Text). Er wurde ignoriert und hat die Bewertung nicht beeinflusst.",
+  "fileLabel": "Datei",
+  "matchLabel": "Übereinstimmung",
+  "recommendationLabels": {
+    "Advance": "Weiter",
+    "Maybe": "Vielleicht",
+    "Pass": "Absage"
+  },
+  "matchLevelLabels": {
+    "Strong": "Stark",
+    "Good": "Gut",
+    "Fair": "Mittel",
+    "Weak": "Schwach"
+  }
 }

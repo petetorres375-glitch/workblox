@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "生成中..."
-  }
+  },
+  "hiddenTextWarning": "这份简历包含隐藏文字（例如白色或极小的文字）。这些文字已被排除，不会影响评分。",
+  "unsupportedLanguage": "这份简历使用的语言 ATS 分析器暂时无法评分。目前支持评估英文或西班牙文简历。"
 }

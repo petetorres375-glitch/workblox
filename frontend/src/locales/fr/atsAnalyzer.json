@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Génération..."
-  }
+  },
+  "hiddenTextWarning": "Ce CV contenait du texte masqué (par exemple du texte blanc ou minuscule). Il a été exclu et n'influence pas le score.",
+  "unsupportedLanguage": "Ce CV n'est pas dans une langue que l'Analyseur ATS peut encore noter. Il évalue actuellement les CV rédigés en anglais ou en espagnol."
 }

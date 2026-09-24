@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} CV:n analyserade",
   "errorLabel": "Fel: {{error}}",
   "strengths": "Styrkor",
-  "concerns": "Farhågor"
+  "concerns": "Farhågor",
+  "hiddenTextWarning": "Dold text hittades i detta CV (till exempel vit eller mycket liten text). Den ignorerades och påverkade inte poängen.",
+  "fileLabel": "Fil",
+  "matchLabel": "Matchning",
+  "recommendationLabels": {
+    "Advance": "Gå vidare",
+    "Maybe": "Kanske",
+    "Pass": "Avböj"
+  },
+  "matchLevelLabels": {
+    "Strong": "Stark",
+    "Good": "Bra",
+    "Fair": "Godtagbar",
+    "Weak": "Svag"
+  }
 }

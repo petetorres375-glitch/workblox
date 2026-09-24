@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "이력서 {{count}}개 분석 완료",
   "errorLabel": "오류: {{error}}",
   "strengths": "강점",
-  "concerns": "우려 사항"
+  "concerns": "우려 사항",
+  "hiddenTextWarning": "이 이력서에서 숨겨진 텍스트(흰색 글자나 아주 작은 글자 등)가 발견되었습니다. 무시되었으며 점수에 영향을 주지 않았습니다.",
+  "fileLabel": "파일",
+  "matchLabel": "적합도",
+  "recommendationLabels": {
+    "Advance": "진행",
+    "Maybe": "보류",
+    "Pass": "탈락"
+  },
+  "matchLevelLabels": {
+    "Strong": "높음",
+    "Good": "좋음",
+    "Fair": "보통",
+    "Weak": "낮음"
+  }
 }

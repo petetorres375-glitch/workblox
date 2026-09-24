@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} currículums analizados",
   "errorLabel": "Error: {{error}}",
   "strengths": "Fortalezas",
-  "concerns": "Preocupaciones"
+  "concerns": "Preocupaciones",
+  "hiddenTextWarning": "Se encontró texto oculto en este currículum (por ejemplo, texto blanco o diminuto). Se ignoró y no afectó la puntuación.",
+  "fileLabel": "Archivo",
+  "matchLabel": "Coincidencia",
+  "recommendationLabels": {
+    "Advance": "Avanzar",
+    "Maybe": "Tal vez",
+    "Pass": "Descartar"
+  },
+  "matchLevelLabels": {
+    "Strong": "Fuerte",
+    "Good": "Buena",
+    "Fair": "Regular",
+    "Weak": "Débil"
+  }
 }

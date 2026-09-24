@@ -15,5 +15,15 @@
   "paymentTerms": "支払条件",
   "redFlags": "注意すべき点",
   "missingClauses": "不足している標準条項",
-  "recommendation": "推奨事項"
+  "recommendation": "推奨事項",
+  "hiddenTextWarning": "この契約書には隠しテキスト（白い文字や極小の文字など）が含まれていました。今回の分析からは除外しています。元のファイルを注意深く確認してください。",
+  "photo": {
+    "or": "または",
+    "take": "写真を撮る",
+    "choose": "写真を選ぶ",
+    "hint": "平らな場所で明るい光の下で撮ると最適です。",
+    "limit": "1つの文書につき写真は最大{{max}}枚です。",
+    "pageLabel": "{{n}}ページ",
+    "removeLabel": "{{n}}ページを削除"
+  }
 }

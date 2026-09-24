@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "วิเคราะห์เรซูเม่แล้ว {{count}} ฉบับ",
   "errorLabel": "ข้อผิดพลาด: {{error}}",
   "strengths": "จุดแข็ง",
-  "concerns": "ข้อกังวล"
+  "concerns": "ข้อกังวล",
+  "hiddenTextWarning": "พบข้อความที่ซ่อนอยู่ในเรซูเมนี้ (เช่น ข้อความสีขาวหรือตัวเล็กมาก) ระบบไม่นำมาพิจารณาและไม่มีผลต่อคะแนน",
+  "fileLabel": "ไฟล์",
+  "matchLabel": "ความตรงกัน",
+  "recommendationLabels": {
+    "Advance": "ผ่านไปขั้นถัดไป",
+    "Maybe": "อาจจะ",
+    "Pass": "ไม่ผ่าน"
+  },
+  "matchLevelLabels": {
+    "Strong": "สูง",
+    "Good": "ดี",
+    "Fair": "พอใช้",
+    "Weak": "ต่ำ"
+  }
 }

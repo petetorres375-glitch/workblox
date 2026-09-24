@@ -21,5 +21,16 @@
     "send": "Invia",
     "sending": "Invio in corso...",
     "sent": "Report inviato a {{email}}"
+  },
+  "hiddenTextWarning": "Questo documento conteneva testo nascosto (ad esempio testo bianco o minuscolo). È stato escluso da questa analisi.",
+  "photo": {
+    "or": "oppure",
+    "take": "Scatta foto",
+    "choose": "Scegli foto",
+    "hint": "Meglio su una superficie piana e con buona luce.",
+    "limit": "Fino a {{max}} foto per documento.",
+    "pageLabel": "Pagina {{n}}",
+    "removeLabel": "Rimuovi pagina {{n}}",
+    "filenameFallback": "Documento fotografato"
   }
 }

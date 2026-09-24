@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Membuat..."
-  }
+  },
+  "hiddenTextWarning": "Resume ini berisi teks tersembunyi (misalnya teks putih atau sangat kecil). Teks itu dikecualikan sehingga tidak memengaruhi skor.",
+  "unsupportedLanguage": "Resume ini tidak ditulis dalam bahasa yang sudah bisa dinilai oleh Penganalisis ATS. Saat ini alat ini menilai resume berbahasa Inggris atau Spanyol."
 }

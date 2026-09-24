@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Wird erstellt..."
-  }
+  },
+  "hiddenTextWarning": "Dieser Lebenslauf enthielt versteckten Text (z. B. weißen oder winzigen Text). Er wurde ausgelassen und beeinflusst die Bewertung nicht.",
+  "unsupportedLanguage": "Dieser Lebenslauf ist in einer Sprache, die der ATS-Analyzer noch nicht bewerten kann. Derzeit bewertet er Lebensläufe auf Englisch oder Spanisch."
 }

@@ -15,5 +15,15 @@
   "paymentTerms": "付款条款",
   "redFlags": "风险警示",
   "missingClauses": "缺失的标准条款",
-  "recommendation": "建议"
+  "recommendation": "建议",
+  "hiddenTextWarning": "这份合同包含隐藏文字（例如白色或极小的文字）。这些文字已从本次分析中排除——请仔细检查原始文件。",
+  "photo": {
+    "or": "或",
+    "take": "拍照",
+    "choose": "选择照片",
+    "hint": "放在平整表面并保持光线充足效果最佳。",
+    "limit": "每份文档最多 {{max}} 张照片。",
+    "pageLabel": "第 {{n}} 页",
+    "removeLabel": "删除第 {{n}} 页"
+  }
 }

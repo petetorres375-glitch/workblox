@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} रिज्यूमे का विश्लेषण हुआ",
   "errorLabel": "त्रुटि: {{error}}",
   "strengths": "मजबूत पहलू",
-  "concerns": "चिंताएं"
+  "concerns": "चिंताएं",
+  "hiddenTextWarning": "इस रिज़्यूमे में छिपा हुआ टेक्स्ट मिला (जैसे सफ़ेद या बहुत छोटा टेक्स्ट)। उसे अनदेखा किया गया और इसका स्कोर पर असर नहीं पड़ा।",
+  "fileLabel": "फ़ाइल",
+  "matchLabel": "मिलान",
+  "recommendationLabels": {
+    "Advance": "आगे बढ़ाएँ",
+    "Maybe": "शायद",
+    "Pass": "अस्वीकार"
+  },
+  "matchLevelLabels": {
+    "Strong": "मज़बूत",
+    "Good": "अच्छा",
+    "Fair": "ठीक-ठाक",
+    "Weak": "कमज़ोर"
+  }
 }

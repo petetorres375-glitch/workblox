@@ -8,13 +8,19 @@ import { reportTitle } from "../../utils/reportLabels";
 const LEVEL_COLOR = { Strong: "#16a34a", Good: "#2563eb", Fair: "#b45309", Weak: "#dc2626" };
 const REC_COLOR = { Advance: "#16a34a", Maybe: "#b45309", Pass: "#dc2626" };
 
+// The AI returns these as fixed English values (the colours above key off
+// them), so translate only at display time; unknown values pass through.
+const recLabel = (t, value) => (value ? t(`recommendationLabels.${value}`, { defaultValue: value }) : "");
+const levelLabel = (t, value) => (value ? t(`matchLevelLabels.${value}`, { defaultValue: value }) : "");
+
 function buildTxt(data, t) {
   const lines = [reportTitle(t), "=".repeat(60), t("resumesAnalyzed", { count: data.total })];
   const sorted = [...(data.results || [])].sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
   sorted.forEach((r, i) => {
     lines.push("", `[${i + 1}] ${r.candidate_name || r.filename}`, "-".repeat(40));
     if (r.error) { lines.push(t("errorLabel", { error: r.error })); return; }
-    lines.push(`File: ${r.filename}`, `Match: ${r.match_score}% (${r.match_level}) — ${r.recommendation}`);
+    lines.push(`${t("fileLabel")}: ${r.filename}`, `${t("matchLabel")}: ${r.match_score}% (${levelLabel(t, r.match_level)}) — ${recLabel(t, r.recommendation)}`);
+    if (r.hidden_text) lines.push(`⚠ ${t("hiddenTextWarning")}`);
     if (r.top_strengths?.length) lines.push(`${t("strengths")}: ${r.top_strengths.join(", ")}`);
     if (r.concerns?.length) lines.push(`${t("concerns")}: ${r.concerns.join(", ")}`);
   });
@@ -27,7 +33,8 @@ function buildMd(data, t) {
   sorted.forEach((r, i) => {
     lines.push("", `## ${i + 1}. ${r.candidate_name || r.filename}`);
     if (r.error) { lines.push(`*${t("errorLabel", { error: r.error })}*`); return; }
-    lines.push(`**Match:** ${r.match_score}% (${r.match_level}) — **${r.recommendation}**`);
+    lines.push(`**${t("matchLabel")}:** ${r.match_score}% (${levelLabel(t, r.match_level)}) — **${recLabel(t, r.recommendation)}**`);
+    if (r.hidden_text) lines.push("", `> ⚠ ${t("hiddenTextWarning")}`);
     if (r.top_strengths?.length) { lines.push("", `**${t("strengths")}:**`); r.top_strengths.forEach((s) => lines.push(`- ${s}`)); }
     if (r.concerns?.length) { lines.push("", `**${t("concerns")}:**`); r.concerns.forEach((c) => lines.push(`- ${c}`)); }
   });
@@ -112,9 +119,12 @@ export default function BatchATSAnalyzer() {
                         </div>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                           <span style={{ fontSize: "1.4rem", fontWeight: 800, color: LEVEL_COLOR[result.match_level] || "#666" }}>{result.match_score}%</span>
-                          <span style={{ fontSize: "0.75rem", fontWeight: 700, color: REC_COLOR[result.recommendation] || "#666", background: "#f5f5f5", padding: "3px 10px", borderRadius: "20px" }}>{result.recommendation}</span>
+                          <span style={{ fontSize: "0.75rem", fontWeight: 700, color: REC_COLOR[result.recommendation] || "#666", background: "#f5f5f5", padding: "3px 10px", borderRadius: "20px" }}>{recLabel(t, result.recommendation)}</span>
                         </div>
                       </div>
+                      {result.hidden_text && (
+                        <p className="hidden-text-warning" style={{ marginTop: "0.6rem" }}>{t("hiddenTextWarning")}</p>
+                      )}
                       {result.top_strengths?.length > 0 && (
                         <div style={{ marginTop: "0.6rem" }}>
                           <p style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-hint)", marginBottom: "0.3rem" }}>{t("strengths")}</p>

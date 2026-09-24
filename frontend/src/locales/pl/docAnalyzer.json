@@ -21,5 +21,16 @@
     "send": "Wyślij",
     "sending": "Wysyłanie...",
     "sent": "Raport wysłany na {{email}}"
+  },
+  "hiddenTextWarning": "Ten dokument zawierał ukryty tekst (np. biały lub bardzo mały). Został pominięty w tej analizie.",
+  "photo": {
+    "or": "lub",
+    "take": "Zrób zdjęcie",
+    "choose": "Wybierz zdjęcie",
+    "hint": "Najlepiej na płaskiej powierzchni i przy dobrym świetle.",
+    "limit": "Do {{max}} zdjęć na dokument.",
+    "pageLabel": "Strona {{n}}",
+    "removeLabel": "Usuń stronę {{n}}",
+    "filenameFallback": "Sfotografowany dokument"
   }
 }

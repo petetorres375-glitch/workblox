@@ -15,5 +15,15 @@
   "paymentTerms": "Zahlungsbedingungen",
   "redFlags": "Warnsignale",
   "missingClauses": "Fehlende Standardklauseln",
-  "recommendation": "Empfehlung"
+  "recommendation": "Empfehlung",
+  "hiddenTextWarning": "Dieser Vertrag enthielt versteckten Text (z. B. weißen oder winzigen Text). Er wurde bei dieser Analyse ausgelassen – prüfen Sie die Originaldatei sorgfältig.",
+  "photo": {
+    "or": "oder",
+    "take": "Foto aufnehmen",
+    "choose": "Foto auswählen",
+    "hint": "Am besten auf ebener Fläche bei gutem Licht.",
+    "limit": "Bis zu {{max}} Fotos pro Dokument.",
+    "pageLabel": "Seite {{n}}",
+    "removeLabel": "Seite {{n}} entfernen"
+  }
 }

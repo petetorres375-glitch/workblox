@@ -201,6 +201,9 @@ export default function ContractAnalyzer() {
       {data && (
         <>
           <div className="print-header" style={{ display: "none" }}><strong>Contract Analysis — {data.document_type || baseName}</strong></div>
+          {data.hidden_text && (
+            <p className="hidden-text-warning" style={{ marginTop: "1.5rem" }}>{t("hiddenTextWarning")}</p>
+          )}
           <div className="result-card" style={{ marginTop: "1.5rem" }}>
             <div className="result-header">
               <p className="result-label">{t("documentOverview")}</p>

@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Genererar..."
-  }
+  },
+  "hiddenTextWarning": "Detta CV innehöll dold text (till exempel vit eller mycket liten text). Den har uteslutits och påverkar inte poängen.",
+  "unsupportedLanguage": "Detta CV är skrivet på ett språk som ATS-analysatorn inte kan bedöma ännu. Den bedömer för närvarande CV:n på engelska eller spanska."
 }

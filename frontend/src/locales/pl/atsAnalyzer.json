@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Generowanie..."
-  }
+  },
+  "hiddenTextWarning": "To CV zawierało ukryty tekst (np. biały lub bardzo mały). Został pominięty, więc nie wpływa na wynik.",
+  "unsupportedLanguage": "To CV jest w języku, którego Analizator ATS nie potrafi jeszcze ocenić. Obecnie ocenia CV w języku angielskim lub hiszpańskim."
 }

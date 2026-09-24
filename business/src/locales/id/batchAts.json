@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} resume dianalisis",
   "errorLabel": "Kesalahan: {{error}}",
   "strengths": "Kekuatan",
-  "concerns": "Kekhawatiran"
+  "concerns": "Kekhawatiran",
+  "hiddenTextWarning": "Teks tersembunyi ditemukan di resume ini (misalnya teks putih atau sangat kecil). Teks itu diabaikan dan tidak memengaruhi skor.",
+  "fileLabel": "File",
+  "matchLabel": "Kecocokan",
+  "recommendationLabels": {
+    "Advance": "Lanjutkan",
+    "Maybe": "Mungkin",
+    "Pass": "Tolak"
+  },
+  "matchLevelLabels": {
+    "Strong": "Kuat",
+    "Good": "Baik",
+    "Fair": "Cukup",
+    "Weak": "Lemah"
+  }
 }

@@ -21,5 +21,16 @@
     "send": "Enviar",
     "sending": "Enviando...",
     "sent": "Informe enviado a {{email}}"
+  },
+  "hiddenTextWarning": "Este documento contenía texto oculto (por ejemplo, texto blanco o diminuto). Se excluyó de este análisis.",
+  "photo": {
+    "or": "o",
+    "take": "Tomar foto",
+    "choose": "Elegir foto",
+    "hint": "Mejor sobre una superficie plana y con buena luz.",
+    "limit": "Hasta {{max}} fotos por documento.",
+    "pageLabel": "Página {{n}}",
+    "removeLabel": "Quitar página {{n}}",
+    "filenameFallback": "Documento fotografiado"
   }
 }

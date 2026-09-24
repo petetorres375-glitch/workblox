@@ -32,5 +32,6 @@
     "word": "↓ Word",
     "generating": "Generating..."
   },
-  "unsupportedLanguage": "This resume doesn't look like it's in English. The ATS Analyzer scores resumes against English keywords, so it can't rate this one accurately. Upload an English version to get a score."
+  "unsupportedLanguage": "This resume isn't in a language the ATS Analyzer can score yet. It currently rates resumes written in English or Spanish.",
+  "hiddenTextWarning": "This resume contained hidden text (such as white or tiny text). It was left out, so it doesn't affect the score."
 }

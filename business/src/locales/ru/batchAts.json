@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "Проанализировано {{count}} резюме",
   "errorLabel": "Ошибка: {{error}}",
   "strengths": "Сильные Стороны",
-  "concerns": "Опасения"
+  "concerns": "Опасения",
+  "hiddenTextWarning": "В этом резюме найден скрытый текст (например, белый или очень мелкий). Он проигнорирован и не повлиял на оценку.",
+  "fileLabel": "Файл",
+  "matchLabel": "Соответствие",
+  "recommendationLabels": {
+    "Advance": "Пригласить",
+    "Maybe": "Возможно",
+    "Pass": "Отклонить"
+  },
+  "matchLevelLabels": {
+    "Strong": "Сильное",
+    "Good": "Хорошее",
+    "Fair": "Среднее",
+    "Weak": "Слабое"
+  }
 }

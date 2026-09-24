@@ -15,5 +15,15 @@
   "paymentTerms": "Termini di pagamento",
   "redFlags": "Segnali d'allarme",
   "missingClauses": "Clausole standard mancanti",
-  "recommendation": "Raccomandazione"
+  "recommendation": "Raccomandazione",
+  "hiddenTextWarning": "Questo contratto conteneva testo nascosto (ad esempio testo bianco o minuscolo). È stato escluso da questa analisi: esamina con attenzione il file originale.",
+  "photo": {
+    "or": "oppure",
+    "take": "Scatta foto",
+    "choose": "Scegli foto",
+    "hint": "Meglio su una superficie piana e con buona luce.",
+    "limit": "Fino a {{max}} foto per documento.",
+    "pageLabel": "Pagina {{n}}",
+    "removeLabel": "Rimuovi pagina {{n}}"
+  }
 }

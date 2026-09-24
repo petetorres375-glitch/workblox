@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Generando..."
-  }
+  },
+  "hiddenTextWarning": "Este currículum contenía texto oculto (por ejemplo, texto blanco o diminuto). Se excluyó, así que no afecta la puntuación.",
+  "unsupportedLanguage": "Este currículum no está en un idioma que el Analizador ATS pueda puntuar todavía. Por ahora evalúa currículums en inglés o español."
 }

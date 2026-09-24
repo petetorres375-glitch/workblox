@@ -21,5 +21,16 @@
     "send": "Gönder",
     "sending": "Gönderiliyor...",
     "sent": "Rapor {{email}} adresine gönderildi"
+  },
+  "hiddenTextWarning": "Bu belge gizli metin içeriyordu (örneğin beyaz veya çok küçük metin). Bu metin analize dahil edilmedi.",
+  "photo": {
+    "or": "veya",
+    "take": "Fotoğraf çek",
+    "choose": "Fotoğraf seç",
+    "hint": "En iyi sonuç için düz bir yüzey ve iyi ışık kullanın.",
+    "limit": "Belge başına en fazla {{max}} fotoğraf.",
+    "pageLabel": "Sayfa {{n}}",
+    "removeLabel": "{{n}}. sayfayı kaldır",
+    "filenameFallback": "Fotoğraflanmış belge"
   }
 }

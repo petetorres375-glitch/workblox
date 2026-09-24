@@ -21,5 +21,16 @@
     "send": "Kirim",
     "sending": "Mengirim...",
     "sent": "Laporan terkirim ke {{email}}"
+  },
+  "hiddenTextWarning": "Dokumen ini berisi teks tersembunyi (misalnya teks putih atau sangat kecil). Teks itu dikecualikan dari analisis ini.",
+  "photo": {
+    "or": "atau",
+    "take": "Ambil foto",
+    "choose": "Pilih foto",
+    "hint": "Paling baik di permukaan datar dengan cahaya yang cukup.",
+    "limit": "Maksimal {{max}} foto per dokumen.",
+    "pageLabel": "Halaman {{n}}",
+    "removeLabel": "Hapus halaman {{n}}",
+    "filenameFallback": "Dokumen foto"
   }
 }

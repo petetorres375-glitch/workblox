@@ -21,5 +21,16 @@
     "send": "发送",
     "sending": "发送中...",
     "sent": "报告已发送至 {{email}}"
+  },
+  "hiddenTextWarning": "这份文档包含隐藏文字（例如白色或极小的文字）。这些文字已从本次分析中排除。",
+  "photo": {
+    "or": "或",
+    "take": "拍照",
+    "choose": "选择照片",
+    "hint": "放在平整表面并保持光线充足效果最佳。",
+    "limit": "每份文档最多 {{max}} 张照片。",
+    "pageLabel": "第 {{n}} 页",
+    "removeLabel": "删除第 {{n}} 页",
+    "filenameFallback": "拍摄的文档"
   }
 }

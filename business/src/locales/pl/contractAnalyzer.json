@@ -15,5 +15,15 @@
   "paymentTerms": "Warunki płatności",
   "redFlags": "Sygnały ostrzegawcze",
   "missingClauses": "Brakujące klauzule standardowe",
-  "recommendation": "Rekomendacja"
+  "recommendation": "Rekomendacja",
+  "hiddenTextWarning": "Ta umowa zawierała ukryty tekst (np. biały lub bardzo mały). Został pominięty w tej analizie — dokładnie sprawdź oryginalny plik.",
+  "photo": {
+    "or": "lub",
+    "take": "Zrób zdjęcie",
+    "choose": "Wybierz zdjęcie",
+    "hint": "Najlepiej na płaskiej powierzchni i przy dobrym świetle.",
+    "limit": "Do {{max}} zdjęć na dokument.",
+    "pageLabel": "Strona {{n}}",
+    "removeLabel": "Usuń stronę {{n}}"
+  }
 }

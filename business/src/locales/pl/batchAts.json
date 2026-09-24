@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "Przeanalizowano {{count}} CV",
   "errorLabel": "Błąd: {{error}}",
   "strengths": "Mocne Strony",
-  "concerns": "Obawy"
+  "concerns": "Obawy",
+  "hiddenTextWarning": "W tym CV znaleziono ukryty tekst (np. biały lub bardzo mały). Został zignorowany i nie wpłynął na wynik.",
+  "fileLabel": "Plik",
+  "matchLabel": "Dopasowanie",
+  "recommendationLabels": {
+    "Advance": "Dalej",
+    "Maybe": "Może",
+    "Pass": "Odrzuć"
+  },
+  "matchLevelLabels": {
+    "Strong": "Silne",
+    "Good": "Dobre",
+    "Fair": "Przeciętne",
+    "Weak": "Słabe"
+  }
 }

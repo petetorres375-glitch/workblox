@@ -24,5 +24,6 @@
   "paymentTerms": "Payment Terms",
   "redFlags": "Red Flags",
   "missingClauses": "Missing Standard Clauses",
-  "recommendation": "Recommendation"
+  "recommendation": "Recommendation",
+  "hiddenTextWarning": "This contract contained hidden text (such as white or tiny text). It was left out of this analysis — review the original file carefully."
 }

@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} curriculum analizzati",
   "errorLabel": "Errore: {{error}}",
   "strengths": "Punti di Forza",
-  "concerns": "Criticità"
+  "concerns": "Criticità",
+  "hiddenTextWarning": "Trovato testo nascosto in questo curriculum (ad esempio testo bianco o minuscolo). È stato ignorato e non ha influito sul punteggio.",
+  "fileLabel": "File",
+  "matchLabel": "Corrispondenza",
+  "recommendationLabels": {
+    "Advance": "Avanza",
+    "Maybe": "Forse",
+    "Pass": "Scarta"
+  },
+  "matchLevelLabels": {
+    "Strong": "Forte",
+    "Good": "Buona",
+    "Fair": "Discreta",
+    "Weak": "Debole"
+  }
 }

@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "تم تحليل {{count}} سيرة ذاتية",
   "errorLabel": "خطأ: {{error}}",
   "strengths": "نقاط القوة",
-  "concerns": "المخاوف"
+  "concerns": "المخاوف",
+  "hiddenTextWarning": "تم العثور على نص مخفي في هذه السيرة الذاتية (مثل نص أبيض أو صغير جدًا). تم تجاهله ولم يؤثر في النتيجة.",
+  "fileLabel": "الملف",
+  "matchLabel": "التطابق",
+  "recommendationLabels": {
+    "Advance": "التقدم",
+    "Maybe": "ربما",
+    "Pass": "استبعاد"
+  },
+  "matchLevelLabels": {
+    "Strong": "قوي",
+    "Good": "جيد",
+    "Fair": "متوسط",
+    "Weak": "ضعيف"
+  }
 }

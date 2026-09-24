@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Se generează..."
-  }
+  },
+  "hiddenTextWarning": "Acest CV conținea text ascuns (de exemplu, text alb sau foarte mic). A fost exclus, deci nu influențează scorul.",
+  "unsupportedLanguage": "Acest CV nu este într-o limbă pe care Analizorul ATS o poate evalua încă. Momentan evaluează CV-uri în engleză sau spaniolă."
 }

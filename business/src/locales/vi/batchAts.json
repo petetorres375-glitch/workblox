@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "Đã phân tích {{count}} sơ yếu lý lịch",
   "errorLabel": "Lỗi: {{error}}",
   "strengths": "Điểm Mạnh",
-  "concerns": "Điểm Cần Lưu Ý"
+  "concerns": "Điểm Cần Lưu Ý",
+  "hiddenTextWarning": "Phát hiện văn bản ẩn trong hồ sơ này (ví dụ chữ trắng hoặc chữ rất nhỏ). Phần đó đã bị bỏ qua và không ảnh hưởng đến điểm.",
+  "fileLabel": "Tệp",
+  "matchLabel": "Mức phù hợp",
+  "recommendationLabels": {
+    "Advance": "Chọn tiếp",
+    "Maybe": "Có thể",
+    "Pass": "Loại"
+  },
+  "matchLevelLabels": {
+    "Strong": "Cao",
+    "Good": "Tốt",
+    "Fair": "Trung bình",
+    "Weak": "Thấp"
+  }
 }

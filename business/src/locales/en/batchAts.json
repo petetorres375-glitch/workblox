@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} resumes analyzed",
   "errorLabel": "Error: {{error}}",
   "strengths": "Strengths",
-  "concerns": "Concerns"
+  "concerns": "Concerns",
+  "hiddenTextWarning": "Hidden text found in this resume (such as white or tiny text). It was ignored and didn't affect the score.",
+  "fileLabel": "File",
+  "matchLabel": "Match",
+  "recommendationLabels": {
+    "Advance": "Advance",
+    "Maybe": "Maybe",
+    "Pass": "Pass"
+  },
+  "matchLevelLabels": {
+    "Strong": "Strong",
+    "Good": "Good",
+    "Fair": "Fair",
+    "Weak": "Weak"
+  }
 }

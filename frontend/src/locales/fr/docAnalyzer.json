@@ -21,5 +21,16 @@
     "send": "Envoyer",
     "sending": "Envoi en cours...",
     "sent": "Rapport envoyé à {{email}}"
+  },
+  "hiddenTextWarning": "Ce document contenait du texte masqué (par exemple du texte blanc ou minuscule). Il a été exclu de cette analyse.",
+  "photo": {
+    "or": "ou",
+    "take": "Prendre une photo",
+    "choose": "Choisir une photo",
+    "hint": "Surface plane et bon éclairage recommandés.",
+    "limit": "Jusqu'à {{max}} photos par document.",
+    "pageLabel": "Page {{n}}",
+    "removeLabel": "Retirer la page {{n}}",
+    "filenameFallback": "Document photographié"
   }
 }

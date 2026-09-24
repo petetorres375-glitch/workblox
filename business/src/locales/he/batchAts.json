@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} קורות חיים נותחו",
   "errorLabel": "שגיאה: {{error}}",
   "strengths": "נקודות חוזק",
-  "concerns": "חששות"
+  "concerns": "חששות",
+  "hiddenTextWarning": "נמצא טקסט מוסתר בקורות החיים האלה (למשל טקסט לבן או זעיר). הוא נוטרל ולא השפיע על הציון.",
+  "fileLabel": "קובץ",
+  "matchLabel": "התאמה",
+  "recommendationLabels": {
+    "Advance": "להתקדם",
+    "Maybe": "אולי",
+    "Pass": "לדחות"
+  },
+  "matchLevelLabels": {
+    "Strong": "חזקה",
+    "Good": "טובה",
+    "Fair": "בינונית",
+    "Weak": "חלשה"
+  }
 }

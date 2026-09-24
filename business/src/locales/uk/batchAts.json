@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "Проаналізовано {{count}} резюме",
   "errorLabel": "Помилка: {{error}}",
   "strengths": "Сильні Сторони",
-  "concerns": "Занепокоєння"
+  "concerns": "Занепокоєння",
+  "hiddenTextWarning": "У цьому резюме знайдено прихований текст (наприклад, білий або дуже дрібний). Його проігноровано, і він не вплинув на оцінку.",
+  "fileLabel": "Файл",
+  "matchLabel": "Відповідність",
+  "recommendationLabels": {
+    "Advance": "Запросити",
+    "Maybe": "Можливо",
+    "Pass": "Відхилити"
+  },
+  "matchLevelLabels": {
+    "Strong": "Сильна",
+    "Good": "Добра",
+    "Fair": "Середня",
+    "Weak": "Слабка"
+  }
 }

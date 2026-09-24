@@ -21,5 +21,16 @@
     "send": "Odeslat",
     "sending": "Odesílám...",
     "sent": "Zpráva odeslána na {{email}}"
+  },
+  "hiddenTextWarning": "Tento dokument obsahoval skrytý text (např. bílý nebo drobný text). Byl z této analýzy vynechán.",
+  "photo": {
+    "or": "nebo",
+    "take": "Vyfotit",
+    "choose": "Vybrat fotku",
+    "hint": "Nejlépe na rovném povrchu a při dobrém světle.",
+    "limit": "Až {{max}} fotek na dokument.",
+    "pageLabel": "Strana {{n}}",
+    "removeLabel": "Odebrat stranu {{n}}",
+    "filenameFallback": "Vyfocený dokument"
   }
 }

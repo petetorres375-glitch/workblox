@@ -31,5 +31,7 @@
     "pdf": "↓ PDF",
     "word": "↓ Word",
     "generating": "Oluşturuluyor..."
-  }
+  },
+  "hiddenTextWarning": "Bu özgeçmiş gizli metin içeriyordu (örneğin beyaz veya çok küçük metin). Bu metin çıkarıldı, puanı etkilemez.",
+  "unsupportedLanguage": "Bu özgeçmiş, ATS Analizörünün henüz puanlayabildiği bir dilde değil. Şu anda İngilizce veya İspanyolca özgeçmişleri değerlendiriyor."
 }

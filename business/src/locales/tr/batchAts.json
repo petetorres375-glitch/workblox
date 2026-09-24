@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} özgeçmiş analiz edildi",
   "errorLabel": "Hata: {{error}}",
   "strengths": "Güçlü Yönler",
-  "concerns": "Endişeler"
+  "concerns": "Endişeler",
+  "hiddenTextWarning": "Bu özgeçmişte gizli metin bulundu (örneğin beyaz veya çok küçük metin). Yok sayıldı ve puanı etkilemedi.",
+  "fileLabel": "Dosya",
+  "matchLabel": "Eşleşme",
+  "recommendationLabels": {
+    "Advance": "İlerlet",
+    "Maybe": "Belki",
+    "Pass": "Ele"
+  },
+  "matchLevelLabels": {
+    "Strong": "Güçlü",
+    "Good": "İyi",
+    "Fair": "Orta",
+    "Weak": "Zayıf"
+  }
 }

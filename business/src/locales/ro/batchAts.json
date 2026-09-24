@@ -13,5 +13,19 @@
   "resumesAnalyzed_other": "{{count}} CV-uri analizate",
   "errorLabel": "Eroare: {{error}}",
   "strengths": "Puncte Forte",
-  "concerns": "Aspecte de Îngrijorare"
+  "concerns": "Aspecte de Îngrijorare",
+  "hiddenTextWarning": "S-a găsit text ascuns în acest CV (de exemplu, text alb sau foarte mic). A fost ignorat și nu a influențat scorul.",
+  "fileLabel": "Fișier",
+  "matchLabel": "Potrivire",
+  "recommendationLabels": {
+    "Advance": "Avansează",
+    "Maybe": "Poate",
+    "Pass": "Respinge"
+  },
+  "matchLevelLabels": {
+    "Strong": "Puternică",
+    "Good": "Bună",
+    "Fair": "Medie",
+    "Weak": "Slabă"
+  }
 }

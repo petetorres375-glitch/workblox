@@ -17,14 +17,24 @@ ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx", ".pages"}
 
 
 def _extract_text(file):
+    """Returns (text, hidden_runs). Scoring counts keywords, so text a reader
+    can't see (white-on-white keyword stuffing, 0.5pt type) would inflate the
+    score; it's dropped, and hidden_runs lets the UI say so."""
+    from app.services.hidden_text import docx_visible_text, pdf_visible_text
+
     filename = file.filename or ""
     ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
     raw = file.read()
 
     if ext == "txt":
-        return raw.decode("utf-8", errors="replace")
+        return raw.decode("utf-8", errors="replace"), 0
 
     if ext == "pdf":
+        visible = pdf_visible_text(raw)
+        if visible.hidden_runs:
+            # pdfplumber's layout text below has no notion of visibility, so
+            # for a file with hidden text use the visibility-filtered reading.
+            return visible.text, visible.hidden_runs
         text = ""
         try:
             import pdfplumber, re as _re
@@ -46,18 +56,16 @@ def _extract_text(file):
             text = ""
 
         if not text.strip():
-            from app.services.file_handler import _read_pdf_bytes
-            text = _read_pdf_bytes(raw)
-        return text
+            text = visible.text
+        return text, 0
 
     if ext == "docx":
-        import docx as python_docx
-        doc = python_docx.Document(io.BytesIO(raw))
-        return "\n".join(p.text for p in doc.paragraphs)
+        visible = docx_visible_text(raw)
+        return visible.text, visible.hidden_runs
 
     if ext == "pages":
         from app.services.pages_reader import read_pages
-        return read_pages(raw)
+        return read_pages(raw), 0
 
     raise ValueError(f"Unsupported file type '.{ext}'. Upload TXT, PDF, DOCX, or PAGES.")
 
@@ -89,7 +97,7 @@ def ats_analyze():
     custom_keywords = [kw.strip() for kw in custom_kw_raw.splitlines() if kw.strip()] or None
 
     try:
-        resume_text = _extract_text(file)
+        resume_text, hidden_runs = _extract_text(file)
     except ValueError as e:
         return jsonify({"error": str(e)}), 415
     except Exception as e:
@@ -125,6 +133,7 @@ def ats_analyze():
         "score_color":  "green" if results["score"] >= 65 else "amber" if results["score"] >= 50 else "red",
         "resume_text":  resume_text,
         "language":     language,
+        **({"hidden_text": {"count": hidden_runs}} if hidden_runs else {}),
     })
 
 
