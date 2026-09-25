@@ -1,3 +1,5 @@
+import os
+import threading
 from pathlib import Path
 
 SUPPORTED_EXTENSIONS = {".pdf", ".txt", ".md", ".docx", ".pages"}
@@ -36,27 +38,48 @@ def extract_document(file_storage):
 
 OCR_DPI = 300
 
+# PyMuPDF (fitz) is not thread-safe, and the server handles requests on
+# several threads. Every use of fitz must hold this lock. Reading a PDF takes
+# well under a second; OCR can take seconds per page, so it runs after the
+# lock is released, on page images rendered while it was held.
+PDF_LOCK = threading.Lock()
+
+# Tesseract spreads each page across every CPU core by default. Several
+# running at once (one per request thread) then fight over the cores and slow
+# to a crawl -- measured at 11+ minutes of CPU for one page, against ~3s
+# alone. One core per page is just as fast alone; the semaphore stops more
+# OCR jobs running than there are cores. The env var is inherited by the
+# tesseract subprocess pytesseract starts.
+os.environ.setdefault("OMP_THREAD_LIMIT", "1")
+# cpu_count() can report the host's cores inside a container, hence the cap.
+_OCR_SLOTS = threading.BoundedSemaphore(min(os.cpu_count() or 2, 4))
+
 
 def _read_pdf_bytes(data: bytes) -> str:
     import fitz
-    doc = fitz.open(stream=data, filetype="pdf")
     pages = []
-    for page in doc:
-        text = page.get_text()
-        if not text.strip():
-            text = _ocr_page(page)
-        pages.append(text)
-    return "\n".join(pages)
+    with PDF_LOCK:
+        doc = fitz.open(stream=data, filetype="pdf")
+        for page in doc:
+            text = page.get_text()
+            pages.append(text if text.strip() else page_png(page))
+        doc.close()
+    return "\n".join(p if isinstance(p, str) else ocr_png(p) for p in pages)
 
 
-def _ocr_page(page) -> str:
+def page_png(page) -> bytes:
+    """Render a page for OCR. Call with PDF_LOCK held."""
+    return page.get_pixmap(dpi=OCR_DPI).tobytes("png")
+
+
+def ocr_png(png: bytes) -> str:
+    """OCR a rendered page. Needs no lock -- call it after releasing PDF_LOCK."""
     import io
     import pytesseract
     from PIL import Image
 
-    pix = page.get_pixmap(dpi=OCR_DPI)
-    img = Image.open(io.BytesIO(pix.tobytes("png")))
-    return pytesseract.image_to_string(img)
+    with _OCR_SLOTS:
+        return pytesseract.image_to_string(Image.open(io.BytesIO(png)))
 
 
 def _read_docx_bytes(data: bytes) -> str:

@@ -54,20 +54,22 @@ def pdf_visible_text(data: bytes) -> Extraction:
     are OCR'd, the same as file_handler's plain reader."""
     import fitz
 
-    from app.services.file_handler import _ocr_page
+    from app.services.file_handler import PDF_LOCK, ocr_png, page_png
 
-    doc = fitz.open(stream=data, filetype="pdf")
     pages = []
     hidden_runs = 0
     samples = []
-    for page in doc:
-        hidden_rects = _pdf_hidden_rects(page, samples)
-        hidden_runs += len(hidden_rects)
-        text = _pdf_text_without(page, hidden_rects)
-        if not text.strip() and not hidden_rects:
-            text = _ocr_page(page)
-        pages.append(text)
-    return Extraction("\n".join(pages), hidden_runs, samples)
+    with PDF_LOCK:
+        doc = fitz.open(stream=data, filetype="pdf")
+        for page in doc:
+            hidden_rects = _pdf_hidden_rects(page, samples)
+            hidden_runs += len(hidden_rects)
+            text = _pdf_text_without(page, hidden_rects)
+            pages.append(text if text.strip() or hidden_rects else page_png(page))
+        doc.close()
+    # OCR outside the lock: it can take seconds per page.
+    text = "\n".join(p if isinstance(p, str) else ocr_png(p) for p in pages)
+    return Extraction(text, hidden_runs, samples)
 
 
 def _pdf_hidden_rects(page, samples) -> list:
