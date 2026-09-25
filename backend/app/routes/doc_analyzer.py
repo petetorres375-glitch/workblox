@@ -14,8 +14,11 @@ from app.services import claude_client
 from app.services.access import require_personal
 from app.services.entitlements import require_tool
 from app.services.file_handler import extract_document, prepare_image
+from app.services.hidden_text import TooManyScannedPages
 from app.services import untrusted
 from app.services.localtime import local_now
+
+MAX_SCANNED_PAGES = 10
 
 bp = Blueprint("doc_analyzer", __name__)
 
@@ -124,8 +127,12 @@ def doc_analyzer():
         return jsonify({"error": "file is required"}), 400
 
     try:
-        extracted = extract_document(file)
+        # Doc Analyzer reads every page, and OCR is ~5s a page: past this many
+        # scanned pages it would outrun the server's 120s request limit.
+        extracted = extract_document(file, max_scanned_pages=MAX_SCANNED_PAGES)
         text = extracted.text
+    except TooManyScannedPages as e:
+        return jsonify({"error": str(e), "code": "too_many_scanned_pages"}), 413
     except ValueError as e:
         return jsonify({"error": str(e)}), 415
     except Exception as e:

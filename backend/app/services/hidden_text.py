@@ -32,6 +32,20 @@ SAME_COLOUR_TOLERANCE = 0.12
 RENDER_DPI = 50
 
 
+class TooManyScannedPages(ValueError):
+    """A PDF has more image-only pages than a tool can OCR in time. Each takes
+    ~5s of OCR, so a long scan would outrun the server's 120s request limit;
+    rejecting up front beats failing after two minutes."""
+
+    def __init__(self, scanned: int, limit: int):
+        self.scanned, self.limit = scanned, limit
+        super().__init__(
+            f"This PDF has {scanned} scanned pages. Scanned PDFs can have up to {limit} "
+            f"pages here — please split it into smaller files, or upload a PDF with "
+            f"selectable text (no page limit)."
+        )
+
+
 @dataclass
 class Extraction:
     text: str
@@ -49,13 +63,17 @@ def _note_hidden(result_samples, text):
 # PDF
 # ---------------------------------------------------------------------------
 
-def pdf_visible_text(data: bytes, max_chars: int | None = None) -> Extraction:
+def pdf_visible_text(data: bytes, max_chars: int | None = None,
+                     max_scanned_pages: int | None = None) -> Extraction:
     """Page text with hidden runs removed. Pages with no text layer at all
     are OCR'd, the same as file_handler's plain reader.
 
     max_chars: stop once this much text has been read -- for tools that only
     send the first N characters to the AI, so a long upload isn't read (and
-    OCR'd) in full just to be cut off."""
+    OCR'd) in full just to be cut off.
+
+    max_scanned_pages: raise TooManyScannedPages, before any OCR, if more
+    pages than this have no text layer."""
     import fitz
 
     from app.services.file_handler import PDF_LOCK, ocr_png, page_png
@@ -67,6 +85,13 @@ def pdf_visible_text(data: bytes, max_chars: int | None = None) -> Extraction:
     with PDF_LOCK:
         doc = fitz.open(stream=data, filetype="pdf")
         page_count = doc.page_count
+        # get_text() alone takes a few ms a page, so counting is cheap.
+        scanned = (sum(1 for pg in doc if not pg.get_text().strip())
+                   if max_scanned_pages is not None else 0)
+    if max_scanned_pages is not None and scanned > max_scanned_pages:
+        with PDF_LOCK:
+            doc.close()
+        raise TooManyScannedPages(scanned, max_scanned_pages)
     try:
         for i in range(page_count):
             # One page per turn at the lock, so a long upload doesn't hold up

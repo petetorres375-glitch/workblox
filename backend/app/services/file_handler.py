@@ -10,7 +10,8 @@ def extract_text(file_storage, max_chars: int | None = None) -> str:
     return extract_document(file_storage, max_chars).text
 
 
-def extract_document(file_storage, max_chars: int | None = None):
+def extract_document(file_storage, max_chars: int | None = None,
+                     max_scanned_pages: int | None = None):
     """Read an uploaded document, keeping only text a person could see.
 
     Returns hidden_text.Extraction: .text is what gets analyzed, and
@@ -21,7 +22,8 @@ def extract_document(file_storage, max_chars: int | None = None):
 
     max_chars: for tools that only use the first N characters, stop reading a
     PDF once that much text is in hand (other formats are cheap to read
-    whole). The caller still trims to N itself."""
+    whole). The caller still trims to N itself. max_scanned_pages: see
+    hidden_text.pdf_visible_text."""
     from app.services.hidden_text import Extraction, docx_visible_text, pdf_visible_text
 
     filename = file_storage.filename or ""
@@ -31,7 +33,7 @@ def extract_document(file_storage, max_chars: int | None = None):
 
     raw = file_storage.read()
     if ext == ".pdf":
-        return pdf_visible_text(raw, max_chars)
+        return pdf_visible_text(raw, max_chars, max_scanned_pages)
     if ext == ".docx":
         return docx_visible_text(raw)
     if ext == ".pages":

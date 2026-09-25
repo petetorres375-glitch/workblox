@@ -164,3 +164,56 @@ def test_doc_email_sends(client):
         rv = client.post("/api/doc/email", json=payload)
     assert rv.status_code == 200
     assert rv.get_json()["success"] is True
+
+
+# ── Scanned-page limit ───────────────────────────────────────────────────────
+
+def _scanned_pdf(pages):
+    """Image-only pages (no text layer), like a phone scan."""
+    import fitz
+    doc = fitz.open()
+    for _ in range(pages):
+        page = doc.new_page()
+        pix = fitz.Pixmap(fitz.csGRAY, fitz.IRect(0, 0, 60, 80), False)
+        pix.clear_with(200)
+        page.insert_image(page.rect, pixmap=pix)
+    return doc.tobytes()
+
+
+def _typed_pdf(pages):
+    from fpdf import FPDF
+    pdf = FPDF()
+    pdf.set_font("Helvetica", size=10)
+    for p in range(pages):
+        pdf.add_page()
+        pdf.cell(0, 5, f"Typed page {p + 1}")
+    return bytes(pdf.output())
+
+
+def test_doc_analyzer_rejects_a_long_scan_before_any_ocr(client):
+    from app.routes.doc_analyzer import MAX_SCANNED_PAGES
+    data = {"file": (io.BytesIO(_scanned_pdf(MAX_SCANNED_PAGES + 1)), "scan.pdf")}
+    with patch("app.services.file_handler.ocr_png") as ocr, \
+         patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE) as ai:
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 413
+    assert rv.get_json()["code"] == "too_many_scanned_pages"
+    assert f"{MAX_SCANNED_PAGES + 1} scanned pages" in rv.get_json()["error"]
+    ocr.assert_not_called()
+    ai.assert_not_called()
+
+
+def test_doc_analyzer_accepts_a_scan_at_the_limit(client):
+    from app.routes.doc_analyzer import MAX_SCANNED_PAGES
+    data = {"file": (io.BytesIO(_scanned_pdf(MAX_SCANNED_PAGES)), "scan.pdf")}
+    with patch("app.services.file_handler.ocr_png", return_value="scanned words"), \
+         patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE):
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 200
+
+
+def test_doc_analyzer_has_no_page_limit_for_typed_pdfs(client):
+    data = {"file": (io.BytesIO(_typed_pdf(40)), "long.pdf")}
+    with patch("app.routes.doc_analyzer.claude_client.call", return_value=MOCK_RESPONSE):
+        rv = client.post("/api/doc", data=data, content_type="multipart/form-data")
+    assert rv.status_code == 200
