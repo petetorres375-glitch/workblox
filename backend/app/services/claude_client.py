@@ -107,15 +107,24 @@ def _parse(raw: str) -> dict:
     return json.loads(raw)
 
 
-def _call_claude(system_prompt, content, model, max_tokens):
+def _call_claude(system_prompt, content, model, max_tokens, effort=None, timeout=None):
     client = _get_claude()
+    if timeout is not None:
+        client = client.with_options(timeout=timeout)
+    extra = {"output_config": {"effort": effort}} if effort else {}
     response = client.messages.create(
         model=model,
         max_tokens=max_tokens,
         system=[{"type": "text", "text": system_prompt, "cache_control": {"type": "ephemeral"}}],
         messages=[{"role": "user", "content": content}],
+        **extra,
     )
-    return _parse(response.content[0].text)
+    # Newer models (Sonnet 5+) think by default, so the reply can open with a
+    # thinking block; the answer is the text block, wherever it sits.
+    text = next((b.text for b in response.content if b.type == "text"), None)
+    if response.stop_reason == "max_tokens" or text is None:
+        raise RuntimeError("The AI response was cut off before it finished. Please try again.")
+    return _parse(text)
 
 
 def _call_openai(system_prompt, content, max_tokens):
@@ -131,7 +140,12 @@ def _call_openai(system_prompt, content, max_tokens):
     return _parse(response.choices[0].message.content)
 
 
-def call(system_prompt: str, user_message: str, model: str, max_tokens: int, language: str = "en", images: list | None = None) -> dict:
+def call(system_prompt: str, user_message: str, model: str, max_tokens: int, language: str = "en",
+         images: list | None = None, effort: str | None = None, timeout: float | None = None) -> dict:
+    """effort: thinking depth for models that support it (Sonnet 5+); leave
+    None for Haiku, which rejects it. timeout: seconds to wait for Claude
+    before falling back, overriding the client's 25s default -- only for
+    calls known to run long, since a hung call waits this long to fall back."""
     from .moderation import check as mod_check, ModerationError
     try:
         mod_check(user_message)
@@ -145,7 +159,7 @@ def call(system_prompt: str, user_message: str, model: str, max_tokens: int, lan
     content = _build_content(user_message, images)
 
     try:
-        return _call_claude(system_prompt, content, model, max_tokens)
+        return _call_claude(system_prompt, content, model, max_tokens, effort, timeout)
     except anthropic.AuthenticationError:
         pass
     except anthropic.APIStatusError as e:

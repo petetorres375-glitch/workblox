@@ -61,6 +61,15 @@ Return ONLY valid JSON with this structure:
 
 _CONTRACT_PROMPT = """You are an expert contract lawyer and business analyst. Analyze the provided contract and give a plain-language summary.
 
+Accuracy rules -- clients rely on this report to decide whether to sign:
+- Every fact you state (parties, amounts, percentages, dates, durations, who may do what, and to whom) must match the contract text exactly. Never broaden, intensify or add to what a clause says: if it says "partners", do not write "competitors"; if it says "may", do not write "will".
+- When describing what a clause permits or requires, use the contract's own wording, and quote the key phrase in single quotes where it matters.
+- Keep what the clause says separate from why it is risky. State risks as consequences the wording could allow ("this could let the Provider ..."), not as things the contract says.
+- Do not compute new figures (annualized rates, totals, projections) unless the arithmetic is exact; otherwise quote the contract's own numbers.
+- If a term is ambiguous or not addressed, say that plainly instead of guessing.
+- Be complete: go through every section, and give each one-sided or unusual term its own "red_flags" entry -- including termination rights, early-termination payments, automatic renewal and notice deadlines, fees and price changes, IP ownership, data use, liability, indemnity, restrictive covenants, governing law and disputes, and amendment rights.
+- In "missing_standard_clauses", list only clauses that are genuinely absent from the text, not ones that exist but are weak (those are red flags), and list each only once.
+
 Return ONLY valid JSON with this structure:
 {
   "document_type": "string",
@@ -584,6 +593,14 @@ def business_email_drafter():
 
 # ── Pattern B routes (file upload) ────────────────────────────────────────────
 
+# Contract review runs on Sonnet, not Haiku: clients decide whether to sign
+# based on it, and Haiku kept embellishing clauses ("partners" became
+# "competitors"), inventing figures and skipping terms despite the prompt's
+# accuracy rules. Sonnet thinks by default, which uses part of max_tokens;
+# "medium" effort measured as complete and accurate as the default on a test
+# contract at about half the time (~22s) and cost (~3 cents).
+_CONTRACT_MODEL = "claude-sonnet-5"
+
 _CONTRACT_PHOTO_INSTRUCTION = (
     "Analyze the contract shown in the attached photo(s). If there are multiple "
     "photos, treat them as consecutive pages of the same contract, in the order given."
@@ -618,8 +635,10 @@ def contract_analyzer():
             result = claude_client.call(
                 system_prompt=_CONTRACT_PROMPT,
                 user_message=_CONTRACT_PHOTO_INSTRUCTION,
-                model="claude-haiku-4-5-20251001",
-                max_tokens=3000,
+                model=_CONTRACT_MODEL,
+                max_tokens=16000,
+                effort="medium",
+                timeout=90,
                 language=language,
                 images=image_blocks,
             )
@@ -642,8 +661,10 @@ def contract_analyzer():
         result = claude_client.call(
             system_prompt=_CONTRACT_PROMPT,
             user_message=f"Contract filename: {file.filename}\n\nContent:\n{untrusted.fence(text[:12000])}",
-            model="claude-haiku-4-5-20251001",
-            max_tokens=3000,
+            model=_CONTRACT_MODEL,
+            max_tokens=16000,
+            effort="medium",
+            timeout=90,
             language=language,
         )
         if extracted.hidden_runs:
