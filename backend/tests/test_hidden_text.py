@@ -227,3 +227,35 @@ def test_ats_score_is_not_inflated_by_hidden_keywords(client):
     assert stuffed["results"]["score"] == honest["results"]["score"]
     assert stuffed["hidden_text"] == {"count": 1}
     assert "hidden_text" not in honest
+
+
+# ── Early stop for tools that only send the first N characters ──────────────
+
+def _long_text_pdf(pages=30):
+    from fpdf import FPDF
+    pdf = FPDF()
+    pdf.set_font("Helvetica", size=10)
+    for p in range(pages):
+        pdf.add_page()
+        for line in range(45):
+            pdf.cell(0, 5, f"Page {p + 1} clause {line + 1}: the parties agree to these terms.",
+                     new_x="LMARGIN", new_y="NEXT")
+    return bytes(pdf.output())
+
+
+def test_pdf_max_chars_stops_early_but_keeps_the_same_opening_text():
+    from app.services.hidden_text import pdf_visible_text
+
+    data = _long_text_pdf()
+    full = pdf_visible_text(data).text
+    capped = pdf_visible_text(data, max_chars=12000).text
+    assert len(capped) >= 12000
+    assert len(capped) < len(full) / 3
+    assert capped[:12000] == full[:12000]
+
+
+def test_pdf_max_chars_larger_than_the_document_reads_it_all():
+    from app.services.hidden_text import pdf_visible_text
+
+    data = _long_text_pdf(pages=2)
+    assert pdf_visible_text(data, max_chars=10_000_000).text == pdf_visible_text(data).text

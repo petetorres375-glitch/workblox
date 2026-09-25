@@ -49,9 +49,13 @@ def _note_hidden(result_samples, text):
 # PDF
 # ---------------------------------------------------------------------------
 
-def pdf_visible_text(data: bytes) -> Extraction:
+def pdf_visible_text(data: bytes, max_chars: int | None = None) -> Extraction:
     """Page text with hidden runs removed. Pages with no text layer at all
-    are OCR'd, the same as file_handler's plain reader."""
+    are OCR'd, the same as file_handler's plain reader.
+
+    max_chars: stop once this much text has been read -- for tools that only
+    send the first N characters to the AI, so a long upload isn't read (and
+    OCR'd) in full just to be cut off."""
     import fitz
 
     from app.services.file_handler import PDF_LOCK, ocr_png, page_png
@@ -59,17 +63,32 @@ def pdf_visible_text(data: bytes) -> Extraction:
     pages = []
     hidden_runs = 0
     samples = []
+    total = 0
     with PDF_LOCK:
         doc = fitz.open(stream=data, filetype="pdf")
-        for page in doc:
-            hidden_rects = _pdf_hidden_rects(page, samples)
+        page_count = doc.page_count
+    try:
+        for i in range(page_count):
+            # One page per turn at the lock, so a long upload doesn't hold up
+            # everyone else's; OCR runs after it's released.
+            with PDF_LOCK:
+                page = doc[i]
+                hidden_rects = _pdf_hidden_rects(page, samples)
+                text = _pdf_text_without(page, hidden_rects)
+                png = None if text.strip() or hidden_rects else page_png(page)
+                del page  # free MuPDF's page while still holding the lock
             hidden_runs += len(hidden_rects)
-            text = _pdf_text_without(page, hidden_rects)
-            pages.append(text if text.strip() or hidden_rects else page_png(page))
-        doc.close()
-    # OCR outside the lock: it can take seconds per page.
-    text = "\n".join(p if isinstance(p, str) else ocr_png(p) for p in pages)
-    return Extraction(text, hidden_runs, samples)
+            if png is not None:
+                text = ocr_png(png)
+            pages.append(text)
+            total += len(text) + 1
+            if max_chars is not None and total >= max_chars:
+                break
+    finally:
+        with PDF_LOCK:
+            doc.close()
+            del doc
+    return Extraction("\n".join(pages), hidden_runs, samples)
 
 
 def _pdf_hidden_rects(page, samples) -> list:

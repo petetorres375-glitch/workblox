@@ -649,7 +649,7 @@ def contract_analyzer():
     if not file or not file.filename:
         return jsonify({"error": "file is required"}), 400
     try:
-        extracted = extract_document(file)
+        extracted = extract_document(file, max_chars=12000)
         text = extracted.text
     except ValueError as e:
         return jsonify({"error": str(e)}), 415
@@ -691,7 +691,7 @@ def batch_ats():
     results = []
     for file in files[:10]:
         try:
-            extracted = extract_document(file)
+            extracted = extract_document(file, max_chars=6000)
             text = extracted.text
         except Exception as e:
             results.append({"filename": file.filename, "error": str(e)})
@@ -1055,7 +1055,7 @@ def _receipt_entry(file, ext, categories, language):
     )
 
     if ext == ".pdf":
-        text = extract_text(file)
+        text = extract_text(file, max_chars=6000)
         if text.strip():
             return claude_client.call(
                 system_prompt=_EXPENSE_RECEIPT_PROMPT,
