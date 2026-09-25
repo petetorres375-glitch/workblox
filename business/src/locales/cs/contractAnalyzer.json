@@ -25,5 +25,6 @@
     "limit": "Až {{max}} fotek na dokument.",
     "pageLabel": "Strana {{n}}",
     "removeLabel": "Odebrat stranu {{n}}"
-  }
+  },
+  "limitHint": "Dlouhé smlouvy: analyzuje se jen přibližně prvních 5 stran."
 }

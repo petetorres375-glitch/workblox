@@ -25,5 +25,6 @@
     "limit": "Upp till {{max}} foton per dokument.",
     "pageLabel": "Sida {{n}}",
     "removeLabel": "Ta bort sida {{n}}"
-  }
+  },
+  "limitHint": "Långa avtal: endast ungefär de första 5 sidorna analyseras."
 }

@@ -25,5 +25,6 @@
   "redFlags": "Red Flags",
   "missingClauses": "Missing Standard Clauses",
   "recommendation": "Recommendation",
-  "hiddenTextWarning": "This contract contained hidden text (such as white or tiny text). It was left out of this analysis — review the original file carefully."
+  "hiddenTextWarning": "This contract contained hidden text (such as white or tiny text). It was left out of this analysis — review the original file carefully.",
+  "limitHint": "Long contracts: only about the first 5 pages are analyzed."
 }

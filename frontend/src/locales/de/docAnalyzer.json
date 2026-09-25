@@ -32,5 +32,6 @@
     "pageLabel": "Seite {{n}}",
     "removeLabel": "Seite {{n}} entfernen",
     "filenameFallback": "Fotografiertes Dokument"
-  }
+  },
+  "limitHint": "Gescannte PDFs: bis zu 10 Seiten. PDFs mit Text: keine Seitenbegrenzung."
 }

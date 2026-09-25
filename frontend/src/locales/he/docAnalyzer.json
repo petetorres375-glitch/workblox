@@ -32,5 +32,6 @@
     "pageLabel": "עמוד {{n}}",
     "removeLabel": "הסרת עמוד {{n}}",
     "filenameFallback": "מסמך מצולם"
-  }
+  },
+  "limitHint": "קובצי PDF סרוקים: עד 10 עמודים. קובצי PDF עם טקסט: ללא הגבלת עמודים."
 }

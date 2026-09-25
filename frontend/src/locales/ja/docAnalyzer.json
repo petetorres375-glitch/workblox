@@ -32,5 +32,6 @@
     "pageLabel": "{{n}}ページ",
     "removeLabel": "{{n}}ページを削除",
     "filenameFallback": "写真の文書"
-  }
+  },
+  "limitHint": "スキャンしたPDF：最大10ページ。テキストのPDF：ページ数の制限なし。"
 }

@@ -162,6 +162,7 @@ export default function ContractAnalyzer() {
           <input id="contract-file" type="file" accept=".pdf,.txt,.docx,.doc,.pages" onChange={(e) => handleDroppedOrSelected(e.target.files)} />
           <p className="drop-label">{file ? file.name : t("dropLabel")}</p>
           <p className="drop-hint">{t("dropHint")}</p>
+          <p className="drop-hint">{t("limitHint")}</p>
         </div>
 
         <div className="photo-capture">

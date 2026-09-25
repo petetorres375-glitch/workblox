@@ -25,5 +25,6 @@
     "limit": "Maximaal {{max}} foto's per document.",
     "pageLabel": "Pagina {{n}}",
     "removeLabel": "Pagina {{n}} verwijderen"
-  }
+  },
+  "limitHint": "Lange contracten: alleen ongeveer de eerste 5 pagina's worden geanalyseerd."
 }

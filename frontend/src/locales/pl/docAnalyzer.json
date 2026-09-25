@@ -32,5 +32,6 @@
     "pageLabel": "Strona {{n}}",
     "removeLabel": "Usuń stronę {{n}}",
     "filenameFallback": "Sfotografowany dokument"
-  }
+  },
+  "limitHint": "Zeskanowane pliki PDF: do 10 stron. Pliki PDF z tekstem: bez limitu stron."
 }

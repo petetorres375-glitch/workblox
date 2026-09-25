@@ -32,5 +32,6 @@
     "pageLabel": "Página {{n}}",
     "removeLabel": "Remover página {{n}}",
     "filenameFallback": "Documento fotografado"
-  }
+  },
+  "limitHint": "PDFs digitalizados: até 10 páginas. PDFs com texto: sem limite de páginas."
 }

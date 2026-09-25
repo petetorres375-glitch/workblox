@@ -32,5 +32,6 @@
     "pageLabel": "Pagina {{n}}",
     "removeLabel": "Pagina {{n}} verwijderen",
     "filenameFallback": "Gefotografeerd document"
-  }
+  },
+  "limitHint": "Gescande pdf's: maximaal 10 pagina's. Pdf's met tekst: geen paginalimiet."
 }

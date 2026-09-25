@@ -25,5 +25,6 @@
     "limit": "Hasta {{max}} fotos por documento.",
     "pageLabel": "Página {{n}}",
     "removeLabel": "Quitar página {{n}}"
-  }
+  },
+  "limitHint": "Contratos largos: solo se analizan aproximadamente las primeras 5 páginas."
 }

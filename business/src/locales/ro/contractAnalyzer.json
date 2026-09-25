@@ -25,5 +25,6 @@
     "limit": "Până la {{max}} fotografii per document.",
     "pageLabel": "Pagina {{n}}",
     "removeLabel": "Elimină pagina {{n}}"
-  }
+  },
+  "limitHint": "Contracte lungi: sunt analizate doar aproximativ primele 5 pagini."
 }

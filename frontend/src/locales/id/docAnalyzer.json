@@ -32,5 +32,6 @@
     "pageLabel": "Halaman {{n}}",
     "removeLabel": "Hapus halaman {{n}}",
     "filenameFallback": "Dokumen foto"
-  }
+  },
+  "limitHint": "PDF hasil pindaian: maksimal 10 halaman. PDF berisi teks: tanpa batas halaman."
 }

@@ -32,5 +32,6 @@
     "pageLabel": "Página {{n}}",
     "removeLabel": "Quitar página {{n}}",
     "filenameFallback": "Documento fotografiado"
-  }
+  },
+  "limitHint": "PDF escaneados: hasta 10 páginas. PDF con texto: sin límite de páginas."
 }

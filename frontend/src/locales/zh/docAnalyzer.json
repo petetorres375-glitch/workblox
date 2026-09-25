@@ -32,5 +32,6 @@
     "pageLabel": "第 {{n}} 页",
     "removeLabel": "删除第 {{n}} 页",
     "filenameFallback": "拍摄的文档"
-  }
+  },
+  "limitHint": "扫描版 PDF：最多 10 页。文字版 PDF：无页数限制。"
 }

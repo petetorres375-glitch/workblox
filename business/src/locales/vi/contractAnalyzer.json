@@ -25,5 +25,6 @@
     "limit": "Tối đa {{max}} ảnh mỗi tài liệu.",
     "pageLabel": "Trang {{n}}",
     "removeLabel": "Xóa trang {{n}}"
-  }
+  },
+  "limitHint": "Hợp đồng dài: chỉ khoảng 5 trang đầu tiên được phân tích."
 }

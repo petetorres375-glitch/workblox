@@ -32,5 +32,6 @@
     "pageLabel": "Strana {{n}}",
     "removeLabel": "Odebrat stranu {{n}}",
     "filenameFallback": "Vyfocený dokument"
-  }
+  },
+  "limitHint": "Naskenovaná PDF: až 10 stran. PDF s textem: bez omezení počtu stran."
 }

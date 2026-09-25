@@ -32,5 +32,6 @@
     "pageLabel": "Sida {{n}}",
     "removeLabel": "Ta bort sida {{n}}",
     "filenameFallback": "Fotograferat dokument"
-  }
+  },
+  "limitHint": "Skannade PDF:er: upp till 10 sidor. PDF:er med text: ingen sidgräns."
 }

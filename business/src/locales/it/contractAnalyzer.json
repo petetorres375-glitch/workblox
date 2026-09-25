@@ -25,5 +25,6 @@
     "limit": "Fino a {{max}} foto per documento.",
     "pageLabel": "Pagina {{n}}",
     "removeLabel": "Rimuovi pagina {{n}}"
-  }
+  },
+  "limitHint": "Contratti lunghi: vengono analizzate solo le prime 5 pagine circa."
 }

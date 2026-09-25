@@ -25,5 +25,6 @@
     "limit": "Bis zu {{max}} Fotos pro Dokument.",
     "pageLabel": "Seite {{n}}",
     "removeLabel": "Seite {{n}} entfernen"
-  }
+  },
+  "limitHint": "Lange Verträge: Es werden nur etwa die ersten 5 Seiten analysiert."
 }

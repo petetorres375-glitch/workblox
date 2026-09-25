@@ -25,5 +25,6 @@
     "limit": "Belge başına en fazla {{max}} fotoğraf.",
     "pageLabel": "Sayfa {{n}}",
     "removeLabel": "{{n}}. sayfayı kaldır"
-  }
+  },
+  "limitHint": "Uzun sözleşmeler: yalnızca yaklaşık ilk 5 sayfa analiz edilir."
 }

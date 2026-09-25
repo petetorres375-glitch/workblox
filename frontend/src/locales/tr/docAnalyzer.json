@@ -32,5 +32,6 @@
     "pageLabel": "Sayfa {{n}}",
     "removeLabel": "{{n}}. sayfayı kaldır",
     "filenameFallback": "Fotoğraflanmış belge"
-  }
+  },
+  "limitHint": "Taranmış PDF'ler: en fazla 10 sayfa. Metin içeren PDF'ler: sayfa sınırı yok."
 }

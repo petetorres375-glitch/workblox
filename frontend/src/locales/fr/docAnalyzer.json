@@ -32,5 +32,6 @@
     "pageLabel": "Page {{n}}",
     "removeLabel": "Retirer la page {{n}}",
     "filenameFallback": "Document photographié"
-  }
+  },
+  "limitHint": "PDF numérisés : 10 pages maximum. PDF avec texte : aucune limite de pages."
 }

@@ -25,5 +25,6 @@
     "limit": "每份文档最多 {{max}} 张照片。",
     "pageLabel": "第 {{n}} 页",
     "removeLabel": "删除第 {{n}} 页"
-  }
+  },
+  "limitHint": "较长的合同：仅分析大约前 5 页。"
 }

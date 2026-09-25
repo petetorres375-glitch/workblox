@@ -32,5 +32,6 @@
     "sending": "Sending...",
     "sent": "Report sent to {{email}}"
   },
-  "hiddenTextWarning": "This document contained hidden text (such as white or tiny text). It was left out of this analysis."
+  "hiddenTextWarning": "This document contained hidden text (such as white or tiny text). It was left out of this analysis.",
+  "limitHint": "Scanned PDFs: up to 10 pages. Typed PDFs: no page limit."
 }

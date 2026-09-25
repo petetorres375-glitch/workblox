@@ -25,5 +25,6 @@
     "limit": "Maksimal {{max}} foto per dokumen.",
     "pageLabel": "Halaman {{n}}",
     "removeLabel": "Hapus halaman {{n}}"
-  }
+  },
+  "limitHint": "Kontrak panjang: hanya sekitar 5 halaman pertama yang dianalisis."
 }

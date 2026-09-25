@@ -32,5 +32,6 @@
     "pageLabel": "Trang {{n}}",
     "removeLabel": "Xóa trang {{n}}",
     "filenameFallback": "Tài liệu chụp ảnh"
-  }
+  },
+  "limitHint": "PDF được quét: tối đa 10 trang. PDF dạng văn bản: không giới hạn số trang."
 }

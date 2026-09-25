@@ -32,5 +32,6 @@
     "pageLabel": "{{n}}페이지",
     "removeLabel": "{{n}}페이지 삭제",
     "filenameFallback": "사진 문서"
-  }
+  },
+  "limitHint": "스캔한 PDF: 최대 10페이지. 텍스트 PDF: 페이지 제한 없음."
 }

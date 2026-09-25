@@ -223,6 +223,7 @@ export default function DocAnalyzer() {
             <>
               <p className="drop-label">{t("dropLabel")}</p>
               <p className="drop-hint">{t("dropHint")}</p>
+              <p className="drop-hint">{t("limitHint")}</p>
             </>
           )}
         </div>

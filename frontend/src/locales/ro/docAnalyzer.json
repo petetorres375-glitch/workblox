@@ -32,5 +32,6 @@
     "pageLabel": "Pagina {{n}}",
     "removeLabel": "Elimină pagina {{n}}",
     "filenameFallback": "Document fotografiat"
-  }
+  },
+  "limitHint": "PDF-uri scanate: până la 10 pagini. PDF-uri cu text: fără limită de pagini."
 }
